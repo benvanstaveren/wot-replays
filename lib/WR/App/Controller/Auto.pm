@@ -1,4 +1,4 @@
-package WR::Controller::Auto;
+package WR::App::Controller::Auto;
 use Mojo::Base 'WR::Controller';
 use WR::Res::Achievements;
 use Data::Dumper;

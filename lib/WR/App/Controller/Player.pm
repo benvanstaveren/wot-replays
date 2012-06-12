@@ -1,4 +1,4 @@
-package WR::Controller::Player;
+package WR::App::Controller::Player;
 use Mojo::Base 'WR::Controller';
 use WR::Query;
 use boolean;

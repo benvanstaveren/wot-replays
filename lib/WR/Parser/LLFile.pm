@@ -53,6 +53,25 @@ sub BUILD {
     $self->_set_rest($start_pointer);
 }
 
+sub save_data {
+    my $self = shift;
+    my %args = (to => undef, @_);
+
+    die 'must pass a "to" parameter', "\n" unless($args{to});
+    if(my $fh = IO::File->new(sprintf('>%s', $args{to}))) {
+        $fh->binmode(1);
+        $self->fh->seek($self->_rest, SEEK_SET);
+        my $buffer;
+        while(my $bread = $self->fh->read($buffer, 1024)) {
+            $fh->write($buffer);
+        }
+        $fh->close();
+        return 1;
+    } else {
+        die 'failed to save: ', $!, "\n";
+    }
+}
+
 sub get_block {
     my $self = shift;
     my $block = shift;

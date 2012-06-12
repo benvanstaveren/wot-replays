@@ -1,4 +1,4 @@
-package WR::Controller::Replays::Upload;
+package WR::App::Controller::Replays::Upload;
 use Mojo::Base 'WR::Controller';
 use boolean;
 use WR::Parser;

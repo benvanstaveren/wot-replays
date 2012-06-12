@@ -1,4 +1,4 @@
-package WR::Controller::Replays::Rate;
+package WR::App::Controller::Replays::Rate;
 use Mojo::Base 'WR::Controller';
 use boolean;
 use Data::Dumper;

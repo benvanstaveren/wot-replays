@@ -1,4 +1,4 @@
-package WR::Controller;
+package WR::App::Controller;
 use Mojo::Base 'Mojolicious::Controller';
 
 sub respond {

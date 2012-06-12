@@ -1,4 +1,4 @@
-package WR::Controller::Vehicle;
+package WR::App::Controller::Vehicle;
 use Mojo::Base 'WR::Controller';
 use WR::Query;
 

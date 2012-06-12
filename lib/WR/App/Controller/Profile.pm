@@ -1,4 +1,4 @@
-package WR::Controller::Profile;
+package WR::App::Controller::Profile;
 use Mojo::Base 'WR::Controller';
 use WR::Query;
 use boolean;

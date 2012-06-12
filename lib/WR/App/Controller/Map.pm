@@ -1,4 +1,4 @@
-package WR::Controller::Map;
+package WR::App::Controller::Map;
 use Mojo::Base 'WR::Controller';
 use boolean;
 

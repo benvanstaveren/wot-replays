@@ -1,4 +1,4 @@
-package WR::Controller::Account;
+package WR::App::Controller::Account;
 use Mojo::Base 'WR::Controller';
 use WR::Query;
 

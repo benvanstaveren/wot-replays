@@ -1,4 +1,4 @@
-package WR::Controller::Clan;
+package WR::App::Controller::Clan;
 use Mojo::Base 'WR::Controller';
 use WR::Query;
 

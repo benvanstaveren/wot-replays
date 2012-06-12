@@ -1,4 +1,4 @@
-package WR::Controller::Replays::Comment;
+package WR::App::Controller::Replays::Comment;
 use Mojo::Base 'WR::Controller';
 use boolean;
 

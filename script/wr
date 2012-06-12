@@ -15,7 +15,7 @@ Please visit http://mojolicio.us for detailed installation instructions.
 EOF
 
 # Application
-$ENV{MOJO_APP} ||= 'WR';
+$ENV{MOJO_APP} ||= 'WR::App';
 
 # Start commands
 Mojolicious::Commands->start;

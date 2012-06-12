@@ -1,4 +1,4 @@
-package WR;
+package WR::App;
 use Mojo::Base 'Mojolicious';
 use WR::Query;
 

@@ -1,4 +1,4 @@
-package WR::Controller::Wru;
+package WR::App::Controller::Wru;
 use Mojo::Base 'WR::Controller';
 use WR::Parser;
 use FileHandle;

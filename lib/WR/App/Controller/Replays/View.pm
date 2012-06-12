@@ -1,4 +1,4 @@
-package WR::Controller::Replays::View;
+package WR::App::Controller::Replays::View;
 use Mojo::Base 'WR::Controller';
 use boolean;
 use WR::Parser;

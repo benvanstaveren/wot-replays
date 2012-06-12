@@ -1,4 +1,4 @@
-package WR::Controller::Ui;
+package WR::App::Controller::Ui;
 use Mojo::Base 'WR::Controller';
 use boolean;
 
