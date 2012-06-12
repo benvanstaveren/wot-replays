@@ -1,0 +1,8 @@
+<div>
+    <div class="content nosidebar aboutText">
+        <h3>[% page.title %]</h3>
+        <div>
+            Still under construction...
+        </div>
+    </div>
+</div>

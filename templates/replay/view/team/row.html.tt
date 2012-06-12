@@ -1,0 +1,36 @@
+[% titles = [] %]
+[% class = '' %]
+[% IF replay.f.spotted(player.id) %]
+    [% class = 'spotted' %]
+    [% titles.push('spotted') %]
+[% END %]
+[% IF replay.f.damaged(player.id) %]
+    [% class = 'damaged' %]
+    [% titles.push('damaged') %]
+[% END %]
+[% IF replay.f.killed(player.id) %]
+    [% class = 'killed' %]
+    [% titles.push('killed') %]
+[% END %]
+[% IF replay.f.team_killed(player.id) %]
+    [% class = 'teamkilled' %]
+    [% titles.push('team killed') %]
+[% ELSIF replay.f.team_damaged(player.id) %]
+    [% class = 'teamdamaged' %]
+    [% titles.push('team damage (' _ replay.f.team_damage_type(player.id) _ ') done') %]
+[% END %]
+
+[% IF titles.size > 1 %]
+    [% last = titles.pop %]
+    [% rowtitle = titles.join(', ') _ ' and ' _ last %]
+[% ELSE %]
+    [% rowtitle = titles.pop %]
+[% END %]
+<tr class="playerRow [% class %]" title="[% IF rowtitle %][% rowtitle %] by [% replay.player.name |html %][% END %]">
+    <td class="playerSurvived [% IF player.isAlive == 1 %]green[% ELSE %]red[% END %]"><span></span></td>
+    <td class="playerName">
+        [% player.name |html %][% IF player.clanAbbrev %]<span class="clan">[[% player.clanAbbrev %]]</span>[% END %]
+    </td>
+    <td class="playerVehicle">[% wr.vehicle_name(player.vehicleType.full) |html %]<img src="[% wr.vehicle_icon(player.vehicleType.full, 20) %]" class="vehicleIcon-20"/></td>
+    <td class="playerFrags [% IF player.frags > 0 %]green[% ELSIF player.frags < 0 %]red[% END %]">[% player.frags || '0' %]</td>
+</tr>

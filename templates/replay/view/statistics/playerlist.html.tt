@@ -1,0 +1,4 @@
+[% FOREACH playerid IN players %]
+    [% player = replay.vehicles_hash.$playerid %]
+    [% INCLUDE replay/view/statistics/playerrow.html.tt %]
+[% END %]

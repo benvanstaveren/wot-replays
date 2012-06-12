@@ -1,0 +1,17 @@
+{
+    "1": {
+        "label": "Regular"
+    },
+    "2": {
+        "label": "Training Room",
+    },
+    "3": {
+        "label": "Company Battle",
+    },
+    "4": {
+        "label": "Tournament",
+    },
+    "5": {
+        "label": "Clan Battle",
+    }
+}

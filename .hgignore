@@ -1,0 +1,8 @@
+syntax: glob
+*.swp
+*.orig
+log/*
+replays/*
+*.*~
+bin/win32/wru.exe
+tmp/*

@@ -1,0 +1,15 @@
+<h3 style="margin: 25px 0px 10px 0px">Heroes</h3>
+<div>
+    [% FOREACH hero_id IN replay.game.heroes.keys %]
+        [% hero = replay.vehicles_hash.$hero_id %]
+        [% awards = replay.game.heroes.$hero_id %]
+        <div style="margin: 0px 0px 5px 0px">
+            <span class="label"><a href="/player/[% hero.name |uri %]">[% hero.name |html %]</a></span>
+            <div class="heroawardlist">
+                [% FOREACH award IN awards %]
+                    <span>[% wr.res.achievements.i18n(award) %]</span>
+                [% END %]
+            </div>
+        </div>
+    [% END %]
+</div>

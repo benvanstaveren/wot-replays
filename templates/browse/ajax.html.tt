@@ -1,0 +1,3 @@
+[% INCLUDE browse/pager.html.tt %]
+[% INCLUDE replay/panel_list.html.tt %]
+[% INCLUDE browse/pager.html.tt %]

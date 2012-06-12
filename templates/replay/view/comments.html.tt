@@ -1,0 +1,68 @@
+<div class="box" style="padding: 20px; margin-bottom: 10px">
+    <table style="width: 100%; cellspacing="0" cellpadding="0"><tbody>
+    [% FOREACH comment IN comments %]
+        [% INCLUDE replay/view/comment.html.tt %]
+    [% END %]
+    [% IF comments.size == 0 || !comments %]
+        <tr><td>No comments...</td></tr>
+    [% END %]
+    </tbody></table>
+    <div id="frm-add-comment-container" style="margin: 20px 0px 20px 0px;">
+    [% IF wr.is_user_authenticated() %]
+        <form id="frm-add-comment" action="/replay/[% req_replay.id %]/addcomment" method="post">
+            [% IF !wr.user_display_name() %]
+                <div>It seems you haven't yet picked a display name for your comments, please enter one here.</div>
+                <div style="margin: 0px 0px 20px 0px"><b>Choose wisely, you can not change it once you picked one</b></div>
+                <span class="label">Display name</span>
+                <input type="text" name="dname" value=""/>
+            [% END %]
+            <span class="label">Comment (text only, no html)</span>
+            <textarea name="comment" style="width: 95%; height: 125px"></textarea>
+        </form>
+        <button class="panelButton" id="frm-add-comment-submit">Add Comment</button>
+    [% ELSE %]
+        You need to be <a href="/login">logged in</a> to comment.
+    [% END %]
+    </div>
+</div>
+<script type="text/javascript">
+    $('button#frm-add-comment-submit').click(function() {
+        console.log('submit form');
+        $('#frm-add-comment').submit();
+        return false;
+    });
+    $('#frm-add-comment').submit(function() {   
+        [% IF !wr.user.display_name %]
+            var dname = $('input[name="dname"]').val();
+            if(dname == '' || dname == null || dname == undefined) {
+                alert('Enter a display name');
+                return false;
+            }
+            console.log('dname: ', dname);
+        [% END %]
+        var body = $('textarea[name="comment"]').val();
+        if(body == '' || body == null || body == undefined) {
+            alert('Enter a comment');
+            return false;
+        }
+        console.log('body: ', body);
+
+        $(this).ajaxSubmit({
+            type: 'POST',
+            dataType: 'json',
+            error: function(d) {
+                alert('Oops: ' + d);
+                $('#replaycomments').html('Loading...').load('/replay/[% req_replay.id %]/comments');
+            },
+            success: function(d, t, x) {
+                if(d.ok == 0) {
+                    alert(d.error);
+                } else {
+                    $('#replaycomments').html('Loading...').load('/replay/[% req_replay.id %]/comments');$
+                }
+            },
+        });
+        return false;
+    });
+</script>
+                

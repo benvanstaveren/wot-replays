@@ -1,0 +1,67 @@
+<div>
+    <h3>Quick Stats</h3>
+    <div>
+        <span class="label">Kills</span>
+        <span>
+            <table style="width: 100%" cellspacing="0" cellpadding="0"><tbody>
+                <tr>
+                    <td style="width: 50%"><span class="label small">Total</span><span>[% statistics.kills %]</span></td>
+                    <td style="width: 50%"><span class="label small">Avg.</span><span>[% statistics.kills_a |format('%.2f') %]</span></td>
+                </tr>
+            </tbody></table>
+        </span>
+        <span style="margin: 20px 0px 0px 0px" class="label">Damaged</span>
+        <span>
+            <table style="width: 100%" cellspacing="0" cellpadding="0"><tbody>
+                <tr>
+                    <td style="width: 50%"><span class="label small">Total</span><span>[% statistics.damages %]</span></td>
+                    <td style="width: 50%"><span class="label small">Avg.</span><span>[% statistics.damages_a |format('%.2f') %]</span></td>
+                </tr>
+            </tbody></table>
+        </span>
+        <span style="margin: 20px 0px 0px 0px" class="label">Spotted</span>
+        <span>
+            <table style="width: 100%" cellspacing="0" cellpadding="0"><tbody>
+                <tr>
+                    <td style="width: 50%"><span class="label small">Total</span><span>[% statistics.spots %]</span></td>
+                    <td style="width: 50%"><span class="label small">Avg.</span><span>[% statistics.spots_a |format('%.2f') %]</span></td>
+                </tr>
+            </tbody></table>
+        </span>
+        <span style="margin: 20px 0px 0px 0px" class="label">Damage Done</span>
+        <span>
+            <table style="width: 100%" cellspacing="0" cellpadding="0"><tbody>
+                <tr>
+                    <td style="width: 50%"><span class="label small">Total</span><span>[% statistics.damagedone %]</span></td>
+                    <td style="width: 50%"><span class="label small">Avg.</span><span>[% statistics.damagedone_a |format('%.2f') %]</span></td>
+                </tr>
+            </tbody></table>
+        </span>
+        <span style="margin: 20px 0px 0px 0px" class="label">Vehicles</span>
+        <span>
+            <table style="width: 100%" cellspacing="0" cellpadding="0"><tbody>
+            [% FOREACH vid IN statistics.vehicles.keys %]
+                <tr><td><a href="[% wr.vehicle_url(vid) %]">[% wr.vehicle_name(vid) |truncate(12)%]</a></td><td style="width: 50%;">[% statistics.vehicles.$vid %]</td></tr>
+            [% END %]
+            </tbody></table>
+        </span>
+        <span style="margin: 20px 0px 0px 0px" class="label">Maps</span>
+        <span>
+            <table style="width: 100%" cellspacing="0" cellpadding="0"><tbody>
+            [% FOREACH mid IN statistics.maps.keys %]
+                <tr><td><a href="/map/[% mid %]/">[% wr.map_name(mid) |truncate(12)%]</a></td><td style="width: 50%;">[% statistics.maps.$mid %]</td></tr>
+            [% END %]
+            </tbody></table>
+        </span>
+    </div>
+</div>
+<div>
+    <form id="frm-browse-filter" method="post">
+        <input type="hidden" name="p" value="[% p %]"/>
+        <input type="hidden" name="player" value="[% player_name %]"/>
+        <input type="hidden" name="server" value="[% server %]"/>
+        <input type="hidden" name="playerpov" value="1"/>
+        <input type="hidden" name="skey" value="filter_player"/>
+        <input type="hidden" name="playerinv" value="0"/>
+    </form>
+</div>

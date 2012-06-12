@@ -1,0 +1,75 @@
+{
+    "warrior": {
+        "label": "Top Gun"
+    },
+    "invader": {
+        "label": "Invader"
+    },
+    "sniper": {
+        "label": "Sniper"
+    },
+    "defender": {
+        "label": "Defender"
+    },
+    "steelwall": {
+        "label": "Steel Wall"
+    },
+    "supporter": {
+        "label": "Confederate"
+    },
+    "scout": {
+        "label": "Scout"
+    },
+    "master1": {
+        "label": "Mastery Badge: III Class"
+    },
+    "master2": {
+        "label": "Mastery Badge: II Class"
+    },
+    "master3": {
+        "label": "Mastery Badge: I Class"
+    },
+    "master4": {
+        "label": "Mastery Badge: Ace Tanker"
+    },
+    "medalWittman": {
+        "label": "Boelter's Medal"
+    },
+    "medalOrlik": {
+        "label": "Orlik's Medal"
+    },
+    "medalOskin": {
+        "label": "Oskin's Medal"
+    },
+    "medalHalonen": {
+        "label": "Halonen's Medal"
+    },
+    "medalBurda": {
+        "label": "Burda's Medal"
+    },
+    "medalBillotte": {
+        "label": "Billotte's Medal"
+    },
+    "medalKolobanov": {
+        "label": "Kolobanov's Medal"
+    },
+    "medalFadin": {
+        "label": "Fadin's Medal"
+    },
+    "invincible": {
+        "label": "Invincible"
+    },
+    "diehard": {
+        "label": "Survivor"
+    },
+    "raider": {
+        "label": "Raider"
+    },
+    "kamikaze": {
+        "label": "Kamikaze"
+    },
+    "custom_scope_dope": {
+        "label": "Scope Dope",
+        "description": "Awarded to those who achieved not only 100% accuracy, but also managed to kill each enemy with a single shot"
+    }
+}

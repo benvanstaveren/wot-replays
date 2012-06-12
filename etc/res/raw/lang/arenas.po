@@ -1,0 +1,433 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: World Of Tanks\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-06-01 10:00+0300\n"
+"PO-Revision-Date: 2010-06-01 10:00+0300\n"
+"Last-Translator: WoT Translator <noreply@wargaming.net>\n"
+"Language-Team: WoT Team <noreply@wargaming.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "00_planb_testsite/description"
+msgstr "?empty?"
+
+msgid "00_planb_testsite/name"
+msgstr "Training Area"
+
+msgid "01_karelia/description"
+msgstr ""
+"Swamps, rocks, and cliffs determine major avenues of approach on this map. "
+"The terrain, with sparse protection and no buildings, gives the combat "
+"advantage to artillery. Concentrate your attacks along the path of your main "
+"advance, while conducting delaying and defensive actions at other points on "
+"your front line."
+
+msgid "01_karelia/name"
+msgstr "Karelia"
+
+msgid "02_malinovka/description"
+msgstr ""
+"Initial staging areas are separated by a wide open field, ideal for "
+"artillery and defensive operations. Concealment and cover including woods, "
+"hills, and farmhouses can be decisive. Attackers should consider flanking "
+"maneuvers, but another option is a well-coordinated high-speed assault "
+"across the field, which could either bring victory or a bloody loss."
+
+msgid "02_malinovka/name"
+msgstr "Malinovka"
+
+msgid "02_malinovka_4CT_mode/description"
+msgstr "?empty?"
+
+msgid "02_malinovka_4CT_mode/name"
+msgstr "Malinovka 4 Bases"
+
+msgid "03_campania/description"
+msgstr ""
+"Hills on the periphery of the map are covered with numerous houses and "
+"winding streets, making these areas advantageous for surprise attacks and "
+"sniping. An open area between the bases is favorable for daring strikes."
+
+msgid "03_campania/name"
+msgstr "Province"
+
+msgid "04_himmelsdorf/description"
+msgstr ""
+"A labyrinth of streets and squares, impassable for artillery and tank "
+"destroyers, but ideal for speedy breakthrough and bypass by medium and light "
+"vehicles. Access roads running by the hill, with the castle that dominates "
+"the area, and along the railway lines can help you out of the impasse."
+
+msgid "04_himmelsdorf/name"
+msgstr "Himmelsdorf"
+
+msgid "05_prohorovka/description"
+msgstr ""
+"Generally open terrain featuring a large hill and a railway embankment. "
+"Scattered trees provide concealment for tank destroyers. On the offensive, "
+"strike against the enemy's flanks, but do not leave your own flanks "
+"unguarded. Artillery enjoys good fields of fire, but is still vulnerable to "
+"raids by light vehicles."
+
+msgid "05_prohorovka/name"
+msgstr "Prokhorovka"
+
+msgid "06_ensk/description"
+msgstr ""
+"A mixture of city blocks and wooded outskirts, bisected by railroad tracks. "
+"Plan your tactics to take advantage of defensive choke points, positioning "
+"your vehicles to cover the gaps. Artillery is great for deterring enemy "
+"breakthroughs, but remains almost defenseless when exposed to enemy vehicles "
+"attacking from cover."
+
+msgid "06_ensk/name"
+msgstr "Ensk"
+
+msgid "07_lakeville/description"
+msgstr ""
+"An isolated mountain valley on one flank and city blocks on the other allow "
+"you to thrust close enough to the enemy. A large lake in the middle gives "
+"snipers a chance to show their skill at extreme range."
+
+msgid "07_lakeville/name"
+msgstr "Lakeville"
+
+msgid "08_ruinberg/description"
+msgstr ""
+"Concentric city streets, along with dense forests and bushes in the "
+"overgrown park allow for hidden maneuvers and redeployment of your troops. "
+"Although artillery fire is of limited use in the city, the debris provides "
+"effective cover for your troops."
+
+msgid "08_ruinberg/name"
+msgstr "Ruinberg"
+
+msgid "10_hills/description"
+msgstr ""
+"A high hill in the center of the map provides a perfect outpost for your "
+"attacks. A village to the north-east of the hill and an island to the west "
+"offer a wide range of tactic advantages, but lay open to fire from the "
+"center."
+
+msgid "10_hills/name"
+msgstr "Mines"
+
+msgid "11_murovanka/description"
+msgstr ""
+"Swamps, ravines, and hills determine your battle tactics. The scarcity of "
+"buildings gives a combat advantage to artillery. Concentrating all your "
+"attacks along one axis of attack may prove the best strategy."
+
+msgid "11_murovanka/name"
+msgstr "Murovanka"
+
+msgid "13_erlenberg/description"
+msgstr ""
+"Divided by a river, this map offers three main avenues of attack. A bridge "
+"in the center is situated among the ruins of a small town. Terrain around "
+"the northern and southern bridges offers a small amount of cover. Use the "
+"castle and the range of hills on the opposite side of the map as firing "
+"positions for your artillery."
+
+msgid "13_erlenberg/name"
+msgstr "Erlenberg"
+
+msgid "14_siegfried_line/description"
+msgstr ""
+"The map is a combination of open spaces and city blocks. Meandering lanes "
+"will facilitate your surprise attacks from behind the enemy lines while "
+"numerous bunkers serve as cover."
+
+msgid "14_siegfried_line/name"
+msgstr "Siegfried Line"
+
+msgid "15_komarin/description"
+msgstr ""
+"This map starts both teams away from their bases, providing for a variety of "
+"tactical decision making. Both teams face a tough choice—whether to roll out "
+"to defend their bases or attempt to capture the enemy base. It is up to you "
+"to decide, as either tactic may lead your team to victory or failure."
+
+msgid "15_komarin/name"
+msgstr "Komarin"
+
+msgid "17_munchen/description"
+msgstr ""
+"Эта городская карта значительно отличается своими пейзажами от основного "
+"большинства. Заводские кварталы, разрушенные дома, товарные составы придают "
+"этой карте особый урбанистический стиль. А насыпь с железной дорогой делящей "
+"карту на пополам, позволит сконцентрировать силы для контрудара."
+
+msgid "17_munchen/name"
+msgstr "Widepark"
+
+msgid "18_cliff/description"
+msgstr ""
+"Opposing bases on this map are separated by cliffs and rocky ridges. A "
+"variety of cover allows for focused attacks in crucial directions. The "
+"direct route may seem ideal for a breakthrough assault, but do not neglect "
+"your flanks!"
+
+msgid "18_cliff/name"
+msgstr "Cliff"
+
+msgid "19_monastery/description"
+msgstr ""
+"A monastery and a town are the focal points of this map. Three roads run "
+"north-south, providing easy access from one end of the map to the other. The "
+"monastery courtyard offers perfect, but predictable, firing positions for "
+"tanks and artillery. The long hill in the west and the winding ravine in the "
+"east can serve as perfect cover from enemy fire."
+
+msgid "19_monastery/name"
+msgstr "Abbey"
+
+msgid "22_slough/description"
+msgstr ""
+"Flank routes offer great opportunities for surprise attacks and diversionary "
+"operations. A mire in the center is not only an obstacle, but also an "
+"important tactical location."
+
+msgid "22_slough/name"
+msgstr "Swamp"
+
+msgid "23_westfeld/description"
+msgstr ""
+"Lush terrain features forests and villages scattered throughout the map, "
+"while a gigantic crumbling aqueduct looms over the valley. A variety of "
+"cliffs and ridges make perfect ambush spots, but wide open areas make "
+"changing your position quite risky."
+
+msgid "23_westfeld/name"
+msgstr "Westfield"
+
+msgid "28_desert/description"
+msgstr ""
+"This map looks open, but appearances can be deceiving! The village houses "
+"can be used as cover for vehicles and artillery. Consider attacking on the "
+"enemy flanks safely protected from their fire by cliffs and dunes."
+
+msgid "28_desert/name"
+msgstr "Sand River"
+
+msgid "29_el_hallouf/description"
+msgstr ""
+"A spacious valley sprinkled with boulders and trees lies in the center of "
+"the map. High mountain ridges flanking the valley provide natural sniper "
+"positions. Capturing bases becomes a real feat, as both team bases are "
+"situated in easily defended hilly regions."
+
+msgid "29_el_hallouf/name"
+msgstr "El Halluf"
+
+msgid "31_airfield/description"
+msgstr ""
+"This map offers many great ambush spots, as well as possibilities for "
+"maneuvers and breakthroughs. A large airfield in the upper part of the map "
+"and a rocky highland in the center offer a major tactical challenge. Occupy "
+"the highland to get a perfect view of the surrounding terrain and dominate "
+"routes to the enemy base."
+
+msgid "31_airfield/name"
+msgstr "Airfield"
+
+msgid "33_fjord/description"
+msgstr ""
+"Huge mountains and narrow valleys offer great advantages in a battle. You "
+"can engage in a fire duel across the gulf or enter a close quarter battle at "
+"the nearest port town or flank and capture enemy base."
+
+msgid "33_fjord/name"
+msgstr "Fjords"
+
+msgid "34_redshire/description"
+msgstr ""
+"This map is truly unique. Green fields interspersed with rolling hills offer "
+"great opportunities for aggressive attacks. The river running along the "
+"middle of the map is more of a guiding landmark than a real obstacle."
+
+msgid "34_redshire/name"
+msgstr "Redshire"
+
+msgid "35_steppes/description"
+msgstr ""
+"Generally open, this map allows you to strike in multiple directions, but "
+"don't disperse your forces too much. A road in the center will take you to "
+"the enemy base more directly, but perhaps with greater difficulty. The edges "
+"of the map may offer better avenues for attacks and feints."
+
+msgid "35_steppes/name"
+msgstr "Steppes"
+
+msgid "36_fishing_bay/description"
+msgstr ""
+"The map is a mix of open spaces and irregular terrain. The winding streets "
+"of the fishing village can be highly advantageous for defense or attack. Low "
+"ridges and hills scattered with bushes offer excellent ambush opportunities."
+
+msgid "36_fishing_bay/name"
+msgstr "Fisherman's Bay"
+
+msgid "37_caucasus/description"
+msgstr ""
+"Use the steep terrain of the map to hide from enemy fire, set up ambushes, "
+"or infiltrate the enemy base unnoticed through winding highland paths."
+
+msgid "37_caucasus/name"
+msgstr "Mountain Pass"
+
+msgid "38_mannerheim_line/description"
+msgstr ""
+"This snow-covered and rocky map is abundant in various obstacles and "
+"defilades. Trails that snake around rocky mountains and along the riverside "
+"will present options for an offensive strategy, but beware: defenders will "
+"have plenty of ambush opportunities."
+
+msgid "38_mannerheim_line/name"
+msgstr "Arctic Region"
+
+msgid "39_crimea/description"
+msgstr ""
+"The rugged terrain of this map allows a variety of battle-tactics: flanking, "
+"ambushing, or frontal assaults. There are also numerous passages between the "
+"rocks that could provide routes for a decisive attack with concentrated "
+"forces."
+
+msgid "39_crimea/name"
+msgstr "South Coast"
+
+msgid "41_north_america/description"
+msgstr ""
+"Tactics on this map may include deep flanking manoeuvres along the bottom of "
+"the canyon to the enemy base or a quick attack across the plateau. On the "
+"plateau, a variety of fighting styles can be effective."
+
+msgid "41_north_america/name"
+msgstr "Canyon"
+
+msgid "42_north_america/description"
+msgstr "?empty?"
+
+msgid "42_north_america/name"
+msgstr "Port"
+
+msgid "43_north_america/description"
+msgstr "?empty?"
+
+msgid "43_north_america/name"
+msgstr "North West"
+
+msgid "44_north_america/description"
+msgstr ""
+"In the centre of the map there is a large, boggy lake. A railway bridge and "
+"a ford on the one flank are defensible with scant forces, making it possible "
+"to concentrate main forces on the other flank."
+
+msgid "44_north_america/name"
+msgstr "Live Oaks"
+
+msgid "45_north_america/description"
+msgstr "City Shuffle"
+
+msgid "45_north_america/name"
+msgstr "Highway"
+
+msgid "46_north_america/description"
+msgstr "Gran Camino"
+
+msgid "46_north_america/name"
+msgstr "Gran Camino"
+
+msgid "47_canada_b/description"
+msgstr "Grimtown"
+
+msgid "47_canada_b/name"
+msgstr "Grimtown"
+
+msgid "49_africa/description"
+msgstr "Kilimanjaro"
+
+msgid "49_africa/name"
+msgstr "Savanna"
+
+msgid "51_asia/description"
+msgstr ""
+"A lake, bamboo thickets, and rugged mountain ridges make this map marvellous "
+"to look at and tactically unique. The map offers several valid lines of "
+"attack, each of them with advantages and disadvantages."
+
+msgid "51_asia/name"
+msgstr "Dragon Ridge"
+
+msgid "52_australia/description"
+msgstr "?empty?"
+
+msgid "52_australia/name"
+msgstr "Stone Forest"
+
+msgid "53_japan/description"
+msgstr "?empty?"
+
+msgid "53_japan/name"
+msgstr "Hanami"
+
+msgid "55_south_america/description"
+msgstr "?empty?"
+
+msgid "55_south_america/name"
+msgstr "Abandoned Harbor"
+
+msgid "59_asia_great_wall/description"
+msgstr "?empty?"
+
+msgid "59_asia_great_wall/name"
+msgstr "Empire Border"
+
+msgid "60_asia_miao/description"
+msgstr "?empty?"
+
+msgid "60_asia_miao/name"
+msgstr "Old Town"
+
+msgid "type/assault/description1"
+msgstr "Mission: capture the enemy base or destroy all enemy vehicles."
+
+msgid "type/assault/description2"
+msgstr "Mission: keep the friendly base secure or destroy all enemy vehicles."
+
+msgid "type/assault/name"
+msgstr "Attack"
+
+msgid "type/ctf/description"
+msgstr "Mission: capture the enemy base or destroy all enemy vehicles."
+
+msgid "type/ctf/name"
+msgstr "Standard Battle"
+
+msgid "type/ctf2/description"
+msgstr ""
+"Mission: capture at least one enemy base or destroy all enemy vehicles."
+
+msgid "type/ctf2/name"
+msgstr "Capture"
+
+msgid "type/domination/description"
+msgstr "Mission: capture the enemy base or destroy all enemy vehicles."
+
+msgid "type/domination/name"
+msgstr "Encounter Battle"
+
+msgid "type/escort/description1"
+msgstr ""
+"Mission: capture the enemy base or destroy all enemy vehicles. At least one "
+"of the first three ally vehicles in the list must survive."
+
+msgid "type/escort/description2"
+msgstr ""
+"Mission: keep the friendly base secure or destroy the first three enemy "
+"vehicles in the list."
+
+msgid "type/escort/name"
+msgstr "Escort"

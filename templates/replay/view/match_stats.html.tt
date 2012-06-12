@@ -1,0 +1,46 @@
+<h3 style="margin: 0px 0px 10px 0px">Match</h3>
+<div>
+    <div>
+        <span class="label">Result</span>
+        <span class="
+            [% IF replay.game.isWin == 1 %]green
+            [% ELSIF replay.game.isWin == 0 && replay.game.isDraw == 0 %]red
+            [% END %]
+            ">
+                [% IF replay.game.isWin == 1 %]Victory
+                [% ELSIF replay.game.isWin == 0 && replay.game.isDraw == 0 %]Defeat
+                [% ELSE %]Draw
+                [% END %]
+        </span>
+    </div>
+    <div style="margin: 10px 0px 0px 0px">
+        <div>
+            <span class="label">Rewards</span>
+            <span class="experience">
+                <div class="inline wSF" title="XP earned">
+                    <span class="label small">XP</span>
+                    <span class="green">[% replay.player.statistics.earned.xp || '0' %] (+[% replay.player.statistics.earned.free_xp || '0' %])</span>
+                </div>
+                <div class="inline wSF" title="Credits earned">
+                    <span class="label small">Credits</span>
+                    <span class="green">[% replay.player.statistics.earned.credits || '0' %]</span>
+                </div>
+                <div class="clear"></div>
+            </span>
+        </div>
+        <div style="margin: 10px 0px 0px 0px">
+            <span class="label">Penalties</span>
+            <span class="experience">
+                <div class="inline wSF" title="XP penalty for teamkill/teamdamage">
+                    <span class="label small">XP</span>
+                    <span class="red">[% replay.player.statistics.penalties.xp || '0' %]</span>
+                </div>
+                <div class="inline wSF" title="Credit penalty for teamkill/teamdamage">
+                    <span class="label small">Credits</span>
+                    <span class="red">[% replay.player.statistics.penalties.credits || '0' %]</span>
+                </div>
+                <div class="clear"></div>
+            </span>
+        </div>
+    </div>
+</div>

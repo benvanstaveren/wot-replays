@@ -1,0 +1,8 @@
+[% WRAPPER wrapper.html.tt %]    
+    <div><div class="content nosidebar aboutText">
+        <h3>Vehicle not found</h3>
+        <div>
+            This would be the place where a pithy haiku would inform you that that vehicle wasn't found, but I can't do haiku so I'll settle for: "Sorry, but that vehicle wasn't found!"
+        </div>
+    </div></div>
+[% END %]

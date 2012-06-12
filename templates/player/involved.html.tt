@@ -1,0 +1,31 @@
+[% WRAPPER wrapper.html.tt %]
+<div>
+    <div class="content">
+        <h3>
+            <a href="/players/">Players</a> &raquo; [% player_name %]</a> &raquo; Involved Matches
+        </h3>
+        <span style="margin: 10px 0px 20px 0px" class="label">
+            <span title="The number of replays as seen from the point of view of this player"><a href="/player/[% server %]/[% player_name %]">[% total_replays %] replays featured</a></span>,
+            <span title="The number of match replays that this player was involved in">[% total_involved %] replays involved</span>
+        </span>
+        <div id="browseContent">
+            [% INCLUDE replay/panel_list.html.tt %]
+            [% INCLUDE browse/pager.html.tt %]
+        </div>
+    </div>
+    <div class="sidebar">
+        [% INCLUDE sidebar/player.html.tt %]
+    </div>
+    <div class="clear"></div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('form#frm-browse-filter input[name="p"]').val('1');
+        $('form#frm-browse-filter input[name="playerpov"]').val('0');
+        $('form#frm-browse-filter input[name="playerinv"]').val('1');
+        var s = $('form#frm-browse-filter').serialize();
+        $('#browseContent').load('/replay/browse', s, function() {
+        });
+    });
+</script>
+[% END %]

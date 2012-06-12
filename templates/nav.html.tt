@@ -1,0 +1,79 @@
+<div class="global-nav">
+    <div class="global-nav-inner">
+        <div class="container">
+            <ul class="nav js-global-actions" id="global-actions">
+                <li class="nav-item [% IF pageid == 'home' %]active[% END %]">
+                    <a class="js-hover" href="/">
+                        Home
+                    </a>
+                </li>
+                <li class="nav-item [% IF pageid == 'browse' %]active[% END %]">
+                    <a class="js-hover" href="/browse">
+                        Browse
+                    </a>
+                </li>
+                <li class="nav-item players [% IF pageid == 'player' %]active[% END %]">
+                    <a class="js-hover" href="/players">
+                        Players
+                    </a>
+                </li>
+                <li class="nav-item clans [% IF pageid == 'clan' %]active[% END %]">
+                    <a class="js-hover" href="/clans">
+                        Clans
+                    </a>
+                </li>
+                <li class="nav-item vehicles [% IF pageid == 'vehicle' %]active[% END %]">
+                    <a class="js-hover" href="/vehicles">
+                        Vehicles
+                    </a>
+                </li>
+                <li class="nav-item maps [% IF pageid == 'map' %]active[% END %]">
+                    <a class="js-hover" href="/maps">
+                        Maps
+                    </a>
+                </li>
+            </ul>
+            [% IF pageid != 'upload' %]
+                <a class="uploadAction" href="/upload">
+                    <button class="uploadButton">Upload</button>
+                </a>
+            [% END %]
+            <ul class="nav js-global-actions" id="global-pages" style="float: right">
+                <li class="nav-item blog [% IF pageid == 'about' %]active[% END %]">
+                    <a class="js-hover" href="http://blog.wot-replays.org/">
+                        Blog
+                    </a>
+                </li>
+                <li class="nav-item about [% IF pageid == 'about' %]active[% END %]">
+                    <a class="js-hover" href="/about">
+                        About/FAQ
+                    </a>
+                </li>
+                [% IF wr.is_user_authenticated %]
+                <li class="nav-item signout [% IF pageid == 'signout' %]active[% END %]">
+                    <a class="js-hover" href="/logout">
+                        Sign out
+                    </a>
+                </li>
+                <li class="nav-item profile [% IF pageid == 'profile' %]active[% END %]">
+                    <a class="js-hover" href="/profile">
+                        Your Profile
+                    </a>
+                </li>
+                [% ELSE %]
+                <li class="nav-item login [% IF pageid == 'login' %]active[% END %]">
+                    <a class="js-hover" href="/login">
+                        Login
+                    </a>
+                </li>
+                <li class="nav-item register [% IF pageid == 'register' %]active[% END %]">
+                    <a class="js-hover" href="/register">
+                        Register
+                    </a>
+                </li>
+                [% END %]
+            </ul>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>

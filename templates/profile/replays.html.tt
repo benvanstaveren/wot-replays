@@ -1,0 +1,127 @@
+<span class="label">[% total_replays %] uploaded replays</span>
+<table style="width: 100%" cellspacing="0" cellpadding="2">
+<thead>
+    <tr style="background: #f0f0f0; color: #000">
+        <td>map</td>
+        <td>vehicle</td>
+        <td>w/l</td>
+        <td>surv.</td>
+        <td>kills</td>
+        <td>damaged</td>
+        <td>spotted</td>
+        <td>xp</td>
+        <td>credits</td>
+        <td>links</td>
+        <td colspan="2">
+            <select name="type" style="width: 100%">
+                <option value="">all</option>
+                <option value="p">published</option>
+                <option value="h">hidden</option>
+            </select>
+        </td>
+    </tr>
+</thead>
+<tbody>
+    [% FOREACH replay IN replays %]
+        <tr>
+            <td>[% wr.map_name(replay.map.id) %]</td>
+            <td>[% wr.vehicle_name(replay.player.vehicle.full) %]</td>
+            <td>
+                [% IF replay.game.isWin %]won
+                [% ELSIF !replay.game.isWin && replay.game.isDraw %]draw
+                [% ELSIF !replay.game.isWin && !replay.game.isDraw %]-
+                [% ELSE %]lost[% END %]
+            </td>
+            <td>
+                [% IF replay.player.statistics.survived > 0 %]yes[% ELSE %]no[% END %]
+            </td>
+            <td>[% replay.player.statistics.killed.size + 0 %]</td>
+            <td>[% replay.player.statistics.damaged.size + 0 %]</td>
+            <td>[% replay.player.statistics.spotted.size + 0 %]</td>
+            <td>[% replay.player.statistics.earned.xp + 0 %]</td>
+            <td>[% replay.player.statistics.earned.credits + 0 %]</td>
+            <td><a href="/replay/[% replay.id %]/">view</a></td>
+            <td>[% IF replay.site.visible %]visible[% ELSE %]hidden[% END %]</td>
+            <td>
+                [% IF replay.site.visible %]<a href="#" class="hide-replay" rid="[% replay.id %]">hide</a>
+                [% ELSE %]<a href="#" class="publish-replay" rid="[% replay.id %]">publish</a>
+                [% END %]
+            </td>
+        </tr>
+    [% END %]
+    <tr>
+        <td colspan="12">
+            [% IF p > 1 %]
+                <a href="#" class="pr_prev">&laquo; previous page</a>
+            [% END %]
+            [% i = 1 %]
+            [% WHILE i <= maxp %]
+                [% IF i == p %]
+                    <span>[% p %]</span>
+                [% ELSE %]
+                    <a href="#" class="pr_load" p="[% i %]">[% i %]</a>
+                [% END %]
+                [% i = i + 1 %]
+            [% END %]
+            [% IF p < maxp %]
+                <a href="#" class="pr_next">next page &raquo;</a>
+            [% END %]
+        </td>
+    </tr>
+</tbody>
+</table>
+<script type="text/javascript">
+    var pr_page = [% p || '0' %];
+    $('a.hide-replay').click(function() {
+        var id = $(this).attr('rid');
+        $.getJSON('/profile/hr', { id: id }, function(d) {
+            if(d.ok == 1) {
+                pr_load(pr_page);
+            } else {
+                alert(d.error);
+            }
+        });
+        return false;
+    });
+    $('a.publish-replay').click(function() {
+        var id = $(this).attr('rid');
+        $.getJSON('/profile/sr', { id: id }, function(d) {
+            if(d.ok == 1) {
+                pr_load(pr_page);
+            } else {
+                alert(d.error);
+            }
+        });
+        return false;
+    });
+    $('select[name="type"]').val('[% type %]').change(function() {
+            pr_load(pr_page);
+    });
+    function pr_next() {
+        pr_load(pr_page + 1);
+    };
+    function pr_prev() {
+        pr_load(pr_page - 1);
+    };
+    function pr_load(page) {
+        var t = $('select[name="type"]').val();
+        
+        $('#replay-list').load('/profile/replays', {
+            p: page,
+            type: t,
+            });
+    }
+    $('a.pr_next').click(function() {
+        pr_next();
+        return false;
+    });
+    $('a.pr_prev').click(function() {
+        pr_prev();
+        return false;
+    });
+    $('a.pr_load').click(function() {
+        var p = $(this).attr('p');
+        pr_load(p);
+        return false;
+    });
+</script>

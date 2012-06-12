@@ -1,0 +1,3 @@
+[% FOREACH vehicle IN vehicles %]
+    <a href="/vehicle/[% country %]/[% vehicle.sid %]">[% wr.vehicle_name(vehicle.id) %]</a><br/>
+[% END %]

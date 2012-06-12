@@ -1,0 +1,26 @@
+[% WRAPPER wrapper.html.tt %]
+<div>
+    <div class="content">
+        <h3>Your Profile</h3>
+        <div>
+            <div id="replay-list">
+            </div>
+        </div>
+    </div>
+    <div class="sidebar">
+        [% INCLUDE sidebar/profile.html.tt %]
+    </div>
+    <div class="clear"></div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        var type = '[% profile_replay_type %]';
+        $('#replay-list').html('Loading...');
+        $('#replay-list').load('/profile/replays/', { type: type }, function(d, t, x) {
+            if(t != 'success') {
+                $('#replay-list').html(t);
+            }
+        });
+    });
+</script>
+[% END %]

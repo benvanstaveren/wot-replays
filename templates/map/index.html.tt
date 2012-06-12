@@ -1,0 +1,14 @@
+[% WRAPPER wrapper.html.tt %]
+    <h3>Maps</h3>
+    <div>
+        [% FOREACH map IN map_list %]
+            <a href="/map/[% map.id %]/">
+            <div title="[% map.count %] battles fought" style="width: 84px; float: left; height: 120px; margin: 0px 10px 10px 0px">
+                <img src="//images.wot-replay.org/maps/84x84/[% map.id %].jpg" style="width: 84px; height: 84px"/>
+                <div style="font-size: 80%; font-family: monospace; text-align: center;">[% wr.map_name(map.id) %]</div>
+            </div>
+            </a>
+        [% END %]
+        <div class="clear"></div>
+    </div>
+[% END %]

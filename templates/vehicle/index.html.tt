@@ -1,0 +1,34 @@
+[% WRAPPER wrapper.html.tt %]
+    <h3>Vehicles</h3>
+    <div>
+        <table style="width: 100%" cellspacing="0" cellpadding="0"><tbody>
+        <tr>
+            <td style="vertical-align: top; width: 20%">
+                [% country = 'china' %]
+                <span class="label">China</span>
+                [% INCLUDE vehicle/list.html.tt vehicles=vehicles_all.$country country=country %]
+            </td>
+            <td style="vertical-align: top; width: 20%">
+                [% country = 'germany' %]
+                <span class="label">Germany</span>
+                [% INCLUDE vehicle/list.html.tt vehicles=vehicles_all.$country country=country %]
+            </td>
+            <td style="vertical-align: top; width: 20%">
+                [% country = 'france' %]
+                <span class="label">France</span>
+                [% INCLUDE vehicle/list.html.tt vehicles=vehicles_all.$country country=country %]
+            </td>
+            <td style="vertical-align: top; width: 20%">
+                [% country = 'usa' %]
+                <span class="label">USA</span>
+                [% INCLUDE vehicle/list.html.tt vehicles=vehicles_all.$country country=country %]
+            </td>
+            <td style="vertical-align: top; width: 20%">
+                [% country = 'ussr' %]
+                <span class="label">USSR</span>
+                [% INCLUDE vehicle/list.html.tt vehicles=vehicles_all.$country country=country %]
+            </td>
+        </tr>
+        </tbody></table>
+    </div>
+[% END %]

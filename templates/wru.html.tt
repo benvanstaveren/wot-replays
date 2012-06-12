@@ -1,0 +1,62 @@
+[% WRAPPER wrapper.html.tt %]    
+    <div><div class="content nosidebar aboutText">
+        <h3>[% page.title %]</h3>
+        <div>
+            We're currenty testing out an automated uploader tool that will help you upload your replays, and will help us get more replays stored. You can download the installer from <a href="/txt/wru-1.0.2.msi">http://www.wot-replays.org/txt/wru-1.0.2.msi</a>.
+        </div>
+        <div>
+            This tool will access the following items on your PC:
+            <ul>
+                <li> The Windows registry, to find out what your timezone is, and to find out where you've put World of Tanks </li>
+                <li> Replay files from the default replay folder. This is your World of Tanks installation path, with "\replays" tacked on </li>
+                <li> An "AppData" folder for keeping track of your authentication token, and the "seen" list for replays </li>
+            </ul>
+        </div>
+        <div>
+            All replays uploaded with the upload tool will be hidden, this means that they are not visible on the site (unless you change this setting in your <a href="/profile/settings">settings page</a>). Since the upload tool will upload <b>all</b> your replays, it's up to you to decide whether to use it or not, given that if you only want to post your "omgwtfawesomesauce" matches, you're better off uploading these by hand.
+        </div>
+        <div>
+                The first time you run the upload tool, it will consider all replays found in your replays folder as new, and will upload them all in sequence, this is a feature, not a bug ;)
+        </div>
+        <div>
+            <strong>Updates</strong>
+            <ul>
+                <li> 1.0.2: So I got the right DLL in there, except the right DLL needed another DLL that wasn't there. So that got added too... </li>
+                <li> 1.0.1: The packer didn't include a DLL needed for the uploader to function so it didn't run on any other PC except the one I built it on, that's been fixed.</li>
+            </ul>
+        </div>
+        <div>
+            <strong>Requirements</strong>
+            <ul>
+                <li> World of Tanks (obviously) </li>
+                <li> 10Mb of free disk space </li>
+                <li> Windows Vista or Windows 7 (sorry XP users, this one won't work for you) </li>
+            </ul>
+        </div>
+        <div>
+            <strong>Instructions</strong>
+            <div>
+                <ul>
+                <li> After downloading, doubleclick the .msi file, and you will see the familiar install wizard do it's thing. You can uninstall the program from your computers' control panel if you decide to get rid of it. </li>
+                <li> On the first run, do not be afraid because <em>a console window will open</em>. Do not close it, and pay attention to what it says in there. Make sure you have <a href="/register/">registered an account</a> on this site first. Once you've done that, go back to that scary console window and follow the instructions. The uploader tool will use your account details to fetch an authentication token that lets us know that you uploaded that replay. </li>
+                <li> After you have entered your details, and everything went okay, the console window will vanish, and a tray icon will show up in your system tray. It should look like a camel (yes, I'm too lazy to change some defaults) - clicking the tray icon will bring up the log window. Clicking the close button on the log window terminates the uploader. When the log window is showing, clicking the tray icon again will hide it again.</li>
+            </div>
+            <div>
+                <div>So how does it work? Quite simple really...</div>
+                <ul>
+                    <li> Every 30 seconds we take a look at your replay files folder and see if there's any new ones that we haven't seen yet. If there are new replays, we add them to the upload queue.</li>
+                    <li> Every 60 seconds, if the tool is not uploading something already, it will take one file out of the upload queue and send it. The uploader tool <b>does not</b> do any throttling, so you might want to wait a minute or two after every match for things to be sent, unless of course your internet is shiny and fast...</li>
+                    <li>Uploaded replays are parked in a "pending" state, and you will have to log in on your profile page to publish the ones you want to be visible on the site.</li>
+                </ul>
+                <div>The reason for the short times is that I want to make sure that replays are sent out quickly after a match, so that while you're still busy deciding which tank to play next, the replay's already uploading so it doesn't get in the way of playing your next match. A next version might add configurable timings so you can tweak it to your hearts content :)
+                </div>
+            </div>
+        </div>
+        <div>
+            <strong>Haelp!</strong>
+            <div>
+                See the forum thread for more information, or send me a PM on the Europe forums
+            </div>
+        </div>
+    </div><div class="clear"></div></div>
+[% END %]

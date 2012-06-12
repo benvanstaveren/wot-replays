@@ -1,0 +1,103 @@
+[% WRAPPER wrapper.html.tt %]
+    <div class="content nosidebar">
+        <h2 style="margin: 0px 0px 10px 0px">
+            <a href="/player/[% replay.player.server |uri %]/[% replay.player.name |uri %]/">[% replay.player.name |html %]</a> - <a href="/vehicle/[% replay.player.vehicle.country  |uri %]/[% replay.player.vehicle.name |uri %]/">[% wr.vehicle_name(replay.player.vehicle.full) |html %]</a> - <a href="/map/[% replay.map.id |uri %]/">[% wr.map_name(replay.map.id) |html %]</a>
+
+            <div style="display: inline-block; float: right;">
+            [% IF wr.is_user_authenticated() && wr.is_own_replay() %]
+                [% IF replay.site.visible %]
+                    <a href="#" class="hide-replay" rid="[% replay.id %]"><button class="panelButton">Hide</button></a>
+                    <a style="display: none" href="#" class="show-replay" rid="[% replay.id %]"><button class="panelButton">Publish</button></a>
+                [% ELSE %]
+                    <a href="#" class="show-replay" rid="[% replay.id %]"><button class="panelButton">Publish</button></a>
+                    <a href="#" style="display: none" class="hide-replay" rid="[% replay.id %]"><button class="panelButton">Hide</button></a>
+                [% END %]
+            [% END %]
+                
+                <a href="#" class="rateUp" rid="[% replay.id %]" title="Like this replay"><button class="rateUp"><span>like</span> (<span class="rateUpCount">[% replay.site.like || '0' %]</span>)</button></a>
+                <a target="_new" href="/download/[% replay.id %].wotreplay" class="downloadButton"><button class="panelButton" id="btn-download">Download Replay ([% replay.site.downloads || '0' %])</button></a>
+                <a target="_new" href="/raw/[% replay.id %].txt"><button class="panelButton" id="btn-raw">Raw Data</button></a>
+            </div>
+        </h2>
+
+        [% IF wr.is_user_authenticated() && wr.is_own_replay() %]
+<script type="text/javascript">
+    $('a.hide-replay').click(function() {
+        var id = $(this).attr('rid');
+        $.getJSON('/profile/hr', { id: id }, function(d) {
+            if(d.ok == 1) {
+                $('a.hide-replay').hide();
+                $('a.show-replay').show();
+            } else {
+                alert(d.error);
+            }
+        });
+        return false;
+    });
+    $('a.show-replay').click(function() {
+        var id = $(this).attr('rid');
+        $.getJSON('/profile/sr', { id: id }, function(d) {
+            if(d.ok == 1) {
+                $('a.hide-replay').show();
+                $('a.show-replay').hide();
+            } else {
+                alert(d.error);
+            }
+        });
+        return false;
+    });
+</script>
+        [% END %]
+
+        <div class="box" style="padding: 5px; background: rgba(0,0,0,0.2) none repeat scroll 0 0">
+            <table style="width: 100%" cellspacing="0" cellpadding="0">
+            <tbody>
+                <tr>
+                    <td style="vertical-align: top; width: 166px">
+                        <div style="margin: 0px 25px 0px 0px; background: transparent url([% wr.vehicle_icon(replay.player.vehicle.full, 100) %]) no-repeat scroll center center;" class="vehicleIcon-100 box replayView" title="[% wr.vehicle_description(replay.player.vehicle.full) |html %]">
+                            <div class="vehicleTier">[% wr.vehicle_tier(replay.player.vehicle.full) %]</div>
+                        </div>
+                        <div style="margin-top: 5px; padding: 10px">
+                            <span class="label small">Jump</span>
+                            [% IF replay.complete %]<a href="#rpl-teams">Teams</a><br/>[% END %]
+                            <a href="#rpl-comments">Comments ([% replay.site.comments.size || '0' %])</a>
+                        </div>
+                        <div style="margin-top: 5px; padding: 10px">
+                            <span class="label small">Related</span>
+                            <div>
+                                [% FOREACH rel IN related %]
+                                    <a href="/replay/[% rel.id %]">[% rel.player.name |html%] - [% wr.vehicle_name(rel.player.vehicle.full) %]</a><br/>
+                                [% END %]
+                                [% IF related.size == 0 %]No related replays[% END %]
+                            </div>
+                        </div>
+                    </td>
+                    <td style="vertical-align: top">
+                        [% INCLUDE replay/view/vehicle_stats.html.tt %]
+                    </td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+
+        [% IF replay.complete %]
+            <a name="rpl-teams"></a>
+            <h3 style="margin: 25px 0px 10px 0px">Teams</h3>
+            <div class="box" style="padding: 5px; background: rgba(0,0,0,0.2) none repeat scroll 0 0">
+                <div class="replayTeamList" id="replayTeamOne">[% INCLUDE replay/view/team/list.html.tt players=replay.teams.0 %]</div>
+                <div class="replayTeamList" id="replayTeamTwo">[% INCLUDE replay/view/team/list.html.tt players=replay.teams.1 %]</div>
+                <div class="clear"></div>
+            </div>
+        [% END %]
+        <a name="rpl-comments"></a>
+        <h3 style="margin: 25px 0px 10px 0px">Comments</h3>
+        <div class="box" id="replaycomments" style="padding: 5px; background: rgba(0,0,0,0.2) none repeat scroll 0 0">
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#replaycomments').html('Loading...').load('/replay/[% replay.id %]/comments', {}, function() {
+            });
+        });
+    </script>
+[% END %]

@@ -1,0 +1,61 @@
+[% WRAPPER wrapper.html.tt %]    
+    <div><div class="content nosidebar aboutText">
+        <h3>About The Site</h3>
+        <div>
+            wot-replays.org is a World of Tanks replay hosting site. Besides hosting your replay files, we also extract information from them and use this information to allow you to browse replays in various ways. Besides this, we also data-mine the available replays to generate statistics and player ratings. 
+        </div>
+        <div>
+            wot-replays.org is built using the following bits and pieces:
+            <ul>
+                <li><a href="http://www.perl.org/">Perl</a>, the swiss army chainsaw programming language of the internet</li>
+                <li><a href="http://mojolicio.us">Mojolicious</a>, a next generation web framework</li>
+                <li><a href="http://documentcloud.github.com/backbone/">Backbone.js</a>, models, views and controllers in my Javascript? Impossibru!</li>
+                <li><a href="http://www.jquery.com">jQuery</a>, because who doesn't?</li>
+                <li><a href="http://www.mongodb.org">MongoDB</a>, to store all your data and do the coolest map/reduce data-mining omgwtfawesomesauce things with</li>
+            </ul>
+        </div>
+        <div>
+            Fortunately (or unfortunately,  depending on your point of view), this site has grown from a hobby project "just to see if I can build something in a day" into something that's approaching an honest to god project size. Initially I had no idea it'd get popular, but it did. Unfortunately (or fortunately, depending on your point of view), it means that the expenses to run the site have gone from being small change into being a not-so-small sack of change. In light of that, I would like to ask you to donate whatever you feel is "appropriate". Donations don't get you anything special, except the continued existance of the site, and that warm fuzzy feeling inside. Or maybe that's the beer talking but anyway.
+        </div>
+        <div>
+            So if you can, please use the button below and donate a little bit. If you want to show your appreciation in another way, and you are totally insane, you know where the WoT giftshop is... 
+        </div>
+        <div>
+            [% INCLUDE donatebutton.html.tt %]
+        </div>
+        <h3>Frequently Asked Questions</h3>
+        <div>
+            <strong>Q: Why are some tank names in a weird format, and why do some icons not load?</strong>
+            <div>
+                A: Because a replay only contains the information in a "short" format (e.g. the Tiger II is actually referred to as 'germany:PzVIB_Tiger_II'), we have a mapping table that takes the ID and turns it into a name, however, some are missing. Similarly for the icons, they're not always named right since I had to download them by hand from the WoT Wiki, and they named them differently. If you spot one, let me know on the WoT forums and I'll fix it.
+            </div>
+        </div>
+        <div>
+            <strong>Q: Why are people earning so many mastery badges?</strong>
+            <div>
+                A: They're not. The way WoT sends us the information means that there is no way to tell whether or not you have already earned that specific badge, so the only way to tell is by tracking your highest mastery level on a given vehicle. If it's the first time you upload a replay, there obviously is no information present so your mastery level is considered 0 - so any first replay will "earn" you a mastery badge. After that, it's only awarded if a replay for the same vehicle gets you a higher mastery level than that you already had. It's a bug, but not one that can be fixed without you also regularly uploading your dossier file so we can keep an eye on it.
+            </div>
+        </div>
+        <div>
+            <strong>Q: What is a complete replay?</strong>
+            <div>
+                A: One where you've seen the match result screen. If you exit a match before it is finished, the match results are never attached to the replay (which, in my opinion, is pretty damn dumb), so there's a lot of data missing that is used to generate the pretty display. Incomplete replays can only be downloaded and do not get the pretty stats page.
+            </div>
+        </div>
+        <div>
+            <strong>Q: What are related replays?</strong>
+            <div>
+                A: A related replay is a replay of the same match, but uploaded by a different player. 
+            </div>
+        </div>
+
+        <h3>Copyright Notices</h3>
+        <div>
+            This site is copyright 2012 by yours truly,<br/>
+            <a href="http://worldoftanks.eu/community/accounts/500120062-Scrambled/">Scrambled</a>.
+        </div>
+        <div>
+            All game related images, logo's, names, descriptions are copyright by Wargaming, and used here to entertain and possibly educate.
+        </div>
+    </div></div>
+[% END %]
