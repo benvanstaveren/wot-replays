@@ -1,2 +1,3 @@
 sites/static.wot-replays.org = https://wotreplays:22am1999@bitbucket.org/wotreplays/wot-replays-static
 sites/images.wot-replays.org = https://wotreplays:22am1999@bitbucket.org/wotreplays/wot-replays-images
+extlib/wot-replay-parser = https://wotreplays:22am1999@bitbucket.org/wotreplays/wot-replay-parser
