@@ -1,5 +1,6 @@
 package WR::App;
 use Mojo::Base 'Mojolicious';
+use WR;
 use WR::Query;
 
 $Template::Stash::PRIVATE = undef;
