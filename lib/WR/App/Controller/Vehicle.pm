@@ -1,5 +1,5 @@
 package WR::App::Controller::Vehicle;
-use Mojo::Base 'WR::Controller';
+use Mojo::Base 'WR::App::Controller';
 use WR::Query;
 
 sub index {

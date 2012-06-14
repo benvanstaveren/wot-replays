@@ -1,5 +1,5 @@
 package WR::App::Controller::Replays::Comment;
-use Mojo::Base 'WR::Controller';
+use Mojo::Base 'WR::App::Controller';
 use boolean;
 
 sub index {

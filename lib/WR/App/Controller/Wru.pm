@@ -1,5 +1,5 @@
 package WR::App::Controller::Wru;
-use Mojo::Base 'WR::Controller';
+use Mojo::Base 'WR::App::Controller';
 use WR::Parser;
 use FileHandle;
 use boolean;

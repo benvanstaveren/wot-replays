@@ -1,5 +1,5 @@
 package WR::App::Controller::Profile;
-use Mojo::Base 'WR::Controller';
+use Mojo::Base 'WR::App::Controller';
 use WR::Query;
 use boolean;
 use WR::MR;

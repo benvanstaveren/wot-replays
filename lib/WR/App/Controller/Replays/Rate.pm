@@ -1,5 +1,5 @@
 package WR::App::Controller::Replays::Rate;
-use Mojo::Base 'WR::Controller';
+use Mojo::Base 'WR::App::Controller';
 use boolean;
 use Data::Dumper;
 

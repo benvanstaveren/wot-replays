@@ -1,5 +1,5 @@
 package WR::App::Controller::Replays;
-use Mojo::Base 'WR::Controller';
+use Mojo::Base 'WR::App::Controller';
 use boolean;
 use WR::Parser;
 use WR::Query;

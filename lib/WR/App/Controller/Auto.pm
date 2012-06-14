@@ -1,5 +1,5 @@
 package WR::App::Controller::Auto;
-use Mojo::Base 'WR::Controller';
+use Mojo::Base 'WR::App::Controller';
 use WR::Res::Achievements;
 use Data::Dumper;
 
@@ -166,7 +166,7 @@ sub index {
             vehicle_tier => sub {
                 my $v = shift;
                 if(my $obj = $self->db('wot-replays')->get_collection('data.vehicles')->find_one({ _id => $v })) {
-                    return __PACKAGE__->ROMAN_NUMERALS->[$obj->{level}];
+                    return sprintf('//images.wot-replays.org/icon/tier/%02d.png', $obj->{level});
                 } else {
                     return '-';
                 }
