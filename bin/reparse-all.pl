@@ -1,81 +1,41 @@
 #!/usr/bin/perl
 use strict;
 use warnings;
-use lib qw(.. ../lib lib);
-
-package WR::Reparser;
-
-sub new { 
-    my $class = shift;
-    my $self = { 
-        c => shift,
-    };
-    return bless($self, 'WR::Reparser' );
-}
-
-sub db {
-    my $self = shift;
-    my $name = shift;
-
-    return $self->{c}->get_database($name);
-}
-
-package main;
-
-use WR::Parser;
+use FindBin;
+use lib "$FindBin::Bin/../lib";
+use WR;
+use WR::Process;
 use boolean;
 use MongoDB;
 use Try::Tiny;
-use Data::Dumper;
-use WR::Util;
 
 $| = 1;
 
-my $mongo  = MongoDB::Connection->new();
-my $rp     = WR::Reparser->new($mongo);
+use constant WOT_BF_KEY_STR => 'DE 72 BE A0 DE 04 BE B1 DE FE BE EF DE AD BE EF';
+use constant WOT_BF_KEY     => join('', map { chr(hex($_)) } (split(/\s/, WOT_BF_KEY_STR)));
 
+my $mongo  = MongoDB::Connection->new();
 my $db     = $mongo->get_database('wot-replays');
 my $gfs    = $db->get_gridfs;
-my $rc     = $db->get_collection('replays')->find();
+my $rc     = $db->get_collection('replays')->find()->sort({ 'site.meta.uploaded_at' => 1 });
 
 $db->get_collection('track.mastery')->drop(); # drop that
 
 while(my $r = $rc->next()) {
     if(my $file = $gfs->find_one({ replay_id => $r->{_id} })) {
         print $r->{_id}, ': ';
-        my $parser = WR::Parser->new();
-        $parser->parse($file->slurp);
-        my $m = $parser->result_for_mongo;
+
+        my $process = WR::Process->new(data => $file->slurp, db => $db, bf_key => WOT_BF_KEY);
+
+        my $m = $process->process();
+
         $m->{file} = $file->info->{_id};
         $m->{site} = $r->{site}; # copy that over
 
         unless(defined($m->{site}->{uploaded_at})) {
             $m->{site}->{uploaded_at} = $file->info->{_id}->get_time();
         }
-
-        my $mastery = $m->{player}->{statistics}->{mastery} || 0;
-
-        # find out whether this match awards mastery or not
-        $m->{player}->{statistics}->{mastery} = WR::Util::award_mastery($rp, $m->{player}->{name}, $m->{player}->{vehicle}->{full}, $mastery) if(defined($m->{player}->{statistics}) && $mastery > 0);
-
-        # get the player server
-        $m->{player}->{server} = WR::Util::server_finder($rp, $m->{player}->{id}, $m->{player}->{name});
-
-        # see if we need to process team kills
-        if($m->{complete}) {
-            if(scalar(@{$m->{player}->{statistics}->{teamkill}->{log}}) > 0) {
-                foreach my $entry (@{$m->{player}->{statistics}->{teamkill}->{log}}) {
-                    if(my $name = WR::Util::user_finder($rp, $entry->{targetID}, $m->{player}->{server})) {
-                        my $vid = $m->{vehicles_hash_name}->{$name}->{id};
-                        $m->{player}->{statistics}->{teamkill}->{hash}->{$vid} = $entry;
-                    }
-                }
-            }
-        }
-
         $db->get_collection('replays')->save($m);
-
-
         print ': OK', "\n";
     } else {
         print $r->{_id}, ': NOT FOUND', "\n";
