@@ -24,19 +24,28 @@ $db->get_collection('track.mastery')->drop(); # drop that
 while(my $r = $rc->next()) {
     if(my $file = $gfs->find_one({ replay_id => $r->{_id} })) {
         print $r->{_id}, ': ';
+        my $process;
+        my $m;
+        my $e;
 
-        my $process = WR::Process->new(data => $file->slurp, db => $db, bf_key => WOT_BF_KEY);
-
-        my $m = $process->process();
-
-        $m->{file} = $file->info->{_id};
-        $m->{site} = $r->{site}; # copy that over
-
-        unless(defined($m->{site}->{uploaded_at})) {
-            $m->{site}->{uploaded_at} = $file->info->{_id}->get_time();
+        try {
+            $process = WR::Process->new(data => $file->slurp, db => $db, bf_key => WOT_BF_KEY);
+            $m = $process->process();
+        } catch {
+            $e = $_;
         }
-        $db->get_collection('replays')->save($m);
-        print ': OK', "\n";
+
+        unless($e) {
+            $m->{file} = $file->info->{_id};
+            $m->{site} = $r->{site}; # copy that over
+            unless(defined($m->{site}->{uploaded_at})) {
+                $m->{site}->{uploaded_at} = $file->info->{_id}->get_time();
+            }
+            $db->get_collection('replays')->save($m);
+            print ': OK', "\n";
+        } else {
+            print ': ERROR: ', $e, "\n";
+        }
     } else {
         print $r->{_id}, ': NOT FOUND', "\n";
     }
