@@ -10,7 +10,7 @@
                 <td style="text-align: right">Total</td>
             </tr>
         [% total_total = 0 %]
-        [% FOREACH version IN replay_count.keys.sort.reverse %]$
+        [% FOREACH version IN replay_count.keys.sort.reverse %]
             [% IF version %]
                 [% data = replay_count.$version %]
                 <tr>
