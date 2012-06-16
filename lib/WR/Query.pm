@@ -54,10 +54,6 @@ sub fuck_tt {
     my $o = shift;
 
     $o->{id} = $o->{_id};
-
-    my $time = $o->{game}->{time};
-    $o->{game}->{time_real} = $time;
-    $o->{game}->{time} = DateTime->from_epoch(epoch => $time, time_zone => 'UTC');
     return $o;
 }
 
