@@ -85,7 +85,7 @@
                 </td>
                 <td>
                     <span class="label small">Misses</span>
-                    <span class="red">[% replay.player.statistics.shots.misses || '0' %]</span>
+                    <span class="red">[% replay.player.statistics.shots.fired - replay.player.statistics.shots.hits || '0' %]</span>
                 </td>
                 <td>
                     <span class="label small">Accuracy</span>
