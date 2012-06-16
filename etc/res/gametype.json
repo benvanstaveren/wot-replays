@@ -1,0 +1,6 @@
+{
+    "ctf": {
+        "label": "Capture the Flag",
+        "description": "Win the match by capturing the enemy base or killing all opponents"
+    }
+}

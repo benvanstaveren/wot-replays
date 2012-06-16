@@ -22,11 +22,25 @@ sub index {
         filter => {},
         );
 
+    # get the different replays and versions using group()
+    my $r_stats = $self->db('wot-replays')->get_collection('replays')->group({
+        initial => { 
+            count => 0,
+            },
+        key => { 'version' => 1, 'site.visible' => 1 },
+        reduce => q|function(obj, prev) { prev.count += 1 }|,
+    })->{retval};
+
+    my $stats = {};
+    foreach my $item (@$r_stats) {
+        $stats->{$item->{version}}->{total} += $item->{count};
+        $stats->{$item->{version}}->{($item->{'site.visible'}) ? 'visible' : 'hidden'} = $item->{count};
+    }
 
     $self->respond(template => 'index', stash => {
         page => { title => 'Home' },
         replays => $query->page(1),
-        replay_count => $query->total
+        replay_count => $stats,
     });
 }
 

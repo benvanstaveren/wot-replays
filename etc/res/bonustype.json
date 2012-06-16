@@ -1,15 +1,15 @@
 {
     "1": {
-        "label": "Regular"
+        "label": "Random Battle"
     },
     "2": {
-        "label": "Training Room",
+        "label": "Training Room Battle",
     },
     "3": {
         "label": "Company Battle",
     },
     "4": {
-        "label": "Tournament",
+        "label": "Tournament Battle",
     },
     "5": {
         "label": "Clan Battle",

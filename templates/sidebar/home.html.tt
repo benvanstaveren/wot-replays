@@ -1,7 +1,25 @@
 <div>
-    <h3>Quick Stats</h3>
+    <h3>Replays</h3>
     <div>
-        Total replays: <strong>[% replay_count %]</strong>
+        <table style="width: 100%" cellspacing="0" cellpadding="1">
+        <tbody>
+            <tr>
+                <td>&nbsp;</td>
+                <td style="text-align: right">Public</td>
+                <td style="text-align: right">Private</td>
+                <td style="text-align: right">Total</td>
+            </tr>
+        [% FOREACH version IN replay_count.keys.sort.reverse %]
+            [% data = replay_count.$version %]
+            <tr>
+                <td>[% version %]</td>
+                <td style="text-align: right">[% data.visible || '0' %]</td>
+                <td style="text-align: right">[% data.hidden || '0' %]</td>
+                <td style="text-align: right">[% data.total || '0' %]</td>
+            </tr>
+        [% END %]
+        </tbody>
+        </table>
     </div>
     <h3>Updates/Info</h3>
     <div>
