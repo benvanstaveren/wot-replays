@@ -7,8 +7,6 @@ around 'process' => sub {
     my $self = shift;
     my $res  = $self->$orig;
 
-    warn __PACKAGE__, ': process', "\n";
-
     my $dt_str = $res->{dateTime}; # 10.04.2012 20:38:30
     $dt_str =~ s/\W+//g;
 
@@ -45,11 +43,13 @@ around 'process' => sub {
         $team_survivors = [ $temp_survivors->[1], $temp_survivors->[0] ];
     }
 
+    no warnings;
     my $data = {
         _id => $m_id,
         teams => $ordered_teams,
         team_survivors => $team_survivors,
         processed_at => time(),
+        version => substr($self->_parser->wot_version, 0, 5),
         site => {
             meta => {
             },
@@ -202,6 +202,7 @@ around 'process' => sub {
         # arena creation time is time in UTC
         $data->{game}->{time} = $self->match_result->[0]->{arenaCreateTime};
     }
+    use warnings;
     return $data;
 };
 

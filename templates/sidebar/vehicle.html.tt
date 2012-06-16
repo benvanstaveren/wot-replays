@@ -25,6 +25,7 @@
             <span class="label">Options</span>
             <div>
                 <label><input type="checkbox" name="complete" [% IF filter.complete > 0 %]checked="true"[% END %] value="1">Complete replays only</label>
+                <label><input type="checkbox" name="compatible" [% IF filter.compatible > 0 %]checked="true"[% END %] value="1">[% config.wot.version %] only</label>
             </div>
         </form>
         <div class="filter-buttons">
@@ -45,6 +46,7 @@
         $('form#frm-browse-filter select[name="map"]').val('');
         $('form#frm-browse-filter select[name="server"]').val('any');
         $('form#frm-browse-filter input[name="complete"]').prop('checked', false);
+        $('form#frm-browse-filter input[name="compatible"]').prop('checked', false);
         var s = $('form#frm-browse-filter').serialize();
         filterBusy = true;
         WR.waitElement($('#browseContent'));

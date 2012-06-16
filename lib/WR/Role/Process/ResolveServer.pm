@@ -9,8 +9,6 @@ around 'process' => sub {
     my $res  = $self->$orig;
     my $coll = $self->db->get_collection('cache.server_finder');
 
-    warn __PACKAGE__, ': process', "\n";
-
     if(my $r = $coll->find_one({ _id => sprintf('%d-%s', $res->{player}->{id}, $res->{player}->{name}) })) {
         $res->{player}->{server} = $r->{server};
     } else {

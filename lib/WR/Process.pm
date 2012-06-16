@@ -43,8 +43,6 @@ sub process {
     my $self = shift;
     my $lltrait = 'LL::File';
 
-    warn __PACKAGE__, ': process', "\n";
-
     my %args = (
         bf_key  => $self->bf_key,
     );
@@ -70,7 +68,6 @@ sub process {
 
     my $match_info = { 
         %{$self->_parser->decode_block(1)},
-        version => substr($self->_parser->wot_version, 0, 5),
     };
     my $vehicles = [];
 

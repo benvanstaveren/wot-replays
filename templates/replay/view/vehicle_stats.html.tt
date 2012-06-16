@@ -130,7 +130,7 @@
                 [% IF nxp > 0 %]
                     <span class="green">[% nxp %]</span>
                 [% ELSE %]
-                    <span class="red">[% nxp %]</span>$
+                    <span class="red">[% nxp %]</span>
                 [% END %]
             </td><td>
                 <span class="label small">Net Credits</span>

@@ -2,7 +2,6 @@ package WR::App::Controller::Profile;
 use Mojo::Base 'WR::App::Controller';
 use WR::Query;
 use boolean;
-use WR::MR;
 
 sub check {
     my $self = shift;

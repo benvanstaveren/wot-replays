@@ -15,7 +15,6 @@ has 'sort' => (is => 'ro', isa => 'HashRef', required => 0);
 has '_query' => (is => 'ro', isa => 'HashRef', required => 1, lazy => 1, builder => '_build_query');
 has 'total' => (is => 'ro', isa => 'Num', required => 1, default => 0, writer => '_set_total');
 
-
 sub exec {
     my $self = shift;
 
@@ -85,7 +84,7 @@ sub _build_query {
         );
 
     my $query = {
-        'site.visible' => true,    
+        'site.visible' => true,
     };
 
     my $ors = [];
@@ -138,6 +137,7 @@ sub _build_query {
     }
 
     $query->{'complete'} = true if($args{'complete'});
+    $query->{'version'} = $args{'version'} if($args{'compatible'} == 1); 
     $query->{'player.statistics.survived'} = true if($args{'survived'});
     $query->{'game.arena_id'} = $args{'related'} if($args{'related'});
 

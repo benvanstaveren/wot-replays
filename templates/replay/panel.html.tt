@@ -1,4 +1,4 @@
-<div class="replayPanel box noborder" title="[% replay.site.description |html %]">
+<div class="replayPanel [% IF replay.version != config.wot.version %]incompatibleVersion[% END %] box noborder" title="[% replay.site.description |html %]">
     <div class="columncontainer sw">
         <div class="column col1">
             [% INCLUDE replay/panel/vehiclemap.html.tt %]
@@ -7,7 +7,11 @@
             <div>
                 <h3>
                     <a href="/player/[% replay.player.server %]/[% replay.player.name |uri %]/">[% replay.player.name |html %]</a> - <a href="/vehicle/[% replay.player.vehicle.country  |uri %]/[% replay.player.vehicle.name |uri %]/">[% wr.vehicle_name(replay.player.vehicle.full) |html %]</a> - <a href="/map/[% replay.map.id |uri %]/">[% wr.map_name(replay.map.id) |html %]</a>
-                    <img title="WoT Server" style="width: 20px; height: 20px; float: right; position: relative; top: 0px; right: 1px;" src="//images.wot-replays.org/flag/20x20/[% replay.player.server %].png"/>
+                    <img 
+                        title="[% IF replay.player.server == 'na' %]North American[% ELSIF replay.player.server == 'eu' %]European[% ELSIF replay.player.server == 'sea' %]South-East Asian[% ELSIF replay.player.server == 'ru' %]Russian[% ELSE %]Unknown [% END %] Server"
+                        style="width: 20px; height: 20px; float: right; position: relative; top: 0px; right: 1px;" 
+                        src="//images.wot-replays.org/flag/20x20/[% replay.player.server %].png"/>
+                    <span title="[% IF replay.version == config.wot.version %]Current version[% ELSE %]Incompatible version[% END %]" style="float: right; position: relative; top: 0px; right: 10px; font-size: 75%; color: #666666">[% replay.version %]</span>
                 </h3>
                 <div class="panelStats">
                     <div>
@@ -52,9 +56,9 @@
                 </div>
                 <div class="panelButtons">
                     [% IF !hide_view_button %]
-                        <a title="View this replay" href="/replay/[% replay.id %]"><button class="panelButton view">View ([% replay.site.views || '0' %])</button></a>
+                        <a title="View this replay" href="/replay/[% replay.id %]" class="viewButton"><button class="panelButton view">View ([% replay.site.views || '0' %])</button></a>
                     [% END %]
-                    <a title="Download this replay" href="/download/[% replay.id %].wotreplay" class="downloadButton"><button class="panelButton download">Download (<span class="count">[% replay.site.downloads || '0' %]</span>)</button></a>
+                    <a title="Download this replay" href="/download/[% replay.id %].wotreplay" class="downloadButton [% IF replay.version != config.wot.version %]incompatible[% END %]"><button class="panelButton download">Download (<span class="count">[% replay.site.downloads || '0' %]</span>)</button></a>
                     <a title="View replay comments" href="/replay/[% replay.id %]#rpl-comments"><button class="panelButton comments">Comments (<span class="count">[% replay.site.comments.size || '0' %]</span>)</button></a>
                     <span class="rateButtons">
                         <a href="#" class="rateUp" rid="[% replay.id %]" title="Like this replay"><button class="rateUp"><span>like</span> (<span class="rateUpCount">[% replay.site.like || '0' %]</span>)</button></a>

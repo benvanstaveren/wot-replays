@@ -1,5 +1,10 @@
 package WR::App;
 use Mojo::Base 'Mojolicious';
+
+# this is a bit cheesy but... 
+use FindBin;
+use lib "$FindBin::Bin/../lib";
+
 use WR;
 use WR::Query;
 
@@ -11,7 +16,7 @@ sub startup {
     
     $self->secret(q|youwillneverguessthissecretitssosecret|);
 
-    $self->plugin('Config', { file => 'wr.conf' });
+    my $config = $self->plugin('Config', { file => 'wr.conf' });
     $self->plugin('mongodb', { host => 'localhost', patch_mongodb => 1 });
     $self->plugin('tt_renderer', { template_options => {
         PRE_CHOMP => 0,
@@ -27,6 +32,13 @@ sub startup {
         RELATIVE => 1,
         ABSOLUTE => 1, # otherwise hypnotoad gets a bit cranky
     }});
+
+
+    # set up the key string
+    $config->{wot}->{bf_key} = join('', map { chr(hex($_)) } (split(/\s/, $config->{wot}->{bf_key})));
+    $self->defaults(
+        configuration => $config
+    );
 
     $self->plugin('authentication', {
         validate_user => sub {
@@ -65,7 +77,6 @@ sub startup {
     $r->route('/upload')->to('replays-upload#upload', pageid => 'upload');
 
     $r->route('/download/:replay_id')->to('replays-export#download');
-    $r->route('/raw/:replay_id')->to('replays-export#raw');
 
     $r->route('/replay/browse')->to('replays#browse');
 

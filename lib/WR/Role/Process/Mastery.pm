@@ -6,8 +6,6 @@ around 'process' => sub {
     my $self = shift;
     my $res = $self->$orig;
 
-    warn __PACKAGE__, ': process', "\n";
-
     return $res unless($self->is_complete());
 
     # awarding of mastery badges is something that's a pain in the bloody arse, 

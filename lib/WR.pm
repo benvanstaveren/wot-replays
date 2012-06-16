@@ -1,21 +1,23 @@
 package WR;
 use strict;
 use warnings;
-use FindBin;
 
 BEGIN {
-    use lib "$FindBin::Bin/../lib"; # should be set already but hey... 
-    my @lib_dirs = ();
 
-    # find everything under extlib 
+    # fuck this shit
+    my $libdir = (-e "/home/ben/projects/wot-replays/extlib")
+        ? '/home/ben/projects/wot-replays/extlib'
+        : '/home/wotreplay/wot-replays/extlib';
+
+    my @lib_dirs = ();
     my $dir;
-    opendir($dir, "$FindBin::Bin/../extlib");
+    opendir($dir, $libdir);
     foreach my $e (readdir($dir)) {
         next unless($e !~ /^\./ && -d "$FindBin::Bin/../extlib/$e");
-        if(-e "$FindBin::Bin/../extlib/$e/lib") {
-            push(@lib_dirs, "$FindBin::Bin/../extlib/$e/lib");
+        if(-e "$libdir/$e/lib") {
+            push(@lib_dirs, "$libdir/$e/lib");
         } else {
-            push(@lib_dirs, "$FindBin::Bin/../extlib/$e");
+            push(@lib_dirs, "$libdir/$e");
         }
     }
     closedir($dir);

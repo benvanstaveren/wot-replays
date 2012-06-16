@@ -7,8 +7,6 @@ around 'process' => sub {
     my $self = shift;
     my $res  = $self->$orig;
 
-    warn __PACKAGE__, ': process', "\n";
-
     return $res unless($res->{complete});
 
     my $achievements = WR::Res::Achievements->new();

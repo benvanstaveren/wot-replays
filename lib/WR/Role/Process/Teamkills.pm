@@ -34,8 +34,6 @@ around 'process' => sub {
     my $self = shift;
     my $res  = $self->$orig;
 
-    warn __PACKAGE__, ': process', "\n";
-
     return $res unless($res->{complete});
 
     if(scalar(@{$res->{player}->{statistics}->{teamkill}->{log}}) > 0) {

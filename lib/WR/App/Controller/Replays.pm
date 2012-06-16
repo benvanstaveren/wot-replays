@@ -1,11 +1,8 @@
 package WR::App::Controller::Replays;
 use Mojo::Base 'WR::App::Controller';
+
 use boolean;
-use WR::Parser;
 use WR::Query;
-use FileHandle;
-use Mojo::JSON;
-use JSON::XS;
 
 sub bridge {
     my $self = shift;
@@ -69,16 +66,21 @@ sub browse {
         for(qw/map vehicle player playerpov playerinv vehiclepov vehicleinv server/) {
             $filter->{$_} = $self->req->param($_) if($self->req->param($_));
         }
-
         my $complete = $self->req->param('complete');
         my $survived = $self->req->param('survived');
+        my $compatible = $self->req->param('compatible');
 
         $filter->{complete} = 1 if(defined($complete) && $complete == 1);
         $filter->{survived} = 1 if(defined($survived) && $survived == 1);
+        $filter->{compatible} = 1 if(defined($compatible) && $compatible == 1);
+
         $self->session($skey => $filter);
     }
 
     my $sort = { 'site.uploaded_at' => -1 };
+
+    # fuck with the filter a little
+    $filter->{version} = $self->stash('config')->{wot}->{version} if($filter->{compatible}); 
 
     my $query = $self->wr_query(
         sort => $sort,
