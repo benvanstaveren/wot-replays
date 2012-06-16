@@ -33,7 +33,7 @@ with (
 
 sub error {
     my $self = shift;
-    my $message = shift;
+    my $message = join(' ', @_);
 
     $self->_set_error($message);
     die '[process]: ', $message, "\n";
@@ -61,7 +61,7 @@ sub process {
     $self->_set_parser(try {
         return WR::Parser->new(%args);
     } catch {
-        $self->error('unable to parse replay');
+        $self->error('unable to parse replay: ', $_);
     });
 
     $self->_set_match_result($self->fuck_booleans($self->_parser->decode_block(2))) if($self->_parser->is_complete);
