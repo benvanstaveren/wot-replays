@@ -6,3 +6,4 @@ replays/*
 *.*~
 bin/win32/wru.exe
 tmp/*
+*.wotreplay
