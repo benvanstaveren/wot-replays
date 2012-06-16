@@ -193,15 +193,19 @@ around 'process' => sub {
                 }
             },
             survived => ($self->match_result->[0]->{killerID} > 0) ? false : true,
-            killed_by => ($self->match_result->[0]->{killerID} > 0) ? $res->{result}->{killerID} + 0 : undef,
+            killed_by => ($self->match_result->[0]->{killerID} > 0) ? $self->match_result->[0]->{killerID} + 0 : undef,
             epic => $self->match_result->[0]->{epicAchievements},
         };
+
         for(qw/killed spotted damaged/) {
             $data->{player}->{statistics}->{$_} = $self->match_result->[0]->{$_};
         }
         # arena creation time is time in UTC
         $data->{game}->{time} = $self->match_result->[0]->{arenaCreateTime};
+
+        $data->{player}->{killed_by} = undef if($data->{player}->{killed_by} == 0 || $data->{player}->{killed_by} eq '0');
     }
+
     use warnings;
     return $data;
 };

@@ -4,8 +4,8 @@ use boolean;
 use WR::Process;
 
 use FileHandle;
-use Mojo::JSON;
-use JSON::XS;
+use POSIX();
+use Try::Tiny qw/try catch/;
 
 sub upload {
     my $self = shift;
@@ -26,19 +26,29 @@ sub upload {
                 $asset = $fileasset; # heh
             }
             my $gfs = $self->db('wot-replays')->get_gridfs();
-
             my $pe;
 
-            my $m_data = try {
+            my $tmpnam = POSIX::tmpnam();
+
+            $asset->move_to($tmpnam);
+
+            warn __PACKAGE__, ': trying m_data from asset at ', $tmpnam, "\n";
+            my $m_data;
+
+            try {
                 my $p = WR::Process->new(
-                    file    => $asset->path,
+                    file    => $tmpnam,
                     db      => $self->db('wot-replays'),
                     bf_key  => $self->stash('configuration')->{wot}->{bf_key},
                 );
-                return $p->process();
+                $m_data = $p->process();
             } catch {
                 $pe = $_;
             };
+
+            warn __PACKAGE__, ': got m_data? pe: ', $pe, "\n";
+            use Data::Dumper;
+            warn Dumper($m_data);
 
             $self->respond(stash => { page => { title => 'Upload Replay' }, errormessage => 'Error parsing replay' }, template => 'upload/form') if($pe);
                 
@@ -50,12 +60,13 @@ sub upload {
 
             $gfs->remove({ replay_id => $m_data->{_id} });
 
-            if(my $handle = FileHandle->new($asset->path, 'r')) {
+            if(my $handle = FileHandle->new($tmpnam, 'r')) {
+                warn __PACKAGE__, ': opened asset', "\n";
                 my $f_id = $gfs->insert($handle, {
                     filename    => $upload->filename,
                     replay_id   => $m_data->{_id},
                 }, { safe => 1});
-                unlink($tf);
+                warn __PACKAGE__, ': saved asset', "\n";
                 $m_data->{file} = $f_id;
                 $m_data->{site} = {
                     description => $self->req->param('description'),
@@ -63,7 +74,10 @@ sub upload {
                     uploaded_by => ($self->is_user_authenticated) ? $self->current_user->{_id} : undef,
                     visible     => ($self->req->param('hide') == 1) ? false : true,
                 };
-                $self->db('wot-replays')->get_collection('replays')->save($m_data, { safe =>  });
+                warn __PACKAGE__, ': saving replay', "\n";
+                $self->db('wot-replays')->get_collection('replays')->save($m_data, { safe => 1 });
+
+                warn __PACKAGE__, ': responding', "\n";
 
                 $self->respond(stash => {
                     page => { title => 'Upload Replay' }, 
@@ -74,6 +88,7 @@ sub upload {
             } else {
                 $self->respond(stash => { page => { title => 'Upload Replay' }, errormessage => 'Error saving to gridfs', }, template => 'upload/form');
             }
+            unlink($tmpnam);
         } else {
             $self->respond(template => 'upload/form', stash => {
                 page => { title => 'Upload Replay' },
