@@ -33,7 +33,7 @@ while(my $r = $rc->next()) {
             $m = $process->process();
         } catch {
             $e = $_;
-        }
+        };
 
         unless($e) {
             $m->{file} = $file->info->{_id};
