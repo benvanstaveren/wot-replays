@@ -8,6 +8,8 @@ use lib "$FindBin::Bin/../lib";
 use WR;
 use WR::Query;
 
+use Time::HiRes qw/gettimeofday/;
+
 $Template::Stash::PRIVATE = undef;
 
 # This method will run once at server start
@@ -124,7 +126,6 @@ sub startup {
         my $self = shift;
         return WR::Query->new(@_, coll => $self->db('wot-replays')->get_collection('replays'));
     });
-
 }
 
 1;

@@ -72,7 +72,7 @@
         </div>
         <div id="footer">
             <div style="text-align: center; color: #666666; font-size: 75%; margin: 10px 0px 10px 0px">
-                &copy; 2012 Scrambled - app [% config.versions.app %] / wot [% config.wot.version %]
+                &copy; 2012 Scrambled - app [% config.versions.app %]&nbsp;/&nbsp;wot [% config.wot.version %] [% IF timing_elapsed %]- [% timing_elapsed %][% END %]
             </div>
         </div>
     </body>

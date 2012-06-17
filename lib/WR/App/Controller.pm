@@ -7,6 +7,9 @@ sub respond {
     my $stash = delete($args{'stash'});
 
     $self->stash(%$stash) if(defined($stash));
+    if(my $start = $self->stash('timing.start')) {
+        $self->stash('timing_elapsed' => Time::HiRes::tv_interval($start));
+    }
     $self->render(%args);
 }
 

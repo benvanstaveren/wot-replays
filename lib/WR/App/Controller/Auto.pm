@@ -1,7 +1,6 @@
 package WR::App::Controller::Auto;
 use Mojo::Base 'WR::App::Controller';
 use WR::Res::Achievements;
-use Data::Dumper;
 
 use constant ROMAN_NUMERALS => [qw(0 I II III IV V VI VII VIII IX X)];
 
@@ -97,6 +96,8 @@ sub get_match_result {
 sub index {
     my $self = shift;
 
+    $self->stash('timing.start' => [ Time::HiRes::gettimeofday ]);
+
     my $last_seen = $self->session('last_seen') || 0;
     $self->session('last_seen' => time());
     $self->session('first_visit' => 1) if($last_seen + 86400 < time());
@@ -104,28 +105,6 @@ sub index {
     $self->stash(
         settings => {
             first_visit => $self->session('first_visit'),
-            upload_use_premium => 
-                ($self->is_user_authenticated) 
-                    ? ($self->current_user->{profile}->{premium})
-                        ? 1 
-                        : ($self->session('upload_use_premium') == 1) 
-                            ? 1 
-                            : 0
-                    : ($self->session('upload_use_premium') == 1) 
-                        ? 1 
-                        : 0
-            ,
-            upload_server => 
-                ($self->is_user_authenticated) 
-                    ? ($self->current_user->{profile}->{server})
-                        ? $self->current_user->{profile}->{server}
-                        : ($self->session('upload_server'))
-                            ? $self->session('upload_server')
-                            : ''
-                    : ($self->session('upload_server'))  
-                        ? $self->session('upload_server')
-                        : ''
-            ,
         },
         wr => {
             match_result => sub { return $self->get_match_result() },
@@ -232,9 +211,6 @@ sub index {
             user_display_name => sub {
                 return $self->current_user->{display_name};
             },
-            dump => sub {
-                return Dumper([@_]);
-            }
         },
     );
 
