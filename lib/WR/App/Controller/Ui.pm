@@ -32,7 +32,7 @@ sub generate_replay_count {
         $stats->{$item->{version}}->{($item->{'site.visible'}) ? 'visible' : 'hidden'} = $item->{count};
     }
 
-    return $stats;
+    return $stats || {};
 }
 
 sub index {
@@ -43,14 +43,16 @@ sub index {
         filter => {},
         );
 
+    my $rc = $self->ui_cachable(
+        key => 'frontpage.replay_count',
+        ttl => 120,
+        method => 'generate_replay_count',
+    );
+
     $self->respond(template => 'index', stash => {
         page => { title => 'Home' },
         replays => $query->page(1),
-        replay_count => $self->ui_cachable(
-            key => 'frontpage.replay_count',
-            ttl => 120,
-            method => 'generate_replay_count',
-        ),
+        replay_count => $rc,
     });
 }
 

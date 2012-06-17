@@ -11,7 +11,7 @@ sub ui_cachable {
     my $ttl = $opts{'ttl'} || 120;
 
     if(my $obj = $self->db('wot-replays')->get_collection('ui.cache')->find_one({ _id => $opts{'key'} })) {
-        return $obj->{res} unless($obj->{created} + $ttl < time());
+        return $obj->{value} unless($obj->{created} + $ttl < time());
     }
 
     my $method = $opts{'method'};
@@ -19,7 +19,7 @@ sub ui_cachable {
         $self->db('wot-replays')->get_collection('ui.cache')->save({
             _id     => $opts{'key'},
             created => time(),
-            res     => $res,
+            value   => $res,
         });
         return $res;
     } else {
