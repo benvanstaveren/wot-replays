@@ -1,7 +1,7 @@
 package WR::App::Controller;
 use Mojo::Base 'Mojolicious::Controller';
 
-sub ui_cachable {
+sub cachable {
     my $self = shift;
     my %opts = (@_);
 
@@ -15,12 +15,15 @@ sub ui_cachable {
     }
 
     my $method = $opts{'method'};
-    if(my $res = $self->$method) {
-        $self->db('wot-replays')->get_collection('ui.cache')->save({
+    if(my $res = $self->$method()) {
+        warn 'called $self->', $method, '()', "\n";
+        my $data = {
             _id     => $opts{'key'},
             created => time(),
-            value   => $res,
-        });
+            value   => $res || {},
+        };
+        warn 'saving data: ', Dumper($data), "\n";
+        $self->db('wot-replays')->get_collection('ui.cache')->save($data, { safe => 1 });
         return $res;
     } else {
         return undef;

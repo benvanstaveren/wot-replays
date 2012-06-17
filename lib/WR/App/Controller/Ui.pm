@@ -43,7 +43,7 @@ sub index {
         filter => {},
         );
 
-    my $rc = $self->ui_cachable(
+    my $rc = $self->cachable(
         key => 'frontpage.replay_count',
         ttl => 120,
         method => 'generate_replay_count',
