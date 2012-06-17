@@ -14,13 +14,8 @@ sub about {
     shift->respond(template => 'about', stash => { page => { title => 'About' } });
 }
 
-sub index {
+sub generate_replay_count {
     my $self = shift;
-    my $query = $self->wr_query(
-        sort => { 'site.uploaded_at' => -1 },
-        perpage => 15,
-        filter => {},
-        );
 
     # get the different replays and versions using group()
     my $r_stats = $self->db('wot-replays')->get_collection('replays')->group({
@@ -37,10 +32,25 @@ sub index {
         $stats->{$item->{version}}->{($item->{'site.visible'}) ? 'visible' : 'hidden'} = $item->{count};
     }
 
+    return $stats;
+}
+
+sub index {
+    my $self = shift;
+    my $query = $self->wr_query(
+        sort => { 'site.uploaded_at' => -1 },
+        perpage => 15,
+        filter => {},
+        );
+
     $self->respond(template => 'index', stash => {
         page => { title => 'Home' },
         replays => $query->page(1),
-        replay_count => $stats,
+        replay_count => $self->cachable(
+            key => 'frontpage.replay_count',
+            ttl => 120,
+            method => 'generate_replay_count',
+        ),
     });
 }
 

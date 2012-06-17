@@ -1,0 +1,7 @@
+<div style="width: 640px; height: 480px; margin: 10px auto">
+<object type="application/x-shockwave-flash" style="width:640px; height:480px;" data="http://www.youtube.com/v/[% replay.site.youtube |uri%]?version=3">
+    <param name="movie" value="http://www.youtube.com/v/[% replay.site.youtube |uri %]?version=3" />
+    <param name="allowFullScreen" value="true" />
+    <param name="allowscriptaccess" value="always" />
+</object>
+</div>

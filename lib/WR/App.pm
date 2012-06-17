@@ -38,9 +38,7 @@ sub startup {
 
     # set up the key string
     $config->{wot}->{bf_key} = join('', map { chr(hex($_)) } (split(/\s/, $config->{wot}->{bf_key})));
-    $self->defaults(
-        configuration => $config
-    );
+    $self->defaults(configuration => $config);
 
     $self->plugin('authentication', {
         validate_user => sub {

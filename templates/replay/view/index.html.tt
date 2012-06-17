@@ -1,5 +1,6 @@
 [% WRAPPER wrapper.html.tt %]
     <div class="content nosidebar">
+        fuck: [% replay.site.youtube %] [% replay.site.uploaded_at %]
         <h2 style="margin: 0px 0px 10px 0px">
             <a href="/player/[% replay.player.server |uri %]/[% replay.player.name |uri %]/">[% replay.player.name |html %]</a> - <a href="/vehicle/[% replay.player.vehicle.country  |uri %]/[% replay.player.vehicle.name |uri %]/">[% wr.vehicle_name(replay.player.vehicle.full) |html %]</a> - <a href="/map/[% replay.map.id |uri %]/">[% wr.map_name(replay.map.id) |html %]</a>
 
@@ -15,7 +16,7 @@
                 [% END %]
             [% END %]
 
-                <span title="[% IF replay.version == config.wot.version %]Current version[% ELSE %]Incompatible version[% END %]" style="font-size: 75%; position: relative; top: 2px; right: 10px; line-height: 20px; font-weight: normal; color: #[% IF replay.version == config.wot.version %]666[% ELSE %]e00[% END %]">[% replay.version %]</span>
+                <span title="[% IF replay.version == config.wot.version %]Current version[% ELSE %]Incompatible version[% END %]" style="font-size: 75%; position: relative; top: 2px; right: 10px; margin: 0px 0px 0px 10px; line-height: 20px; font-weight: normal; color: #[% IF replay.version == config.wot.version %]666[% ELSE %]e00[% END %]">[% replay.version %]</span>
                 
                 <a href="#" class="rateUp" rid="[% replay.id %]" title="Like this replay"><button class="rateUp"><span>like</span> (<span class="rateUpCount">[% replay.site.like || '0' %]</span>)</button></a>
                 <a target="_new" href="/download/[% replay.id %].wotreplay" class="downloadButton [% IF replay.version != config.wot.version %]incompatible[% END %]"><button class="panelButton" id="btn-download">Download Replay ([% replay.site.downloads || '0' %])</button></a>
@@ -75,13 +76,39 @@
                         </div>
                     </td>
                     <td style="vertical-align: top">
-                        [% INCLUDE replay/view/vehicle_stats.html.tt %]
+                        <div id="replay-view-content" class="ui-corner-all">
+                            <div class="replay-tabs">
+                                <ul>
+                                    <li><a class="ui-corner-bottom active" href="#vehicle-stats">Statistics</a></li>
+                                    [% IF replay.site.youtube %]
+                                    <li><a class="ui-corner-bottom" href="#youtube">YouTube Video</a></li>
+                                    [% END %]
+                                </ul>
+                            </div>
+                            <div id="vehicle-stats" class="viewcontent">
+                                [% INCLUDE replay/view/vehicle_stats.html.tt %]
+                            </div>
+                            [% IF replay.site.youtube %]
+                                <div id="youtube" style="display: none" class="viewcontent">
+                                    [% INCLUDE replay/view/youtube.html.tt %]
+                                </div>
+                            [% END %]
+                        </div>
                     </td>
                 </tr>
             </tbody>
             </table>
         </div>
-
+        <script type="text/javascript">
+            $('div.replay-tabs a').click(function() {
+                var href = $(this).attr('href');
+                $('div.replay-tabs a').removeClass('active');
+                $(this).addClass('active');
+                $('#replay-view-content div.viewcontent').hide();
+                $('#replay-view-content div' + href).show();
+                return false;
+            });
+        </script>
         [% IF replay.complete %]
             <a name="rpl-teams"></a>
             <h3 style="margin: 25px 0px 10px 0px">Teams</h3>

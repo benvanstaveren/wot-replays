@@ -64,6 +64,41 @@ sub view {
     }
     # FIXME FIXME need to move WR::Auto data into Res core
     my $title = sprintf('This is a replay of a match fought by %s, using the %s vehicle, on map %s', $r->{player}->{name}, $r->{player}->{vehicle}->{name}, $r->{map}->{id});
+
+    # need to bugger up the teams and sort them by the number of frags which we can obtain from the vehicle hash
+    my $frag_sorted_teams = [];
+
+    foreach my $tid (0..1) {
+        my $list = {};
+        foreach my $player (@{$r->{teams}->[$tid]}) {
+            my $frags = $r->{vehicles_hash}->{$player}->{frags} || 0;
+            $list->{$player} = $frags;
+        }
+
+        foreach my $id (sort { $list->{$b} <=> $list->{$a} } (keys(%$list))) {
+            push(@{$frag_sorted_teams->[$tid]}, $id);
+        }
+    }
+
+    $r->{teams} = $frag_sorted_teams;
+
+    use Data::Dumper;
+    warn Dumper($r->{site});
+
+
+    if(my $yt = $r->{site}->{youtube}) {
+        if($yt =~ /^http/) {
+            my $u = Mojo::URL->new($r->{site}->{youtube});
+            if($u->host eq 'youtu.be') {
+                $r->{site}->{youtube} = $u->path;
+            } elsif($u->host eq 'www.youtube.com' ) {
+                $r->{site}->{youtube} = $u->query->param('v');
+            }
+        } else {
+            warn 'already id', "\n";
+        }
+    }
+
     $self->respond(
         stash => {
             replay => $r,

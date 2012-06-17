@@ -32,7 +32,6 @@ sub upload {
 
             $asset->move_to($tmpnam);
 
-            warn __PACKAGE__, ': trying m_data from asset at ', $tmpnam, "\n";
             my $m_data;
 
             try {
@@ -46,10 +45,6 @@ sub upload {
                 $pe = $_;
             };
 
-            warn __PACKAGE__, ': got m_data? pe: ', $pe, "\n";
-            use Data::Dumper;
-            warn Dumper($m_data);
-
             $self->respond(stash => { page => { title => 'Upload Replay' }, errormessage => 'Error parsing replay' }, template => 'upload/form') if($pe);
                 
             $self->respond(stash => { page => { title => 'Upload Replay' }, errormessage => 'That replay seems to exist already' }, template => 'upload/form') and return 0 if($self->db('wot-replays')->get_collection('replays')->find_one({ _id => $m_data->{_id} }));
@@ -61,23 +56,19 @@ sub upload {
             $gfs->remove({ replay_id => $m_data->{_id} });
 
             if(my $handle = FileHandle->new($tmpnam, 'r')) {
-                warn __PACKAGE__, ': opened asset', "\n";
                 my $f_id = $gfs->insert($handle, {
                     filename    => $upload->filename,
                     replay_id   => $m_data->{_id},
                 }, { safe => 1});
-                warn __PACKAGE__, ': saved asset', "\n";
                 $m_data->{file} = $f_id;
                 $m_data->{site} = {
                     description => $self->req->param('description'),
                     uploaded_at => $f_id->get_time,
                     uploaded_by => ($self->is_user_authenticated) ? $self->current_user->{_id} : undef,
                     visible     => ($self->req->param('hide') == 1) ? false : true,
+                    youtube     => $self->req->param('youtube'),
                 };
-                warn __PACKAGE__, ': saving replay', "\n";
                 $self->db('wot-replays')->get_collection('replays')->save($m_data, { safe => 1 });
-
-                warn __PACKAGE__, ': responding', "\n";
 
                 $self->respond(stash => {
                     page => { title => 'Upload Replay' }, 
