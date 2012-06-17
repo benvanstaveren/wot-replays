@@ -32,6 +32,8 @@ sub generate_replay_count {
         $stats->{$item->{version}}->{($item->{'site.visible'}) ? 'visible' : 'hidden'} = $item->{count};
     }
 
+    delete($stats->{''});
+
     return $stats || {};
 }
 
