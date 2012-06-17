@@ -124,6 +124,35 @@ sub startup {
         my $self = shift;
         return WR::Query->new(@_, coll => $self->db('wot-replays')->get_collection('replays'));
     });
+
+    $self->helper(cachable => sub {
+        my $self = shift;
+        my %opts = (@_);
+
+        use Data::Dumper;
+        warn Dumper({%opts});
+
+        my $ttl = $opts{'ttl'} || 120;
+
+        if(my $obj = $self->db('wot-replays')->get_collection('ui.cache')->find_one({ _id => $opts{'key'} })) {
+            return $obj->{value} unless($obj->{created} + $ttl < time());
+        }
+
+        my $method = $opts{'method'};
+        if(my $res = $self->$method()) {
+            warn 'called $self->', $method, '()', "\n";
+            my $data = {
+                _id     => $opts{'key'},
+                created => time(),
+                value   => $res || {},
+            };
+            warn 'saving data: ', Dumper($data), "\n";
+            $self->db('wot-replays')->get_collection('cache')->save($data, { safe => 1 });
+            return $res;
+        } else {
+            return undef;
+        }
+    });
 }
 
 1;
