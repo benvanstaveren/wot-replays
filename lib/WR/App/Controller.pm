@@ -5,6 +5,9 @@ sub ui_cachable {
     my $self = shift;
     my %opts = (@_);
 
+    use Data::Dumper;
+    warn Dumper({%opts});
+
     my $ttl = $opts{'ttl'} || 120;
 
     if(my $obj = $self->db('wot-replays')->get_collection('ui.cache')->find_one({ _id => $opts{'key'} })) {
