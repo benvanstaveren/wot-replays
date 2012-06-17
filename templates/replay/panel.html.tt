@@ -56,7 +56,7 @@
                 </div>
                 <div class="panelButtons">
                     [% IF !hide_view_button %]
-                        <a title="View this replay" href="/replay/[% replay.id %]" class="viewButton"><button class="panelButton view">View ([% replay.site.views || '0' %])</button></a>
+                        <a title="View this replay" href="/replay/[% replay.id %]" class="viewButton"><button class="panelButton view">[% IF replay.site.youtube %]<span class="icon youtube"></span>[% END %] View ([% replay.site.views || '0' %])</button></a>
                     [% END %]
                     <a title="Download this replay" href="/download/[% replay.id %].wotreplay" class="downloadButton [% IF replay.version != config.wot.version %]incompatible[% END %]"><button class="panelButton download">Download (<span class="count">[% replay.site.downloads || '0' %]</span>)</button></a>
                     <a title="View replay comments" href="/replay/[% replay.id %]#rpl-comments"><button class="panelButton comments">Comments (<span class="count">[% replay.site.comments.size || '0' %]</span>)</button></a>
