@@ -40,11 +40,14 @@ sub generate_replay_count {
 sub index {
     my $self = shift;
 
-    # let's just do this by hand 
-    my $replays = [ $self->db('wot-replays')->get_collection('replays')->find({
-        'site.visible' => true,
-        'version'      => $self->stash('config')->{wot}->{version},
-        })->sort({ 'site.uploaded_at' => -1 })->limit(15)->all() ];
+    # let's just do this by hand, fuck TT and it's private setting and it not wanting to use it properly.
+    # fuck it up the ass with a big black rubber cock.
+    my $replays = [ 
+        map { { %{$_}, id => $_->{_id} } } $self->db('wot-replays')->get_collection('replays')->find({
+            'site.visible' => true,
+            'version'      => $self->stash('config')->{wot}->{version},
+        })->sort({ 'site.uploaded_at' => -1 })->limit(15)->all()
+    ];
 
     my $rc = $self->cachable(
         key => 'frontpage_replay_count',
