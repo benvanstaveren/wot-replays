@@ -39,11 +39,12 @@ sub generate_replay_count {
 
 sub index {
     my $self = shift;
-    my $query = $self->wr_query(
-        sort => { 'site.uploaded_at' => -1 },
-        perpage => 15,
-        filter => {},
-        );
+
+    # let's just do this by hand 
+    my $replays = [ $self->db('wot-replays')->get_collection('replays')->find({
+        'site.visible' => true,
+        'site.version' => $self->stash('config')->{wot}->{version},
+        })->sort({ 'site.uploaded_at' => -1 })->limit(15)->all() ];
 
     my $rc = $self->cachable(
         key => 'frontpage_replay_count',
@@ -53,7 +54,7 @@ sub index {
 
     $self->respond(template => 'index', stash => {
         page => { title => 'Home' },
-        replays => $query->page(1),
+        replays => $replays,
         replay_count => $rc,
     });
 }
