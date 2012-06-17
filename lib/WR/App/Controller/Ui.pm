@@ -43,7 +43,7 @@ sub index {
     # let's just do this by hand 
     my $replays = [ $self->db('wot-replays')->get_collection('replays')->find({
         'site.visible' => true,
-        'site.version' => $self->stash('config')->{wot}->{version},
+        'version'      => $self->stash('config')->{wot}->{version},
         })->sort({ 'site.uploaded_at' => -1 })->limit(15)->all() ];
 
     my $rc = $self->cachable(
