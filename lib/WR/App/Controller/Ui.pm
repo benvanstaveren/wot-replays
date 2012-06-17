@@ -44,7 +44,7 @@ sub index {
         );
 
     my $rc = $self->cachable(
-        key => 'frontpage.replay_count',
+        key => 'frontpage_replay_count',
         ttl => 120,
         method => 'generate_replay_count',
     );
