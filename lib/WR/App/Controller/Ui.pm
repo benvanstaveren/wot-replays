@@ -46,7 +46,7 @@ sub index {
     $self->respond(template => 'index', stash => {
         page => { title => 'Home' },
         replays => $query->page(1),
-        replay_count => $self->cachable(
+        replay_count => $self->ui_cachable(
             key => 'frontpage.replay_count',
             ttl => 120,
             method => 'generate_replay_count',

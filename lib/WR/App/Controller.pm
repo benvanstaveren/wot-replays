@@ -1,21 +1,20 @@
 package WR::App::Controller;
 use Mojo::Base 'Mojolicious::Controller';
 
-sub cachable {
+sub ui_cachable {
     my $self = shift;
     my %opts = (@_);
 
     my $ttl = $opts{'ttl'} || 120;
-    my $key = $opts{'key'}; 
 
-    if(my $obj = $self->db('wot-replays')->get_collection('ui.cache')->find_one({ _id => $key })) {
+    if(my $obj = $self->db('wot-replays')->get_collection('ui.cache')->find_one({ _id => $opts{'key'} })) {
         return $obj->{res} unless($obj->{created} + $ttl < time());
     }
 
     my $method = $opts{'method'};
     if(my $res = $self->$method) {
         $self->db('wot-replays')->get_collection('ui.cache')->save({
-            _id     => $key,
+            _id     => $opts{'key'},
             created => time(),
             res     => $res,
         });
