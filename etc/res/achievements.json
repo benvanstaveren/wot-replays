@@ -67,9 +67,5 @@
     },
     "kamikaze": {
         "label": "Kamikaze"
-    },
-    "custom_scope_dope": {
-        "label": "Scope Dope",
-        "description": "Awarded to those who achieved not only 100% accuracy, but also managed to kill each enemy with a single shot"
     }
 }

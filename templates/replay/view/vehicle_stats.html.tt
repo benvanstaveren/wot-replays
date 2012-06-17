@@ -44,7 +44,8 @@
                     [% awards = awards + 1 %]
                 [% END %]
                 [% FOREACH award IN replay.player.statistics.epic %]
-                    <span>[% wr.res.achievements.i18n(award) %]</span>
+                    [% idstr = wr.res.achievements.index_to_epic_idstr(award) %]
+                    <span>[% wr.res.achievements.i18n(idstr) %]</span>
                     [% awards = awards + 1 %]
                 [% END %]
                 [% IF replay.player.statistics.mastery > 0 %]
