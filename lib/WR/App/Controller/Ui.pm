@@ -49,16 +49,16 @@ sub index {
         })->sort({ 'site.uploaded_at' => -1 })->limit(15)->all()
     ];
 
-    my $rc = $self->cachable(
-        key => 'frontpage_replay_count',
-        ttl => 120,
-        method => 'generate_replay_count',
-    );
+    #my $rc = $self->cachable(
+    #    key => 'frontpage_replay_count',
+    #    ttl => 120,
+    #    method => 'generate_replay_count',
+    #);
 
     $self->respond(template => 'index', stash => {
         page => { title => 'Home' },
         replays => $replays,
-        replay_count => $rc,
+        #replay_count => $rc,
     });
 }
 

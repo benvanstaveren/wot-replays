@@ -1,0 +1,6 @@
+    <h3>Donate</h3>
+    <div>
+        The costs for running the site have gone up a lot, so if you can, please donate your spare change. 
+        <br/><br/>
+        [% INCLUDE donatebutton.html.tt %]
+    </div>
