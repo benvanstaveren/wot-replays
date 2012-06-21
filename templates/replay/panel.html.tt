@@ -11,7 +11,7 @@
                         title="[% IF replay.player.server == 'na' %]North American[% ELSIF replay.player.server == 'eu' %]European[% ELSIF replay.player.server == 'sea' %]South-East Asian[% ELSIF replay.player.server == 'ru' %]Russian[% ELSE %]Unknown [% END %] Server"
                         style="width: 20px; height: 20px; float: right; position: relative; top: 0px; right: 1px;" 
                         src="//images.wot-replays.org/flag/20x20/[% replay.player.server %].png"/>
-                    <span title="[% IF replay.version == config.wot.version %]Current version[% ELSE %]Incompatible version[% END %]" style="float: right; position: relative; top: 0px; right: 10px; font-size: 75%; color: #666666">[% replay.version %]</span>
+                    <span title="[% IF replay.version == config.wot.version %]Current version[% ELSE %]Incompatible version[% END %]" style="float: right; position: relative; top: 0px; right: 10px; font-size: 75%; color: #6[% IF replay.version == config.wot.version %]66[% ELSE %]00[% END %]">[% replay.version %]</span>
                 </h3>
                 <div class="panelStats">
                     <div>
