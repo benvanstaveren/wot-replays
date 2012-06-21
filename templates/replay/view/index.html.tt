@@ -67,10 +67,7 @@
                         <div style="margin-top: 5px; padding: 10px">
                             <span class="label small">Related</span>
                             <div>
-                                [% FOREACH rel IN related %]
-                                    <a href="/replay/[% rel.id %]">[% rel.player.name |html%] - [% wr.vehicle_name(rel.player.vehicle.full) %]</a><br/>
-                                [% END %]
-                                [% IF related.size == 0 %]No related replays[% END %]
+                                temporarily disabled
                             </div>
                         </div>
                     </td>
