@@ -21,5 +21,5 @@ my $parser = WR::Parser->new(
     bf_key => WOT_BF_KEY
     );
 
-print Dumper({ block1 => $parser->decode_block(1), block2 => $parser->decode_block(2) });
+print Dumper({ block1 => $parser->decode_block(1), ($parser->is_complete) ? (block2 => $parser->decode_block(2)) : ()});
 

@@ -106,14 +106,8 @@
             });
         </script>
         [% IF replay.complete %]
-            <a name="rpl-teams"></a>
-            <h3 style="margin: 25px 0px 10px 0px">Teams</h3>
-            <div class="box" style="padding: 5px; background: rgba(0,0,0,0.2) none repeat scroll 0 0">
-                <div class="replayTeamList" id="replayTeamOne">[% INCLUDE replay/view/team/list.html.tt players=replay.teams.0 %]</div>
-                <div class="replayTeamList" id="replayTeamTwo">[% INCLUDE replay/view/team/list.html.tt players=replay.teams.1 %]</div>
-                <div class="clear"></div>
-            </div>
-        [% END %]
+            [% INCLUDE replay/view/teams.html.tt %]
+       [% END %]
         <a name="rpl-comments"></a>
         <h3 style="margin: 25px 0px 10px 0px">Comments</h3>
         <div class="box" id="replaycomments" style="padding: 5px; background: rgba(0,0,0,0.2) none repeat scroll 0 0">

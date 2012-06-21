@@ -1,0 +1,7 @@
+            [% pname = replay.player.name %]
+            [% p = replay.vehicles_hash.$pname %]
+            [% IF p.team == 2 %]
+                Attackers lose
+            [% ELSE %]
+                Defenders lose
+            [% END %]

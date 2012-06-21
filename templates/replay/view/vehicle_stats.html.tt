@@ -5,13 +5,7 @@
             <span class="label">Match result</span>
             <div style="margin-right: 5px">
             [% IF replay.complete %]
-                [% IF replay.game.isWin == 1 %]
-                    <span class="green">[% wr.match_result() %]</span>
-                [% ELSIF replay.game.isDraw == 1 %]
-                    <span>Draw</span>
-                [% ELSE %]
-                    <span class="red">[% wr.match_result() %]
-                [% END %]
+                [% INCLUDE replay/view/matchresult.html.tt %]
             [% ELSE %]
                 <span>unknown</span>
             [% END %]
