@@ -71,8 +71,11 @@
             </div>
         </div>
         <div id="footer">
-            <div style="text-align: center; color: #666666; font-size: 75%; margin: 10px 0px 10px 0px">
-                &copy; 2012 Scrambled - app [% config.versions.app %] [% config.mode %]&nbsp;/&nbsp;wot [% config.wot.version %] [% IF timing_elapsed %]- [% timing_elapsed %][% END %]
+            <div>
+                &copy; 2012 Scrambled | app [% config.versions.app %] [% config.mode %] | wot [% config.wot.version %] [% IF timing_elapsed %]| [% timing_elapsed %][% END %]
+            </div>
+            <div>
+                [% config.wot.bf_key %]
             </div>
         </div>
     </body>
