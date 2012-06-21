@@ -75,7 +75,7 @@
                 &copy; 2012 Scrambled | app [% config.versions.app %] [% config.mode %] | wot [% config.wot.version %] [% IF timing_elapsed %]| [% timing_elapsed %][% END %]
             </div>
             <div>
-                [% config.wot.bf_key %]
+                [% config.wot.fuck_you_wg %]
             </div>
         </div>
     </body>
