@@ -7,13 +7,16 @@ use Data::Localize::Gettext;
 use MongoDB;
 use boolean;
 
-my $text = Data::Localize::Gettext->new(path => '../../etc/res/raw/lang/arenas.po');
+die 'Usage: mongo-maps.pl <version>', "\n" unless($ARGV[0]);
+my $version = $ARGV[0];
+
+my $text = Data::Localize::Gettext->new(path => sprintf('../etc/res/raw/%s/lang/arenas.po', $version));
 
 my $mongo  = MongoDB::Connection->new();
 my $db     = $mongo->get_database('wot-replays');
 my $coll   = $db->get_collection('data.maps');
 
-my $x = XMLin('../../etc/res/raw/arena.xml');
+my $x = XMLin(sprintf('../etc/res/raw/%s/arena.xml', $version));
 
 foreach my $map (keys(%{$x->{map}})) {
     my ($nid, $id) = split(/_/, $map, 2);
