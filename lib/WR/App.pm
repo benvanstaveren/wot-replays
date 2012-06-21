@@ -114,6 +114,10 @@ sub startup {
 
         $pb->route('/settings/auto')->to('profile#settings_auto', pageid => 'profile');
 
+    my $stats = $r->under('/stats');
+        $stats->route('/')->to('stats#index');
+        $stats->route('/:statid')->to('stats#view');
+
     $r->route('/wru')->to('wru#index', pageid => 'wru');
     $r->route('/wru/get_token')->to('wru#get_token');
     $r->route('/wru/upload')->to('wru#upload');

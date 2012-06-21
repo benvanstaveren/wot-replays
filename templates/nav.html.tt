@@ -17,11 +17,6 @@
                         Players
                     </a>
                 </li>
-                <li class="nav-item clans [% IF pageid == 'clan' %]active[% END %]">
-                    <a class="js-hover" href="/clans">
-                        Clans
-                    </a>
-                </li>
                 <li class="nav-item vehicles [% IF pageid == 'vehicle' %]active[% END %]">
                     <a class="js-hover" href="/vehicles">
                         Vehicles
@@ -30,6 +25,11 @@
                 <li class="nav-item maps [% IF pageid == 'map' %]active[% END %]">
                     <a class="js-hover" href="/maps">
                         Maps
+                    </a>
+                </li>
+                <li style="margin: 0px 0px 0px 20px" class="nav-item maps [% IF pageid == 'stats' %]active[% END %]">
+                    <a class="js-hover" href="/stats">
+                        Statistics
                     </a>
                 </li>
             </ul>
