@@ -1,0 +1,741 @@
+$VAR1 = {
+          'block2' => [
+                        {
+                          'honorTitles' => [
+                                             201326594,
+                                             201326592,
+                                             201326593,
+                                             234881026,
+                                             234881024,
+                                             234881025,
+                                             218103810,
+                                             218103809,
+                                             218103809
+                                           ],
+                          'markOfMastery' => 1,
+                          'killedTypeCompDescrs' => [
+                                                      8961,
+                                                      54289,
+                                                      2593,
+                                                      7969
+                                                    ],
+                          'tmenXP' => 779,
+                          'vehicleID' => 4068581,
+                          'freeXP' => 38,
+                          'heroVehicleIDs' => [],
+                          'isWinner' => 1,
+                          'epicAchievements' => [],
+                          'factors' => {
+                                         'dailyXPFactor10' => 10,
+                                         'aogasFactor10' => 10
+                                       },
+                          'shots' => 8,
+                          'killed' => [
+                                        4068578,
+                                        4068599,
+                                        4068583,
+                                        4068595
+                                      ],
+                          'spotted' => [],
+                          'potentialDamageReceived' => 0,
+                          'creditsContributionIn' => 0,
+                          'achieveIndices' => [],
+                          'bonusType' => 1,
+                          'tkillLog' => [],
+                          'tkillRating' => '0',
+                          'credits' => 18901,
+                          'eventIndices' => [],
+                          'creditsContributionOut' => 0,
+                          'gold' => 0,
+                          'hits' => 3,
+                          'xpPenalty' => 0,
+                          'damaged' => [
+                                         4068595,
+                                         4068578,
+                                         4068583,
+                                         4068599
+                                       ],
+                          'creditsPenalty' => 0,
+                          'droppedCapturePoints' => 0,
+                          'arenaTypeID' => 131085,
+                          'damageReceived' => 0,
+                          'repair' => 0,
+                          'crewActivityFlags' => [
+                                                   1,
+                                                   1,
+                                                   1,
+                                                   1,
+                                                   1
+                                                 ],
+                          'health' => 400,
+                          'ammo' => [
+                                      19530,
+                                      20,
+                                      19786,
+                                      0,
+                                      13898,
+                                      0,
+                                      1275,
+                                      1,
+                                      763,
+                                      1,
+                                      251,
+                                      1
+                                    ],
+                          'killerID' => 0,
+                          'vehicleLockMode' => 0,
+                          'damageDealt' => 1965,
+                          'arenaCreateTime' => 1340224852,
+                          'shotsReceived' => 0,
+                          'xp' => 779,
+                          'lifeTime' => 265,
+                          'potentialDamageDealt' => 2850,
+                          'capturePoints' => 0
+                        },
+                        {
+                          '4068593' => {
+                                         'isAlive' => bless( do{\(my $o = 1)}, 'JSON::XS::Boolean' ),
+                                         'vehicleType' => 'ussr:SU-14',
+                                         'events' => {},
+                                         'name' => 'GrimTanker8604',
+                                         'isTeamKiller' => bless( do{\(my $o = 0)}, 'JSON::XS::Boolean' ),
+                                         'clanAbbrev' => '',
+                                         'team' => 2
+                                       },
+                          '4068591' => {
+                                         'isAlive' => $VAR1->{'block2'}[1]{'4068593'}{'isAlive'},
+                                         'vehicleType' => 'ussr:T-50',
+                                         'events' => {},
+                                         'name' => 'Beware',
+                                         'isTeamKiller' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                         'clanAbbrev' => '',
+                                         'team' => 2
+                                       },
+                          '4068598' => {
+                                         'isAlive' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                         'vehicleType' => 'ussr:ISU-152',
+                                         'events' => {},
+                                         'name' => 'DeusEstMortuus',
+                                         'isTeamKiller' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                         'clanAbbrev' => '',
+                                         'team' => 1
+                                       },
+                          '4068601' => {
+                                         'isAlive' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                         'vehicleType' => 'germany:G_Panther',
+                                         'events' => {},
+                                         'name' => 'EvilTed',
+                                         'isTeamKiller' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                         'clanAbbrev' => '',
+                                         'team' => 1
+                                       },
+                          '4068586' => {
+                                         'isAlive' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                         'vehicleType' => 'germany:JagdPanther',
+                                         'events' => {},
+                                         'name' => 'Goatmonkey',
+                                         'isTeamKiller' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                         'clanAbbrev' => 'WIND',
+                                         'team' => 2
+                                       },
+                          '4068600' => {
+                                         'isAlive' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                         'vehicleType' => 'ussr:SU-14',
+                                         'events' => {},
+                                         'name' => 'Justintime69',
+                                         'isTeamKiller' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                         'clanAbbrev' => '',
+                                         'team' => 1
+                                       },
+                          '4068580' => {
+                                         'isAlive' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                         'vehicleType' => 'ussr:A-20',
+                                         'events' => {},
+                                         'name' => 'NoelRailGun',
+                                         'isTeamKiller' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                         'clanAbbrev' => '',
+                                         'team' => 1
+                                       },
+                          '4068602' => {
+                                         'isAlive' => $VAR1->{'block2'}[1]{'4068593'}{'isAlive'},
+                                         'vehicleType' => 'usa:T34_hvy',
+                                         'events' => {},
+                                         'name' => 'HK_deadagain1975',
+                                         'isTeamKiller' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                         'clanAbbrev' => '',
+                                         'team' => 2
+                                       },
+                          '4068585' => {
+                                         'isAlive' => $VAR1->{'block2'}[1]{'4068593'}{'isAlive'},
+                                         'vehicleType' => 'usa:T32',
+                                         'events' => {},
+                                         'name' => 'Rainman1225',
+                                         'isTeamKiller' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                         'clanAbbrev' => '',
+                                         'team' => 2
+                                       },
+                          '4068595' => {
+                                         'isAlive' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                         'vehicleType' => 'usa:M12',
+                                         'events' => {},
+                                         'name' => 'philmo7',
+                                         'isTeamKiller' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                         'clanAbbrev' => 'RDTT2',
+                                         'team' => 1
+                                       },
+                          '4068577' => {
+                                         'isAlive' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                         'vehicleType' => 'ussr:KV-5',
+                                         'events' => {},
+                                         'name' => 'jrg197593',
+                                         'isTeamKiller' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                         'clanAbbrev' => 'HITC',
+                                         'team' => 1
+                                       },
+                          '4068596' => {
+                                         'isAlive' => $VAR1->{'block2'}[1]{'4068593'}{'isAlive'},
+                                         'vehicleType' => 'ussr:IS-3',
+                                         'events' => {},
+                                         'name' => 'Diamonstar91',
+                                         'isTeamKiller' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                         'clanAbbrev' => '65DIV',
+                                         'team' => 2
+                                       },
+                          '4068576' => {
+                                         'isAlive' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                         'vehicleType' => 'usa:Pershing',
+                                         'events' => {},
+                                         'name' => 'Absath',
+                                         'isTeamKiller' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                         'clanAbbrev' => '',
+                                         'team' => 1
+                                       },
+                          '4068590' => {
+                                         'isAlive' => $VAR1->{'block2'}[1]{'4068593'}{'isAlive'},
+                                         'vehicleType' => 'france:AMX_50_120',
+                                         'events' => {},
+                                         'name' => 'harnas1',
+                                         'isTeamKiller' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                         'clanAbbrev' => '1RCR',
+                                         'team' => 2
+                                       },
+                          '4068575' => {
+                                         'isAlive' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                         'vehicleType' => 'germany:G_Panther',
+                                         'events' => {},
+                                         'name' => 'Tazz3',
+                                         'isTeamKiller' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                         'clanAbbrev' => '',
+                                         'team' => 2
+                                       },
+                          '4068589' => {
+                                         'isAlive' => $VAR1->{'block2'}[1]{'4068593'}{'isAlive'},
+                                         'vehicleType' => 'germany:VK3001P',
+                                         'events' => {},
+                                         'name' => 'Hoplite007',
+                                         'isTeamKiller' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                         'clanAbbrev' => '',
+                                         'team' => 2
+                                       },
+                          '4068599' => {
+                                         'isAlive' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                         'vehicleType' => 'germany:Lowe',
+                                         'events' => {},
+                                         'name' => 'DaddyStroke',
+                                         'isTeamKiller' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                         'clanAbbrev' => '',
+                                         'team' => 1
+                                       },
+                          '4068597' => {
+                                         'isAlive' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                         'vehicleType' => 'germany:Pz38_NA',
+                                         'events' => {},
+                                         'name' => 'jack456456',
+                                         'isTeamKiller' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                         'clanAbbrev' => '10AB',
+                                         'team' => 2
+                                       },
+                          '4068581' => {
+                                         'isAlive' => $VAR1->{'block2'}[1]{'4068593'}{'isAlive'},
+                                         'vehicleType' => 'france:Lorraine155_50',
+                                         'events' => {},
+                                         'name' => 'Raigir',
+                                         'isTeamKiller' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                         'clanAbbrev' => 'FORGE',
+                                         'team' => 2
+                                       },
+                          '4068594' => {
+                                         'isAlive' => $VAR1->{'block2'}[1]{'4068593'}{'isAlive'},
+                                         'vehicleType' => 'france:AMX_13_75',
+                                         'events' => {},
+                                         'name' => 'thibaud',
+                                         'isTeamKiller' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                         'clanAbbrev' => '',
+                                         'team' => 2
+                                       },
+                          '4068584' => {
+                                         'isAlive' => $VAR1->{'block2'}[1]{'4068593'}{'isAlive'},
+                                         'vehicleType' => 'germany:Lowe',
+                                         'events' => {},
+                                         'name' => '1bubba1',
+                                         'isTeamKiller' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                         'clanAbbrev' => 'HK_',
+                                         'team' => 2
+                                       },
+                          '4068587' => {
+                                         'isAlive' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                         'vehicleType' => 'germany:Lowe',
+                                         'events' => {},
+                                         'name' => 'xDI_DeaD_Peter',
+                                         'isTeamKiller' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                         'clanAbbrev' => 'S-A-S',
+                                         'team' => 1
+                                       },
+                          '4068579' => {
+                                         'isAlive' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                         'vehicleType' => 'usa:M18_Hellcat',
+                                         'events' => {},
+                                         'name' => 'CptJericho',
+                                         'isTeamKiller' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                         'clanAbbrev' => '',
+                                         'team' => 2
+                                       },
+                          '4068583' => {
+                                         'isAlive' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                         'vehicleType' => 'usa:T30',
+                                         'events' => {},
+                                         'name' => 'xBroadswordx',
+                                         'isTeamKiller' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                         'clanAbbrev' => 'EXT',
+                                         'team' => 1
+                                       },
+                          '4068582' => {
+                                         'isAlive' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                         'vehicleType' => 'usa:M18_Hellcat',
+                                         'events' => {},
+                                         'name' => 'excided',
+                                         'isTeamKiller' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                         'clanAbbrev' => 'JAB',
+                                         'team' => 1
+                                       },
+                          '4068578' => {
+                                         'isAlive' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                         'vehicleType' => 'ussr:KV-13',
+                                         'events' => {},
+                                         'name' => 'Backfat',
+                                         'isTeamKiller' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                         'clanAbbrev' => '',
+                                         'team' => 1
+                                       },
+                          '4068592' => {
+                                         'isAlive' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                         'vehicleType' => 'germany:VK1602',
+                                         'events' => {},
+                                         'name' => 'Tarheel_1',
+                                         'isTeamKiller' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                         'clanAbbrev' => '',
+                                         'team' => 1
+                                       },
+                          '4068603' => {
+                                         'isAlive' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                         'vehicleType' => 'china:Ch01_Type59',
+                                         'events' => {},
+                                         'name' => 'Maloolaba',
+                                         'isTeamKiller' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                         'clanAbbrev' => '',
+                                         'team' => 2
+                                       },
+                          '4068574' => {
+                                         'isAlive' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                         'vehicleType' => 'ussr:T-50',
+                                         'events' => {},
+                                         'name' => 'joorr660',
+                                         'isTeamKiller' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                         'clanAbbrev' => 'QCEXT',
+                                         'team' => 1
+                                       },
+                          '4068588' => {
+                                         'isAlive' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                         'vehicleType' => 'ussr:T_50_2',
+                                         'events' => {},
+                                         'name' => 'jeffpenn',
+                                         'isTeamKiller' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                         'clanAbbrev' => '',
+                                         'team' => 1
+                                       }
+                        },
+                        {
+                          '4068593' => {
+                                         'frags' => 2
+                                       },
+                          '4068591' => {
+                                         'frags' => 0
+                                       },
+                          '4068598' => {
+                                         'frags' => 0
+                                       },
+                          '4068601' => {
+                                         'frags' => 2
+                                       },
+                          '4068586' => {
+                                         'frags' => 0
+                                       },
+                          '4068600' => {
+                                         'frags' => 1
+                                       },
+                          '4068580' => {
+                                         'frags' => 0
+                                       },
+                          '4068602' => {
+                                         'frags' => 2
+                                       },
+                          '4068585' => {
+                                         'frags' => 1
+                                       },
+                          '4068595' => {
+                                         'frags' => 0
+                                       },
+                          '4068577' => {
+                                         'frags' => 1
+                                       },
+                          '4068596' => {
+                                         'frags' => 1
+                                       },
+                          '4068576' => {
+                                         'frags' => 0
+                                       },
+                          '4068590' => {
+                                         'frags' => 3
+                                       },
+                          '4068575' => {
+                                         'frags' => 0
+                                       },
+                          '4068589' => {
+                                         'frags' => 0
+                                       },
+                          '4068599' => {
+                                         'frags' => 0
+                                       },
+                          '4068597' => {
+                                         'frags' => 0
+                                       },
+                          '4068581' => {
+                                         'frags' => 4
+                                       },
+                          '4068594' => {
+                                         'frags' => 0
+                                       },
+                          '4068584' => {
+                                         'frags' => 0
+                                       },
+                          '4068587' => {
+                                         'frags' => 1
+                                       },
+                          '4068579' => {
+                                         'frags' => 0
+                                       },
+                          '4068583' => {
+                                         'frags' => 0
+                                       },
+                          '4068582' => {
+                                         'frags' => 0
+                                       },
+                          '4068578' => {
+                                         'frags' => 0
+                                       },
+                          '4068592' => {
+                                         'frags' => 0
+                                       },
+                          '4068603' => {
+                                         'frags' => 2
+                                       },
+                          '4068574' => {
+                                         'frags' => 0
+                                       },
+                          '4068588' => {
+                                         'frags' => 0
+                                       }
+                        }
+                      ],
+          'block1' => {
+                        'vehicles' => {
+                                        '4068593' => {
+                                                       'isAlive' => $VAR1->{'block2'}[1]{'4068593'}{'isAlive'},
+                                                       'vehicleType' => 'ussr:SU-14',
+                                                       'events' => {},
+                                                       'name' => 'GrimTanker8604',
+                                                       'isTeamKiller' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                                       'clanAbbrev' => '',
+                                                       'team' => 2
+                                                     },
+                                        '4068591' => {
+                                                       'isAlive' => $VAR1->{'block2'}[1]{'4068593'}{'isAlive'},
+                                                       'vehicleType' => 'ussr:T-50',
+                                                       'events' => {},
+                                                       'name' => 'Beware',
+                                                       'isTeamKiller' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                                       'clanAbbrev' => '',
+                                                       'team' => 2
+                                                     },
+                                        '4068598' => {
+                                                       'isAlive' => $VAR1->{'block2'}[1]{'4068593'}{'isAlive'},
+                                                       'vehicleType' => 'ussr:ISU-152',
+                                                       'events' => {},
+                                                       'name' => 'DeusEstMortuus',
+                                                       'isTeamKiller' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                                       'clanAbbrev' => '',
+                                                       'team' => 1
+                                                     },
+                                        '4068601' => {
+                                                       'isAlive' => $VAR1->{'block2'}[1]{'4068593'}{'isAlive'},
+                                                       'vehicleType' => 'germany:G_Panther',
+                                                       'events' => {},
+                                                       'name' => 'EvilTed',
+                                                       'isTeamKiller' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                                       'clanAbbrev' => '',
+                                                       'team' => 1
+                                                     },
+                                        '4068586' => {
+                                                       'isAlive' => $VAR1->{'block2'}[1]{'4068593'}{'isAlive'},
+                                                       'vehicleType' => 'germany:JagdPanther',
+                                                       'events' => {},
+                                                       'name' => 'Goatmonkey',
+                                                       'isTeamKiller' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                                       'clanAbbrev' => 'WIND',
+                                                       'team' => 2
+                                                     },
+                                        '4068600' => {
+                                                       'isAlive' => $VAR1->{'block2'}[1]{'4068593'}{'isAlive'},
+                                                       'vehicleType' => 'ussr:SU-14',
+                                                       'events' => {},
+                                                       'name' => 'Justintime69',
+                                                       'isTeamKiller' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                                       'clanAbbrev' => '',
+                                                       'team' => 1
+                                                     },
+                                        '4068580' => {
+                                                       'isAlive' => $VAR1->{'block2'}[1]{'4068593'}{'isAlive'},
+                                                       'vehicleType' => 'ussr:A-20',
+                                                       'events' => {},
+                                                       'name' => 'NoelRailGun',
+                                                       'isTeamKiller' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                                       'clanAbbrev' => '',
+                                                       'team' => 1
+                                                     },
+                                        '4068602' => {
+                                                       'isAlive' => $VAR1->{'block2'}[1]{'4068593'}{'isAlive'},
+                                                       'vehicleType' => 'usa:T34_hvy',
+                                                       'events' => {},
+                                                       'name' => 'HK_deadagain1975',
+                                                       'isTeamKiller' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                                       'clanAbbrev' => '',
+                                                       'team' => 2
+                                                     },
+                                        '4068585' => {
+                                                       'isAlive' => $VAR1->{'block2'}[1]{'4068593'}{'isAlive'},
+                                                       'vehicleType' => 'usa:T32',
+                                                       'events' => {},
+                                                       'name' => 'Rainman1225',
+                                                       'isTeamKiller' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                                       'clanAbbrev' => '',
+                                                       'team' => 2
+                                                     },
+                                        '4068595' => {
+                                                       'isAlive' => $VAR1->{'block2'}[1]{'4068593'}{'isAlive'},
+                                                       'vehicleType' => 'usa:M12',
+                                                       'events' => {},
+                                                       'name' => 'philmo7',
+                                                       'isTeamKiller' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                                       'clanAbbrev' => 'RDTT2',
+                                                       'team' => 1
+                                                     },
+                                        '4068577' => {
+                                                       'isAlive' => $VAR1->{'block2'}[1]{'4068593'}{'isAlive'},
+                                                       'vehicleType' => 'ussr:KV-5',
+                                                       'events' => {},
+                                                       'name' => 'jrg197593',
+                                                       'isTeamKiller' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                                       'clanAbbrev' => 'HITC',
+                                                       'team' => 1
+                                                     },
+                                        '4068596' => {
+                                                       'isAlive' => $VAR1->{'block2'}[1]{'4068593'}{'isAlive'},
+                                                       'vehicleType' => 'ussr:IS-3',
+                                                       'events' => {},
+                                                       'name' => 'Diamonstar91',
+                                                       'isTeamKiller' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                                       'clanAbbrev' => '65DIV',
+                                                       'team' => 2
+                                                     },
+                                        '4068576' => {
+                                                       'isAlive' => $VAR1->{'block2'}[1]{'4068593'}{'isAlive'},
+                                                       'vehicleType' => 'usa:Pershing',
+                                                       'events' => {},
+                                                       'name' => 'Absath',
+                                                       'isTeamKiller' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                                       'clanAbbrev' => '',
+                                                       'team' => 1
+                                                     },
+                                        '4068590' => {
+                                                       'isAlive' => $VAR1->{'block2'}[1]{'4068593'}{'isAlive'},
+                                                       'vehicleType' => 'france:AMX_50_120',
+                                                       'events' => {},
+                                                       'name' => 'harnas1',
+                                                       'isTeamKiller' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                                       'clanAbbrev' => '1RCR',
+                                                       'team' => 2
+                                                     },
+                                        '4068575' => {
+                                                       'isAlive' => $VAR1->{'block2'}[1]{'4068593'}{'isAlive'},
+                                                       'vehicleType' => 'germany:G_Panther',
+                                                       'events' => {},
+                                                       'name' => 'Tazz3',
+                                                       'isTeamKiller' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                                       'clanAbbrev' => '',
+                                                       'team' => 2
+                                                     },
+                                        '4068589' => {
+                                                       'isAlive' => $VAR1->{'block2'}[1]{'4068593'}{'isAlive'},
+                                                       'vehicleType' => 'germany:VK3001P',
+                                                       'events' => {},
+                                                       'name' => 'Hoplite007',
+                                                       'isTeamKiller' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                                       'clanAbbrev' => '',
+                                                       'team' => 2
+                                                     },
+                                        '4068599' => {
+                                                       'isAlive' => $VAR1->{'block2'}[1]{'4068593'}{'isAlive'},
+                                                       'vehicleType' => 'germany:Lowe',
+                                                       'events' => {},
+                                                       'name' => 'DaddyStroke',
+                                                       'isTeamKiller' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                                       'clanAbbrev' => '',
+                                                       'team' => 1
+                                                     },
+                                        '4068597' => {
+                                                       'isAlive' => $VAR1->{'block2'}[1]{'4068593'}{'isAlive'},
+                                                       'vehicleType' => 'germany:Pz38_NA',
+                                                       'events' => {},
+                                                       'name' => 'jack456456',
+                                                       'isTeamKiller' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                                       'clanAbbrev' => '10AB',
+                                                       'team' => 2
+                                                     },
+                                        '4068581' => {
+                                                       'isAlive' => $VAR1->{'block2'}[1]{'4068593'}{'isAlive'},
+                                                       'vehicleType' => 'france:Lorraine155_50',
+                                                       'events' => {},
+                                                       'name' => 'Raigir',
+                                                       'isTeamKiller' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                                       'clanAbbrev' => 'FORGE',
+                                                       'team' => 2
+                                                     },
+                                        '4068594' => {
+                                                       'isAlive' => $VAR1->{'block2'}[1]{'4068593'}{'isAlive'},
+                                                       'vehicleType' => 'france:AMX_13_75',
+                                                       'events' => {},
+                                                       'name' => 'thibaud',
+                                                       'isTeamKiller' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                                       'clanAbbrev' => '',
+                                                       'team' => 2
+                                                     },
+                                        '4068584' => {
+                                                       'isAlive' => $VAR1->{'block2'}[1]{'4068593'}{'isAlive'},
+                                                       'vehicleType' => 'germany:Lowe',
+                                                       'events' => {},
+                                                       'name' => '1bubba1',
+                                                       'isTeamKiller' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                                       'clanAbbrev' => 'HK_',
+                                                       'team' => 2
+                                                     },
+                                        '4068587' => {
+                                                       'isAlive' => $VAR1->{'block2'}[1]{'4068593'}{'isAlive'},
+                                                       'vehicleType' => 'germany:Lowe',
+                                                       'events' => {},
+                                                       'name' => 'xDI_DeaD_Peter',
+                                                       'isTeamKiller' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                                       'clanAbbrev' => 'S-A-S',
+                                                       'team' => 1
+                                                     },
+                                        '4068579' => {
+                                                       'isAlive' => $VAR1->{'block2'}[1]{'4068593'}{'isAlive'},
+                                                       'vehicleType' => 'usa:M18_Hellcat',
+                                                       'events' => {},
+                                                       'name' => 'CptJericho',
+                                                       'isTeamKiller' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                                       'clanAbbrev' => '',
+                                                       'team' => 2
+                                                     },
+                                        '4068583' => {
+                                                       'isAlive' => $VAR1->{'block2'}[1]{'4068593'}{'isAlive'},
+                                                       'vehicleType' => 'usa:T30',
+                                                       'events' => {},
+                                                       'name' => 'xBroadswordx',
+                                                       'isTeamKiller' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                                       'clanAbbrev' => 'EXT',
+                                                       'team' => 1
+                                                     },
+                                        '4068582' => {
+                                                       'isAlive' => $VAR1->{'block2'}[1]{'4068593'}{'isAlive'},
+                                                       'vehicleType' => 'usa:M18_Hellcat',
+                                                       'events' => {},
+                                                       'name' => 'excided',
+                                                       'isTeamKiller' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                                       'clanAbbrev' => 'JAB',
+                                                       'team' => 1
+                                                     },
+                                        '4068578' => {
+                                                       'isAlive' => $VAR1->{'block2'}[1]{'4068593'}{'isAlive'},
+                                                       'vehicleType' => 'ussr:KV-13',
+                                                       'events' => {},
+                                                       'name' => 'Backfat',
+                                                       'isTeamKiller' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                                       'clanAbbrev' => '',
+                                                       'team' => 1
+                                                     },
+                                        '4068592' => {
+                                                       'isAlive' => $VAR1->{'block2'}[1]{'4068593'}{'isAlive'},
+                                                       'vehicleType' => 'germany:VK1602',
+                                                       'events' => {},
+                                                       'name' => 'Tarheel_1',
+                                                       'isTeamKiller' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                                       'clanAbbrev' => '',
+                                                       'team' => 1
+                                                     },
+                                        '4068603' => {
+                                                       'isAlive' => $VAR1->{'block2'}[1]{'4068593'}{'isAlive'},
+                                                       'vehicleType' => 'china:Ch01_Type59',
+                                                       'events' => {},
+                                                       'name' => 'Maloolaba',
+                                                       'isTeamKiller' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                                       'clanAbbrev' => '',
+                                                       'team' => 2
+                                                     },
+                                        '4068574' => {
+                                                       'isAlive' => $VAR1->{'block2'}[1]{'4068593'}{'isAlive'},
+                                                       'vehicleType' => 'ussr:T-50',
+                                                       'events' => {},
+                                                       'name' => 'joorr660',
+                                                       'isTeamKiller' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                                       'clanAbbrev' => 'QCEXT',
+                                                       'team' => 1
+                                                     },
+                                        '4068588' => {
+                                                       'isAlive' => $VAR1->{'block2'}[1]{'4068593'}{'isAlive'},
+                                                       'vehicleType' => 'ussr:T_50_2',
+                                                       'events' => {},
+                                                       'name' => 'jeffpenn',
+                                                       'isTeamKiller' => $VAR1->{'block2'}[1]{'4068593'}{'isTeamKiller'},
+                                                       'clanAbbrev' => '',
+                                                       'team' => 1
+                                                     }
+                                      },
+                        'dateTime' => '20.06.2012 15:40:56',
+                        'playerVehicle' => 'france-Lorraine155_50',
+                        'mapDisplayName' => 'Sand River',
+                        'playerName' => 'Raigir',
+                        'gameplayType' => 'assault',
+                        'mapName' => 'desert',
+                        'playerID' => 1000519217
+                      }
+        };

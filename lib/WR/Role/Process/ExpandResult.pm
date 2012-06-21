@@ -130,7 +130,10 @@ around 'process' => sub {
     if($self->_parser->is_complete) {
         $data->{game}->{bonus_type} = $self->match_result->[0]->{bonusType};
         # add some additional fields 
-        $data->{game}->{arena_id} = $self->match_result->[0]->{arenaUniqueID};
+
+        # removed in 0.7.4, bless their little fucking hearts
+        #$data->{game}->{arena_id} = $self->match_result->[0]->{arenaUniqueID};
+
         $data->{game}->{isWin} = ($self->match_result->[0]->{isWinner} > 0) 
             ? true 
             : ($self->match_result->[0]->{isWinner} < 0) 
