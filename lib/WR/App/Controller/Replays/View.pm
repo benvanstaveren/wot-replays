@@ -82,10 +82,6 @@ sub view {
 
     $r->{teams} = $frag_sorted_teams;
 
-    use Data::Dumper;
-    warn Dumper($r->{site});
-
-
     if(my $yt = $r->{site}->{youtube}) {
         if($yt =~ /^http/) {
             my $u = Mojo::URL->new($r->{site}->{youtube});
