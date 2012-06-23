@@ -127,61 +127,57 @@ sub chat {
     my $r = $self->stash('req_replay');
     my $waitreasons = $self->stash('config')->{waitreasons};
 
-    if($self->is_user_authenticated && $self->current_user->{email} eq 'scrambled@xirinet.com') {
-        if($r->{chatProcessed}) {
-            # chat message formatting:
-            #
-            # -> local team: nick green, text darker green
-            # -> enemy team: nick red, text white
-            my $messages = [];
-            my $my_team  = $r->{vehicles_hash_name}->{$r->{player}->{name}}->{team};
+    if($r->{chatProcessed}) {
+        # chat message formatting:
+        #
+        # -> local team: nick green, text darker green
+        # -> enemy team: nick red, text white
+        my $messages = [];
+        my $my_team  = $r->{vehicles_hash_name}->{$r->{player}->{name}}->{team};
 
-            foreach my $message ($self->db('wot-replays')->get_collection('replays.chat')->find({
-                replay_id => $r->{_id},
-                channel   => { '$nin' => [ 'unknown', 'noid:ch0', 'noid:ch1', 'noid:req' ] }
-            })->sort({ sequence => 1 })->all()) {
-                my $st = $r->{vehicles_hash_name}->{$message->{source}}->{team};
-                push(@$messages, {
-                    source => $message->{source},
-                    body   => $message->{body},
-                    target => ($message->{channel} eq '#chat:channels/battle/team') ? 'team' : 'all',
-                    sourcetype => ($st == $my_team) ? 'team' : 'enemy',
-                });
-            }
-            $self->respond(
-                stash => {
-                    messages => $messages,
-                },
-                template => 'replay/view/chat',
-            );
-        } else {
-            # drop the job into mongodb 
-            my $make = 0;
-            if(my $job = $self->db('wot-replays')->get_collection('jobs')->find_one({ type => 'chat', replay => $r->{_id} })) {
-                $make = 1 if($job->{created} + 3600 < time());
-            } else {
-                $make = 1;
-            }
-
-            if($make) {
-                my $job = {
-                    type    =>  'chat',
-                    replay  =>  $r->{_id},
-                    created =>  time(),
-                };
-                my $id = $self->db('wot-replays')->get_collection('jobs')->insert($job);
-                my $bs = Beanstalk::Client->new({ server => 'localhost', default_tube => 'wot-replays' });
-                $bs->put({ ttr => 300, data => $id->to_string });
-            }
-
-            $self->respond(
-                stash => {
-                    waitreason => $waitreasons->[int(rand(scalar(@$waitreasons)))],
-                    rid => $r->{_id},
-                }, template => 'replay/view/chat_wait');
+        foreach my $message ($self->db('wot-replays')->get_collection('replays.chat')->find({
+            replay_id => $r->{_id},
+            channel   => { '$nin' => [ 'unknown', 'noid:ch0', 'noid:ch1', 'noid:req' ] }
+        })->sort({ sequence => 1 })->all()) {
+            my $st = $r->{vehicles_hash_name}->{$message->{source}}->{team};
+            push(@$messages, {
+                source => $message->{source},
+                body   => $message->{body},
+                target => ($message->{channel} eq '#chat:channels/battle/team') ? 'team' : 'all',
+                sourcetype => ($st == $my_team) ? 'team' : 'enemy',
+            });
         }
+        $self->respond(
+            stash => {
+                messages => $messages,
+            },
+            template => 'replay/view/chat',
+        );
     } else {
-        $self->render(text => 'whatcha doin here?');
+        # drop the job into mongodb 
+        my $make = 0;
+        if(my $job = $self->db('wot-replays')->get_collection('jobs')->find_one({ type => 'chat', replay => $r->{_id} })) {
+            $make = 1 if($job->{created} + 3600 < time());
+        } else {
+            $make = 1;
+        }
+
+        if($make) {
+            my $job = {
+                type    =>  'chat',
+                replay  =>  $r->{_id},
+                created =>  time(),
+            };
+            my $id = $self->db('wot-replays')->get_collection('jobs')->insert($job);
+            my $bs = Beanstalk::Client->new({ server => 'localhost', default_tube => 'wot-replays' });
+            $bs->put({ ttr => 300, data => $id->to_string });
+        }
+
+        $self->respond(
+            stash => {
+                waitreason => $waitreasons->[int(rand(scalar(@$waitreasons)))],
+                rid => $r->{_id},
+            }, template => 'replay/view/chat_wait');
     }
 }
 
