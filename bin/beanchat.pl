@@ -25,7 +25,7 @@ sub getchat {
         print '[replay]: found', "\n";
         print '[replay]: already', "\n" and return if($r->{chatProcessed});
         print '[replay]: processing', "\n";
-        if(my $file = $mongo->get_database('wot-replays')-get_gridfs->find_one({ replay_id => $r->{_id} })) {
+        if(my $file = $mongo->get_database('wot-replays')->get_gridfs->find_one({ replay_id => $r->{_id} })) {
             my $parser = WR::Parser->new(
                 bf_key => WOT_BF_KEY,
                 traits => [qw/
@@ -61,6 +61,8 @@ sub getchat {
             }
             $mongo->get_database('wot-replays')->get_collection('replays')->update({ _id => $r->{_id} }, { '$set' => { chatProcessed => true } });
             print 'DONE', "\n";
+        } else {
+            print '[replay]: no file', "\n";
         }
     }
 }
@@ -72,9 +74,7 @@ while(1) {
     
     if(my $mj = $mongo->get_database('wot-replays')->get_collection('jobs')->find_one({ _id => $id })) {
         print '[job]: obtained', "\n";
-        try {
-            getchat($mj->{replay});
-        };
+        getchat($mj->{replay});
     }
     $bs->delete($job->id);
 }
