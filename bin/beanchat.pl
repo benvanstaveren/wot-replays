@@ -63,9 +63,12 @@ while(1) {
     my $job = $bs->reserve;
     my $id  = bless({ value => $job->data }, 'MongoDB::OID');
     print '[job]: received for ', $job->data, "\n";
-    try {
-        getchat($id);
-    };
+    
+    if(my $mj = $mongo->get_database('wot-replays')->get_collection('jobs')->find_one({ _id => $id })) {
+        try {
+            getchat($mj->{replay});
+        };
+    }
     $bs->delete($job->id);
 }
 
