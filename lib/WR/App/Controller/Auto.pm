@@ -205,7 +205,7 @@ sub index {
                 }
                 return 0;
             },
-            is_the_boss => {
+            is_the_boss => sub {
                 return ($self->is_user_authenticated && $self->current_user->{email} eq 'scrambled@xirinet.com') ? 1 : 0
             },
             user => sub {
