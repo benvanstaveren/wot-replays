@@ -1,0 +1,6 @@
+<span style="font-weight: bold">[% waitreason %]</span>
+<script type="text/javascript">
+    $('#battlechat').oneTime(5000, function() {
+        $('#battlechat').load('/replay/[% rid %]/chat');
+    });
+</script>

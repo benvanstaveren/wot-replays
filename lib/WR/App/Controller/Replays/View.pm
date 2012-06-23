@@ -124,6 +124,11 @@ sub related {
 sub chat {
     my $self = shift;
     my $r = $self->stash('req_replay');
+    my $waitreasons = [
+        'Chat has not been extracted yet, doing so now with rusty pliers...',
+        'Where\'s the chat? Is there any chat? Let\'s find out...',
+        ];
+        
 
     if($self->is_user_authenticated && $self->current_user->{email} eq 'scrambled@xirinet.com') {
         if($r->{chatProcessed}) {
@@ -137,7 +142,11 @@ sub chat {
                 template => 'replay/view/chat',
             );
         } else {
-            $self->respond(template => 'replay/view/chat_wait');
+            $self->respond(
+                stash => {
+                    waitreason => $waitreasons->[int(rand(scalar(@$waitreasons)))],
+                    rid => $r->{_id},
+                }, template => 'replay/view/chat_wait');
         }
     } else {
         $self->render(text => 'whatcha doin here?');
