@@ -1,6 +1,11 @@
 <span style="font-weight: bold">[% waitreason %]</span>
 <script type="text/javascript">
-    $('#battlechat').oneTime(5000, function() {
-        $('#battlechat').load('/replay/[% rid %]/chat');
-    });
+    if(battleChatLoadCount > 50) {
+        $('#battlechat').html('Hum, looks like the chat processing is broken again, you will have to do without it for now...');
+    } else {
+        $('#battlechat').oneTime(5000, function() {
+            battleChatLoadCount += 1;
+            $('#battlechat').load('/replay/[% rid %]/chat');
+        });
+    }
 </script>

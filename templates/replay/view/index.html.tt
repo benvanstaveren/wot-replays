@@ -104,6 +104,7 @@
         </div>
         <script type="text/javascript">
             var battleChatLoadStarted = false;
+            var battleChatLoadCount = 0;
             $('div.replay-tabs a').click(function() {
                 var href = $(this).attr('href');
                 $('div.replay-tabs a').removeClass('active');
