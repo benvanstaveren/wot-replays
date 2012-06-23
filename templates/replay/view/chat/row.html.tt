@@ -1,0 +1,7 @@
+<div class="chatMessage">
+    [% n  = message.source %]
+    [% p  = req_replay.vehicles_hash_name.$n %]
+    [% pv = p.vehicleType.full %]
+    <span class="chatSource [% message.sourcetype %]">[% message.source |html %] ([% wr.vehicle_name_short(pv) |html %]): </span>
+    <span class="chatText [% message.target %]">[% message.body |html %]</span>
+</div>

@@ -166,6 +166,16 @@ sub index {
                     return sprintf('nodesc:%s', $v);
                 }
             },
+            vehicle_name_short => sub {
+                my $v = shift;
+                my ($c, $n) = split(/:/, $v, 2);
+
+                if(my $obj = $self->db('wot-replays')->get_collection('data.vehicles')->find_one({ _id => $v })) {
+                    return $obj->{label_short};
+                } else {
+                    return sprintf('nolabel_short:%s', $v);
+                }
+            },
             vehicle_name => sub {
                 my $v = shift;
                 my ($c, $n) = split(/:/, $v, 2);

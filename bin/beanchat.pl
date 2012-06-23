@@ -26,6 +26,7 @@ sub getchat {
         print '[replay]: already', "\n" and return if($r->{chatProcessed});
         print '[replay]: processing', "\n";
         if(my $file = $mongo->get_database('wot-replays')->get_gridfs->find_one({ replay_id => $r->{_id} })) {
+            print '[replay]: got file', "\n";
             my $parser = WR::Parser->new(
                 bf_key => WOT_BF_KEY,
                 traits => [qw/
@@ -37,6 +38,7 @@ sub getchat {
                     /],
                 data => $file->slurp,
             );
+            print '[replay]: parser ready', "\n";
             my $messages;
             my $e;
             try {

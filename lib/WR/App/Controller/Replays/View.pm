@@ -133,12 +133,29 @@ sub chat {
 
     if($self->is_user_authenticated && $self->current_user->{email} eq 'scrambled@xirinet.com') {
         if($r->{chatProcessed}) {
+            # chat message formatting:
+            #
+            # -> local team: nick green, text darker green
+            # -> enemy team: nick red, text white
+            my $messages = [];
+            my $my_team  = $r->{vehicles_hash_name}->{$r->{player}->{name}}->{team};
+
+            foreach my $message ($self->db('wot-replays')->get_collection('replays.chat')->find({
+                replay_id => $r->{_id},
+                channel   => { '$nin' => [ 'unknown', 'noid:ch0', 'noid:ch1', 'noid:req' ] }
+            })->sort({ sequence => 1 })->all()) {
+                my $st == $r->{vehicles_hash_name}->{$message->{source}}->{team};
+                
+                push(@$messages, {
+                    source => $message->{source},
+                    body   => $message->{body},
+                    target => ($message->{channel} eq '#chat:channels/battle/team') ? 'team' : 'all',
+                    sourcetype => ($st == $my_team) ? 'team' : 'enemy',
+                });
+            }
             $self->respond(
                 stash => {
-                    messages => [ $self->db('wot-replays')->get_collection('replays.chat')->find({
-                        replay_id => $r->{_id},
-                        channel   => { '$nin' => [ 'unknown', 'noid:ch0', 'noid:ch1', 'noid:req' ] }
-                        })->sort({ sequence => 1 })->all() ],
+                    messages => $messages,
                 },
                 template => 'replay/view/chat',
             );

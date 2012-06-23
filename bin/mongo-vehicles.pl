@@ -52,6 +52,7 @@ for my $country (qw/china france germany usa ussr/) {
         }
 
         $data->{label} = $text->localize_for(lang => $cat, id => $ident);
+        $data->{label_short} = $text->localize_for(lang => $cat, id => sprintf('%s_short', $ident));
         $data->{_id} = sprintf('%s:%s', $country, $ident);
         $data->{country} = $country;
         $data->{name} = $ident;
