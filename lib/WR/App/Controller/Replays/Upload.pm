@@ -53,6 +53,12 @@ sub upload {
 
             $self->respond(stash => { page => { title => 'Upload Replay' }, errormessage => q|Courtesy of WG, this replay can't be stored, it's missing your player ID, and we use that to uniquely identify each player| }, template => 'upload/form') and return 0 if($m_data->{player}->{id} == 0);
 
+
+            if(my $yturl = $self->req->param('youtube')) {
+                my $tx = $self->get($yt);
+
+                $self->respond(stash => { page => { title => 'Upload Replay' }, errormessage => q|That YouTube video URL isn't quite right...| }, template => 'upload/form') and return 0 unless($tx->success);
+            }
             $gfs->remove({ replay_id => $m_data->{_id} });
 
             if(my $handle = FileHandle->new($tmpnam, 'r')) {
