@@ -144,8 +144,7 @@ sub chat {
                 replay_id => $r->{_id},
                 channel   => { '$nin' => [ 'unknown', 'noid:ch0', 'noid:ch1', 'noid:req' ] }
             })->sort({ sequence => 1 })->all()) {
-                my $st == $r->{vehicles_hash_name}->{$message->{source}}->{team};
-                
+                my $st = $r->{vehicles_hash_name}->{$message->{source}}->{team};
                 push(@$messages, {
                     source => $message->{source},
                     body   => $message->{body},
