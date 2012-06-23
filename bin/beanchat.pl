@@ -19,11 +19,53 @@ my $mongo  = MongoDB::Connection->new();
 my $bs = Beanstalk::Client->new({ server => 'localhost' });
 $bs->watch('wot-replays');
 
+sub getchat {
+    my $id = shift;
+    if(my $r = $mongo->get_database('wot-replays')->get_collection('replays')->find_one({ _id => $id })) {
+        return if($r->{chatProcessed});
+        if(my $file = $mongo->get_database('wot-replays')-get_gridfs->find_one({ replay_id => $r->{_id} })) {
+            my $parser = WR::Parser->new(
+                bf_key => WOT_BF_KEY,
+                traits => [qw/
+                    LL::Memory
+                    Data::Reader
+                    Data::Decrypt
+                    Data::Attributes
+                    Data::Chat
+                    /],
+                data => $file->slurp,
+            );
+            my $messages;
+            my $e;
+            try {
+                $messages = $parser->chat_messages;
+            } catch {
+                $e = $_;
+            };
+            return if($e);
+            my $seq = 0;
+            foreach my $message (@$messages) {
+                $mongo->get_database('wot-replays')->get_collection('replays.chat')->save({
+                    version     =>  $parser->wot_version,
+                    replay_id   =>  $r->{_id},
+                    sequence    =>  $seq++,
+                    source      =>  $message->{source},
+                    channel     =>  $message->{channel},
+                    body        =>  $message->{body},
+                });
+            }
+            $mongo->get_database('wot-replays')->get_collection('replays')->update({ _id => $r->{_id} }, { '$set' => { chatProcessed => true } });
+        }
+    }
+}
+
 while(1) {
     my $job = $bs->reserve;
     my $id  = bless({ value => $job->data }, 'MongoDB::OID');
     print '[job]: received for ', $job->data, "\n";
-
+    try {
+        getchat($id);
+    };
     $bs->delete($job->id);
 }
 
