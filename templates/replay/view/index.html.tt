@@ -76,9 +76,7 @@
                             <div class="replay-tabs">
                                 <ul>
                                     <li><a class="ui-corner-bottom active" href="#vehicle-stats">Statistics</a></li>
-                                    [% IF wr.is_the_boss == 1 %]
                                     <li><a class="ui-corner-bottom" href="#battlechat">Battle Chat</a></li>
-                                    [% END %]
                                     [% IF replay.site.youtube %]
                                     <li><a class="ui-corner-bottom" href="#youtube">YouTube Video</a></li>
                                     [% END %]
@@ -87,10 +85,8 @@
                             <div id="vehicle-stats" class="viewcontent">
                                 [% INCLUDE replay/view/vehicle_stats.html.tt %]
                             </div>
-                            [% IF wr.is_the_boss == 1 %]
-                                <div id="battlechat" style="display: none" class="viewcontent">
-                                </div>
-                            [% END %]
+                            <div id="battlechat" style="display: none" class="viewcontent">
+                            </div>
                             [% IF replay.site.youtube %]
                                 <div id="youtube" style="display: none" class="viewcontent">
                                     [% INCLUDE replay/view/youtube.html.tt %]
@@ -111,14 +107,13 @@
                 $(this).addClass('active');
                 $('#replay-view-content div.viewcontent').hide();
                 $('#replay-view-content div' + href).show();
-                [% IF wr.is_the_boss %]
-                    if(href == '#battlechat') {
-                        if(!battleChatLoadStarted) {
-                            $('#battlechat').html('Loading...').load('/replay/[% replay.id %]/chat');
-                            battleChatLoadStarted = true;
-                        } 
-                    }
-                [% END %]
+
+                if(href == '#battlechat') {
+                    if(!battleChatLoadStarted) {
+                        $('#battlechat').html('Loading...').load('/replay/[% replay.id %]/chat');
+                        battleChatLoadStarted = true;
+                    } 
+                }
                 return false;
             });
         </script>
