@@ -76,6 +76,9 @@
                             <div class="replay-tabs">
                                 <ul>
                                     <li><a class="ui-corner-bottom active" href="#vehicle-stats">Statistics</a></li>
+                                    [% IF wr.is_the_boss == 1 %]
+                                    <li><a class="ui-corner-bottom" href="#battlechat">Battle Chat</a></li>
+                                    [% END %]
                                     [% IF replay.site.youtube %]
                                     <li><a class="ui-corner-bottom" href="#youtube">YouTube Video</a></li>
                                     [% END %]
@@ -84,6 +87,10 @@
                             <div id="vehicle-stats" class="viewcontent">
                                 [% INCLUDE replay/view/vehicle_stats.html.tt %]
                             </div>
+                            [% IF wr.is_the_boss == 1 %]
+                                <div id="battlechat" style="display: none" class="viewcontent">
+                                </div>
+                            [% END %]
                             [% IF replay.site.youtube %]
                                 <div id="youtube" style="display: none" class="viewcontent">
                                     [% INCLUDE replay/view/youtube.html.tt %]
@@ -96,12 +103,21 @@
             </table>
         </div>
         <script type="text/javascript">
+            var battleChatLoadStarted = false;
             $('div.replay-tabs a').click(function() {
                 var href = $(this).attr('href');
                 $('div.replay-tabs a').removeClass('active');
                 $(this).addClass('active');
                 $('#replay-view-content div.viewcontent').hide();
                 $('#replay-view-content div' + href).show();
+                [% IF wr.is_the_boss %]
+                    if(href == '#battlechat') {
+                        if(!battleChatLoadStarted) {
+                            $('#battlechat').html('Loading...').load('/replay/[% replay.id %]/chat');
+                            battleChatLoadStarted = true;
+                        } 
+                    }
+                [% END %]
                 return false;
             });
         </script>

@@ -1,7 +1,7 @@
             [% pname = replay.player.name %]
             [% p = replay.vehicles_hash.$pname %]
             [% IF p.team == 2 %]
-                Attackers win
-            [% ELSE %]
                 Defenders win
+            [% ELSE %]
+                Attackers win
             [% END %]

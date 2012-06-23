@@ -121,4 +121,27 @@ sub related {
         })->all() ];
 }
 
+sub chat {
+    my $self = shift;
+    my $r = $self->stash('req_replay');
+
+    if($self->is_user_authenticated && $self->current_user->{email} eq 'scrambled@xirinet.com') {
+        if($r->{chatProcessed}) {
+            $self->respond(
+                stash => {
+                    messages => [ $self->db('wot-replays')->get_collection('replays.chat')->find({
+                        replay_id => $r->{_id},
+                        channel   => { '$nin' => [ 'unknown', 'noid:ch0', 'noid:ch1', 'noid:req' ] }
+                        })->sort({ sequence => 1 })->all() ],
+                },
+                template => 'replay/view/chat',
+            );
+        } else {
+            $self->respond(template => 'replay/view/chat_wait');
+        }
+    } else {
+        $self->render(text => 'whatcha doin here?');
+    }
+}
+
 1;
