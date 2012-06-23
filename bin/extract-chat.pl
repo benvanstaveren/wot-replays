@@ -17,7 +17,7 @@ use constant WOT_BF_KEY     => join('', map { chr(hex($_)) } (split(/\s/, WOT_BF
 my $mongo  = MongoDB::Connection->new();
 my $db     = $mongo->get_database('wot-replays');
 my $gfs    = $db->get_gridfs;
-my $rc     = $db->get_collection('replays')->find()->sort({ 'site.meta.uploaded_at' => -1 });
+my $rc     = $db->get_collection('replays')->find()->sort({ 'site.uploaded_at' => -1 });
 my $mc     = $db->get_collection('replays.chat');
 
 while(my $r = $rc->next()) {
