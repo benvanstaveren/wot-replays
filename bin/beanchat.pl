@@ -22,7 +22,9 @@ $bs->watch('wot-replays');
 sub getchat {
     my $id = shift;
     if(my $r = $mongo->get_database('wot-replays')->get_collection('replays')->find_one({ _id => $id })) {
-        return if($r->{chatProcessed});
+        print '[replay]: found', "\n";
+        print '[replay]: already', "\n" and return if($r->{chatProcessed});
+        print '[replay]: processing', "\n";
         if(my $file = $mongo->get_database('wot-replays')-get_gridfs->find_one({ replay_id => $r->{_id} })) {
             my $parser = WR::Parser->new(
                 bf_key => WOT_BF_KEY,
@@ -43,7 +45,7 @@ sub getchat {
                 $e = $_;
             };
             if($e) {
-                print 'ERROR', "\n";
+                print 'ERROR: ', $e, "\n";
                 return;
             }
             my $seq = 0;
@@ -69,6 +71,7 @@ while(1) {
     print '[job]: received for ', $job->data, "\n";
     
     if(my $mj = $mongo->get_database('wot-replays')->get_collection('jobs')->find_one({ _id => $id })) {
+        print '[job]: obtained', "\n";
         try {
             getchat($mj->{replay});
         };
