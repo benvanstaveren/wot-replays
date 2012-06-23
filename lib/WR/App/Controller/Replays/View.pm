@@ -3,6 +3,7 @@ use Mojo::Base 'WR::App::Controller';
 
 use boolean;
 use WR::Query;
+use Beanstalk::Client;
 
 sub view {
     my $self = shift;
@@ -142,6 +143,25 @@ sub chat {
                 template => 'replay/view/chat',
             );
         } else {
+            # drop the job into mongodb 
+            my $make = 0;
+            if(my $job = $self->db('wot-replays')->get_collection('jobs')->find_one({ type => 'chat', replay => $r->{_id} })) {
+                $make = 1 if($job->{created} + 3600 < time());
+            } else {
+                $make = 1;
+            }
+
+            if($make) {
+                my $job = {
+                    type    =>  'chat',
+                    replay  =>  $r->{_id},
+                    created =>  time(),
+                };
+                my $id = $self->db('wot-replays')->get_collection('jobs')->insert($job);
+                my $bs = Beanstalk::Client->new({ server => 'localhost', default_tube => 'wot-replays' });
+                $bs->put({ ttr => 300, data => $id->to_string });
+            }
+
             $self->respond(
                 stash => {
                     waitreason => $waitreasons->[int(rand(scalar(@$waitreasons)))],
