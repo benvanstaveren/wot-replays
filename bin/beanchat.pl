@@ -42,7 +42,10 @@ sub getchat {
             } catch {
                 $e = $_;
             };
-            return if($e);
+            if($e) {
+                print 'ERROR', "\n";
+                return;
+            }
             my $seq = 0;
             foreach my $message (@$messages) {
                 $mongo->get_database('wot-replays')->get_collection('replays.chat')->save({
@@ -55,6 +58,7 @@ sub getchat {
                 });
             }
             $mongo->get_database('wot-replays')->get_collection('replays')->update({ _id => $r->{_id} }, { '$set' => { chatProcessed => true } });
+            print 'DONE', "\n";
         }
     }
 }
