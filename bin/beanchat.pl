@@ -17,6 +17,7 @@ use constant WOT_BF_KEY     => join('', map { chr(hex($_)) } (split(/\s/, WOT_BF
 
 my $mongo  = MongoDB::Connection->new();
 my $bs = Beanstalk::Client->new({ server => 'localhost' });
+$bs->watch('wot-replays');
 
 while(1) {
     my $job = $bs->reserve;
