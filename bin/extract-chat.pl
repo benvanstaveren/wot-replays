@@ -50,6 +50,7 @@ while(my $r = $rc->next()) {
             my $seq = 0;
             foreach my $message (@$messages) {
                 $mc->save({
+                    version     =>  $parser->wot_version,
                     replay_id   =>  $r->{_id},
                     sequence    =>  $seq++,
                     source      =>  $message->{source},
