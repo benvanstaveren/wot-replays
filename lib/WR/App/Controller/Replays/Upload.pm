@@ -55,7 +55,7 @@ sub upload {
 
 
             if(my $yturl = $self->req->param('youtube')) {
-                my $tx = $self->get($yt);
+                my $tx = $self->get($yturl);
 
                 $self->respond(stash => { page => { title => 'Upload Replay' }, errormessage => q|That YouTube video URL isn't quite right...| }, template => 'upload/form') and return 0 unless($tx->success);
             }
