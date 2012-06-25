@@ -76,7 +76,11 @@ while(1) {
     
     if(my $mj = $mongo->get_database('wot-replays')->get_collection('jobs')->find_one({ _id => $id })) {
         print '[job]: obtained', "\n";
-        getchat($mj->{replay});
+        try {
+            getchat($mj->{replay});
+        } catch {
+            print '[replay]: error getting chat: ', $_, "\n";
+        };
     }
     $bs->delete($job->id);
 }
