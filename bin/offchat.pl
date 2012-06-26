@@ -68,8 +68,9 @@ sub getchat {
 my $cursor = $mongo->get_database('wot-replays')->get_collection('replays')->find({ 
     '$or' => [
         { chatProcessed => false },
-        { '$exists' => { chatProcessed => false } },
-    ]})->sort({ 'site.uploaded_at' => 1 });
+        { chatProcessed => { '$exists' => false } },
+    ]
+})->sort({ 'site.uploaded_at' => 1 });
 
 while(my $r = $cursor->next()) {
     try {
