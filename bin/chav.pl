@@ -10,16 +10,15 @@ my $mongo  = MongoDB::Connection->new();
 my $db     = $mongo->get_database('wot-replays');
 my $c      = $db->get_collection('replays.chat');
 
-my $cursor = $c->find({ channel => 'unknown' }); 
+my $cursor = $c->find({ channel => 'unknown' })->sort({ replay_id => 1, sequence => 1 }); 
 
 my $data = {};
 
 while(my $o = $cursor->next()) {
-    next unless(defined($o->{source}) && length($o->{source}) > 0);
-    $data->{$o->{replay_id}}->[ $o->{sequence} ] = { 
+    push(@{$data->{$o->{replay_id}}}, {
         s => $o->{source},
         b => $o->{body}
-    };
+    });
 }
 
 foreach my $id (keys(%$data)) {
