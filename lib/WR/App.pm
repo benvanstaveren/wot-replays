@@ -70,6 +70,7 @@ sub startup {
 
     $r->route('/browse')->to('replays#browse', pageid => 'browse');
     $r->route('/faq')->to('ui#faq', pageid => 'faq');
+    $r->route('/chav')->to('chav#index', pageid => undef);
     $r->route('/donate')->to('ui#donate', pageid => 'donate');
     $r->route('/about')->to('ui#about', pageid => 'about');
 
