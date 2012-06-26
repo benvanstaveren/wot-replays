@@ -65,17 +65,23 @@ sub getchat {
         }
 }
 
-my $cursor = $mongo->get_database('wot-replays')->get_collection('replays')->find({ 
-    '$or' => [
-        { chatProcessed => false },
-        { chatProcessed => { '$exists' => false } },
-    ]
-})->sort({ 'site.uploaded_at' => 1 });
+my $done = 0;
 
-while(my $r = $cursor->next()) {
-    try {
-        getchat($r);
-    } catch {
-        print '[replay]: error getting chat: ', $_, "\n";
-    };
+while(!$done) {
+    my $cursor = $mongo->get_database('wot-replays')->get_collection('replays')->find({ 
+        '$or' => [
+            { chatProcessed => false },
+            { chatProcessed => { '$exists' => false } },
+        ]
+    });
+    $done = ($cursor->count > 0) ? 0 : 1;
+
+    my @list = $cursor->sort({ 'site.uploaded_at' => 1 })->limit(10)->all();
+    foreach my $r (@list) {
+        try {
+            getchat($r);
+        } catch {
+            print '[replay]: error getting chat: ', $_, "\n";
+        };
+    }
 }
