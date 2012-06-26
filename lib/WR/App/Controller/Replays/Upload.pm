@@ -38,7 +38,7 @@ sub upload {
                 my $p = WR::Process->new(
                     file    => $tmpnam,
                     db      => $self->db('wot-replays'),
-                    bf_key  => $self->stash('configuration')->{wot}->{bf_key},
+                    bf_key  => $self->stash('config')->{wot}->{bf_key},
                 );
                 $m_data = $p->process();
             } catch {
