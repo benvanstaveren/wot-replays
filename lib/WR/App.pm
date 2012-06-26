@@ -21,8 +21,8 @@ sub startup {
     my $config = $self->plugin('Config', { file => 'wr.conf' });
     $self->plugin('mongodb', { host => 'localhost', patch_mongodb => 1 });
     $self->plugin('tt_renderer', { template_options => {
-        PRE_CHOMP => 0,
-        POST_CHOMP => 1,
+        PRE_CHOMP    => 0,
+        POST_CHOMP   => 1,
         TRIM => 1,
         FILTERS => {
             'js' =>  sub {
@@ -32,13 +32,12 @@ sub startup {
             },
         },
         RELATIVE => 1,
-        ABSOLUTE => 1, # otherwise hypnotoad gets a bit cranky
+        ABSOLUTE => 1, # otherwise hypnotoad gets a bit cranky, for some reason
     }});
-
 
     # set up the key string
     $config->{wot}->{bf_key} = join('', map { chr(hex($_)) } (split(/\s/, $config->{wot}->{bf_key})));
-    $self->defaults(configuration => $config);
+    #$self->defaults(configuration => $config); # apparently, config is already exported to stash
 
     $self->plugin('authentication', {
         validate_user => sub {

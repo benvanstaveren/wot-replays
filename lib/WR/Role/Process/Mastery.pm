@@ -26,8 +26,6 @@ sub award_mastery {
     my $vehicle  = shift;
     my $mastery  = shift;
 
-    return 0 unless($mastery > 0);
-
     if(my $rec = $self->db->get_collection('track.mastery')->find_one({ _id => sprintf('%s_%s', $playerid, $vehicle) })) {
         if($mastery > $rec->{value}) {
             $self->db->get_collection('track.mastery')->update(

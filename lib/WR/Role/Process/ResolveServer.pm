@@ -25,8 +25,10 @@ around 'process' => sub {
             $res->{player}->{server} = $server_res;
         } else {
             $res->{player}->{server} = 'unknown';
+            return $res; # we're done here
         }
     }
+
     return $res;
 };
 
