@@ -17,8 +17,8 @@ use constant WOT_BF_KEY     => join('', map { chr(hex($_)) } (split(/\s/, WOT_BF
 my $mongo  = MongoDB::Connection->new();
 
 sub getchat {
-    my $id = shift;
-    if(my $r = $mongo->get_database('wot-replays')->get_collection('replays')->find_one({ _id => $id })) {
+    my $r = shift;
+
         print '[replay]: found', "\n";
         print '[replay]: already', "\n" and return if($r->{chatProcessed});
         print '[replay]: processing', "\n";
@@ -63,13 +63,17 @@ sub getchat {
         } else {
             print '[replay]: no file', "\n";
         }
-    }
 }
 
-my $cursor = $mongo->get_database('wot-replays')->get_collection('replays')->find({ chatProcessed => false })->sort({ 'site.uploaded_at' => 1 });
+my $cursor = $mongo->get_database('wot-replays')->get_collection('replays')->find({ 
+    '$or' => [
+        { chatProcessed => false },
+        { '$exists' => { chatProcessed => false } },
+    ]})->sort({ 'site.uploaded_at' => 1 });
+
 while(my $r = $cursor->next()) {
     try {
-        getchat($r->{_id});
+        getchat($r);
     } catch {
         print '[replay]: error getting chat: ', $_, "\n";
     };
