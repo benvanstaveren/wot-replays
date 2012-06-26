@@ -19,7 +19,7 @@ my $mongo  = MongoDB::Connection->new();
 sub getchat {
     my $r = shift;
 
-        print '[replay]: found', "\n";
+        print '[replay]: found ', $r->{_id}, "\n";
         print '[replay]: already', "\n" and return if($r->{chatProcessed});
         print '[replay]: processing', "\n";
         if(my $file = $mongo->get_database('wot-replays')->get_gridfs->find_one({ replay_id => $r->{_id} })) {
