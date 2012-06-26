@@ -17,6 +17,7 @@ while(my $r = $cursor->next()) {
     $data->{$r->{_id}} = [ $cc->find({ channel => 'unknown', replay_id => $r->{_id} })->sort({ sequence => 1 })->all() ];
 }
 foreach my $id (keys(%$data)) {
+    next if(scalar(@{$data->{$id}}) == 0);
     print $id, "\n";
 
     foreach my $m (@{$data->{$id}}) {
