@@ -25,7 +25,7 @@ foreach my $id (keys(%$data)) {
     print $id, "\n";
 
     foreach my $m (@{$data->{$id}}) {
-        print "\t", sprintf('<% 20s>', $m->{s}), ' ', $m->{b}, "\n";
+        print "\t", sprintf('% 20s | %s', $m->{s}, $m->{b}), "\n";
     }
     print "\n\n";
 }
