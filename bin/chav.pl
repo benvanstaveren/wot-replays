@@ -14,7 +14,7 @@ my $data   = {};
 
 my $cursor = $c->find({ chatProcessed => true })->sort({ 'site.uploaded_at' => 1 });
 while(my $r = $cursor->next()) {
-    $data->{$r->{_id}} = [ $cc->find({ replay_id => $r->{_id} })->sort({ sequence => 1 })->all() ];
+    $data->{$r->{_id}} = [ $cc->find({ channel => 'unknown', replay_id => $r->{_id} })->sort({ sequence => 1 })->all() ];
 }
 foreach my $id (keys(%$data)) {
     print $id, "\n";
