@@ -15,6 +15,7 @@ my $cursor = $c->find({ channel => 'unknown' });
 my $data = {};
 
 while(my $o = $cursor->next()) {
+    next unless(defined($o->{source}) && length($o->{source}) > 0);
     $data->{$o->{replay_id}}->[ $o->{sequence} ] = { 
         s => $o->{source},
         b => $o->{body}
