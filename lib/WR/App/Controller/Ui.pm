@@ -45,7 +45,8 @@ sub index {
     my $replays = [ 
         map { { %{$_}, id => $_->{_id} } } $self->db('wot-replays')->get_collection('replays')->find({
             'site.visible' => true,
-            'version'      => $self->stash('config')->{wot}->{version},
+            # 'version'      => $self->stash('config')->{wot}->{version},   # no longer used since the 0.7.4
+                                                                            # WoT client will play old replays
         })->sort({ 'site.uploaded_at' => -1 })->limit(15)->all()
     ];
 
