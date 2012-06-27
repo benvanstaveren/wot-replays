@@ -1,6 +1,14 @@
 {
     "ctf": {
-        "label": "Capture the Flag",
+        "label": "CTF",
         "description": "Win the match by capturing the enemy base or killing all opponents"
+    },
+    "domination": {
+        "label": "Encounter",
+        "description": "Win the match by capturing the base base or killing all opponents"
+    },
+    "assault": {
+        "label": "Assault",
+        "description": "Win the match by attacking or defending the bas or killing all opponents"
     }
 }

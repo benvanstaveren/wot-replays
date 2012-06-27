@@ -4,6 +4,7 @@ use Mojo::Base 'WR::App::Controller';
 use boolean;
 use WR::Query;
 use Beanstalk::Client;
+use WR::Res::Gametype;
 
 sub view {
     my $self = shift;
@@ -64,7 +65,34 @@ sub view {
         },
     }
     # FIXME FIXME need to move WR::Auto data into Res core
-    my $title = sprintf('This is a replay of a match fought by %s, using the %s vehicle, on map %s', $r->{player}->{name}, $r->{player}->{vehicle}->{name}, $r->{map}->{id});
+    my $mres = WR::Res::Gametype->new();
+
+
+    my $title = sprintf('%s - %s - %s (%s), %s',
+        $r->{player}->{name},
+        $self->stash('wr')->vehicle_name($r->{player}->{vehicle}->{full}),
+        $self->stash('wr')->map_name($r->{map}->{id}),
+        $mres->i18n($r->{game}->{type}),
+        ($game->{isWin} > 0) 
+            ? 'Victory'
+            : ($game->{isDraw} > 0)
+                ? 'Draw'
+                : 'Defeat');
+    if($r->{complete}) {
+        $title .= sprintf(' %d xp %s, %d credits',
+            $r->{player}->{statistics}->{earned}->{xp},
+            ($r->{player}->{statistics}->{earned}->{factor} > 1) 
+                ? sprintf('(x%d)', $r->{player}->{statistics}->{earned}->{factor})
+                : '',
+            $r->{player}->{statistics}->{earned}->{credits}
+    }
+
+    my $description = sprintf('This is a replay of a %s match fought by %s, using the %s vehicle, on map %s', 
+        $mres->i18n($r->{game}->{type}), 
+        $r->{player}->{name}, 
+        $self->stash('wr')->vehicle_name($r->{player}->{vehicle}->{full}),
+        $self->stash('wr')->map_name($r->{map}->{id})
+    );
 
     # need to bugger up the teams and sort them by the number of frags which we can obtain from the vehicle hash
     my $frag_sorted_teams = [];
@@ -100,8 +128,8 @@ sub view {
         stash => {
             replay => $r,
             page   => {
-                title => 'View Replay',
-                description => $title,
+                title => $title,
+                description => $description,
             },
             related => $self->related,
         }, 
