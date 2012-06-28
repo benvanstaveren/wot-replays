@@ -46,7 +46,8 @@ sub startup {
             my $p = shift;
 
             if(my $user = $self->db('wot-replays')->get_collection('accounts')->find_one({ email => $u })) {
-                return $user->{_id}->to_string() if(crypt($p, 'wr') eq $user->{password});
+                my $salt = substr($user->{password}, 0, 2);
+                return $user->{_id}->to_string() if(crypt($p, $salt) eq $user->{password});
             }
             return undef;
         },
