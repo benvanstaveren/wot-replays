@@ -43,11 +43,12 @@ sub getchat {
             } catch {
                 $e = $_;
             };
-            if($e) {
+            if(defined($e) && $e !~ /common test/i) {
                 print 'ERROR: ', $e, "\n";
                 return;
             }
             my $seq = 0;
+	    $messages ||= [];
             foreach my $message (@$messages) {
                 $mongo->get_database('wot-replays')->get_collection('replays.chat')->save({
                     version     =>  $parser->wot_version,

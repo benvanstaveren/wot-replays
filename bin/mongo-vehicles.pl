@@ -16,6 +16,8 @@ my $mongo  = MongoDB::Connection->new();
 my $db     = $mongo->get_database('wot-replays');
 my $coll   = $db->get_collection('data.vehicles');
 
+$| = 1;
+
 
 for my $country (qw/china france germany usa ussr/) {
     my $f = sprintf('../etc/res/raw/%s/vehicles/%s.xml', $version, $country);
@@ -23,6 +25,7 @@ for my $country (qw/china france germany usa ussr/) {
     my $x = XMLin($f);
 
     foreach my $vid (keys(%$x)) {
+	print $vid, ' ';
         my $data = {};
         my $v = $x->{$vid}->{'level'};
         $v =~ s/^\s+//g;
@@ -52,7 +55,7 @@ for my $country (qw/china france germany usa ussr/) {
         }
 
         $data->{label} = $text->localize_for(lang => $cat, id => $ident);
-        $data->{label_short} = $text->localize_for(lang => $cat, id => sprintf('%s_short', $ident));
+        $data->{label_short} = $text->localize_for(lang => $cat, id => sprintf('%s_short', $ident)) || $data->{label};
         $data->{_id} = sprintf('%s:%s', $country, $ident);
         $data->{country} = $country;
         $data->{name} = $ident;
@@ -61,4 +64,5 @@ for my $country (qw/china france germany usa ussr/) {
 
         $coll->save($data);
     }
+    print "\n";
 }
