@@ -44,12 +44,14 @@ around 'process' => sub {
     }
 
     no warnings;
+    my $v = $self->_parser->wot_version;
     my $data = {
         _id => $m_id,
         teams => $ordered_teams,
         team_survivors => $team_survivors,
         processed_at => time(),
-        version => substr($self->_parser->wot_version, 0, 5),
+        version => substr($v, 0, 5),
+        version_full => $v,
         site => {
             meta => {
             },

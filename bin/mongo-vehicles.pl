@@ -25,7 +25,7 @@ for my $country (qw/china france germany usa ussr/) {
     my $x = XMLin($f);
 
     foreach my $vid (keys(%$x)) {
-	print $vid, ' ';
+        print "\t", 'ID: ', $vid, "\n";
         my $data = {};
         my $v = $x->{$vid}->{'level'};
         $v =~ s/^\s+//g;
@@ -37,6 +37,8 @@ for my $country (qw/china france germany usa ussr/) {
         my $us = $x->{$vid}->{'userString'};
         my ($cat, $ident) = split(/:/, $us);
         $cat =~ s/^#//g;
+
+        print "\t\t", 'userString: ', $us, "\n";
 
         my $tags = { map { $_ => 1 } (split(/\s+/, $x->{$vid}->{tags})) };
         my $type = 'U';
@@ -56,10 +58,10 @@ for my $country (qw/china france germany usa ussr/) {
 
         $data->{label} = $text->localize_for(lang => $cat, id => $ident);
         $data->{label_short} = $text->localize_for(lang => $cat, id => sprintf('%s_short', $ident)) || $data->{label};
-        $data->{_id} = sprintf('%s:%s', $country, $ident);
+        $data->{_id} = sprintf('%s:%s', $country, $vid);
         $data->{country} = $country;
-        $data->{name} = $ident;
-        $data->{description} = $text->localize_for(lang => $cat, id => sprintf('%s_descr', $ident));
+        $data->{name} = $vid;
+        $data->{description} = $text->localize_for(lang => $cat, id => sprintf('%s_descr', $vid));
         $data->{type} = $type;
 
         $coll->save($data);
