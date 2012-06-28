@@ -18,6 +18,15 @@ my $coll   = $db->get_collection('data.vehicles');
 
 $| = 1;
 
+my $langfix = XMLin(sprintf('../etc/res/raw/%s/vehicles/fix.xml', $version));
+
+sub fixed_ident {
+    my $id = shift;
+
+    return ($langfix->{$id}) 
+        ? $langfix->{$id}
+        : $id
+} 
 
 for my $country (qw/china france germany usa ussr/) {
     my $f = sprintf('../etc/res/raw/%s/vehicles/%s.xml', $version, $country);
@@ -56,12 +65,12 @@ for my $country (qw/china france germany usa ussr/) {
             $type = 'T';
         }
 
-        $data->{label} = $text->localize_for(lang => $cat, id => $ident);
-        $data->{label_short} = $text->localize_for(lang => $cat, id => sprintf('%s_short', $ident)) || $data->{label};
+        $data->{label} = $text->localize_for(lang => $cat, id => fixed_ident($ident));
+        $data->{label_short} = $text->localize_for(lang => $cat, id => fixed_ident(sprintf('%s_short', $ident))) || $data->{label};
         $data->{_id} = sprintf('%s:%s', $country, $vid);
         $data->{country} = $country;
         $data->{name} = $vid;
-        $data->{description} = $text->localize_for(lang => $cat, id => sprintf('%s_descr', $vid));
+        $data->{description} = $text->localize_for(lang => $cat, id => fixed_ident(sprintf('%s_descr', $vid)));
         $data->{type} = $type;
 
         $coll->save($data);
