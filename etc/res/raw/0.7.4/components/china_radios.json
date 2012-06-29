@@ -1,0 +1,41 @@
+{
+   "shared" : {
+      "text" : "",
+      "A-220" : {
+         "icon" : "gui/maps/icons_vehicle_components.dds 9 0",
+         "distance" : 660,
+         "description" : "#china_vehicles:A-220_descr",
+         "tags" : "",
+         "maxRegenHealth" : 60,
+         "maxHealth" : 120,
+         "userString" : "#china_vehicles:A-220",
+         "repairCost" : "1.5",
+         "level" : 8,
+         "text" : "",
+         "weight" : 100,
+         "price" : 29240,
+         "notInShop" : null
+      },
+      "_9RM" : {
+         "icon" : "gui/maps/icons_vehicle_components.dds 9 0",
+         "distance" : 525,
+         "description" : "#china_vehicles:_9RM_descr",
+         "tags" : "",
+         "maxRegenHealth" : 60,
+         "maxHealth" : 120,
+         "userString" : "#china_vehicles:_9RM",
+         "repairCost" : "1.5",
+         "level" : 8,
+         "text" : "",
+         "weight" : 100,
+         "price" : 24240,
+         "notInShop" : null
+      }
+   },
+   "ids" : {
+      "text" : "",
+      "A-220" : 1,
+      "_9RM" : ""
+   },
+   "text" : ""
+}
