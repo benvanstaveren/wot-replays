@@ -39,7 +39,7 @@
                 </a>
             [% END %]
             <ul class="nav js-global-actions" id="global-pages" style="float: right">
-                <li class="nav-item blog [% IF pageid == 'about' %]active[% END %]">
+                <li class="nav-item blog [% IF pageid == 'blog' %]active[% END %]">
                     <a class="js-hover" href="http://blog.wot-replays.org/">
                         Blog
                     </a>
