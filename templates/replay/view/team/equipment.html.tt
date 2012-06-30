@@ -6,7 +6,7 @@
             <tr>
                 <td style="vertical-align: top; width: 77px; text-align: center">
                     <img src="[% wr.vehicle_icon(player.vehicleType.full, 48) %]" class="vehicleIcon-48"/><br/>
-                    [% wr.vehicle_name(player.vehicleType.full) %]
+                    [% wr.vehicle_name_short(player.vehicleType.full) %]
                 </td>
                 <td style="text-align: left; width: 373px">
                     <div>
