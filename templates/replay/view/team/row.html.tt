@@ -26,7 +26,7 @@
 [% ELSE %]
     [% rowtitle = titles.pop %]
 [% END %]
-<tr class="playerRow [% class %] tooltip" tooltip="tt_[% replay.player.name |html %]" title="[% IF rowtitle %][% rowtitle %] by [% replay.player.name |html %][% END %]">
+<tr class="playerRow [% class %] tooltip" tooltip="tt_[% player.name |html %]" title="[% IF rowtitle %][% rowtitle %] by [% replay.player.name |html %][% END %]">
     <td class="playerSurvived [% IF player.isAlive == 1 %]green[% ELSE %]red[% END %]"><span></span></td>
     <td class="playerName">
         [% player.name |html %][% IF player.clanAbbrev %]<span class="clan">[[% player.clanAbbrev %]]</span>[% END %]

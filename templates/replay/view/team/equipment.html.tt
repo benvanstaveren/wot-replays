@@ -1,49 +1,44 @@
-<div id="tt_[% replay.player.name |html %]" style="display: none; width: 300px" title="Fitted Modules">
-    <table style="width: 300px;" cellspacing="0" cellpadding="0"> 
+[% pname = player.name %]
+[% fitting = replay.vehicle_fittings.$pname %]
+<div id="tt_[% player.name |html %]" style="display: none; width: 450px" title="Fitted Modules" class="ui-corner-all">
+    <table style="width: 450px;" cellspacing="0" cellpadding="0"> 
         <tbody>
             <tr>
-                <td style="vertical-align: top; width: 77px">
-                    <img src="[% wr.vehicle_icon(player.vehicleType.full, 48) %]" class="vehicleIcon-48"/>
+                <td style="vertical-align: top; width: 77px; text-align: center">
+                    <img src="[% wr.vehicle_icon(player.vehicleType.full, 48) %]" class="vehicleIcon-48"/><br/>
+                    [% wr.vehicle_name(player.vehicleType.full) %]
                 </td>
-                <td style="text-align: left; width: 223px">
+                <td style="text-align: left; width: 373px">
                     <div>
                         <span style="width: 16px; height: 16px">
-                            <img src="[% config.urls.assets %]/icon/components/16x16/chassis.png" style="width: 16px; height: 16px" title="Tracks"/>
+                            <img src="[% config.urls.assets %]/icon/components/16x16/engines.png" style="width: 16px; border: 0px;height: 16px" title="Engine"/>
                         </span>
-                        <span> 
-                            ...
+                        <span style="padding: 0px 0px 0px 5px"> 
+                            [% wr.component_name(player.vehicleType.country, 'engines', fitting.data.engine) %]
                         </span>
                     </div>
                     <div>
                         <span style="width: 16px; height: 16px">
-                            <img src="[% config.urls.assets %]/icon/components/16x16/engines.png" style="width: 16px; height: 16px" title="Engine"/>
+                            <img src="[% config.urls.assets %]/icon/components/16x16/radios.png" style="width: 16px; height: 16px; border: 0px" title="Radio"/>
                         </span>
-                        <span> 
-                            ...
-                        </span>
-                    </div>
-                    <div>
-                        <span style="width: 16px; height: 16px">
-                            <img src="[% config.urls.assets %]/icon/components/16x16/radios.png" style="width: 16px; height: 16px" title="Radio"/>
-                        </span>
-                        <span> 
-                            ...
+                        <span style="padding: 0px 0px 0px 5px"> 
+                            [% wr.component_name(player.vehicleType.country, 'radios', fitting.data.radio) %]
                         </span>
                     </div>
                     <div>
                         <span style="width: 16px; height: 16px">
-                            <img src="[% config.urls.assets %]/icon/components/16x16/guns.png" style="width: 16px; height: 16px" title="Gun"/>
+                            <img src="[% config.urls.assets %]/icon/components/16x16/guns.png" style="width: 16px; height: 16px; border: 0px" title="Gun"/>
                         </span>
-                        <span> 
-                            ...
+                        <span style="padding: 0px 0px 0px 5px"> 
+                            [% wr.component_name(player.vehicleType.country, 'guns', fitting.data.gun) %]
                         </span>
                     </div>
                     <div>
                         <span style="width: 16px; height: 16px">
-                            <img src="[% config.urls.assets %]/icon/components/16x16/turrets.png" style="width: 16px; height: 16px" title="Turret"/>
+                            <img src="[% config.urls.assets %]/icon/components/16x16/turrets.png" style="width: 16px; height: 16px; border: 0px" title="Turret"/>
                         </span>
-                        <span> 
-                            ...
+                        <span style="padding: 0px 0px 0px 5px"> 
+                            [% wr.component_name(player.vehicleType.country, 'turrets', fitting.data.turret) %]
                         </span>
                     </div>
                 </td>

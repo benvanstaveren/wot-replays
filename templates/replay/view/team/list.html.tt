@@ -8,6 +8,7 @@
 </table>
 [% IF replay.vehicle_fittings %]
 [% FOREACH playerid IN players %]
+    [% player = replay.vehicles_hash.$playerid %]
     [% INCLUDE replay/view/team/equipment.html.tt %]
 [% END %]
 <script type="text/javascript">

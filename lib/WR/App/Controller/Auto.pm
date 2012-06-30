@@ -184,10 +184,10 @@ sub index {
                     country => $cnt,
                     component => $cmp,
                     component_id => $id,
-                }) {
+                })) {
                     return $obj->{label};
                 } else {
-                    return sprintf('nolabel:%s', $v);
+                    return undef;
                 }
             },
             vehicle_name => sub {
