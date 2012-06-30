@@ -26,8 +26,13 @@
 [% ELSE %]
     [% rowtitle = titles.pop %]
 [% END %]
+[% pname = player.name %]
+[% platoon = replay.platoons.$pname %]
 <tr class="playerRow [% class %] tooltip" tooltip="tt_[% player.name |html %]" title="[% IF rowtitle %][% rowtitle %] by [% replay.player.name |html %][% END %]">
-    <td class="playerSurvived [% IF player.isAlive == 1 %]green[% ELSE %]red[% END %]"><span></span></td>
+    <td class="playerSurvived [% IF player.isAlive == 1 %]green[% ELSE %]red[% END %]">
+    <span>
+        [% IF platoon > 0 %][% platoon %]&nbsp;[% END %]
+    </span></td>
     <td class="playerName">
         [% player.name |html %][% IF player.clanAbbrev %]<span class="clan">[[% player.clanAbbrev %]]</span>[% END %]
     </td>
