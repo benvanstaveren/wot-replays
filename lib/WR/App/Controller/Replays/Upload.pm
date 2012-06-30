@@ -74,6 +74,7 @@ sub upload {
                     visible     => ($self->req->param('hide') == 1) ? false : true,
                     youtube     => $self->req->param('youtube'),
                 };
+
                 $self->db('wot-replays')->get_collection('replays')->save($m_data, { safe => 1 });
 
                 $self->respond(stash => {

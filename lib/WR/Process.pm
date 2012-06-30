@@ -29,6 +29,7 @@ with (
         'WR::Role::Process::Heroes',         # resolve heroes 
         'WR::Role::Process::Epic',           # resolve epic achievements
         'WR::Role::Process::Teamkills',      # process teamkills if needed
+        'WR::Role::Process::Fittings',       # process vehicle fittings
     );
 
 sub error {
