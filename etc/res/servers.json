@@ -1,0 +1,22 @@
+{
+    "na": {
+        "label": "North America",
+        "label_long": "North American Server"
+    },
+    "ru": {
+        "label": "Russia",
+        "label_long": "Russian Server"
+    },
+    "eu": {
+        "label": "Europe",
+        "label_long": "European Server"
+    },
+    "cn": {
+        "label": "China",
+        "label_long": "Chinese Server"
+    },
+    "sea": {
+        "label": "South East Asia",
+        "label_long": "South East Asian Server"
+    }
+}

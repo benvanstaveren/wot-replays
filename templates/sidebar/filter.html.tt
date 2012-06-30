@@ -1,0 +1,78 @@
+    <h3>Filter</h3>
+    <div>
+        <form id="frm-browse-filter" method="post">
+            <input type="hidden" name="p" value="[% p %]"/>
+            <input type="hidden" name="skey" value="filter_[% pageid %]"/>
+            <input type="hidden" name="vehiclepov" value="1"/>
+            <input type="hidden" name="vehicleinv" value="0"/>
+            [% IF pageid == 'map' %]
+                <input type="hidden" name="map" value="[% map_id %]"/>
+            [% ELSIF pageid == 'vehicle' %]
+                <input type="hidden" name="vehicle" value="[% vehicle_full %]"/>
+            [% END %]
+            [% IF pageid != 'vehicle' %]
+            <span class="label">Vehicle</span>
+            <select name="vehicle">
+                <option value="">-- All vehicles</option>
+                [% FOREACH group IN wr.generate_vehicle_select() %]
+                    <optgroup label="[% group.label %]">
+                        [% FOREACH option IN group.items %]
+                            <option value="[% group.country %]:[% option.id %]">[% option.value %]</option>
+                        [% END %]
+                    </optgroup>
+                [% END %]
+            </select>
+            [% END %]
+            [% IF pageid != 'map' %]
+            <span class="label">Map</span>
+            <select name="map">
+                <option value="">-- All maps</option>
+                [% FOREACH map IN wr.generate_map_select() %]
+                    <option value="[% map.id %]">[% map.label %]</option>
+                [% END %]
+            </select>
+            [% END %]
+            <span class="label">Server</span>
+            <select name="server">
+                <option value="">-- All servers</option>
+                <option value="na">North America</option>
+                <option value="eu">Europe</option>
+                <option value="ru">Russia</option>
+                <option value="sea">South East Asia</option>
+            </select>
+            <span class="label">Match Mode</span>
+            <select name="matchmode">
+                <option value="">-- All modes</option>
+                <option value="ctf">CTF</option>
+                <option value="domination">Encounter</option>
+                <option value="assault">Assault</option>
+            </select>
+            <span class="label">Match Type</span>
+            <select name="matchtype">
+                <option value="">-- All types</option>
+                <option value="1">Random Battle</option>
+                <option value="2">Training Room Battle</option>
+                <option value="3">Company Battle</option>
+                <option value="4">Tournament Battle</option>
+                <option value="5">Clan Battle</option>
+            </select>
+            <span class="label">Version</span>
+            <select name="compatible">
+                <option value="0">-- All versions</option>
+                <option value="1">[% config.wot.version %] only</option>
+            </select>
+            <span class="label">Sorting</span>
+            <select name="sort">
+                <option value="upload">Upload Date</option>
+                <option value="xp">XP Earned</option>
+                <option value="credits">Credits Earned</option>
+                <option value="kills"># Kills</option>
+                <option value="damaged"># Damaged</option>
+                <option value="spotted"># Spotted</option>
+            </select>
+        </form>
+        <div class="filter-buttons">
+        <button id="btn-browse-filter" style="width: 120px" class="clean-gray">Filter</button>
+        <button id="btn-browse-reset" style="width: 120px" class="clean-gray">Reset</button>
+        </div>
+    </div>

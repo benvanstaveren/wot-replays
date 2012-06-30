@@ -1,6 +1,9 @@
 package WR::App::Controller::Auto;
 use Mojo::Base 'WR::App::Controller';
 use WR::Res::Achievements;
+use WR::Res::Bonustype;
+use WR::Res::Gametype;
+use WR::Res::Servers;
 
 use constant ROMAN_NUMERALS => [qw(0 I II III IV V VI VII VIII IX X)];
 
@@ -109,7 +112,10 @@ sub index {
         wr => {
             match_result => sub { return $self->get_match_result() },
             res => {
-                achievements => WR::Res::Achievements->new(),
+                achievements    => WR::Res::Achievements->new(),
+                bonustype       => WR::Res::Bonustype->new(),
+                gametype        => WR::Res::Gametype->new(),
+                servers         => WR::Res::Servers->new(),
             },
             generate_vehicle_select => sub {
                 return $self->generate_vehicle_select();
@@ -171,7 +177,7 @@ sub index {
                 my ($c, $n) = split(/:/, $v, 2);
 
                 if(my $obj = $self->db('wot-replays')->get_collection('data.vehicles')->find_one({ _id => $v })) {
-                    return $obj->{label_short};
+                    return $obj->{label_short} || $obj->{label};
                 } else {
                     return sprintf('nolabel_short:%s', $v);
                 }

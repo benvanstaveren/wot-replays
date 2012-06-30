@@ -57,13 +57,15 @@ sub get_replays {
 sub browse {
     my $self = shift;
     my $filter = {};
-    my $skey = $self->req->param('skey') || 'browsefilter';
+    my $skey = $self->req->param('skey') || sprintf('filter_%s', $self->stash('pageid'));
 
     # restore the original filter if it's the initial load (e.g. non-ajax)
     if($self->session->{$skey} && !$self->req->is_xhr) {
         $filter = $self->session->{$skey};
+        use Data::Dumper;
+        warn 'restored filter from ', $skey, ': ', Dumper($filter), "\n";
     } else {
-        for(qw/map vehicle player playerpov playerinv vehiclepov vehicleinv server/) {
+        for(qw/map vehicle player playerpov playerinv vehiclepov vehicleinv server matchmode matchtype/) {
             $filter->{$_} = $self->req->param($_) if($self->req->param($_));
         }
         my $complete = $self->req->param('complete');
@@ -74,12 +76,13 @@ sub browse {
         $filter->{survived} = 1 if(defined($survived) && $survived == 1);
         $filter->{compatible} = 1 if(defined($compatible) && $compatible == 1);
 
+        warn 'storing filter to: ', $skey, ': ', Dumper($filter), "\n";;;;
+
         $self->session($skey => $filter);
     }
 
     my $sort = { 'site.uploaded_at' => -1 };
 
-    # fuck with the filter a little
     $filter->{version} = $self->stash('config')->{wot}->{version} if($filter->{compatible}); 
 
     my $query = $self->wr_query(

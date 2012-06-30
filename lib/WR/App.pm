@@ -123,6 +123,9 @@ sub startup {
     $r->route('/wru/get_token')->to('wru#get_token');
     $r->route('/wru/upload')->to('wru#upload');
 
+    my $api = $r->under('/api/v1');
+        $api->route('/bootstrap')->to('api#bootstrap');
+
     $self->sessions->default_expiration(86400 * 365); 
 
     $self->helper(wr_query => sub {

@@ -134,8 +134,9 @@ sub _build_query {
 
     $query->{'complete'} = true if($args{'complete'});
     $query->{'version'} = $args{'version'} if($args{'compatible'} == 1); 
-    $query->{'player.statistics.survived'} = true if($args{'survived'});
-    $query->{'game.arena_id'} = $args{'related'} if($args{'related'});
+
+    $query->{'game.type'} = $args{'matchmode'} if($args{'matchmode'} && $args{'matchmode'} ne '');
+    $query->{'game.bonus_type'} = $args{'matchtype'} + 0 if($args{'matchtype'} && $args{'matchtype'} ne '');
 
     # finalize the query
     if(scalar(@$ors) > 1) {
@@ -145,6 +146,9 @@ sub _build_query {
     } elsif(scalar(@$ors) > 0) {
         $query->{'$or'} = shift(@$ors);
     }
+
+    use Data::Dumper;
+    warn 'query: ', Dumper($query), "\n";
 
     return $query;
 }
