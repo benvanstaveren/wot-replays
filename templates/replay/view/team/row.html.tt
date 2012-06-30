@@ -31,7 +31,9 @@
 <tr class="playerRow [% class %] tooltip" tooltip="tt_[% player.name |html %]" title="[% IF rowtitle %][% rowtitle %] by [% replay.player.name |html %][% END %]">
     <td class="playerSurvived [% IF player.isAlive == 1 %]green[% ELSE %]red[% END %]">
     <span>
-        [% IF platoon > 0 %][% platoon %]&nbsp;[% END %]
+        [% IF platoon && platoon > 0 %]
+        <strong style="position: relative; top: -2px; left: 3px">[% platoon %]</strong>
+        [% END %]
     </span></td>
     <td class="playerName">
         [% player.name |html %][% IF player.clanAbbrev %]<span class="clan">[[% player.clanAbbrev %]]</span>[% END %]
