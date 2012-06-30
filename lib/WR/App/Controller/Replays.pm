@@ -62,8 +62,6 @@ sub browse {
     # restore the original filter if it's the initial load (e.g. non-ajax)
     if($self->session->{$skey} && !$self->req->is_xhr) {
         $filter = $self->session->{$skey};
-        use Data::Dumper;
-        warn 'restored filter from ', $skey, ': ', Dumper($filter), "\n";
     } else {
         for(qw/map vehicle player playerpov playerinv vehiclepov vehicleinv server matchmode matchtype/) {
             $filter->{$_} = $self->req->param($_) if($self->req->param($_));
@@ -75,8 +73,6 @@ sub browse {
         $filter->{complete} = 1 if(defined($complete) && $complete == 1);
         $filter->{survived} = 1 if(defined($survived) && $survived == 1);
         $filter->{compatible} = 1 if(defined($compatible) && $compatible == 1);
-
-        warn 'storing filter to: ', $skey, ': ', Dumper($filter), "\n";;;;
 
         $self->session($skey => $filter);
     }
