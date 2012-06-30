@@ -6,3 +6,21 @@
 [% END %]
 </tbody>
 </table>
+[% IF replay.vehicle_fittings %]
+[% FOREACH playerid IN players %]
+    [% INCLUDE replay/view/team/equipment.html.tt %]
+[% END %]
+<script type="text/javascript">
+    $('tr.tooltip').tooltip({
+        track: true,
+        delay: 0,
+        showURL: false,
+        fixPNG: true,
+        opacity: 0.95,
+        showBody: ' - ',
+        bodyHandler: function() {
+            return $('#' + $(this).attr('tooltip')).html();
+        },
+    });
+</script>
+[% END %]

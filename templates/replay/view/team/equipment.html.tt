@@ -1,0 +1,53 @@
+<div id="tt_[% replay.player.name |html %]" style="display: none; width: 300px" title="Fitted Modules">
+    <table style="width: 300px;" cellspacing="0" cellpadding="0"> 
+        <tbody>
+            <tr>
+                <td style="vertical-align: top; width: 77px">
+                    <img src="[% wr.vehicle_icon(player.vehicleType.full, 48) %]" class="vehicleIcon-48"/>
+                </td>
+                <td style="text-align: left; width: 223px">
+                    <div>
+                        <span style="width: 16px; height: 16px">
+                            <img src="[% config.urls.assets %]/icon/components/16x16/chassis.png" style="width: 16px; height: 16px" title="Tracks"/>
+                        </span>
+                        <span> 
+                            ...
+                        </span>
+                    </div>
+                    <div>
+                        <span style="width: 16px; height: 16px">
+                            <img src="[% config.urls.assets %]/icon/components/16x16/engines.png" style="width: 16px; height: 16px" title="Engine"/>
+                        </span>
+                        <span> 
+                            ...
+                        </span>
+                    </div>
+                    <div>
+                        <span style="width: 16px; height: 16px">
+                            <img src="[% config.urls.assets %]/icon/components/16x16/radios.png" style="width: 16px; height: 16px" title="Radio"/>
+                        </span>
+                        <span> 
+                            ...
+                        </span>
+                    </div>
+                    <div>
+                        <span style="width: 16px; height: 16px">
+                            <img src="[% config.urls.assets %]/icon/components/16x16/guns.png" style="width: 16px; height: 16px" title="Gun"/>
+                        </span>
+                        <span> 
+                            ...
+                        </span>
+                    </div>
+                    <div>
+                        <span style="width: 16px; height: 16px">
+                            <img src="[% config.urls.assets %]/icon/components/16x16/turrets.png" style="width: 16px; height: 16px" title="Turret"/>
+                        </span>
+                        <span> 
+                            ...
+                        </span>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

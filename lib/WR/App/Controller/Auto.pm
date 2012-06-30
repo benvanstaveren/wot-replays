@@ -176,6 +176,20 @@ sub index {
                     return sprintf('nolabel_short:%s', $v);
                 }
             },
+            component_name => sub {
+                my $cnt = shift;
+                my $cmp = shift;
+                my $id  = shift;
+                if(my $obj = $self->db('wot-replays')->get_collection('data.components')->find_one({ 
+                    country => $cnt,
+                    component => $cmp,
+                    component_id => $id,
+                }) {
+                    return $obj->{label};
+                } else {
+                    return sprintf('nolabel:%s', $v);
+                }
+            },
             vehicle_name => sub {
                 my $v = shift;
                 my ($c, $n) = split(/:/, $v, 2);
