@@ -1,7 +1,9 @@
 #!/usr/bin/perl
 use strict;
 use warnings;
-use lib qw|./lib|;
+use FindBin;
+use lib "$FindBin::Bin/../lib";
+use WR;
 use WR::Parser;
 
 my $key = join('', map { chr(hex($_)) } (split(/\s/, "DE 72 BE A0 DE 04 BE B1 DE FE BE EF DE AD BE EF")));
