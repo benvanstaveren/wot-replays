@@ -58,6 +58,13 @@ sub browse {
     my $self = shift;
     my $filter = {};
     my $skey = $self->req->param('skey') || sprintf('filter_%s', $self->stash('pageid'));
+    my $sorting = {
+        upload      => { 'site.uploaded_at' => -1 },
+        xp          => { 'player.statistics.earned.xp' => -1 },
+        credits     => { 'player.statistics.earned.credits' => -1 },
+        damage      => { 'player.statistics.damage.done' => -1 },
+        };
+
 
     # restore the original filter if it's the initial load (e.g. non-ajax)
     if($self->session->{$skey} && !$self->req->is_xhr) {
@@ -69,16 +76,17 @@ sub browse {
         my $complete = $self->req->param('complete');
         my $survived = $self->req->param('survived');
         my $compatible = $self->req->param('compatible');
+        my $sort = $self->req->param('sort') || 'upload';
 
         $filter->{complete} = 1 if(defined($complete) && $complete == 1);
         $filter->{survived} = 1 if(defined($survived) && $survived == 1);
         $filter->{compatible} = 1 if(defined($compatible) && $compatible == 1);
+        $filter->{sort} = $sort;
 
         $self->session($skey => $filter);
     }
 
-    my $sort = { 'site.uploaded_at' => -1 };
-
+    my $sort = $sorting->{$filter->{sort} || 'upload'};
     $filter->{version} = $self->stash('config')->{wot}->{version} if($filter->{compatible}); 
 
     my $query = $self->wr_query(

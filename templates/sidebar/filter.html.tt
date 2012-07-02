@@ -66,9 +66,7 @@
                 <option value="upload">Upload Date</option>
                 <option value="xp">XP Earned</option>
                 <option value="credits">Credits Earned</option>
-                <option value="kills"># Kills</option>
-                <option value="damaged"># Damaged</option>
-                <option value="spotted"># Spotted</option>
+                <option value="damage">Damage Done</option>
             </select>
         </form>
         <div class="filter-buttons">
