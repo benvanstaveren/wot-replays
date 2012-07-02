@@ -4,6 +4,8 @@ use WR::Res::Achievements;
 use WR::Res::Bonustype;
 use WR::Res::Gametype;
 use WR::Res::Servers;
+use WR::Res::Country;
+use WR::Res::Vehicleclass;
 
 use constant ROMAN_NUMERALS => [qw(0 I II III IV V VI VII VIII IX X)];
 
@@ -110,13 +112,9 @@ sub index {
             first_visit => $self->session('first_visit'),
         },
         wr => {
+            get_id => sub { return shift->{_id} },
             match_result => sub { return $self->get_match_result() },
-            res => {
-                achievements    => WR::Res::Achievements->new(),
-                bonustype       => WR::Res::Bonustype->new(),
-                gametype        => WR::Res::Gametype->new(),
-                servers         => WR::Res::Servers->new(),
-            },
+            res => sub { return $self->app->wr_res },
             generate_vehicle_select => sub {
                 return $self->generate_vehicle_select();
             },

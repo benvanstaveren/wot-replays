@@ -7,6 +7,7 @@ use lib "$FindBin::Bin/../lib";
 
 use WR;
 use WR::Query;
+use WR::Res;
 
 use Time::HiRes qw/gettimeofday/;
 
@@ -37,7 +38,6 @@ sub startup {
 
     # set up the key string
     $config->{wot}->{bf_key} = join('', map { chr(hex($_)) } (split(/\s/, $config->{wot}->{bf_key})));
-    #$self->defaults(configuration => $config); # apparently, config is already exported to stash
 
     $self->plugin('authentication', {
         validate_user => sub {
@@ -156,6 +156,17 @@ sub startup {
             return undef;
         }
     });
+
+    has 'wr_res' => sub {
+        return {
+            achievements    => WR::Res::Achievements->new(),
+            bonustype       => WR::Res::Bonustype->new(),
+            gametype        => WR::Res::Gametype->new(),
+            servers         => WR::Res::Servers->new(),
+            country         => WR::Res::Country->new(),
+            vehicleclass    => WR::Res::Vehicleclass->new(),
+        }
+    };
 }
 
 1;
