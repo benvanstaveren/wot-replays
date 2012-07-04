@@ -34,7 +34,7 @@ sub getchat {
                 Data::Attributes
                 Data::Chat
                 /],
-            file => $r->{file},
+            file => sprintf('/storage/replays/%s', $r->{file}),
         );
         print '[replay]: parser ready', "\n";
         my $messages;
