@@ -23,6 +23,8 @@ sub respond {
             $fh->close;
         }
     }
+
+    return 1;
 }
 
 1;

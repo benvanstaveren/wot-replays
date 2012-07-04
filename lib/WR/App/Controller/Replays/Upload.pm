@@ -77,6 +77,7 @@ sub upload {
                 done => 1,
                 published => ($self->req->param('hide') == 1) ? 0 : 1,
             }, template => 'upload/form');
+
         } else {
             $self->respond(template => 'upload/form', stash => {
                 page => { title => 'Upload Replay' },
