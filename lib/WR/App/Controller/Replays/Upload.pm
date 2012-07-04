@@ -25,23 +25,23 @@ sub upload {
                 $fileasset->add_chunk($asset->slurp);
                 $asset = $fileasset; # heh
             }
-            my $gfs = $self->db('wot-replays')->get_gridfs();
             my $pe;
-
-            my $tmpnam = POSIX::tmpnam();
-
-            $asset->move_to($tmpnam);
-
             my $m_data;
+
+            my $filename = $upload->filename;
+            $filename =~ s/.*\\//g if($filename =~ /\\/);
+
+            $asset->move_to(sprintf('/storage/replays/%s', $filename));
 
             try {
                 my $p = WR::Process->new(
-                    file    => $tmpnam,
+                    file    => sprintf('/storage/replays/%s', $filename),
                     db      => $self->db('wot-replays'),
                     bf_key  => $self->stash('config')->{wot}->{bf_key},
                 );
                 $m_data = $p->process();
             } catch {
+                unlink(sprintf('/storage/replays/%s', $filename));
                 $pe = $_;
             };
 
@@ -53,40 +53,28 @@ sub upload {
 
             $self->respond(stash => { page => { title => 'Upload Replay' }, errormessage => q|Courtesy of WG, this replay can't be stored, it's missing your player ID, and we use that to uniquely identify each player| }, template => 'upload/form') and return 0 if($m_data->{player}->{id} == 0);
 
-
             if(my $yturl = $self->req->param('youtube')) {
                 my $tx = $self->get($yturl);
 
                 $self->respond(stash => { page => { title => 'Upload Replay' }, errormessage => q|That YouTube video URL isn't quite right...| }, template => 'upload/form') and return 0 unless($tx->success);
             }
-            $gfs->remove({ replay_id => $m_data->{_id} });
+            $m_data->{file} = $filename;
+            $m_data->{site} = {
+                description => $self->req->param('description'),
+                uploaded_at => time(),
+                uploaded_by => ($self->is_user_authenticated) ? $self->current_user->{_id} : undef,
+                visible     => ($self->req->param('hide') == 1) ? false : true,
+                youtube     => $self->req->param('youtube'),
+            };
 
-            if(my $handle = FileHandle->new($tmpnam, 'r')) {
-                my $f_id = $gfs->insert($handle, {
-                    filename    => $upload->filename,
-                    replay_id   => $m_data->{_id},
-                }, { safe => 1});
-                $m_data->{file} = $f_id;
-                $m_data->{site} = {
-                    description => $self->req->param('description'),
-                    uploaded_at => $f_id->get_time,
-                    uploaded_by => ($self->is_user_authenticated) ? $self->current_user->{_id} : undef,
-                    visible     => ($self->req->param('hide') == 1) ? false : true,
-                    youtube     => $self->req->param('youtube'),
-                };
+            $self->db('wot-replays')->get_collection('replays')->save($m_data, { safe => 1 });
 
-                $self->db('wot-replays')->get_collection('replays')->save($m_data, { safe => 1 });
-
-                $self->respond(stash => {
-                    page => { title => 'Upload Replay' }, 
-                    id => $m_data->{_id}, 
-                    done => 1,
-                    published => ($self->req->param('hide') == 1) ? 0 : 1,
-                }, template => 'upload/form');
-            } else {
-                $self->respond(stash => { page => { title => 'Upload Replay' }, errormessage => 'Error saving to gridfs', }, template => 'upload/form');
-            }
-            unlink($tmpnam);
+            $self->respond(stash => {
+                page => { title => 'Upload Replay' }, 
+                id => $m_data->{_id}, 
+                done => 1,
+                published => ($self->req->param('hide') == 1) ? 0 : 1,
+            }, template => 'upload/form');
         } else {
             $self->respond(template => 'upload/form', stash => {
                 page => { title => 'Upload Replay' },
