@@ -34,7 +34,7 @@ sub getchat {
                 Data::Attributes
                 Data::Chat
                 /],
-            file => $replay->{file},
+            file => $r->{file},
         );
         print '[replay]: parser ready', "\n";
         my $messages;
