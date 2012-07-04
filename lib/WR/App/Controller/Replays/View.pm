@@ -4,7 +4,6 @@ use Mojo::Base 'WR::App::Controller';
 use boolean;
 use WR::Query;
 use Beanstalk::Client;
-use WR::Res::Gametype;
 
 sub view {
     my $self = shift;
@@ -15,64 +14,42 @@ sub view {
     my $replay = $self->stash('req_replay');
     my $r = { %$replay };
     if($replay->{complete}) {
-        $r->{f} = {
-            spotted => sub {
-                my $id = shift;
-                no warnings;
-                return (
-                    { map { $_ => 1 } (@{$replay->{player}->{statistics}->{spotted}}) }->{$id} > 0
-                ) ? 1 : 0;
-            },
-            killed => sub {
-                my $id = shift;
-                no warnings;
-                return (
-                    { map { $_ => 1 } (@{$replay->{player}->{statistics}->{killed}}) }->{$id} > 0
-                ) ? 1 : 0;
-            },
-            damaged => sub {
-                my $id = shift;
-                no warnings;
-                return (
-                    { map { $_ => 1 } (@{$replay->{player}->{statistics}->{damaged}}) }->{$id} > 0
-                ) ? 1 : 0;
-            },
-            team_killed => sub {
-                my $id = shift;
-                my $e  = $replay->{player}->{statistics}->{teamkill}->{hash}->{$id};
-                return 1 if(defined($e) && $e->{isKill} > 0);
-                return 0;
-            },
-            team_damaged => sub {
-                my $id = shift;
-                no warnings;
-                return (defined($replay->{player}->{statistics}->{teamkill}->{hash}->{$id})) ? 1 : 0;
-            },
-            team_damage_type => sub {
-                my $id = shift;
-                my $e  = $replay->{player}->{statistics}->{teamkill}->{hash}->{$id};
-                my @r  = '';
+        # loop across the enemy team (team 1)
+        no warnings;
+        foreach my $id (@{$replay->{teams}->[1]}) {
+            my $enemy = $replay->{vehicles_hash}->{$id};
+            $enemy->{sdk}->{s} = (defined({ map { $_ => 1 } (@{$replay->{player}->{statistics}->{spotted}}) }->{$id})) ? 1 : 0;
+            $enemy->{sdk}->{d} = (defined({ map { $_ => 1 } (@{$replay->{player}->{statistics}->{damaged}}) }->{$id})) ? 1 : 0;
+            $enemy->{sdk}->{k} = (defined({ map { $_ => 1 } (@{$replay->{player}->{statistics}->{killed}}) }->{$id})) ? 1 : 0;
+        }
 
-                return 'unknown' unless($e);
-                return ($e->{means} == 3)
+        # get our own team
+        foreach my $id (@{$replay->{teams}->[0]}) {
+            my $player = $replay->{vehicles_hash}->{$id};
+
+            $player->{tk}->{td} = (defined($replay->{player}->{statistics}->{teamkill}->{hash}->{$id})) ? 1 : 0;
+            my $e = $replay->{player}->{statistics}->{teamkill}->{hash}->{$id};
+            $player->{tk}->{k} = (defined($e) && $e->{isKill} > 0) ? 1 : 0;
+
+            $player->{tk}->{means} = (defined($e)) 
+                ? ($e->{means} == 3)
                     ? 'shooting'
                     : ($e->{means} == 1)
                         ? 'ramming'
                         : ($e->{means} == 4)
                             ? 'shooting, ramming'
-                            : 'unknown';
-            },
-        },
+                            : 'unknown'
+                :   'unknown';
+            
+        }
+        use warnings;
     }
-    # FIXME FIXME need to move WR::Auto data into Res core
-    my $mres = WR::Res::Gametype->new();
-
 
     my $title = sprintf('%s - %s - %s (%s), %s',
         $r->{player}->{name},
         $self->stash('wr')->{vehicle_name}->($r->{player}->{vehicle}->{full}),
         $self->stash('wr')->{map_name}->($r->{map}->{id}),
-        $mres->i18n($r->{game}->{type}),
+        $self->app->wr_res->{'gametype'}->i18n($r->{game}->{type}),
         ($r->{game}->{isWin} > 0) 
             ? 'Victory'
             : ($r->{game}->{isDraw} > 0)
@@ -88,7 +65,7 @@ sub view {
     }
 
     my $description = sprintf('This is a replay of a %s match fought by %s, using the %s vehicle, on map %s', 
-        $mres->i18n($r->{game}->{type}), 
+        $self->app->wr_res->{'gametype'}->i18n($r->{game}->{type}), 
         $r->{player}->{name}, 
         $self->stash('wr')->{vehicle_name}->($r->{player}->{vehicle}->{full}),
         $self->stash('wr')->{map_name}->($r->{map}->{id})

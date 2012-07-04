@@ -1,58 +1,29 @@
+[% USE cache = Cache %]
 <div class="replayPanel [% IF replay.version != config.wot.version %]incompatibleVersion[% END %] box noborder" title="[% replay.site.description |html %]">
     <div class="columncontainer sw">
         <div class="column col1">
-            [% INCLUDE replay/panel/vehiclemap.html.tt %]
+            [% cache.inc(
+                template => 'replay/panel/vehiclemap.html.tt',
+                keys     => { 'replay.id' => replay.id },
+                ttl      => 86400,
+                ) %]
         </div>
         <div class="column col2">
             <div>
                 <h3>
-                    <a href="/player/[% replay.player.server %]/[% replay.player.name |uri %]/" title="[% replay.player.name |html %]">[% replay.player.name |truncate(15) |html %]</a> - <a href="/vehicle/[% replay.player.vehicle.country  |uri %]/[% replay.player.vehicle.name |uri %]/" title="[% wr.vehicle_name(replay.player.vehicle.full) %]">[% wr.vehicle_name_short(replay.player.vehicle.full) |html %]</a> - <a href="/map/[% replay.map.id |uri %]/">[% wr.map_name(replay.map.id) |html %]</a> ([% wr.res.bonustype.get(replay.game.bonus_type, 'label_short') %] [% wr.res.gametype.i18n(replay.game.type) %])
+                    <a href="/player/[% replay.player.server %]/[% replay.player.name |uri %]/" title="[% replay.player.name |html %]">[% replay.player.name |truncate(15) |html %]</a> - <a href="/vehicle/[% replay.player.vehicle.country  |uri %]/[% replay.player.vehicle.name |uri %]/" title="[% INCLUDE bricks/vehicles/name.html.tt vehiclename = replay.player.vehicle.full %]">[% INCLUDE bricks/vehicles/name_short.html.tt vehiclename = replay.player.vehicle.full %]</a> - <a href="/map/[% replay.map.id |uri %]/">[% INCLUDE bricks/maps/name.html.tt map = replay.map.id %]</a> ([% INCLUDE bricks/bonustype/name.html.tt bonustype = replay.game.bonus_type %] [% INCLUDE bricks/gametype/name.html.tt gametype = replay.game.type %])
                     <img 
-                        title="[% wr.res.servers.get(replay.player.server, 'label_long') %]"
+                        title="[% INCLUDE bricks/servers/name_long.html.tt server = replay.player.server %]
                         style="width: 20px; height: 20px; float: right; position: relative; top: 0px; right: 1px;" 
                         src="//images.wot-replays.org/flag/20x20/[% replay.player.server %].png"/>
                     <span title="[% IF replay.version == config.wot.version %]Current version[% ELSE %]Incompatible version[% END %]" style="float: right; position: relative; top: 0px; right: 10px; font-size: 75%; color: #6[% IF replay.version == config.wot.version %]66[% ELSE %]00[% END %]">[% replay.version %]</span>
                 </h3>
                 <div class="panelStats">
-                    <div>
-                        <span class="label fw">result:</span><span class="value fw">
-                            [% IF replay.complete == 1 %]
-                                [% IF replay.game.isWin == 1 %]
-                                    <span class="green">victory</span>
-                                [% ELSIF replay.game.isDraw == 1 %]
-                                    draw
-                                [% ELSE %]
-                                    <span class="red">defeat</span>
-                                [% END %]
-                            [% ELSE %]
-                                -
-                            [% END %]
-                        </span>
-                        <span class="label fw">survived:</span><span class="value fw">
-                            [% IF replay.complete == 1 %]
-                                [% IF replay.player.statistics.survived == 1 %]
-                                    <span class="green">yes</span>
-                                [% ELSE %]
-                                    <span class="red">no</span>
-                                [% END %]
-                            [% ELSE %]
-                                -
-                            [% END %]
-                        </span>
-                        <span class="label fw">complete:</span><span class="value fw">[% IF replay.complete == 1 %]<span class="green">yes</span>[% ELSE %]<span class="red">no</span>[% END %]</span>
-
-                    </div>
-                    <div>
-                        <span class="label fw">spotted:</span><span class="value fw">
-                            [% IF replay.complete == 1 %][% replay.player.statistics.spotted.size || '0' %][% ELSE %]-[% END %]
-                        </span>
-                        <span class="label fw">damaged:</span><span class="value fw">
-                            [% IF replay.complete == 1 %][% replay.player.statistics.damaged.size || '0' %][% ELSE %]-[% END %]
-                        </span>
-                        <span class="label fw">killed:</span><span class="value fw">
-                            [% IF replay.complete == 1 %][% replay.player.statistics.killed.size || '0' %][% ELSE %]-[% END %]
-                        </span>
-                    </div>
+                    [% cache.inc(
+                        template => 'replay/panel/panelstats.html.tt',
+                        ttl => 'never',
+                        keys => { 'replay.id' => replay.id },
+                        ) %]
                 </div>
                 <div class="panelButtons">
                     [% IF !hide_view_button %]

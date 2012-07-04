@@ -1,0 +1,1 @@
+[% wr.map_name(map) %]

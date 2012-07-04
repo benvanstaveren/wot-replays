@@ -1,3 +1,4 @@
+[% USE cache = Cache %]
 <table style="margin: 5px 4px 0px; width: 100%" cellspacing="0" cellpadding="0">
 <tbody>
     <tr>
@@ -5,7 +6,11 @@
             <span class="label">Match result</span>
             <div style="margin-right: 5px">
             [% IF replay.complete %]
-                [% INCLUDE replay/view/matchresult.html.tt %]
+                [% cache.inc(
+                    template => 'replay/view/matchresult.html.tt',
+                    ttl => 'never',
+                    keys => { 'replay.id' => replay.id },
+                ) %]
             [% ELSE %]
                 <span>unknown</span>
             [% END %]
@@ -14,146 +19,53 @@
         <td style="width: 33%; vertical-align: top">
             <span class="label">Survived</span>
             <span>
-                [% IF replay.complete %]
-                    [% IF replay.player.statistics.survived == 1 %]<span class="green">Yes</span>
-                    [% ELSE %]
-                        [% pkid = replay.player.statistics.killed_by %]
-                        [% pkr  = replay.vehicles_hash.$pkid %]
-                        <span class="red">No</span> - killed by <a href="/player/[% replay.player.server %]/[% pkr.name |uri %]">[% pkr.name %]</a>.
-                    [% END %]
-                [% ELSE %]
-                    <span>unknown</span>
-                [% END %]
+                [% cache.inc(
+                    template => 'replay/view/vehicle_stats/survived.html.tt',
+                    ttl => 'never',
+                    keys => { 'replay.id' => replay.id },
+                ) %]
             </span>
         </td>
         <td style="width: 33%; vertical-align: top">
-            [% pn = replay.player.name %]
-            [% pv = replay.vehicles_hash_name.$pn %]
-            [% pvid = pv.id %]
-            [% awards = 0 %]
-            <span class="label">Awards</span>
-            <div class="heroawardlist">
-                [% FOREACH award IN replay.game.heroes.$pvid %]
-                    <span>[% wr.res.achievements.i18n(award) %]</span>
-                    [% awards = awards + 1 %]
-                [% END %]
-                [% FOREACH award IN replay.player.statistics.epic %]
-                    [% idstr = wr.res.achievements.index_to_epic_idstr(award) %]
-                    <span>[% wr.res.achievements.i18n(idstr) %]</span>
-                    [% awards = awards + 1 %]
-                [% END %]
-                [% IF replay.player.statistics.mastery > 0 %]
-                    [% ms = 'master' _ replay.player.statistics.mastery %]
-                    <span>[% wr.res.achievements.i18n(ms) %]</span>
-                    [% awards = 1 %]
-                [% END %]
-                [% IF awards < 1 %]
-                    <span>No badges or medals awarded</span>
-                [% END %]
-            </div>
+            [% cache.inc(
+                template => 'replay/view/vehicle_stats/awards.html.tt',
+                ttl => 'never',
+                keys => { 'replay.id' => replay.id },
+            ) %]
         </td>
     </tr>
     <tr>
         <td>
-            <span class="label" style="margin-top: 10px">Damage</span>
-            <table style="width: 100%" cellspacing="0" cellpadding="0"><tbody><tr>
-                <td>
-                    <span class="label small">Done</span>
-                    <span class="green">[% replay.player.statistics.damage.done || '0' %]</span>
-                </td>
-                <td>
-                    <span class="label small">Received</span>
-                    <span class="red">[% replay.player.statistics.damage.received.real || '0' %]</span>
-                </td>
-            </tr></tbody></table>
+            [% cache.inc(
+                template => 'replay/view/vehicle_stats/damage.html.tt',
+                ttl => 'never',
+                keys => { 'replay.id' => replay.id },
+            ) %]
         </td>
         <td colspan="2">
-            <span style="margin-top: 10px" class="label">Shots</span>
-            <table style="width: 100%" cellspacing="0" cellpadding="0"><tbody><tr>
-                <td>
-                    <span class="label small">Fired</span>
-                    <span>[% replay.player.statistics.shots.fired || '0' %]</span>
-                </td>
-                <td>
-                    <span class="label small">Hits</span>
-                    <span class="green">[% replay.player.statistics.shots.hits || '0' %]</span>
-                </td>
-                <td>
-                    <span class="label small">Misses</span>
-                    <span class="red">[% replay.player.statistics.shots.fired - replay.player.statistics.shots.hits || '0' %]</span>
-                </td>
-                <td>
-                    <span class="label small">Accuracy</span>
-                    <span>[% wr.percentage_of(replay.player.statistics.shots.fired, replay.player.statistics.shots.hits) %]%</span>
-                </td>
-            </tr></tbody></table>
+            [% cache.inc(
+                template => 'replay/view/vehicle_stats/shots.html.tt',
+                ttl => 'never',
+                keys => { 'replay.id' => replay.id },
+            ) %]
         </td>
     </tr>
     <tr>
         <td colspan="3">
-            <span style="margin: 25px 0px 0px 0px" class="label">Earned/Costs</span>
-            <table style="width: 100%" cellspacing="0" cellpadding="0"><tbody><tr>
-            <td>
-                <span class="label small">XP [% IF replay.player.statistics.earned.factor > 1 %](x[% replay.player.statistics.earned.factor %])[% END %]</span>
-                <span class="green">[% replay.player.statistics.earned.xp || '0' %]</span>
-            </td><td>
-                <span class="label small">Free XP</span>
-                <span class="green">(+[% replay.player.statistics.earned.free_xp || '0' %])</span>
-            </td><td>
-                <span class="label small">Credits</span>
-                <span class="green">[% replay.player.statistics.earned.credits || '0' %]</span>
-            </td><td>
-                <span class="label small">Repairs</span>
-                <span class="red">[% replay.player.statistics.repair || '0' %]</span>
-            </td><td>
-                <span class="label small">XP penalty</span>
-                [% IF replay.player.statistics.penalties.xp > 0 %]
-                    <span class="red">-[% replay.player.statistics.penalties.xp %]</span>
-                [% ELSE %]
-                    <span>-</span>
-                [% END %]
-            </td><td>
-                <span class="label small">Credit penalty</span>
-                [% IF replay.player.statistics.penalties.credits > 0 %]
-                    <span class="red">-[% replay.player.statistics.penalties.credits %]</span>
-                [% ELSE %]
-                    <span>-</span>
-                [% END %]
-            </td><td>
-                <span class="label small">Net XP</span>
-                [% nxp = replay.player.statistics.earned.xp + replay.player.statistics.earned.free_xp - replay.player.statistics.penalties.xp %]
-                [% IF nxp > 0 %]
-                    <span class="green">[% nxp %]</span>
-                [% ELSE %]
-                    <span class="red">[% nxp %]</span>
-                [% END %]
-            </td><td>
-                <span class="label small">Net Credits</span>
-                [% ncr = replay.player.statistics.earned.credits - replay.player.statistics.repair - replay.player.statistics.penalties.credits %]
-                [% IF ncr > 0 %]
-                    <span class="green">[% ncr %]</span>
-                [% ELSE %]
-                    <span class="red">[% ncr %]</span>
-                [% END %]
-            </td>
-            </tr></tbody></table>
+            [% cache.inc(
+                template => 'replay/view/vehicle_stats/earned.html.tt',
+                ttl => 'never',
+                keys => { 'replay.id' => replay.id },
+            ) %]
         </td>
     </tr>
     <tr>
         <td colspan="3" style="vertical-align: top">
-            <span style="margin-top: 10px" class="label">Performance</span>
-            <table style="width: 100%" cellspacing="0" cellpadding="0"><tbody><tr>
-                <td>
-                    <span class="label small">Spotted</span>
-                    <span class="green">[% replay.player.statistics.spotted.size || '0' %]</span>
-                </td><td>
-                    <span class="label small">Damaged</span>
-                    <span class="green">[% replay.player.statistics.damaged.size || '0' %]</span>
-                </td><td>
-                    <span class="label small">Killed</span>
-                    <span class="green">[% replay.player.statistics.killed.size || '0' %]</span>
-                </td>
-            </tr></tbody></table>
+            [% cache.inc(
+                template => 'replay/view/vehicle_stats/performance.html.tt',
+                ttl => 'never',
+                keys => { 'replay.id' => replay.id },
+            ) %]
         </td>
     </tr>
     <tr>

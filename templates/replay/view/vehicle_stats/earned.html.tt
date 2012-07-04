@@ -1,0 +1,46 @@
+            <span style="margin: 25px 0px 0px 0px" class="label">Earned/Costs</span>
+            <table style="width: 100%" cellspacing="0" cellpadding="0"><tbody><tr>
+            <td>
+                <span class="label small">XP [% IF replay.player.statistics.earned.factor > 1 %](x[% replay.player.statistics.earned.factor %])[% END %]</span>
+                <span class="green">[% replay.player.statistics.earned.xp || '0' %]</span>
+            </td><td>
+                <span class="label small">Free XP</span>
+                <span class="green">(+[% replay.player.statistics.earned.free_xp || '0' %])</span>
+            </td><td>
+                <span class="label small">Credits</span>
+                <span class="green">[% replay.player.statistics.earned.credits || '0' %]</span>
+            </td><td>
+                <span class="label small">Repairs</span>
+                <span class="red">[% replay.player.statistics.repair || '0' %]</span>
+            </td><td>
+                <span class="label small">XP penalty</span>
+                [% IF replay.player.statistics.penalties.xp > 0 %]
+                    <span class="red">-[% replay.player.statistics.penalties.xp %]</span>
+                [% ELSE %]
+                    <span>-</span>
+                [% END %]
+            </td><td>
+                <span class="label small">Credit penalty</span>
+                [% IF replay.player.statistics.penalties.credits > 0 %]
+                    <span class="red">-[% replay.player.statistics.penalties.credits %]</span>
+                [% ELSE %]
+                    <span>-</span>
+                [% END %]
+            </td><td>
+                <span class="label small">Net XP</span>
+                [% nxp = replay.player.statistics.earned.xp + replay.player.statistics.earned.free_xp - replay.player.statistics.penalties.xp %]
+                [% IF nxp > 0 %]
+                    <span class="green">[% nxp %]</span>
+                [% ELSE %]
+                    <span class="red">[% nxp %]</span>
+                [% END %]
+            </td><td>
+                <span class="label small">Net Credits</span>
+                [% ncr = replay.player.statistics.earned.credits - replay.player.statistics.repair - replay.player.statistics.penalties.credits %]
+                [% IF ncr > 0 %]
+                    <span class="green">[% ncr %]</span>
+                [% ELSE %]
+                    <span class="red">[% ncr %]</span>
+                [% END %]
+            </td>
+            </tr></tbody></table>

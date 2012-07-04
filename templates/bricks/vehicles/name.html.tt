@@ -1,0 +1,6 @@
+[% USE cache = Cache %]
+[% cache.inc(
+    template => 'bricks/vehicles/wr_name.html.tt',
+    keys => { 'vehiclename' => vehiclename },
+    ttl  => 'never'
+    ) %]

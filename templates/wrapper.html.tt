@@ -1,3 +1,4 @@
+[% USE cache = Cache %]
 <!DOCTYPE html>
 <html>
     <head>

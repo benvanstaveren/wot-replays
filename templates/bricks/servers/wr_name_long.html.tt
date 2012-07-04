@@ -1,0 +1,1 @@
+[% wr.res.servers.get(server, 'label_long') %]
