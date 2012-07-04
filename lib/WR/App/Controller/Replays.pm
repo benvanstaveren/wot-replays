@@ -63,6 +63,8 @@ sub browse {
         xp          => { 'player.statistics.earned.xp' => -1 },
         credits     => { 'player.statistics.earned.credits' => -1 },
         damage      => { 'player.statistics.damage.done' => -1 },
+        likes       => { 'site.like' => -1 },
+        downloads   => { 'site.downloads' => -1 },
         };
 
 
