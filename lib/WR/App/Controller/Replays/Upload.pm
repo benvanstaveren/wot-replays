@@ -46,6 +46,8 @@ sub upload {
             };
 
             $self->respond(stash => { page => { title => 'Upload Replay' }, errormessage => sprintf('Error parsing replay: %s', $pe) }, template => 'upload/form') and return 0 if($pe);
+
+            $self->respond(stash => { page => { title => 'Upload Replay' }, errormessage => 'There is an issue with clan wars replays at the moment that prevents them from being parsed properly, sorry! Can\'t store it...' }, template => 'upload/form') and return 0 unless(defined($m_data->{_id}) && !ref($m_data->{_id}));
                 
             $self->respond(stash => { page => { title => 'Upload Replay' }, errormessage => 'That replay seems to exist already' }, template => 'upload/form') and return 0 if($self->db('wot-replays')->get_collection('replays')->find_one({ _id => $m_data->{_id} }));
 
