@@ -25,47 +25,42 @@ sub getchat {
         print '[replay]: found', "\n";
         print '[replay]: already', "\n" and return if($r->{chatProcessed});
         print '[replay]: processing', "\n";
-        if(my $file = $mongo->get_database('wot-replays')->get_gridfs->find_one({ replay_id => $r->{_id} })) {
-            print '[replay]: got file', "\n";
-            my $parser = WR::Parser->new(
-                bf_key => WOT_BF_KEY,
-                traits => [qw/
-                    LL::Memory
-                    Data::Reader
-                    Data::Decrypt
-                    Data::Attributes
-                    Data::Chat
-                    /],
-                data => $file->slurp,
-            );
-            print '[replay]: parser ready', "\n";
-            my $messages;
-            my $e;
-            try {
-                $messages = $parser->chat_messages;
-            } catch {
-                $e = $_;
-            };
-            if($e) {
-                print 'ERROR: ', $e, "\n";
-                return;
-            }
-            my $seq = 0;
-            foreach my $message (@$messages) {
-                $mongo->get_database('wot-replays')->get_collection('replays.chat')->save({
-                    version     =>  $parser->wot_version,
-                    replay_id   =>  $r->{_id},
-                    sequence    =>  $seq++,
-                    source      =>  $message->{source},
-                    channel     =>  $message->{channel},
-                    body        =>  $message->{body},
-                });
-            }
-            $mongo->get_database('wot-replays')->get_collection('replays')->update({ _id => $r->{_id} }, { '$set' => { chatProcessed => true } });
-            print 'DONE', "\n";
-        } else {
-            print '[replay]: no file', "\n";
+        my $parser = WR::Parser->new(
+            bf_key => WOT_BF_KEY,
+            traits => [qw/
+                LL::File
+                Data::Reader
+                Data::Decrypt
+                Data::Attributes
+                Data::Chat
+                /],
+            file => $replay->{file},
+        );
+        print '[replay]: parser ready', "\n";
+        my $messages;
+        my $e;
+        try {
+            $messages = $parser->chat_messages;
+        } catch {
+            $e = $_;
+        };
+        if($e) {
+            print 'ERROR: ', $e, "\n";
+            return;
         }
+        my $seq = 0;
+        foreach my $message (@$messages) {
+            $mongo->get_database('wot-replays')->get_collection('replays.chat')->save({
+                version     =>  $parser->wot_version,
+                replay_id   =>  $r->{_id},
+                sequence    =>  $seq++,
+                source      =>  $message->{source},
+                channel     =>  $message->{channel},
+                body        =>  $message->{body},
+            });
+        }
+        $mongo->get_database('wot-replays')->get_collection('replays')->update({ _id => $r->{_id} }, { '$set' => { chatProcessed => true } });
+        print 'DONE', "\n";
     }
 }
 
@@ -84,4 +79,3 @@ while(1) {
     }
     $bs->delete($job->id);
 }
-
