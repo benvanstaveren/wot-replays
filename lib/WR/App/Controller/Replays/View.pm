@@ -4,10 +4,13 @@ use Mojo::Base 'WR::App::Controller';
 use boolean;
 use WR::Query;
 use Beanstalk::Client;
+use Time::HiRes qw/gettimeofday tv_interval/;
 
 sub view {
     my $self = shift;
     my $desc;
+
+    my $start = [ gettimeofday ];
 
     $self->db('wot-replays')->get_collection('replays')->update({ _id => $self->stash('req_replay')->{_id} }, { '$inc' => { 'site.views' => 1 } });
 
@@ -17,21 +20,18 @@ sub view {
         # loop across the enemy team (team 1)
         no warnings;
         foreach my $id (@{$replay->{teams}->[1]}) {
-            my $enemy = $replay->{vehicles_hash}->{$id};
-            $enemy->{sdk}->{s} = (defined({ map { $_ => 1 } (@{$replay->{player}->{statistics}->{spotted}}) }->{$id})) ? 1 : 0;
-            $enemy->{sdk}->{d} = (defined({ map { $_ => 1 } (@{$replay->{player}->{statistics}->{damaged}}) }->{$id})) ? 1 : 0;
-            $enemy->{sdk}->{k} = (defined({ map { $_ => 1 } (@{$replay->{player}->{statistics}->{killed}}) }->{$id})) ? 1 : 0;
+            $r->{sdk}->{s}->{$id} = (defined({ map { $_ => 1 } (@{$replay->{player}->{statistics}->{spotted}}) }->{$id})) ? 1 : 0;
+            $r->{sdk}->{d}->{$id} = (defined({ map { $_ => 1 } (@{$replay->{player}->{statistics}->{damaged}}) }->{$id})) ? 1 : 0;
+            $r->{sdk}->{k}->{$id} = (defined({ map { $_ => 1 } (@{$replay->{player}->{statistics}->{killed}}) }->{$id})) ? 1 : 0;
         }
 
         # get our own team
         foreach my $id (@{$replay->{teams}->[0]}) {
-            my $player = $replay->{vehicles_hash}->{$id};
-
-            $player->{tk}->{td} = (defined($replay->{player}->{statistics}->{teamkill}->{hash}->{$id})) ? 1 : 0;
+            $r->{tk}->{td}->{$id} = (defined($replay->{player}->{statistics}->{teamkill}->{hash}->{$id})) ? 1 : 0;
             my $e = $replay->{player}->{statistics}->{teamkill}->{hash}->{$id};
-            $player->{tk}->{k} = (defined($e) && $e->{isKill} > 0) ? 1 : 0;
+            $r->{tk}->{k}->{$id} = (defined($e) && $e->{isKill} > 0) ? 1 : 0;
 
-            $player->{tk}->{means} = (defined($e)) 
+            $r->{tk}->{means}->{$id} = (defined($e)) 
                 ? ($e->{means} == 3)
                     ? 'shooting'
                     : ($e->{means} == 1)
@@ -100,6 +100,8 @@ sub view {
             warn 'already id', "\n";
         }
     }
+
+    $self->stash('timing_view' => tv_interval($start, [ gettimeofday ]));
 
     $self->respond(
         stash => {

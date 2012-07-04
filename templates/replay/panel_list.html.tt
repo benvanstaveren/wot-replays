@@ -4,3 +4,10 @@
 [% IF replays.size == 0 %]
     <strong>Oops, seems there are no replays that match that filter...</strong>
 [% END %]
+<!-- query -----------------------------------
+
+[% query %]
+
+[% explain %]
+
+----------------------------------------- --> 

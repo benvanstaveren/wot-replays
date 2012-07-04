@@ -3,10 +3,14 @@ use Mojo::Base 'WR::App::Controller';
 
 use boolean;
 use WR::Query;
+use Time::HiRes qw/gettimeofday tv_interval/;
+use Data::Dumper;
 
 sub bridge {
     my $self = shift;
     my $replay_id = $self->stash('replay_id');
+
+    my $start = [ gettimeofday ];
 
     if(my $replay = $self->db('wot-replays')->get_collection('replays')->find_one({ _id => $replay_id })) {
         unless($replay->{site}->{visible}) {
@@ -25,6 +29,7 @@ sub bridge {
             }
         }
         $self->stash(req_replay => WR::Query->fuck_tt($replay));
+        $self->stash('timing_query'  => tv_interval($start, [ gettimeofday ]));
         return 1;
     } else {
         $self->respond(stash => { page => { title => 'Not Found' } }, template => 'replay/notfound') and return 0;
@@ -40,20 +45,6 @@ sub desc {
     $self->redirect_to(sprintf('/replay/%s/', $self->stash('req_replay')->{_id}));
 }
 
-sub get_replays {
-    my $self = shift;
-    my %args = (@_);
-
-    my $query = $args{'query'} if($args{'query'});
-    my $cursor = $self->db('wot-replays')->get_collection('replays')->find($query);
-
-    $cursor->limit($args{'limit'}) if(defined($args{'limit'}));
-    $cursor->skip($args{'offset'}) if(defined($args{'offset'}));
-    $cursor->sort($args{'sort'}) if(defined($args{'sort'}));
-
-    return [ map { WR::Query->fuck_tt($_) } $cursor->all() ];
-}
-
 sub browse {
     my $self = shift;
     my $filter = {};
@@ -66,7 +57,6 @@ sub browse {
         likes       => { 'site.like' => -1 },
         downloads   => { 'site.downloads' => -1 },
         };
-
 
     # restore the original filter if it's the initial load (e.g. non-ajax)
     if($self->session->{$skey} && !$self->req->is_xhr) {
@@ -107,6 +97,8 @@ sub browse {
                 title   =>  'Browse',
             },
             replays => $query->page($p),
+            query   => Dumper($query->_query),
+            explain => Dumper($query->exec->explain()),
             filter  => $filter,
             maxp    => $query->maxp,
             p       => $p,

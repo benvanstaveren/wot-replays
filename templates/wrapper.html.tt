@@ -77,11 +77,10 @@
         </div>
         <div id="footer">
             <div>
-                &copy; 2012 Scrambled | app [% config.versions.app %] [% config.mode %] | wot [% config.wot.version %] [% IF timing_elapsed %]| [% timing_elapsed %][% END %]
+                &copy; 2012 Scrambled | app [% config.versions.app %] [% config.mode %] | wot [% config.wot.version %]<br/>
+                t: [% timing_elapsed %][% IF timing_query %], q: [% timing_query %][% END %][% IF timing_view %], v: [% timing_view %][% END %]
             </div>
-            <div style="font-family: monospace">
-                [% config.wot.fuck_you_wg %]
-            </div>
+            <div style="font-family: monospace;">[% config.wot.fuck_you_wg %]</div>
         </div>
     </body>
 </html>
