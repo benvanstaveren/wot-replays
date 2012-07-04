@@ -81,7 +81,7 @@ sub startup {
     $r->route('/replay/browse')->to('replays#browse');
 
     my $rb = $r->bridge('/replay/:replay_id')->to('replays#bridge');
-        $rb->route('/')->to('replays-view#view', pageid => undef);
+        $rb->route('/')->to('replays-view#view', pageid => undef)->name('viewreplay');
         $rb->route('/desc')->to('replays#desc', pageid => undef);
         $rb->route('/up')->to('replays-rate#rate_up', pageid => undef);
         $rb->route('/chat')->to('replays-view#chat', pageid => undef);

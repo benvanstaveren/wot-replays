@@ -1,5 +1,6 @@
 package WR::App::Controller;
 use Mojo::Base 'Mojolicious::Controller';
+use IO::File;
 
 sub respond {
     my $self = shift;
@@ -11,6 +12,17 @@ sub respond {
         $self->stash('timing_elapsed' => Time::HiRes::tv_interval($start));
     }
     $self->render(%args);
+
+    if(defined($self->stash('cachereplay')) && $self->stash('cachereplay') == 1) {
+        my $parts = $self->req->url->path->parts;
+        my $fragment = $parts->[1];
+        $fragment .= '.html' unless($fragment =~ /\.html$/);
+        my $filename = sprintf('/storage/replays/pages/%s', $fragment);
+        if(my $fh = IO::File->new(sprintf('>%s', $filename))) {
+            $fh->print($self->res->body);
+            $fh->close;
+        }
+    }
 }
 
 1;

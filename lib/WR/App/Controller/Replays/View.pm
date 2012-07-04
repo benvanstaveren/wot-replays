@@ -22,6 +22,8 @@ sub view {
 
     my $start = [ gettimeofday ];
 
+    $self->stash('cachereplay' => 1);
+
     $self->db('wot-replays')->get_collection('replays')->update({ _id => $self->stash('req_replay')->{_id} }, { '$inc' => { 'site.views' => 1 } });
 
     my $replay = $self->stash('req_replay');
