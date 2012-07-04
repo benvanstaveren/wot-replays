@@ -45,7 +45,7 @@ sub upload {
                 $pe = $_;
             };
 
-            $self->respond(stash => { page => { title => 'Upload Replay' }, errormessage => 'Error parsing replay' }, template => 'upload/form') if($pe);
+            $self->respond(stash => { page => { title => 'Upload Replay' }, errormessage => sprintf('Error parsing replay: %s', $pe) }, template => 'upload/form') and return 0 if($pe);
                 
             $self->respond(stash => { page => { title => 'Upload Replay' }, errormessage => 'That replay seems to exist already' }, template => 'upload/form') and return 0 if($self->db('wot-replays')->get_collection('replays')->find_one({ _id => $m_data->{_id} }));
 
