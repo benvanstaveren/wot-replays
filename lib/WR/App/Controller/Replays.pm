@@ -97,8 +97,6 @@ sub browse {
                 title   =>  'Browse',
             },
             replays => $query->page($p),
-            query   => Dumper($query->_query),
-            explain => Dumper($query->exec->explain()),
             filter  => $filter,
             maxp    => $query->maxp,
             p       => $p,
