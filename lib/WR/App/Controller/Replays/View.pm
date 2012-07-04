@@ -6,6 +6,16 @@ use WR::Query;
 use Beanstalk::Client;
 use Time::HiRes qw/gettimeofday tv_interval/;
 
+sub stats {
+    my $self = shift;
+
+    $self->render(json => {
+        views => $self->stash('req_replay')->{site}->{views} + 0,
+        downloads => $self->stash('req_replay')->{site}->{downloads} + 0,
+        likes => $self->stash('req_replay')->{site}->{like} + 0,
+    });
+}
+
 sub view {
     my $self = shift;
     my $desc;

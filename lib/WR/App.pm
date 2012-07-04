@@ -85,6 +85,7 @@ sub startup {
         $rb->route('/desc')->to('replays#desc', pageid => undef);
         $rb->route('/up')->to('replays-rate#rate_up', pageid => undef);
         $rb->route('/chat')->to('replays-view#chat', pageid => undef);
+        $rb->route('/stats')->to('replays-view#stats', pageid => undef);
 
     $r->route('/players/:server')->to('player#index', pageid => 'player', server => 'any');
 
