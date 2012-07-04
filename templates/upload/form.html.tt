@@ -11,7 +11,7 @@
             [% IF published > 0 %]
             <div style="margin-top: 15px">
                 <span class="label">View on the site</span>
-                <a href="/replay/[% id %]" target="_top">http://www.wot-replays.org/replay/[% id %]</a>
+                <a href="/replay/[% id %]" target="_top">http://www.wot-replays.org/replay/[% id %].html</a>
             </div>
             [% END %]
             <div style="margin-top: 15px">
