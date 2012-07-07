@@ -44,7 +44,7 @@
                     [% IF eq %]
                         <div>
                             <span style="width: 16px; height: 16px">
-                                <img src="[% config.urls.assets %]/icon/equipment/16x16/[% wr.equipment_icon(eq) %]" style="width: 16px; height: 16px; border: 0px"/>
+                                <img src="[% config.urls.assets %]/equipment/16x16/[% wr.equipment_icon(eq) %]" style="width: 16px; height: 16px; border: 0px"/>
                             </span>
                             <span style="padding: 0px 0px 0px 5px" title="[% wr.equipment_name(eq) %]">
                                 [% wr.equipment_name(eq) |truncate(18) %]
