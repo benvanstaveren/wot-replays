@@ -117,6 +117,8 @@
                     $('span.rateUpCount').html(d.likes || '0');
                     $('span.count').html(d.downloads || '0');
                 });
+                $.getJSON('/replay/[% replay.id %]/incview', {}, function(d, t, x) {
+                });
             });
         </script>
         [% IF replay.complete %]

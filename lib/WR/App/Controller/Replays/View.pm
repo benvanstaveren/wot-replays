@@ -16,15 +16,22 @@ sub stats {
     });
 }
 
+sub incview {
+    my $self = shift;
+    $self->db('wot-replays')->get_collection('replays')->update({ _id => $self->stash('req_replay')->{_id} }, { '$inc' => { 'site.views' => 1 } });
+    $self->render(json => { ok => 1 });
+}
+
 sub view {
     my $self = shift;
     my $desc;
+    my $format = $self->stash('format');
+
+    $self->redirect_to(sprintf('%s.html', $self->req->url)) unless(defined($format));
 
     my $start = [ gettimeofday ];
 
-    $self->stash('cachereplay' => 1);
-
-    $self->db('wot-replays')->get_collection('replays')->update({ _id => $self->stash('req_replay')->{_id} }, { '$inc' => { 'site.views' => 1 } });
+    #$self->db('wot-replays')->get_collection('replays')->update({ _id => $self->stash('req_replay')->{_id} }, { '$inc' => { 'site.views' => 1 } });
 
     my $replay = $self->stash('req_replay');
     my $r = { %$replay };
