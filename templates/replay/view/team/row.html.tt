@@ -29,7 +29,7 @@
 [% ELSE %]
     [% rowtitle = titles.pop %]
 [% END %]
-<tr class="playerRow [% class %] tooltip" tooltip="tt_[% player.name |html %]" title="[% IF rowtitle %][% rowtitle %] by [% replay.player.name |html %][% END %]">
+<tr class="playerRow [% class %]" href="#tt_[% player.name |html %]" title="[% IF rowtitle %][% rowtitle %] by [% replay.player.name |html %][% END %]">
     <td class="playerSurvived [% IF player.isAlive == 1 %]green[% ELSE %]red[% END %]">
     <span>
         [% IF platoon && platoon > 0 %]
@@ -41,4 +41,7 @@
     </td>
     <td class="playerVehicle">[% INCLUDE bricks/vehicles/name.html.tt vehiclename = player.vehicleType.full %]<img src="[% wr.vehicle_icon(player.vehicleType.full, 20) %]" class="vehicleIcon-20"/></td>
     <td class="playerFrags [% IF player.frags > 0 %]green[% ELSIF player.frags < 0 %]red[% END %]">[% player.frags || '0' %]</td>
+</tr>
+<tr class="playerEquipment" id="tt_[% player.name |html %]" style="display: none">
+    <td colspan="4">[% INCLUDE replay/view/team/equipment.html.tt %]</td>
 </tr>

@@ -180,6 +180,22 @@ sub index {
                     return sprintf('nolabel_short:%s', $v);
                 }
             },
+            equipment_name => sub {
+                my $id = shift;
+                if(my $obj = $self->db('wot-replays')->get_collection('data.equipment')->find_one({ wot_id => $id })) {
+                    return $obj->{label};
+                } else {
+                    return undef;
+                }
+            },
+            equipment_icon => sub {
+                my $id = shift;
+                if(my $obj = $self->db('wot-replays')->get_collection('data.equipment')->find_one({ wot_id => $id })) {
+                    return $obj->{icon};
+                } else {
+                    return undef;
+                }
+            },
             component_name => sub {
                 my $cnt = shift;
                 my $cmp = shift;
