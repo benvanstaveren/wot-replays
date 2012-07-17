@@ -1,3 +1,3 @@
 function() {
-    emit(this.game.type, 1);
+    if(this.game && this.game.type) emit(this.game.type, 1);
 }

@@ -1,3 +1,3 @@
 function() {
-    emit(this.game.bonus_type, 1);
+    if(this.game.bonus_type) emit(this.game.bonus_type, 1);
 }
