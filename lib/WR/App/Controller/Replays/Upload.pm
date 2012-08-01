@@ -10,6 +10,8 @@ use Try::Tiny qw/try catch/;
 sub upload {
     my $self = shift;
 
+    $self->render(template => 'upload/disabled') and return 0;
+
     if($self->req->param('a')) {
         if(my $upload = $self->req->upload('replay')) {
             $self->respond(stash => {
