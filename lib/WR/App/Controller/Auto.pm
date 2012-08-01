@@ -133,7 +133,12 @@ sub index {
             map_name => sub {
                 my $mid = shift;
 
-                if(my $obj = $self->db('wot-replays')->get_collection('data.maps')->find_one({ _id => $mid })) {
+                if(my $obj = $self->db('wot-replays')->get_collection('data.maps')->find_one({ 
+                    '$or' => [
+                        { _id => $mid },
+                        { shortname => $mid },
+                    ],
+                })) {
                     return $obj->{label};
                 } else {
                     return sprintf('404:%s', $mid);

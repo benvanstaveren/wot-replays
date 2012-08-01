@@ -22,7 +22,7 @@ sub index {
 
     while(my $o = $cursor->next()) {
         push(@$map_list, { 
-            id => $o->{_id},
+            id => $o->{_id},        # the id is always the one with the given shortname
             count => $map_hash->{$o->{_id}} || 0,
         });
     }
