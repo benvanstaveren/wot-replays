@@ -1,0 +1,64 @@
+{
+   "shared" : {
+      "text" : "",
+      "QF_6_pounder_Mk_VA" : {
+         "icon" : "gui/maps/icons_vehicle_components.dds 5 0",
+         "recoil" : {
+            "text" : "",
+            "returnTime" : "0.3",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.35",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "text" : "",
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.08"
+         },
+         "maxRegenHealth" : 52,
+         "repairCost" : 4,
+         "text" : "",
+         "weight" : 450,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "text" : "",
+            "_6pdr_AP_MK_1T" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "1.0",
+               "speed" : 892,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "110 95"
+            },
+            "_6pdr_APCR_MK_1T" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 1082,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "180 126"
+            }
+         },
+         "shotDispersionRadius" : "0.434285714285714",
+         "impulse" : "0.26",
+         "effects" : "shot_main",
+         "maxAmmo" : 92,
+         "description" : "#gb_vehicles:QF_6_pounder_Mk_VA",
+         "tags" : "",
+         "maxHealth" : 104,
+         "userString" : "#gb_vehicles:QF_6_pounder_Mk_VA",
+         "rotationSpeed" : "43.75",
+         "level" : 5,
+         "reloadTime" : "2.28571428571429",
+         "price" : 22250,
+         "pitchLimits" : "-12 6",
+         "notInShop" : null
+      }
+   },
+   "ids" : {
+      "text" : "",
+      "QF_6_pounder_Mk_VA" : 3
+   },
+   "text" : ""
+}
