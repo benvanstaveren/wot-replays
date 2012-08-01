@@ -2,16 +2,7 @@
     <div class="content nosidebar aboutText">
         <h3>Upload Disabled</h3>
         <div>
-            Thanks to Wargaming's incessant habit of changing the internal data on the client, even when there is no need to do so, uploads are currently disabled. The parser needs to receive some changes that make it impractical to have the upload enabled, since the 0.7.4 parser will parse the replays, but after that everything will go to hell in a handbasket. 
-        </div>
-        <div>
-            The technical explanation is as follows:<br/><br/>
-            <ul>
-                <li> Each map that is played, has an ID number, and a short name. This short name is used to look up the "real" name from the localisation files.</li>
-                <li> Wargaming early on apparently decided that using a name such as <em>01_karelia</em> as short name was just fine, even though this includes the ID number. Generally this is considered a <strong>bad</strong> idea...</li>
-                <li> In a replay file, there are two entries for maps: <em>mapDisplayName</em> and <em>mapName</em>. Now, the mapDisplayName contains the <strong>localized</strong> name of the map. This means that anyone who, say, uses the Polish translations will have the Polish name of the map here. Obviously this isn't ideal, so this site uses the mapName value. Unfortunately, this value contains the short name of the map <strong>without</strong> it's ID number! So if you play a match on the map that is internally listed as <em>01_karelia</em>, in a replay it shows up as <em>karelia</em>.
-                <li> With the 0.7.5 patch, Wargaming saw fit to assign the same short name to multiple maps. Unfortunately they now also use the "proper" short name of a map in a replay, which means that everything related to maps is now broken. 
-            </ul>
+            Uploads disabled pending a change to the replay parser and having to re-parse existing replays.
         </div>
     </div>
 [% END %]
