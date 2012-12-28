@@ -1,0 +1,31 @@
+<script type="text/javascript">
+    $('#frm-browse-filter select[name="vehicle"]').val('[% filter.vehicle || '' %]');
+    $('#frm-browse-filter select[name="map"]').val('[% filter.map || ''%]');
+    $('#frm-browse-filter select[name="server"]').val('[% filter.server || ''%]');
+    $('#frm-browse-filter select[name="matchmode"]').val('[% filter.matchmode || ''%]');
+    $('#frm-browse-filter select[name="matchtype"]').val('[% filter.matchtype || ''%]');
+    $('#frm-browse-filter select[name="sort"]').val('[% filter.sort || 'upload'%]');
+
+    $('button#btn-browse-reset').click(function() {
+        if(WR.filterBusy) return;
+        $('form#frm-browse-filter input[name="p"]').val('1');
+
+        $('form#frm-browse-filter select[name="vehicle"]').val('');
+        $('form#frm-browse-filter select[name="server"]').val('');
+        $('form#frm-browse-filter select[name="map"]').val('');
+        $('form#frm-browse-filter select[name="matchmode"]').val('');
+        $('form#frm-browse-filter select[name="matchtype"]').val('');
+        $('form#frm-browse-filter select[name="sort"]').val('upload');
+
+        $('form#frm-browse-filter input[name="complete"]').prop('checked', false);
+        $('form#frm-browse-filter input[name="compatible"]').prop('checked', false);
+        WR.loadBrowseFilter();
+        return false;
+    });
+    $('button#btn-browse-filter').click(function() {
+        if(WR.filterBusy) return;
+        $('form#frm-browse-filter input[name="p"]').val('1');
+        WR.loadBrowseFilter();
+        return false;
+    });
+</script>

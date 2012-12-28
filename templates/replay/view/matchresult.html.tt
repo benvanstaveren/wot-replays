@@ -1,0 +1,13 @@
+[% IF replay.game.isWin == 1 %]
+    <span class="green">
+        [% mr_inc = 'replay/view/matchresult/' _ replay.game.type _ '/victory.html.tt' %]
+        [% INCLUDE $mr_inc %]
+    </span>
+[% ELSIF replay.game.isDraw == 1 %]
+    <span>Draw</span>
+[% ELSE %]
+    <span class="red">
+        [% mr_inc = 'replay/view/matchresult/' _ replay.game.type _ '/defeat.html.tt' %]
+        [% INCLUDE $mr_inc %]
+    </span>
+[% END %]

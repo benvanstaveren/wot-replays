@@ -1,0 +1,24 @@
+            [% pn = replay.player.name %]
+            [% pv = replay.vehicles_hash_name.$pn %]
+            [% pvid = pv.id %]
+            [% awards = 0 %]
+            <span class="label">Awards</span>
+            <div class="heroawardlist">
+                [% FOREACH award IN replay.game.heroes.$pvid %]
+                    <span>[% wr.res.achievements.i18n(award) %]</span>
+                    [% awards = awards + 1 %]
+                [% END %]
+                [% FOREACH award IN replay.player.statistics.epic %]
+                    [% idstr = wr.res.achievements.index_to_epic_idstr(award) %]
+                    <span>[% wr.res.achievements.i18n(idstr) %]</span>
+                    [% awards = awards + 1 %]
+                [% END %]
+                [% IF replay.player.statistics.mastery > 0 %]
+                    [% ms = 'master' _ replay.player.statistics.mastery %]
+                    <span>[% wr.res.achievements.i18n(ms) %]</span>
+                    [% awards = 1 %]
+                [% END %]
+                [% IF awards < 1 %]
+                    <span>No badges or medals awarded</span>
+                [% END %]
+            </div>

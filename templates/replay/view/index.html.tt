@@ -1,9 +1,11 @@
+[% USE cache = Cache %]
 [% WRAPPER wrapper.html.tt %]
     <div class="content nosidebar">
         <h2 style="margin: 0px 0px 10px 0px">
-            <a href="/player/[% replay.player.server |uri %]/[% replay.player.name |uri %]/">[% replay.player.name |html %]</a> - <a href="/vehicle/[% replay.player.vehicle.country  |uri %]/[% replay.player.vehicle.name |uri %]/">[% wr.vehicle_name(replay.player.vehicle.full) |html %]</a> - <a href="/map/[% replay.map.id |uri %]/">[% wr.map_name(replay.map.id) |html %]</a>
+            <a href="/player/[% replay.player.server |uri %]/[% replay.player.name |uri %]/">[% replay.player.name |html %]</a> - <a href="/vehicle/[% replay.player.vehicle.country  |uri %]/[% replay.player.vehicle.name |uri %]/">[% INCLUDE bricks/vehicles/name.html.tt vehiclename = replay.player.vehicle.full %]</a> - <a href="/map/[% wr.fix_map_id(replay.map.id) |uri %]/">[% INCLUDE bricks/maps/name.html.tt map = replay.map.id %]</a> ([% INCLUDE bricks/bonustype/name.html.tt bonustype = replay.game.bonus_type %] [% INCLUDE bricks/gametype/name.html.tt gametype = replay.game.type %])
 
-            <div style="display: inline-block; float: right;">
+            <div style="display: inline-block; float: right; position: relative; top: -4px; right: 0px">
+
             [% IF wr.is_user_authenticated() && wr.is_own_replay() %]
                 [% IF replay.site.visible %]
                     <a href="#" class="hide-replay" rid="[% replay.id %]"><button class="panelButton">Hide</button></a>
@@ -13,10 +15,11 @@
                     <a href="#" style="display: none" class="hide-replay" rid="[% replay.id %]"><button class="panelButton">Hide</button></a>
                 [% END %]
             [% END %]
+
+                <span title="[% IF replay.version == config.wot.version %]Current version[% ELSE %]Incompatible version[% END %]" style="font-size: 75%; position: relative; top: 2px; right: 10px; margin: 0px 0px 0px 10px; line-height: 20px; font-weight: normal; color: #[% IF replay.version == config.wot.version %]666[% ELSE %]e00[% END %]">[% replay.version %]</span>
                 
-                <a href="#" class="rateUp" rid="[% replay.id %]" title="Like this replay"><button class="rateUp"><span>like</span> (<span class="rateUpCount">[% replay.site.like || '0' %]</span>)</button></a>
-                <a target="_new" href="/download/[% replay.id %].wotreplay" class="downloadButton"><button class="panelButton" id="btn-download">Download Replay ([% replay.site.downloads || '0' %])</button></a>
-                <a target="_new" href="/raw/[% replay.id %].txt"><button class="panelButton" id="btn-raw">Raw Data</button></a>
+                <a href="#" class="rateUp" rid="[% replay.id %]" title="Like this replay"><button class="rateUp"><span>like</span> (<span class="rateUpCount">-</span>)</button></a>
+                <a target="_new" href="/download/[% replay.id %].wotreplay" class="downloadButton [% IF replay.version != config.wot.version %]incompatible[% END %]"><button class="panelButton" id="btn-download">Download Replay (<span class="count">-</span>)</button></a>
             </div>
         </h2>
 
@@ -54,50 +57,72 @@
             <tbody>
                 <tr>
                     <td style="vertical-align: top; width: 166px">
-                        <div style="margin: 0px 25px 0px 0px; background: transparent url([% wr.vehicle_icon(replay.player.vehicle.full, 100) %]) no-repeat scroll center center;" class="vehicleIcon-100 box replayView" title="[% wr.vehicle_description(replay.player.vehicle.full) |html %]">
-                            <div class="vehicleTier">[% wr.vehicle_tier(replay.player.vehicle.full) %]</div>
-                        </div>
+                        [% cache.inc(
+                            template => 'replay/view/vehicleicon.html.tt',
+                            ttl => 'never',
+                            keys => { 'replay.id' => replay.id }
+                            ) %]
                         <div style="margin-top: 5px; padding: 10px">
                             <span class="label small">Jump</span>
                             [% IF replay.complete %]<a href="#rpl-teams">Teams</a><br/>[% END %]
-                            <a href="#rpl-comments">Comments ([% replay.site.comments.size || '0' %])</a>
-                        </div>
-                        <div style="margin-top: 5px; padding: 10px">
-                            <span class="label small">Related</span>
-                            <div>
-                                [% FOREACH rel IN related %]
-                                    <a href="/replay/[% rel.id %]">[% rel.player.name |html%] - [% wr.vehicle_name(rel.player.vehicle.full) %]</a><br/>
-                                [% END %]
-                                [% IF related.size == 0 %]No related replays[% END %]
-                            </div>
                         </div>
                     </td>
                     <td style="vertical-align: top">
-                        [% INCLUDE replay/view/vehicle_stats.html.tt %]
+                        <div id="replay-view-content" class="ui-corner-all">
+                            <div class="replay-tabs">
+                                <ul>
+                                    <li><a class="ui-corner-bottom active" href="#vehicle-stats">Statistics</a></li>
+                                    <li><a class="ui-corner-bottom" href="#battlechat">Battle Chat</a></li>
+                                    [% IF replay.site.youtube %]
+                                    <li><a class="ui-corner-bottom" href="#youtube">YouTube Video</a></li>
+                                    [% END %]
+                                </ul>
+                            </div>
+                            <div id="vehicle-stats" class="viewcontent">
+                                [% INCLUDE replay/view/vehicle_stats.html.tt %]
+                            </div>
+                            <div id="battlechat" style="display: none" class="viewcontent">
+                            </div>
+                            [% IF replay.site.youtube %]
+                                <div id="youtube" style="display: none" class="viewcontent">
+                                    [% INCLUDE replay/view/youtube.html.tt %]
+                                </div>
+                            [% END %]
+                        </div>
                     </td>
                 </tr>
             </tbody>
             </table>
         </div>
+        <script type="text/javascript">
+            var battleChatLoadStarted = false;
+            var battleChatLoadCount = 0;
+            $('div.replay-tabs a').click(function() {
+                var href = $(this).attr('href');
+                $('div.replay-tabs a').removeClass('active');
+                $(this).addClass('active');
+                $('#replay-view-content div.viewcontent').hide();
+                $('#replay-view-content div' + href).show();
 
-        [% IF replay.complete %]
-            <a name="rpl-teams"></a>
-            <h3 style="margin: 25px 0px 10px 0px">Teams</h3>
-            <div class="box" style="padding: 5px; background: rgba(0,0,0,0.2) none repeat scroll 0 0">
-                <div class="replayTeamList" id="replayTeamOne">[% INCLUDE replay/view/team/list.html.tt players=replay.teams.0 %]</div>
-                <div class="replayTeamList" id="replayTeamTwo">[% INCLUDE replay/view/team/list.html.tt players=replay.teams.1 %]</div>
-                <div class="clear"></div>
-            </div>
-        [% END %]
-        <a name="rpl-comments"></a>
-        <h3 style="margin: 25px 0px 10px 0px">Comments</h3>
-        <div class="box" id="replaycomments" style="padding: 5px; background: rgba(0,0,0,0.2) none repeat scroll 0 0">
-        </div>
-    </div>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('#replaycomments').html('Loading...').load('/replay/[% replay.id %]/comments', {}, function() {
+                if(href == '#battlechat') {
+                    if(!battleChatLoadStarted) {
+                        $('#battlechat').html('Loading...').load('/replay/[% replay.id %]/chat');
+                        battleChatLoadStarted = true;
+                    } 
+                }
+                return false;
             });
-        });
-    </script>
+            $(document).ready(function() {
+                $.getJSON('/replay/[% replay.id %]/stats', {}, function(d, t, x) {
+                    $('span.rateUpCount').html(d.likes || '0');
+                    $('span.count').html(d.downloads || '0');
+                });
+                $.getJSON('/replay/[% replay.id %]/incview', {}, function(d, t, x) {
+                });
+            });
+        </script>
+        [% IF replay.complete %]
+            [% INCLUDE replay/view/teams.html.tt %]
+       [% END %]
+    </div>
 [% END %]

@@ -21,7 +21,6 @@ sub _build_catalog {
 
     $class =~ s/.*://g;
 
-
     my $catfile = sprintf('%s/%s.json', $self->_path, lc($class));
     my $content = read_file($catfile);
     my $cat = {};

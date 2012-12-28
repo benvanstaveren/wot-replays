@@ -1,14 +1,6 @@
 [% WRAPPER wrapper.html.tt %]    
     <div class="content nosidebar aboutText">
         <h3>Upload</h3>
-        [% IF done < 1 && !errormessage %]
-            <div style="margin: 10px 0px 10px 0px;">
-                Please select your .wotreplay file to upload. We will parse and store every replay we get, but only "complete" replays will be used to generate shiny statistics. A complete replay is one where you finished out the entire match without returning to the garage. 
-            </div>
-            <div>
-                If you want to hide the replay from the site so that nobody can browse for it, check the "Hide" box below. You will still get a direct download link that you can share, but nobody will be able to view the replay's statistics on the website. [% IF !wr.is_user_authenticated() %]Please note that you have to be <a href="/login">logged in</a> for this to work.[% END %]
-            </div>
-        [% END %]
         [% IF errormessage %]
             <div id="error" class="error">[% errormessage %]</div>
         [% END %]
@@ -19,12 +11,12 @@
             [% IF published > 0 %]
             <div style="margin-top: 15px">
                 <span class="label">View on the site</span>
-                <a href="/replay/[% id %]" target="_top">http://www.wot-replays.org/replay/[% id %]</a>
+                <a href="/replay/[% id %]" target="_top">http://www.wot-replays.org/replay/[% id %].html</a>
             </div>
             [% END %]
             <div style="margin-top: 15px">
                 <span class="label">Direct download link</span>
-                <a href="/download/[% id %].wotreplay">http://wot-replays.org/download/[% id %].wotreplay</a>
+                <a href="/download/[% id %].wotreplay">http://www.wot-replays.org/download/[% id %].wotreplay</a>
             </div>
         [% END %]
         <div id="frm-upload-container" style="width: 600px; margin: 0px auto; padding: 25px" class="box" style="background: #e0e0e0 none repeat scroll 0 0">
@@ -35,11 +27,27 @@
                 <input style="width: 100%;" type="file" name="replay"/><br/>
                 <span class="label">Description (optional)</span>
                 <textarea name="description" style="width: 100%; height: 50px">[% description %]</textarea>
+                <div id="up-youtube" style="display: block">
+                    <div style="margin-top: 10px">If you have a video of this replay, paste the link below</div>
+                    <span class="label">YouTube Video URL (optional)</span>
+                    <input name="youtube" style="width: 100%;" value="[% youtube %]"/>
+                </div>
                 <span class="label">Options [% IF !wr.is_user_authenticated() %](You need to <a href="/login" style="color: #444">log in</a> or <a href="/register" style="color: #444">register</a> to use these)[% END %]</span>
                 <label><input type="checkbox" [% IF !wr.is_user_authenticated() %]disabled="true"[% END %] name="hide" value="1"> Hide replay on the site but give me a direct download link</label>
                 <input type="submit" value="Upload" style="width: 250px; margin: 10px auto"/>
             </form>
             <script type="text/javascript">
+                var oYt = null;
+                $('input[name="hide"]').click(function() {
+                    if($(this).is(':checked')) {
+                        $('#up-youtube').hide();
+                        oYt = $('input[name="youtube"]').val();
+                        $('input[name="youtube"]').val('');
+                    } else {
+                        $('#up-youtube').show();
+                        if(oYt) $('input[name="youtube"]').val(oYt);
+                    }
+                });
                 $('#frm-upload').submit(function() {
                     $('input[name="timezone"]').val(WR.timezone.name);
                     $('#frm-upload input[type="submit"]').html('Please wait...').prop('disabled', true);

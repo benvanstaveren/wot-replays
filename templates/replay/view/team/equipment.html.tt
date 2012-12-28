@@ -1,0 +1,58 @@
+[% pname = player.name %]
+[% fitting = replay.vehicle_fittings.$pname %]
+<table style="width: 100%;" cellspacing="0" cellpadding="0"> 
+    <tbody>
+        <tr>
+            <td style="width: 50%; vertical-align: top">
+                <strong>Modules</strong>
+                <div>
+                    <span style="width: 16px; height: 16px">
+                        <img src="[% config.urls.assets %]/icon/components/16x16/engines.png" style="width: 16px; border: 0px;height: 16px" title="Engine"/>
+                    </span>
+                    <span style="padding: 0px 0px 0px 5px" title="[% wr.component_name(player.vehicleType.country, 'engines', fitting.data.engine) %]"> 
+                            [% wr.component_name(player.vehicleType.country, 'engines', fitting.data.engine) |truncate(18) %]
+                    </span>
+                </div>
+                <div>
+                    <span style="width: 16px; height: 16px">
+                        <img src="[% config.urls.assets %]/icon/components/16x16/radios.png" style="width: 16px; height: 16px; border: 0px" title="Radio"/>
+                    </span>
+                    <span style="padding: 0px 0px 0px 5px" title="[% wr.component_name(player.vehicleType.country, 'radios', fitting.data.radio) %]"> 
+                        [% wr.component_name(player.vehicleType.country, 'radios', fitting.data.radio)  |truncate(18)%]
+                    </span>
+                </div>
+                <div>
+                    <span style="width: 16px; height: 16px">
+                        <img src="[% config.urls.assets %]/icon/components/16x16/guns.png" style="width: 16px; height: 16px; border: 0px" title="Gun"/>
+                    </span>
+                    <span style="padding: 0px 0px 0px 5px" title="[% wr.component_name(player.vehicleType.country, 'guns', fitting.data.gun) %]">
+                        [% wr.component_name(player.vehicleType.country, 'guns', fitting.data.gun)  |truncate(18)%]
+                    </span>
+                </div>
+                <div>
+                    <span style="width: 16px; height: 16px">
+                        <img src="[% config.urls.assets %]/icon/components/16x16/turrets.png" style="width: 16px; height: 16px; border: 0px" title="Turret"/>
+                    </span>
+                    <span style="padding: 0px 0px 0px 5px" title="[% wr.component_name(player.vehicleType.country, 'turrets', fitting.data.turret) %]"> 
+                        [% wr.component_name(player.vehicleType.country, 'turrets', fitting.data.turret)  |truncate(18)%]
+                    </span>
+                </div>
+            </td>
+            <td style="width: 50%; vertical-align: top">
+                <strong>Equipment</strong>
+                [% FOREACH eq IN fitting.data.equipment %]
+                    [% IF eq %]
+                        <div>
+                            <span style="width: 16px; height: 16px">
+                                <img src="[% config.urls.assets %]/equipment/16x16/[% wr.equipment_icon(eq) %]" style="width: 16px; height: 16px; border: 0px"/>
+                            </span>
+                            <span style="padding: 0px 0px 0px 5px" title="[% wr.equipment_name(eq) %]">
+                                [% wr.equipment_name(eq) |truncate(18) %]
+                            </span>
+                        </div>
+                    [% END %]
+                [% END %]
+            </td>
+        </tr>
+    </tbody>
+</table>

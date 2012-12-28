@@ -1,0 +1,10 @@
+SITES
+-----
+
+images.wot-replays.org
+    -   Should contain the contents of the wot-replays-images repository, is used for vehicle images, maps, icons and game related
+        assets
+ 
+static.wot-replays.org
+    -   Should contain the contents of the wot-replays-static repository, is used for images, css, javascript and site related
+        assets

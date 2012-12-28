@@ -1,20 +1,5 @@
 <div>
-    <h3>Quick Stats</h3>
-    <div>
-        Total replays: <strong>[% replay_count %]</strong>
-    </div>
-    <h3>Updates/Info</h3>
-    <div>
-        For info, updates, or to tell me about the site you can hit up <a href="http://forum.worldoftanks.eu/index.php?/topic/107721-the-wot-replaysorg-support-feedback-and-everything-else-thread/">the wot-replays.org feedback and support thread</a> on the European WoT forum. 
-    </div>
-    <h3>Donate</h3>
-    <div>
-        The costs for running the site have gone up a lot, so if you can, please donate your spare change. 
-        <br/><br/>
-        [% INCLUDE donatebutton.html.tt %]
-    </div>
-    <h3>Contact Me</h3>
-    <div>
-        To contact me, either hit the thread above, send me a PM on the European forums, find me in-game on the European server, or send me an email at scrambled(the at sign goes here)xirinet.com
-    </div>
+    [% INCLUDE sidebar/bricks/updates.html.tt %]
+    [% INCLUDE sidebar/bricks/donate.html.tt %]
+    [% INCLUDE sidebar/bricks/contact.html.tt %]
 </div>

@@ -1,0 +1,118 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: World Of Tanks\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-06-01 10:00+0300\n"
+"PO-Revision-Date: 2010-06-01 10:00+0300\n"
+"Last-Translator: WoT Translator <noreply@wargaming.net>\n"
+"Language-Team: WoT Team <noreply@wargaming.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "A-220"
+msgstr "A-220"
+
+msgid "Ch01_Type59"
+msgstr "Type 59"
+
+msgid "Ch01_Type59_descr"
+msgstr ""
+"Produced at the Baotou Tank Plant, China. Entered mass production in 1957, "
+"with a total of 6000 vehicles manufactured by 1987."
+
+msgid "Ch02_Type62"
+msgstr "Type 62"
+
+msgid "Ch02_Type62_descr"
+msgstr ""
+"The Type 62 Light Tank was the first tank originally designed in China. "
+"Under development since 1952, the tank was intended for the southern regions "
+"of China. In 1962, after thorough testing, the vehicle entered service. By "
+"1989 a total of 1500 vehicles were produced. The Type 62 was exported to "
+"Albania, Congo, Mali, Sudan, Vietnam and Zaire."
+
+msgid "Ch03_WZ-111"
+msgstr "WZ-111"
+
+msgid "Ch03_WZ-111_descr"
+msgstr ""
+"Influenced by the Soviet tank T-10 model, this heavy tank was prototyped in "
+"the early 1960s on the basis of the Soviet IS-2 and IS-3. The trials "
+"revealed multiple faults, and the development of the vehicle was "
+"discontinued in 1964."
+
+msgid "Chassis_Ch01_Type59_2"
+msgstr "Type59 A"
+
+msgid "Chassis_Ch01_Type59_gold"
+msgstr "Type 59 G"
+
+msgid "Chassis_Ch02_Type62"
+msgstr "Type 62 A"
+
+msgid "Chassis_Ch03_WZ-111"
+msgstr "Type WZ-111"
+
+msgid "NORINCO_12150L7"
+msgstr "NORINCO 12150L7"
+
+msgid "Turret_1_Ch01_Type59_2"
+msgstr "Type59 B"
+
+msgid "Turret_1_Ch01_Type59_gold"
+msgstr "Type 59 G"
+
+msgid "Turret_1_Ch02_Type62"
+msgstr "Type 62 B"
+
+msgid "Turret_1_Ch03_WZ-111"
+msgstr "Type WZ-111 B"
+
+msgid "Type59_gold"
+msgstr "Type 59 G"
+
+msgid "_100mm_59"
+msgstr "100 mm Type 59"
+
+msgid "_100mm_UBR-412"
+msgstr "Type 1954 AP"
+
+msgid "_100mm_UBR-412P"
+msgstr "Type 1954 APC"
+
+msgid "_100mm_UOF-412"
+msgstr "Type 1954 HE"
+
+msgid "_12150L-3_V-12"
+msgstr "12150L-3"
+
+msgid "_12150LZ"
+msgstr "12150LZ"
+
+msgid "_122-mm_D25-TA"
+msgstr "D25-TA"
+
+msgid "_122mm_Type_57"
+msgstr "Type 57"
+
+msgid "_122mm_Type_64"
+msgstr "Type 64"
+
+msgid "_122mm_Type_68"
+msgstr "Type 68"
+
+msgid "_85mm_HEAT"
+msgstr "Type 1956 HEAT"
+
+msgid "_85mm_Tip_62-85TS"
+msgstr "Type 62-85TS"
+
+msgid "_85mm_UBR"
+msgstr "Type 1956 AP"
+
+msgid "_85mm_UOF"
+msgstr "Type 1956 HE "
+
+msgid "_9RM"
+msgstr "9RM"

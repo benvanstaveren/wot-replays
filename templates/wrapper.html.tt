@@ -1,14 +1,19 @@
+[% USE cache = Cache %]
 <!DOCTYPE html>
 <html>
     <head>
         <title>[% page.title %] - World of Tanks Replays</title>
-        <link rel="shortcut icon" href="//images.wot-replays.org/favicon.ico"/>
-        <script type="text/javascript" src="//static.wot-replays.org/js/jquery-1.6.2-min.js"></script>
-        <script type="text/javascript" src="//static.wot-replays.org/js/jquery.form.js"></script>
-        <script type="text/javascript" src="//static.wot-replays.org/js/jstz.min.js"></script>
-        <script type="text/javascript" src="//static.wot-replays.org/js/jquery.blockUI.js"></script>
-        <script type="text/javascript" src="//static.wot-replays.org/js/wr.js"></script>
-        <link rel="stylesheet" href="//static.wot-replays.org/css/style.css"/>
+        <link rel="shortcut icon" href="[% config.urls.static %]/img/favicon.ico"/>
+        <script type="text/javascript" src="[% config.urls.static %]/js/jquery-1.6.2-min.js"></script>
+        <script type="text/javascript" src="[% config.urls.static %]/js/jquery.form.js"></script>
+        <script type="text/javascript" src="[% config.urls.static %]/js/jquery.timers.js"></script>
+        <script type="text/javascript" src="[% config.urls.static %]/js/jquery.tooltip.js"></script>
+        <script type="text/javascript" src="[% config.urls.static %]/js/jstz.min.js"></script>
+        <script type="text/javascript" src="[% config.urls.static %]/js/jquery.blockUI.js"></script>
+        <script type="text/javascript" src="[% config.urls.static %]/js/flot/jquery.flot.js"></script>
+        <script type="text/javascript" src="[% config.urls.static %]/js/flot/jquery.flot.pie.js"></script>
+        <script type="text/javascript" src="[% config.urls.static %]/js/wr.js"></script>
+        <link rel="stylesheet" href="[% config.urls.static %]/css/style.css"/>
         <meta name="keywords" content="[% page.keywords %], world of tanks replays, wot replays, replays"/>
         [% IF page.description %]
             <meta name="description" content="[% page.description |html %]"/>
@@ -16,15 +21,25 @@
         [% INCLUDE bricks/ga.js.tt %]
         <script type="text/javascript">
             $(document).ready(function() {
-                $('button.panelButton.download').live('click', function() {
+                $('a.downloadButton').live('click', function() {
+                    var go = true;
+                    if($(this).hasClass('incompatible')) {
+                        console.log('incompatible version download');
+                        go = confirm(  'This replay is from an older (or newer) version' + "\n" + 
+                                       'of World of Tanks which you might not be able to play back.' + "\n\n" +
+                                       'Are you sure you want to download it?');
+                    }
+                    if(!go) return false;
                     var c = parseInt($(this).find('span.count').html());
                     $(this).find('span.count').html(c + 1);
                     var href = $(this).attr('href');
                     WR.trackEvent('Replay','Download', href);
+                    return true;
                 });
-                $('button.panelButton.view').live('click', function() {
+                $('a.viewButton').live('click', function() {
                     var c = parseInt($(this).find('span.count').html());
                     $(this).find('span.count').html(c + 1);
+                    return true;
                 });
                 var _tz = jstz.determine_timezone();
                 WR.timezone = {
@@ -61,6 +76,10 @@
             </div>
         </div>
         <div id="footer">
+            <div>
+                &copy; 2012 Scrambled | app [% config.versions.app %] [% config.mode %] | wot [% config.wot.version %]<br/>
+            </div>
+            <div style="font-family: monospace;">[% config.wot.fuck_you_wg %]</div>
         </div>
     </body>
 </html>

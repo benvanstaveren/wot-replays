@@ -1,0 +1,63 @@
+{
+   "shared" : {
+      "NORINCO_12150L7" : {
+         "icon" : "gui/maps/icons_vehicle_components.dds 7 0",
+         "fireStartingChance" : "0.12",
+         "description" : "#china_vehicles:NORINCO_12150L7_descr",
+         "tags" : "diesel",
+         "maxRegenHealth" : 185,
+         "maxHealth" : 370,
+         "userString" : "#china_vehicles:NORINCO_12150L7",
+         "repairCost" : 9,
+         "level" : 9,
+         "text" : "",
+         "weight" : 700,
+         "power" : 520,
+         "price" : 79290,
+         "notInShop" : null,
+         "sound" : "/vehicles/tanks/heavy/IS_2"
+      },
+      "_12150L-3_V-12" : {
+         "icon" : "gui/maps/icons_vehicle_components.dds 7 0",
+         "fireStartingChance" : "0.12",
+         "description" : "#china_vehicles:_12150L-3_V-12_descr",
+         "tags" : "diesel",
+         "maxRegenHealth" : 155,
+         "maxHealth" : 300,
+         "userString" : "#china_vehicles:_12150L-3_V-12",
+         "repairCost" : 9,
+         "level" : 7,
+         "text" : "",
+         "weight" : 700,
+         "power" : 430,
+         "price" : 79290,
+         "notInShop" : null,
+         "sound" : "/vehicles/tanks/heavy/IS_2"
+      },
+      "text" : "",
+      "_12150LZ" : {
+         "icon" : "gui/maps/icons_vehicle_components.dds 7 0",
+         "fireStartingChance" : "0.12",
+         "description" : "#china_vehicles:_12150LZ_descr",
+         "tags" : "diesel",
+         "maxRegenHealth" : 185,
+         "maxHealth" : 370,
+         "userString" : "#china_vehicles:_12150LZ",
+         "repairCost" : 9,
+         "level" : 9,
+         "text" : "",
+         "weight" : 750,
+         "power" : 650,
+         "price" : 79290,
+         "sound" : "/vehicles/tanks/heavy/IS_2",
+         "notInShop" : null
+      }
+   },
+   "ids" : {
+      "NORINCO_12150L7" : "",
+      "_12150L-3_V-12" : 1,
+      "text" : "",
+      "_12150LZ" : 2
+   },
+   "text" : ""
+}

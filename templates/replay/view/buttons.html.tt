@@ -1,6 +1,0 @@
-<div>
-    <a style="margin: 0px 50px 0px 0px" target="_new" href="/download/[% replay.id %].wotreplay"><button class="panelButton" id="btn-download">Download Replay ([% replay.site.downloads || '0' %])</button></a>
-
-    <a target="_new" href="/raw/[% replay.id %].txt"><button class="panelButton" id="btn-raw">Raw Data</button></a>
-    <a target="_new" href="/replay/[% replay.id %].json"><button class="panelButton" id="btn-json">Our Data</button></a>
-</div>

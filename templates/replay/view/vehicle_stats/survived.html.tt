@@ -1,0 +1,10 @@
+                [% IF replay.complete %]
+                    [% IF replay.player.statistics.survived == 1 %]<span class="green">Yes</span>
+                    [% ELSE %]
+                        [% pkid = replay.player.statistics.killed_by %]
+                        [% pkr  = replay.vehicles_hash.$pkid %]
+                        <span class="red">No</span> - killed by <a href="/player/[% replay.player.server %]/[% pkr.name |uri %]">[% pkr.name %]</a>.
+                    [% END %]
+                [% ELSE %]
+                    <span>unknown</span>
+                [% END %]

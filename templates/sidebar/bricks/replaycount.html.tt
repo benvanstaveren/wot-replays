@@ -1,0 +1,32 @@
+    <h3>Replays</h3>
+    <div>
+        <table style="width: 100%" cellspacing="0" cellpadding="1">
+        <tbody>
+            <tr>
+                <td>&nbsp;</td>
+                <td style="text-align: right">Public</td>
+                <td style="text-align: right">Private</td>
+                <td style="text-align: right">Total</td>
+            </tr>
+        [% total_total = 0 %]
+        [% FOREACH version IN replay_count.keys.sort.reverse %]
+            [% IF version %]
+                [% data = replay_count.$version %]
+                <tr>
+                    <td>[% version %]</td>
+                    <td style="text-align: right">[% data.visible || '0' %]</td>
+                    <td style="text-align: right">[% data.hidden || '0' %]</td>
+                    <td style="text-align: right">[% data.total || '0' %]</td>
+                    [% total_total = total_total + data.total %]
+                </tr>
+            [% END %]
+        [% END %]
+                <tr>
+                    <td><strong>Total</strong></td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td style="text-align: right"><strong>[% total_total || '0' %]</strong></td>
+                </tr>
+        </tbody>
+        </table>
+    </div>

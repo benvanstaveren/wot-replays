@@ -1,0 +1,49 @@
+{
+   "text" : "",
+   "_6pdr_AP_MK_1T" : {
+      "icon" : "ap",
+      "damage" : {
+         "text" : "",
+         "armor" : 75,
+         "devices" : 90
+      },
+      "effects" : "mediumArmorPiercing",
+      "description" : "#gb_vehicles:_6pdr_AP_MK_1T_descr",
+      "userString" : "#gb_vehicles:_6pdr_AP_MK_1T",
+      "caliber" : 57,
+      "kind" : "ARMOR_PIERCING",
+      "text" : "",
+      "isTracer" : null,
+      "id" : 7,
+      "price" : 35
+   },
+   "_6pdr_APCR_MK_1T" : {
+      "icon" : "ap_cr",
+      "damage" : {
+         "text" : "",
+         "armor" : 75,
+         "devices" : 91
+      },
+      "effects" : "mediumAPCR",
+      "description" : "#gb_vehicles:_6pdr_APCR_MK_1T_descr",
+      "userString" : "#gb_vehicles:_6pdr_APCR_MK_1T",
+      "caliber" : 57,
+      "kind" : "ARMOR_PIERCING_CR",
+      "text" : "",
+      "isTracer" : null,
+      "id" : 8,
+      "price" : {
+         "gold" : "",
+         "text" : 5
+      }
+   },
+   "icons" : {
+      "hc" : "HOLLOW_CHARGE.png 0 0",
+      "ap_he" : "ARMOR_PIERCING_HE.png 0 0",
+      "he" : "HIGH_EXPLOSIVE.png 0 0",
+      "ap_cr" : "ARMOR_PIERCING_CR.png 0 0",
+      "text" : "",
+      "he_premium" : "HIGH_EXPLOSIVE_PREMIUM.png 0 0",
+      "ap" : "ARMOR_PIERCING.png 0 0"
+   }
+}

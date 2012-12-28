@@ -1,0 +1,11 @@
+            <span class="label" style="margin-top: 10px">Damage</span>
+            <table style="width: 100%" cellspacing="0" cellpadding="0"><tbody><tr>
+                <td>
+                    <span class="label small">Done</span>
+                    <span class="green">[% replay.player.statistics.damage.done || '0' %]</span>
+                </td>
+                <td>
+                    <span class="label small">Received</span>
+                    <span class="red">[% replay.player.statistics.damage.received.real || '0' %]</span>
+                </td>
+            </tr></tbody></table>

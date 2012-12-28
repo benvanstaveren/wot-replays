@@ -1,0 +1,17 @@
+{
+    "L": {
+        "label": "Light Tank"
+    },
+    "M": {
+        "label": "Medium Tank"
+    },
+    "H": {
+        "label": "Heavy Tank"
+    },
+    "T": {
+        "label": "Tank Destroyer"
+    },
+    "S": {
+        "label": "SPG"
+    }
+}

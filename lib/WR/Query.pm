@@ -12,15 +12,17 @@ has 'perpage' => (is => 'ro', isa => 'Num', required => 1, default => 15);
 has 'filter' => (is => 'ro', isa => 'HashRef', required => 1, default => sub { {} });
 has 'sort' => (is => 'ro', isa => 'HashRef', required => 0);
 
+has '_res' => (is => 'ro', isa => 'MongoDB::Cursor', writer => '_set_res');
 has '_query' => (is => 'ro', isa => 'HashRef', required => 1, lazy => 1, builder => '_build_query');
 has 'total' => (is => 'ro', isa => 'Num', required => 1, default => 0, writer => '_set_total');
-
 
 sub exec {
     my $self = shift;
 
+    return($self->_res) if(defined($self->_res));
     my $cursor = $self->coll->find($self->_query);
     $self->_set_total($cursor->count());
+    $self->_set_res($cursor);
     return $cursor;
 }
 
@@ -55,10 +57,6 @@ sub fuck_tt {
     my $o = shift;
 
     $o->{id} = $o->{_id};
-
-    my $time = $o->{game}->{time};
-    $o->{game}->{time_real} = $time;
-    $o->{game}->{time} = DateTime->from_epoch(epoch => $time, time_zone => 'UTC');
     return $o;
 }
 
@@ -85,7 +83,7 @@ sub _build_query {
         );
 
     my $query = {
-        'site.visible' => true,    
+        'site.visible' => true,
     };
 
     my $ors = [];
@@ -138,8 +136,10 @@ sub _build_query {
     }
 
     $query->{'complete'} = true if($args{'complete'});
-    $query->{'player.statistics.survived'} = true if($args{'survived'});
-    $query->{'game.arena_id'} = $args{'related'} if($args{'related'});
+    $query->{'version'} = $args{'version'} if($args{'compatible'} == 1); 
+
+    $query->{'game.type'} = $args{'matchmode'} if($args{'matchmode'} && $args{'matchmode'} ne '');
+    $query->{'game.bonus_type'} = $args{'matchtype'} + 0 if($args{'matchtype'} && $args{'matchtype'} ne '');
 
     # finalize the query
     if(scalar(@$ors) > 1) {

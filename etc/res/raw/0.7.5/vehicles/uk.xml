@@ -1,0 +1,13 @@
+<list.xml>
+  <GB68_Matilda_Black_Prince>
+    <id>	209	</id>
+    <userString>#gb_vehicles:GB68_Matilda_Black_Prince</userString>
+    <description>#gb_vehicles:GB68_Matilda_Black_Prince_descr</description>
+    <shortUserString>#gb_vehicles:GB68_Matilda_Black_Prince_short</shortUserString>
+    <icon>gui/maps/icons_vehicle_components.dds 1 0</icon>
+    <price>	1750	<gold></gold></price>
+    <notInShop>	true	</notInShop>
+    <tags>mediumTank mediumCaliberTankRammer_user wetCombatPack_class1_user</tags>
+    <level>	5	</level>
+  </GB68_Matilda_Black_Prince>
+</list.xml>

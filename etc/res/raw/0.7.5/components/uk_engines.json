@@ -1,0 +1,27 @@
+{
+   "shared" : {
+      "text" : "",
+      "Leyland_V6" : {
+         "icon" : "gui/maps/icons_vehicle_components.dds 7 0",
+         "fireStartingChance" : "0.2",
+         "description" : "#gb_vehicles:Leyland_V6_descr",
+         "tags" : "diesel",
+         "maxRegenHealth" : 32,
+         "maxHealth" : 65,
+         "userString" : "#gb_vehicles:Leyland_V6",
+         "repairCost" : 1,
+         "level" : 3,
+         "text" : "",
+         "weight" : 331,
+         "power" : 190,
+         "price" : 4550,
+         "sound" : "/vehicles/tanks/light/PzIII",
+         "notInShop" : null
+      }
+   },
+   "ids" : {
+      "text" : "",
+      "Leyland_V6" : 41
+   },
+   "text" : ""
+}

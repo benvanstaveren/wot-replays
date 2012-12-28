@@ -1,0 +1,17 @@
+{
+    "usa": {
+        "label": "USA"
+    },
+    "ussr": {
+        "label": "USSR"
+    },
+    "germany": {
+        "label": "Germany"
+    },
+    "france": {
+        "label": "France"
+    },
+    "china": {
+        "label": "China"
+    }
+}
