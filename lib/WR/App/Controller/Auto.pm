@@ -107,11 +107,8 @@ sub index {
     $self->session('last_seen' => time());
     $self->session('first_visit' => 1) if($last_seen + 86400 < time());
 
-    $self->stash(
-        settings => {
-            first_visit => $self->session('first_visit'),
-        },
-        wr => {
+    my $wr;
+    $wr = {
             get_id => sub { return shift->{_id} },
             match_result => sub { return $self->get_match_result() },
             res => sub { return $self->app->wr_res },
@@ -136,7 +133,7 @@ sub index {
                 if(my $obj = $self->db('wot-replays')->get_collection('data.maps')->find_one({ 
                     '$or' => [
                         { _id => $mid },
-                        { shortname => $mid },
+                        { name_id => $mid },
                     ],
                 })) {
                     return $obj->{label};
@@ -263,7 +260,37 @@ sub index {
             user_display_name => sub {
                 return $self->current_user->{display_name};
             },
+            fix_map_id => sub {
+                my $id = shift;
+
+                warn 'fix_map_id: id: ', $id, "\n";
+
+                # if the map id does not match (\d+)_(\w+) we need to look it up in the db
+                # by shortname, then return the properly fixed one. gack. 
+                return $id if($id =~ /^(\d+)_(\w+)/);
+
+
+                if(my $map = $self->db('wot-replays')->get_collection('data.maps')->find_one({ name_id => $id })) {
+                    warn 'fix_map_id: fixed to: ', $map->{_id}, "\n";
+                    return $map->{_id};
+                } else {
+                    warn 'fix_map_id: not fixed', "\n";
+                    return undef;
+                }
+            },
+            map_image => sub {
+                my $size = shift;
+                my $id = $wr->{fix_map_id}->(shift);
+
+                return lc(sprintf('//images.wot-replays.org/maps/%d/%s.jpg', $size, $id));
+            },
+        };
+
+    $self->stash(
+        settings => {
+            first_visit => $self->session('first_visit'),
         },
+        wr => $wr,
     );
 
     return 1;

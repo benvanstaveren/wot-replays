@@ -2,7 +2,7 @@
 <div>
     <div class="content">
         <h3>
-            <a href="/maps/">Maps</a> &raquo; [% wr.map_name(map_id) %]
+            <a href="/maps/">Maps</a> &raquo; [% wr.map_name(wr.fix_map_id(map_id)) %]
         </h3>
         <div id="browseContent">
             [% INCLUDE replay/panel_list.html.tt %]

@@ -6,7 +6,7 @@
             <input type="hidden" name="vehiclepov" value="1"/>
             <input type="hidden" name="vehicleinv" value="0"/>
             [% IF pageid == 'map' %]
-                <input type="hidden" name="map" value="[% map_id %]"/>
+                <input type="hidden" name="map" value="[% wr.fix_map_id(map_id) %]"/>
             [% ELSIF pageid == 'vehicle' %]
                 <input type="hidden" name="vehicle" value="[% vehicle_full %]"/>
             [% END %]
@@ -28,7 +28,7 @@
             <select name="map">
                 <option value="">-- All maps</option>
                 [% FOREACH map IN wr.generate_map_select() %]
-                    <option value="[% map.id %]">[% map.label %]</option>
+                    <option value="[% wr.fix_map_id(map.id) %]">[% map.label %]</option>
                 [% END %]
             </select>
             [% END %]

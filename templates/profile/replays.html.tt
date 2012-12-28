@@ -24,7 +24,7 @@
 <tbody>
     [% FOREACH replay IN replays %]
         <tr>
-            <td>[% wr.map_name(replay.map.id) %]</td>
+            <td>[% wr.map_name(wr.fix_map_id(replay.map.id)) %]</td>
             <td>[% wr.vehicle_name(replay.player.vehicle.full) %]</td>
             <td>
                 [% IF replay.game.isWin %]won

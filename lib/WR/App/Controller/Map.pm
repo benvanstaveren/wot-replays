@@ -15,6 +15,9 @@ sub index {
         reduce => q|function(obj, prev) { prev.count += 1 }|,
     })->{retval};
 
+    # there is no real easy way to fix all the maps, beyond flat out reparsing
+    # every replay, which is a pain, so this has been disabled until all "old" replays have been purged
+
     my $map_hash = { map { $_->{'map.id'} => $_->{count} } @$res };
     my $map_list = [];
 
