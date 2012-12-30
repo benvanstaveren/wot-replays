@@ -16,7 +16,7 @@
             [% END %]
             <div style="margin-top: 15px">
                 <span class="label">Direct download link</span>
-                <a href="/download/[% id %].wotreplay">http://www.wot-replays.org/download/[% id %].wotreplay</a>
+                <a href="http://dl.wot-replays.org/[% filename |uri %]">http://dl.wot-replays.org/[% filename |uri %]</a>
             </div>
         [% END %]
         <div id="frm-upload-container" style="width: 600px; margin: 0px auto; padding: 25px" class="box" style="background: #e0e0e0 none repeat scroll 0 0">
@@ -27,27 +27,11 @@
                 <input style="width: 100%;" type="file" name="replay"/><br/>
                 <span class="label">Description (optional)</span>
                 <textarea name="description" style="width: 100%; height: 50px">[% description %]</textarea>
-                <div id="up-youtube" style="display: block">
-                    <div style="margin-top: 10px">If you have a video of this replay, paste the link below</div>
-                    <span class="label">YouTube Video URL (optional)</span>
-                    <input name="youtube" style="width: 100%;" value="[% youtube %]"/>
-                </div>
                 <span class="label">Options [% IF !wr.is_user_authenticated() %](You need to <a href="/login" style="color: #444">log in</a> or <a href="/register" style="color: #444">register</a> to use these)[% END %]</span>
                 <label><input type="checkbox" [% IF !wr.is_user_authenticated() %]disabled="true"[% END %] name="hide" value="1"> Hide replay on the site but give me a direct download link</label>
                 <input type="submit" value="Upload" style="width: 250px; margin: 10px auto"/>
             </form>
             <script type="text/javascript">
-                var oYt = null;
-                $('input[name="hide"]').click(function() {
-                    if($(this).is(':checked')) {
-                        $('#up-youtube').hide();
-                        oYt = $('input[name="youtube"]').val();
-                        $('input[name="youtube"]').val('');
-                    } else {
-                        $('#up-youtube').show();
-                        if(oYt) $('input[name="youtube"]').val(oYt);
-                    }
-                });
                 $('#frm-upload').submit(function() {
                     $('input[name="timezone"]').val(WR.timezone.name);
                     $('#frm-upload input[type="submit"]').html('Please wait...').prop('disabled', true);

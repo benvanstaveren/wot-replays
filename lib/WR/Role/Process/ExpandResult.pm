@@ -1,5 +1,6 @@
 package WR::Role::Process::ExpandResult;
 use Moose::Role;
+use MongoDB::OID;
 use boolean;
 
 around 'process' => sub {
@@ -10,7 +11,7 @@ around 'process' => sub {
     my $dt_str = $res->{dateTime}; # 10.04.2012 20:38:30
     $dt_str =~ s/\W+//g;
 
-    my $m_id = sprintf('%d-%s-%s', $res->{playerID}, $res->{mapName}, $dt_str);
+    my $m_id = MongoDB::OID->new();
 
     my $pv = $res->{playerVehicle};
     my ($pv_country, $pv_name) = split(/-/, $pv, 2);

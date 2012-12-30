@@ -8,11 +8,11 @@ use Data::Dumper;
 
 sub bridge {
     my $self = shift;
-    my $replay_id = $self->stash('replay_id');
+    my $replay_id = bless({ value => $self->stash('replay_id') }, 'MongoDB::OID');
 
     my $start = [ gettimeofday ];
 
-    if(my $replay = $self->db('wot-replays')->get_collection('replays')->find_one({ _id => $replay_id })) {
+    if(my $replay = $self->model('wot-replays.replays')->find_one({ _id => $replay_id })) {
         unless($replay->{site}->{visible}) {
             if($self->is_user_authenticated) {
                 my $uid = $self->current_user->{_id}->to_string();

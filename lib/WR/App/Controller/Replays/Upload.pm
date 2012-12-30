@@ -94,9 +94,10 @@ sub upload {
 
             $self->respond(stash => {
                 page => { title => 'Upload Replay' }, 
-                id => $m_data->{_id}, 
+                id => $m_data->{_id}->to_string, 
                 done => 1,
                 published => ($self->req->param('hide') == 1) ? 0 : 1,
+                filename => $filename,
             }, template => 'upload/form');
 
         } else {
