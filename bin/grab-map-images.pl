@@ -9,8 +9,8 @@ my @images = ();
 my $u = Mojo::URL->new('http://wiki.worldoftanks.eu/Maps');
 my $res = $ua->get($u)->res;
 
-foreach my $img ($res->dom('a img')->each) {
-    if($img->attrs('width') == 150 && $img->attrs('height') == 150) {
+foreach my $img ($res->dom('img')->each) {
+    if($img->attrs('class') eq 'thumbimage') {
         push(@images, $u->clone->path($img->attrs('src')));
     }
 }
