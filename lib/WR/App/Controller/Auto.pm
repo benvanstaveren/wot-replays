@@ -266,11 +266,8 @@ sub index {
             map_slug => sub {
                 my $name = shift;
                 my $slug = lc($name);
-
-                # store it if it's not already there just for the fuck of it
                 $slug =~ s/\s+/_/g;
                 $slug =~ s/'//g;
-                $self->model('wot-replays.data.maps')->update({ label => $name }, { '$set' => { slug => $slug } });
                 return $slug;
             },
             map_image => sub {
