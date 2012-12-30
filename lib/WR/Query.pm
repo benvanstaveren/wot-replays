@@ -79,6 +79,7 @@ sub _build_query {
         playerinv => 0,
         vehiclepov => 0,
         vehicleinv => 0,
+        compatible => 0,
         %{ $self->filter },
         );
 

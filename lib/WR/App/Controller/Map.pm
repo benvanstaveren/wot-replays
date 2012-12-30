@@ -47,6 +47,8 @@ sub view {
     my $self = shift;
     my $map_id = shift;
 
+    my $m_obj = $self->db('wot-replays')->get_collection('data.maps')->find_one({ slug => $map_id });
+
     my $t_stats = $self->db('wot-replays')->get_collection('replays')->group({
         initial => { 
             c => 0, 
@@ -56,7 +58,7 @@ sub view {
             },
         key => { 'player.name' => 1 },
         cond => {
-            'map.id' => $map_id,
+            'map.id' => $m_obj->{_id},
             'site.visible' => true,
             'complete' => true,
         },
@@ -75,7 +77,6 @@ function(obj, prev) {
 }|,
     })->{retval}->[0];
 
-    my $m_obj = $self->db('wot-replays')->get_collection('data.maps')->find_one({ _id => $map_id });
 
     $self->respond(
         template => 'map/view',
