@@ -27,6 +27,7 @@ sub index {
         push(@$map_list, { 
             id => $o->{_id},        # the id is always the one with the given shortname
             count => $map_hash->{$o->{_id}} || 0,
+            label => $o->{label},
         });
     }
 

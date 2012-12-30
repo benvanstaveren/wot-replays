@@ -270,7 +270,6 @@ sub index {
                 # store it if it's not already there just for the fuck of it
                 $slug =~ s/\s+/_/g;
                 $slug =~ s/'//g;
-
                 $self->model('wot-replays.data.maps')->update({ label => $name }, { '$set' => { slug => $slug } });
                 return $slug;
             },
