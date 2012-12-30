@@ -84,7 +84,6 @@ sub startup {
         $rb->route('/')->to('replays-view#view', pageid => undef)->name('viewreplay');
         $rb->route('/desc')->to('replays#desc', pageid => undef);
         $rb->route('/up')->to('replays-rate#rate_up', pageid => undef);
-        $rb->route('/chat')->to('replays-view#chat', pageid => undef);
         $rb->route('/stats')->to('replays-view#stats', pageid => undef);
         $rb->route('/incview')->to('replays-view#incview', pageid => undef);
 
