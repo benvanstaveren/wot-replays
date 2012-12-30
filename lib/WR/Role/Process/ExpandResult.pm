@@ -180,7 +180,7 @@ around 'process' => sub {
             ammo => [],
             teamkill => {
                 rating => $self->match_result->[0]->{tkillRating},
-                log    => $self->match_result->[0]->{tkillLog},
+                log    => $self->match_result->[0]->{tkillLog} || [],
             },
             penalties => {
                 xp => $self->match_result->[0]->{xpPenalty},
