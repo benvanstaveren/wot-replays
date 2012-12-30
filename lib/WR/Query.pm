@@ -111,6 +111,7 @@ sub _build_query {
     }
 
     $query->{'map.id'} = $self->fixargs($args{'map'}) if($args{'map'});
+
     if($args{'vehicle'}) {
         if($args{'vehiclepov'}) {
             $query->{'player.vehicle.full'} = $self->fixargs($args{'vehicle'});
@@ -123,6 +124,7 @@ sub _build_query {
             ]);
         }
     }
+
     if($args{'clan'}) {
         if($args{'clanpov'}) {
             $query->{'player.clanAbbrev'} = $self->fixargs($args{'clan'});
