@@ -182,6 +182,9 @@ sub index {
                     return sprintf('nolabel_short:%s', $v);
                 }
             },
+            fix_map_id => sub {
+                return shift;
+            },
             equipment_name => sub {
                 my $id = shift;
                 if(my $obj = $self->db('wot-replays')->get_collection('data.equipment')->find_one({ wot_id => $id })) {
@@ -260,23 +263,14 @@ sub index {
             user_display_name => sub {
                 return $self->current_user->{display_name};
             },
-            fix_map_id => sub {
-                my $id = shift;
-
-                # if the map id does not match (\d+)_(\w+) we need to look it up in the db
-                # by shortname, then return the properly fixed one. gack. 
-                return $id if($id =~ /^(\d+)_(\w+)/);
-
+            map_image => sub {
+                my $size = shift;
+                my $id   = shift;
                 if(my $map = $self->db('wot-replays')->get_collection('data.maps')->find_one({ name_id => $id })) {
-                    return $map->{icon};
+                    return lc(sprintf('//images.wot-replays.org/maps/%d/%s', $size, $map->{icon}));
                 } else {
                     return undef;
                 }
-            },
-            map_image => sub {
-                my $size = shift;
-                my $id = $wr->{fix_map_id}->(shift);
-                return lc(sprintf('//images.wot-replays.org/maps/%d/%s', $size, $id));
             },
         };
 

@@ -74,7 +74,7 @@ function(obj, prev) {
 }|,
     })->{retval}->[0];
 
-    my $m_obj = $self->db('wot-replays')->get_collection('data.maps')->findOne({ _id => $map_id });
+    my $m_obj = $self->db('wot-replays')->get_collection('data.maps')->find_one({ _id => $map_id });
 
     $self->respond(
         template => 'map/view',
