@@ -149,17 +149,18 @@ around 'process' => sub {
         my $s = $v - ($m * 60);
         $data->{game}->{duration}->{minutes} = sprintf('%s:%s', $m, $s);
 
-        my @ammo_cons = @{$self->match_result->[0]->{ammo}};
-        my $ammo = [
-            { id => shift(@ammo_cons), remaining => shift(@ammo_cons) },
-            { id => shift(@ammo_cons), remaining => shift(@ammo_cons) },
-            { id => shift(@ammo_cons), remaining => shift(@ammo_cons) },
-        ];
-        my $consumables = [
-            { id => shift(@ammo_cons), used => (shift(@ammo_cons) || 0 > 0) ? false : true },
-            { id => shift(@ammo_cons), used => (shift(@ammo_cons) || 0 > 0) ? false : true },
-            { id => shift(@ammo_cons), used => (shift(@ammo_cons) || 0 > 0) ? false : true },
-        ];
+        # no longer exists in 0.8.2 in the plain data
+        #my @ammo_cons = @{$self->match_result->[0]->{ammo}};
+        #my $ammo = [
+        #    { id => shift(@ammo_cons), remaining => shift(@ammo_cons) },
+        #    { id => shift(@ammo_cons), remaining => shift(@ammo_cons) },
+        #    { id => shift(@ammo_cons), remaining => shift(@ammo_cons) },
+        #];
+        #my $consumables = [
+        #    { id => shift(@ammo_cons), used => (shift(@ammo_cons) || 0 > 0) ? false : true },
+        #    { id => shift(@ammo_cons), used => (shift(@ammo_cons) || 0 > 0) ? false : true },
+        #    { id => shift(@ammo_cons), used => (shift(@ammo_cons) || 0 > 0) ? false : true },
+        #];
 
         $data->{game}->{heroes} = $self->match_result->[0]->{heroVehicleIDs};
         $data->{player}->{statistics} = {
@@ -175,8 +176,8 @@ around 'process' => sub {
                 gained => $self->match_result->[0]->{capturePoints},
                 dropped => $self->match_result->[0]->{droppedCapturePoints},
             },
-            consumables => $consumables,
-            ammo => $ammo,
+            consumables => [],
+            ammo => [],
             teamkill => {
                 rating => $self->match_result->[0]->{tkillRating},
                 log    => $self->match_result->[0]->{tkillLog},
@@ -188,19 +189,20 @@ around 'process' => sub {
             shots => {
                 fired => $self->match_result->[0]->{shots},
                 hits  => $self->match_result->[0]->{hits},
-                misses => $self->match_result->[0]->{shots} - $res->{result}->{hits},
+                misses => $self->match_result->[0]->{shots} - $self->match_result->[0]->{hits},
                 received => $self->match_result->[0]->{shotsReceived},
             },
             damage => {
                 done => $self->match_result->[0]->{damageDealt},
                 received => {
                     real => $self->match_result->[0]->{damageReceived},
-                    potential => $self->match_result->[0]->{potentialDamageReceived},
+                    # no longer present in 0.8.2 it seems
+                    #potential => $self->match_result->[0]->{potentialDamageReceived},
                 }
             },
             survived => ($self->match_result->[0]->{killerID} > 0) ? false : true,
             killed_by => ($self->match_result->[0]->{killerID} > 0) ? $self->match_result->[0]->{killerID} + 0 : undef,
-            epic => $self->match_result->[0]->{epicAchievements},
+            epic => $self->match_result->[0]->{epicAchievements} || [],
         };
 
         for(qw/killed spotted damaged/) {
