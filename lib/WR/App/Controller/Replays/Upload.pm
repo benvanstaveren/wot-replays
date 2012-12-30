@@ -53,14 +53,13 @@ sub upload {
             my $filename = $upload->filename;
             $filename =~ s/.*\\//g if($filename =~ /\\/);
 
-
-            my $replay_file = sprintf('%s/%s', $self->stash('config')->{paths}->{replays}, $filename);
+            my $replay_file = sprintf('/storage/replays/%s', $filename);
 
             $asset->move_to($replay_file);
 
             try {
                 my $p = WR::Process->new(
-                    file    => sprintf('%s/%s', $self->stash('config')->{paths}->{replays}, $filename),
+                    file    => sprintf('/storage/replays/%s', $filename),
                     db      => $self->db('wot-replays'),
                     bf_key  => $self->stash('config')->{wot}->{bf_key},
                 );
