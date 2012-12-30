@@ -76,10 +76,6 @@
                             <div class="replay-tabs">
                                 <ul>
                                     <li><a class="ui-corner-bottom active" href="#vehicle-stats">Statistics</a></li>
-                                    <li><a class="ui-corner-bottom" href="#battlechat">Battle Chat</a></li>
-                                    [% IF replay.site.youtube %]
-                                    <li><a class="ui-corner-bottom" href="#youtube">YouTube Video</a></li>
-                                    [% END %]
                                 </ul>
                             </div>
                             <div id="vehicle-stats" class="viewcontent">
@@ -87,11 +83,6 @@
                             </div>
                             <div id="battlechat" style="display: none" class="viewcontent">
                             </div>
-                            [% IF replay.site.youtube %]
-                                <div id="youtube" style="display: none" class="viewcontent">
-                                    [% INCLUDE replay/view/youtube.html.tt %]
-                                </div>
-                            [% END %]
                         </div>
                     </td>
                 </tr>
@@ -99,21 +90,12 @@
             </table>
         </div>
         <script type="text/javascript">
-            var battleChatLoadStarted = false;
-            var battleChatLoadCount = 0;
             $('div.replay-tabs a').click(function() {
                 var href = $(this).attr('href');
                 $('div.replay-tabs a').removeClass('active');
                 $(this).addClass('active');
                 $('#replay-view-content div.viewcontent').hide();
                 $('#replay-view-content div' + href).show();
-
-                if(href == '#battlechat') {
-                    if(!battleChatLoadStarted) {
-                        $('#battlechat').html('Loading...').load('/replay/[% replay.id %]/chat');
-                        battleChatLoadStarted = true;
-                    } 
-                }
                 return false;
             });
             $(document).ready(function() {
@@ -121,8 +103,7 @@
                     $('span.rateUpCount').html(d.likes || '0');
                     $('span.count').html(d.downloads || '0');
                 });
-                $.getJSON('/replay/[% replay.id %]/incview', {}, function(d, t, x) {
-                });
+                $.getJSON('/replay/[% replay.id %]/incview', {}, function(d, t, x) {});
             });
         </script>
         [% IF replay.complete %]
