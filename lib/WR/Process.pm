@@ -25,7 +25,6 @@ has 'match_result' => (is => 'ro', isa => 'ArrayRef', writer => '_set_match_resu
 with (
         'WR::Role::Process::ExpandResult',   # must be first, it inflates some result values needed for later
         'WR::Role::Process::ResolveServer',  # get player server
-        'WR::Role::Process::Mastery',        # see if this replay awarded mastery or not
         'WR::Role::Process::Heroes',         # resolve heroes 
         'WR::Role::Process::Epic',           # resolve epic achievements
         'WR::Role::Process::Teamkills',      # process teamkills if needed

@@ -59,7 +59,7 @@ around 'process' => sub {
         },
         game => {
             time => undef,
-            type => $res->{gameplayType},
+            type => $self->match_info->{gameplayID},
             bonus_type => undef,
             isWin => undef,
             arena_id => undef,
@@ -134,8 +134,8 @@ around 'process' => sub {
         use Data::Dumper;
         warn Dumper($self->match_result->[0]);
 
-        $data->{game}->{bonus_type} = $self->match_result->[0]->{bonusType};
-        # add some additional fields 
+        # bonus_type apparently isn't included anymore since 0.8.2. perhaps part of the arenaID
+        $data->{game}->{bonus_type} = $self->match_result->[0]->{bonusType} || 1;
 
         $data->{game}->{isWin} = ($self->match_result->[0]->{isWinner} > 0) 
             ? true 
@@ -171,7 +171,8 @@ around 'process' => sub {
                 factor => int($self->match_result->[0]->{factors}->{dailyXPFactor10}/10) || 1,
             },
             repair => $self->match_result->[0]->{repair},
-            mastery => $self->match_result->[0]->{markOfMastery} + 0,
+            # no longer exists in 0.8.2, removed
+            #mastery => $self->match_result->[0]->{markOfMastery} + 0,
             capture => {
                 gained => $self->match_result->[0]->{capturePoints},
                 dropped => $self->match_result->[0]->{droppedCapturePoints},
@@ -210,10 +211,8 @@ around 'process' => sub {
         }
         # arena creation time is time in UTC
         $data->{game}->{time} = $self->match_result->[0]->{arenaCreateTime};
-
         $data->{player}->{killed_by} = undef if($data->{player}->{killed_by} == 0 || $data->{player}->{killed_by} eq '0');
     }
-
     use warnings;
     return $data;
 };
