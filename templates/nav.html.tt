@@ -12,11 +12,6 @@
                         Browse
                     </a>
                 </li>
-                <li class="nav-item players [% IF pageid == 'player' %]active[% END %]">
-                    <a class="js-hover" href="/players">
-                        Players
-                    </a>
-                </li>
                 <li class="nav-item vehicles [% IF pageid == 'vehicle' %]active[% END %]">
                     <a class="js-hover" href="/vehicles">
                         Vehicles
