@@ -266,7 +266,7 @@ sub index {
             map_slug => sub {
                 my $self = shift;
                 my $name = shift;
-                my $slug = lc($nme);
+                my $slug = lc($name);
 
                 # store it if it's not already there just for the fuck of it
                 $slug =~ s/\s+/_/g;
