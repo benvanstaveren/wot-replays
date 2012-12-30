@@ -263,10 +263,22 @@ sub index {
             user_display_name => sub {
                 return $self->current_user->{display_name};
             },
+            map_slug => sub {
+                my $self = shift;
+                my $name = shift;
+                my $slug = lc($nme);
+
+                # store it if it's not already there just for the fuck of it
+                $slug =~ s/\s+/_/g;
+                $slug =~ s/'//g;
+
+                $self->model('wot-replays.data.maps')->update({ label => $name }, { '$set' => { slug => $slug } });
+                return $slug;
+            },
             map_image => sub {
                 my $size = shift;
                 my $id   = shift;
-                if(my $map = $self->db('wot-replays')->get_collection('data.maps')->find_one({ name_id => $id })) {
+                if(my $map = $self->db('wot-replays')->get_collection('data.maps')->find_one({ _id => $id })) {
                     return lc(sprintf('//images.wot-replays.org/maps/%d/%s', $size, $map->{icon}));
                 } else {
                     return undef;
