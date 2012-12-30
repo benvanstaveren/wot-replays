@@ -17,7 +17,7 @@ sub respond {
         my $parts = $self->req->url->path->parts;
         my $fragment = $parts->[1];
         $fragment .= '.html' unless($fragment =~ /\.html$/);
-        my $filename = sprintf('/storage/pages/replay/%s', $fragment);
+        my $filename = sprintf('%s/%s', $self->stash('config')->{paths}->{pages}, $fragment);
         if(my $fh = IO::File->new(sprintf('>%s', $filename))) {
             $fh->print($self->res->body);
             $fh->close;
