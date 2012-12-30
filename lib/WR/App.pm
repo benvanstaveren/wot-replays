@@ -63,7 +63,7 @@ sub startup {
         }
     });
 
-    $self->routes->namespace('WR::App::Controller');
+    $self->routes->namespaces([qw/WR::App::Controller/]);
 
     my $r = $self->routes->bridge('/')->to('auto#index');
 
