@@ -134,6 +134,7 @@ sub index {
                     '$or' => [
                         { _id => $mid },
                         { name_id => $mid },
+                        { slug => $mid },
                     ],
                 })) {
                     return $obj->{label};
