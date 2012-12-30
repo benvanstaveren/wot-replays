@@ -277,7 +277,7 @@ sub index {
                 if(my $map = $self->db('wot-replays')->get_collection('data.maps')->find_one({ _id => $id })) {
                     return lc(sprintf('//images.wot-replays.org/maps/%d/%s', $size, $map->{icon}));
                 } else {
-                    return undef;
+                    return '404:' . $id;
                 }
             },
         };
