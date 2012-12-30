@@ -1,0 +1,69 @@
+{
+   "shared" : {
+      "Average" : {
+         "description" : "#ussr_vehicles:Average_descr",
+         "tags" : "",
+         "userString" : "#ussr_vehicles:Average",
+         "maxHealth" : 150,
+         "maxRegenHealth" : 50,
+         "repairCost" : "1.0",
+         "text" : "",
+         "weight" : 250,
+         "price" : 100
+      },
+      "text" : "",
+      "Small" : {
+         "description" : "#ussr_vehicles:Small_descr",
+         "tags" : "",
+         "userString" : "#ussr_vehicles:Small",
+         "maxHealth" : 100,
+         "maxRegenHealth" : 40,
+         "repairCost" : "1.0",
+         "text" : "",
+         "weight" : 200,
+         "price" : 100
+      },
+      "Medium" : {
+         "description" : "#ussr_vehicles:Small_descr",
+         "tags" : "",
+         "userString" : "#ussr_vehicles:Small",
+         "maxHealth" : 125,
+         "maxRegenHealth" : 50,
+         "repairCost" : "1.0",
+         "text" : "",
+         "weight" : 250,
+         "price" : 100
+      },
+      "Large" : {
+         "description" : "#ussr_vehicles:Large_descr",
+         "tags" : "",
+         "userString" : "#ussr_vehicles:Large",
+         "maxHealth" : 200,
+         "maxRegenHealth" : 70,
+         "repairCost" : "1.0",
+         "text" : "",
+         "weight" : 300,
+         "price" : 100
+      },
+      "Heavy" : {
+         "description" : "#ussr_vehicles:Heavy_descr",
+         "tags" : "",
+         "userString" : "#ussr_vehicles:Heavy",
+         "maxHealth" : 175,
+         "maxRegenHealth" : 70,
+         "repairCost" : "1.0",
+         "text" : "",
+         "weight" : 275,
+         "price" : 100
+      }
+   },
+   "ids" : {
+      "Average" : 203,
+      "text" : "",
+      "Small" : 201,
+      "Medium" : 202,
+      "Large" : 205,
+      "Heavy" : 204
+   },
+   "text" : ""
+}

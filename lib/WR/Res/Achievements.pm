@@ -16,7 +16,7 @@ sub index_to_epic_idstr {
     my $self = shift;
     my $idx  = shift;
 
-    return $self->_epic_idlist->[$idx];
+    return $self->_epic_idlist->[$idx] || sprintf('unknown:%d', $idx);
 }
 
 sub index_to_idstr {

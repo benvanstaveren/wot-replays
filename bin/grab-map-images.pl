@@ -1,0 +1,27 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+use Mojo::UserAgent;
+
+my $ua = Mojo::UserAgent->new();
+my @images = ();
+
+my $u = Mojo::URL->new('http://wiki.worldoftanks.eu/Maps');
+my $res = $ua->get($u)->res;
+
+foreach my $img ($res->dom('a img')->each) {
+    if($img->attrs('width') == 150 && $img->attrs('height') == 150) {
+        push(@images, $u->clone->path($img->attrs('src')));
+    }
+}
+
+foreach my $iu (@images) {
+    my $res = $ua->get($iu)->res;
+    my $fn = lc($iu);
+    $fn =~ s/.*\///; 
+    $fn =~ s/.*-(.*)/$1/g;
+    $fn =~ s/'//g;
+
+    print "$iu -> $fn\n";
+    $res->content->asset->move_to(sprintf('%s/%s', $ARGV[0], $fn));
+}

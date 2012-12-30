@@ -28,7 +28,7 @@ sub fixed_ident {
         : $id
 } 
 
-for my $country (qw/china france germany usa ussr/) {
+for my $country (qw/china france germany usa ussr uk/) {
     my $f = sprintf('../etc/res/raw/%s/vehicles/%s.xml', $version, $country);
     print 'processing: ', $f, "\n";
     my $x = XMLin($f);

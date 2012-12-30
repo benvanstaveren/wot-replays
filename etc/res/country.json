@@ -13,5 +13,8 @@
     },
     "china": {
         "label": "China"
+    },
+    "uk": {
+        "label": "UK"
     }
 }

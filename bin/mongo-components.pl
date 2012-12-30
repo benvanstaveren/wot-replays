@@ -21,7 +21,7 @@ $| = 1;
 
 my $j = JSON::XS->new();
 
-for my $country (qw/china france germany usa ussr/) {
+for my $country (qw/china france germany usa ussr uk/) {
     for my $comptype (qw/chassis engines fueltanks guns radios shells turrets/) {
         my $f = sprintf('../etc/res/raw/%s/components/%s_%s.json', $version, $country, $comptype);
         print 'processing: ', $f, "\n";

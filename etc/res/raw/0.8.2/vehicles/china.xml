@@ -1,0 +1,38 @@
+<list.xml>
+  <Ch01_Type59>
+    <id>	0	</id>
+    <userString>#china_vehicles:Ch01_Type59</userString>
+    <description>#china_vehicles:Ch01_Type59_descr</description>
+    <price>	7500	<gold></gold></price>
+    <tags>mediumTank enhancedTorsions3t_user mediumCaliberTankRammer_user wetCombatPack_class1_user aimingStabilizer_Mk1_user</tags>
+    <level>	8	</level>
+    <notInShop>	true	</notInShop>
+  </Ch01_Type59>
+  <Ch02_Type62>
+    <id>	1	</id>
+    <userString>#china_vehicles:Ch02_Type62</userString>
+    <description>#china_vehicles:Ch02_Type62_descr</description>
+    <price>	4800	<gold></gold></price>
+    <notInShop>	true	</notInShop>
+    <tags>lightTank secret enhancedTorsions3t_user mediumCaliberTankRammer_user wetCombatPack_class1_user aimingStabilizer_Mk1_user</tags>
+    <level>	7	</level>
+  </Ch02_Type62>
+  <Ch01_Type59_Gold>
+    <id>	2	</id>
+    <userString>#china_vehicles:Type59_gold</userString>
+    <description>#china_vehicles:Ch01_Type59_descr</description>
+    <price>	155520	<gold></gold></price>
+    <notInShop>	true	</notInShop>
+    <tags>mediumTank secret enhancedTorsions3t_user mediumCaliberTankRammer_user wetCombatPack_class1_user aimingStabilizer_Mk1_user</tags>
+    <level>	8	</level>
+  </Ch01_Type59_Gold>
+  <Ch03_WZ-111>
+    <id>	3	</id>
+    <userString>#china_vehicles:Ch03_WZ-111</userString>
+    <description>#china_vehicles:Ch03_WZ-111_descr</description>
+    <price>	9500	<gold></gold></price>
+    <notInShop>	true	</notInShop>
+    <tags>heavyTank secret enhancedTorsions5t_user largeCaliberTankRammer_user wetCombatPack_class2_user aimingStabilizer_Mk2_user</tags>
+    <level>	8	</level>
+  </Ch03_WZ-111>
+</list.xml>

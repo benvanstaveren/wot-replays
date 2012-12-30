@@ -1,0 +1,196 @@
+{
+   "shared" : {
+      "_122-mm_D25-TA" : {
+         "recoil" : {
+            "text" : "",
+            "returnTime" : "0.58",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.62",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "text" : "",
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 96,
+         "repairCost" : 8,
+         "text" : "",
+         "weight" : 2590,
+         "aimingTime" : "3.42857142857143",
+         "shots" : {
+            "_122mm_Type_68" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.40",
+               "speed" : 900,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "61 61"
+            },
+            "_122mm_Type_57" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.60",
+               "speed" : 900,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "175 152"
+            },
+            "text" : "",
+            "_122mm_Type_64" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 720,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "300 300"
+            }
+         },
+         "shotDispersionRadius" : "0.45714285714286",
+         "impulse" : "0.62",
+         "effects" : "shot_large_mb",
+         "maxAmmo" : 24,
+         "description" : "#china_vehicles:_122-mm_D25-TA",
+         "tags" : "",
+         "userString" : "#china_vehicles:_122-mm_D25-TA",
+         "rotationSpeed" : "26.25",
+         "maxHealth" : 192,
+         "level" : 8,
+         "reloadTime" : "12.34285714285710",
+         "price" : 125140,
+         "pitchLimits" : "-25 6",
+         "notInShop" : null
+      },
+      "_100mm_59" : {
+         "recoil" : {
+            "text" : "",
+            "returnTime" : "0.54",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.56",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "text" : "",
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 90,
+         "repairCost" : 8,
+         "text" : "",
+         "weight" : 2257,
+         "aimingTime" : "2.85714285714286",
+         "shots" : {
+            "_100mm_UBR-412P" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 1125,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "241 213"
+            },
+            "_100mm_UBR-412" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.80",
+               "speed" : 900,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "181 160"
+            },
+            "_100mm_UOF-412" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.20",
+               "speed" : 900,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "50 50"
+            },
+            "text" : ""
+         },
+         "shotDispersionRadius" : "0.31",
+         "impulse" : "0.44",
+         "effects" : "shot_main",
+         "maxAmmo" : 34,
+         "description" : "#china_vehicles:_100mm_59",
+         "tags" : "",
+         "userString" : "#china_vehicles:_100mm_59",
+         "rotationSpeed" : "33.25",
+         "maxHealth" : 180,
+         "level" : 8,
+         "reloadTime" : "8.0",
+         "price" : 78180,
+         "pitchLimits" : "-20 7",
+         "notInShop" : null
+      },
+      "text" : "",
+      "_85mm_Tip_62-85TS" : {
+         "recoil" : {
+            "text" : "",
+            "returnTime" : "0.28",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.3",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "text" : "",
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 67,
+         "repairCost" : 6,
+         "text" : "",
+         "weight" : 1650,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_85mm_UOF" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.20",
+               "speed" : 793,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "43 43"
+            },
+            "text" : "",
+            "_85mm_UBR" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.80",
+               "speed" : 793,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "145 135"
+            },
+            "_85mm_HEAT" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 793,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "250 250"
+            }
+         },
+         "shotDispersionRadius" : "0.388571428571429",
+         "impulse" : "0.44",
+         "effects" : "shot_main",
+         "maxAmmo" : 59,
+         "description" : "#china_vehicles:_85mm_Tip_62-85TS",
+         "tags" : "",
+         "userString" : "#china_vehicles:_85mm_Tip_62-85TS",
+         "rotationSpeed" : "39.375",
+         "maxHealth" : 134,
+         "level" : 7,
+         "reloadTime" : "5.71428571428571",
+         "price" : 61530,
+         "pitchLimits" : "-22 5",
+         "notInShop" : null
+      }
+   },
+   "ids" : {
+      "_122-mm_D25-TA" : 2,
+      "_85mm_Tip_56-85T" : 31,
+      "_100mm_59" : "",
+      "text" : "",
+      "_85mm_Tip_62-85TS" : 1
+   },
+   "text" : ""
+}

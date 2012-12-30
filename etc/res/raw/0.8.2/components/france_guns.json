@@ -1,0 +1,2821 @@
+{
+   "shared" : {
+      "_155mm_SA_58_AC" : {
+         "recoil" : {
+            "text" : "",
+            "returnTime" : "0.6",
+            "backoffTime" : "0.2",
+            "amplitude" : "0.46",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "text" : "",
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "3.0",
+            "turretRotation" : "0.08"
+         },
+         "maxRegenHealth" : 120,
+         "repairCost" : 10,
+         "text" : "",
+         "weight" : 5000,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_155mm_HEAT_T267" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 826,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "408 408"
+            },
+            "text" : "",
+            "_155mm_AP-T_T368" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.60",
+               "speed" : 826,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "293 283"
+            },
+            "_155mm_HE_T58" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.40",
+               "speed" : 826,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "90 90"
+            }
+         },
+         "shotDispersionRadius" : "0.285714285714286",
+         "impulse" : "0.64",
+         "effects" : "shot_huge_mb",
+         "maxAmmo" : 32,
+         "description" : "#france_vehicles:_155mm_SA_58_AC",
+         "tags" : "",
+         "userString" : "#france_vehicles:_155mm_SA_58_AC",
+         "rotationSpeed" : "26.25",
+         "maxHealth" : 240,
+         "level" : 10,
+         "reloadTime" : "17.14285714285714",
+         "price" : 375000,
+         "pitchLimits" : "-18 6"
+      },
+      "_47mm_SA-L_Mle.37" : {
+         "recoil" : {
+            "text" : "",
+            "returnTime" : "0.26",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.26",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "text" : "",
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "2.5",
+            "turretRotation" : "0.06"
+         },
+         "maxRegenHealth" : 38,
+         "repairCost" : 1,
+         "text" : "",
+         "weight" : 100,
+         "aimingTime" : "1.14285714285714",
+         "shots" : {
+            "_47mm_Odr_mle._1932" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "1.0",
+               "speed" : 855,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "66 58"
+            },
+            "text" : "",
+            "_47mm_Odr_mle._1935" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 1069,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "98 68"
+            },
+            "_47mm_Oe_mle._1932" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 855,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "24 24"
+            }
+         },
+         "shotDispersionRadius" : "0.377142857142857",
+         "impulse" : "0.26",
+         "effects" : "shot_small",
+         "maxAmmo" : 120,
+         "description" : "#france_vehicles:_47mm_SA-L_Mle.37",
+         "tags" : "",
+         "userString" : "#france_vehicles:_47mm_SA-L_Mle.37",
+         "rotationSpeed" : "39.375",
+         "maxHealth" : 76,
+         "level" : 3,
+         "reloadTime" : "2.17142857142857",
+         "price" : 8400,
+         "pitchLimits" : "-20 10"
+      },
+      "_76mm_Schneider" : {
+         "recoil" : {
+            "text" : "",
+            "returnTime" : "0.44",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.12",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "text" : "",
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.24"
+         },
+         "maxRegenHealth" : 42,
+         "repairCost" : 4,
+         "text" : "",
+         "weight" : 420,
+         "aimingTime" : "4.57142857142857",
+         "shots" : {
+            "_76mm_OEO_mle._1917" : {
+               "maxDistance" : 10000,
+               "defaultPortion" : "1.0",
+               "speed" : 300,
+               "text" : "",
+               "gravity" : 200,
+               "piercingPower" : "38 38"
+            },
+            "_76mm_OCO_mle._1941" : {
+               "maxDistance" : 10000,
+               "defaultPortion" : "0.0",
+               "speed" : 300,
+               "text" : "",
+               "gravity" : 200,
+               "piercingPower" : "100 100"
+            },
+            "text" : ""
+         },
+         "shotDispersionRadius" : "0.502857142857143",
+         "impulse" : "0.46",
+         "effects" : "shot_medium_mb",
+         "maxAmmo" : 20,
+         "description" : "#france_vehicles:_76mm_Schneider",
+         "tags" : "",
+         "userString" : "#france_vehicles:_76mm_Schneider",
+         "rotationSpeed" : "35.0",
+         "maxHealth" : 84,
+         "level" : 2,
+         "reloadTime" : "6.97142857142857",
+         "price" : 2830,
+         "pitchLimits" : "-45 7"
+      },
+      "_75mm_Long_44_AC" : {
+         "recoil" : {
+            "text" : "",
+            "returnTime" : "0.32",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.36",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "text" : "",
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 60,
+         "repairCost" : 5,
+         "text" : "",
+         "weight" : 1400,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "text" : "",
+            "_75mm_FrtPrf1940" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 919,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "129 110"
+            },
+            "_75mm_OE_mle_1915" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.2",
+               "speed" : 735,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "38 38"
+            },
+            "_75mm_Prf1926" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.8",
+               "speed" : 735,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "100 93"
+            }
+         },
+         "shotDispersionRadius" : "0.377142857142857",
+         "impulse" : "0.46",
+         "effects" : "shot_medium",
+         "maxAmmo" : 87,
+         "description" : "#france_vehicles:_75mm_Long_44_AC",
+         "tags" : "",
+         "userString" : "#france_vehicles:_75mm_Long_44_AC",
+         "rotationSpeed" : "35.0",
+         "maxHealth" : 120,
+         "level" : 5,
+         "reloadTime" : "4.28571428571429",
+         "price" : 27000,
+         "pitchLimits" : "-17 6"
+      },
+      "_100mm_SA_47_AC" : {
+         "recoil" : {
+            "text" : "",
+            "returnTime" : "0.44",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.65",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "text" : "",
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "3.0",
+            "turretRotation" : "0.08"
+         },
+         "maxRegenHealth" : 95,
+         "repairCost" : 8,
+         "text" : "",
+         "weight" : 3000,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_100mm_Prf1940" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.6",
+               "speed" : 1000,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "232 205"
+            },
+            "text" : "",
+            "_100mm_FrtPrf1945" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 1250,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "263 253"
+            },
+            "_100mm_OE_mle_1930" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.4",
+               "speed" : 1000,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "50 50"
+            }
+         },
+         "shotDispersionRadius" : "0.342857142857143",
+         "impulse" : "0.46",
+         "effects" : "shot_main_mb",
+         "maxAmmo" : 50,
+         "description" : "#france_vehicles:_100mm_SA_47_AC",
+         "tags" : "",
+         "userString" : "#france_vehicles:_100mm_SA_47_AC",
+         "rotationSpeed" : "21.875",
+         "maxHealth" : 190,
+         "level" : 8,
+         "reloadTime" : "9.14285714285714",
+         "price" : 127550,
+         "pitchLimits" : "-17 8"
+      },
+      "_90mm_canon_DCA_30" : {
+         "recoil" : {
+            "text" : "",
+            "returnTime" : "0.36",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.38",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "text" : "",
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "3.5",
+            "turretRotation" : "0.12"
+         },
+         "maxRegenHealth" : 75,
+         "repairCost" : 7,
+         "text" : "",
+         "weight" : 2050,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_90mm_FrtPrf1944" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 1000,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "175 160"
+            },
+            "text" : "",
+            "_90mm_OE_mle_1924" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.2",
+               "speed" : 800,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "45 45"
+            },
+            "_90mm_Prf1941" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.8",
+               "speed" : 800,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "135 122"
+            }
+         },
+         "shotDispersionRadius" : "0.41142857142857",
+         "impulse" : "0.46",
+         "effects" : "shot_main",
+         "maxAmmo" : 52,
+         "description" : "#france_vehicles:_90mm_canon_DCA_30",
+         "tags" : "",
+         "userString" : "#france_vehicles:_90mm_canon_DCA_30",
+         "rotationSpeed" : "35.0",
+         "maxHealth" : 150,
+         "level" : 7,
+         "reloadTime" : "7.42857142857143",
+         "price" : 64000,
+         "pitchLimits" : "-17 6"
+      },
+      "_25mm_Canon_Raccourci_Mle.1934" : {
+         "recoil" : {
+            "text" : "",
+            "returnTime" : "0.1",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.12",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "text" : "",
+            "whileGunDamaged" : "2.0",
+            "afterShot" : 3,
+            "turretRotation" : "0.1"
+         },
+         "maxRegenHealth" : 28,
+         "repairCost" : 2,
+         "shortUserString" : "#france_vehicles:_25mm_Canon_Raccourci_Mle.1934_short",
+         "text" : "",
+         "weight" : 71,
+         "aimingTime" : "1.25714285714286",
+         "shots" : {
+            "text" : "",
+            "_25mm_Balle_T.P._mle._1934P" : {
+               "maxDistance" : 395,
+               "defaultPortion" : "0.0",
+               "speed" : 1188,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "68 35"
+            },
+            "_25mm_Balle_T.P._mle._1928" : {
+               "maxDistance" : 395,
+               "defaultPortion" : "1.0",
+               "speed" : 950,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "46 34"
+            }
+         },
+         "shotDispersionRadius" : "0.445714285714286",
+         "impulse" : "0.06",
+         "effects" : "shot_small",
+         "maxAmmo" : 360,
+         "description" : "#france_vehicles:_25mm_Canon_Raccourci_Mle.1934",
+         "tags" : "",
+         "userString" : "#france_vehicles:_25mm_Canon_Raccourci_Mle.1934",
+         "rotationSpeed" : "43.75",
+         "maxHealth" : 56,
+         "level" : 2,
+         "reloadTime" : "1.82857142857143",
+         "price" : 2320,
+         "pitchLimits" : "-25 8"
+      },
+      "Canon_de_105_court_mle_1934S_AC" : {
+         "groundWave" : "",
+         "recoil" : {
+            "text" : "",
+            "returnTime" : "0.6",
+            "backoffTime" : "0.2",
+            "amplitude" : "0.24",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "text" : "",
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "6.0",
+            "turretRotation" : "0.32"
+         },
+         "maxRegenHealth" : 75,
+         "repairCost" : 9,
+         "shortUserString" : "#france_vehicles:Canon_de_105_court_mle_1934S_AC_short",
+         "text" : "",
+         "weight" : 1700,
+         "aimingTime" : "4.57142857142857",
+         "shots" : {
+            "_105mm_OCO_mle._1936" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 536,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "150 150"
+            },
+            "_105mm_OE_mle_1920" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "1.00",
+               "speed" : 670,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "53 53"
+            },
+            "text" : ""
+         },
+         "shotDispersionRadius" : "0.46857142857143",
+         "impulse" : "0.46",
+         "effects" : "shot_main",
+         "maxAmmo" : 24,
+         "description" : "#france_vehicles:Canon_de_105_court_mle_1934S_AC",
+         "tags" : "",
+         "userString" : "#france_vehicles:Canon_de_105_court_mle_1934S_AC",
+         "rotationSpeed" : "30.625",
+         "maxHealth" : 150,
+         "level" : 5,
+         "reloadTime" : "10.85714285714290",
+         "price" : 40700,
+         "pitchLimits" : "-45 4"
+      },
+      "Canon_de_155mm_L_GPF" : {
+         "recoil" : {
+            "text" : "",
+            "returnTime" : "0.6",
+            "backoffTime" : "0.2",
+            "amplitude" : "0.4",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "text" : "",
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "6.0",
+            "turretRotation" : "0.36"
+         },
+         "maxRegenHealth" : 115,
+         "repairCost" : 10,
+         "shortUserString" : "#france_vehicles:Canon_de_155mm_L_GPF_short",
+         "text" : "",
+         "weight" : 3235,
+         "aimingTime" : "6.85714285714286",
+         "shots" : {
+            "_155mm_OCO_mle_1944" : {
+               "maxDistance" : 10000,
+               "defaultPortion" : "0.0",
+               "speed" : 430,
+               "text" : "",
+               "gravity" : 145,
+               "piercingPower" : "232 232"
+            },
+            "_155mm_OE_M101M4" : {
+               "maxDistance" : 10000,
+               "defaultPortion" : "1.00",
+               "speed" : 540,
+               "text" : "",
+               "gravity" : 225,
+               "piercingPower" : "95 95"
+            },
+            "text" : "",
+            "_155mm_OE_M101M6" : {
+               "maxDistance" : 10000,
+               "defaultPortion" : "0.00",
+               "speed" : 540,
+               "text" : "",
+               "gravity" : 225,
+               "piercingPower" : "95 95"
+            }
+         },
+         "shotDispersionRadius" : "0.457142857142857",
+         "impulse" : "0.64",
+         "effects" : "shot_huge",
+         "maxAmmo" : 18,
+         "description" : "#france_vehicles:Canon_de_155mm_L_GPF",
+         "tags" : "",
+         "userString" : "#france_vehicles:Canon_de_155mm_L_GPF",
+         "rotationSpeed" : "23.625",
+         "maxHealth" : 230,
+         "level" : 7,
+         "reloadTime" : "16.0",
+         "price" : 116730,
+         "pitchLimits" : "-45 4"
+      },
+      "_90mm_canon_DCA_30_CA" : {
+         "recoil" : {
+            "text" : "",
+            "returnTime" : "0.36",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.38",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "text" : "",
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "3.5",
+            "turretRotation" : "0.12"
+         },
+         "maxRegenHealth" : 75,
+         "repairCost" : 7,
+         "shortUserString" : "#france_vehicles:_90mm_canon_DCA_30_CA_short",
+         "text" : "",
+         "weight" : 2050,
+         "aimingTime" : "1.71428571428571",
+         "shots" : {
+            "_90mm_FrtPrf1944" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 1000,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "175 160"
+            },
+            "text" : "",
+            "_90mm_OE_mle_1924" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.2",
+               "speed" : 800,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "45 45"
+            },
+            "_90mm_Prf1941" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.8",
+               "speed" : 800,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "135 122"
+            }
+         },
+         "shotDispersionRadius" : "0.354285714285714",
+         "impulse" : "0.46",
+         "effects" : "shot_main_mb",
+         "maxAmmo" : 52,
+         "description" : "#france_vehicles:_90mm_canon_DCA_30_CA",
+         "tags" : "",
+         "userString" : "#france_vehicles:_90mm_canon_DCA_30_CA",
+         "rotationSpeed" : "35.0",
+         "maxHealth" : 150,
+         "level" : 7,
+         "reloadTime" : "7.42857142857143",
+         "price" : 64000,
+         "pitchLimits" : "-17 6"
+      },
+      "_90mm_canon_DCA_45_AC" : {
+         "recoil" : {
+            "text" : "",
+            "returnTime" : "0.36",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.38",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "text" : "",
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "3.5",
+            "turretRotation" : "0.12"
+         },
+         "maxRegenHealth" : 85,
+         "repairCost" : 7,
+         "text" : "",
+         "weight" : 2750,
+         "aimingTime" : "1.94285714285714",
+         "shots" : {
+            "_90mm_FrtPrf1944" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 1250,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "259 228"
+            },
+            "text" : "",
+            "_90mm_OE_mle_1924" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.2",
+               "speed" : 1000,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "45 45"
+            },
+            "_90mm_Prf1941" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.8",
+               "speed" : 1000,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "212 193"
+            }
+         },
+         "shotDispersionRadius" : "0.342857142857143",
+         "impulse" : "0.46",
+         "effects" : "shot_main_mb",
+         "maxAmmo" : 52,
+         "description" : "#france_vehicles:_90mm_canon_DCA_45_AC",
+         "tags" : "",
+         "userString" : "#france_vehicles:_90mm_canon_DCA_45_AC",
+         "rotationSpeed" : "35.0",
+         "maxHealth" : 170,
+         "level" : 8,
+         "reloadTime" : "7.42857142857143",
+         "price" : 121250,
+         "pitchLimits" : "-17 6"
+      },
+      "_75mm_Long_44" : {
+         "recoil" : {
+            "text" : "",
+            "returnTime" : "0.32",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.36",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "text" : "",
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 60,
+         "repairCost" : 5,
+         "text" : "",
+         "weight" : 1400,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "text" : "",
+            "_75mm_FrtPrf1940" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 919,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "129 110"
+            },
+            "_75mm_OE_mle_1915" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.2",
+               "speed" : 735,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "38 38"
+            },
+            "_75mm_Prf1926" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.8",
+               "speed" : 735,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "100 93"
+            }
+         },
+         "shotDispersionRadius" : "0.434285714285714",
+         "impulse" : "0.46",
+         "effects" : "shot_medium",
+         "maxAmmo" : 87,
+         "description" : "#france_vehicles:_75mm_Long_44",
+         "tags" : "",
+         "userString" : "#france_vehicles:_75mm_Long_44",
+         "rotationSpeed" : "35.0",
+         "maxHealth" : 120,
+         "level" : 5,
+         "reloadTime" : "4.28571428571429",
+         "price" : 27000,
+         "pitchLimits" : "-17 6"
+      },
+      "_13.2mm_Hotchkiss_mle._1930" : {
+         "recoil" : {
+            "text" : "",
+            "returnTime" : "0.1",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.2",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "text" : "",
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "1.1",
+            "turretRotation" : "0.12"
+         },
+         "maxRegenHealth" : 17,
+         "repairCost" : 1,
+         "clip" : {
+            "rate" : 450,
+            "count" : 15,
+            "text" : ""
+         },
+         "shortUserString" : "#france_vehicles:_13.2mm_Hotchkiss_mle._1930_short",
+         "text" : "",
+         "weight" : 70,
+         "aimingTime" : "1.94285714285714",
+         "shots" : {
+            "_13.2mm_Balle_T.P." : {
+               "maxDistance" : 350,
+               "defaultPortion" : "0.0",
+               "speed" : 1000,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "36 15"
+            },
+            "_13.2mm_Balle_P." : {
+               "maxDistance" : 350,
+               "defaultPortion" : "1.0",
+               "speed" : 800,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "23 16"
+            },
+            "text" : ""
+         },
+         "shotDispersionRadius" : "0.582857142857143",
+         "impulse" : "0.06",
+         "effects" : "shot_auto",
+         "burst" : {
+            "rate" : 450,
+            "count" : 5,
+            "text" : ""
+         },
+         "maxAmmo" : 720,
+         "description" : "#france_vehicles:_13.2mm_Hotchkiss_mle._1930",
+         "tags" : "",
+         "maxHealth" : 34,
+         "userString" : "#france_vehicles:_13.2mm_Hotchkiss_mle._1930",
+         "rotationSpeed" : "43.75",
+         "level" : 1,
+         "reloadTime" : "5.71428571428571",
+         "price" : 1500,
+         "pitchLimits" : "-20 10"
+      },
+      "Canon_de_105_court_mle_1934S" : {
+         "groundWave" : "",
+         "recoil" : {
+            "text" : "",
+            "returnTime" : "0.6",
+            "backoffTime" : "0.2",
+            "amplitude" : "0.24",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "text" : "",
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "6.0",
+            "turretRotation" : "0.32"
+         },
+         "maxRegenHealth" : 75,
+         "repairCost" : 9,
+         "shortUserString" : "#france_vehicles:Canon_de_105_court_mle_1934S_short",
+         "text" : "",
+         "weight" : 1700,
+         "aimingTime" : "4.57142857142857",
+         "shots" : {
+            "_105mm_OCO_mle._1936" : {
+               "maxDistance" : 10000,
+               "defaultPortion" : "0.0",
+               "speed" : 400,
+               "text" : "",
+               "gravity" : "190.0",
+               "piercingPower" : "150 150"
+            },
+            "_105mm_OE_mle_1920" : {
+               "maxDistance" : 10000,
+               "defaultPortion" : "1.00",
+               "speed" : 450,
+               "text" : "",
+               "gravity" : 240,
+               "piercingPower" : "53 53"
+            },
+            "text" : ""
+         },
+         "shotDispersionRadius" : "0.468571428571429",
+         "impulse" : "0.46",
+         "effects" : "shot_main",
+         "maxAmmo" : 24,
+         "description" : "#france_vehicles:Canon_de_105_court_mle_1934S",
+         "tags" : "",
+         "userString" : "#france_vehicles:Canon_de_105_court_mle_1934S",
+         "rotationSpeed" : "30.625",
+         "maxHealth" : 150,
+         "level" : 5,
+         "reloadTime" : "10.8571428571429",
+         "price" : 40700,
+         "pitchLimits" : "-45 4"
+      },
+      "_47mm_SA37" : {
+         "recoil" : {
+            "text" : "",
+            "returnTime" : "0.26",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.26",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "text" : "",
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "2.5",
+            "turretRotation" : "0.06"
+         },
+         "maxRegenHealth" : 38,
+         "repairCost" : 1,
+         "text" : "",
+         "weight" : 100,
+         "aimingTime" : "1.14285714285714",
+         "shots" : {
+            "_47mm_Odr_mle._1932" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "1.0",
+               "speed" : 885,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "66 58"
+            },
+            "text" : "",
+            "_47mm_Odr_mle._1935" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 1106,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "98 68"
+            },
+            "_47mm_Oe_mle._1932" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 885,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "24 24"
+            }
+         },
+         "shotDispersionRadius" : "0.37714285714286",
+         "impulse" : "0.26",
+         "effects" : "shot_small",
+         "maxAmmo" : 120,
+         "description" : "#france_vehicles:_47mm_SA37",
+         "tags" : "",
+         "userString" : "#france_vehicles:_47mm_SA37",
+         "rotationSpeed" : "39.375",
+         "maxHealth" : 76,
+         "level" : 3,
+         "reloadTime" : "2.17142857142857",
+         "price" : 4750,
+         "pitchLimits" : "-20 10"
+      },
+      "_25mm_antichar_SA-L_mle_1937" : {
+         "recoil" : {
+            "text" : "",
+            "returnTime" : "0.26",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.2",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "text" : "",
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 28,
+         "repairCost" : 1,
+         "shortUserString" : "#france_vehicles:_25mm_antichar_SA-L_mle_1937_short",
+         "text" : "",
+         "weight" : 70,
+         "aimingTime" : "1.14285714285714",
+         "shots" : {
+            "_25mm_Balle_T.P._mle._1939P" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 1125,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "75 45"
+            },
+            "text" : "",
+            "_25mm_Balle_T.P._mle._1934" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "1.0",
+               "speed" : 900,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "50 44"
+            }
+         },
+         "shotDispersionRadius" : "0.342857142857143",
+         "impulse" : "0.06",
+         "effects" : "shot_small",
+         "maxAmmo" : 100,
+         "description" : "#france_vehicles:_25mm_antichar_SA-L_mle_1937",
+         "tags" : "",
+         "userString" : "#france_vehicles:_25mm_antichar_SA-L_mle_1937",
+         "rotationSpeed" : "43.75",
+         "maxHealth" : 56,
+         "level" : 2,
+         "reloadTime" : "0.457142857142857",
+         "price" : 3000,
+         "pitchLimits" : "-17 6"
+      },
+      "_90mm_canon_DCA_45" : {
+         "recoil" : {
+            "text" : "",
+            "returnTime" : "0.36",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.38",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "text" : "",
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "3.5",
+            "turretRotation" : "0.12"
+         },
+         "maxRegenHealth" : 85,
+         "repairCost" : 7,
+         "text" : "",
+         "weight" : 2750,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_90mm_FrtPrf1944" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 1250,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "259 228"
+            },
+            "text" : "",
+            "_90mm_OE_mle_1924" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.2",
+               "speed" : 1000,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "45 45"
+            },
+            "_90mm_Prf1941" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.8",
+               "speed" : 1000,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "212 193"
+            }
+         },
+         "shotDispersionRadius" : "0.411428571428571",
+         "impulse" : "0.46",
+         "effects" : "shot_main_mb",
+         "maxAmmo" : 52,
+         "description" : "#france_vehicles:_90mm_canon_DCA_45",
+         "tags" : "",
+         "userString" : "#france_vehicles:_90mm_canon_DCA_45",
+         "rotationSpeed" : "35.0",
+         "maxHealth" : 170,
+         "level" : 8,
+         "reloadTime" : "7.42857142857143",
+         "price" : 121250,
+         "pitchLimits" : "-17 6"
+      },
+      "_37mm_APX_SA18" : {
+         "recoil" : {
+            "text" : "",
+            "returnTime" : "0.2",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.1",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "text" : "",
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 27,
+         "repairCost" : 1,
+         "text" : "",
+         "weight" : 100,
+         "aimingTime" : "2.51428571428571",
+         "shots" : {
+            "_37mm_OE_mle._1916" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 600,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "18 18"
+            },
+            "text" : "",
+            "_37mm_FrtPrf1935" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 750,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "46 34"
+            },
+            "_37mm_Odr_mle._1935" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "1.0",
+               "speed" : 600,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "29 22"
+            }
+         },
+         "shotDispersionRadius" : "0.537142857142857",
+         "impulse" : "0.26",
+         "effects" : "shot_small",
+         "maxAmmo" : 237,
+         "description" : "#france_vehicles:_37mm_APX_SA18",
+         "tags" : "",
+         "userString" : "#france_vehicles:_37mm_APX_SA18",
+         "rotationSpeed" : "43.75",
+         "maxHealth" : 54,
+         "level" : 1,
+         "reloadTime" : "2.51428571428571",
+         "price" : "",
+         "pitchLimits" : "-35 20"
+      },
+      "_120mm_SA_46" : {
+         "recoil" : {
+            "text" : "",
+            "returnTime" : "0.64",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.66",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "text" : "",
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "3.0",
+            "turretRotation" : "0.08"
+         },
+         "maxRegenHealth" : 105,
+         "repairCost" : 10,
+         "text" : "",
+         "weight" : 3580,
+         "aimingTime" : "2.85714285714286",
+         "shots" : {
+            "_120mm_Prf1943" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.60",
+               "speed" : 1067,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "267 245"
+            },
+            "text" : "",
+            "_120mm_FrtPrf1945" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 1334,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "351 321"
+            },
+            "_120mm_OE_mle_1930" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.40",
+               "speed" : 1067,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "65 65"
+            }
+         },
+         "shotDispersionRadius" : "0.32",
+         "impulse" : "0.64",
+         "effects" : "shot_large_mb",
+         "maxAmmo" : 36,
+         "description" : "#france_vehicles:_120mm_SA_46",
+         "tags" : "",
+         "userString" : "#france_vehicles:_120mm_SA_46",
+         "rotationSpeed" : "26.25",
+         "maxHealth" : 210,
+         "level" : 10,
+         "reloadTime" : "10.2857142857143",
+         "price" : 339000,
+         "pitchLimits" : "-24 8"
+      },
+      "Obusier_de_155mm_mle.1950" : {
+         "recoil" : {
+            "text" : "",
+            "returnTime" : "0.6",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.6",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "text" : "",
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "6.0",
+            "turretRotation" : "0.36"
+         },
+         "maxRegenHealth" : 94,
+         "repairCost" : 10,
+         "shortUserString" : "#france_vehicles:Obusier_de_155mm_mle.1950_short",
+         "text" : "",
+         "weight" : 2680,
+         "aimingTime" : "6.85714285714286",
+         "shots" : {
+            "_M_107" : {
+               "maxDistance" : 10000,
+               "defaultPortion" : "0.0",
+               "speed" : 520,
+               "text" : "",
+               "gravity" : 225,
+               "piercingPower" : "90 90"
+            },
+            "_155mm_OCO_mle_1944" : {
+               "maxDistance" : 10000,
+               "defaultPortion" : "0.0",
+               "speed" : 425,
+               "text" : "",
+               "gravity" : 150,
+               "piercingPower" : "232 232"
+            },
+            "text" : "",
+            "_155_OE_mle_1956" : {
+               "maxDistance" : 10000,
+               "defaultPortion" : "1.0",
+               "speed" : 520,
+               "text" : "",
+               "gravity" : 225,
+               "piercingPower" : "90 90"
+            }
+         },
+         "shotDispersionRadius" : "0.48",
+         "impulse" : "0.64",
+         "effects" : "shot_huge",
+         "maxAmmo" : 18,
+         "description" : "#france_vehicles:Obusier_de_155mm_mle.1950",
+         "tags" : "",
+         "userString" : "#france_vehicles:Obusier_de_155mm_mle.1950",
+         "rotationSpeed" : "23.625",
+         "maxHealth" : 188,
+         "level" : 6,
+         "reloadTime" : "19.4285714285714",
+         "price" : 96000,
+         "pitchLimits" : "-45 4"
+      },
+      "_37mm_SA38" : {
+         "recoil" : {
+            "text" : "",
+            "returnTime" : "0.26",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.2",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "text" : "",
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 30,
+         "repairCost" : 1,
+         "text" : "",
+         "weight" : 70,
+         "aimingTime" : "1.94285714285714",
+         "shots" : {
+            "_37mm_Odr_mle._1939" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 881,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "67 36"
+            },
+            "text" : "",
+            "_37mm_Oe_mle._1932" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 705,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "24 24"
+            },
+            "_37mm_Odr_mle._1932" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "1.0",
+               "speed" : 705,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "34 27"
+            }
+         },
+         "shotDispersionRadius" : "0.48",
+         "impulse" : "0.26",
+         "effects" : "shot_small",
+         "maxAmmo" : 100,
+         "description" : "#france_vehicles:_37mm_SA38",
+         "tags" : "",
+         "userString" : "#france_vehicles:_37mm_SA38",
+         "rotationSpeed" : "43.75",
+         "maxHealth" : 60,
+         "level" : 2,
+         "reloadTime" : "2.51428571428571",
+         "price" : 1890,
+         "pitchLimits" : "-17 6"
+      },
+      "_57mm_6_pdr_AT_Gun_Mk_IV" : {
+         "recoil" : {
+            "text" : "",
+            "returnTime" : "0.3",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.35",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "text" : "",
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.08"
+         },
+         "maxRegenHealth" : 47,
+         "repairCost" : 4,
+         "shortUserString" : "#france_vehicles:_57mm_6_pdr_AT_Gun_Mk_IV_short",
+         "text" : "",
+         "weight" : 450,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_6pdr_AP_MK_8T" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "1.0",
+               "speed" : 892,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "110 95"
+            },
+            "text" : "",
+            "_6pdr_APCR_MK_1T" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 1115,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "180 126"
+            }
+         },
+         "shotDispersionRadius" : "0.434285714285714",
+         "impulse" : "0.26",
+         "effects" : "shot_medium_mb",
+         "maxAmmo" : 140,
+         "description" : "#france_vehicles:_57mm_6_pdr_AT_Gun_Mk_IV",
+         "tags" : "",
+         "userString" : "#france_vehicles:_57mm_6_pdr_AT_Gun_Mk_IV",
+         "rotationSpeed" : "43.75",
+         "maxHealth" : 94,
+         "level" : 4,
+         "reloadTime" : "2.28571428571429",
+         "price" : 25000,
+         "pitchLimits" : "-12 6"
+      },
+      "_25mm_antichar_SA-L_mle_1934" : {
+         "recoil" : {
+            "text" : "",
+            "returnTime" : "0.26",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.2",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "text" : "",
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 25,
+         "repairCost" : 1,
+         "shortUserString" : "#france_vehicles:_25mm_antichar_SA-L_mle_1934_short",
+         "text" : "",
+         "weight" : 70,
+         "aimingTime" : "1.25714285714286",
+         "shots" : {
+            "_25mm_Balle_T.P._mle._1939P" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 1188,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "75 45"
+            },
+            "text" : "",
+            "_25mm_Balle_T.P._mle._1934" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "1.0",
+               "speed" : 950,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "50 44"
+            }
+         },
+         "shotDispersionRadius" : "0.377142857142857",
+         "impulse" : "0.06",
+         "effects" : "shot_small",
+         "maxAmmo" : 100,
+         "description" : "#france_vehicles:_25mm_antichar_SA-L_mle_1934",
+         "tags" : "",
+         "userString" : "#france_vehicles:_25mm_antichar_SA-L_mle_1934",
+         "rotationSpeed" : "43.75",
+         "maxHealth" : 50,
+         "level" : 1,
+         "reloadTime" : "1.14285714285714",
+         "price" : 3000,
+         "pitchLimits" : "-17 6"
+      },
+      "_105mm_leFH18_L28" : {
+         "recoil" : {
+            "text" : "",
+            "returnTime" : "0.6",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.6",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "text" : "",
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "6.0",
+            "turretRotation" : "0.32"
+         },
+         "maxRegenHealth" : 75,
+         "repairCost" : 9,
+         "text" : "",
+         "weight" : 2300,
+         "aimingTime" : "5.14285714285714",
+         "shots" : {
+            "text" : "",
+            "_105mm_Sprg_K" : {
+               "maxDistance" : 10000,
+               "defaultPortion" : "0.80",
+               "speed" : 490,
+               "text" : "",
+               "gravity" : 240,
+               "piercingPower" : "53 53"
+            },
+            "_105mm_PzGr39K" : {
+               "maxDistance" : 10000,
+               "defaultPortion" : "0.20",
+               "speed" : 440,
+               "text" : "",
+               "gravity" : 190,
+               "piercingPower" : "64 61"
+            },
+            "_105mmGr39H1A" : {
+               "maxDistance" : 10000,
+               "defaultPortion" : "0.0",
+               "speed" : 440,
+               "text" : "",
+               "gravity" : "190.0",
+               "piercingPower" : "150 150"
+            }
+         },
+         "shotDispersionRadius" : "0.491428571428571",
+         "impulse" : "0.46",
+         "effects" : "shot_main",
+         "maxAmmo" : 38,
+         "description" : "#france_vehicles:_105mm_leFH18_L28",
+         "tags" : "",
+         "userString" : "#france_vehicles:_105mm_leFH18_L28",
+         "rotationSpeed" : "30.625",
+         "maxHealth" : 150,
+         "level" : 5,
+         "reloadTime" : "11.4285714285714",
+         "price" : 40110,
+         "pitchLimits" : "-45 4",
+         "notInShop" : null
+      },
+      "Obusier_de_155mm_C_mle.1917" : {
+         "recoil" : {
+            "text" : "",
+            "returnTime" : "0.6",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.68",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "text" : "",
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "6.0",
+            "turretRotation" : "0.32"
+         },
+         "maxRegenHealth" : 84,
+         "repairCost" : 10,
+         "shortUserString" : "#france_vehicles:Obusier_de_155mm_C_mle.1917_short",
+         "text" : "",
+         "weight" : 1200,
+         "aimingTime" : "5.14285714285714",
+         "shots" : {
+            "_155mm_OCO_mle_1944" : {
+               "maxDistance" : 10000,
+               "defaultPortion" : "0.0",
+               "speed" : 440,
+               "text" : "",
+               "gravity" : "160.0",
+               "piercingPower" : "232 232"
+            },
+            "text" : "",
+            "_155mm_OE_mle_1917" : {
+               "maxDistance" : 10000,
+               "defaultPortion" : "1.0",
+               "speed" : 420,
+               "text" : "",
+               "gravity" : "160.0",
+               "piercingPower" : "77 77"
+            }
+         },
+         "shotDispersionRadius" : "0.525714285714286",
+         "impulse" : "0.64",
+         "effects" : "shot_huge",
+         "maxAmmo" : 22,
+         "description" : "#france_vehicles:Obusier_de_155mm_C_mle.1917",
+         "tags" : "",
+         "userString" : "#france_vehicles:Obusier_de_155mm_C_mle.1917",
+         "rotationSpeed" : "26.25",
+         "maxHealth" : 168,
+         "level" : 5,
+         "reloadTime" : "17.1428571428571",
+         "price" : 44920,
+         "pitchLimits" : "-45 -2"
+      },
+      "_76mm_Gun_M1A1" : {
+         "recoil" : {
+            "text" : "",
+            "returnTime" : "0.4",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.36",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "text" : "",
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 60,
+         "repairCost" : 5,
+         "text" : "",
+         "weight" : 1567,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_76mm_AP_M79" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.8",
+               "speed" : 792,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "128 110"
+            },
+            "text" : "",
+            "_76mm_HE_M42A1" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.2",
+               "speed" : 740,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "38 38"
+            },
+            "_76mm_HVAP_M93" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 1037,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "177 158"
+            }
+         },
+         "shotDispersionRadius" : "0.434285714285714",
+         "impulse" : "0.46",
+         "effects" : "shot_medium_mb",
+         "maxAmmo" : 75,
+         "description" : "#france_vehicles:_76mm_Gun_M1A1",
+         "tags" : "",
+         "userString" : "#france_vehicles:_76mm_Gun_M1A1",
+         "rotationSpeed" : "40.25",
+         "maxHealth" : 120,
+         "level" : 6,
+         "reloadTime" : "4.22857142857143",
+         "price" : 50330,
+         "pitchLimits" : "-25 10"
+      },
+      "_90mm_D914" : {
+         "recoil" : {
+            "text" : "",
+            "returnTime" : "0.36",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.38",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "text" : "",
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "3.5",
+            "turretRotation" : "0.12"
+         },
+         "maxRegenHealth" : 70,
+         "repairCost" : 7,
+         "text" : "",
+         "weight" : 1560,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_90mm_FrtPrf1944" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 1163,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "248 224"
+            },
+            "text" : "",
+            "_90mm_OE_mle_1924" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.2",
+               "speed" : 930,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "45 45"
+            },
+            "_90mm_Prf1941" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.8",
+               "speed" : 930,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "170 145"
+            }
+         },
+         "shotDispersionRadius" : "0.377142857142857",
+         "impulse" : "0.46",
+         "effects" : "shot_main_mb",
+         "maxAmmo" : 36,
+         "description" : "#france_vehicles:_90mm_D914",
+         "tags" : "",
+         "userString" : "#france_vehicles:_90mm_D914",
+         "rotationSpeed" : "35.0",
+         "maxHealth" : 140,
+         "level" : 6,
+         "reloadTime" : "10.52631578947368",
+         "price" : 61000,
+         "pitchLimits" : "-13 8"
+      },
+      "_75mm_APX" : {
+         "recoil" : {
+            "text" : "",
+            "returnTime" : "0.32",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.25",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "text" : "",
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 47,
+         "repairCost" : 5,
+         "text" : "",
+         "weight" : 1020,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_75mm_Odr_mle.1910" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.8",
+               "speed" : 570,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "68 60"
+            },
+            "text" : "",
+            "_75mm_OCO_mle._1926" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 456,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "100 100"
+            },
+            "_75mm_OE_mle_1915" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.2",
+               "speed" : 570,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "38 38"
+            }
+         },
+         "shotDispersionRadius" : "0.41142857142857",
+         "impulse" : "0.46",
+         "effects" : "shot_medium",
+         "maxAmmo" : 90,
+         "description" : "#france_vehicles:_75mm_APX_1897",
+         "tags" : "",
+         "userString" : "#france_vehicles:_75mm_APX_1897",
+         "rotationSpeed" : "35.0",
+         "maxHealth" : 94,
+         "level" : 3,
+         "reloadTime" : "2.85714285714286",
+         "price" : 22360,
+         "pitchLimits" : "-17 3"
+      },
+      "_105mm_canon_13TR" : {
+         "recoil" : {
+            "text" : "",
+            "returnTime" : "0.6",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.6",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "text" : "",
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 74,
+         "repairCost" : 6,
+         "text" : "",
+         "weight" : 2400,
+         "aimingTime" : "3.42857142857143",
+         "shots" : {
+            "_105mm_OE_mle_1924" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.20",
+               "speed" : 850,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "54 54"
+            },
+            "text" : "",
+            "_105mm_FrtPrf1943" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 1063,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "223 186"
+            },
+            "_105mm_Prf1940" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.80",
+               "speed" : 850,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "165 145"
+            }
+         },
+         "shotDispersionRadius" : "0.44571428571429",
+         "impulse" : "0.46",
+         "effects" : "shot_main",
+         "maxAmmo" : 32,
+         "description" : "#france_vehicles:_105mm_canon_13TR",
+         "tags" : "",
+         "userString" : "#france_vehicles:_105mm_canon_13TR",
+         "rotationSpeed" : "26.25",
+         "maxHealth" : 148,
+         "level" : 7,
+         "reloadTime" : "9.71428571428571",
+         "price" : 94350,
+         "pitchLimits" : "-24 7"
+      },
+      "Canon_de_105_court_mle_1935B" : {
+         "recoil" : {
+            "text" : "",
+            "returnTime" : "0.6",
+            "backoffTime" : "0.2",
+            "amplitude" : "0.2",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "text" : "",
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "6.0",
+            "turretRotation" : "0.32"
+         },
+         "maxRegenHealth" : 60,
+         "repairCost" : 9,
+         "shortUserString" : "#france_vehicles:Canon_de_105_court_mle_1935B_short",
+         "text" : "",
+         "weight" : 1700,
+         "aimingTime" : "5.14285714285714",
+         "shots" : {
+            "_105mm_OCO_mle._1936" : {
+               "maxDistance" : 10000,
+               "defaultPortion" : "0.0",
+               "speed" : 385,
+               "text" : "",
+               "gravity" : "190.0",
+               "piercingPower" : "150 150"
+            },
+            "_105mm_OE_mle_1920" : {
+               "maxDistance" : 10000,
+               "defaultPortion" : "1.0",
+               "speed" : 430,
+               "text" : "",
+               "gravity" : 240,
+               "piercingPower" : "53 53"
+            },
+            "text" : ""
+         },
+         "shotDispersionRadius" : "0.514285714285714",
+         "impulse" : "0.46",
+         "effects" : "shot_main",
+         "maxAmmo" : 24,
+         "description" : "#france_vehicles:Canon_de_105_court_mle_1935B",
+         "tags" : "",
+         "userString" : "#france_vehicles:Canon_de_105_court_mle_1935B",
+         "rotationSpeed" : "30.625",
+         "maxHealth" : 120,
+         "level" : 4,
+         "reloadTime" : "11.4285714285714",
+         "price" : 30110,
+         "pitchLimits" : "-45 4"
+      },
+      "_25mm_automatique_mle_1936" : {
+         "recoil" : {
+            "text" : "",
+            "returnTime" : "0.26",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.2",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "text" : "",
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 28,
+         "repairCost" : 1,
+         "clip" : {
+            "rate" : 450,
+            "count" : 15,
+            "text" : ""
+         },
+         "shortUserString" : "#france_vehicles:_25mm_automatique_mle_1936_short",
+         "text" : "",
+         "weight" : 70,
+         "aimingTime" : "1.14285714285714",
+         "shots" : {
+            "_25mm_Balle_T.P._mle._1939P" : {
+               "maxDistance" : 395,
+               "defaultPortion" : "0.0",
+               "speed" : 990,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "75 45"
+            },
+            "text" : "",
+            "_25mm_Balle_T.P._mle._1934" : {
+               "maxDistance" : 395,
+               "defaultPortion" : "1.0",
+               "speed" : 920,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "50 44"
+            }
+         },
+         "shotDispersionRadius" : "0.342857142857143",
+         "impulse" : "0.06",
+         "effects" : "shot_small",
+         "burst" : {
+            "rate" : 450,
+            "count" : 5,
+            "text" : ""
+         },
+         "maxAmmo" : 100,
+         "description" : "#france_vehicles:_25mm_automatique_mle_1936",
+         "tags" : "",
+         "maxHealth" : 56,
+         "userString" : "#france_vehicles:_25mm_automatique_mle_1936",
+         "rotationSpeed" : "43.75",
+         "level" : 2,
+         "reloadTime" : "0.457142857142857",
+         "price" : 6500,
+         "pitchLimits" : "-17 6"
+      },
+      "Canon_de_155mm" : {
+         "recoil" : {
+            "text" : "",
+            "returnTime" : "0.64",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.2",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "text" : "",
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "6.0",
+            "turretRotation" : "0.44"
+         },
+         "maxRegenHealth" : 125,
+         "repairCost" : 11,
+         "text" : "",
+         "weight" : 7500,
+         "aimingTime" : "5.71428571428571",
+         "shots" : {
+            "_155mm_OCO_mle_1944" : {
+               "maxDistance" : 10000,
+               "defaultPortion" : "0.0",
+               "speed" : 430,
+               "text" : "",
+               "gravity" : 145,
+               "piercingPower" : "233 232"
+            },
+            "_155mm_OE_M101M4" : {
+               "maxDistance" : 10000,
+               "defaultPortion" : "1.00",
+               "speed" : 540,
+               "text" : "",
+               "gravity" : 225,
+               "piercingPower" : "95 95"
+            },
+            "text" : "",
+            "_155mm_OE_M101M6" : {
+               "maxDistance" : 10000,
+               "defaultPortion" : "0.00",
+               "speed" : 540,
+               "text" : "",
+               "gravity" : 225,
+               "piercingPower" : "95 95"
+            }
+         },
+         "shotDispersionRadius" : "0.468571428571429",
+         "impulse" : "0.68",
+         "effects" : "shot_huge",
+         "maxAmmo" : 20,
+         "description" : "#france_vehicles:Canon_de_155mm",
+         "tags" : "",
+         "userString" : "#france_vehicles:Canon_de_155mm",
+         "rotationSpeed" : "17.5",
+         "maxHealth" : 250,
+         "level" : 8,
+         "reloadTime" : "17.8285714285714",
+         "price" : 130800,
+         "pitchLimits" : "-45 4"
+      },
+      "text" : "",
+      "_75mm_SA49_L48" : {
+         "recoil" : {
+            "text" : "",
+            "returnTime" : "0.32",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.36",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "text" : "",
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 60,
+         "repairCost" : 5,
+         "text" : "",
+         "weight" : 1520,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "text" : "",
+            "_75mm_FrtPrf1940" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 988,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "148 122"
+            },
+            "_75mm_OE_mle_1915" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.2",
+               "speed" : 790,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "38 38"
+            },
+            "_75mm_Prf1926" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.8",
+               "speed" : 790,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "108 98"
+            }
+         },
+         "shotDispersionRadius" : "0.434285714285714",
+         "impulse" : "0.46",
+         "effects" : "shot_medium",
+         "maxAmmo" : 87,
+         "description" : "#france_vehicles:_75mm_SA49_L48",
+         "tags" : "",
+         "userString" : "#france_vehicles:_75mm_SA49_L48",
+         "rotationSpeed" : "35.0",
+         "maxHealth" : 120,
+         "level" : 5,
+         "reloadTime" : "4.28571428571429",
+         "price" : 35640,
+         "pitchLimits" : "-17 6"
+      },
+      "_120mm_SA_46_AC" : {
+         "recoil" : {
+            "text" : "",
+            "returnTime" : "0.6",
+            "backoffTime" : "0.2",
+            "amplitude" : "0.4",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "text" : "",
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "3.0",
+            "turretRotation" : "0.08"
+         },
+         "maxRegenHealth" : 105,
+         "repairCost" : 10,
+         "text" : "",
+         "weight" : 3580,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_120mm_Prf1943" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.60",
+               "speed" : 1067,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "267 245"
+            },
+            "text" : "",
+            "_120mm_FrtPrf1945" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 1334,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "351 321"
+            },
+            "_120mm_OE_mle_1930" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.40",
+               "speed" : 1067,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "65 65"
+            }
+         },
+         "shotDispersionRadius" : "0.285714285714286",
+         "impulse" : "0.64",
+         "effects" : "shot_large_mb",
+         "maxAmmo" : 36,
+         "description" : "#france_vehicles:_120mm_SA_46_AC",
+         "tags" : "",
+         "userString" : "#france_vehicles:_120mm_SA_46_AC",
+         "rotationSpeed" : "26.25",
+         "maxHealth" : 210,
+         "level" : 10,
+         "reloadTime" : "9.14285714285714",
+         "price" : 339000,
+         "pitchLimits" : "-18 6"
+      },
+      "_47mm_SA34" : {
+         "recoil" : {
+            "text" : "",
+            "returnTime" : "0.26",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.16",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "text" : "",
+            "whileGunDamaged" : "2.0",
+            "afterShot" : 4,
+            "turretRotation" : "0.14"
+         },
+         "maxRegenHealth" : 35,
+         "repairCost" : 1,
+         "text" : "",
+         "weight" : 90,
+         "aimingTime" : "1.94285714285714",
+         "shots" : {
+            "_47mm_Odr_mle._1892" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "1.0",
+               "speed" : 450,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "25 15"
+            },
+            "_47mm_Oe_type_D" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 450,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "24 24"
+            },
+            "_47mm_Odr_mle_1935_b" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 563,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "46 34"
+            },
+            "text" : ""
+         },
+         "shotDispersionRadius" : "0.525714285714286",
+         "impulse" : "0.26",
+         "effects" : "shot_small",
+         "maxAmmo" : 120,
+         "description" : "#france_vehicles:_47mm_SA34",
+         "tags" : "",
+         "userString" : "#france_vehicles:_47mm_SA34",
+         "rotationSpeed" : "39.375",
+         "maxHealth" : 70,
+         "level" : 2,
+         "reloadTime" : "2.51428571428571",
+         "price" : 2400,
+         "pitchLimits" : "-20 10"
+      },
+      "Canon_de_155mm_de_33_calibres" : {
+         "recoil" : {
+            "text" : "",
+            "returnTime" : "0.6",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.6",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "text" : "",
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "6.0",
+            "turretRotation" : "0.36"
+         },
+         "maxRegenHealth" : 94,
+         "repairCost" : 10,
+         "shortUserString" : "#france_vehicles:Canon_de_155mm_de_33_calibres_short",
+         "text" : "",
+         "weight" : 2680,
+         "aimingTime" : "6.85714285714286",
+         "shots" : {
+            "_M_107" : {
+               "maxDistance" : 10000,
+               "defaultPortion" : "0.0",
+               "speed" : 500,
+               "text" : "",
+               "gravity" : 200,
+               "piercingPower" : "90 90"
+            },
+            "_155mm_OCO_mle_1944" : {
+               "maxDistance" : 10000,
+               "defaultPortion" : "0.0",
+               "speed" : 430,
+               "text" : "",
+               "gravity" : 150,
+               "piercingPower" : "232 232"
+            },
+            "text" : "",
+            "_155_OE_mle_1956" : {
+               "maxDistance" : 10000,
+               "defaultPortion" : "1.0",
+               "speed" : 500,
+               "text" : "",
+               "gravity" : 200,
+               "piercingPower" : "90 90"
+            }
+         },
+         "shotDispersionRadius" : "0.48",
+         "impulse" : "0.64",
+         "effects" : "shot_huge_mb",
+         "maxAmmo" : 18,
+         "description" : "#france_vehicles:Canon_de_155mm_de_33_calibres",
+         "tags" : "",
+         "userString" : "#france_vehicles:Canon_de_155mm_de_33_calibres",
+         "rotationSpeed" : "23.625",
+         "maxHealth" : 188,
+         "level" : 6,
+         "reloadTime" : "19.4285714285714",
+         "price" : 85000,
+         "pitchLimits" : "-45 4"
+      },
+      "_105mm_CN_105_57" : {
+         "recoil" : {
+            "text" : "",
+            "returnTime" : "0.44",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.65",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "text" : "",
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "3.0",
+            "turretRotation" : "0.08"
+         },
+         "maxRegenHealth" : 104,
+         "repairCost" : 8,
+         "text" : "",
+         "weight" : 3000,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_105mm_HE_OE_F1" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.4",
+               "speed" : 800,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "53 53"
+            },
+            "_105mm_HEAT_OCC_F1" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 800,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "360 360"
+            },
+            "text" : "",
+            "_105mm_APCR_OFL_E1" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.6",
+               "speed" : 1460,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "259 249"
+            }
+         },
+         "shotDispersionRadius" : "0.342857142857143",
+         "impulse" : "0.46",
+         "effects" : "shot_main_mb",
+         "maxAmmo" : 50,
+         "description" : "#france_vehicles:_105mm_CN_105_57",
+         "tags" : "",
+         "userString" : "#france_vehicles:_105mm_CN_105_57",
+         "rotationSpeed" : "21.875",
+         "maxHealth" : 208,
+         "level" : 10,
+         "reloadTime" : "10.28571428571430",
+         "price" : 325000,
+         "pitchLimits" : "-17 8"
+      },
+      "_100mm_SA_47" : {
+         "recoil" : {
+            "text" : "",
+            "returnTime" : "0.44",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.65",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "text" : "",
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "3.0",
+            "turretRotation" : "0.08"
+         },
+         "maxRegenHealth" : 95,
+         "repairCost" : 8,
+         "text" : "",
+         "weight" : 3000,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_100mm_Prf1940" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.6",
+               "speed" : 1000,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "232 205"
+            },
+            "text" : "",
+            "_100mm_FrtPrf1945" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 1250,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "263 253"
+            },
+            "_100mm_OE_mle_1930" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.4",
+               "speed" : 1000,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "50 50"
+            }
+         },
+         "shotDispersionRadius" : "0.342857142857143",
+         "impulse" : "0.46",
+         "effects" : "shot_main_mb",
+         "maxAmmo" : 50,
+         "description" : "#france_vehicles:_100mm_SA_47",
+         "tags" : "",
+         "userString" : "#france_vehicles:_100mm_SA_47",
+         "rotationSpeed" : "21.875",
+         "maxHealth" : 190,
+         "level" : 8,
+         "reloadTime" : "9.14285714285714",
+         "price" : 127550,
+         "pitchLimits" : "-17 8"
+      },
+      "_75mm_SA32" : {
+         "recoil" : {
+            "text" : "",
+            "returnTime" : "0.32",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.25",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "text" : "",
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 50,
+         "repairCost" : 5,
+         "text" : "",
+         "weight" : 1520,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_75mm_Odr_mle.1910" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.8",
+               "speed" : 600,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "74 64"
+            },
+            "text" : "",
+            "_75mm_OCO_mle._1926" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 480,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "100 100"
+            },
+            "_75mm_OE_mle_1915" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.2",
+               "speed" : 600,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "38 38"
+            }
+         },
+         "shotDispersionRadius" : "0.434285714285714",
+         "impulse" : "0.46",
+         "effects" : "shot_medium_mb",
+         "maxAmmo" : 87,
+         "description" : "#france_vehicles:_75mm_SA32",
+         "tags" : "",
+         "userString" : "#france_vehicles:_75mm_SA32",
+         "rotationSpeed" : "35.0",
+         "maxHealth" : 100,
+         "level" : 4,
+         "reloadTime" : "4.28571428571429",
+         "price" : 10360,
+         "pitchLimits" : "-17 5"
+      },
+      "_90mm_canon_DCA_45A" : {
+         "recoil" : {
+            "text" : "",
+            "returnTime" : "0.36",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.38",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "text" : "",
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "3.5",
+            "turretRotation" : "0.12"
+         },
+         "maxRegenHealth" : 85,
+         "repairCost" : 7,
+         "text" : "",
+         "weight" : 2750,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_90mm_FrtPrf1944" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 1250,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "259 228"
+            },
+            "text" : "",
+            "_90mm_OE_mle_1924" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.2",
+               "speed" : 1000,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "45 45"
+            },
+            "_90mm_Prf1941" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.8",
+               "speed" : 1000,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "212 193"
+            }
+         },
+         "shotDispersionRadius" : "0.411428571428571",
+         "impulse" : "0.46",
+         "effects" : "shot_main_mb",
+         "maxAmmo" : 91,
+         "description" : "#france_vehicles:_90mm_canon_DCA_45",
+         "tags" : "",
+         "userString" : "#france_vehicles:_90mm_canon_DCA_45",
+         "rotationSpeed" : "35.0",
+         "maxHealth" : 170,
+         "level" : 8,
+         "reloadTime" : "7.42857142857143",
+         "price" : 121250,
+         "pitchLimits" : "-17 6",
+         "notInShop" : null
+      },
+      "_75mm_SA50" : {
+         "recoil" : {
+            "text" : "",
+            "returnTime" : "0.38",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.48",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "text" : "",
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 65,
+         "repairCost" : 5,
+         "text" : "",
+         "weight" : 1740,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_75mm_OE_mle_1924" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.2",
+               "speed" : 1000,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "38 38"
+            },
+            "text" : "",
+            "_75mm_FrtPrf1944" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 1250,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "202 179"
+            },
+            "_75mm_Prf1930" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.8",
+               "speed" : 1000,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "144 128"
+            }
+         },
+         "shotDispersionRadius" : "0.354285714285714",
+         "impulse" : "0.46",
+         "effects" : "shot_medium_mb",
+         "maxAmmo" : 55,
+         "description" : "#france_vehicles:_75mm_SA50",
+         "tags" : "",
+         "userString" : "#france_vehicles:_75mm_SA50",
+         "rotationSpeed" : "35.0",
+         "maxHealth" : 130,
+         "level" : 6,
+         "reloadTime" : "4.57142857142857",
+         "price" : 64200,
+         "pitchLimits" : "-17 6"
+      },
+      "_75mm_PaK_40_2" : {
+         "recoil" : {
+            "text" : "",
+            "returnTime" : "0.36",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.36",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "text" : "",
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "3.0",
+            "turretRotation" : "0.08"
+         },
+         "maxRegenHealth" : 55,
+         "repairCost" : 5,
+         "text" : "",
+         "weight" : 1520,
+         "aimingTime" : "1.71428571428571",
+         "shots" : {
+            "_75mm_Sprg.18" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.2",
+               "speed" : 790,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "38 38"
+            },
+            "text" : "",
+            "_75mm_Pzgr.40" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 988,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "126 108"
+            },
+            "_75mm_Pzgr39" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.8",
+               "speed" : 790,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "98 91"
+            }
+         },
+         "shotDispersionRadius" : "0.422857142857143",
+         "impulse" : "0.46",
+         "effects" : "shot_medium_mb",
+         "maxAmmo" : 87,
+         "description" : "#france_vehicles:_75mm_PaK_40_2",
+         "tags" : "",
+         "userString" : "#france_vehicles:_75mm_PaK_40_2",
+         "rotationSpeed" : "35.0",
+         "maxHealth" : 110,
+         "level" : 4,
+         "reloadTime" : "3.86285714285714",
+         "price" : 28900,
+         "pitchLimits" : "-17 6",
+         "notInShop" : null
+      },
+      "_47mm_SA35" : {
+         "recoil" : {
+            "text" : "",
+            "returnTime" : "0.26",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.26",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "text" : "",
+            "whileGunDamaged" : "2.0",
+            "afterShot" : 4,
+            "turretRotation" : "0.14"
+         },
+         "maxRegenHealth" : 38,
+         "repairCost" : 1,
+         "text" : "",
+         "weight" : 100,
+         "aimingTime" : "1.71428571428571",
+         "shots" : {
+            "_47mm_Odr_mle._1932" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "1.0",
+               "speed" : 660,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "45 38"
+            },
+            "text" : "",
+            "_47mm_Odr_mle._1935" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 825,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "79 44"
+            },
+            "_47mm_Oe_mle._1932" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 660,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "24 24"
+            }
+         },
+         "shotDispersionRadius" : "0.468571428571429",
+         "impulse" : "0.26",
+         "effects" : "shot_small",
+         "maxAmmo" : 126,
+         "description" : "#france_vehicles:_47mm_SA35",
+         "tags" : "",
+         "userString" : "#france_vehicles:_47mm_SA35",
+         "rotationSpeed" : "39.375",
+         "maxHealth" : 76,
+         "level" : 3,
+         "reloadTime" : "2.28571428571429",
+         "price" : 3250,
+         "pitchLimits" : "-18 18"
+      },
+      "Canon_de_105_mle_1930_Schneider_AC" : {
+         "recoil" : {
+            "text" : "",
+            "returnTime" : "0.6",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.6",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "text" : "",
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 70,
+         "repairCost" : 6,
+         "shortUserString" : "#france_vehicles:Canon_de_105_mle_1930_Schneider_AC_short",
+         "text" : "",
+         "weight" : 2400,
+         "aimingTime" : "3.42857142857143",
+         "shots" : {
+            "_105mm_OE_mle_1924" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.20",
+               "speed" : 850,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "54 54"
+            },
+            "text" : "",
+            "_105mm_FrtPrf1943" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 1063,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "223 186"
+            },
+            "_105mm_Prf1940" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.80",
+               "speed" : 850,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "165 145"
+            }
+         },
+         "shotDispersionRadius" : "0.388571428571429",
+         "impulse" : "0.46",
+         "effects" : "shot_main",
+         "maxAmmo" : 32,
+         "description" : "#france_vehicles:Canon_de_105_mle_1930_Schneider_AC",
+         "tags" : "",
+         "userString" : "#france_vehicles:Canon_de_105_mle_1930_Schneider_AC",
+         "rotationSpeed" : "26.25",
+         "maxHealth" : 140,
+         "level" : 6,
+         "reloadTime" : "9.71428571428571",
+         "price" : 60000,
+         "pitchLimits" : "-24 7"
+      },
+      "Canon_de_105_mle_1930_Schneider_AM" : {
+         "recoil" : {
+            "text" : "",
+            "returnTime" : "0.6",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.6",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "text" : "",
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "6.0",
+            "turretRotation" : "0.32"
+         },
+         "maxRegenHealth" : 75,
+         "repairCost" : 9,
+         "shortUserString" : "#france_vehicles:Canon_de_105_mle_1930_Schneider_AM_short",
+         "text" : "",
+         "weight" : 2700,
+         "aimingTime" : "4.57142857142857",
+         "shots" : {
+            "_105mm_OE_mle_1930" : {
+               "maxDistance" : 10000,
+               "defaultPortion" : "1.0",
+               "speed" : 500,
+               "text" : "",
+               "gravity" : 250,
+               "piercingPower" : "60 60"
+            },
+            "text" : "",
+            "_105mm_FrtPrf1943" : {
+               "maxDistance" : 10000,
+               "defaultPortion" : "0.0",
+               "speed" : 500,
+               "text" : "",
+               "gravity" : "250.0",
+               "piercingPower" : "223 186"
+            }
+         },
+         "shotDispersionRadius" : "0.457142857142857",
+         "impulse" : "0.46",
+         "effects" : "shot_main",
+         "maxAmmo" : 38,
+         "description" : "#france_vehicles:Canon_de_105_mle_1930_Schneider_AM",
+         "tags" : "",
+         "userString" : "#france_vehicles:Canon_de_105_mle_1930_Schneider_AM",
+         "rotationSpeed" : "30.625",
+         "maxHealth" : 150,
+         "level" : 5,
+         "reloadTime" : "10.2857142857143",
+         "price" : 55000,
+         "pitchLimits" : "-45 4"
+      },
+      "_17_pdr_Gan_MK.II" : {
+         "recoil" : {
+            "text" : "",
+            "returnTime" : "0.38",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.48",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "text" : "",
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 65,
+         "repairCost" : 5,
+         "text" : "",
+         "weight" : 1640,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_76.2_mm_AP_Mk.3T" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.8",
+               "speed" : 884,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "171 161"
+            },
+            "text" : "",
+            "_76.2_mm_HE_Mk._1T" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.2",
+               "speed" : 884,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "38 38"
+            },
+            "_76.2_mm_APCBC_Mk.8T" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 1105,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "239 218"
+            }
+         },
+         "shotDispersionRadius" : "0.354285714285714",
+         "impulse" : "0.46",
+         "effects" : "shot_medium",
+         "maxAmmo" : 55,
+         "description" : "#france_vehicles:_17_pdr_Gan_MK.II",
+         "tags" : "",
+         "userString" : "#france_vehicles:_17_pdr_Gan_MK.II",
+         "rotationSpeed" : "35.0",
+         "maxHealth" : 130,
+         "level" : 6,
+         "reloadTime" : "4.57142857142857",
+         "price" : 45000,
+         "pitchLimits" : "-17 6"
+      },
+      "_90mm_F3" : {
+         "recoil" : {
+            "text" : "",
+            "returnTime" : "0.36",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.38",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "text" : "",
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "3.5",
+            "turretRotation" : "0.12"
+         },
+         "maxRegenHealth" : 80,
+         "repairCost" : 7,
+         "text" : "",
+         "weight" : 2200,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_90mm_FrtPrf1944" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 1163,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "248 224"
+            },
+            "text" : "",
+            "_90mm_OE_mle_1924" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.2",
+               "speed" : 930,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "45 45"
+            },
+            "_90mm_Prf1941" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.8",
+               "speed" : 930,
+               "text" : "",
+               "gravity" : "9.81",
+               "piercingPower" : "170 145"
+            }
+         },
+         "shotDispersionRadius" : "0.377142857142857",
+         "impulse" : "0.46",
+         "effects" : "shot_main_mb",
+         "maxAmmo" : 52,
+         "description" : "#france_vehicles:_90mm_F3",
+         "tags" : "",
+         "userString" : "#france_vehicles:_90mm_F3",
+         "rotationSpeed" : "35.0",
+         "maxHealth" : 160,
+         "level" : 7,
+         "reloadTime" : "8.0",
+         "price" : 87000,
+         "pitchLimits" : "-17 6"
+      }
+   },
+   "ids" : {
+      "_155mm_SA_58_AC" : 58,
+      "_47mm_SA-L_Mle.37" : 28,
+      "_76mm_Schneider" : 8,
+      "_75mm_Long_44_AC" : 41,
+      "_100mm_SA_47_AC" : 45,
+      "_90mm_canon_DCA_30" : 14,
+      "_25mm_Canon_Raccourci_Mle.1934" : 4,
+      "Canon_de_105_court_mle_1934S_AC" : 52,
+      "_90mm_canon_DCA_30_CA" : 43,
+      "Canon_de_155mm_L_GPF" : 32,
+      "_90mm_canon_DCA_45_AC" : 44,
+      "_75mm_Long_44" : 25,
+      "_13.2mm_Hotchkiss_mle._1930" : 7,
+      "Canon_de_105_court_mle_1934S" : 21,
+      "_25mm_antichar_SA-L_mle_1937" : 34,
+      "_47mm_SA37" : 5,
+      "_90mm_canon_DCA_45" : 18,
+      "_37mm_APX_SA18" : 6,
+      "_120mm_SA_46" : 22,
+      "Obusier_de_155mm_mle.1950" : 31,
+      "_57mm_6_pdr_AT_Gun_Mk_IV" : 29,
+      "_37mm_SA38" : 9,
+      "_25mm_antichar_SA-L_mle_1934" : 33,
+      "_105mm_leFH18_L28" : 11,
+      "_90mm_D914" : 59,
+      "_76mm_Gun_M1A1" : 13,
+      "Obusier_de_155mm_C_mle.1917" : 26,
+      "_75mm_APX" : 40,
+      "_105mm_canon_13TR" : 15,
+      "_25mm_automatique_mle_1936" : 55,
+      "Canon_de_105_court_mle_1935B" : 20,
+      "Canon_de_155mm" : 49,
+      "_75mm_SA49_L48" : "",
+      "text" : "",
+      "_120mm_SA_46_AC" : 47,
+      "_47mm_SA34" : 2,
+      "Canon_de_155mm_de_33_calibres" : 27,
+      "_105mm_CN_105_57" : 53,
+      "_100mm_SA_47" : 19,
+      "_75mm_SA32" : 17,
+      "_90mm_canon_DCA_45A" : 60,
+      "_75mm_PaK_40_2" : 12,
+      "_75mm_SA50" : 1,
+      "_47mm_SA35" : 3,
+      "Canon_de_105_mle_1930_Schneider_AC" : 48,
+      "Canon_de_105_mle_1930_Schneider_AM" : 23,
+      "_17_pdr_Gan_MK.II" : 42,
+      "_90mm_F3" : 16
+   },
+   "text" : ""
+}
