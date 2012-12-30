@@ -264,7 +264,6 @@ sub index {
                 return $self->current_user->{display_name};
             },
             map_slug => sub {
-                my $self = shift;
                 my $name = shift;
                 my $slug = lc($name);
 
