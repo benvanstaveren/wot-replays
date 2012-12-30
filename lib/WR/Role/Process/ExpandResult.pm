@@ -131,11 +131,11 @@ around 'process' => sub {
     };
 
     if($self->_parser->is_complete) {
+        use Data::Dumper;
+        warn Dumper($self->match_result->[0]);
+
         $data->{game}->{bonus_type} = $self->match_result->[0]->{bonusType};
         # add some additional fields 
-
-        # removed in 0.7.4, bless their little fucking hearts
-        #$data->{game}->{arena_id} = $self->match_result->[0]->{arenaUniqueID};
 
         $data->{game}->{isWin} = ($self->match_result->[0]->{isWinner} > 0) 
             ? true 
