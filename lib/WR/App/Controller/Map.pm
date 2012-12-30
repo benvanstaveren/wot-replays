@@ -44,11 +44,10 @@ sub index {
 }
 
 sub view {
-    my $self = shift;
-    my $map_id = shift;
+    my $self   = shift;
+    my $map_id = $self->stash('map_id');
 
-    my $m_obj = $self->db('wot-replays')->get_collection('data.maps')->find_one({ slug => $map_id });
-
+    my $m_obj = $self->model('wot-replays.data.maps')->find_one({ slug => $map_id });
     my $t_stats = $self->db('wot-replays')->get_collection('replays')->group({
         initial => { 
             c => 0, 
