@@ -3,7 +3,7 @@
         <div class="column col1">
             [% INCLUDE replay/panel/vehiclemap.html.tt %]
         </div>
-        <div class="column col2" style="margin-top: -5px">
+        <div class="column col2" style="margin-top: -2px">
             <div>
                 <h3>
                     <a href="/player/[% replay.player.server %]/[% replay.player.name |uri %]/" title="[% replay.player.name |html %]">[% replay.player.name |truncate(15) |html %]</a> - <a href="/vehicle/[% replay.player.vehicle.country  |uri %]/[% replay.player.vehicle.name |uri %]/" title="[% INCLUDE bricks/vehicles/name.html.tt vehiclename = replay.player.vehicle.full %]">[% INCLUDE bricks/vehicles/name_short.html.tt vehiclename = replay.player.vehicle.full %]</a> - <a href="/map/[% wr.fix_map_id(replay.map.id) |uri %]/">[% INCLUDE bricks/maps/name.html.tt map = replay.map.id %]</a> ([% INCLUDE bricks/bonustype/name.html.tt bonustype = replay.game.bonus_type %] [% INCLUDE bricks/gametype/name.html.tt gametype = replay.game.type %])
