@@ -1,9 +1,9 @@
-<div class="global-nav">
-    <div class="global-nav-inner">
-        <div class="container">
-            <ul class="nav js-global-actions" id="global-actions">
-                <li class="nav-item [% IF pageid == 'home' %]active[% END %]">
-                    <a class="js-hover" href="/">
+<div class="global-nav ui-corner-top">
+    <div class="global-nav-inner ui-corner-top">
+        <div class="container ui-corner-top">
+            <ul class="nav js-global-actions" id="global-actions ui-corner-top">
+                <li class="nav-item ui-corner-tl [% IF pageid == 'home' %]active[% END %]">
+                    <a class="ui-corner-tl js-hover" href="/">
                         Home
                     </a>
                 </li>
@@ -28,11 +28,6 @@
                     </a>
                 </li>
             </ul>
-            [% IF pageid != 'upload' %]
-                <a class="uploadAction" href="/upload">
-                    <button class="uploadButton">Upload</button>
-                </a>
-            [% END %]
             <ul class="nav js-global-actions" id="global-pages" style="float: right">
                 <li class="nav-item blog [% IF pageid == 'blog' %]active[% END %]">
                     <a class="js-hover" href="http://blog.wot-replays.org/">
@@ -50,8 +45,8 @@
                         Sign out
                     </a>
                 </li>
-                <li class="nav-item profile [% IF pageid == 'profile' %]active[% END %]">
-                    <a class="js-hover" href="/profile">
+                <li class="ui-corner-tr nav-item profile [% IF pageid == 'profile' %]active[% END %]">
+                    <a class="js-hover ui-corner-tr " href="/profile">
                         Your Profile
                     </a>
                 </li>
@@ -61,8 +56,8 @@
                         Login
                     </a>
                 </li>
-                <li class="nav-item register [% IF pageid == 'register' %]active[% END %]">
-                    <a class="js-hover" href="/register">
+                <li class="ui-corner-tr nav-item register [% IF pageid == 'register' %]active[% END %]">
+                    <a class="ui-corner-tr js-hover" href="/register">
                         Register
                     </a>
                 </li>

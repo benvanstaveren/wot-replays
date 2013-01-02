@@ -31,8 +31,8 @@ sub index {
         });
     }
 
-    # re-order the map list
-    $map_list = [ sort { $b->{count} <=> $a->{count} } (@$map_list) ];
+    # re-order the map list, alphabetically this time
+    $map_list = [ sort { $a->{label} cmp $b->{label} } (@$map_list) ];
 
     $self->respond(
         template => 'map/index',

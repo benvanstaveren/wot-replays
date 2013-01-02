@@ -68,18 +68,15 @@
         </script>
     </head>
     <body class="ui">
-        [% INCLUDE nav.html.tt %]
-        <div class="clear"></div>
-        <div id="container">
-            <div id="contentMain">
-                [% content %]
-            </div>
+        <div id="container" class="ui-corner-all">
+            [% INCLUDE nav.html.tt %]
+            <div class="clear"></div>
+            <div id="contentMain">[% content %]</div>
         </div>
         <div id="footer">
-            <div>
-                &copy; 2012 Scrambled | app [% config.versions.app %] [% config.mode %] | wot [% config.wot.version %]<br/>
-            </div>
-            <div style="font-family: monospace;">[% config.wot.fuck_you_wg %]</div>
+            <div style="text-align: left; float: left; font-family: monospace;">[% config.wot.fuck_you_wg %]</div>
+            <div style="float: right">&copy; 2012, 2013 Scrambled | app [% config.versions.app %] [% config.mode %] | wot [% config.wot.version %]</div>
+            <div class="clear"></div>
         </div>
     </body>
 </html>
