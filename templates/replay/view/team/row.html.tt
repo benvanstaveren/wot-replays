@@ -25,7 +25,7 @@
     <td class="playerDetails">
         <span class="
             [% IF player.team == replay.player.team %]
-                teamkill [% IF !details || details.killed == 0 %]hiden[% END %]
+                teamkill [% IF !details || details.killed == 0 %]hidden[% END %]
             [% ELSE %]
                 kill [% IF !details || details.killed == 0 %]dimmed[% END %]
             [% END %]"></span>
