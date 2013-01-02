@@ -2,6 +2,7 @@
 <tbody>
 [% FOREACH playerid IN players %]
     [% player = replay.vehicles.$playerid %]
+    [% player.id = playerid %]
     [% INCLUDE replay/view/team/row.html.tt %]
 [% END %]
 </tbody>
