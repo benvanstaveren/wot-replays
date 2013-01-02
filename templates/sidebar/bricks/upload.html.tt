@@ -1,6 +1,5 @@
-    <h3>Upload</h3>
-    <div>
-        <form action="/upload" method="get">
-        <button id="btn-upload" class="uploadButton">UPLOAD</button>
-        </form>
-    </div>
+<div>
+    <form action="/upload" method="get">
+    <button style="width: 99%" id="btn-upload" class="uploadButton">UPLOAD</button>
+    </form>
+</div>
