@@ -23,7 +23,7 @@ my $map = read_file(sprintf('%s/map.js', $ARGV[0]));
 my $reduce = read_file(sprintf('%s/reduce.js', $ARGV[0]));
 
 
-my $mongo  = MongoDB::Connection->new();
+my $mongo  = MongoDB::Connection->new({ host => 'mongodb://hwn-01.blockstackers.net:27017' });
 my $db     = $mongo->get_database('wot-replays');
 my $coll   = $db->get_collection('replays');
 
