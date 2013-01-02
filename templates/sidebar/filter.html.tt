@@ -6,7 +6,7 @@
             <input type="hidden" name="vehiclepov" value="1"/>
             <input type="hidden" name="vehicleinv" value="0"/>
             [% IF pageid == 'map' %]
-                <input type="hidden" name="map" value="[% wr.fix_map_id(map_id) %]"/>
+                <input type="hidden" name="map" value="[% map_id %]"/>
             [% ELSIF pageid == 'vehicle' %]
                 <input type="hidden" name="vehicle" value="[% vehicle_full %]"/>
             [% END %]

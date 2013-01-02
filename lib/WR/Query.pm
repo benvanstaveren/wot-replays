@@ -110,7 +110,14 @@ sub _build_query {
         }
     }
 
-    $query->{'map.id'} = $self->fixargs($args{'map'}) if($args{'map'});
+    # actually args{map} contains the map slug, not it's id so find it first
+    if(defined($args{map})) {
+        if(my $map = $self->model('wot-replays.data.maps')->find_one({ slug => $args{map} })) {
+            $query->{'map.id'} = $self->fixargs($map->{_id});
+        } else {
+            $query->{'map.id'} = 'mapdoesnotexist';
+        }
+    }
 
     if($args{'vehicle'}) {
         if($args{'vehiclepov'}) {
