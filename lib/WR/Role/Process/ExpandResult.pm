@@ -71,7 +71,7 @@ around 'process' => sub {
                     ? 1 
                     : 0
                 : -1,
-            team        => ($self->_parser->is_complete) ? $self->pickledata->{personal}->{team} + 0 : -1;
+            team        => ($self->_parser->is_complete) ? $self->pickledata->{personal}->{team} + 0 : -1
         },
         complete => ($self->_parser->is_complete) ? true : false,
         vehicles => $vehicle_hash,
