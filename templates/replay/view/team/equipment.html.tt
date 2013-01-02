@@ -1,8 +1,5 @@
 [% pname = player.name %]
 [% fitting = replay.vehicle_fittings.$pname %]
-<!-- 
-    [% wr.dump(fitting) %] 
--->
 <table style="width: 100%;" cellspacing="0" cellpadding="0"> 
     <tbody>
         <tr>
