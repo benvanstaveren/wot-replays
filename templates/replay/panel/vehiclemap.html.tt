@@ -1,4 +1,5 @@
-<div title="[% wr.vehicle_name(replay.player.vehicle.full) |html %]" class="box vehicleMap fixedborder" style="background: transparent url([% wr.vehicle_icon(replay.player.vehicle.full, 100) %]) no-repeat scroll 0 0">
-    <div title="Match played on [% wr.map_name(wr.fix_map_id(replay.map.id)) |html %]" class="map rounded-br rounded-tl" style="background: transparent url([% wr.map_image(84, replay.map.id) %]) no-repeat scroll 0 0"></div>
-    <div class="vehicleTier" style="height: 17px; min-width: 24px; background: transparent url([% wr.vehicle_tier(replay.player.vehicle.full) %]) no-repeat scroll top left"></div>
+<div title="[% wr.vehicle_name(replay.player.vehicle.full) |html %] on [% wr.map_name(wr.fix_map_id(replay.map.id)) |html%]" class="box vehicleMap fixedborder" style="background: transparent url([% wr.map_screen(replay.map.id) %]) no-repeat scroll 0 0">
+    <div style="width: 231px; height: 100px" background: transparent url(//images.wot-replays.org/mapscreen/overlay.png) no-repeat scroll 0 0">$
+        <img src="[% wr.vehicle_icon(replay.player.vehicle.full, 100) %]" style="width: 160px; height: 100px"/>
+    </div>
 </div>
