@@ -1,0 +1,6 @@
+    <h3>Upload</h3>
+    <div>
+        <form action="/upload" method="get">
+        <button id="btn-upload" class="uploadButton">UPLOAD</button>
+        </form>
+    </div>
