@@ -8,9 +8,9 @@
 </table>
 <script type="text/javascript">
     $('tr.playerRow').click(function() {
-        if($(this).hasClass('active')) {
+        if($(this).parent().hasClass('active')) {
             $('tr.playerEquipment').hide();
-            $(this).removeClass('active');
+            $(this).parent().removeClass('active');
         }
         $('tr.playerEquipment').hide();
         $('tr.playerRow').removeClass('active');
