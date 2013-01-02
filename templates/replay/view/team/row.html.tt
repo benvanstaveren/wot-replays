@@ -11,7 +11,7 @@
     <td class="playerSurvived">
     <span>
         [% IF platoon && platoon > 0 %]
-        <strong style="position: relative; top: -2px; left: 3px">[% platoon %]</strong>
+        <span title="Platoon #[% platoon %]" style="position: relative; top: -2px; left: 3px">[% platoon %]</span>
         [% END %]
     </span></td>
     <td class="playerVehicle" style="background: transparent url([% wr.vehicle_icon(player.vehicleType.full, 48) %]) no-repeat scroll 0 0" title="[% INCLUDE bricks/vehicles/name.html.tt vehiclename = player.vehicleType.full |html%]"></td>
