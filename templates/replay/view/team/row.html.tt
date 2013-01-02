@@ -1,6 +1,6 @@
 [% titles = [] %]
 [% pname = player.name %]
-[% details = replay.statistics.details %]
+[% details = replay.statistics.details.$pid %]
 [% pid = player.id %]
 [% platoon = replay.platoons.$pname %]
 [% IF player.isAlive == 1 %]
@@ -23,11 +23,11 @@
         [% player.name |html %][% IF player.clanAbbrev %]<span class="clan">[[% player.clanAbbrev %]]</span>[% END %]
     </td>
     <td class="playerDetails">
-        <span class="[% IF player.team == replay.player.team %]teamkill[% ELSE %]kill[% END %] [% IF details.$pid.killed == 0 %]dimmed[% END %]"></span>
-        <span class="damage [% IF details.$pid.damageDealt == 0 %]dimmed[% END %]"></span>
-        <span class="crits [% IF details.$pid.crits == 0 %]dimmed[% END %]"></span>
-        <span class="evil [% IF details.$pid.damageAssisted == 0 %]dimmed[% END %]"></span>
-        <span class="spotted [% IF details.$pid.spotted == 0 %]dimmed[% END %]"></span>
+        <span class="[% IF player.team == replay.player.team %]teamkill[% ELSE %]kill[% END %] [% IF !details || details.killed == 0 %]dimmed[% END %]"></span>
+        <span class="damage [% IF !details || details.damageDealt == 0 %]dimmed[% END %]"></span>
+        <span class="crits [% IF !details || details.crits == 0 %]dimmed[% END %]"></span>
+        <span class="evil [% IF !details || details.damageAssisted == 0 %]dimmed[% END %]"></span>
+        <span class="spotted [% IF !details || details.spotted == 0 %]dimmed[% END %]"></span>
         <div class="clear"></div>
     </td>
     <td class="playerFrags [% IF player.frags > 0 %]green[% ELSIF player.frags < 0 %]red[% END %]">[% player.frags || '0' %]</td>
