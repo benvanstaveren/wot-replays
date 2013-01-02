@@ -19,15 +19,15 @@ has '_result' => (is => 'ro', isa => 'HashRef', writer => '_set_result', require
 
 has 'match_info' => (is => 'ro', isa => 'HashRef', writer => '_set_match_info', init_arg => undef);
 has 'match_result' => (is => 'ro', isa => 'ArrayRef', writer => '_set_match_result', init_arg => undef);
+has 'pickledata' => (is => 'ro', isa => 'HashRef', writer => '_set_pickledata', init_arg => undef);
 
 # load order here is important, the roles are applied left to right, first role applied is the first level in the 'around' chain
 
 with (
-        'WR::Role::Process::ExpandResult',   # must be first, it inflates some result values needed for later
+        'WR::Role::Process::PickleData',     # must be first, it inflates the pickle data for complete replays
+        'WR::Role::Process::ExpandResult',   # must be second, it inflates some result values 
         'WR::Role::Process::ResolveServer',  # get player server
-        'WR::Role::Process::Heroes',         # resolve heroes 
-        'WR::Role::Process::Epic',           # resolve epic achievements
-        'WR::Role::Process::Teamkills',      # process teamkills if needed
+        'WR::Role::Process::Mastery',        # resolve heroes 
         'WR::Role::Process::Fittings',       # process vehicle fittings
         'WR::Role::Process::Platoon',        # process platoons
     );

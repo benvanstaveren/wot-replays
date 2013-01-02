@@ -8,3 +8,5 @@ bin/win32/wru.exe
 tmp/*
 *.wotreplay
 *.pid
+_Inline/*
+data/*

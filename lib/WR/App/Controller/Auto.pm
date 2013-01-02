@@ -1,5 +1,6 @@
 package WR::App::Controller::Auto;
 use Mojo::Base 'WR::App::Controller';
+use Data::Dumper;
 use WR::Res::Achievements;
 use WR::Res::Bonustype;
 use WR::Res::Gametype;
@@ -18,9 +19,10 @@ sub generate_vehicle_select {
         germany => 'Germany',
         usa => 'USA',
         ussr => 'USSR',
+        uk => 'UK',
         };
    
-    foreach my $country (qw/china france germany usa ussr/) {
+    foreach my $country (qw/china france germany usa ussr uk/) {
         my $d = { label => $l->{$country}, country => $country };
         my $cursor = $self->db('wot-replays')->get_collection('data.vehicles')->find({ country => $country })->sort({ label => 1 });
         while(my $obj = $cursor->next()) {
@@ -275,10 +277,13 @@ sub index {
                 my $size = shift;
                 my $id   = shift;
                 if(my $map = $self->db('wot-replays')->get_collection('data.maps')->find_one({ _id => $id })) {
-                    return lc(sprintf('//images.wot-replays.org/maps/%d/%s', $size, $map->{icon}));
+                    return lc(sprintf('//images.wot-replays.org/maps/%d/%s.png', $size, $id));
                 } else {
                     return '404:' . $id;
                 }
+            },
+            dump => sub {
+                return Dumper(@_);
             },
         };
 

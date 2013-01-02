@@ -14,7 +14,7 @@
                         </span>
                         <span class="label fw">survived:</span><span class="value fw">
                             [% IF replay.complete == 1 %]
-                                [% IF replay.player.statistics.survived == 1 %]
+                                [% IF replay.player.survived == 1 %]
                                     <span class="green">yes</span>
                                 [% ELSE %]
                                     <span class="red">no</span>
@@ -28,12 +28,12 @@
                     </div>
                     <div>
                         <span class="label fw">spotted:</span><span class="value fw">
-                            [% IF replay.complete == 1 %][% replay.player.statistics.spotted.size || '0' %][% ELSE %]-[% END %]
+                            [% IF replay.complete == 1 %][% replay.statistics.spotted || '0' %][% ELSE %]-[% END %]
                         </span>
                         <span class="label fw">damaged:</span><span class="value fw">
-                            [% IF replay.complete == 1 %][% replay.player.statistics.damaged.size || '0' %][% ELSE %]-[% END %]
+                            [% IF replay.complete == 1 %][% replay.statistics.damaged || '0' %][% ELSE %]-[% END %]
                         </span>
                         <span class="label fw">killed:</span><span class="value fw">
-                            [% IF replay.complete == 1 %][% replay.player.statistics.killed.size || '0' %][% ELSE %]-[% END %]
+                            [% IF replay.complete == 1 %][% replay.statistics.kills || '0' %][% ELSE %]-[% END %]
                         </span>
                     </div>

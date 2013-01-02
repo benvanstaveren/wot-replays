@@ -1,4 +1,3 @@
-[% USE cache = Cache %]
 [% WRAPPER wrapper.html.tt %]
     <div class="content nosidebar">
         <h2 style="margin: 0px 0px 10px 0px">
@@ -57,11 +56,7 @@
             <tbody>
                 <tr>
                     <td style="vertical-align: top; width: 166px">
-                        [% cache.inc(
-                            template => 'replay/view/vehicleicon.html.tt',
-                            ttl => 'never',
-                            keys => { 'replay.id' => replay.id }
-                            ) %]
+                        [% INCLUDE replay/view/vehicleicon.html.tt %]
                         <div style="margin-top: 5px; padding: 10px">
                             <span class="label small">Jump</span>
                             [% IF replay.complete %]<a href="#rpl-teams">Teams</a><br/>[% END %]
@@ -76,8 +71,6 @@
                             </div>
                             <div id="vehicle-stats" class="viewcontent">
                                 [% INCLUDE replay/view/vehicle_stats.html.tt %]
-                            </div>
-                            <div id="battlechat" style="display: none" class="viewcontent">
                             </div>
                         </div>
                     </td>

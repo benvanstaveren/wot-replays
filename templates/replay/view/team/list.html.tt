@@ -1,13 +1,17 @@
 <table style="width: 100%" cellspacing="0" cellpadding="0">
 <tbody>
 [% FOREACH playerid IN players %]
-    [% player = replay.vehicles_hash.$playerid %]
+    [% player = replay.vehicles.$playerid %]
     [% INCLUDE replay/view/team/row.html.tt %]
 [% END %]
 </tbody>
 </table>
 <script type="text/javascript">
     $('tr.playerRow').click(function() {
+        if($(this).hasClass('active')) {
+            $('tr.playerEquipment').hide();
+            $(this).removeClass('active');
+        }
         $('tr.playerEquipment').hide();
         $('tr.playerRow').removeClass('active');
         $(this).addClass('active');

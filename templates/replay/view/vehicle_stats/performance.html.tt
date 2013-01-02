@@ -2,12 +2,12 @@
             <table style="width: 100%" cellspacing="0" cellpadding="0"><tbody><tr>
                 <td>
                     <span class="label small">Spotted</span>
-                    <span class="green">[% replay.player.statistics.spotted.size || '0' %]</span>
+                    <span class="green">[% replay.statistics.spotted || '0' %]</span>
                 </td><td>
                     <span class="label small">Damaged</span>
-                    <span class="green">[% replay.player.statistics.damaged.size || '0' %]</span>
+                    <span class="green">[% replay.statistics.damaged || '0' %]</span>
                 </td><td>
                     <span class="label small">Killed</span>
-                    <span class="green">[% replay.player.statistics.killed.size || '0' %]</span>
+                    <span class="green">[% replay.statistics.kills || '0' %]</span>
                 </td>
             </tr></tbody></table>

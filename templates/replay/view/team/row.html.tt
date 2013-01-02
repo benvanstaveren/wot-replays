@@ -2,44 +2,24 @@
 [% pname = player.name %]
 [% pid = player.id %]
 [% platoon = replay.platoons.$pname %]
-[% class = '' %]
-
-[% IF replay.sdk.s.$pid == 1 %]
-    [% class = 'spotted' %]
-    [% titles.push('spotted') %]
-[% END %]
-[% IF replay.sdk.d.$pid == 1 %]
-    [% class = 'damaged' %]
-    [% titles.push('damaged') %]
-[% END %]
-[% IF replay.sdk.k.$pid == 1 %]
-    [% class = 'killed' %]
-    [% titles.push('killed') %]
-[% END %]
-[% IF replay.tk.k.$pid == 1 %]
-    [% class = 'teamkilled' %]
-    [% titles.push('team killed') %]
-[% ELSIF replay.tk.td.$pid == 1 %]
-    [% class = 'teamdamaged' %]
-    [% titles.push('team damage (' _ player.tk.means _ ' done') %]
-[% END %]
-[% IF titles.size > 1 %]
-    [% last = titles.pop %]
-    [% rowtitle = titles.join(', ') _ ' and ' _ last %]
+[% IF player.isAlive == 1 %]
+    [% class = 'survived' %]
 [% ELSE %]
-    [% rowtitle = titles.pop %]
+    [% class = 'died' %]
 [% END %]
 <tr class="playerRow [% class %]" href="#tt_[% player.name |html %]" title="[% IF rowtitle %][% rowtitle %] by [% replay.player.name |html %][% END %]">
-    <td class="playerSurvived [% IF player.isAlive == 1 %]green[% ELSE %]red[% END %]">
+    <td class="playerSurvived">
     <span>
         [% IF platoon && platoon > 0 %]
         <strong style="position: relative; top: -2px; left: 3px">[% platoon %]</strong>
         [% END %]
     </span></td>
+    <td class="playerVehicle" style="background: transparent url([% wr.vehicle_icon(player.vehicleType.full, 48) %]) no-repeat scroll 0 0" title="[% INCLUDE bricks/vehicles/name.html.tt vehiclename = player.vehicleType.full |html%]"></td>
     <td class="playerName">
         [% player.name |html %][% IF player.clanAbbrev %]<span class="clan">[[% player.clanAbbrev %]]</span>[% END %]
     </td>
-    <td class="playerVehicle">[% INCLUDE bricks/vehicles/name.html.tt vehiclename = player.vehicleType.full %]<img src="[% wr.vehicle_icon(player.vehicleType.full, 20) %]" class="vehicleIcon-20"/></td>
+    <td class="playerDetails">
+    </td>
     <td class="playerFrags [% IF player.frags > 0 %]green[% ELSIF player.frags < 0 %]red[% END %]">[% player.frags || '0' %]</td>
 </tr>
 <tr class="playerEquipment" id="tt_[% player.name |html %]" style="display: none">

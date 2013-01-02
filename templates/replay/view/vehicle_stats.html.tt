@@ -6,11 +6,7 @@
             <span class="label">Match result</span>
             <div style="margin-right: 5px">
             [% IF replay.complete %]
-                [% cache.inc(
-                    template => 'replay/view/matchresult.html.tt',
-                    ttl => 'never',
-                    keys => { 'replay.id' => replay.id },
-                ) %]
+                [% INCLUDE replay/view/matchresult.html.tt %]
             [% ELSE %]
                 <span>unknown</span>
             [% END %]
@@ -19,53 +15,29 @@
         <td style="width: 33%; vertical-align: top">
             <span class="label">Survived</span>
             <span>
-                [% cache.inc(
-                    template => 'replay/view/vehicle_stats/survived.html.tt',
-                    ttl => 'never',
-                    keys => { 'replay.id' => replay.id },
-                ) %]
+                [% INCLUDE replay/view/vehicle_stats/survived.html.tt %]
             </span>
         </td>
         <td style="width: 33%; vertical-align: top">
-            [% cache.inc(
-                template => 'replay/view/vehicle_stats/awards.html.tt',
-                ttl => 'never',
-                keys => { 'replay.id' => replay.id },
-            ) %]
+            [% INCLUDE replay/view/vehicle_stats/awards.html.tt %]
         </td>
     </tr>
     <tr>
         <td>
-            [% cache.inc(
-                template => 'replay/view/vehicle_stats/damage.html.tt',
-                ttl => 'never',
-                keys => { 'replay.id' => replay.id },
-            ) %]
+            [% INCLUDE replay/view/vehicle_stats/damage.html.tt %]
         </td>
         <td colspan="2">
-            [% cache.inc(
-                template => 'replay/view/vehicle_stats/shots.html.tt',
-                ttl => 'never',
-                keys => { 'replay.id' => replay.id },
-            ) %]
+            [% INCLUDE replay/view/vehicle_stats/shots.html.tt %]
         </td>
     </tr>
     <tr>
         <td colspan="3">
-            [% cache.inc(
-                template => 'replay/view/vehicle_stats/earned.html.tt',
-                ttl => 'never',
-                keys => { 'replay.id' => replay.id },
-            ) %]
+            [% INCLUDE replay/view/vehicle_stats/earned.html.tt %]
         </td>
     </tr>
     <tr>
         <td colspan="3" style="vertical-align: top">
-            [% cache.inc(
-                template => 'replay/view/vehicle_stats/performance.html.tt',
-                ttl => 'never',
-                keys => { 'replay.id' => replay.id },
-            ) %]
+            [% INCLUDE replay/view/vehicle_stats/performance.html.tt %]
         </td>
     </tr>
     <tr>

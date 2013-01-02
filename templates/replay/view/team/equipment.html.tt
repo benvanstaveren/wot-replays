@@ -1,5 +1,8 @@
 [% pname = player.name %]
 [% fitting = replay.vehicle_fittings.$pname %]
+<!-- 
+    [% wr.dump(fitting) %] 
+-->
 <table style="width: 100%;" cellspacing="0" cellpadding="0"> 
     <tbody>
         <tr>
@@ -10,7 +13,7 @@
                         <img src="[% config.urls.assets %]/icon/components/16x16/engines.png" style="width: 16px; border: 0px;height: 16px" title="Engine"/>
                     </span>
                     <span style="padding: 0px 0px 0px 5px" title="[% wr.component_name(player.vehicleType.country, 'engines', fitting.data.engine) %]"> 
-                            [% wr.component_name(player.vehicleType.country, 'engines', fitting.data.engine) |truncate(18) %]
+                        [% wr.component_name(player.vehicleType.country, 'engines', fitting.data.engine) |truncate(18) %]
                     </span>
                 </div>
                 <div>
