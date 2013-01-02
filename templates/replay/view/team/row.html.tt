@@ -8,6 +8,9 @@
 [% ELSE %]
     [% class = 'died' %]
 [% END %]
+<!--
+    [% wr.dump(player) %]
+-->
 <tr class="playerRow [% class %]" href="#tt_[% player.name |html %]" title="[% IF rowtitle %][% rowtitle %] by [% replay.player.name |html %][% END %]">
     <td class="playerSurvived">
     <span>
