@@ -1,4 +1,4 @@
-<div title="[% wr.vehicle_name(replay.player.vehicle.full) |html %] on [% wr.map_name(wr.fix_map_id(replay.map.id)) |html%]" class="box vehicleMap fixedborder" style="background: transparent url(//images.wot-replays.org/mapscreen/[% replay.map.id %].png) no-repeat scroll 0 0">
+<div title="[% wr.vehicle_name(replay.player.vehicle.full) |html %] on [% wr.map_name(wr.fix_map_id(replay.map.id)) |html%]" class="vehicleMap" style="background: transparent url(//images.wot-replays.org/mapscreen/[% replay.map.id %].png) no-repeat scroll 0 0">
     <div style="width: 231px; height: 100px; background: transparent url(//images.wot-replays.org/mapscreen/overlay.png) no-repeat scroll 0 0">
         <img src="[% wr.vehicle_icon(replay.player.vehicle.full, 100) %]" style="width: 160px; height: 100px"/>
     </div>
