@@ -24,6 +24,7 @@
         <span class="crits dimmed"></span>
         <span class="evil dimmed"></span>
         <span class="spotted dimmed"></span>
+        <div class="clear"></div>
     </td>
     <td class="playerFrags [% IF player.frags > 0 %]green[% ELSIF player.frags < 0 %]red[% END %]">[% player.frags || '0' %]</td>
 </tr>
