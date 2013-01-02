@@ -8,13 +8,14 @@
 </table>
 <script type="text/javascript">
     $('tr.playerRow').click(function() {
-        if($(this).parent().hasClass('active')) {
+        if($(this).hasClass('active')) {
             $('tr.playerEquipment').hide();
-            $(this).parent().removeClass('active');
+            $(this).removeClass('active');
+        } else {
+            $('tr.playerEquipment').hide();
+            $('tr.playerRow').removeClass('active');
+            $(this).addClass('active');
+            $($(this).attr('href')).show();
         }
-        $('tr.playerEquipment').hide();
-        $('tr.playerRow').removeClass('active');
-        $(this).addClass('active');
-        $($(this).attr('href')).show();
     });
 </script>
