@@ -17,19 +17,16 @@ around 'process' => sub {
     # alter vehicles, we just want to get the vehicle type out, the rest we'll get from
     # the pickle data
     my $vehicles = $res->{vehicles};
-    my $pd       = $self->pickledata->{vehicles};
-    my $pid      = $res->{playerID} + 0;
     my $teams    = [ [], [] ];
-    my $counts   = {
-        killed  => 0,
-        spotted => 0,
-        damaged => 0,
-        };
 
-    foreach my $v (sort { $b->{frags} <=> $a->{frags} } (@$vehicles)) {
-        my $pv = $pd->{$v->{id}};
-        $v->{team} = $pv->{team};
-        push(@{$teams->[ $pv->{team} - 1 ]}, $v->{id});
+    if($self->_parser->is_complete) {
+        my $pid      = $res->{playerID} + 0;
+        my $pd       = ($self->_parser->is_complete) ? $self->pickledata->{vehicles} : {};
+        foreach my $v (sort { $b->{frags} <=> $a->{frags} } (@$vehicles)) {
+            my $pv = $pd->{$v->{id}};
+            $v->{team} = $pv->{team};
+            push(@{$teams->[ $v->{team} - 1 ]}, $v->{id});
+        }
     }
 
     my $vehicle_hash = {};
@@ -66,9 +63,15 @@ around 'process' => sub {
                 name    => $pv_name,
                 full    => sprintf('%s:%s', $pv_country, $pv_name),
             },
-            killed_by   => $self->pickledata->{personal}->{killerID} + 0,
-            survived    => ($self->pickledata->{personal}->{killerID} + 0 == 0) ? 1 : 0,
-            team        => $self->pickledata->{personal}->{team} + 0,
+            killed_by   => ($self->_parser->is_complete)
+                ? $self->pickledata->{personal}->{killerID} + 0
+                : undef,
+            survived    => ($self->_parser->is_complete) 
+                ? ($self->pickledata->{personal}->{killerID} + 0 == 0) 
+                    ? 1 
+                    : 0
+                : -1,
+            team        => ($self->_parser->is_complete) ? $self->pickledata->{personal}->{team} + 0 : -1;
         },
         complete => ($self->_parser->is_complete) ? true : false,
         vehicles => $vehicle_hash,
