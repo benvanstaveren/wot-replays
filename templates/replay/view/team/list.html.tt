@@ -8,6 +8,7 @@
 </table>
 <script type="text/javascript">
     $('tr.playerRow').click(function() {
+        console.log("has active: ", $(this).hasClass('active'));
         if($(this).hasClass('active')) {
             $('tr.playerEquipment').hide();
             $(this).removeClass('active');
