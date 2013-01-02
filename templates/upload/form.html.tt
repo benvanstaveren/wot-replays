@@ -11,12 +11,12 @@
             [% IF published > 0 %]
             <div style="margin-top: 15px">
                 <span class="label">View on the site</span>
-                <a href="/replay/[% id %]" target="_top">http://www.wot-replays.org/replay/[% id %].html</a>
+                <a href="[% config.urls.app %]/replay/[% id %]" target="_top">http://www.wot-replays.org/replay/[% id %].html</a>
             </div>
             [% END %]
             <div style="margin-top: 15px">
                 <span class="label">Direct download link</span>
-                <a href="/download/[% id %]">http://www.wot-replays.org/download/[% id %]</a>
+                <a href="[% config.urls.app %]/download/[% id %]">http://www.wot-replays.org/download/[% id %]</a>
             </div>
         [% END %]
         <div id="frm-upload-container" style="width: 600px; margin: 0px auto; padding: 25px" class="box" style="background: #e0e0e0 none repeat scroll 0 0">
