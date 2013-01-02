@@ -19,6 +19,11 @@
         [% player.name |html %][% IF player.clanAbbrev %]<span class="clan">[[% player.clanAbbrev %]]</span>[% END %]
     </td>
     <td class="playerDetails">
+        <span class="kill dimmed"></span>
+        <span class="damage dimmed"></span>
+        <span class="crits dimmed"></span>
+        <span class="evil dimmed"></span>
+        <span class="spotted dimmed"></span>
     </td>
     <td class="playerFrags [% IF player.frags > 0 %]green[% ELSIF player.frags < 0 %]red[% END %]">[% player.frags || '0' %]</td>
 </tr>
