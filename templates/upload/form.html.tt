@@ -16,7 +16,7 @@
             [% END %]
             <div style="margin-top: 15px">
                 <span class="label">Direct download link</span>
-                <a href="http://dl.wot-replays.org/[% filename |uri %]">http://dl.wot-replays.org/[% filename |uri %]</a>
+                <a href="/download/[% id %]">http://www.wot-replays.org/download/[% id %]</a>
             </div>
         [% END %]
         <div id="frm-upload-container" style="width: 600px; margin: 0px auto; padding: 25px" class="box" style="background: #e0e0e0 none repeat scroll 0 0">

@@ -2,10 +2,6 @@
 [% WRAPPER wrapper.html.tt %]
     <div class="content nosidebar">
         <h2 style="margin: 0px 0px 10px 0px">
-            <!--
-                game.bonus_type: [% replay.game.bonus_type %]
-                game.type      : [% replay.game.type %]
-            -->
             <a href="/player/[% replay.player.server |uri %]/[% replay.player.name |uri %]/">[% replay.player.name |html %]</a> - <a href="/vehicle/[% replay.player.vehicle.country  |uri %]/[% replay.player.vehicle.name |uri %]/">[% INCLUDE bricks/vehicles/name.html.tt vehiclename = replay.player.vehicle.full %]</a> - <a href="/map/[% wr.fix_map_id(replay.map.id) |uri %]/">[% INCLUDE bricks/maps/name.html.tt map = replay.map.id %]</a> ([% INCLUDE bricks/bonustype/name.html.tt bonustype = replay.game.bonus_type %] [% INCLUDE bricks/gametype/name.html.tt gametype = replay.game.type %])
 
             <div style="display: inline-block; float: right; position: relative; top: -4px; right: 0px">
@@ -23,7 +19,7 @@
                 <span title="[% IF replay.version == config.wot.version %]Current version[% ELSE %]Incompatible version[% END %]" style="font-size: 75%; position: relative; top: 2px; right: 10px; margin: 0px 0px 0px 10px; line-height: 20px; font-weight: normal; color: #[% IF replay.version == config.wot.version %]666[% ELSE %]e00[% END %]">[% replay.version %]</span>
                 
                 <a href="#" class="rateUp" rid="[% replay.id %]" title="Like this replay"><button class="rateUp"><span>like</span> (<span class="rateUpCount">-</span>)</button></a>
-                <a target="_new" href="http://dl.wot-replays.org/[% replay.file |uri%]" class="downloadButton [% IF replay.version != config.wot.version %]incompatible[% END %]"><button class="panelButton" id="btn-download">Download Replay (<span class="count">-</span>)</button></a>
+                <a target="_new" href="/download/[% replay.id %]" class="downloadButton [% IF replay.version != config.wot.version %]incompatible[% END %]"><button class="panelButton" id="btn-download">Download Replay (<span class="count">-</span>)</button></a>
             </div>
         </h2>
 

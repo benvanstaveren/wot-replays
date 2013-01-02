@@ -28,6 +28,8 @@ sub view {
 
     $self->redirect_to(sprintf('%s.html', $self->req->url)) unless(defined($format));
 
+    $self->render(json => $self->stash('req_replay')) and return if($format eq 'json');
+
     $self->stash('cachereplay' => 1);
 
     my $start = [ gettimeofday ];

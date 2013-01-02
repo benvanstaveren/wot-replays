@@ -29,7 +29,7 @@
                     [% IF !hide_view_button %]
                         <a title="View this replay" href="/replay/[% replay.id %].html" class="viewButton"><button class="panelButton view">[% IF replay.site.youtube %]<span class="icon youtube"></span>[% END %] View ([% replay.site.views || '0' %])</button></a>
                     [% END %]
-                    <a title="Download this replay" href="http://dl.wot-replays.org/[% replay.file |uri %]" class="downloadButton [% IF replay.version != config.wot.version %]incompatible[% END %]"><button class="panelButton download">Download (<span class="count">[% replay.site.downloads || '0' %]</span>)</button></a>
+                    <a title="Download this replay" href="/download/[% replay.id %]" class="downloadButton [% IF replay.version != config.wot.version %]incompatible[% END %]"><button class="panelButton download">Download (<span class="count">[% replay.site.downloads || '0' %]</span>)</button></a>
                     <span class="rateButtons">
                         <a href="#" class="rateUp" rid="[% replay.id %]" title="Like this replay"><button class="rateUp"><span>like</span> (<span class="rateUpCount">[% replay.site.like || '0' %]</span>)</button></a>
                     </span>
