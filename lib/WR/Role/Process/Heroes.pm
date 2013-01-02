@@ -16,7 +16,7 @@ around 'process' => sub {
     foreach my $vid (@{$res->{game}->{heroes}}) {
         $vid = $vid + 0;
         my $aId = $self->match_result->[0]->{achieveIndices}->[$offset];
-        push(@{$heroes->{$vid}}, $achievements->index_to_idstr($aId));
+        push(@{$heroes->{$vid}}, $aId);
         $offset++;
     }
 
