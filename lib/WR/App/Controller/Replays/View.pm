@@ -1,9 +1,9 @@
 package WR::App::Controller::Replays::View;
 use Mojo::Base 'WR::App::Controller';
-
 use boolean;
 use WR::Query;
 use Time::HiRes qw/gettimeofday tv_interval/;
+use JSON::XS;
 
 sub stats {
     my $self = shift;
@@ -28,7 +28,11 @@ sub view {
 
     $self->redirect_to(sprintf('%s.html', $self->req->url)) unless(defined($format));
 
-    $self->render(json => $self->stash('req_replay')) and return if($format eq 'json');
+    if($format eq 'json') {
+        my $j = JSON::XS->new()->pretty;
+        $self->render(text => $j->encode($self->stash('req_replay')));
+        return;
+    }
 
     $self->stash('cachereplay' => 1);
 
