@@ -55,7 +55,7 @@ sub view {
     $self->redirect_to(sprintf('%s.html', $self->req->url)) unless(defined($format));
 
     if($format eq 'json') {
-        my $j = JSON::XS->new()->pretty;
+        my $j = JSON::XS->new()->pretty->allow_blessed(1)->convert_blessed(1);
         $self->render(text => $j->encode($self->fuck_jsonxs($self->stash('req_replay'))));
         return;
     }
