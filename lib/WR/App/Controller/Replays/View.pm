@@ -21,6 +21,32 @@ sub incview {
     $self->render(json => { ok => 1 });
 }
 
+sub fuck_jsonxs {
+    my $self = shift;
+    my $obj = shift;
+
+    return $obj unless(ref($obj));
+
+    if(ref($obj) eq 'ARRAY') {
+        return [ map { $self->fuck_jsonxs($_) } @$obj ];
+    } elsif(ref($obj) eq 'HASH') {
+        foreach my $field (keys(%$obj)) {
+            next unless(ref($obj->{$field}));
+            if(ref($obj->{$field}) eq 'HASH') {
+                $obj->{$field} = $self->fuck_jsonxs($obj->{$field});
+            } elsif(ref($obj->{$field}) eq 'ARRAY') {
+                my $t = [];
+                push(@$t, $self->fuck_jsonxs($_)) for(@{$obj->{$field}});
+                $obj->{$field} = $t;
+            } elsif(boolean::isBoolean($obj->{$field})) {
+                $obj->{$field} = ($obj->{$field}) ? JSON::XS->true : JSON::XS->false;
+            }
+        }
+        return $obj;
+    }
+}
+
+
 sub view {
     my $self = shift;
     my $desc;
@@ -30,7 +56,7 @@ sub view {
 
     if($format eq 'json') {
         my $j = JSON::XS->new()->pretty;
-        $self->render(text => $j->encode($self->stash('req_replay')));
+        $self->render(text => $j->encode($self->fuck_jsonxs($self->stash('req_replay'))));
         return;
     }
 
