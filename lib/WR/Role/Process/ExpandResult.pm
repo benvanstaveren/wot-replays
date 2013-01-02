@@ -18,9 +18,9 @@ around 'process' => sub {
     # the pickle data
     my $vehicles = $res->{vehicles};
     my $teams    = [ [], [] ];
+    my $pid      = $res->{playerID} + 0;
 
     if($self->_parser->is_complete) {
-        my $pid      = $res->{playerID} + 0;
         my $pd       = ($self->_parser->is_complete) ? $self->pickledata->{vehicles} : {};
         foreach my $v (sort { $b->{frags} <=> $a->{frags} } (@$vehicles)) {
             my $pv = $pd->{$v->{id}};
