@@ -1,5 +1,8 @@
 <a name="rpl-teams"></a>
 <h3 style="margin: 25px 0px 10px 0px">Teams</h3>
+<!--
+    [% wr.dump(replay.statistics.details) %]
+-->
 <div class="box rpl-teamlist">
     <div class="replayTeamList" id="replayTeamOne">[% INCLUDE replay/view/team/list.html.tt players=replay.teams.0 %]</div>
     <div class="replayTeamList" id="replayTeamTwo">[% INCLUDE replay/view/team/list.html.tt players=replay.teams.1 %]</div>
