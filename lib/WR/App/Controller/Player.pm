@@ -1,6 +1,7 @@
 package WR::App::Controller::Player;
 use Mojo::Base 'WR::App::Controller';
 use WR::Query;
+use Tie::IxHash;
 use boolean;
 
 sub index {
@@ -22,16 +23,14 @@ sub ambi {
     my $mapf = 'function() { emit(this.player.server, 1); }';
     my $redf = 'function(keys, values) { var sum = 0; values.forEach(function(v) { sum += v }); return sum; }';
 
-    # we have a patched mongodb, so we can do this like so...
-    my $res = $self->db('wot-replays')->get_collection('replays')->map_reduce(
+    my $cmd = Tie::IxHash->new(
+        "mapreduce" => "replays",
         map => $mapf,
         reduce => $redf,
         query => { 'player.name' => $player },
         out => { inline => 1 }
-    );
-
+    my $res = $self->db('wot-replays')->run_command($cmd);
     my $servers = [];
-
     if($res->{ok} == 1) {
         foreach my $r (@{$res->{results}}) {
             push(@$servers, $r->{_id});
