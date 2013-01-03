@@ -12,7 +12,7 @@ sub check {
 
 sub sr {
     my $self = shift;
-    my $id = $self->req->param('id');
+    my $id = bless({ value => $self->req->param('id') }, 'MongoDB::OID');
 
     if(my $replay = $self->db('wot-replays')->get_collection('replays')->find_one({ _id => $id, 'site.uploaded_by' => $self->current_user->{_id} })) {
         $self->db('wot-replays')->get_collection('replays')->update({ _id => $id }, { '$set' => { 'site.visible' => true } });
@@ -24,7 +24,7 @@ sub sr {
 
 sub hr {
     my $self = shift;
-    my $id = $self->req->param('id');
+    my $id = bless({ value => $self->req->param('id') }, 'MongoDB::OID');
 
     if(my $replay = $self->db('wot-replays')->get_collection('replays')->find_one({ _id => $id, 'site.uploaded_by' => $self->current_user->{_id} })) {
         $self->db('wot-replays')->get_collection('replays')->update({ _id => $id }, { '$set' => { 'site.visible' => false } });

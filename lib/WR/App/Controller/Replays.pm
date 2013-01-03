@@ -42,7 +42,7 @@ sub desc {
     if($self->stash('req_replay')->{site}->{uploaded_by}->to_string eq $self->current_user->{_id}->to_string) {
         $self->db('wot-replays')->get_collection('replays')->update({ _id => $self->stash('req_replay')->{_id} }, { '$set' => { 'site.description' => $self->req->param('desc') }});
     }
-    $self->redirect_to(sprintf('/replay/%s/', $self->stash('req_replay')->{_id}));
+    $self->redirect_to(sprintf('/replay/%s.html', $self->stash('req_replay')->{_id}->to_string));
 }
 
 sub browse {
