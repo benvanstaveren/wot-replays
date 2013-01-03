@@ -60,27 +60,6 @@ sub view {
     my $server = $self->stash('server');
     my $player = $self->stash('player_name');
 
-    my $t_stats = $self->db('wot-replays')->get_collection('replays')->group({
-        initial => { 
-            kills => 0, 
-            damages => 0, 
-            spots => 0, 
-            c => 0, 
-            damagedone => 0,
-            vehicles => {},
-            maps => {},
-            },
-        key => { 'player.name' => 1 },
-        cond => {
-            'player.name' => $player,
-            'player.server' => $server,
-            'site.visible' => true,
-            'complete' => true,
-        },
-        reduce => q|function(obj, prev) { prev.kills += obj.player.statistics.killed.length; prev.damages += obj.player.statistics.damaged.length; prev.spots += obj.player.statistics.spotted.length; prev.c += 1; prev.damagedone += obj.player.statistics.damage.done; if(!prev.vehicles[obj.player.vehicle.full]) { prev.vehicles[obj.player.vehicle.full] = 1 } else { prev.vehicles[obj.player.vehicle.full] += 1; } if(!prev.maps[obj.map.id]) { prev.maps[obj.map.id] = 1 } else {  prev.maps[obj.map.id] += 1 } }|,
-        finalize => q|function(out) { out.damagedone_a = (out.damagedone > 0 && out.c > 0) ? out.damagedone/out.c : 0; out.kills_a = (out.kills > 0 && out.c > 0) ?out.kills / out.c : 0; out.damages_a = (out.damages > 0 && out.c > 0) ? out.damages / out.c : 0; out.spots_a = (out.spots > 0 && out.c > 0) ? out.spots / out.c : 0; return out; }|
-    })->{retval}->[0];
-
     $self->respond(
         template => ($inv) ? 'player/involved' : 'player/view',
         stash    => {
@@ -95,7 +74,7 @@ sub view {
                 'player.name' => { '$ne' => $player },
                 'site.visible' => true 
                 })->count(),
-            statistics => $t_stats,
+            statistics => {},
             page => {
                 title => sprintf('Players &raquo; %s', $player),
             },
