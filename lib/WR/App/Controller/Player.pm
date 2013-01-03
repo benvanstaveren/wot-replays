@@ -29,6 +29,7 @@ sub ambi {
         reduce => $redf,
         query => { 'player.name' => $player },
         out => { inline => 1 }
+    );
     my $res = $self->db('wot-replays')->run_command($cmd);
     my $servers = [];
     if($res->{ok} == 1) {
