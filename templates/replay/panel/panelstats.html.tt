@@ -27,14 +27,14 @@
 
                     </div>
                     <div class="panelstatsicons">
-                        <div>
+                        <div title="Enemies spotted">
                             <span title="Enemies spotted" class="panelspotted"></span><span>[% replay.statistics.spotted || '0' %]</span>
                         </div>
-                        <div>
+                        <div title="Enemies damaged">
                             <span title="Enemies damaged" class="paneldamaged"></span><span>[% replay.statistics.damaged || '0' %]</span>
                         </div>
-                        <div>
+                        <div title="Kills">
                             <span title="Kills" class="panelkilled"></span><span>[% replay.statistics.kills || '0' %]</span>
                         </div>
-                        <div class="clear"></div>
+                        <div class="clear" style="clear: both"></div>
                     </div>
