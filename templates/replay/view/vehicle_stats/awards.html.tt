@@ -2,7 +2,7 @@
             <span class="label">Awards</span>
             <div class="heroawardlist">
                 [% FOREACH award IN replay.statistics.achievements.nsort %]
-                    <span>[% wr.res.achievements.i18n(wr.res.achievements.index_to_idstr(award)) %]</span>
+                    <img src="//images.wot-replays.org/icon/awards/32/[% wr.res.achievements.index_to_idstr(award) %].png" style="height: 32px; width: 30px" alt="[% wr.res.achievements.i18n(wr.res.achievements.index_to_idstr(award)) |html %]" title="[% wr.res.achievements.i18n(wr.res.achievements.index_to_idstr(award)) |html %]"/>
                     [% awards = awards + 1 %]
                 [% END %]
                 [% IF replay.player.mastery > 0 %]
