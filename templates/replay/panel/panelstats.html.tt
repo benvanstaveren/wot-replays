@@ -30,7 +30,7 @@
                         <span class="panelspotted"></span><span>[% replay.statistics.spotted || '0' %]</span>
                         <span class="paneldamaged"></span><span>[% replay.statistics.damaged || '0' %]</span>
                         <span class="panelkilled"></span><span>[% replay.statistics.kills || '0' %]</span>
-                    <div>
+                    </div>
                     <!--
                         <span class="label fw">spotted:</span><span class="value fw">
                             [% IF replay.complete == 1 %][% replay.statistics.spotted || '0' %][% ELSE %]-[% END %]
