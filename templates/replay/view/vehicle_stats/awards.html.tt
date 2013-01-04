@@ -7,7 +7,7 @@
                 [% END %]
                 [% IF replay.player.mastery > 0 %]
                     [% ms = 'master' _ replay.player.mastery %]
-                    <img src="//images.wot-replays.org/icon/awards/32/markOfMastery[% replay.player.mastery].png" style="width: 30px; height: 32px" alt="[% wr.res.achievements.i18n(ms) |html %]" title="[% wr.res.achievements.i18n(ms) |html %]"/>
+                    <img src="//images.wot-replays.org/icon/awards/32/markOfMastery[% replay.player.mastery %].png" style="width: 30px; height: 32px" alt="[% wr.res.achievements.i18n(ms) |html %]" title="[% wr.res.achievements.i18n(ms) |html %]"/>
                     [% awards = 1 %]
                 [% END %]
                 [% IF awards < 1 %]
