@@ -37,7 +37,7 @@
                             <span title="Kills" class="panelkilled"></span><span>[% replay.statistics.kills || '0' %]</span>
                         </div>
                         <div title="XP Earned" class="item">
-                            <span class="panelxp"></span><span>[% replay.statistics.xp || '0' %]</span>
+                            <span class="panelxp"></span><span>[% replay.statistics.xp || '0' %] [% IF replay.statistics.dailyXPFactor10 > 10 %](x[% replay.statistics.dailyXPFactor10/10 %])</span>
                         </div>
                         <div title="Credits Earned" class="item">
                             <span class="panelcredits"></span><span>[% replay.statistics.credits || '0' %]</span>
