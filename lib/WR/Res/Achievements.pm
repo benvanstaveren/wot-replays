@@ -32,9 +32,7 @@ has 'achievements' => (is => 'ro', isa => 'HashRef', default => sub {
         72  =>  'evileye',
 
         # epics
-
-
-
+        73  =>  'medalRadleyWalters',
     },
 });
 
