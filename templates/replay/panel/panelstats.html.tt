@@ -33,4 +33,5 @@
                     <div>
                         <span class="label fw">xp:</span><span class="value fw">[% replay.statistics.xp || '0' %]</span>
                         <span class="label fw">credits:</span><span class="value fw">[% replay.statistics.credits || '0' %]</span>
+                        <span class="label fw">version:</span><span class="value fw" title="[% IF replay.version == config.wot.version %]Current version[% ELSE %]Incompatible version[% END %]" style="color: #6[% IF replay.version == config.wot.version %]66[% ELSE %]00[% END %]">[% replay.version %]</span>
                     </div>
