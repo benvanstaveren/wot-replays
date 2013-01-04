@@ -2,6 +2,7 @@
     <div class="columncontainer sw">
         <div class="column col1">
             [% INCLUDE replay/panel/vehiclemap.html.tt %]
+            <a class="panelplayer [% IF replay.statistics.isPremium > 0 %]premium[% END %]" href="/player/[% replay.player.server %]/[% replay.player.name |uri %]/" title="[% replay.player.name |html %]">[% replay.player.name |truncate(15) |html %]</a>
         </div>
         <div class="column col2" style="margin-top: -3px">
             <div>
