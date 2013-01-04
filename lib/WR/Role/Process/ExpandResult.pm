@@ -19,20 +19,22 @@ around 'process' => sub {
     my $vehicles = $res->{vehicles};
     my $teams    = [ [], [] ];
     my $pid      = $res->{playerID} + 0;
+    my $vehicle_hash = {};
 
     if($self->_parser->is_complete) {
         my $pd       = ($self->_parser->is_complete) ? $self->pickledata->{vehicles} : {};
         foreach my $v (sort { $b->{frags} <=> $a->{frags} } (@$vehicles)) {
             my $pv = $pd->{$v->{id}};
-            $v->{team} = $pv->{team};
+            if($self->_parser->is_complete) {
+                foreach my $k (keys(%$pv)) {
+                    $v->{$k} = $pv->{$k};
+                }
+            } else {
+                $v->{team} = -1;
+            }
             push(@{$teams->[ $v->{team} - 1 ]}, $v->{id});
+            $vehicle_hash->{$v->{id}} = $v;
         }
-    }
-
-    my $vehicle_hash = {};
-
-    foreach my $v (@$vehicles) {
-        $vehicle_hash->{delete($v->{id})} = $v;
     }
 
     my $data = {

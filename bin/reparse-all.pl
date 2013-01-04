@@ -16,37 +16,31 @@ use constant WOT_BF_KEY     => join('', map { chr(hex($_)) } (split(/\s/, WOT_BF
 
 my $mongo  = MongoDB::Connection->new();
 my $db     = $mongo->get_database('wot-replays');
-my $gfs    = $db->get_gridfs;
 my $rc     = $db->get_collection('replays')->find()->sort({ 'site.uploaded_at' => -1 });
 
 $db->get_collection('track.mastery')->drop(); # drop that
 
 while(my $r = $rc->next()) {
-    if(my $file = $gfs->find_one({ replay_id => $r->{_id} })) {
-        print $r->{_id}, ': ';
-        my $process;
-        my $m;
-        my $e;
+    my $process;
+    my $m;
+    my $e;
+    my $f = sprintf('/home/ben/projects/wot-replays/data/replays/%s', $r->{file});
 
-        try {
-            $process = WR::Process->new(data => $file->slurp, db => $db, bf_key => WOT_BF_KEY);
-            $m = $process->process();
-        } catch {
-            $e = $_;
-        };
+    print $r->{file};
 
-        unless($e) {
-            $m->{file} = $file->info->{_id};
-            $m->{site} = $r->{site}; # copy that over
-            unless(defined($m->{site}->{uploaded_at})) {
-                $m->{site}->{uploaded_at} = $file->info->{_id}->get_time();
-            }
-            $db->get_collection('replays')->save($m);
-            print ': OK', "\n";
-        } else {
-            print ': ERROR: ', $e, "\n";
-        }
+    try {
+        $process = WR::Process->new(file => $f, db => $db, bf_key => WOT_BF_KEY);
+        $m = $process->process();
+    } catch {
+        $e = $_;
+    };
+
+    unless($e) {
+        $m->{site} = $r->{site}; # copy that over
+        $m->{_id}  = $r->{_id}; 
+        $db->get_collection('replays')->save($m);
+        print ': OK', "\n";
     } else {
-        print $r->{_id}, ': NOT FOUND', "\n";
+        print ': ERROR: ', $e, "\n";
     }
 }

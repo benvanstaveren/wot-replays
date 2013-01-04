@@ -2,23 +2,7 @@
 <table style="margin: 5px 4px 0px; width: 100%" cellspacing="0" cellpadding="0">
 <tbody>
     <tr>
-        <td style="width: 33%; vertical-align: top">
-            <span class="label">Match result</span>
-            <div style="margin-right: 5px">
-            [% IF replay.complete %]
-                [% INCLUDE replay/view/matchresult.html.tt %]
-            [% ELSE %]
-                <span>unknown</span>
-            [% END %]
-            </div>
-        </td>
-        <td style="width: 33%; vertical-align: top">
-            <span class="label">Survived</span>
-            <span>
-                [% INCLUDE replay/view/vehicle_stats/survived.html.tt %]
-            </span>
-        </td>
-        <td style="width: 33%; vertical-align: top">
+        <td style="vertical-align: top">
             [% INCLUDE replay/view/vehicle_stats/awards.html.tt %]
         </td>
     </tr>

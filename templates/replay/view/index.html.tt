@@ -1,77 +1,54 @@
 [% WRAPPER wrapper.html.tt %]
     <div class="content nosidebar">
-        <h2 style="margin: 0px 0px 10px 0px">
-            <a href="/player/[% replay.player.server |uri %]/[% replay.player.name |uri %]/">[% replay.player.name |html %]</a> - <a href="/vehicle/[% replay.player.vehicle.country  |uri %]/[% replay.player.vehicle.name |uri %]/">[% INCLUDE bricks/vehicles/name.html.tt vehiclename = replay.player.vehicle.full %]</a> - <a href="/map/[% replay.map.slug |uri %]/">[% INCLUDE bricks/maps/name.html.tt map = replay.map.id %]</a> ([% INCLUDE bricks/bonustype/name.html.tt bonustype = replay.game.bonus_type %] [% INCLUDE bricks/gametype/name.html.tt gametype = replay.game.type %])
-
-            <div style="display: inline-block; float: right; position: relative; top: -4px; right: 0px">
-
-            [% IF wr.is_user_authenticated() && wr.is_own_replay() %]
-                [% IF replay.site.visible %]
-                    <a href="#" class="hide-replay" rid="[% replay.id %]"><button class="panelButton">Hide</button></a>
-                    <a style="display: none" href="#" class="show-replay" rid="[% replay.id %]"><button class="panelButton">Publish</button></a>
-                [% ELSE %]
-                    <a href="#" class="show-replay" rid="[% replay.id %]"><button class="panelButton">Publish</button></a>
-                    <a href="#" style="display: none" class="hide-replay" rid="[% replay.id %]"><button class="panelButton">Hide</button></a>
-                [% END %]
-            [% END %]
-
-                <span title="[% IF replay.version == config.wot.version %]Current version[% ELSE %]Incompatible version[% END %]" style="font-size: 75%; position: relative; top: 2px; right: 10px; margin: 0px 0px 0px 10px; line-height: 20px; font-weight: normal; color: #[% IF replay.version == config.wot.version %]666[% ELSE %]e00[% END %]">[% replay.version %]</span>
-                
-                <a href="#" class="rateUp" rid="[% replay.id %]" title="Like this replay"><button class="rateUp"><span>Like</span> (<span class="rateUpCount">-</span>)</button></a>
-                <a target="_new" href="/download/[% replay.id %]" class="downloadButton [% IF replay.version != config.wot.version %]incompatible[% END %]"><button class="panelButton" style="width: 150px" id="btn-download">Download Replay (<span class="count">-</span>)</button></a>
+        <div class="box ui-corner-all" style="padding: 5px; background: rgba(0,0,0,0.2) none repeat scroll 0 0; margin: 0px 0px 10px 0px">
+            <div style="margin: 0px 0px 10px 0px">
+                <div style="width: 231px; float: left; margin: 0px 5px 0px 0px">
+                    [% INCLUDE replay/panel/vehiclemap.html.tt %]
+                </div>
+                <div style="float: left">
+                    <h2 style="margin: 0px 0px 0px 0px">
+                        <a href="/player/[% replay.player.server |uri %]/[% replay.player.name |uri %]/">[% replay.player.name |html %]</a> - <a href="/vehicle/[% replay.player.vehicle.country  |uri %]/[% replay.player.vehicle.name |uri %]/">[% INCLUDE bricks/vehicles/name.html.tt vehiclename = replay.player.vehicle.full %]</a> - <a href="/map/[% replay.map.slug |uri %]/">[% INCLUDE bricks/maps/name.html.tt map = replay.map.id %]</a> ([% INCLUDE bricks/bonustype/name.html.tt bonustype = replay.game.bonus_type %] [% INCLUDE bricks/gametype/name.html.tt gametype = replay.game.type %])
+                    </h2>
+                    <h3 style="margin: 0px 0px 5px 0px">
+                        <span style="font-weight: normal">Result:</span><span> [% IF replay.complete %][% INCLUDE replay/view/matchresult.html.tt %][% ELSE %]<span>unknown</span>[% END %]</span> <span style="margin: 0px 0px 0px 10px; font-weight: normal">Survived:</span><span> [% INCLUDE replay/view/vehicle_stats/survived.html.tt %]</span>
+                    </h3>
+                    <div>
+                        [% IF wr.is_user_authenticated() && wr.is_own_replay() %]
+                            [% IF replay.site.visible %]
+                                <a href="#" class="hide-replay" rid="[% replay.id %]"><button class="panelButton">Hide</button></a>
+                                <a style="display: none" href="#" class="show-replay" rid="[% replay.id %]"><button class="panelButton">Publish</button></a>
+                            [% ELSE %]
+                                <a href="#" class="show-replay" rid="[% replay.id %]"><button class="panelButton">Publish</button></a>
+                                <a href="#" style="display: none" class="hide-replay" rid="[% replay.id %]"><button class="panelButton">Hide</button></a>
+                            [% END %]
+                    [% END %]
+                            <a href="#" class="rateUp" rid="[% replay.id %]" title="Like this replay"><button class="rateUp"><span>Like</span> (<span class="rateUpCount">-</span>)</button></a>
+                            <a target="_new" href="/download/[% replay.id %]" class="downloadButton [% IF replay.version != config.wot.version %]incompatible[% END %]"><button class="panelButton" style="width: 150px" id="btn-download">Download Replay (<span class="count">-</span>)</button></a>
+                    </div>
+                </div>
+                <div class="clear"></div>
             </div>
-        </h2>
-
-        [% IF wr.is_user_authenticated() && wr.is_own_replay() %]
-<script type="text/javascript">
-    $('a.hide-replay').click(function() {
-        var id = $(this).attr('rid');
-        $.getJSON('/profile/hr', { id: id }, function(d) {
-            if(d.ok == 1) {
-                $('a.hide-replay').hide();
-                $('a.show-replay').show();
-            } else {
-                alert(d.error);
-            }
-        });
-        return false;
-    });
-    $('a.show-replay').click(function() {
-        var id = $(this).attr('rid');
-        $.getJSON('/profile/sr', { id: id }, function(d) {
-            if(d.ok == 1) {
-                $('a.hide-replay').show();
-                $('a.show-replay').hide();
-            } else {
-                alert(d.error);
-            }
-        });
-        return false;
-    });
-</script>
-        [% END %]
-
-        <div class="box" style="padding: 5px; background: rgba(0,0,0,0.2) none repeat scroll 0 0">
             <table style="width: 100%" cellspacing="0" cellpadding="0">
             <tbody>
                 <tr>
-                    <td style="vertical-align: top; width: 166px">
-                        [% INCLUDE replay/view/vehicleicon.html.tt %]
-                        <div style="margin-top: 5px; padding: 10px">
-                            <span class="label small">Jump</span>
-                            [% IF replay.complete %]<a href="#rpl-teams">Teams</a><br/>[% END %]
-                        </div>
-                    </td>
                     <td style="vertical-align: top">
                         <div id="replay-view-content" class="ui-corner-all">
                             <div class="replay-tabs">
                                 <ul>
                                     <li><a class="ui-corner-bottom active" href="#vehicle-stats">Statistics</a></li>
+                                    [% IF replay.complete %]
+                                    <li><a class="ui-corner-bottom" href="#teams">Teams</a></li>
+                                    [% END %]
                                 </ul>
                             </div>
                             <div id="vehicle-stats" class="viewcontent">
                                 [% INCLUDE replay/view/vehicle_stats.html.tt %]
                             </div>
+                            [% IF replay.complete %]
+                                <div id="teams" class="viewcontent" style="display: none">
+                                    [% INCLUDE replay/view/teams.html.tt %]
+                                </div>
+                            [% END %]
                         </div>
                     </td>
                 </tr>
@@ -95,8 +72,34 @@
                 $.getJSON('/replay/[% replay.id %]/incview', {}, function(d, t, x) {});
             });
         </script>
-        [% IF replay.complete %]
-            [% INCLUDE replay/view/teams.html.tt %]
-       [% END %]
     </div>
+    [% IF wr.is_user_authenticated() && wr.is_own_replay() %]
+        <script type="text/javascript">
+            $('a.hide-replay').click(function() {
+                var id = $(this).attr('rid');
+                $.getJSON('/profile/hr', { id: id }, function(d) {
+                    if(d.ok == 1) {
+                        $('a.hide-replay').hide();
+                        $('a.show-replay').show();
+                    } else {
+                        alert(d.error);
+                    }
+                });
+                return false;
+            });
+            $('a.show-replay').click(function() {
+                var id = $(this).attr('rid');
+                $.getJSON('/profile/sr', { id: id }, function(d) {
+                    if(d.ok == 1) {
+                        $('a.hide-replay').show();
+                        $('a.show-replay').hide();
+                    } else {
+                        alert(d.error);
+                    }
+                });
+                return false;
+            });
+        </script>
+    [% END %]
 [% END %]
+
