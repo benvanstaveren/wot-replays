@@ -27,9 +27,20 @@
 
                     </div>
                     <div class="panelstats">
-                        <span class="panelspotted"></span><span>[% replay.statistics.spotted || '0' %]</span>
-                        <span class="paneldamaged"></span><span>[% replay.statistics.damaged || '0' %]</span>
-                        <span class="panelkilled"></span><span>[% replay.statistics.kills || '0' %]</span>
+                        <div>
+                            <span title="Enemies spotted" class="panelspotted"></span><span>[% replay.statistics.spotted || '0' %]</span>
+                        </div>
+                        <div>
+                            <span title="Enemies damaged" class="paneldamaged"></span><span>[% replay.statistics.damaged || '0' %]</span>
+                        </div>
+                        <div>
+                            <span title="Kills" class="panelkilled"></span><span>[% replay.statistics.kills || '0' %]</span>
+                        </div>
+                        <div>
+                        </div>
+                        <div>
+                        </div>
+                        <div class="clear"></div>
                     </div>
                     <!--
                         <span class="label fw">spotted:</span><span class="value fw">
