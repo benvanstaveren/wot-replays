@@ -68,6 +68,8 @@
                 $.getJSON('/replay/[% replay.id %]/stats', {}, function(d, t, x) {
                     $('span.rateUpCount').html(d.likes || '0');
                     $('span.count').html(d.downloads || '0');
+                    $('span.replayviewcount').html(d.views || '0');
+                    $('span.replayviewcount').attr('title', 'This replay has been viewed ' + d.views + ' times');
                 });
                 $.getJSON('/replay/[% replay.id %]/incview', {}, function(d, t, x) {});
             });
