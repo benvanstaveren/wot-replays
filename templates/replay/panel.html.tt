@@ -1,3 +1,6 @@
+[% IF !hide_view_button %]
+<a href="/replay/[% replay.id %].html">
+[% END %]
 <div class="replayPanel [% IF replay.version != config.wot.version %]incompatibleVersion[% END %] box noborder" title="[% replay.site.description |html %]">
     <div class="columncontainer sw">
         <div class="column col1">
@@ -13,12 +16,9 @@
                         [% INCLUDE replay/panel/panelstats.html.tt %]
                     </div>
                     <div class="panelButtons">
-                        [% IF !hide_view_button %]
-                            <a title="View this replay" href="/replay/[% replay.id %].html" class="viewButton"><button class="panelButton view">View ([% replay.site.views || '0' %])</button></a>
-                        [% END %]
                         <a title="Download this replay" href="/download/[% replay.id %]" class="downloadButton [% IF replay.version != config.wot.version %]incompatible[% END %]"><button class="panelButton download">Save (<span class="count">[% replay.site.downloads || '0' %]</span>)</button></a>
                         <span class="rateButtons">
-                            <a href="#" class="rateUp" style="width: 75px" rid="[% replay.id %]" title="Like this replay"><button class="rateUp"><span>like</span> (<span class="rateUpCount">[% replay.site.like || '0' %]</span>)</button></a>
+                            <a href="#" class="rateUp" rid="[% replay.id %]" title="Like this replay"><button style="width: 75px" class="rateUp"><span>like</span> (<span class="rateUpCount">[% replay.site.like || '0' %]</span>)</button></a>
                         </span>
                     </div>
                 </div>
@@ -27,3 +27,6 @@
         <div class="clear"></div>
     </div>
 </div>
+[% IF !hide_view_button %]
+</a>
+[% END %]
