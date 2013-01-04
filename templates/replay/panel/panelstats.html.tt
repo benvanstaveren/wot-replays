@@ -26,7 +26,7 @@
                         <span class="label fw">complete:</span><span class="value fw">[% IF replay.complete == 1 %]<span class="green">yes</span>[% ELSE %]<span class="red">no</span>[% END %]</span>
 
                     </div>
-                    <div class="panelstatsicons">
+                    <div class="panelstatsicons" style="margin: 3px 0px 0px 0px">
                         <div title="Enemies spotted" class="item">
                             <span title="Enemies spotted" class="panelspotted"></span><span>[% replay.statistics.spotted || '0' %]</span>
                         </div>
