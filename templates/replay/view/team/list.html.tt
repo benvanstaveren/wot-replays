@@ -1,6 +1,6 @@
 <table style="width: 100%" cellspacing="0" cellpadding="0">
 <tbody>
-[% FOREACH playerid IN players.sort('frags').reverse %]
+[% FOREACH playerid IN players %]
     [% player = replay.vehicles.$playerid %]
     [% player.id = playerid %]
     [% INCLUDE replay/view/team/row.html.tt %]

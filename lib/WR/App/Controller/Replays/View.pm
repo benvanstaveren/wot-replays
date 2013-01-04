@@ -66,34 +66,6 @@ sub view {
 
     my $replay = $self->stash('req_replay');
     my $r = { %$replay };
-    if($replay->{complete}) {
-        # loop across the enemy team (team 1)
-        no warnings;
-        foreach my $id (@{$replay->{teams}->[1]}) {
-            $r->{sdk}->{s}->{$id} = (defined({ map { $_ => 1 } (@{$replay->{player}->{statistics}->{spotted}}) }->{$id})) ? 1 : 0;
-            $r->{sdk}->{d}->{$id} = (defined({ map { $_ => 1 } (@{$replay->{player}->{statistics}->{damaged}}) }->{$id})) ? 1 : 0;
-            $r->{sdk}->{k}->{$id} = (defined({ map { $_ => 1 } (@{$replay->{player}->{statistics}->{killed}}) }->{$id})) ? 1 : 0;
-        }
-
-        # get our own team
-        foreach my $id (@{$replay->{teams}->[0]}) {
-            $r->{tk}->{td}->{$id} = (defined($replay->{player}->{statistics}->{teamkill}->{hash}->{$id})) ? 1 : 0;
-            my $e = $replay->{player}->{statistics}->{teamkill}->{hash}->{$id};
-            $r->{tk}->{k}->{$id} = (defined($e) && $e->{isKill} > 0) ? 1 : 0;
-
-            $r->{tk}->{means}->{$id} = (defined($e)) 
-                ? ($e->{means} == 3)
-                    ? 'shooting'
-                    : ($e->{means} == 1)
-                        ? 'ramming'
-                        : ($e->{means} == 4)
-                            ? 'shooting, ramming'
-                            : 'unknown'
-                :   'unknown';
-            
-        }
-        use warnings;
-    }
 
     my $title = sprintf('%s - %s - %s (%s), %s',
         $r->{player}->{name},
@@ -107,11 +79,11 @@ sub view {
                 : 'Defeat');
     if($r->{complete}) {
         $title .= sprintf(', earned %d xp%s, %d credits',
-            $r->{player}->{statistics}->{earned}->{xp},
-            ($r->{player}->{statistics}->{earned}->{factor} > 1) 
-                ? sprintf(' (x%d)', $r->{player}->{statistics}->{earned}->{factor})
+            $r->{statistics}->{xp},
+            ($r->{statistics}->{dailyXPFactor10} > 10) 
+                ? sprintf(' (x%d)', $r->{statistics}->{dailyXPFactor10}/10)
                 : '',
-            $r->{player}->{statistics}->{earned}->{credits});
+            $r->{statistics}->{credits});
     }
 
     my $description = sprintf('This is a replay of a %s match fought by %s, using the %s vehicle, on map %s', 
@@ -127,7 +99,7 @@ sub view {
     foreach my $tid (0..1) {
         my $list = {};
         foreach my $player (@{$r->{teams}->[$tid]}) {
-            my $frags = $r->{vehicles_hash}->{$player}->{frags} || 0;
+            my $frags = $r->{vehicles}->{$player}->{frags} || 0;
             $list->{$player} = $frags;
         }
 
@@ -136,19 +108,12 @@ sub view {
         }
     }
 
-    $r->{teams} = $frag_sorted_teams;
+    my $playerteam = $r->{player}->{team} - 1;
 
-    if(my $yt = $r->{site}->{youtube}) {
-        if($yt =~ /^http/) {
-            my $u = Mojo::URL->new($r->{site}->{youtube});
-            if($u->host eq 'youtu.be') {
-                $r->{site}->{youtube} = $u->path;
-            } elsif($u->host eq 'www.youtube.com' ) {
-                $r->{site}->{youtube} = $u->query->param('v');
-            }
-        } else {
-            warn 'already id', "\n";
-        }
+    if($playerteam == 0) {
+        $r->{teams} = [ $frag_sorted_teams->[0], $frag_sorted_teams->[1] ];
+    } else {
+        $r->{teams} = [ $frag_sorted_teams->[1], $frag_sorted_teams->[0] ];
     }
 
     $self->stash('timing_view' => tv_interval($start, [ gettimeofday ]));
