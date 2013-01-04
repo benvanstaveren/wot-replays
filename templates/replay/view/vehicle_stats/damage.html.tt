@@ -6,6 +6,8 @@
                 </td>
                 <td>
                     <span class="label small">Received</span>
-                    <span class="red">[% replay.statistics.damageReceived || '0' %]</span>
+                    [% totalhealth = replay.statistics.health + replay.statistics.damageReceived %]
+                    [% damageperc  = wr.percentage_of(totalhealth, replay.statistics.damageReceived) %]
+                    <span class="red">[% replay.statistics.damageReceived || '0' %] ([% damageperc %]%)</span>
                 </td>
             </tr></tbody></table>

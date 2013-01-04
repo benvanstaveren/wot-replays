@@ -19,6 +19,7 @@ has 'epics' => (is => 'ro', isa => 'HashRef', default => sub {
 
 has 'achievements' => (is => 'ro', isa => 'HashRef', default => sub {
     {   
+        # old achievements
         34  =>  'warrior', 
         35  =>  'invader',
         36  =>  'sniper',
@@ -26,7 +27,14 @@ has 'achievements' => (is => 'ro', isa => 'HashRef', default => sub {
         38  =>  'steelwall',
         39  =>  'supporter',
         40  =>  'scout',
+
+
         72  =>  'evileye',
+
+        # epics
+
+
+
     },
 });
 
