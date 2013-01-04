@@ -36,7 +36,7 @@ sub index_to_epic_idstr {
 
 sub index_to_idstr {
     my $self = shift;
-    my $idx  = shift;
+    my $idx  = shift + 0;
 
     return $self->achievements->{$idx};
 }
