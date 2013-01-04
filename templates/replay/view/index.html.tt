@@ -17,8 +17,8 @@
 
                 <span title="[% IF replay.version == config.wot.version %]Current version[% ELSE %]Incompatible version[% END %]" style="font-size: 75%; position: relative; top: 2px; right: 10px; margin: 0px 0px 0px 10px; line-height: 20px; font-weight: normal; color: #[% IF replay.version == config.wot.version %]666[% ELSE %]e00[% END %]">[% replay.version %]</span>
                 
-                <a href="#" class="rateUp" rid="[% replay.id %]" title="Like this replay"><button class="rateUp"><span>like</span> (<span class="rateUpCount">-</span>)</button></a>
-                <a target="_new" href="/download/[% replay.id %]" class="downloadButton [% IF replay.version != config.wot.version %]incompatible[% END %]"><button class="panelButton" id="btn-download">Download Replay (<span class="count">-</span>)</button></a>
+                <a href="#" class="rateUp" rid="[% replay.id %]" title="Like this replay"><button class="rateUp"><span>Like</span> (<span class="rateUpCount">-</span>)</button></a>
+                <a target="_new" href="/download/[% replay.id %]" class="downloadButton [% IF replay.version != config.wot.version %]incompatible[% END %]"><button class="panelButton" style="width: 150px" id="btn-download">Download Replay (<span class="count">-</span>)</button></a>
             </div>
         </h2>
 
