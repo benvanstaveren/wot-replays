@@ -25,8 +25,6 @@ has 'achievements' => (is => 'ro', isa => 'HashRef', default => sub {
     },
 });
 
-
-
 sub index_to_epic_idstr {
     my $self = shift;
     my $idx  = shift;
@@ -36,7 +34,9 @@ sub index_to_epic_idstr {
 
 sub index_to_idstr {
     my $self = shift;
-    my $idx  = shift + 0;
+    my $idx  = shift;
+    
+    $idx += 0;
 
     return $self->achievements->{$idx};
 }
