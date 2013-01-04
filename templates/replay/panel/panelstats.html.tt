@@ -26,7 +26,7 @@
                         <span class="label fw">complete:</span><span class="value fw">[% IF replay.complete == 1 %]<span class="green">yes</span>[% ELSE %]<span class="red">no</span>[% END %]</span>
 
                     </div>
-                    <div>
+                    <div class="panelstats">
                         <span class="panelspotted"></span><span>[% replay.statistics.spotted || '0' %]</span>
                         <span class="paneldamaged"></span><span>[% replay.statistics.damaged || '0' %]</span>
                         <span class="panelkilled"></span><span>[% replay.statistics.kills || '0' %]</span>
