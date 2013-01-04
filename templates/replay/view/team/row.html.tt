@@ -21,7 +21,9 @@
             [% h = v.health + v.damageReceived %]
             [% hp = wr.percentage_of(h, v.health) %]
             [% bs = wr.sprintf('%d', (74 / 100) * hp) %]
+            [% IF bs < 1 %][% bs = 1 %][% END %]
             <div class="health" style="width: [% bs %]px"></div>
+            <div class="healthnumbers">[% v.health %]/[% h %]</div>
         </div>
     </td>
     <td class="playerName">
