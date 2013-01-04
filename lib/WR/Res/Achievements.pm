@@ -38,7 +38,7 @@ sub index_to_idstr {
     
     $idx += 0;
 
-    return $self->achievements->{$idx};
+    return (defined($self->achievements->{$idx})) ? $self->achievements->{$idx} : $idx;
 }
 
 __PACKAGE__->meta->make_immutable;

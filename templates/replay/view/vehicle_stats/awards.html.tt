@@ -2,7 +2,7 @@
             <span class="label">Awards</span>
             <div class="heroawardlist">
                 [% FOREACH award IN replay.statistics.achievements %]
-                    <span>[% wr.res.achievements.index_to_idstr(award) %] [% wr.res.achievements.i18n(wr.res.achievements.index_to_idstr(award)) %]</span>
+                    <span>[% wr.res.achievements.i18n(wr.res.achievements.index_to_idstr(award)) %]</span>
                     [% awards = awards + 1 %]
                 [% END %]
                 [% IF replay.player.mastery > 0 %]
