@@ -26,7 +26,7 @@
                         <span class="label fw">complete:</span><span class="value fw">[% IF replay.complete == 1 %]<span class="green">yes</span>[% ELSE %]<span class="red">no</span>[% END %]</span>
 
                     </div>
-                    <div class="panelstats">
+                    <div class="panelstatsicons">
                         <div>
                             <span title="Enemies spotted" class="panelspotted"></span><span>[% replay.statistics.spotted || '0' %]</span>
                         </div>
@@ -36,20 +36,5 @@
                         <div>
                             <span title="Kills" class="panelkilled"></span><span>[% replay.statistics.kills || '0' %]</span>
                         </div>
-                        <div>
-                        </div>
-                        <div>
-                        </div>
                         <div class="clear"></div>
                     </div>
-                    <!--
-                        <span class="label fw">spotted:</span><span class="value fw">
-                            [% IF replay.complete == 1 %][% replay.statistics.spotted || '0' %][% ELSE %]-[% END %]
-                        </span>
-                        <span class="label fw">damaged:</span><span class="value fw">
-                            [% IF replay.complete == 1 %][% replay.statistics.damaged || '0' %][% ELSE %]-[% END %]
-                        </span>
-                        <span class="label fw">killed:</span><span class="value fw">
-                            [% IF replay.complete == 1 %][% replay.statistics.kills || '0' %][% ELSE %]-[% END %]
-                        </span>
-                    -->
