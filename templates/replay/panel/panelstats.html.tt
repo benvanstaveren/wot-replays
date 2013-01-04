@@ -27,19 +27,19 @@
 
                     </div>
                     <div class="panelstatsicons" style="margin: 3px 0px 0px 0px">
-                        <div title="Enemies spotted" class="item">
+                        <div title="Enemies spotted" class="item tooltip">
                             <span title="Enemies spotted" class="panelspotted"></span><span>[% replay.statistics.spotted || '0' %]</span>
                         </div>
-                        <div title="Enemies damaged" class="item">
+                        <div title="Enemies damaged" class="item tooltip">
                             <span title="Enemies damaged" class="paneldamaged"></span><span>[% replay.statistics.damaged || '0' %]</span>
                         </div>
-                        <div title="Kills" class="item">
+                        <div title="Kills" class="item tooltip">
                             <span title="Kills" class="panelkilled"></span><span>[% replay.statistics.kills || '0' %]</span>
                         </div>
-                        <div title="XP Earned" class="item">
+                        <div title="XP Earned" class="item tooltip">
                             <span class="panelxp"></span><span>[% replay.statistics.xp || '0' %] [% IF replay.statistics.dailyXPFactor10 > 10 %](x[% replay.statistics.dailyXPFactor10/10 %])</span>
                         </div>
-                        <div title="Credits Earned" class="item">
+                        <div title="Credits Earned" class="item tooltip">
                             <span class="panelcredits"></span><span>[% replay.statistics.credits || '0' %]</span>
                         </div>
                         <div class="clear" style="clear: both"></div>
