@@ -36,5 +36,11 @@
                         <div title="Kills" class="item">
                             <span title="Kills" class="panelkilled"></span><span>[% replay.statistics.kills || '0' %]</span>
                         </div>
+                        <div title="XP Earned" class="item">
+                            <span class="panelxp"></span><span>[% replay.statistics.xp || '0' %]</span>
+                        </div>
+                        <div title="Credits Earned" class="item">
+                            <span class="panelcredits"></span><span>[% replay.statistics.credits || '0' %]</span>
+                        </div>
                         <div class="clear" style="clear: both"></div>
                     </div>
