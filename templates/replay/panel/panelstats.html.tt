@@ -23,13 +23,14 @@
                                 -
                             [% END %]
                         </span>
-                        <span class="label fw">complete:</span><span class="value fw">[% IF replay.complete == 1 %]<span class="green">yes</span>[% ELSE %]<span class="red">no</span>[% END %]</span>
                         <span class="label fw">server:</span><span class="value fw"><img title="[% INCLUDE bricks/servers/name_long.html.tt server = replay.player.server %]" style="width: 20px; height: 20px;" src="//images.wot-replays.org/flag/20x20/[% replay.player.server %].png"/></span>
                     </div>
                     <div>
                         <span class="label fw">spotted:</span><span class="value fw">[% replay.statistics.spotted || '0' %]</span>
                         <span class="label fw">damaged:</span><span class="value fw">[% replay.statistics.damaged || '0' %]</span>
-                        <span class="label fw">killed:</span><span class="value fw">[% replay.statistics.kills || '0' %]</span>
+                        <span class="label fw">killed:</span><span class="value fw">[% replay.statistics.kills || '0' %]</span>$
+                    </div>
+                    <div>
                         <span class="label fw">xp:</span><span class="value fw">[% replay.statistics.xp || '0' %]</span>
                         <span class="label fw">credits:</span><span class="value fw">[% replay.statistics.credits || '0' %]</span>
                     </div>
