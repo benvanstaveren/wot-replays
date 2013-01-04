@@ -1,6 +1,4 @@
-[% IF !hide_view_button %]
 <a href="/replay/[% replay.id %].html">
-[% END %]
 <div class="replayPanel [% IF replay.version != config.wot.version %]incompatibleVersion[% END %] box noborder" title="[% replay.site.description |html %] - Click to view" style="cursor: pointer">
     <div class="columncontainer sw">
         <div class="column col1">
@@ -25,6 +23,4 @@
         <div class="clear"></div>
     </div>
 </div>
-[% IF !hide_view_button %]
 </a>
-[% END %]
