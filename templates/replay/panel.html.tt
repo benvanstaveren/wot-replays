@@ -6,7 +6,7 @@
         <div class="column col1">
             [% INCLUDE replay/panel/vehiclemap.html.tt %]
         </div>
-        <div class="column col2" style="margin-top: -3px">
+        <div class="column col2">
             <div>
                 <h3>
                     <a class="[% IF replay.statistics.isPremium > 0 %]premium[% END %]" href="/player/[% replay.player.server %]/[% replay.player.name |uri %]/" title="[% replay.player.name |html %]">[% replay.player.name |truncate(15) |html %]</a> - <a href="/vehicle/[% replay.player.vehicle.country  |uri %]/[% replay.player.vehicle.name |uri %]/" title="[% INCLUDE bricks/vehicles/name.html.tt vehiclename = replay.player.vehicle.full %]">[% INCLUDE bricks/vehicles/name_short.html.tt vehiclename = replay.player.vehicle.full %]</a> - <a href="/map/[% wr.fix_map_id(replay.map.id) |uri %]/">[% INCLUDE bricks/maps/name.html.tt map = replay.map.id %]</a> 
@@ -17,9 +17,7 @@
                     </div>
                     <div class="panelButtons">
                         <a title="Download this replay" href="/download/[% replay.id %]" class="downloadButton [% IF replay.version != config.wot.version %]incompatible[% END %]"><button class="panelButton download">Save (<span class="count">[% replay.site.downloads || '0' %]</span>)</button></a>
-                        <span class="rateButtons">
-                            <a href="#" class="rateUp" rid="[% replay.id %]" title="Like this replay"><button style="width: 75px" class="rateUp"><span>like</span> (<span class="rateUpCount">[% replay.site.like || '0' %]</span>)</button></a>
-                        </span>
+                        <a href="#" class="rateUp" rid="[% replay.id %]" title="Like this replay"><button style="width: 75px" class="rateUp"><span>like</span> (<span class="rateUpCount">[% replay.site.like || '0' %]</span>)</button></a>
                     </div>
                 </div>
             </div>
