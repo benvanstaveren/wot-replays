@@ -13,17 +13,8 @@
                         <span style="font-weight: normal">Result:</span><span> [% IF replay.complete %][% INCLUDE replay/view/matchresult.html.tt %][% ELSE %]<span>unknown</span>[% END %]</span> <span style="margin: 0px 0px 0px 10px; font-weight: normal">Survived:</span><span> [% INCLUDE replay/view/vehicle_stats/survived.html.tt %]</span>
                     </h3>
                     <div>
-                        [% IF wr.is_user_authenticated() && wr.is_own_replay() %]
-                            [% IF replay.site.visible %]
-                                <a href="#" class="hide-replay" rid="[% replay.id %]"><button class="panelButton">Hide</button></a>
-                                <a style="display: none" href="#" class="show-replay" rid="[% replay.id %]"><button class="panelButton">Publish</button></a>
-                            [% ELSE %]
-                                <a href="#" class="show-replay" rid="[% replay.id %]"><button class="panelButton">Publish</button></a>
-                                <a href="#" style="display: none" class="hide-replay" rid="[% replay.id %]"><button class="panelButton">Hide</button></a>
-                            [% END %]
-                    [% END %]
-                            <a href="#" class="rateUp" rid="[% replay.id %]" title="Like this replay"><button class="rateUp"><span>Like</span> (<span class="rateUpCount">-</span>)</button></a>
-                            <a target="_new" href="/download/[% replay.id %]" class="downloadButton [% IF replay.version != config.wot.version %]incompatible[% END %]"><button class="panelButton" style="width: 150px" id="btn-download">Download Replay (<span class="count">-</span>)</button></a>
+                        <a href="#" class="rateUp" rid="[% replay.id %]" title="Like this replay"><button class="rateUp"><span>Like</span> (<span class="rateUpCount">-</span>)</button></a>
+                        <a target="_new" href="/download/[% replay.id %]" class="downloadButton [% IF replay.version != config.wot.version %]incompatible[% END %]"><button class="panelButton" style="width: 150px" id="btn-download">Download Replay (<span class="count">-</span>)</button></a>
                     </div>
                 </div>
                 <div class="clear"></div>
