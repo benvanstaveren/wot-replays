@@ -17,15 +17,7 @@
     </tr>
     <tr>
         <td colspan="2">
-            <span class="label">Description [% IF wr.is_user_authenticated && wr.is_own_replay %](<a href="#" class="edit-desc">edit</a>)[% END %]</span>
-            <div style="display: none; width: 95%;" id="desc-edit">
-                <form id="frm-desc" action="/replay/[% replay.id |uri %]/desc" method="post">
-                    <span class="label small">Edit Description</span>
-                    <textarea name="desc" style="width: 95%; height: 150px">[% replay.site.description |html %]</textarea>
-                </form>
-                <button id="btn-save-desc">Save</button>
-                <button id="btn-cancel-desc">Cancel</button>
-            </div>
+            <span class="label">Description </span>
             <div style="width: 95%" id="desc-show">
             [% IF replay.site.description.length > 0 %]
                 [% replay.site.description |html|html_line_break %]
@@ -37,22 +29,3 @@
     </tr>
 </tbody>
 </table>
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('button#btn-save-desc').click(function() {
-            $('form#frm-desc').submit();
-            return false;
-        });
-        $('button#btn-cancel-desc').click(function() {
-            $('form#frm-desc')[0].reset();
-            $('#desc-edit').hide();
-            $('#desc-show').show();
-        });
-        $('a.edit-desc').click(function() {
-            $('#desc-edit').show();
-            $('#desc-show').hide();
-            return false;
-        });
-    });
-</script>
-    
