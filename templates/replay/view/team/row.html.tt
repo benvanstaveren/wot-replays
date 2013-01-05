@@ -30,7 +30,7 @@
         [% player.name |html %][% IF player.clanAbbrev %]<span class="clan">[[% player.clanAbbrev %]]</span>[% END %]
     </td>
     <td class="playerDetails">
-        [% FOREACH award IN player.achievements %]
+        [% FOREACH award IN player.achievements.nsort %]
             <img src="//images.wot-replays.org/icon/awards/24/[% wr.res.achievements.index_to_idstr(award) %].png" style="margin-top: 8px; height: 24px; width: 23px" alt="[% wr.res.achievements.i18n(wr.res.achievements.index_to_idstr(award)) |html %]" title="[% wr.res.achievements.i18n(wr.res.achievements.index_to_idstr(award)) |html %]"/>
         [% END %]
     </td>
