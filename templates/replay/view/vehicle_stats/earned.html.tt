@@ -1,51 +1,51 @@
-            <span style="margin: 25px 0px 0px 0px" class="label">Earned/Costs</span>
-            <table style="width: 100%" cellspacing="0" cellpadding="0"><tbody><tr>
-            <td>
-                <span class="label small">XP [% IF replay.statistics.dailyXPFactor10 > 10 %](x[% replay.statistics.dailyXPFactor10 / 10 %])[% END %]</span>
-                <span class="green">[% replay.statistics.xp || '0' %]</span>
-            </td><td>
-                <span class="label small">Free XP</span>
-                <span class="green">(+[% replay.statistics.freeXP || '0' %])</span>
-            </td><td>
-                <span class="label small">Credits</span>
-                <span class="green">[% replay.statistics.credits || '0' %]</span>
-            </td><td>
-                <span class="label small">Repairs</span>
-                <span class="red">[% replay.statistics.repair || '0' %]</span>
-            </td><td>
-                <span class="label small">Reload</span>
-                <span class="red">[% replay.statistics.autoLoadCost.0 || '0' %]</span>
-            </td><td>
-                <span class="label small">Resupply</span>
-                <span class="red">[% replay.statistics.autoEquipCost.0 || '0' %]</span>
-            </td><td>
-                <span class="label small">XP penalty</span>
+            <span class="label">Earned/Costs</span>
+            <table style="width: 100%" cellspacing="0" cellpadding="0"><tbody>
+            <tr>
+                <td><span class="label small">XP [% IF replay.statistics.dailyXPFactor10 > 10 %](x[% replay.statistics.dailyXPFactor10 / 10 %])[% END %]</span></td>
+                <td><span class="green">[% replay.statistics.xp || '0' %]</span></td><td></td>
+            </tr>
+            <tr>
+                <td><span class="label small">Free XP</span></td>
+                <td><span class="green">[% replay.statistics.freeXP || '0' %]</span></td>
+                <td></td>
+            </tr>
+            <tr><td><span class="label small">XP penalty</span></td><td></td><td>
                 [% IF replay.statistics.xpPenalty > 0 %]
                     <span class="red">-[% replay.statistics.xpPenalty %]</span>
                 [% ELSE %]
                     <span>-</span>
                 [% END %]
-            </td><td>
-                <span class="label small">Credit penalty</span>
+            </td></tr>
+            <tr><td><span class="label small">Credits</span></td><td><span class="green">[% replay.statistics.credits || '0' %]</span></td><td></td></tr>
+            <tr><td><span class="label small">Repairs</span></td><td></td><td><span class="red">[% replay.statistics.repair || '0' %]</span></td></tr>
+            <tr><td><span class="label small">Reload</span></td><td></td><td><span class="red">[% replay.statistics.autoLoadCost.0 || '0' %]</span></td></tr>
+            <tr><td><span class="label small">Resupply</span></td><td></td><td><span class="red">[% replay.statistics.autoEquipCost.0 || '0' %]</span></td></tr>
+            <tr><td><span class="label small">Credit penalty</span></td><td></td>
+            <td>
                 [% IF replay.statistics.creditPenalty > 0 %]
                     <span class="red">-[% replay.statistics.creditPenalty %]</span>
                 [% ELSE %]
                     <span>-</span>
                 [% END %]
-            </td><td>
+            </td>
+            </tr>
+            <tr><td>
                 <span class="label small">Net XP</span>
                 [% nxp = replay.statistics.xp + replay.statistics.freeXP - replay.statistics.xpPenalty %]
-                [% IF nxp > 0 %]
-                    <span class="green">[% nxp %]</span>
-                [% ELSE %]
-                    <span class="red">[% nxp %]</span>
-                [% END %]
-            </td><td>
+            </td>
+                <td>[% IF nxp > 0 %]<span class="green">[% nxp %]</span>[% END %]</td>
+                <td>[% IF nxp <= 0 %]<span class="red">[% nxp %]</span>[% END %]</td>
+            </tr>
+            <tr><td>
                 <span class="label small">Net Credits</span>
                 [% ncr = replay.statistics.credits - replay.statistics.repair - replay.statistics.creditPenalty - replay.statistics.autoLoadCost.0 - replay.statistics.autoEquipCost.0 %]
+            </td>
+            <td>
                 [% IF ncr > 0 %]
                     <span class="green">[% ncr %]</span>
-                [% ELSE %]
+                [% END %]
+            </td><td>
+                [% IF ncr <= 0 %]
                     <span class="red">[% ncr %]</span>
                 [% END %]
             </td>

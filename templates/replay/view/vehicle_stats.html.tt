@@ -2,31 +2,22 @@
 <table style="margin: 5px 4px 0px; width: 100%" cellspacing="0" cellpadding="0">
 <tbody>
     <tr>
-        <td style="vertical-align: top">
+        <td style="vertical-align: top; width: 50%">
             [% INCLUDE replay/view/vehicle_stats/awards.html.tt %]
         </td>
-    </tr>
-    <tr>
-        <td>
-            [% INCLUDE replay/view/vehicle_stats/damage.html.tt %]
-        </td>
-        <td colspan="2">
-            [% INCLUDE replay/view/vehicle_stats/shots.html.tt %]
-        </td>
-    </tr>
-    <tr>
-        <td colspan="3">
+        <td style="vertical-align: top; width: 50%" rowspan="2">
             [% INCLUDE replay/view/vehicle_stats/earned.html.tt %]
         </td>
     </tr>
     <tr>
-        <td colspan="3" style="vertical-align: top">
-            [% INCLUDE replay/view/vehicle_stats/performance.html.tt %]
+        <td style="vertical-align: top">
+            [% INCLUDE replay/view/vehicle_stats/damage.html.tt %]
+            [% INCLUDE replay/view/vehicle_stats/shots.html.tt %]
         </td>
     </tr>
     <tr>
-        <td colspan="3" style="vertical-align: top">
-            <span class="label" style="margin: 25px 0px 0px 0px">Description [% IF wr.is_user_authenticated && wr.is_own_replay %](<a href="#" class="edit-desc">edit</a>)[% END %]</span>
+        <td colspan="2">
+            <span class="label">Description [% IF wr.is_user_authenticated && wr.is_own_replay %](<a href="#" class="edit-desc">edit</a>)[% END %]</span>
             <div style="display: none; width: 95%;" id="desc-edit">
                 <form id="frm-desc" action="/replay/[% replay.id |uri %]/desc" method="post">
                     <span class="label small">Edit Description</span>

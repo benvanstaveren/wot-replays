@@ -42,7 +42,13 @@
                                 </ul>
                             </div>
                             <div id="vehicle-stats" class="viewcontent">
-                                [% INCLUDE replay/view/vehicle_stats.html.tt %]
+                                <div style="width: 390px; float: left">
+                                    [% INCLUDE replay/view/battleperformance.html.tt %]
+                                </div>
+                                <div style="margin: 0px 3px 0px 0px; float: left; width: 520px">
+                                    [% INCLUDE replay/view/vehicle_stats.html.tt %]
+                                </div>
+                                <div class="clear"></div>
                             </div>
                             [% IF replay.complete %]
                                 <div id="teams" class="viewcontent" style="display: none">

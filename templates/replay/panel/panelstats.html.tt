@@ -12,7 +12,7 @@
                                 -
                             [% END %]
                         </span>
-                        <span class="label fw">xp:</span><span class="value fw">[% replay.statistics.xp || '0' %]</span>
+                        <span class="label fw">xp:</span><span class="value fw">[% replay.statistics.xp || '0' %] [% IF replay.statistics.dailyXPFactor10 > 10 %](x[% replay.statistics.dailyXPFactor10 / 10 %])[% END %]</span>
                         <span class="label fw">credits:</span><span class="value fw">[% replay.statistics.credits || '0' %]</span>
                     </div>
                     <div>

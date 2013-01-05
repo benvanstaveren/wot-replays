@@ -30,9 +30,24 @@
         [% player.name |html %][% IF player.clanAbbrev %]<span class="clan">[[% player.clanAbbrev %]]</span>[% END %]
     </td>
     <td class="playerDetails">
-        [% FOREACH award IN player.achievements %]
-            <img src="//images.wot-replays.org/icon/awards/24/[% wr.res.achievements.index_to_idstr(award) %].png" style="margin-top: 8px; height: 24px; width: 23px" alt="[% wr.res.achievements.i18n(wr.res.achievements.index_to_idstr(award)) |html %]" title="[% wr.res.achievements.i18n(wr.res.achievements.index_to_idstr(award)) |html %]"/>
+        <span class="
+            [% IF player.team == replay.player.team %]
+                teamkill [% IF !details || details.killed == 0 %]hidden[% END %]
+            [% ELSE %]
+                kill [% IF !details || details.killed == 0 %]dimmed[% END %]
+            [% END %]"></span>
+        <span class="damage 
+            [% IF player.team == replay.player.team %]
+                [% IF !details || details.damageDealt == 0 %]hidden[% END %]
+            [% ELSE %]
+                [% IF !details || details.damageDealt == 0 %]dimmed[% END %]
+            [% END %]"></span>
+        [% IF player.team != replay.player.team %]
+            <span class="crits [% IF !details || details.crits == 0 %]dimmed[% END %]"></span>
+            <span class="evil [% IF !details || details.damageAssisted == 0 %]dimmed[% END %]"></span>
+            <span class="spotted [% IF !details || details.spotted == 0 %]dimmed[% END %]"></span>
         [% END %]
+        <div class="clear"></div>
     </td>
     <td class="playerFrags [% IF player.frags > 0 %]green[% ELSIF player.frags < 0 %]red[% END %]">[% player.frags || '0' %]</td>
 </tr>

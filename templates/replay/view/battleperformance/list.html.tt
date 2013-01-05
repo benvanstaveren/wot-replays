@@ -1,0 +1,42 @@
+[% FOREACH player IN wr.vehicles_by_frags(replay.vehicles) %]
+[% pid = player.id %]
+[% details = replay.statistics.details.$pid %]
+[% IF details.killed > 0 || details.spotted > 0 || details.damageDealt > 0 || details.damageAssisted > 0 || details.hits > 0 %]
+<tr class="battleperformance">
+    <td class="playerVehicle" style="background: transparent url([% wr.vehicle_icon(player.vehicleType.full, 48) %]) no-repeat scroll 0 0" title="[% INCLUDE bricks/vehicles/name.html.tt vehiclename = player.vehicleType.full |html%]">
+        <div class="playerHealth">
+            [% h = player.health + player.damageReceived %]
+            [% hp = wr.percentage_of(h, player.health) %]
+            [% bs = wr.sprintf('%d', (74 / 100) * hp) %]
+            [% IF bs < 1 %][% bs = 1 %][% END %]
+            <div class="health" style="width: [% bs %]px"></div>
+            <div class="healthnumbers">[% player.health %]/[% h %]</div>
+        </div>
+    </td>
+    <td class="playerName">
+        [% player.name |html %][% IF player.clanAbbrev %]<span class="clan">[[% player.clanAbbrev %]]</span>[% END %]
+    </td>
+    <td class="playerDetails">
+        <span class="
+            [% IF player.team == replay.player.team %]
+                teamkill [% IF !details || details.killed == 0 %]dimmed[% END %]" title="Player killed this team member"
+            [% ELSE %]
+                kill [% IF !details || details.killed == 0 %]dimmed[% END %] title="Player killed this team member"
+            [% END %]></span>
+        <span class="damage 
+            [% IF player.team == replay.player.team %]
+                [% IF !details || details.damageDealt == 0 %]dimmed[% END %]" title="Player did [% details.damageDealt %] damage to a team member"
+            [% ELSE %]
+                [% IF !details || details.damageDealt == 0 %]dimmed[% END %]" title="Player did [% deetails.damageDealt %] damage to a team member"
+            [% END %]></span>
+        <span class="crits [% IF !details || details.crits == 0 %]dimmed[% END %]"></span>
+        [% IF details && details.damageAssisted > 0 %]
+            <span class="evil" title="Player spotted this vehicle, and team members contributed [% details.damageAssisted %] points of damage"></span>
+        [% ELSE %]
+            <span class="spotted [% IF !details || details.spotted == 0 %]dimmed"[% ELSE %]" title="Player spotted this vehicle"[% END %]></span>
+        [% END %]
+        <div class="clear"></div>
+    </td>
+</tr>
+[% END %]
+[% END %]

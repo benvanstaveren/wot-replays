@@ -1,5 +1,12 @@
 <table style="width: 100%" cellspacing="0" cellpadding="0">
 <tbody>
+<tr class="global-nav">
+    <td></td>
+    <td><b>Tank</b></td>
+    <td><b>Player</b></td>
+    <td><b>Awards</b></td>
+    <td></td>
+</tr>
 [% FOREACH playerid IN players %]
     [% player = replay.vehicles.$playerid %]
     [% player.id = playerid %]

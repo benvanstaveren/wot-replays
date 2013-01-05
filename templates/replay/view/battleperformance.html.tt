@@ -1,0 +1,23 @@
+<div>
+    <span class="label">Performance</span>
+    <div class="replayTeamList" id="battlePerformance">
+        <table style="width: 100%" class="battleperformance" cellspacing="0">
+        <tbody>
+        [% INCLUDE replay/view/battleperformance/list.html.tt %]
+        </tbody>
+        </table>
+    </div>
+    <div class="clear"></div>
+    <div style="margin-top: 15px">
+        <table style="width: 100%" cellspacing="0" cellpadding="0"><tbody><tr>
+            <td>
+                <span class="label small">Invaded</span>
+                <span class="[% IF replay.statistics.capturePoints > 0 %]green[% END %]">[% replay.statistics.capturePoints || '0' %]</span>
+            </td><td>
+                <span class="label small">Defended</span>
+                <span class="[% IF replay.statistics.droppedCapturePoints > 0 %]green[% END %]">[% replay.statistics.droppedCapturePoints || '0' %]</span>
+            </td>
+        </tr>
+        </tbody></table>
+    </div>
+</div>

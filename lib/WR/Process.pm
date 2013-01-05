@@ -65,6 +65,8 @@ sub process {
         $self->error('unable to parse replay: ', $_);
     });
 
+    warn 'number of blocks: ', $self->_parser->num_blocks, "\n";
+
     $self->_set_match_result($self->fuck_booleans($self->_parser->decode_block(2))) if($self->_parser->is_complete);
 
     my $match_info = { 

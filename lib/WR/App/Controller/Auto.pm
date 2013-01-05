@@ -117,6 +117,11 @@ sub index {
             generate_vehicle_select => sub {
                 return $self->generate_vehicle_select();
             },
+            vehicles_by_frags => sub {
+                my $hash = shift;
+
+                return [ (sort({ $b->{kills} <=> $a->{kills} } values(%$hash))) ];
+            },
             generate_map_select => sub {
                 my $list = [];
                 my $cursor = $self->db('wot-replays')->get_collection('data.maps')->find()->sort({ label => 1 });
