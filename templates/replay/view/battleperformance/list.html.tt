@@ -21,7 +21,7 @@
             [% IF player.team == replay.player.team %]
                 teamkill [% IF !details || details.killed == 0 %]dimmed[% END %]" title="Player killed this team member"
             [% ELSE %]
-                kill [% IF !details || details.killed == 0 %]dimmed[% END %] title="Player killed this team member"
+                kill [% IF !details || details.killed == 0 %]dimmed[% END %]" title="Player got the killing blow on this enemy"
             [% END %]></span>
         <span class="damage 
             [% IF player.team == replay.player.team %]
