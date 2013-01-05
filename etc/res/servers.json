@@ -1,22 +1,27 @@
 {
     "na": {
         "label": "North America",
-        "label_long": "North American Server"
+        "label_long": "North American Server",
+        "label_short": "NA"
     },
     "ru": {
         "label": "Russia",
-        "label_long": "Russian Server"
+        "label_long": "Russian Server",
+        "label_short": "SEA"
     },
     "eu": {
         "label": "Europe",
-        "label_long": "European Server"
+        "label_long": "European Server",
+        "label_short": "EU"
     },
     "cn": {
         "label": "China",
-        "label_long": "Chinese Server"
+        "label_long": "Chinese Server",
+        "label_short": "CN"
     },
     "sea": {
         "label": "South East Asia",
-        "label_long": "South East Asian Server"
+        "label_long": "South East Asian Server",
+        "label_short": "SEA"
     }
 }
