@@ -10,6 +10,11 @@ sub bridge {
     my $self = shift;
     my $replay_id = bless({ value => $self->stash('replay_id') }, 'MongoDB::OID');
 
+    if($replay_id =~ /\d+-\w+-\d+/) {
+        # old replay format
+        $self->redirect_to('/') and return 0;
+    }
+
     my $start = [ gettimeofday ];
 
     if(my $replay = $self->model('wot-replays.replays')->find_one({ _id => $replay_id })) {
