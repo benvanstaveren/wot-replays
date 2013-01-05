@@ -27,9 +27,9 @@
             [% IF player.team == replay.player.team %]
                 [% IF !details || details.damageDealt == 0 %]dimmed[% END %]" title="Player did [% details.damageDealt %] damage to a team member"
             [% ELSE %]
-                [% IF !details || details.damageDealt == 0 %]dimmed[% END %]" title="Player did [% deetails.damageDealt %] damage to a team member"
+                [% IF !details || details.damageDealt == 0 %]dimmed[% END %]" title="Player did [% deetails.damageDealt %] damage"
             [% END %]></span>
-        <span class="crits [% IF !details || details.crits == 0 %]dimmed[% END %]"></span>
+        <span class="crits [% IF !details || details.crits == 0 %]dimmed"[% ELSE %]" title="Player made [% details.crits %] critical hits"[% END %]></span>
         [% IF details && details.damageAssisted > 0 %]
             <span class="evil" title="Player spotted this vehicle, and team members contributed [% details.damageAssisted %] points of damage"></span>
         [% ELSE %]
