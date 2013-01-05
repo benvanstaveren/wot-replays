@@ -33,6 +33,8 @@ has 'achievements' => (is => 'ro', isa => 'HashRef', default => sub {
 
         # epics
         73  =>  'medalRadleyWalters',
+
+        143 =>  'medalBrothersInArms',
     },
 });
 
