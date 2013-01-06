@@ -67,7 +67,6 @@ sub view {
     my $replay = $self->stash('req_replay');
     my $r = { %$replay };
 
-
     my $title = sprintf('%s - %s - %s (%s), %s',
         $r->{player}->{name},
         $self->stash('wr')->{vehicle_name}->($r->{player}->{vehicle}->{full}),
@@ -125,6 +124,38 @@ sub view {
         $r->{teamxp} = [ $team_xp->[1], $team_xp->[0], $team_xp->[2] ];
     }
 
+    my $other_awards = {};
+    my $dossier_popups = {};
+    my $other_awards = [];
+
+    foreach my $e (@{$r->{statistics}->{dossierPopUps}}) {
+        $dossier_popups->{$e->[0]} = $e->[1]; # id, count
+
+        if($e->[0] >= 41 && $e->[0] <= 56) {
+            push(@$other_awards, {
+                class_suffix => $e->[1],
+                count => undef,
+                type => $e->[0],
+            });
+        }
+        if($e->[0] >= 57 && $e->[0] <= 67) {
+            push(@$other_awards, {
+                class_suffix => undef,
+                count => $e->[1],
+                type => $e->[0],
+            });
+        }
+        if($e->[0] == 79) {
+            push(@$other_awards, {
+                class_suffix => $e->[1],
+                count => undef,
+                type => $e->[0],
+            });
+        }
+    }
+
+    $self->stash('dossier_popups' => $dossier_popups);
+    $self->stash('other_awards' => $other_awards);
     $self->stash('timing_view' => tv_interval($start, [ gettimeofday ]));
 
     $self->respond(

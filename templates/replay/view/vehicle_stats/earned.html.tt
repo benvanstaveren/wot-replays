@@ -1,4 +1,4 @@
-            <span class="label">Earned/Costs</span>
+            <span class="label" style="margin-top: 10px">Earned/Costs</span>
             <table style="width: 100%" cellspacing="0" cellpadding="0"><tbody>
             <tr>
                 <td><span class="label small">XP [% IF replay.statistics.dailyXPFactor10 > 10 %](x[% replay.statistics.dailyXPFactor10 / 10 %])[% END %]</span></td>

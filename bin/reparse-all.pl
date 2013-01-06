@@ -38,6 +38,7 @@ while(my $r = $rc->next()) {
     unless($e) {
         $m->{site} = $r->{site}; # copy that over
         $m->{_id}  = $r->{_id}; 
+        $m->{file} = $r->{file};
         $db->get_collection('replays')->save($m);
         print ': OK', "\n";
     } else {

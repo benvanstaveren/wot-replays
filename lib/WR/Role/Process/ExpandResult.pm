@@ -79,11 +79,12 @@ around 'process' => sub {
         vehicles => $vehicle_hash,
         teams    => $teams,
         statistics => {},
-        temp => $self->pickledata,
     };
 
     if($self->_parser->is_complete) {
         $data->{statistics} = $self->pickledata->{personal};
+
+        $data->{game}->{arena_id} = $self->pickledata->{arenaUniqueID} + 0;
 
         $data->{game}->{bonus_type} = $self->pickledata->{common}->{bonusType};
         $data->{game}->{isWin} = ($self->match_result->[0]->{isWinner} > 0) 

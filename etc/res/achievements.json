@@ -23,16 +23,16 @@
     "evileye": {
         "label": "Patrol Duty"
     },
-    "master1": {
+    "markOfMastery1": {
         "label": "Mastery Badge: III Class"
     },
-    "master2": {
+    "markOfMastery2": {
         "label": "Mastery Badge: II Class"
     },
-    "master3": {
+    "markOfMastery3": {
         "label": "Mastery Badge: I Class"
     },
-    "master4": {
+    "markOfMastery4": {
         "label": "Mastery Badge: Ace Tanker"
     },
     "medalWittman": {

@@ -3,16 +3,19 @@
 <tbody>
     <tr>
         <td style="vertical-align: top; width: 50%">
-            [% INCLUDE replay/view/vehicle_stats/awards.html.tt %]
+            [% INCLUDE replay/view/vehicle_stats/battle_awards.html.tt %]
         </td>
-        <td style="vertical-align: top; width: 50%" rowspan="2">
-            [% INCLUDE replay/view/vehicle_stats/earned.html.tt %]
+        <td style="vertical-align: top; width: 50%">
+            [% INCLUDE replay/view/vehicle_stats/other_awards.html.tt %]
         </td>
     </tr>
     <tr>
         <td style="vertical-align: top">
             [% INCLUDE replay/view/vehicle_stats/damage.html.tt %]
             [% INCLUDE replay/view/vehicle_stats/shots.html.tt %]
+        </td>
+        <td style="vertical-align: top">
+            [% INCLUDE replay/view/vehicle_stats/earned.html.tt %]
         </td>
     </tr>
     <tr>

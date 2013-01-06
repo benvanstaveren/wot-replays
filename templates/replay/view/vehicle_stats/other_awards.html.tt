@@ -1,0 +1,20 @@
+            [% awards = 0 %]
+            <span class="label">Other Awards</span>
+            <div class="heroawardlist">
+                [% FOREACH award IN other_awards %]
+                    [% IF award.class_suffix %]
+                        [% award_type = award.type _ award.class_suffix %]
+                    [% ELSE %]
+                        [% award_type = award.type %]
+                    [% END %]
+                    <div class="award [% wr.res.achievements.index_to_idstr(award.type) %][% IF award.class_suffix %][% award.class_suffix %][% END %]" title="[% wr.res.achievements.i18n(wr.res.achievements.index_to_idstr(award.type) _ award.class_suffix) |html %]">
+                        [% IF award.count %]<b class="ui-corner-all">[% award.count %]</b>[% END %]
+                    </div>
+                    [% awards = awards + 1 %]
+                [% END %]
+                [% IF awards < 1 %]
+                    <span>No other badges or medals awarded</span>
+                [% ELSE %]
+                    <div class="clear"></div>
+                [% END %]
+            </div>
