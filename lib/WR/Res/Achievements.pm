@@ -4,7 +4,7 @@ use namespace::autoclean;
 
 with 'WR::Role::Catalog';
 
-has 'achievements' => (is => 'ro', isa => 'HashRef', lazy => 1, builder => '_build_achievements', required => 1);
+has 'achievements' => (is => 'ro', isa => 'HashRef', builder => '_build_achievements', required => 1);
 
 sub _build_achievements {
     my $self = shift;
@@ -17,6 +17,7 @@ sub _build_achievements {
     foreach my $n (@record_names) {
         $h->{$i++} = $n;
     }
+    return $h;
 }
 
 sub index_to_idstr {
