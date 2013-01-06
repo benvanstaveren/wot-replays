@@ -35,6 +35,7 @@
                 $('#frm-upload').submit(function() {
                     $('input[name="timezone"]').val(WR.timezone.name);
                     $('#frm-upload input[type="submit"]').html('Please wait...').prop('disabled', true);
+                    WR.ui.notify({ type: 'notify', close: false, sticky: true, block: true, text: 'Please wait, upload in progress...' });
                     return true;
                 });
             </script>

@@ -27,14 +27,13 @@ has 'achievements' => (is => 'ro', isa => 'HashRef', default => sub {
         38  =>  'steelwall',
         39  =>  'supporter',
         40  =>  'scout',
-
-
         72  =>  'evileye',
 
         # epics
         73  =>  'medalRadleyWalters',
 
         143 =>  'medalBrothersInArms',
+        144 =>  'medalCrucialContribution',
     },
 });
 
