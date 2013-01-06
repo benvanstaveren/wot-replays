@@ -15,11 +15,14 @@
 </tbody>
 </table>
 <script type="text/javascript">
+    $('div.playerEquipment').dialog({
+        autoOpen: false,
+        width: 500,
+        height: 400,
+        modal: true,
+    });
     $('tr.playerRow').click(function() {
-        $('tr.playerEquipment').hide();
-        $('tr.playerRow').removeClass('active');
-        $(this).addClass('active');
-        $($(this).attr('href')).show();
+        $($(this).attr('href')).dialog('open');
         return false;
     });
 </script>
