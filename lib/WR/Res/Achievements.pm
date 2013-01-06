@@ -4,44 +4,19 @@ use namespace::autoclean;
 
 with 'WR::Role::Catalog';
 
-has '_idlist' => (is => 'ro', 'isa' => 'ArrayRef', required => 1, default => sub {
-    [qw(warrior invader sniper defender steelwall supporter scout)],
-    });
+has 'achievements' => (is => 'ro', isa => 'HashRef', lazy => 1, builder => '_build_achievements', required => 1);
 
-has '_epic_idlist' => (is => 'ro', 'isa' => 'ArrayRef', required => 1, default => sub {
-    [qw(medalWittman medalOrlik medalOskin medalHalonen medalBurda medalBillotte medalKolobanov medalFadin invincible diehard raider kamikaze sniper killing piercing)],
-    });
-
-has 'epics' => (is => 'ro', isa => 'HashRef', default => sub {
-    {
-    },
-});
-
-has 'achievements' => (is => 'ro', isa => 'HashRef', default => sub {
-    {   
-        # old achievements
-        34  =>  'warrior', 
-        35  =>  'invader',
-        36  =>  'sniper',
-        37  =>  'defender',
-        38  =>  'steelwall',
-        39  =>  'supporter',
-        40  =>  'scout',
-        72  =>  'evileye',
-
-        # epics
-        73  =>  'medalRadleyWalters',
-
-        143 =>  'medalBrothersInArms',
-        144 =>  'medalCrucialContribution',
-    },
-});
-
-sub index_to_epic_idstr {
+sub _build_achievements {
     my $self = shift;
-    my $idx  = shift;
 
-    return $self->_epic_idlist->[$idx] || sprintf('unknown:%d', $idx);
+    # decompiled from dossiers/_init_.pyc 
+    my @record_names = ('reserved', 'xp', 'maxXP', 'battlesCount', 'wins', 'losses', 'survivedBattles', 'lastBattleTime', 'battleLifeTime', 'winAndSurvived', 'battleHeroes', 'frags', 'maxFrags', 'frags8p', 'fragsBeast', 'shots', 'hits', 'spotted', 'damageDealt', 'damageReceived', 'treesCut', 'capturePoints', 'droppedCapturePoints', 'sniperSeries', 'maxSniperSeries', 'invincibleSeries', 'maxInvincibleSeries', 'diehardSeries', 'maxDiehardSeries', 'killingSeries', 'maxKillingSeries', 'piercingSeries', 'maxPiercingSeries', 'vehTypeFrags', 'warrior', 'invader', 'sniper', 'defender', 'steelwall', 'supporter', 'scout', 'medalKay', 'medalCarius', 'medalKnispel', 'medalPoppel', 'medalAbrams', 'medalLeClerc', 'medalLavrinenko', 'medalEkins', 'medalWittmann', 'medalOrlik', 'medalOskin', 'medalHalonen', 'medalBurda', 'medalBillotte', 'medalKolobanov', 'medalFadin', 'tankExpert', 'titleSniper', 'invincible', 'diehard', 'raider', 'handOfDeath', 'armorPiercer', 'kamikaze', 'lumberjack', 'beasthunter', 'mousebane', 'creationTime', 'maxXPVehicle', 'maxFragsVehicle', 'vehDossiersCut', 'evileye', 'medalRadleyWalters', 'medalLafayettePool', 'medalBrunoPietro', 'medalTarczay', 'medalPascucci', 'medalDumitru', 'markOfMastery', 'company/xp', 'company/battlesCount', 'company/wins', 'company/losses', 'company/survivedBattles', 'company/frags', 'company/shots', 'company/hits', 'company/spotted', 'company/damageDealt', 'company/damageReceived', 'company/capturePoints', 'company/droppedCapturePoints', 'clan/xp', 'clan/battlesCount', 'clan/wins', 'clan/losses', 'clan/survivedBattles', 'clan/frags', 'clan/shots', 'clan/hits', 'clan/spotted', 'clan/damageDealt', 'clan/damageReceived', 'clan/capturePoints', 'clan/droppedCapturePoints', 'medalLehvaslaiho', 'medalNikolas', 'fragsSinai', 'sinai', 'heroesOfRassenay', 'mechanicEngineer', 'tankExpert0', 'tankExpert1', 'tankExpert2', 'tankExpert3','tankExpert4', 'tankExpert5', 'tankExpert6', 'tankExpert7', 'tankExpert8', 'tankExpert9', 'tankExpert10', 'tankExpert11', 'tankExpert12', 'tankExpert13', 'tankExpert14', 'mechanicEngineer0', 'mechanicEngineer1', 'mechanicEngineer2', 'mechanicEngineer3', 'mechanicEngineer4', 'mechanicEngineer5', 'mechanicEngineer6', 'mechanicEngineer7', 'mechanicEngineer8', 'mechanicEngineer9', 'mechanicEngineer10', 'mechanicEngineer11', 'mechanicEngineer12', 'mechanicEngineer13', 'mechanicEngineer14', 'rareAchievements', 'medalBrothersInArms', 'medalCrucialContribution', 'medalDeLanglade', 'medalTamadaYoshio', 'bombardier', 'huntsman', 'alaric', 'sturdy', 'ironMan', 'luckyDevil', 'fragsPatton', 'pattonValley');
+
+    my $h = {};
+    my $i = 0;
+    foreach my $n (@record_names) {
+        $h->{$i++} = $n;
+    }
 }
 
 sub index_to_idstr {
