@@ -113,7 +113,7 @@ sub view {
 
     $team_xp->[0] = ($team_xp->[0] > 0 && scalar(@{$r->{teams}->[0]}) > 0) ? int($team_xp->[0] / scalar(@{$r->{teams}->[0]})) : 0;
     $team_xp->[1] = ($team_xp->[1] > 0 && scalar(@{$r->{teams}->[1]}) > 0) ? int($team_xp->[1] / scalar(@{$r->{teams}->[1]})) : 0;
-    $team_xp->[2] = ($team_xp->[0] + $team_xp->[1] > 0) ? ($team_xp->[0] + $team_xp->[1]) / 2 : 0;
+    $team_xp->[2] = ($team_xp->[0] + $team_xp->[1] > 0) ? int(($team_xp->[0] + $team_xp->[1]) / 2) : 0;
 
     my $playerteam = $r->{player}->{team} - 1;
 
