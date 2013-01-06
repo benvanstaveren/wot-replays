@@ -72,6 +72,7 @@ for my $country (qw/china france germany usa ussr uk/) {
         $data->{name} = $vid;
         $data->{description} = $text->localize_for(lang => $cat, id => fixed_ident(sprintf('%s_descr', $vid)));
         $data->{type} = $type;
+        $data->{wot_id} = $x->{$vid}->{id} + 0;
 
         $coll->save($data);
     }
