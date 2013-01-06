@@ -5,7 +5,8 @@
     <td><b>Tank</b></td>
     <td><b>Player</b></td>
     <td><b>Awards</b></td>
-    <td></td>
+    <td><b>XP</b></td>
+    <td title="Kills"><b>K#</b></td>
 </tr>
 [% FOREACH playerid IN players %]
     [% player = replay.vehicles.$playerid %]

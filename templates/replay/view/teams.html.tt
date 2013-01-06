@@ -1,6 +1,6 @@
 <a name="rpl-teams"></a>
 <div>
-    <div class="replayTeamList" id="replayTeamOne">[% INCLUDE replay/view/team/list.html.tt players=replay.teams.0 %]</div>
-    <div class="replayTeamList" id="replayTeamTwo">[% INCLUDE replay/view/team/list.html.tt players=replay.teams.1 %]</div>
+    <div class="replayTeamList" id="replayTeamOne">[% INCLUDE replay/view/team/list.html.tt players=replay.teams.0 avgxp=replay.teamxp.2 %]</div>
+    <div class="replayTeamList" id="replayTeamTwo">[% INCLUDE replay/view/team/list.html.tt players=replay.teams.1 avgxp=replay.teamxp.2 %]</div>
     <div class="clear"></div>
 </div>
