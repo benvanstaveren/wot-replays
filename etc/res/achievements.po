@@ -22,6 +22,18 @@ msgstr "1st Class"
 msgid "achievement/master4"
 msgstr "Ace Tanker"
 
+msgid "markOfMastery1"
+msgstr "Mastery Badge: 3rd class"
+
+msgid "markOfMastery2"
+msgstr "Mastery Badge: 2nd class"
+
+msgid "markOfMastery3"
+msgstr "Mastery Badge: 1st class"
+
+msgid "markOfMastery4"
+msgstr "Mastery Badge: Ace Tanker"
+
 msgid "achievement/maxMedalValue"
 msgstr ">%s"
 
