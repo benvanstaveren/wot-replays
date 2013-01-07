@@ -1,10 +1,10 @@
 package WR::Res::Achievements;
 use Moose;
 use namespace::autoclean;
-
-with 'WR::Role::Catalog';
+use WR::Localize;
 
 has 'achievements' => (is => 'ro', isa => 'HashRef', builder => '_build_achievements', required => 1);
+has '_l' => (is => 'ro', isa => 'WR::Localize', required => 1, default => sub { return WR::Localize->new(type => 'achievements') }, handles => [qw/i18n/]);
 
 sub _build_achievements {
     my $self = shift;
