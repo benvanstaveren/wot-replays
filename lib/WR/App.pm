@@ -31,6 +31,11 @@ sub startup {
                 $text =~ s/\'/\\\'/gi;
                 return $text;
             },
+            'tabtospan' =>  sub {
+                my $text = shift;
+                $text =~ s/\\t/<br\/><span style="margin-left: 20px"><\/span>/g;
+                return $text;
+            },
         },
         RELATIVE => 1,
         ABSOLUTE => 1, # otherwise hypnotoad gets a bit cranky, for some reason
@@ -77,6 +82,9 @@ sub startup {
     $r->route('/upload')->to('replays-upload#upload', pageid => 'upload');
 
     $r->route('/download/:replay_id')->to('replays-export#download');
+
+    my $dlg = $r->under('/dlg');
+        $dlg->route('/achievement/:achievement')->to('ui#dlg_achievement');
 
     $r->route('/replay/browse')->to('replays#browse');
 

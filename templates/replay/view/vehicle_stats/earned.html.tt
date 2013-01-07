@@ -7,7 +7,7 @@
                 [% IF replay.statistics.xpPenalty > 0 %]
                     <span title="Team Damage/Kill XP Penalty" class="red">-[% replay.statistics.xpPenalty %]</span>
                 [% ELSE %]
-                    <span>-</span>
+                    <span></span>
                 [% END %]
                 </td>
             </tr>
@@ -20,7 +20,7 @@
                 [% IF replay.statistics.creditPenalty > 0 %]
                     <span title="Team Damage/Kill Credit Penalty" class="red">-[% replay.statistics.creditPenalty %]</span>
                 [% ELSE %]
-                    <span>-</span>
+                    <span></span>
                 [% END %]
             </td></tr>
             <tr><td><span class="label small">Repairs</span></td><td></td><td><span class="red">[% replay.statistics.repair || '0' %]</span></td></tr>

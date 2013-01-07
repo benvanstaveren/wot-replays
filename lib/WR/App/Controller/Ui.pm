@@ -1,5 +1,6 @@
 package WR::App::Controller::Ui;
 use Mojo::Base 'WR::App::Controller';
+use WR::Res::Achievements;
 use boolean;
 
 sub faq {
@@ -12,6 +13,29 @@ sub donate {
 
 sub about {
     shift->respond(template => 'about', stash => { page => { title => 'About' } });
+}
+
+sub dlg_achievement {
+    my $self = shift;
+    my $a    = $self->stash('achievement');
+    my $d;
+   
+    if($a =~ /^markOfMastery/) {
+        $d = 'markOfMastery_descr';
+    } else {
+        $d = sprintf('%s_descr', $a);
+    }
+
+    my $res = WR::Res::Achievements->new();
+    my $desc = $res->i18n($d);
+
+    $desc =~ s/\\t/<br\/><span style="margin-left: 20px"><\/span>/g;
+
+    $self->stash(
+        title => $res->i18n($a),
+        desc  => $desc,
+    );
+    $self->render(template => 'dlg/achievement');
 }
 
 sub generate_replay_count {

@@ -229,6 +229,12 @@ msgstr ""
 "other players who drive this type of vehicles.<br/>Unavailable in Clan Wars."
 "<br/><br/><b>Classes of mastery:</b>"
 
+msgid "markOfMastery_descr"
+msgstr ""
+"Awarded for mastery in controlling<br/>an armored vehicle. To qualify,<br/>a "
+"player must earn more average experience in a battle<br/>than %(val)s of "
+"other players who drive this type of vehicles.<br/>Unavailable in Clan Wars."
+
 msgid "markOfMasteryContent/1"
 msgstr "50"
 
