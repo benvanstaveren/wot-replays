@@ -8,7 +8,6 @@
         <script type="text/javascript" src="[% config.urls.static %]/js/jquery-ui-1.9.2.custom.min.js"></script>
         <script type="text/javascript" src="[% config.urls.static %]/js/jquery.form.js"></script>
         <script type="text/javascript" src="[% config.urls.static %]/js/jquery.timers.js"></script>
-        <script type="text/javascript" src="[% config.urls.static %]/js/jquery.tooltip.js"></script>
         <script type="text/javascript" src="[% config.urls.static %]/js/jstz.min.js"></script>
         <script type="text/javascript" src="[% config.urls.static %]/js/jquery.blockUI.js"></script>
         <script type="text/javascript" src="[% config.urls.static %]/js/flot/jquery.flot.js"></script>

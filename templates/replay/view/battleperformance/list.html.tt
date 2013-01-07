@@ -19,29 +19,29 @@
     <td class="playerDetails">
         <span class="
             [% IF player.team == replay.player.team %]
-                teamkill [% IF !details || details.killed == 0 %]dimmed[% END %]" title="Player killed this team member"
+                teamkill [% IF !details || details.killed == 0 %]dimmed[% ELSE %]tooltip[% END %]" title="Player killed this team member"
             [% ELSE %]
-                kill [% IF !details || details.killed == 0 %]dimmed[% END %]" title="Player got the killing blow on this enemy"
+                kill [% IF !details || details.killed == 0 %]dimmed[% ELSE %]tooltip[% END %]" title="Player got the killing blow on this enemy"
             [% END %]></span>
         <span class="damage 
             [% IF player.team == replay.player.team %]
-                [% IF !details || details.damageDealt == 0 %]dimmed[% END %]" title="Player did [% details.damageDealt %] damage to a team member"
+                [% IF !details || details.damageDealt == 0 %]dimmed[% ELSE %]tooltip[% END %]" title="Player did [% details.damageDealt %] damage to a team member"
             [% ELSE %]
-                [% IF !details || details.damageDealt == 0 %]dimmed[% END %]" title="Player did [% details.damageDealt %] damage"
+                [% IF !details || details.damageDealt == 0 %]dimmed[% ELSE %]tooltip[% END %]" title="Player did [% details.damageDealt %] damage"
             [% END %]>
             [% IF details.hits + details.he_hits > 0 %]
             <b>[% details.hits + details.he_hits %]</b> 
             [% END %]
         </span>
-        <span class="crits [% IF !details || details.crits == 0 %]dimmed"[% ELSE %]" title="Player made [% details.crits %] critical hits"[% END %]>
+        <span class="crits [% IF !details || details.crits == 0 %]dimmed"[% ELSE %]tooltip" title="Player made [% details.crits %] critical hits"[% END %]>
             [% IF details.crits > 0 %]
             <b>[% details.crits %]</b>
             [% END %]
         </span>
         [% IF details && details.damageAssisted > 0 %]
-            <span class="evil" title="Player spotted this vehicle, and team members contributed [% details.damageAssisted %] points of damage"></span>
+            <span class="evil tooltip" title="Player spotted this vehicle, and team members contributed [% details.damageAssisted %] points of damage"></span>
         [% ELSE %]
-            <span class="spotted [% IF !details || details.spotted == 0 %]dimmed"[% ELSE %]" title="Player spotted this vehicle"[% END %]></span>
+            <span class="spotted [% IF !details || details.spotted == 0 %]dimmed"[% ELSE %]tooltip" title="Player spotted this vehicle"[% END %]></span>
         [% END %]
         <div class="clear"></div>
     </td>

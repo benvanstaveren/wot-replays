@@ -53,52 +53,26 @@
             </table>
         </div>
         <script type="text/javascript">
-            $('div.replay-tabs a').click(function() {
-                var href = $(this).attr('href');
-                $('div.replay-tabs a').removeClass('active');
-                $(this).addClass('active');
-                $('#replay-view-content div.viewcontent').hide();
-                $('#replay-view-content div' + href).show();
-                return false;
-            });
             $(document).ready(function() {
+                $('div.replay-tabs a').click(function() {
+                    var href = $(this).attr('href');
+                    $('div.replay-tabs a').removeClass('active');
+                    $(this).addClass('active');
+                    $('#replay-view-content div.viewcontent').hide();
+                    $('#replay-view-content div' + href).show();
+                    return false;
+                });
+                $.getJSON('/replay/[% replay.id %]/incview', {}, function(d, t, x) {});
                 $.getJSON('/replay/[% replay.id %]/stats', {}, function(d, t, x) {
                     $('span.rateUpCount').html(d.likes || '0');
                     $('span.count').html(d.downloads || '0');
                     $('span.replayviewcount').html(d.views || '0');
                     $('span.replayviewcount').attr('title', 'This replay has been viewed ' + d.views + ' times');
                 });
-                $.getJSON('/replay/[% replay.id %]/incview', {}, function(d, t, x) {});
+                $('div.award').tooltip({ track: true });
+                $('td.playerDetails span.tooltip').tooltip({ track: true });
             });
         </script>
     </div>
-    [% IF wr.is_user_authenticated() && wr.is_own_replay() %]
-        <script type="text/javascript">
-            $('a.hide-replay').click(function() {
-                var id = $(this).attr('rid');
-                $.getJSON('/profile/hr', { id: id }, function(d) {
-                    if(d.ok == 1) {
-                        $('a.hide-replay').hide();
-                        $('a.show-replay').show();
-                    } else {
-                        alert(d.error);
-                    }
-                });
-                return false;
-            });
-            $('a.show-replay').click(function() {
-                var id = $(this).attr('rid');
-                $.getJSON('/profile/sr', { id: id }, function(d) {
-                    if(d.ok == 1) {
-                        $('a.hide-replay').show();
-                        $('a.show-replay').hide();
-                    } else {
-                        alert(d.error);
-                    }
-                });
-                return false;
-            });
-        </script>
-    [% END %]
 [% END %]
 
