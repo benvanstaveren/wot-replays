@@ -74,7 +74,16 @@
     "medalBrothersInArms": {
         "label": "Brothers In Arms"
     },
+    "medalCrucialContribution": {
+        "label": "Crucial Contribution"
+    },
     "kamikaze": {
         "label": "Kamikaze"
+    },
+    "sturdy": {
+        "label": "Spartan"
+    }
+    "beasthunter": {
+        "label": "Hunter"
     }
 }
