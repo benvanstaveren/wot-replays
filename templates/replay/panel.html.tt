@@ -1,4 +1,4 @@
-<div class="replayPanel [% IF replay.version != config.wot.version %]incompatibleVersion[% END %] box noborder" rid="[% replay.id %]" title="[% replay.site.description |html %] - Click to view" style="cursor: pointer">
+<div class="replayPanel [% IF replay.version != config.wot.version %]incompatibleVersion[% END %] box noborder" rid="[% replay.id %]" title="[% IF replay.site.description %][% replay.site.description |html %] - [% END %]Click to view" style="cursor: pointer">
     <div class="columncontainer sw">
         <div class="column col1">
             [% INCLUDE replay/panel/vehiclemap.html.tt %]
