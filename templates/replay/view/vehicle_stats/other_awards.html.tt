@@ -9,7 +9,7 @@
                             [% title = wr.res.achievements.i18n(wr.res.achievements.index_to_idstr(award.type)) _ ' ' _ award.class_suffix _ ' Class' %]
                         [% END %]
                     [% ELSE %]
-                        [% title = wr.res.achievements.i18n(wr.res.achievements.index_to_idstr(award.type) %]
+                        [% title = wr.res.achievements.i18n(wr.res.achievements.index_to_idstr(award.type)) %]
                     [% END %]
                     <div class="award [% wr.res.achievements.index_to_idstr(award.type) %][% IF award.class_suffix %][% award.class_suffix %][% END %]" title="[% title |html %]">
                         [% IF award.count > 0 %]<b class="ui-corner-all">[% award.count %]</b>[% END %]
