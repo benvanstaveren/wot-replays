@@ -51,7 +51,7 @@ sub _build_achievements_by_class {
     }
 }
 
-sub _build_achievments_by_battle {
+sub _build_achievements_by_battle {
     my $self = shift;
 
     # from common/dossiers/achievements.pyc
