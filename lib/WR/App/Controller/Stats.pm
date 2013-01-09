@@ -6,7 +6,7 @@ sub index {
     my $self = shift;
     my $graphdata = {};
 
-    for(qw/bybonustype byclass bycountry bygametype bytier byversion/) {
+    for(qw/bybonustype byclass bycountry bygametype bytier byserver/) {
         $graphdata->{$_} = [ $self->db('wot-replays')->get_collection(sprintf('stats.%s', $_))->find()->all() ];
     }
 
