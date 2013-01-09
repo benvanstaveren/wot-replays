@@ -13,7 +13,7 @@
                             [% title = wr.res.achievements.i18n(wr.res.achievements.index_to_idstr(award.type)) %]
                         [% END %]
                         <div class="award [% wr.res.achievements.index_to_idstr(award.type) %][% IF award.class_suffix %][% award.class_suffix %][% END %]" title="[% title |html %]">
-                            [% IF award.count > 0 %]<b class="ui-corner-all">[% award.count %]</b>[% END %]
+                            [% IF award.count > 1 %]<b class="ui-corner-all">[% award.count %]</b>[% END %]
                         </div>
                         [% awards = awards + 1 %]
                     [% END %]
