@@ -2,7 +2,6 @@
             <span class="label">Other Awards</span>
             <div class="heroawardlist">
                 [% FOREACH award IN other_awards %]
-                    [% wr.res.achievements.is_award(award.type) %]<br/>
                     [% IF wr.res.achievements.is_award(award.type) %]
                         [% IF wr.res.achievements.is_class(award.type) %]
                             [% IF award.type == 79 %]
