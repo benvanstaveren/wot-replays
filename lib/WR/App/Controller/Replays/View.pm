@@ -104,7 +104,6 @@ sub view {
             $list->{$player} = $frags;
             $team_xp->[$tid] += $r->{vehicles}->{$player}->{xp};
         }
-
         foreach my $id (sort { $list->{$b} <=> $list->{$a} } (keys(%$list))) {
             push(@{$frag_sorted_teams->[$tid]}, $id);
         }
@@ -130,24 +129,33 @@ sub view {
 
     foreach my $e (@{$r->{statistics}->{dossierPopUps}}) {
         $dossier_popups->{$e->[0]} = $e->[1]; # id, count
-
-        if($e->[0] >= 41 && $e->[0] <= 56) {
+        if(($e->[0] >= 41 && $e->[0] <= 56) || ($e->[0] >= 73 && $e->[0] <= 78) || $e->[0] == 106 || $e->[0] == 107 || $e->[0] == 145 || $e->[0] == 146) {
             push(@$other_awards, {
                 class_suffix => $e->[1],
                 count => undef,
                 type => $e->[0],
             });
-        }
-        if($e->[0] >= 57 && $e->[0] <= 67) {
+        } elsif($e->[0] >= 57 && $e->[0] <= 67) {
             push(@$other_awards, {
                 class_suffix => undef,
                 count => $e->[1],
                 type => $e->[0],
             });
-        }
-        if($e->[0] == 79) {
+        } elsif($e->[0] >= 73 && $e->[0] <= 78) {
+            push(@$other_awards, {
+                class_suffix => undef,
+                count => $e->[1],
+                type => $e->[0],
+            });
+        } elsif($e->[0] == 79) {
             push(@$other_awards, {
                 class_suffix => $e->[1],
+                count => undef,
+                type => $e->[0],
+            });
+        } elsif($e->[0] >= 111 || $e->[0] <= 141) {
+            push(@$other_awards, {
+                class_suffix => undef,
                 count => undef,
                 type => $e->[0],
             });
