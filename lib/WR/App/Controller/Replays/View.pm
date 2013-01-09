@@ -129,9 +129,12 @@ sub view {
     my $other_awards = [];
     my $achievements = WR::Res::Achievements->new();
 
+    my $ah = { map { $_ => 1 } @{$r->{statistics}->{achievements}} };
+
     foreach my $e (@{$r->{statistics}->{dossierPopUps}}) {
-        $dossier_popups->{$e->[0]} = $e->[1]; # id, count$
+        $dossier_popups->{$e->[0]} = $e->[1]; # id, count
         next if($achievements->is_battle($e->[0])); # don't want the battle awards to be in other awards
+        next if(defined($ah->{$e->[0]})); # if they were given in battle, keep them there
 
         if($achievements->is_class($e->[0])) {
             # class achievements get the whole medalKay1..4 etc. bit so add a class suffix, and no count
