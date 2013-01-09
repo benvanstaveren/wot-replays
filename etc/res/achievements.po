@@ -323,7 +323,7 @@ msgstr ""
 "becomes void."
 
 msgid "medalAbrams"
-msgstr "Abrams' Medal %s"
+msgstr "Abrams' Medal"
 
 msgid "medalAbrams_descr"
 msgstr ""
@@ -387,7 +387,7 @@ msgstr ""
 "with antitank guns, and five infantry vehicles."
 
 msgid "medalCarius"
-msgstr "Carius' Medal %s"
+msgstr "Carius' Medal"
 
 msgid "medalCarius_descr"
 msgstr ""
@@ -439,7 +439,7 @@ msgstr ""
 "battery of 150 mm guns."
 
 msgid "medalEkins"
-msgstr "Ekins' Medal %s"
+msgstr "Ekins' Medal"
 
 msgid "medalEkins_descr"
 msgstr ""
@@ -482,7 +482,7 @@ msgstr ""
 "June and July 1944."
 
 msgid "medalKay"
-msgstr "Kay's Medal %s"
+msgstr "Kay's Medal"
 
 msgid "medalKay_descr"
 msgstr "Awarded for achieving the Battle Hero status in four classes."
@@ -494,7 +494,7 @@ msgstr ""
 "popular interest in tank warfare."
 
 msgid "medalKnispel"
-msgstr "Knispel's Medal %s"
+msgstr "Knispel's Medal"
 
 msgid "medalKnispel_descr"
 msgstr ""
@@ -533,7 +533,7 @@ msgstr ""
 "propelled gun kills."
 
 msgid "medalLavrinenko"
-msgstr "Lavrinenko's Medal %s"
+msgstr "Lavrinenko's Medal"
 
 msgid "medalLavrinenko_descr"
 msgstr ""
@@ -547,7 +547,7 @@ msgstr ""
 "battles over the course of just two months."
 
 msgid "medalLeClerc"
-msgstr "Leclerc's Medal %s"
+msgstr "Leclerc's Medal"
 
 msgid "medalLeClerc_descr"
 msgstr ""
@@ -626,7 +626,7 @@ msgstr ""
 "escape encirclment."
 
 msgid "medalPoppel"
-msgstr "Popel's Medal %s"
+msgstr "Popel's Medal"
 
 msgid "medalPoppel_descr"
 msgstr ""

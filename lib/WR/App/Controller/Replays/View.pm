@@ -2,6 +2,7 @@ package WR::App::Controller::Replays::View;
 use Mojo::Base 'WR::App::Controller';
 use boolean;
 use WR::Query;
+use WR::Res::Achievements;
 use Time::HiRes qw/gettimeofday tv_interval/;
 use JSON::XS;
 
@@ -104,6 +105,7 @@ sub view {
             $list->{$player} = $frags;
             $team_xp->[$tid] += $r->{vehicles}->{$player}->{xp};
         }
+
         foreach my $id (sort { $list->{$b} <=> $list->{$a} } (keys(%$list))) {
             push(@{$frag_sorted_teams->[$tid]}, $id);
         }
@@ -123,40 +125,33 @@ sub view {
         $r->{teamxp} = [ $team_xp->[1], $team_xp->[0], $team_xp->[2] ];
     }
 
-    my $other_awards = {};
     my $dossier_popups = {};
     my $other_awards = [];
+    my $achievements = WR::Res::Achievements->new();
 
     foreach my $e (@{$r->{statistics}->{dossierPopUps}}) {
-        $dossier_popups->{$e->[0]} = $e->[1]; # id, count
-        if(($e->[0] >= 41 && $e->[0] <= 56) || ($e->[0] >= 73 && $e->[0] <= 78) || $e->[0] == 106 || $e->[0] == 107 || $e->[0] == 145 || $e->[0] == 146) {
+        $dossier_popups->{$e->[0]} = $e->[1]; # id, count$
+        next if($achievements->is_battle($e->[0])); # don't want the battle awards to be in other awards
+
+        if($achievements->is_class($e->[0])) {
+            # class achievements get the whole medalKay1..4 etc. bit so add a class suffix, and no count
             push(@$other_awards, {
                 class_suffix => $e->[1],
                 count => undef,
                 type => $e->[0],
             });
-        } elsif($e->[0] >= 57 && $e->[0] <= 67) {
-            push(@$other_awards, {
-                class_suffix => undef,
-                count => $e->[1],
-                type => $e->[0],
-            });
-        } elsif($e->[0] >= 73 && $e->[0] <= 78) {
-            push(@$other_awards, {
-                class_suffix => undef,
-                count => $e->[1],
-                type => $e->[0],
-            });
-        } elsif($e->[0] == 79) {
-            push(@$other_awards, {
-                class_suffix => $e->[1],
-                count => undef,
-                type => $e->[0],
-            });
-        } elsif($e->[0] >= 111 || $e->[0] <= 141) {
+        } elsif($achievements->is_single($e->[0])) {
+            # non-repeatables, no suffix, no count
             push(@$other_awards, {
                 class_suffix => undef,
                 count => undef,
+                type => $e->[0],
+            });
+        } elsif($achievements->is_repeatable($e->[0])) {
+            # repeatables, have a count
+            push(@$other_awards, {
+                class_suffix => undef,
+                count => $e->[1],
                 type => $e->[0],
             });
         }
