@@ -41,15 +41,11 @@ sub _build_achievements_by_single {
     }
 }
 
-sub can_skip {
+sub is_award {
     my $self = shift;
     my $idx  = shift;
 
-    return (
-        $self->is_battle($idx) ||
-        $self->is_class($idx) ||
-        $self->is_repeatable($idx)
-    ) ? 0 : 1;
+    return ($self->is_battle($idx) || $self->is_class($idx) || $self->is_repeatable($idx)) ? 1 : 0;
 }
 
 sub _build_achievements_by_class {

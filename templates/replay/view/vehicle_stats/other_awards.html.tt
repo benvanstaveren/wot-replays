@@ -2,8 +2,8 @@
             <span class="label">Other Awards</span>
             <div class="heroawardlist">
                 [% FOREACH award IN other_awards %]
-                    [% wr.res.achievements.can_skip(award.type) %]</br>
-                    [% IF wr.res.achievements.can_skip(award.type) == 0 %]
+                    [% wr.res.achievements.is_award(award.type) %]<br/>
+                    [% IF wr.res.achievements.is_award(award.type) %]
                         [% IF wr.res.achievements.is_class(award.type) %]
                             [% IF award.type == 79 %]
                                 [% title = wr.res.achievements.i18n(wr.res.achievements.index_to_idstr(award.type) _ award.class_suffix) %]
