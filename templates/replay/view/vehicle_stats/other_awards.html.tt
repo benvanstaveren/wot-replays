@@ -2,19 +2,21 @@
             <span class="label">Other Awards</span>
             <div class="heroawardlist">
                 [% FOREACH award IN other_awards %]
-                    [% IF wr.res.achievements.is_class(award.type) %]
-                        [% IF award.type == 79 %]
-                            [% title = wr.res.achievements.i18n(wr.res.achievements.index_to_idstr(award.type) _ award.class_suffix) %]
+                    [% IF wr.res.achievements.can_skip(award.type) == 0 %]
+                        [% IF wr.res.achievements.is_class(award.type) %]
+                            [% IF award.type == 79 %]
+                                [% title = wr.res.achievements.i18n(wr.res.achievements.index_to_idstr(award.type) _ award.class_suffix) %]
+                            [% ELSE %]
+                                [% title = wr.res.achievements.i18n(wr.res.achievements.index_to_idstr(award.type)) _ ' ' _ award.class_suffix _ ' Class' %]
+                            [% END %]
                         [% ELSE %]
-                            [% title = wr.res.achievements.i18n(wr.res.achievements.index_to_idstr(award.type)) _ ' ' _ award.class_suffix _ ' Class' %]
+                            [% title = wr.res.achievements.i18n(wr.res.achievements.index_to_idstr(award.type)) %]
                         [% END %]
-                    [% ELSE %]
-                        [% title = wr.res.achievements.i18n(wr.res.achievements.index_to_idstr(award.type)) %]
+                        <div class="award [% wr.res.achievements.index_to_idstr(award.type) %][% IF award.class_suffix %][% award.class_suffix %][% END %]" title="[% title |html %]">
+                            [% IF award.count > 0 %]<b class="ui-corner-all">[% award.count %]</b>[% END %]
+                        </div>
+                        [% awards = awards + 1 %]
                     [% END %]
-                    <div class="award [% wr.res.achievements.index_to_idstr(award.type) %][% IF award.class_suffix %][% award.class_suffix %][% END %]" title="[% title |html %]">
-                        [% IF award.count > 0 %]<b class="ui-corner-all">[% award.count %]</b>[% END %]
-                    </div>
-                    [% awards = awards + 1 %]
                 [% END %]
                 [% IF awards < 1 %]
                     <span>No other badges or medals awarded</span>
