@@ -4,7 +4,7 @@
                 [% FOREACH award IN replay.statistics.achievements.nsort %]
                     [% IF wr.res.achievements.is_battle(award) %]
                         <div class="award [% wr.res.achievements.index_to_idstr(award) %]" title="[% wr.res.achievements.i18n(wr.res.achievements.index_to_idstr(award)) |html %] (#[% dossier_popups.$award %])">
-                            <b class="ui-corner-all">[% dossier_popups.$award %]</b>
+                            <b class="ui-corner-all">[% dossier_popups.$award || '1' %]</b>
                         </div>
                         [% awards = awards + 1 %]
                     [% END %]
