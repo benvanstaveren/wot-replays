@@ -2,10 +2,12 @@
             <span class="label">Battle Awards</span>
             <div class="heroawardlist">
                 [% FOREACH award IN replay.statistics.achievements.nsort %]
-                    <div class="award [% wr.res.achievements.index_to_idstr(award) %]" title="[% wr.res.achievements.i18n(wr.res.achievements.index_to_idstr(award)) |html %] (#[% dossier_popups.$award %])">
-                        <b class="ui-corner-all">[% dossier_popups.$award %]</b>
-                    </div>
-                    [% awards = awards + 1 %]
+                    [% IF wr.res.achievements.is_battle(award) %]
+                        <div class="award [% wr.res.achievements.index_to_idstr(award) %]" title="[% wr.res.achievements.i18n(wr.res.achievements.index_to_idstr(award)) |html %] (#[% dossier_popups.$award %])">
+                            <b class="ui-corner-all">[% dossier_popups.$award %]</b>
+                        </div>
+                        [% awards = awards + 1 %]
+                    [% END %]
                 [% END %]
                 [% IF awards < 1 %]
                     <span>No badges or medals awarded</span>

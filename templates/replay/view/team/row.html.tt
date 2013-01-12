@@ -32,7 +32,9 @@
     </td>
     <td class="playerDetails">
         [% FOREACH award IN player.achievements.nsort %]
-            <img src="//images.wot-replays.org/icon/awards/24/[% wr.res.achievements.index_to_idstr(award) %].png" style="margin-top: 8px; height: 24px;" alt="[% wr.res.achievements.i18n(wr.res.achievements.index_to_idstr(award)) |html %]" title="[% wr.res.achievements.i18n(wr.res.achievements.index_to_idstr(award)) |html %]"/>
+            [% IF wr.res.achievements.is_battle(award) %]
+                <img src="//images.wot-replays.org/icon/awards/24/[% wr.res.achievements.index_to_idstr(award) %].png" style="margin-top: 8px; height: 24px;" alt="[% wr.res.achievements.i18n(wr.res.achievements.index_to_idstr(award)) |html %]" title="[% wr.res.achievements.i18n(wr.res.achievements.index_to_idstr(award)) |html %]"/>
+            [% END %]
         [% END %]
     </td>
     <td class="playerXP"><span class="[% IF player.xp > avgxp %]green" title="Player earned more than the global average of [% avgxp %] XP"[% ELSE %]red" title="Player earned less than the global average of [% avgxp %] XP"[% END %]>[% player.xp %]</span></td>
