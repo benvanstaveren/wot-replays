@@ -30,6 +30,7 @@ with (
         'WR::Role::Process::Mastery',        # resolve heroes 
         'WR::Role::Process::Fittings',       # process vehicle fittings
         'WR::Role::Process::Platoon',        # process platoons
+        'WR::Role::Process::Chat',           # chat messages
     );
 
 sub error {
@@ -57,15 +58,13 @@ sub process {
     } else {
         die 'you must pass either a "file" or "data" parameter', "\n";
     }
-    $args{traits} = [$lltrait, qw/Data::Decrypt Data::Reader Data::Attributes/];
+    $args{traits} = [$lltrait, qw/Data::Decrypt Data::Reader Data::Attributes Data::Chat/];
 
     $self->_set_parser(try {
         return WR::Parser->new(%args);
     } catch {
         $self->error('unable to parse replay: ', $_);
     });
-
-    warn 'number of blocks: ', $self->_parser->num_blocks, "\n";
 
     $self->_set_match_result($self->fuck_booleans($self->_parser->decode_block(2))) if($self->_parser->is_complete);
 
