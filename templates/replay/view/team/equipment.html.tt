@@ -1,1 +1,4 @@
-[% INCLUDE replay/view/team/equipment/fitting.html.tt %]
+<div>
+    <div style="" class="viewcontent" id="fitting">[% INCLUDE replay/view/team/equipment/fitting.html.tt %]</div>
+    <div class="viewcontent" id="performance" style="display: none">...</div>
+</div>

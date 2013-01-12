@@ -25,7 +25,7 @@
             <div class="health" style="width: [% bs %]px"></div>
             <div class="healthnumbers">[% v.health %]/[% h %]</div>
         </div>
-        <div title="Equipment for [% wr.vehicle_name(player.vehicleType.full) |html %]" class="equipmentDialog" id="tt_[% player.name |html %]" style="display: none">[% INCLUDE replay/view/team/equipment.html.tt %]</div>
+        <div title='<div class="dialog-tabs"><ul><li><a class="ui-corner-top active" href="#fitting">Fitting</a></li><li><a class="ui-corner-top" href="#performance">Performance</a></li></ul></div>' class="equipmentDialog" id="tt_[% player.name |html %]" style="display: none">[% INCLUDE replay/view/team/equipment.html.tt %]</div>
     </td>
     <td class="playerName">
         [% player.name |html %][% IF player.clanAbbrev %]<span class="clan">[[% player.clanAbbrev %]]</span>[% END %]
