@@ -8,13 +8,14 @@
         </table>
     </div>
     <div class="clear"></div>
-    <div style="margin-top: 15px">
+    <span style="margin-top: 15px" class="label">Base Capture</span>
+    <div>
         <table style="width: 100%" cellspacing="0" cellpadding="0"><tbody><tr>
             <td>
-                <span class="label small">Invaded</span>
+                <span class="label small">Invaded Points</span>
                 <span class="[% IF replay.statistics.capturePoints > 0 %]green[% END %]">[% replay.statistics.capturePoints || '0' %]</span>
             </td><td>
-                <span class="label small">Defended</span>
+                <span class="label small">Defended Points</span>
                 <span class="[% IF replay.statistics.droppedCapturePoints > 0 %]green[% END %]">[% replay.statistics.droppedCapturePoints || '0' %]</span>
             </td>
         </tr>
