@@ -6,7 +6,7 @@
         [% END %]
         [% IF done > 0 && !errormessage %]
             <div>
-                Your upload was successful!
+                Your upload was successful! 
             </div>
             [% IF published > 0 %]
             <div style="margin-top: 15px">
@@ -17,6 +17,9 @@
             <div style="margin-top: 15px">
                 <span class="label">Direct download link</span>
                 <a href="[% config.urls.app %]/download/[% id %]">http://www.wot-replays.org/download/[% id %]</a>
+            </div>
+            <div style="margin-top: 15px">
+                [% INCLUDE donatebutton.html.tt %]
             </div>
         [% END %]
         <div id="frm-upload-container" style="width: 600px; margin: 0px auto; padding: 25px" class="box" style="background: #e0e0e0 none repeat scroll 0 0">
