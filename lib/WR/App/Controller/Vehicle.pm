@@ -6,16 +6,27 @@ sub index {
     my $self = shift;
     my $vehicles = {};
 
-    foreach my $country (qw/china france germany usa ussr/) {
+    foreach my $country (qw/china france germany uk usa ussr/) {
         my $temp = [];
-        my $cursor = $self->db('wot-replays')->get_collection('data.vehicles')->find({ country => $country })->sort({ label => 1 });
+        my $th   = {
+            'L' => [],
+            'M' => [],
+            'H' => [],
+            'S' => [],
+            'T' => [],
+        };
+
+        my $cursor = $self->db('wot-replays')->get_collection('data.vehicles')->find({ country => $country })->sort({ level => 1 });
         while(my $obj = $cursor->next()) {
-            push(@$temp, { 
+            push(@{$th->{$obj->{type}}}, {
                 id => $obj->{_id},
                 sid => $obj->{name},
             });
         }
-        $vehicles->{$country} = $temp;
+        foreach (qw/L M H T S/) {
+            push(@$temp, @{$th->{$_}});
+        }
+        $vehicles->{$country} = $th;
     }
 
     $self->respond(
@@ -23,6 +34,7 @@ sub index {
         stash => {
             page => { title => 'Vehicles' },
             vehicles_all => $vehicles,
+            vehicletypes => [ 'L','M','H','T','S' ],
         },
     );
 }
