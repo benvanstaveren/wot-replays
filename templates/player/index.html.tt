@@ -1,3 +1,20 @@
 [% WRAPPER wrapper.html.tt %]
-    [% INCLUDE construct.html.tt %]
+    <div><div class="content nosidebar aboutText">
+        <div>
+            <form action="/players" method="post">
+            <span class="label">Player Name</span>
+            <input type="text" name="player" value="[% player |html %]"/>
+            <input type="submit" value="Search"/>
+            </form>
+        </div>
+        <div>
+            [% IF results.size > 0 %]
+                ...
+            [% ELSIF player %]
+                <b>We could not find any results...</b>
+            [% ELSE %]
+                <b>Please type a part of the players' name in the search box above...</b>
+            [% END %]
+        </div>
+    </div></div>
 [% END %]

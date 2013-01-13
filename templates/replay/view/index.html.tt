@@ -24,18 +24,22 @@
                 <tr>
                     <td style="vertical-align: top">
                         <div id="replay-view-content" class="ui-corner-all">
-                            <div class="replay-tabs">
-                                <ul>
-                                    <li><a class="ui-corner-bottom active" href="#vehicle-stats">Statistics</a></li>
-                                    [% IF replay.complete %]
-                                    <li><a class="ui-corner-bottom" href="#teams">Teams</a></li>
-                                    [% END %]
-                                    [% IF replay.chat.size > 0 %]
-                                    <li><a class="ui-corner-bottom" href="#battle-chat">Chat</a></li>
-                                    [% END %]
-                                </ul>
+                            <div class="tablist">
+                                <div class="tablist-inner">
+                                    <div class="container-tablist">
+                                        <ul class="nav">
+                                            <li class="nav-item tab active"><a href="#vehicle-stats">Statistics</a></li>
+                                            [% IF replay.complete %]
+                                                <li class="nav-item tab"><a href="#teams">Teams</a></li>
+                                            [% END %]
+                                            [% IF replay.chat.size > 0 %]
+                                                <li class="nav-item tab"><a href="#battle-chat">Chat</a></li>
+                                            [% END %]
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
-                            <div id="vehicle-stats" class="viewcontent">
+                            <div id="vehicle-stats" class="tab-panel">
                                 <div style="width: 390px; float: left">
                                     [% INCLUDE replay/view/battleperformance.html.tt %]
                                 </div>
@@ -44,7 +48,7 @@
                                 </div>
                                 <div class="clear"></div>
                             </div>
-                            <div id="battle-chat" class="viewcontent" style="display: none">
+                            <div id="battle-chat" class="tab-panel" style="display: none">
                                 [% FOREACH message IN replay.chat %]
                                     <div class="chatmessage">
                                         <div class="from [% IF message.global == 1 %]global[% END %]">[% message.from |html %]</div>
@@ -54,7 +58,7 @@
                                 [% END %]
                             </div>
                             [% IF replay.complete %]
-                                <div id="teams" class="viewcontent" style="display: none">
+                                <div id="teams" class="tab-panel" style="display: none">
                                     [% INCLUDE replay/view/teams.html.tt %]
                                 </div>
                             [% END %]
@@ -66,12 +70,12 @@
         </div>
         <script type="text/javascript">
             $(document).ready(function() {
-                $('div.replay-tabs a').click(function() {
+                $('li.nav-item.tab a').click(function() {
+                    $('li.nav-item.tab').removeClass('active');
+                    $(this).parent().addClass('active');
                     var href = $(this).attr('href');
-                    $('div.replay-tabs a').removeClass('active');
-                    $(this).addClass('active');
-                    $('#replay-view-content div.viewcontent').hide();
-                    $('#replay-view-content div' + href).show();
+                    $('div.tab-panel').hide();
+                    $(href).show();
                     return false;
                 });
                 $.getJSON('/replay/[% replay.id %]/incview', {}, function(d, t, x) {});
