@@ -52,6 +52,7 @@
                 $(href).show();
                 return false;
             });
+            $('img.tooltip').tooltip({ track: true });
         });
     </script>
 [% END %]

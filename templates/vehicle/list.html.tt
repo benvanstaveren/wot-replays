@@ -10,6 +10,3 @@
         [% END %]
     [% END %]
 [% END %]
-<script type="text/javascript">
-    $('img.tooltip').tooltip({ track: true });
-</script>
