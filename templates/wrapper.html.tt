@@ -14,6 +14,7 @@
         <script type="text/javascript" src="[% config.urls.static %]/js/flot/jquery.flot.pie.js"></script>
         <script type="text/javascript" src="[% config.urls.static %]/js/wr.js"></script>
         <link rel="stylesheet" href="[% config.urls.static %]/css/style.css"/>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
         <meta name="keywords" content="[% page.keywords %], world of tanks replays, wot replays, replays"/>
         [% IF page.description %]
             <meta name="description" content="[% page.description |html %]"/>
