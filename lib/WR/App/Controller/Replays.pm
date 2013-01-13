@@ -56,9 +56,9 @@ sub browse {
     my $skey = $self->req->param('skey') || sprintf('filter_%s', $self->stash('pageid'));
     my $sorting = {
         upload      => { 'site.uploaded_at' => -1 },
-        xp          => { 'player.statistics.earned.xp' => -1 },
-        credits     => { 'player.statistics.earned.credits' => -1 },
-        damage      => { 'player.statistics.damage.done' => -1 },
+        xp          => { 'statistics.xp' => -1 },
+        credits     => { 'statistics.credits' => -1 },
+        damage      => { 'statistics.damageDealt' => -1 },
         likes       => { 'site.like' => -1 },
         downloads   => { 'site.downloads' => -1 },
         };
