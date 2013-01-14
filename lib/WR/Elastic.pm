@@ -59,7 +59,16 @@ sub index {
     # things that need to be altered are the _id which needs to be turned into a string
     $replay->{_id} = $replay->{_id}->to_string;
 
-    # other things that need to be altered? None so far. 
+    # need to fix equipment to not have empties if they're there 
+    foreach my $v (values(%{$replay->{vehicle_fittings}})) {
+        delete($v->{rawdata});
+        my $e = $v->{data}->{equipment};
+        my $n = [];
+        foreach my $item (@$e) {
+            push(@$n, $item) if(defined($item));
+        }
+        $v->{data}->{equipment} = $n;
+    }
 
     $self->_elastic->index(
         index   => 'wotreplays',
