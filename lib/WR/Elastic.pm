@@ -27,6 +27,31 @@ sub setup {
     );
 }
 
+sub fuck_jsonxs {
+    my $self = shift;
+    my $obj = shift;
+
+    return $obj unless(ref($obj));
+
+    if(ref($obj) eq 'ARRAY') {
+        return [ map { $self->fuck_jsonxs($_) } @$obj ];
+    } elsif(ref($obj) eq 'HASH') {
+        foreach my $field (keys(%$obj)) {
+            next unless(ref($obj->{$field}));
+            if(ref($obj->{$field}) eq 'HASH') {
+                $obj->{$field} = $self->fuck_jsonxs($obj->{$field});
+            } elsif(ref($obj->{$field}) eq 'ARRAY') {
+                my $t = [];
+                push(@$t, $self->fuck_jsonxs($_)) for(@{$obj->{$field}});
+                $obj->{$field} = $t;
+            } elsif(boolean::isBoolean($obj->{$field})) {
+                $obj->{$field} = ($obj->{$field}) ? JSON::XS->true : JSON::XS->false;
+            }
+        }
+        return $obj;
+    }
+}
+
 sub index {
     my $self    = shift;
     my $replay  = shift;
@@ -40,7 +65,7 @@ sub index {
         index   => 'wotreplays',
         type    => 'replay',
         id      => delete($replay->{_id}),
-        data    => $replay,
+        data    => $self->fuck_jsonxs($replay),
     );
 }
 
