@@ -65,7 +65,9 @@ sub index {
         my $e = $v->{data}->{equipment};
         my $n = [];
         foreach my $item (@$e) {
-            push(@$n, $item) if(defined($item));
+            next unless(defined($item));
+            next unless($item =~ /^\d+$/);
+            push(@$n, $item);
         }
         $v->{data}->{equipment} = $n;
     }
