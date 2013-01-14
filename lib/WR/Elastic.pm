@@ -2,6 +2,7 @@ package WR::Elastic;
 use Moose;
 use ElasticSearch;
 use ElasticSearch::SearchBuilder;
+use JSON::XS;
 
 has '_elastic' => (is => 'ro', isa => 'ElasticSearch', lazy => 1, builder => '_build_elastic');
 
@@ -55,6 +56,7 @@ sub fuck_jsonxs {
 sub index {
     my $self    = shift;
     my $replay  = shift;
+    my $j       = JSON::XS->new()->allow_blessed(1)->convert_blessed(1);
 
     # things that need to be altered are the _id which needs to be turned into a string
     $replay->{_id} = $replay->{_id}->to_string;
@@ -76,7 +78,7 @@ sub index {
         index   => 'wotreplays',
         type    => 'replay',
         id      => delete($replay->{_id}),
-        data    => $self->fuck_jsonxs($replay),
+        data    => $j->encode($self->fuck_jsonxs($replay)),
     );
 }
 
