@@ -9,7 +9,7 @@ sub _build_elastic {
     my $self = shift;
 
     return ElasticSearch->new(
-        servers     => '192.168.100.10', # es1.blockstackers.net
+        servers     => '192.168.100.10:9200', # es1.blockstackers.net
         transport   => 'http',
     );
 }
