@@ -12,6 +12,9 @@ sub respond {
         $self->stash('timing_elapsed' => Time::HiRes::tv_interval($start));
     }
     $self->render(%args);
+    return 1;
+
+    # unused for the time being, let's try full dynamic mode again
 
     if(defined($self->stash('cachereplay')) && $self->stash('cachereplay') == 1) {
         my $parts = $self->req->url->path->parts;
