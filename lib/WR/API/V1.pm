@@ -3,6 +3,7 @@ use Mojo::Base 'Mojolicious::Controller';
 use WR::Parser;
 use WR::Util::PyPickle;
 use WR::Process;
+use WR::ServerFinder;
 use boolean;
 use Try::Tiny qw/try catch/;
 
@@ -69,6 +70,8 @@ sub data {
         my $m = sprintf('wot-replays.data.%s', $type);
         my $a = [ $self->model($m)->find()->all() ];
         $self->render(json => { ok => 1, data => $self->fuck_boolean($a) });
+    } elsif($type eq 'players') {
+        $self->render(json => { ok => 1, data => $self->fuck_boolean([ $self->model('wot-replays.cache.server_finder')->find()->all() ]) });
     } else {
         $self->render(json => { ok => 0, error => 'Invalid data type specified' });
     }

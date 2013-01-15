@@ -33,7 +33,8 @@ sub startup {
                 $data->route('/consumables')->to('v1#data', type => 'consumables');
                 $data->route('/vehicles')->to('v1#data', type => 'vehicles');
                 $data->route('/components')->to('v1#data', type => 'components');
-
+                $data->route('/players')->to('v1#data', type => 'players');
+            
             $api->route('/parse')->via('post')->to('v1#parse');
 
 }
