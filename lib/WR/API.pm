@@ -12,7 +12,7 @@ sub startup {
     my $self = shift;
     my $r    = $self->routes;
 
-    my $config = $self->plugin('Config', { file => 'wr.conf' });
+    my $config = $self->plugin('Config', { file => 'wrapi.conf' });
     $config->{wot}->{bf_key} = join('', map { chr(hex($_)) } (split(/\s/, $config->{wot}->{bf_key})));
 
     $self->secret($config->{app}->{secret});
