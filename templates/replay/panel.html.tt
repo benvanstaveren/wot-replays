@@ -13,8 +13,8 @@
                         [% INCLUDE replay/panel/panelstats.html.tt %]
                     </div>
                     <div class="panelButtons">
-                        <a title="Download this replay" href="/download/[% replay.id %]" class="downloadButton [% IF replay.version != config.wot.version %]incompatible[% END %]"><button class="panelButton download">Save (<span class="count">[% replay.site.downloads || '0' %]</span>)</button></a>
-                        <a href="#" class="rateUp" rid="[% replay.id %]" title="Like this replay"><button style="width: 75px" class="rateUp">Like (<span class="rateUpCount">[% replay.site.like || '0' %]</span>)</button></a>
+                        <button title="Download this replay" href="/download/[% replay.id %]" class="panelButton downloadButton [% IF replay.version != config.wot.version %]incompatible[% END %]">Save (<span class="count">[% replay.site.downloads || '0' %]</span>)</button>
+                        <button class="rateUp" rid="[% replay.id %]" title="Like this replay" style="width: 75px">Like (<span class="rateUpCount">[% replay.site.like || '0' %]</span>)</button>
                     </div>
                 </div>
             </div>
