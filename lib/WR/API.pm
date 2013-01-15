@@ -34,7 +34,7 @@ sub startup {
                 $data->route('/vehicles')->to('v1#data', type => 'vehicles');
                 $data->route('/components')->to('v1#data', type => 'components');
 
-            $api->route('/parse')->to('v1#parse');
+            $api->route('/parse')->via('post')->to('v1#parse');
 
 }
 

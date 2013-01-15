@@ -3,6 +3,7 @@ use Mojo::Base 'Mojolicious::Controller';
 use WR::Parser;
 use WR::Util::PyPickle;
 use WR::Process;
+use boolean;
 use Try::Tiny qw/try catch/;
 
 sub token_valid {
@@ -35,13 +36,39 @@ sub check_token {
     }
 }
 
+sub fuck_boolean {
+    my $self = shift;
+    my $obj = shift;
+
+    return $obj unless(ref($obj));
+
+    if(ref($obj) eq 'ARRAY') {
+        return [ map { $self->fuck_boolean($_) } @$obj ];
+    } elsif(ref($obj) eq 'HASH') {
+        foreach my $field (keys(%$obj)) {
+            next unless(ref($obj->{$field}));
+            if(ref($obj->{$field}) eq 'HASH') {
+                $obj->{$field} = $self->fuck_boolean($obj->{$field});
+            } elsif(ref($obj->{$field}) eq 'ARRAY') {
+                my $t = [];
+                push(@$t, $self->fuck_boolean($_)) for(@{$obj->{$field}});
+                $obj->{$field} = $t;
+            } elsif(boolean::isBoolean($obj->{$field})) {
+                $obj->{$field} = ($obj->{$field}) ? Mojo::JSON->true : Mojo::JSON->false;
+            }
+        }
+        return $obj;
+    }
+}
+
 sub data {
     my $self = shift;
     my $type = $self->stash('type');
 
     if($type =~ /^(vehicles|equipment|components|consumables)$/) {
-        my $m    = sprintf('wot-replays.data.%s', $type);
-        $self->render(json => { ok => 1, data => [ $self->model($m)->find()->all() ] });
+        my $m = sprintf('wot-replays.data.%s', $type);
+        my $a = [ $self->model($m)->find()->all() ];
+        $self->render(json => { ok => 1, data => $self->fuck_boolean($a) });
     } else {
         $self->render(json => { ok => 0, error => 'Invalid data type specified' });
     }
@@ -59,7 +86,7 @@ sub parse {
         }
 
         my $p = WR::Process->new(
-            file    => $asset->handle,
+            file    => $asset->path,
             db      => $self->db('wot-replays'),
             bf_key  => $self->stash('config')->{wot}->{bf_key},
         );
@@ -70,30 +97,16 @@ sub parse {
         } catch {
             $self->render(json => { ok => 0, error => "[process]: $_" });
         };
+        $asset->cleanup;
         return unless(defined($m_data));
 
         my $data = {
             ok          =>  1,
-            replay      =>  $m_data,
+            replay      =>  $self->fuck_boolean($m_data),
         };
         $self->render(json => $data);
     } else {
         $self->render(json => { ok => 0, error => 'No file passed' });
-    }
-}
-
-
-            
-
-        
-    
-
-
-
-
-
-    } else {
-        $self->render({ ok => 0, error => 'No file sent' });
     }
 }
 
