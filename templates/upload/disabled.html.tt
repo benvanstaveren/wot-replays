@@ -2,7 +2,7 @@
     <div class="content nosidebar aboutText">
         <h3>Upload Disabled</h3>
         <div>
-            Uploads disabled pending a change to the replay parser and having to re-parse existing replays. Refer to <a href="http://blog.wot-replays.org/2012/08/oh-wargaming-when-will-it-ever-end.html">this blog post</a> for the exact reason. Strong language included for free!
+            Uploads disabled pending a change to the replay parser and having to re-parse existing replays due to changes to 0.8.3 format.
         </div>
     </div>
 [% END %]
