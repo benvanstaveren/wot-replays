@@ -21,11 +21,15 @@
         [% INCLUDE bricks/ga.js.tt %]
     </head>
     <body class="ui">
+        <div style="padding: 20px 0px 20px 0px">
         <div id="container" class="ui-corner-all" style="margin-bottom: 25px">
             [% INCLUDE nav.html.tt %]
             <div class="clear"></div>
             <div id="contentMain">[% content %]</div>
             [% INCLUDE footer.html.tt %]
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
         </div>
     </body>
 </html>
