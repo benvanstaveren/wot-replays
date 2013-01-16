@@ -111,6 +111,14 @@ around 'process' => sub {
 
         $data->{game}->{time}        = $self->pickledata->{common}->{arenaCreateTime};
         $data->{player}->{killed_by} = undef if($data->{player}->{killed_by} + 0 == 0);
+
+        # add a few things to the player
+        if($self->_parser->wot_ammo_consumables_available) {
+            $data->{player}->{loadout} = {
+                ammo            => $self->_parser->wot_ammo,
+                consumables     => $self->_parser->wot_consumables,
+            };
+        }
     }
     use warnings;
     return $data;
