@@ -21,12 +21,12 @@ my $rc     = $db->get_collection('replays')->find()->sort({ 'site.uploaded_at' =
 $db->get_collection('track.mastery')->drop(); # drop that
 
 while(my $r = $rc->next()) {
+    next unless(defined($r->{file}));
     my $process;
     my $m;
     my $e;
     my $f = sprintf('/home/ben/projects/wot-replays/data/replays/%s', $r->{file});
 
-    print $r->{file};
 
     try {
         $process = WR::Process->new(file => $f, db => $db, bf_key => WOT_BF_KEY);
