@@ -52,6 +52,7 @@ sub view {
     my $self = shift;
     my $desc;
     my $format = $self->stash('format');
+    my $start = [ gettimeofday ];
 
     $self->redirect_to(sprintf('%s.html', $self->req->url)) unless(defined($format));
 
@@ -60,10 +61,6 @@ sub view {
         $self->render(text => $j->encode($self->fuck_jsonxs($self->stash('req_replay'))));
         return;
     }
-
-    $self->stash('cachereplay' => 1);
-
-    my $start = [ gettimeofday ];
 
     my $replay = $self->stash('req_replay');
     my $r = { %$replay };
@@ -162,6 +159,11 @@ sub view {
 
     $self->stash('dossier_popups' => $dossier_popups);
     $self->stash('other_awards' => $other_awards);
+
+    $self->model('wot-replays.replays')->update({ _id => $r->{_id} }, {
+        '$inc' => { 'site.views' => 1 },
+    });
+
     $self->stash('timing_view' => tv_interval($start, [ gettimeofday ]));
 
     $self->respond(

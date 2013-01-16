@@ -1,7 +1,7 @@
 <div class="global-nav ui-corner-top">
     <div class="global-nav-inner ui-corner-top">
         <div class="container ui-corner-top">
-            <ul class="nav js-global-actions" id="global-actions ui-corner-top">
+            <ul class="nav js-global-actions ui-corner-top" id="global-actions">
                 <li class="nav-item ui-corner-tl [% IF pageid == 'home' %]active[% END %]">
                     <a class="ui-corner-tl js-hover" href="/">
                         Home
