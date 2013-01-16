@@ -20,6 +20,7 @@ around 'process' => sub {
     my $teams    = [ [], [] ];
     my $pid      = $res->{playerID} + 0;
     my $vehicle_hash = {};
+    my $all_players  = {};
 
     if($self->_parser->is_complete) {
         my $pd       = ($self->_parser->is_complete) ? $self->pickledata->{vehicles} : {};
@@ -35,6 +36,7 @@ around 'process' => sub {
             push(@{$teams->[ $v->{team} - 1 ]}, $v->{id});
             $vehicle_hash->{$v->{id}} = $v;
         }
+        $all_players = $self->pickledata->{players};
     }
 
     my $data = {
@@ -75,6 +77,7 @@ around 'process' => sub {
                 : -1,
             team        => ($self->_parser->is_complete) ? $self->pickledata->{personal}->{team} + 0 : -1
         },
+        players  => $all_players,
         complete => ($self->_parser->is_complete) ? true : false,
         vehicles => $vehicle_hash,
         teams    => $teams,
