@@ -30,7 +30,7 @@ sub nv {
 sub upload {
     my $self = shift;
 
-    $self->respond(stash => { page => { title => 'Uploads Disabled' }, template => 'upload/disabled') and return 0 if($self->stash('config')->{features}->{upload} == 0);
+    $self->respond(stash => { page => { title => 'Uploads Disabled' } }, template => 'upload/disabled') and return 0 if($self->stash('config')->{features}->{upload} == 0);
 
     if($self->req->param('a')) {
         if(my $upload = $self->req->upload('replay')) {
