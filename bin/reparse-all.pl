@@ -16,7 +16,14 @@ use constant WOT_BF_KEY     => join('', map { chr(hex($_)) } (split(/\s/, WOT_BF
 
 my $mongo  = MongoDB::Connection->new();
 my $db     = $mongo->get_database('wot-replays');
-my $rc     = $db->get_collection('replays')->find()->sort({ 'site.uploaded_at' => -1 });
+
+my $query = {};
+
+if($ARGV[0] eq 'version') {
+    $query->{version} = $ARGV[1];
+}
+
+my $rc     = $db->get_collection('replays')->find($query)->sort({ 'site.uploaded_at' => -1 });
 
 $db->get_collection('track.mastery')->drop(); # drop that
 
@@ -26,7 +33,6 @@ while(my $r = $rc->next()) {
     my $m;
     my $e;
     my $f = sprintf('/home/ben/projects/wot-replays/data/replays/%s', $r->{file});
-
 
     try {
         $process = WR::Process->new(file => $f, db => $db, bf_key => WOT_BF_KEY);
