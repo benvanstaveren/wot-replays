@@ -29,6 +29,7 @@
                                     <div class="container-tablist">
                                         <ul class="nav">
                                             <li class="nav-item tab active"><a href="#vehicle-stats">Statistics</a></li>
+                                            <li class="nav-item tab"><a href="#vehicle-loadout">Loadout</a></li>
                                             [% IF replay.complete %]
                                                 <li class="nav-item tab"><a href="#teams">Teams</a></li>
                                             [% END %]
@@ -47,6 +48,9 @@
                                     [% INCLUDE replay/view/vehicle_stats.html.tt %]
                                 </div>
                                 <div class="clear"></div>
+                            </div>
+                            <div id="vehicle-loadout" class="tab-panel" style="display: none">
+                                [% INCLUDE replay/view/vehicle_loadout.html.tt %]
                             </div>
                             <div id="battle-chat" class="tab-panel" style="display: none">
                                 [% FOREACH message IN replay.chat %]

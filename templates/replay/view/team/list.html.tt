@@ -47,7 +47,8 @@
         resizable: false,
     });
     $('tr.playerRow').click(function() {
-        $($(this).attr('href')).dialog('open');
+        var href = $(this).attr('href');
+        if(href) $(href).dialog('open');
         return false;
     });
 
