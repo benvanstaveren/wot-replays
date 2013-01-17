@@ -163,7 +163,8 @@ sub index {
                 if($a) {
                     my $i = (ref($a) eq 'HASH') ? $a->{id} : $a;
                     if(my $c = $self->model('wot-replays.data.components')->find_one({ component => 'shells', _id => $i + 0 })) {
-                        return sprintf('%dmm %s %s', 
+                        return sprintf('%s %dmm %s %s', 
+                            ($a->{count} > 0) ? sprintf('%d x', $a->{count}) : '',
                             $c->{caliber}, 
                             $kind_map->{$c->{kind}},
                             $c->{label}
