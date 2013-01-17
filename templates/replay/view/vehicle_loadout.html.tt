@@ -26,32 +26,32 @@
                 <strong>Modules</strong>
                 <div class="equipment-container ui-corner-all">
                     <span title="Engine" class="equipment-icon ui-corner-all" style="background: transparent url([% config.urls.assets %]/icon/components/24x24/engines.png) no-repeat scroll 0 0"></span>
-                    <span class="equipment-name" title="[% wr.component_name(player.vehicleType.country, 'engines', fitting.data.engine) %]"> 
-                        [% wr.component_name(player.vehicleType.country, 'engines', fitting.data.engine) %]
+                    <span class="equipment-name" title="[% wr.component_name(replay.player.vehicle.country, 'engines', fitting.data.engine) %]"> 
+                        [% wr.component_name(replay.player.vehicle.country, 'engines', fitting.data.engine) %]
                     </span>
                 </div>
                 <div class="equipment-container ui-corner-all">
                     <span title="Tracks" class="equipment-icon ui-corner-all" style="background: transparent url([% config.urls.assets %]/icon/components/24x24/chassis.png) no-repeat scroll 0 0"></span>
-                    <span class="equipment-name" title="[% wr.component_name(player.vehicleType.country, 'chassis', fitting.data.tracks) %]"> 
-                        [% wr.component_name(player.vehicleType.country, 'chassis', fitting.data.tracks) %]
+                    <span class="equipment-name" title="[% wr.component_name(replay.player.vehicle.country, 'chassis', fitting.data.tracks) %]"> 
+                        [% wr.component_name(replay.player.vehicle.country, 'chassis', fitting.data.tracks) %]
                     </span>
                 </div>
                 <div class="equipment-container ui-corner-all">
                     <span title="Radio" class="equipment-icon ui-corner-all" style="background: transparent url([% config.urls.assets %]/icon/components/24x24/radios.png) no-repeat scroll 0 0"></span>
-                    <span class="equipment-name" title="[% wr.component_name(player.vehicleType.country, 'radios', fitting.data.radio) %]"> 
-                        [% wr.component_name(player.vehicleType.country, 'radios', fitting.data.radio) %]
+                    <span class="equipment-name" title="[% wr.component_name(replay.player.vehicle.country, 'radios', fitting.data.radio) %]"> 
+                        [% wr.component_name(replay.player.vehicle.country, 'radios', fitting.data.radio) %]
                     </span>
                 </div>
                 <div class="equipment-container ui-corner-all">
                     <span title="Gun" class="equipment-icon ui-corner-all" style="background: transparent url([% config.urls.assets %]/icon/components/24x24/guns.png) no-repeat scroll 0 0"></span>
-                    <span class="equipment-name" title="[% wr.component_name(player.vehicleType.country, 'guns', fitting.data.gun) %]">
-                        [% wr.component_name(player.vehicleType.country, 'guns', fitting.data.gun) %]
+                    <span class="equipment-name" title="[% wr.component_name(replay.player.vehicle.country, 'guns', fitting.data.gun) %]">
+                        [% wr.component_name(replay.player.vehicle.country, 'guns', fitting.data.gun) %]
                     </span>
                 </div>
                 <div class="equipment-container ui-corner-all">
                     <span title="Turret" class="equipment-icon ui-corner-all" style="background: transparent url([% config.urls.assets %]/icon/components/24x24/turrets.png) no-repeat scroll 0 0"></span>
-                    <span class="equipment-name" title="[% wr.component_name(player.vehicleType.country, 'turrets', fitting.data.turret) %]"> 
-                        [% wr.component_name(player.vehicleType.country, 'turrets', fitting.data.turret) %]
+                    <span class="equipment-name" title="[% wr.component_name(replay.player.vehicle.country, 'turrets', fitting.data.turret) %]"> 
+                        [% wr.component_name(replay.player.vehicle.country, 'turrets', fitting.data.turret) %]
                     </span>
                 </div>
             </td>
@@ -63,8 +63,8 @@
                     <tbody><tr>
                         <td style="width: 33%; vertical-align: top; padding: 0px 5px 0px 0px">
                             <div class="ui-corner-all equipment-container">
-                                <span class="equipment-icon ui-corner-all"></span>
-                                <span class="equipment-name"></span>
+                                <span title="[% wr.consumable_name(replay.player.loadout.consumables.0) %]" class="equipment-icon ui-corner-all"></span>
+                                <span class="equipment-name">[% wr.consumable_name(replay.player.loadout.consumables.0) %]</span>
                             </div>
                         </td>
                         <td style="width: 33%; vertical-align: top; padding: 0px 5px 0px 0px">

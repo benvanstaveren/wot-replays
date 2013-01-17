@@ -21,7 +21,7 @@
         [% INCLUDE bricks/ga.js.tt %]
     </head>
     <body class="ui">
-        <div style="padding: 20px 0px 20px 0px">
+        <div style="padding: 15px 0px 15px 0px">
         <div id="container" class="ui-corner-all" style="margin-bottom: 25px">
             [% INCLUDE nav.html.tt %]
             <div class="clear"></div>
