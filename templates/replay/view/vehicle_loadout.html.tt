@@ -57,51 +57,53 @@
             </td>
         </tr>
         <tr>
-            <td>
+            <td colspan="2">
                 <strong style="margin: 10px 0px 0px 0px">Consumables</strong>
                 <table style="width: 100%" cellspacing="0" cellpadding="0">
                     <tbody><tr>
                         <td style="width: 33%; vertical-align: top; padding: 0px 5px 0px 0px">
                             <div class="ui-corner-all equipment-container">
-                                <span title="[% wr.consumable_name(replay.player.loadout.consumables.0) %]" class="equipment-icon ui-corner-all"></span>
+                                <span title="[% wr.consumable_name(replay.player.loadout.consumables.2) %]" class="equipment-icon ui-corner-all" [% wr.consumable_icon_style(replay.player.loadout.consumables.2) %]></span>
+                                <span class="equipment-name">[% wr.consumable_name(replay.player.loadout.consumables.2) %]</span>
+                            </div>
+                        </td>
+                        <td style="width: 33%; vertical-align: top; padding: 0px 5px 0px 0px">
+                            <div class="ui-corner-all equipment-container">
+                                <span title="[% wr.consumable_name(replay.player.loadout.consumables.1) %]" class="equipment-icon ui-corner-all" [% wr.consumable_icon_style(replay.player.loadout.consumables.1) %]></span>
+                                <span class="equipment-name">[% wr.consumable_name(replay.player.loadout.consumables.1) %]</span>
+                            </div>
+                        </td>
+                        <td style="width: 33%; vertical-align: top; padding: 0px 5px 0px 0px">
+                            <div class="ui-corner-all equipment-container">
+                                <span title="[% wr.consumable_name(replay.player.loadout.consumables.0) %]" class="equipment-icon ui-corner-all" [% wr.consumable_icon_style(replay.player.loadout.consumables.0) %]></span>
                                 <span class="equipment-name">[% wr.consumable_name(replay.player.loadout.consumables.0) %]</span>
-                            </div>
-                        </td>
-                        <td style="width: 33%; vertical-align: top; padding: 0px 5px 0px 0px">
-                            <div class="ui-corner-all equipment-container">
-                                <span class="equipment-icon ui-corner-all"></span>
-                                <span class="equipment-name"></span>
-                            </div>
-                        </td>
-                        <td style="width: 33%; vertical-align: top; padding: 0px 5px 0px 0px">
-                            <div class="ui-corner-all equipment-container">
-                                <span class="equipment-icon ui-corner-all"></span>
-                                <span class="equipment-name"></span>
                             </div>
                         </td>
                     </tr></tbody>
                 </table>
             </td>
-            <td>
+        </tr>
+        <tr>
+            <td colspan="2">
                 <strong style="margin: 10px 0px 0px 0px">Ammunition</strong>
                 <table style="width: 100%" cellspacing="0" cellpadding="0">
                     <tbody><tr>
                         <td style="width: 33%; vertical-align: top; padding: 0px 5px 0px 0px">
                             <div class="ui-corner-all equipment-container">
-                                <span class="equipment-icon ui-corner-all"></span>
-                                <span class="equipment-name"></span>
+                                <span title="[% wr.ammo_name(replay.player.loadout.ammo.2) %]" class="equipment-icon ui-corner-all" [% wr.ammo_icon_style(replay.player.loadout.ammo.2) %]></span>
+                                <span class="equipment-name">[% wr.ammo_name(replay.player.loadout.ammo.2) %]</span>
                             </div>
                         </td>
                         <td style="width: 33%; vertical-align: top; padding: 0px 5px 0px 0px">
                             <div class="ui-corner-all equipment-container">
-                                <span class="equipment-icon ui-corner-all"></span>
-                                <span class="equipment-name"></span>
+                                <span title="[% wr.ammo_name(replay.player.loadout.ammo.1) %]" class="equipment-icon ui-corner-all" [% wr.ammo_icon_style(replay.player.loadout.ammo.1) %]></span>
+                                <span class="equipment-name">[% wr.ammo_name(replay.player.loadout.ammo.1) %]</span>
                             </div>
                         </td>
                         <td style="width: 33%; vertical-align: top; padding: 0px 5px 0px 0px">
                             <div class="ui-corner-all equipment-container">
-                                <span class="equipment-icon ui-corner-all"></span>
-                                <span class="equipment-name"></span>
+                                <span title="[% wr.ammo_name(replay.player.loadout.ammo.0) %]" class="equipment-icon ui-corner-all" [% wr.ammo_icon_style(replay.player.loadout.ammo.0) %]></span>
+                                <span class="equipment-name">[% wr.ammo_name(replay.player.loadout.ammo.0) %]</span>
                             </div>
                         </td>
                     </tr></tbody>

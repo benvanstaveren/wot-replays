@@ -122,6 +122,73 @@ sub index {
 
                 return [ (sort({ $b->{kills} <=> $a->{kills} } values(%$hash))) ];
             },
+            consumable_icon_style => sub {
+                my $a = shift;
+
+                if($a) {
+                    my $i = (ref($a) eq 'HASH') ? $a->{id} : $a;
+                    if(my $c = $self->model('wot-replays.data.consumables')->find_one({ wot_id => $i + 0 })) {
+                        return sprintf('style="background: transparent url(http://images.wot-replays.org/consumables/24x24/%s) no-repeat scroll 0 0"', $c->{icon});
+                    } else {
+                        return undef;
+                    }
+                } else {
+                    return undef;
+                }
+            },
+            ammo_icon_style => sub {
+                my $a = shift;
+                if($a) {
+                    my $i = (ref($a) eq 'HASH') ? $a->{id} : $a;
+                    if(my $c = $self->model('wot-replays.data.components')->find_one({ component => 'shells', _id => $i + 0 })) {
+                        my $n = ($a->{count} > 0) ? $c->{kind} : sprintf('NO_%s', $c->{kind});
+                        return sprintf('style="background: transparent url(http://images.wot-replays.org/ammo/24x24/%s.png) no-repeat scroll 0 0"', $n);
+                    } else {
+                        return undef;
+                    }
+                } else {
+                    return undef;
+                }
+            },
+            ammo_name => sub {
+                my $a = shift;
+                my $kind_map = {
+                    'ARMOR_PIERCING' => 'Armor-Piercing',
+                    'ARMOR_PIERCING_CR' => 'AP Composite-Rigid',
+                    'ARMOR_PIERCING_HE' => 'AP High-Explosive',
+                    'HIGH_EXPLOSIVE' => 'High-Explosive',
+                    'HOLLOW_CHARGE' => 'High-Explosive Anti-Tank',
+                };
+
+                if($a) {
+                    my $i = (ref($a) eq 'HASH') ? $a->{id} : $a;
+                    if(my $c = $self->model('wot-replays.data.components')->find_one({ component => 'shells', _id => $i + 0 })) {
+                        return sprintf('%dmm %s %s', 
+                            $c->{caliber}, 
+                            $kind_map->{$c->{kind}},
+                            $c->{label}
+                            );
+                    } else {
+                        return undef;
+                    }
+                } else {
+                    return undef;
+                }
+            },
+            consumable_name => sub {
+                my $a = shift;
+                
+                if($a) {
+                    my $i = (ref($a) eq 'HASH') ? $a->{id} : $a;
+                    if(my $c = $self->model('wot-replays.data.consumables')->find_one({ wot_id => $i + 0 })) {
+                        return $c->{label} || $c->{name};
+                    } else {
+                        return sprintf('404:%d', $i);
+                    }
+                } else {
+                    return undef;
+                }
+            },
             generate_map_select => sub {
                 my $list = [];
                 my $cursor = $self->db('wot-replays')->get_collection('data.maps')->find()->sort({ label => 1 });
