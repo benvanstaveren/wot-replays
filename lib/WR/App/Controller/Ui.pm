@@ -15,7 +15,7 @@ sub about {
     shift->respond(template => 'about', stash => { page => { title => 'About' } });
 }
 
-sub about {
+sub credits {
     shift->respond(template => 'credits', stash => { page => { title => 'Credits' } });
 }
 
