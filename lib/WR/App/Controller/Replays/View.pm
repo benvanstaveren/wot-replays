@@ -22,6 +22,83 @@ sub incview {
     $self->render(json => { ok => 1 });
 }
 
+sub get_comparison {
+    my $self = shift;
+    my $p    = shift;
+    my $pp   = 10;
+    my $offset = (($p-1) * $pp);
+
+    my $cursor = $self->model('wot-replays.replays')->find({
+        _id => { '$nin' => [ $self->stash('req_replay')->{_id} ] },
+        'player.vehicle.full' => $self->stash('req_replay')->{player}->{vehicle}->{full},
+        'map.id' => $self->stash('req_replay')->{map}->{id}
+    });
+
+    my $total = $cursor->count();
+    my $maxp  = int($total/$pp);
+    $maxp++ if($maxp * $pp < $total);
+
+    $cursor->sort({ 'site.uploaded_at' => -1 });
+    $cursor->skip($offset);
+    $cursor->limit($pp);
+
+    my $result = [];
+    my $replay = $self->stash('req_replay');
+
+    while(my $r = $cursor->next()) {
+        # only grab the comparison elements from each replay and add
+        # a gt/lt/eq flag
+        my $d = {};
+        for(qw/kills damaged spotted damageDealt credits xp/) {
+            $d->{$_} = {
+                this => $replay->{statistics}->{$_} + 0,
+                that => $r->{statistics}->{$_} + 0,
+                flag => ($replay->{statistics}->{$_} + 0 > $r->{statistics}->{$_} + 0) 
+                    ? '>'
+                    : ($replay->{statistics}->{$_} + 0 < $r->{statistics}->{$_} + 0)
+                        ? '<'
+                        : '='
+            }
+        }
+
+        my $this_acc = ($replay->{statistics}->{shots} > 0 && $replay->{statistics}->{hits} > 0) 
+            ? sprintf('%.0f', (100/($replay->{statistics}->{shots}/$replay->{statistics}->{hits})))
+            : 0;
+        my $that_acc = ($r->{statistics}->{shots} > 0 && $r->{statistics}->{hits} > 0) 
+            ? sprintf('%.0f', (100/($r->{statistics}->{shots}/$r->{statistics}->{hits})))
+            : 0;
+
+        $d->{accuracy} = {
+            this => $this_acc,
+            that => $that_acc,
+            flag => ($this_acc > $that_acc)
+                ? '>'
+                : ($this_acc < $that_acc) 
+                    ? '<'
+                    : '='
+        };
+
+        push(@$result, $d);
+    }
+
+    return {
+        p => $p,
+        maxp => $maxp,
+        results => $result,
+        total => $total,
+    };
+}
+
+sub comparison {
+    my $self = shift;
+    my $p    = $self->req->param('p') || 1;
+
+    my $r = $self->get_comparison($p);
+    $self->stash(%$r);
+
+    $self->respond(template => 'replay/view/comparison.html.tt');
+}
+
 sub fuck_jsonxs {
     my $self = shift;
     my $obj = shift;
@@ -69,6 +146,8 @@ sub view {
     if(my $wpa = $self->model('wot-replays.cache.wpa')->find_one({ _id => sprintf('%s-%s', $r->{player}->{vehicle}->{full}, $r->{map}->{id})})) {
         $self->stash('wpa' => $wpa);
     }
+
+    $self->stash(%{$self->get_comparison(1)});
 
     my $title = sprintf('%s - %s - %s (%s), %s',
         $r->{player}->{name},

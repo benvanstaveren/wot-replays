@@ -1,0 +1,11 @@
+<form id="comparisonform" method="post">
+<input type="hidden" name="p" value="1"/>
+</form>
+<div>
+    [% INCLUDE replay/view/comparison/pager.html.tt %]
+    <div>
+    <!-- 
+        [% wr.dump(results) %] 
+    -->
+    </div>
+</div>

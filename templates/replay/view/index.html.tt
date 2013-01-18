@@ -36,13 +36,10 @@
                                             [% IF replay.chat.size > 0 %]
                                                 <li class="nav-item tab"><a href="#battle-chat">Chat</a></li>
                                             [% END %]
-                                            <li class="nav-item tab"><a href="#replay-comments">Comments</a></li>
+                                            <li class="nav-item tab"><a href="#comparison">Compare</a></li>
                                         </ul>
                                     </div>
                                 </div>
-                            </div>
-                            <div id="replay-comments" class="tab-panel" style="display: none">
-                                [% INCLUDE disqus.html.tt %]
                             </div>
                             <div id="vehicle-stats" class="tab-panel">
                                 <div style="width: 390px; float: left">
@@ -52,6 +49,11 @@
                                     [% INCLUDE replay/view/vehicle_stats.html.tt %]
                                 </div>
                                 <div class="clear"></div>
+                            </div>
+                            <div id="comparison" class="tab-panel" style="display: none">
+                                <div id="comparison-display">
+                                    [% INCLUDE replay/view/comparison.html.tt %]
+                                </div>
                             </div>
                             <div id="vehicle-loadout" class="tab-panel" style="display: none">
                                 [% INCLUDE replay/view/vehicle_loadout.html.tt %]
