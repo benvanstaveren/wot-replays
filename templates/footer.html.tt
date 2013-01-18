@@ -3,7 +3,7 @@
         <div class="container ui-corner-bottom">
             <ul class="nav ui-corner-bottom js-global-actions" id="footer-actions">
                 <li class="nav-item ui-corner-bl">
-                    &copy; 2012, 2013 Scrambled | app [% config.versions.app %] [% config.mode %] | wot [% config.wot.version %]
+                    &copy; 2012, 2013 Scrambled | wot [% config.wot.version %] | <a style="display: inline; text-decoration: underline; padding: 0px" href="/credits.html">additional credits</a>
                 </li>
             </ul>
             <ul class="nav ui-corner-bottom js-global-actions" id="footer-timing" style="float: right">

@@ -1,0 +1,17 @@
+[% WRAPPER wrapper.html.tt %]    
+    <div><div class="content nosidebar aboutText">
+        <h3>Credits</h3>
+        <div>
+            wot-replays.org is made possible using the following bits and pieces:
+            <ul>
+                <li><a href="http://www.perl.org/">Perl</a>, the swiss army chainsaw programming language of the internet</li>
+                <li><a href="http://mojolicio.us">Mojolicious</a>, a next generation web framework</li>
+                <li><a href="http://www.jquery.com">jQuery</a>, because who doesn't?</li>
+                <li><a href="http://www.mongodb.org">MongoDB</a>, to store all your data and do the coolest map/reduce data-mining omgwtfawesomesauce things with</li>
+            </ul>
+        </div>
+        <div>
+            wot-replays.org utilises data from <a href="http://www.vbaddict.net/">WoT Performance Analyzer</a>, a big shout to <b>Phalynx</b> for letting me use his data.
+        </div>
+    </div></div>
+[% END %]

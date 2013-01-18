@@ -78,6 +78,7 @@ sub startup {
     $r->route('/faq')->to('ui#faq', pageid => 'faq');
     $r->route('/donate')->to('ui#donate', pageid => 'donate');
     $r->route('/about')->to('ui#about', pageid => 'about');
+    $r->route('/credits')->to('ui#credits', pageid => 'credits');
 
     $r->route('/upload')->to('replays-upload#upload', pageid => 'upload');
 

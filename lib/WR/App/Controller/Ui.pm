@@ -15,6 +15,10 @@ sub about {
     shift->respond(template => 'about', stash => { page => { title => 'About' } });
 }
 
+sub about {
+    shift->respond(template => 'credits', stash => { page => { title => 'Credits' } });
+}
+
 sub dlg_achievement {
     my $self = shift;
     my $a    = $self->stash('achievement');
