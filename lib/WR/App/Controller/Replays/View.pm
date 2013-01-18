@@ -108,9 +108,9 @@ sub comparison {
     my $p    = $self->req->param('p') || 1;
 
     my $r = $self->get_comparison($p);
-    $self->stash(%$r);
 
-    $self->respond(template => 'replay/view/comparison.html.tt');
+    $self->stash(%$r);
+    $self->respond(template => 'replay/view/comparison');
 }
 
 sub fuck_jsonxs {
