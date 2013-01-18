@@ -35,7 +35,7 @@
                         title="You earned [% IF entry.xp.flag == '>' %]more[% ELSIF entry.xp.flag == '<' %]less[% ELSE %]the same amount of[% END %] experience" 
                         class="num [% IF entry.xp.flag == '>' %]green[% ELSIF entry.xp.flag == '<' %]red[% END %]">[% entry.xp.this %] [% entry.xp.flag |html %] [% entry.xp.that %]</td>
                     <td 
-                        title="You earned [% IF entry.credits.flag == '>' %]less[% ELSIF entry.credits.flag == '<' %]more[% ELSE %]the same amount of[% END %] credits" 
+                        title="You earned [% IF entry.credits.flag == '>' %]more[% ELSIF entry.credits.flag == '<' %]less[% ELSE %]the same amount of[% END %] credits" 
                         class="num [% IF entry.credits.flag == '>' %]green[% ELSIF entry.credits.flag == '<' %]red[% END %]">[% entry.credits.this %] [% entry.credits.flag |html %] [% entry.credits.that %]</td>
                 </tr>
             [% END %]
