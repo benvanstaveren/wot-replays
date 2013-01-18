@@ -79,6 +79,7 @@ sub data {
 
 sub parse {
     my $self = shift;
+    my $s    = 1;
 
     if(my $upload = $self->req->upload('replay')) {
         my $asset = $upload->asset;
@@ -100,9 +101,31 @@ sub parse {
         } catch {
             $self->render(json => { ok => 0, error => "[process]: $_" });
         };
-        $asset->cleanup;
         return unless(defined($m_data));
 
+        my $filename = $upload->filename;
+        $filename =~ s/.*\\//g if($filename =~ /\\/);
+        $m_data->{file} = $filename;
+
+        if($s == 1) {
+            unless($self->model('wot-replays.replays')->find_one({ replay_digest => $m_data->{replay_digest}})) {
+                my $replay_file = sprintf('%s/%s', $self->stash('config')->{paths}->{replays}, $filename);
+                $asset->move_to($replay_file);
+
+                $self->model('wot-replays.replays')->save({
+                    %$m_data,
+                    site => {
+                        description => undef,
+                        uploaded_at => time(),
+                        uploaded_by => undef,
+                        from_wpa    => true,
+                        visible     => true,
+                    }
+                });
+            }
+        } else {
+            $asset->cleanup;
+        }
         my $data = {
             ok          =>  1,
             replay      =>  $self->fuck_boolean($m_data),
