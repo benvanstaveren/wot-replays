@@ -19,7 +19,7 @@
             <tbody>
          
             [% FOREACH entry IN results %]
-                <tr class="[% IF entry.rating > 0 %]green[% ELSIF entry.rating < 0 %]red[% END %]">
+                <tr>
                     <td><a href="[% entry.url %]">[% entry.player %]</a></td>
                     <td><a href="[% entry.url %]">[% INCLUDE bricks/gametype/name.html.tt gametype = replay.game.type %]</a></td>
                     <td 
