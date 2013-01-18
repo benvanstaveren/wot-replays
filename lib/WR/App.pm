@@ -110,6 +110,7 @@ sub startup {
     $r->route('/maps')->to('map#index', pageid => 'map');
     $r->route('/map/:map_id')->to('map#view', pageid => 'map');
 
+    $r->route('/tournaments')->to('tournament#index', pageid => 'tournament');
 
     $r->route('/register')->to('ui#register', pageid => 'register');
     $r->route('/login')->to('ui#login', pageid => 'login');

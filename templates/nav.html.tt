@@ -22,13 +22,18 @@
                         Maps
                     </a>
                 </li>
-                <li style="margin: 0px 0px 0px 20px" class="nav-item maps [% IF pageid == 'stats' %]active[% END %]">
-                    <a class="js-hover" href="/stats">
-                        Statistics
+                <li class="nav-item maps [% IF pageid == 'tournament' %]active[% END %]">
+                    <a class="js-hover" href="/tournaments">
+                        Tournaments
                     </a>
                 </li>
             </ul>
             <ul class="nav js-global-actions" id="global-pages" style="float: right">
+                <li class="nav-item maps [% IF pageid == 'stats' %]active[% END %]">
+                    <a class="js-hover" href="/stats">
+                        Statistics
+                    </a>
+                </li>
                 <li class="nav-item blog [% IF pageid == 'blog' %]active[% END %]">
                     <a class="js-hover" href="http://blog.wot-replays.org/">
                         Blog
