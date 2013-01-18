@@ -70,16 +70,13 @@ sub upload {
             };
 
             return $self->r_error(sprintf('Error parsing replay: %s', $pe), $replay_file) if($pe);
-            return $self->r_error('That replay seems to exist already', $replay_file) if($self->db('wot-replays')->get_collection('replays')->find_one({ _id => $m_data->{_id} }));
+            return $self->r_error('That replay seems to exist already', $replay_file) if($self->db('wot-replays')->get_collection('replays')->find_one({ replay_digest => $m_data->{replay_digest} }));
             return $self->r_error('That replay seems to be coming from the public test server, we can\'t store those at the moment', $replay_file) if($m_data->{player}->{name} =~ /.*_(EU|NA|RU|SEA|US)$/);
             return $self->r_error(q|Courtesy of WG, this replay can't be stored, it's missing your player ID, and we use that to uniquely identify each player|, $replay_file) if($m_data->{player}->{id} == 0);
 
-            # version check, we'll only accept things one version back
-
-            my $cv = $self->nv($self->stash('config')->{wot}->{version});
-            $cv--; # prev version, anything < this is denied
-
             my $rv = $self->nv($m_data->{version});
+
+            return $self->r_error(q|Sorry, but this replay is from an World of Tanks version that is no longer supported|, $replay_file) if($m_data->{player}->{id} == 0) if($rv < $self->nv('0.8.1'));
 
             $m_data->{file} = $filename;
             $m_data->{site} = {
