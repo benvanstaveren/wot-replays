@@ -17,7 +17,13 @@
                 </tr>
             </thead>
             <tbody>
-         
+                [% IF results.size == 0 %]
+                    <tr>
+                        <td colspan="7">
+                            Uh oh, there are not enough replays with the same vehicle on the same map to let us do the comparison...
+                        </td>
+                    </tr>
+                [% END %]
             [% FOREACH entry IN results %]
                 <tr>
                     <td><a href="[% entry.url %]">[% entry.player %]</a></td>
