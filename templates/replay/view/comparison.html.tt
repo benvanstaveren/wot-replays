@@ -22,11 +22,11 @@
                 <tr class="[% IF entry.rating > 0 %]green[% ELSIF entry.rating < 0 %]red[% END %]">
                     <td><a href="[% entry.url %]">[% entry.player %]</a></td>
                     <td><a href="[% entry.url %]">[% INCLUDE bricks/gametype/name.html.tt gametype = replay.game.type %]</a></td>
-                    <td class="[% entry.spotted.flag == '>' %]green[% ELSIF [% entry.spotted.flag == '<' %]red[% END %]">[% entry.spotted.that %]</td>
-                    <td class="[% entry.damaged.flag == '>' %]green[% ELSIF [% entry.damaged.flag == '<' %]red[% END %]">[% entry.damaged.that %]</td>
-                    <td class="[% entry.kills.flag == '>' %]green[% ELSIF [% entry.kills.flag == '<' %]red[% END %]">[% entry.kills.that %]</td>
-                    <td class="[% entry.xp.flag == '>' %]green[% ELSIF [% entry.xp.flag == '<' %]red[% END %]">[% entry.xp.that %]</td>
-                    <td class="[% entry.credits.flag == '>' %]green[% ELSIF [% entry.credits.flag == '<' %]red[% END %]">[% entry.credits.that %]</td>
+                    <td class="[% IF entry.spotted.flag == '>' %]green[% ELSIF [% entry.spotted.flag == '<' %]red[% END %]">[% entry.spotted.that %]</td>
+                    <td class="[% IF entry.damaged.flag == '>' %]green[% ELSIF [% entry.damaged.flag == '<' %]red[% END %]">[% entry.damaged.that %]</td>
+                    <td class="[% IF entry.kills.flag == '>' %]green[% ELSIF [% entry.kills.flag == '<' %]red[% END %]">[% entry.kills.that %]</td>
+                    <td class="[% IF entry.xp.flag == '>' %]green[% ELSIF [% entry.xp.flag == '<' %]red[% END %]">[% entry.xp.that %]</td>
+                    <td class="[% IF entry.credits.flag == '>' %]green[% ELSIF [% entry.credits.flag == '<' %]red[% END %]">[% entry.credits.that %]</td>
                 </tr>
             [% END %]
 
