@@ -31,6 +31,7 @@ with (
         'WR::Role::Process::Fittings',       # process vehicle fittings
         'WR::Role::Process::Platoon',        # process platoons
         'WR::Role::Process::Chat',           # chat messages
+        'WR::Role::Process::WPA',            # Phalynx' stuff
     );
 
 sub error {
