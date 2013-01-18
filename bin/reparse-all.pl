@@ -23,12 +23,15 @@ if($ARGV[0] eq 'version') {
     $query->{version} = $ARGV[1];
 }
 
-my $rc     = $db->get_collection('replays')->find($query)->sort({ 'site.uploaded_at' => -1 });
+my $rc = $db->get_collection('replays')->find($query)->sort({ 'site.uploaded_at' => -1 });
+
+print 'reparsing: ', $rc->count(), ' replays', "\n";
+sleep(5);
 
 $db->get_collection('track.mastery')->drop(); # drop that
 
 while(my $r = $rc->next()) {
-    next unless(defined($r->{file}));
+    print 'no file', "\n" and next unless(defined($r->{file}));
     my $process;
     my $m;
     my $e;
@@ -45,7 +48,7 @@ while(my $r = $rc->next()) {
         $m->{site} = $r->{site}; # copy that over
         $m->{_id}  = $r->{_id}; 
         $m->{file} = $r->{file};
-        $db->get_collection('replays')->save($m);
+        $db->get_collection('replays')->save($m, { safe => 1 });
         print ': OK', "\n";
     } else {
         print ': ERROR: ', $e, "\n";
