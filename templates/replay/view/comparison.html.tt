@@ -4,12 +4,33 @@
 <div>
     [% INCLUDE replay/view/comparison/pager.html.tt %]
     <div>
-    <!-- 
-        query:
-        [% wr.dump(comp_query) %]
+        <table style="width: 100%" cellspacing="0" cellpadding="0" id="comparisontable">
+            <thead>
+                <tr>
+                    <td>Player</td>
+                    <td>Mode</td>
+                    <td>Spotted</td>
+                    <td>Damaged</td>
+                    <td>Killed</td>
+                    <td>XP</td>
+                    <td>Credits</td>
+                </tr>
+            </thead>
+            <tbody>
+         
+            [% FOREACH entry IN results %]
+                <tr class="[% IF entry.rating > 0 %]green[% ELSIF entry.rating < 0 %]red[% END %]">
+                    <td><a href="[% entry.url %]">[% entry.player %]</a></td>
+                    <td><a href="[% entry.url %]">[% INCLUDE bricks/gametype/name.html.tt gametype = replay.game.type %]</a></td>
+                    <td class="[% entry.spotted.flag == '>' %]green[% ELSIF [% entry.spotted.flag == '<' %]red[% END %]">[% entry.spotted.that %]</td>
+                    <td class="[% entry.damaged.flag == '>' %]green[% ELSIF [% entry.damaged.flag == '<' %]red[% END %]">[% entry.damaged.that %]</td>
+                    <td class="[% entry.kills.flag == '>' %]green[% ELSIF [% entry.kills.flag == '<' %]red[% END %]">[% entry.kills.that %]</td>
+                    <td class="[% entry.xp.flag == '>' %]green[% ELSIF [% entry.xp.flag == '<' %]red[% END %]">[% entry.xp.that %]</td>
+                    <td class="[% entry.credits.flag == '>' %]green[% ELSIF [% entry.credits.flag == '<' %]red[% END %]">[% entry.credits.that %]</td>
+                </tr>
+            [% END %]
 
-        res:
-        [% wr.dump(results) %] 
-    -->
+            </tbody>
+        </table>
     </div>
 </div>

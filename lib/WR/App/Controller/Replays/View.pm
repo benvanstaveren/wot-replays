@@ -87,8 +87,9 @@ sub get_comparison {
         my $hc = 0;
         foreach my $v (values(%$d)) {
             next unless(ref($v) eq 'HASH');
-            $hc += 2 if($v->{flag} eq '>');
-            $hc += 1 if($v->{flag} eq '=');
+            $hc += 1 if($v->{flag} eq '>');
+            $hc += 0 if($v->{flag} eq '=');
+            $hc -= 1 if($v->{flag} eq '=');
         }
         $d->{rating} = $hc;
         push(@$result, $d);
