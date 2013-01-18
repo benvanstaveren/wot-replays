@@ -50,9 +50,11 @@ sub get_comparison {
     my $replay = $self->stash('req_replay');
 
     while(my $r = $cursor->next()) {
-        # only grab the comparison elements from each replay and add
-        # a gt/lt/eq flag
-        my $d = {};
+        my $d = {
+            url     => sprintf('/replay/%s.html', $r->{_id}->to_string())
+            player  => $r->{player}->{name},
+            mode    => $r->{game}->{type},
+        };
         for(qw/kills damaged spotted damageDealt credits xp/) {
             $d->{$_} = {
                 this => $replay->{statistics}->{$_} + 0,
