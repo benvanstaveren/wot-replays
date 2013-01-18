@@ -79,7 +79,7 @@ sub data {
 
 sub parse {
     my $self = shift;
-    my $s    = 1;
+    my $s    = ($self->req->param('ns')) ? 0 : 1;
 
     if(my $upload = $self->req->upload('replay')) {
         my $asset = $upload->asset;
@@ -106,6 +106,8 @@ sub parse {
         my $filename = $upload->filename;
         $filename =~ s/.*\\//g if($filename =~ /\\/);
         $m_data->{file} = $filename;
+        
+        my $url = undef;
 
         if($s == 1) {
             unless($self->model('wot-replays.replays')->find_one({ replay_digest => $m_data->{replay_digest}})) {
@@ -122,6 +124,7 @@ sub parse {
                         visible     => true,
                     }
                 });
+                $url = sprintf('http://www.wot-replays.org/replay/%s.html', $m_data->{_id}->to_string);
             }
         } else {
             $asset->cleanup;
@@ -130,6 +133,7 @@ sub parse {
             ok          =>  1,
             replay      =>  $self->fuck_boolean($m_data),
         };
+        $data->{url} = $url if($s == 1 && defined($url));
         $self->render(json => $data);
     } else {
         $self->render(json => { ok => 0, error => 'No file passed' });
