@@ -5,6 +5,10 @@
     [% INCLUDE replay/view/comparison/pager.html.tt %]
     <div>
     <!-- 
+        query:
+        [% wr.dump(comp_query) %]
+
+        res:
         [% wr.dump(results) %] 
     -->
     </div>

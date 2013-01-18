@@ -28,12 +28,16 @@ sub get_comparison {
     my $pp   = 10;
     my $offset = (($p-1) * $pp);
 
-    my $cursor = $self->model('wot-replays.replays')->find({
+    my $query = {
         _id => { '$nin' => [ $self->stash('req_replay')->{_id} ] },
         'player.vehicle.full' => $self->stash('req_replay')->{player}->{vehicle}->{full},
-        'map.id' => $self->stash('req_replay')->{map}->{id}
-    });
+        #'map.id' => $self->stash('req_replay')->{map}->{id},
+    };
 
+    use Data::Dumper;
+    $self->stash('comp_query' => Dumper($query));
+
+    my $cursor = $self->model('wot-replays.replays')->find($query);
     my $total = $cursor->count();
     my $maxp  = int($total/$pp);
     $maxp++ if($maxp * $pp < $total);
@@ -147,7 +151,9 @@ sub view {
         $self->stash('wpa' => $wpa);
     }
 
-    $self->stash(%{$self->get_comparison(1)});
+    my $comp = $self->get_comparison(1);
+
+    $self->stash(%$comp);
 
     my $title = sprintf('%s - %s - %s (%s), %s',
         $r->{player}->{name},
