@@ -51,7 +51,7 @@ sub get_comparison {
 
     while(my $r = $cursor->next()) {
         my $d = {
-            url     => sprintf('/replay/%s.html', $r->{_id}->to_string())
+            url     => sprintf('/replay/%s.html', $r->{_id}->to_string()),
             player  => $r->{player}->{name},
             mode    => $r->{game}->{type},
         };
