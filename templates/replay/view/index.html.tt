@@ -86,8 +86,9 @@
                     $(href).show();
                     return false;
                 });
-                $('div.award').tooltip({ track: true });
-                $('td.playerDetails span.tooltip').tooltip({ track: true });
+                $('div.award').tooltip({ track: true }).css({ 'cursor': 'pointer' });
+                $('td.playerDetails span.tooltip').tooltip({ track: true }).css({ 'cursor': 'pointer' });
+                $('span.tooltip').tooltip({track: true}).css({ 'cursor': 'pointer' });
             });
         </script>
     </div>
