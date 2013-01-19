@@ -31,11 +31,9 @@ sub get_comparison {
     my $query = {
         _id => { '$nin' => [ $self->stash('req_replay')->{_id} ] },
         'player.vehicle.full' => $self->stash('req_replay')->{player}->{vehicle}->{full},
-        #'map.id' => $self->stash('req_replay')->{map}->{id},
+        'map.id' => $self->stash('req_replay')->{map}->{id},
+        'complete' => true,
     };
-
-    use Data::Dumper;
-    $self->stash('comp_query' => Dumper($query));
 
     my $cursor = $self->model('wot-replays.replays')->find($query);
     my $total = $cursor->count();
