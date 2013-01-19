@@ -23,7 +23,7 @@ around 'process' => sub {
     my $all_players  = {};
 
     if($self->_parser->is_complete) {
-        my $pd       = ($self->_parser->is_complete) ? $self->pickledata->{vehicles} : {};
+        my $pd       =  $self->pickledata->{vehicles};
         foreach my $v (sort { $b->{frags} <=> $a->{frags} } (@$vehicles)) {
             my $pv = $pd->{$v->{id}};
             if($self->_parser->is_complete) {
@@ -38,6 +38,9 @@ around 'process' => sub {
         }
         $all_players = $self->pickledata->{players};
     }
+
+    # not sure where this comes from, appears to be coming from the pickle data,
+    # and doesn't seem to be any existing vehicle. maybe fog of war?
 
     my $data = {
         _id             => $m_id,

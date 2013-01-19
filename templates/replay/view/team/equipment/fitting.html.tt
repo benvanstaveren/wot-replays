@@ -4,38 +4,7 @@
 <table style="width: 100%;" cellspacing="0" cellpadding="0"> 
     <tbody>
         <tr>
-            <td style="width: 33%; vertical-align: top; padding: 0px 5px 0px 0px">
-                <strong style="margin: 10px 0px 0px 0px">Equipment</strong>
-                [% FOREACH eq IN fitting.data.equipment %]
-                    [% IF eq %]
-                        <div class="ui-corner-all equipment-container">
-                            <span class="ui-corner-all equipment-icon" style="background: transparent url([% config.urls.assets %]/equipment/24x24/[% wr.equipment_icon(eq) %]) no-repeat scroll 0 0;px;"></span>
-                            <span class="equipment-name" title="[% wr.equipment_name(eq) %]">
-                                [% wr.equipment_name(eq) %]
-                            </span>
-                        </div>
-                    [% ELSE %]
-                        <div class="ui-corner-all equipment-container">
-                            <span class="equipment-icon ui-corner-all"></span>
-                            <span class="equipment-name"></span>
-                        </div>
-                    [% END %]
-                [% END %]
-                <strong style="margin: 10px 0px 0px 0px">Consumables</strong>
-                <div class="ui-corner-all equipment-container">
-                    <span class="equipment-icon ui-corner-all"></span>
-                    <span class="equipment-name"></span>
-                </div>
-                <div class="ui-corner-all equipment-container">
-                    <span class="equipment-icon ui-corner-all"></span>
-                    <span class="equipment-name"></span>
-                </div>
-                <div class="ui-corner-all equipment-container">
-                    <span class="equipment-icon ui-corner-all"></span>
-                    <span class="equipment-name"></span>
-                </div>
-            </td>
-            <td style="width: 33%; vertical-align: top; padding: 0px 5px 0px 0px">
+            <td style="width: 50%; vertical-align: top; padding: 0px 5px 0px 0px">
                 <strong>Modules</strong>
                 <div class="equipment-container ui-corner-all">
                     <span title="Engine" class="equipment-icon ui-corner-all" style="background: transparent url([% config.urls.assets %]/icon/components/24x24/engines.png) no-repeat scroll 0 0"></span>
@@ -68,20 +37,23 @@
                     </span>
                 </div>
             </td>
-            <td style="width: 33%; vertical-align: top">
-                <strong>Crew</strong>
-                <div class="ui-corner-all equipment-container">
-                    <span class="equipment-icon ui-corner-all"></span>
-                    <span class="equipment-name"></span>
-                </div>
-                <div class="ui-corner-all equipment-container">
-                    <span class="equipment-icon ui-corner-all"></span>
-                    <span class="equipment-name"></span>
-                </div>
-                <div class="ui-corner-all equipment-container">
-                    <span class="equipment-icon ui-corner-all"></span>
-                    <span class="equipment-name"></span>
-                </div>
+            <td style="width: 50%; vertical-align: top;">
+                <strong>Equipment</strong>
+                [% FOREACH eq IN fitting.data.equipment %]
+                    [% IF eq %]
+                        <div class="ui-corner-all equipment-container">
+                            <span class="ui-corner-all equipment-icon" style="background: transparent url([% config.urls.assets %]/equipment/24x24/[% wr.equipment_icon(eq) %]) no-repeat scroll 0 0;px;"></span>
+                            <span class="equipment-name" title="[% wr.equipment_name(eq) %]">
+                                [% wr.equipment_name(eq) %]
+                            </span>
+                        </div>
+                    [% ELSE %]
+                        <div class="ui-corner-all equipment-container">
+                            <span class="equipment-icon ui-corner-all"></span>
+                            <span class="equipment-name"></span>
+                        </div>
+                    [% END %]
+                [% END %]
             </td>
         </tr>
     </tbody>

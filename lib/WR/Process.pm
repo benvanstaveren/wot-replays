@@ -62,6 +62,17 @@ sub process {
     }
     $args{traits} = [$lltrait, qw/Data::Decrypt Data::Reader Data::Attributes Data::Chat/];
 
+    $args{cb_gun_shot_count} = sub {
+        my $country = shift;
+        my $gid     = shift;
+
+        if(my $gun = $self->db->get_collection('data.components')->find_one({ component => 'guns', country => $country, component_id => $gid })) {
+            return scalar(@{$gun->{shots}});
+        } else {
+            return 3; # fail-safe-ish
+        }
+    };
+
     $self->_set_parser(try {
         return WR::Parser->new(%args);
     } catch {

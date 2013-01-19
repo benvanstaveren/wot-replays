@@ -54,10 +54,15 @@ for my $country (qw/china france germany usa ussr uk/) {
 
                 $data->{label} = $text->localize_for(lang => sprintf('%s_vehicles', $country), id => $us) || $text->localize_for(lang => sprintf('%s_vehicles', $country), id => $name);
                 $data->{description} = $text->localize_for(lang => sprintf('%s_vehicles', $country), id => $desc) || '';
+                
+                if($comptype eq 'guns') {
+                    $data->{shots} = [ keys(%{$x->{shared}->{$name}->{shots}}) ];
+                }
             } else {
                 $data->{label} = $text->localize_for(lang => sprintf('%s_vehicles', $country), id => $name);
                 $data->{description} = '';
             }
+
             $coll->save($data);
             
         }
@@ -75,7 +80,7 @@ for my $country (qw/china france germany usa ussr uk/) {
 
         my $data = {
             %$shell,
-            _id => $typecomp,
+            _id             => $typecomp,
             country         => $country,
             component       => 'shells',
         };
