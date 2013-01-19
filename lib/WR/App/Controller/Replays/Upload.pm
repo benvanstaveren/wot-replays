@@ -76,7 +76,7 @@ sub upload {
 
             my $rv = $self->nv($m_data->{version});
 
-            return $self->r_error(q|Sorry, but this replay is from an World of Tanks version that is no longer supported|, $replay_file) if($rv < $self->nv('0.8.1'));
+            return $self->r_error(q|Sorry, but this replay is from an World of Tanks version that is no longer supported|, $replay_file) if($rv < $self->nv('0.8.2'));
 
             $m_data->{file} = $filename;
             $m_data->{site} = {
