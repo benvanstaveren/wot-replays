@@ -4,9 +4,6 @@
         <h3>
             <a href="/vehicles/">Vehicles</a> &raquo; [% wr.vehicle_name(vehicle_full) %]
         </h3>
-        <div style="border-top: #aaa 1px solid; border-bottom: #aaa 1px solid; margin: 10px 0px 10px 0px">
-            [% wr.vehicle_description(vehicle_full) |html |html_line_break %]
-        </div>
         <div id="browseContent">
             [% INCLUDE replay/panel_list.html.tt %]
             [% INCLUDE browse/pager.html.tt %]
@@ -18,11 +15,18 @@
     <div class="clear"></div>
 </div>
 <script type="text/javascript">
-    $(document).ready(function() {
+    function v_loadReplays(cb) {
         $('form#frm-browse-filter input[name="p"]').val('1');
         var s = $('form#frm-browse-filter').serialize();
+        WR.waitElement();
         $('#browseContent').load('/replay/browse', s, function() {
+            $.unblockUI();
+            cb();
         });
+    }
+    $(document).ready(function() {
+        v_loadReplays();
+        $('img.tooltip').tooltip({ track: true });
     });
 </script>
 [% END %]

@@ -10,3 +10,4 @@ tmp/*
 *.pid
 _Inline/*
 data/*
+*.ttc

@@ -22,6 +22,7 @@ sub startup {
     my $config = $self->plugin('Config', { file => 'wr.conf' });
     $self->plugin('mongodb', { host => $config->{mongodb}, patch_mongodb => 1 });
     $self->plugin('tt_renderer', { template_options => {
+        COMPILE_DIR  => undef,
         PRE_CHOMP    => 0,
         POST_CHOMP   => 1,
         TRIM => 1,
