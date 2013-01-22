@@ -13,8 +13,8 @@
             <div class="healthnumbers">[% player.health %]/[% h %]</div>
         </div>
     </td>
-    <td class="playerName">
-        [% player.name |html %][% IF player.clanAbbrev %]<span class="clan">[[% player.clanAbbrev %]]</span>[% END %]
+    <td class="playerName" title="[% player.name |html %][% IF player.clanAbbrev %][[% player.clanAbbrev %]][% END %]">
+        [% player.name |truncate(12) |html %][% IF player.clanAbbrev %]<span class="clan">[[% player.clanAbbrev %]]</span>[% END %]
     </td>
     <td class="playerDetails">
         <span class="
