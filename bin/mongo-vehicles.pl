@@ -12,7 +12,7 @@ my $version = $ARGV[0];
 
 my $text = Data::Localize::Gettext->new(path => sprintf('../etc/res/raw/%s/lang/*_vehicles.po', $version));
 
-my $mongo  = MongoDB::Connection->new();
+my $mongo  = MongoDB::Connection->new(host => $ENV{'MONGO'} || 'localhost');
 my $db     = $mongo->get_database('wot-replays');
 my $coll   = $db->get_collection('data.vehicles');
 
@@ -70,6 +70,7 @@ for my $country (qw/china france germany usa ussr uk/) {
         $data->{_id} = sprintf('%s:%s', $country, $vid);
         $data->{country} = $country;
         $data->{name} = $vid;
+        $data->{name_lc} = lc($vid);
         $data->{description} = $text->localize_for(lang => $cat, id => fixed_ident(sprintf('%s_descr', $vid)));
         $data->{type} = $type;
         $data->{wot_id} = $x->{$vid}->{id} + 0;

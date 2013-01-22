@@ -78,6 +78,7 @@ sub startup {
     $r->route('/faq')->to('ui#faq', pageid => 'faq');
     $r->route('/donate')->to('ui#donate', pageid => 'donate');
     $r->route('/about')->to('ui#about', pageid => 'about');
+    $r->route('/credits')->to('ui#credits', pageid => 'credits');
 
     $r->route('/upload')->to('replays-upload#upload', pageid => 'upload');
 
@@ -94,6 +95,7 @@ sub startup {
         $rb->route('/up')->to('replays-rate#rate_up', pageid => undef);
         $rb->route('/stats')->to('replays-view#stats', pageid => undef);
         $rb->route('/incview')->to('replays-view#incview', pageid => undef);
+        $rb->route('/comparison')->to('replays-view#comparison', pageid => undef);
 
     $r->route('/players/:server')->to('player#index', pageid => 'player', server => 'any');
 
@@ -109,6 +111,7 @@ sub startup {
     $r->route('/maps')->to('map#index', pageid => 'map');
     $r->route('/map/:map_id')->to('map#view', pageid => 'map');
 
+    $r->route('/tournaments')->to('tournament#index', pageid => 'tournament');
 
     $r->route('/register')->to('ui#register', pageid => 'register');
     $r->route('/login')->to('ui#login', pageid => 'login');

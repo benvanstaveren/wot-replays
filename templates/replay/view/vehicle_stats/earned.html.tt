@@ -30,7 +30,20 @@
                 <span class="label small">Net XP</span>
                 [% nxp = replay.statistics.xp + replay.statistics.freeXP - replay.statistics.xpPenalty %]
             </td>
-                <td>[% IF nxp > 0 %]<span class="green">[% nxp %]</span>[% END %]</td>
+                <td>
+                    [% IF nxp > 0 %]
+                        [% IF wpa && wpa.data %]
+                            [% IF nxp >= wpa.data.experience %]
+                                <span class="green tooltip" title="Earned more than the global average of [% wr.sprintf('%.0f', wpa.data.experience) %] xp">
+                            [% ELSE %]
+                                <span class="tooltip" title="Earned less than the global average of [% wr.sprintf('%.0f', wpa.data.experience) %] xp">
+                            [% END %]
+                            [% nxp %]</span>
+                        [% ELSE %]
+                            <span class="green">[% nxp %]</span>
+                        [% END %]
+                    [% END %]
+                </td>
                 <td>[% IF nxp <= 0 %]<span class="red">[% nxp %]</span>[% END %]</td>
             </tr>
             <tr><td>
@@ -39,7 +52,16 @@
             </td>
             <td>
                 [% IF ncr > 0 %]
-                    <span class="green">[% ncr %]</span>
+                    [% IF wpa && wpa.data %]
+                        [% IF ncr >= wpa.data.creditsn %]
+                            <span class="green tooltip" title="Earned more than the global average of [% wr.sprintf('%.0f', wpa.data.creditsn) %] credits">
+                        [% ELSE %]
+                            <span class="tooltip" title="Earned less than the global average of [% wr.sprintf('%.0f', wpa.data.creditsn) %] credits">
+                        [% END %]
+                        [% ncr %]</span>
+                    [% ELSE %]
+                        <span class="green">[% ncr %]</span>
+                    [% END %]
                 [% END %]
             </td><td>
                 [% IF ncr <= 0 %]

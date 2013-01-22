@@ -22,6 +22,95 @@ sub incview {
     $self->render(json => { ok => 1 });
 }
 
+sub get_comparison {
+    my $self = shift;
+    my $p    = shift;
+    my $pp   = 10;
+    my $offset = (($p-1) * $pp);
+
+    my $query = {
+        _id => { '$nin' => [ $self->stash('req_replay')->{_id} ] },
+        'player.vehicle.full' => $self->stash('req_replay')->{player}->{vehicle}->{full},
+        'map.id' => $self->stash('req_replay')->{map}->{id},
+        'complete' => true,
+    };
+
+    my $cursor = $self->model('wot-replays.replays')->find($query);
+    my $total = $cursor->count();
+    my $maxp  = int($total/$pp);
+    $maxp++ if($maxp * $pp < $total);
+
+    $cursor->sort({ 'site.uploaded_at' => -1 });
+    $cursor->skip($offset);
+    $cursor->limit($pp);
+
+    my $result = [];
+    my $replay = $self->stash('req_replay');
+
+    while(my $r = $cursor->next()) {
+        my $d = {
+            url     => sprintf('/replay/%s.html', $r->{_id}->to_string()),
+            player  => $r->{player}->{name},
+            mode    => $r->{game}->{type},
+        };
+        for(qw/kills damaged spotted damageDealt credits xp/) {
+            $d->{$_} = {
+                this => $replay->{statistics}->{$_} + 0,
+                that => $r->{statistics}->{$_} + 0,
+                flag => ($replay->{statistics}->{$_} + 0 > $r->{statistics}->{$_} + 0) 
+                    ? '>'
+                    : ($replay->{statistics}->{$_} + 0 < $r->{statistics}->{$_} + 0)
+                        ? '<'
+                        : '='
+            }
+        }
+
+        my $this_acc = ($replay->{statistics}->{shots} > 0 && $replay->{statistics}->{hits} > 0) 
+            ? sprintf('%.0f', (100/($replay->{statistics}->{shots}/$replay->{statistics}->{hits})))
+            : 0;
+        my $that_acc = ($r->{statistics}->{shots} > 0 && $r->{statistics}->{hits} > 0) 
+            ? sprintf('%.0f', (100/($r->{statistics}->{shots}/$r->{statistics}->{hits})))
+            : 0;
+
+        $d->{accuracy} = {
+            this => $this_acc,
+            that => $that_acc,
+            flag => ($this_acc > $that_acc)
+                ? '>'
+                : ($this_acc < $that_acc) 
+                    ? '<'
+                    : '='
+        };
+
+        my $hc = 0;
+        foreach my $v (values(%$d)) {
+            next unless(ref($v) eq 'HASH');
+            $hc += 1 if($v->{flag} eq '>');
+            $hc += 0 if($v->{flag} eq '=');
+            $hc -= 1 if($v->{flag} eq '=');
+        }
+        $d->{rating} = $hc;
+        push(@$result, $d);
+    }
+
+    return {
+        p => $p,
+        maxp => $maxp,
+        results => $result,
+        total => $total,
+    };
+}
+
+sub comparison {
+    my $self = shift;
+    my $p    = $self->req->param('p') || 1;
+
+    my $r = $self->get_comparison($p);
+
+    $self->stash(%$r);
+    $self->respond(template => 'replay/view/comparison');
+}
+
 sub fuck_jsonxs {
     my $self = shift;
     my $obj = shift;
@@ -52,6 +141,7 @@ sub view {
     my $self = shift;
     my $desc;
     my $format = $self->stash('format');
+    my $start = [ gettimeofday ];
 
     $self->redirect_to(sprintf('%s.html', $self->req->url)) unless(defined($format));
 
@@ -61,12 +151,17 @@ sub view {
         return;
     }
 
-    $self->stash('cachereplay' => 1);
-
-    my $start = [ gettimeofday ];
-
     my $replay = $self->stash('req_replay');
     my $r = { %$replay };
+
+    # get the wpa record for this repla
+    if(my $wpa = $self->model('wot-replays.cache.wpa')->find_one({ _id => sprintf('%s-%s', $r->{player}->{vehicle}->{full}, $r->{map}->{id})})) {
+        $self->stash('wpa' => $wpa);
+    }
+
+    my $comp = $self->get_comparison(1);
+
+    $self->stash(%$comp);
 
     my $title = sprintf('%s - %s - %s (%s), %s',
         $r->{player}->{name},
@@ -162,6 +257,11 @@ sub view {
 
     $self->stash('dossier_popups' => $dossier_popups);
     $self->stash('other_awards' => $other_awards);
+
+    $self->model('wot-replays.replays')->update({ _id => $r->{_id} }, {
+        '$inc' => { 'site.views' => 1 },
+    });
+
     $self->stash('timing_view' => tv_interval($start, [ gettimeofday ]));
 
     $self->respond(

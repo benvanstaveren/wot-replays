@@ -9,7 +9,20 @@
         </div>
         <div>
             [% IF results.size > 0 %]
-                ...
+                <span class="label">[% results.size %] players found</span>
+                <table style="width: 500px" cellspacing="0" cellpadding="0">
+                    <thead>
+                        <tr class="ui-widget-header">
+                            <td>Player</td>
+                            <td>Server</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    [% FOREACH result IN results %]
+                        <tr><td><a href="/player/[% result.server %]/[% result.player |uri %]">[% result.player |html %]</a></td><td>[% result.server %]</td></tr>
+                    [% END %]
+                    </tbody>
+                </table>
             [% ELSIF player %]
                 <b>We could not find any results...</b>
             [% ELSE %]

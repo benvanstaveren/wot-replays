@@ -1,7 +1,7 @@
 <div class="global-nav ui-corner-top">
     <div class="global-nav-inner ui-corner-top">
         <div class="container ui-corner-top">
-            <ul class="nav js-global-actions" id="global-actions ui-corner-top">
+            <ul class="nav js-global-actions ui-corner-top" id="global-actions">
                 <li class="nav-item ui-corner-tl [% IF pageid == 'home' %]active[% END %]">
                     <a class="ui-corner-tl js-hover" href="/">
                         Home
@@ -10,6 +10,11 @@
                 <li class="nav-item [% IF pageid == 'browse' %]active[% END %]">
                     <a class="js-hover" href="/browse">
                         Browse
+                    </a>
+                </li>
+                <li class="nav-item vehicles [% IF pageid == 'player' %]active[% END %]">
+                    <a class="js-hover" href="/players">
+                        Players
                     </a>
                 </li>
                 <li class="nav-item vehicles [% IF pageid == 'vehicle' %]active[% END %]">
@@ -22,13 +27,18 @@
                         Maps
                     </a>
                 </li>
-                <li style="margin: 0px 0px 0px 20px" class="nav-item maps [% IF pageid == 'stats' %]active[% END %]">
-                    <a class="js-hover" href="/stats">
-                        Statistics
+                <li class="nav-item maps [% IF pageid == 'tournament' %]active[% END %]">
+                    <a class="js-hover" href="/tournaments">
+                        Tournaments
                     </a>
                 </li>
             </ul>
             <ul class="nav js-global-actions" id="global-pages" style="float: right">
+                <li class="nav-item maps [% IF pageid == 'stats' %]active[% END %]">
+                    <a class="js-hover" href="/stats">
+                        Statistics
+                    </a>
+                </li>
                 <li class="nav-item blog [% IF pageid == 'blog' %]active[% END %]">
                     <a class="js-hover" href="http://blog.wot-replays.org/">
                         Blog

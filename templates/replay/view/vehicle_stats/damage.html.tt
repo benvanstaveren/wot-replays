@@ -2,7 +2,16 @@
             <table style="width: 100%" cellspacing="0" cellpadding="0"><tbody><tr>
                 <td>
                     <span class="label small">Done</span>
-                    <span class="green">[% replay.statistics.damageDealt || '0' %]</span>
+                    [% IF wpa && wpa.data %]
+                        [% IF replay.statistics.damageDealt >= wpa.data.damage_dealt %]
+                            <span class="green tooltip" title="Dealt more damage than the global average of [% wr.sprintf("%.0f", wpa.data.damage_dealt) %] hp">
+                        [% ELSE %]
+                            <span class="tooltip" title="Dealt less damage than the global average of [% wr.sprintf("%.0f", wpa.data.damage_dealt) %] hp">
+                        [% END %]
+                    [% ELSE %]
+                        <span class="green">
+                    [% END %]
+                    [% replay.statistics.damageDealt || '0' %]</span>
                 </td>
                 <td>
                     <span class="label small">Received</span>

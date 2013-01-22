@@ -12,18 +12,6 @@ sub respond {
         $self->stash('timing_elapsed' => Time::HiRes::tv_interval($start));
     }
     $self->render(%args);
-
-    if(defined($self->stash('cachereplay')) && $self->stash('cachereplay') == 1) {
-        my $parts = $self->req->url->path->parts;
-        my $fragment = $parts->[1];
-        $fragment .= '.html' unless($fragment =~ /\.html$/);
-        my $filename = sprintf('%s/%s', $self->stash('config')->{paths}->{pages}, $fragment);
-        if(my $fh = IO::File->new(sprintf('>%s', $filename))) {
-            $fh->print($self->res->body);
-            $fh->close;
-        }
-    }
-
     return 1;
 }
 

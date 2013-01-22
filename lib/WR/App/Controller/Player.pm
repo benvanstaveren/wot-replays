@@ -6,11 +6,40 @@ use boolean;
 
 sub index {
     my $self = shift;
+    my $p    = $self->req->param('player');
+    my $results = [];
+    my $temp = {};
+
+    if(defined($p)) {
+        my $query = {
+            '$or' => [
+                { 'player.name' => qr/^$p/i },
+                { 'vehicles.name' => qr/^$p/i },
+            ]
+        };
+
+
+        my $cursor = $self->model('wot-replays.replays')->find($query);
+        while(my $replay = $cursor->next()) {
+            $temp->{$replay->{player}->{server}}->{$replay->{player}->{name}}++ if($replay->{player}->{name} =~ qr/^$p/i);
+            foreach my $v (values(%{$replay->{vehicles}})) {
+                $temp->{$replay->{player}->{server}}->{$v->{name}}++ if($v->{name} =~ qr/^$p/i);
+            }
+        }
+    }
+
+    foreach my $server (keys(%$temp)) {
+        foreach my $player (keys(%{$temp->{$server}})) {
+            push(@$results, { player => $player, server => $server });
+        }
+    }
 
     $self->respond(
         template => 'player/index',
         stash => {
-            page => { title => 'Players' },
+            page    => { title => 'Players' },
+            player  => $p,
+            results => $results,
         },
     );
 }

@@ -57,7 +57,7 @@ sub find_server {
     my $name = shift;
 
     foreach my $cluster (qw/na eu ru sea/) {
-        my $title = $self->ua->get(sprintf(__PACKAGE__->SERVERS->{$cluster}, $id, $name))->res->dom->html->head->title->text;
+        my $title = $self->ua->get(sprintf(__PACKAGE__->SERVERS->{$cluster}, $id, $name))->res->dom->at('title')->text;
         if($title =~ /\s$name\s\|/) {
             # found them 
             return $cluster;

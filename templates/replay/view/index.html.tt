@@ -13,8 +13,8 @@
                         <span style="font-weight: normal">Result:</span><span> [% IF replay.complete %][% INCLUDE replay/view/matchresult.html.tt %][% ELSE %]<span>unknown</span>[% END %]</span> <span style="margin: 0px 0px 0px 10px; font-weight: normal">Survived:</span><span> [% INCLUDE replay/view/vehicle_stats/survived.html.tt %]</span>
                     </h3>
                     <div>
-                        <a href="#" class="rateUp" rid="[% replay.id %]" title="Like this replay"><button class="rateUp"><span>Like</span> (<span class="rateUpCount">-</span>)</button></a>
-                        <a target="_new" href="/download/[% replay.id %]" class="downloadButton [% IF replay.version != config.wot.version %]incompatible[% END %]"><button class="panelButton" style="width: 150px" id="btn-download">Download Replay (<span class="count">-</span>)</button></a>
+                        <button class="rateUp" rid="[% replay.id %]" title="Like this replay"><span>Like</span> (<span class="rateUpCount">[% replay.site.like || '0' %]</span>)</button></a>
+                        <button href="/download/[% replay.id %]" class="panelButton downloadButton [% IF replay.version != config.wot.version %]incompatible[% END %]" style="width: 150px" id="btn-download">Download Replay (<span class="count">[% replay.site.downloads || '0' %]</span>)</button>
                     </div>
                 </div>
                 <div class="clear"></div>
@@ -29,12 +29,14 @@
                                     <div class="container-tablist">
                                         <ul class="nav">
                                             <li class="nav-item tab active"><a href="#vehicle-stats">Statistics</a></li>
+                                            <li class="nav-item tab"><a href="#vehicle-loadout">Loadout</a></li>
                                             [% IF replay.complete %]
                                                 <li class="nav-item tab"><a href="#teams">Teams</a></li>
                                             [% END %]
                                             [% IF replay.chat.size > 0 %]
                                                 <li class="nav-item tab"><a href="#battle-chat">Chat</a></li>
                                             [% END %]
+                                            <li class="nav-item tab"><a href="#comparison">Compare</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -47,6 +49,14 @@
                                     [% INCLUDE replay/view/vehicle_stats.html.tt %]
                                 </div>
                                 <div class="clear"></div>
+                            </div>
+                            <div id="comparison" class="tab-panel" style="display: none">
+                                <div id="comparison-display">
+                                    [% INCLUDE replay/view/comparison.html.tt %]
+                                </div>
+                            </div>
+                            <div id="vehicle-loadout" class="tab-panel" style="display: none">
+                                [% INCLUDE replay/view/vehicle_loadout.html.tt %]
                             </div>
                             <div id="battle-chat" class="tab-panel" style="display: none">
                                 [% FOREACH message IN replay.chat %]
@@ -78,17 +88,10 @@
                     $(href).show();
                     return false;
                 });
-                $.getJSON('/replay/[% replay.id %]/incview', {}, function(d, t, x) {});
-                $.getJSON('/replay/[% replay.id %]/stats', {}, function(d, t, x) {
-                    $('span.rateUpCount').html(d.likes || '0');
-                    $('span.count').html(d.downloads || '0');
-                    $('span.replayviewcount').html(d.views || '0');
-                    $('span.replayviewcount').attr('title', 'This replay has been viewed ' + d.views + ' times');
-                });
-                $('div.award').tooltip({ track: true });
-                $('td.playerDetails span.tooltip').tooltip({ track: true });
+                $('div.award').tooltip({ track: true }).css({ 'cursor': 'pointer' });
+                $('td.playerDetails span.tooltip').tooltip({ track: true }).css({ 'cursor': 'pointer' });
+                $('span.tooltip').tooltip({track: true}).css({ 'cursor': 'pointer' });
             });
         </script>
     </div>
 [% END %]
-

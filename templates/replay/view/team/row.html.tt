@@ -8,7 +8,7 @@
 [% ELSE %]
     [% class = 'died' %]
 [% END %]
-<tr class="playerRow [% class %]" href="#tt_[% player.name |html %]" title="[% IF rowtitle %][% rowtitle %] by [% replay.player.name |html %][% END %]">
+<tr class="playerRow [% class %]" [% IF player.name != replay.player.name %]href="#tt_[% player.name |html %]"[% ELSE %]style="cursor: default"[% END %] title="[% IF rowtitle %][% rowtitle %] by [% replay.player.name |html %][% END %]">
     <td class="playerSurvived">
     <span>
         [% IF platoon && platoon > 0 %]

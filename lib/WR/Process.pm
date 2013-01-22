@@ -31,6 +31,8 @@ with (
         'WR::Role::Process::Fittings',       # process vehicle fittings
         'WR::Role::Process::Platoon',        # process platoons
         'WR::Role::Process::Chat',           # chat messages
+        'WR::Role::Process::WPA',            # Phalynx' stuff
+        'WR::Role::Process::Digest',         # MD5 digest for the replay itself
     );
 
 sub error {
@@ -59,6 +61,17 @@ sub process {
         die 'you must pass either a "file" or "data" parameter', "\n";
     }
     $args{traits} = [$lltrait, qw/Data::Decrypt Data::Reader Data::Attributes Data::Chat/];
+
+    $args{cb_gun_shot_count} = sub {
+        my $country = shift;
+        my $gid     = shift;
+
+        if(my $gun = $self->db->get_collection('data.components')->find_one({ component => 'guns', country => $country, component_id => $gid })) {
+            return scalar(@{$gun->{shots}});
+        } else {
+            return 3; # fail-safe-ish
+        }
+    };
 
     $self->_set_parser(try {
         return WR::Parser->new(%args);

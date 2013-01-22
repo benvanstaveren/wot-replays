@@ -20,9 +20,10 @@ around 'process' => sub {
     my $teams    = [ [], [] ];
     my $pid      = $res->{playerID} + 0;
     my $vehicle_hash = {};
+    my $all_players  = {};
 
     if($self->_parser->is_complete) {
-        my $pd       = ($self->_parser->is_complete) ? $self->pickledata->{vehicles} : {};
+        my $pd       =  $self->pickledata->{vehicles};
         foreach my $v (sort { $b->{frags} <=> $a->{frags} } (@$vehicles)) {
             my $pv = $pd->{$v->{id}};
             if($self->_parser->is_complete) {
@@ -35,7 +36,11 @@ around 'process' => sub {
             push(@{$teams->[ $v->{team} - 1 ]}, $v->{id});
             $vehicle_hash->{$v->{id}} = $v;
         }
+        $all_players = $self->pickledata->{players};
     }
+
+    # not sure where this comes from, appears to be coming from the pickle data,
+    # and doesn't seem to be any existing vehicle. maybe fog of war?
 
     my $data = {
         _id             => $m_id,
@@ -75,6 +80,7 @@ around 'process' => sub {
                 : -1,
             team        => ($self->_parser->is_complete) ? $self->pickledata->{personal}->{team} + 0 : -1
         },
+        players  => $all_players,
         complete => ($self->_parser->is_complete) ? true : false,
         vehicles => $vehicle_hash,
         teams    => $teams,
@@ -108,6 +114,14 @@ around 'process' => sub {
 
         $data->{game}->{time}        = $self->pickledata->{common}->{arenaCreateTime};
         $data->{player}->{killed_by} = undef if($data->{player}->{killed_by} + 0 == 0);
+
+        # add a few things to the player
+        if($self->_parser->wot_ammo_consumables_available) {
+            $data->{player}->{loadout} = {
+                ammo            => $self->_parser->wot_ammo,
+                consumables     => $self->_parser->wot_consumables,
+            };
+        }
     }
     use warnings;
     return $data;

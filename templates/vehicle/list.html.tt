@@ -1,3 +1,12 @@
-[% FOREACH vehicle IN vehicles %]
-    <a href="/vehicle/[% country %]/[% vehicle.sid %]">[% wr.vehicle_name(vehicle.id) %]</a><br/>
+[% FOREACH vehicletype IN vehicletypes %]
+    [% v = vehicles.$vehicletype.size %]
+    [% IF v > 0 %]
+        <div><strong>
+        [% IF vehicletype == 'L' %]Light Tanks[% ELSIF vehicletype == 'M' %]Medium Tanks[% ELSIF vehicletype == 'H' %]Heavy Tanks[% ELSIF vehicletype == 'S' %]SPG's[% ELSE %]Tank Destroyers[% END %]</strong></div>
+        [% FOREACH vehicle IN vehicles.$vehicletype %]
+            <a href="/vehicle/[% country %]/[% vehicle.sid %]" class="ui-corner-all" style="border: #666 1px solid; display: inline-block; width: 160px; height: 100px; margin: 0px 10px 10px 0px">
+                <img class="tooltip" style="width: 160px; height: 100px" src="[% wr.vehicle_icon(vehicle.id, 100) %]" alt="[% wr.vehicle_name(vehicle.id) |html %]" title="[% wr.vehicle_name(vehicle.id) |html %]"/>
+            </a>
+        [% END %]
+    [% END %]
 [% END %]

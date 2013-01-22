@@ -9,6 +9,8 @@
                 <input type="hidden" name="map" value="[% map_id %]"/>
             [% ELSIF pageid == 'vehicle' %]
                 <input type="hidden" name="vehicle" value="[% vehicle_full %]"/>
+            [% ELSIF pageid == 'tournament' %]
+                <input type="hidden" name="matchtype" value="4"/>
             [% END %]
             [% IF pageid != 'vehicle' %]
             <span class="label">Vehicle</span>
@@ -47,6 +49,7 @@
                 <option value="domination">Encounter</option>
                 <option value="assault">Assault</option>
             </select>
+            [% IF pageid != 'tournament' %]
             <span class="label">Match Type</span>
             <select name="matchtype">
                 <option value="">-- All types</option>
@@ -56,6 +59,7 @@
                 <option value="4">Tournament Battle</option>
                 <option value="5">Clan Battle</option>
             </select>
+            [% END %]
             <span class="label">Version</span>
             <select name="compatible">
                 <option value="0">-- All versions</option>

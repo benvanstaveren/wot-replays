@@ -13,7 +13,7 @@ my $version = $ARGV[0];
 
 my $text = Data::Localize::Gettext->new(path => sprintf('../etc/res/raw/%s/lang/artefacts.po', $version));
 
-my $mongo  = MongoDB::Connection->new();
+my $mongo  = MongoDB::Connection->new(host => $ENV{'MONGO'} || 'localhost');
 my $db     = $mongo->get_database('wot-replays');
 my $coll   = $db->get_collection('data.equipment');
 
