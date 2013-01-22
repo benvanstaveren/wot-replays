@@ -1,7 +1,7 @@
             <span class="label" style="margin-top: 10px">Damage</span>
             <table style="width: 100%" cellspacing="0" cellpadding="0"><tbody><tr>
                 <td>
-                    <span class="label small">Done</span>
+                    <span class="label small tooltip" title="Damage dealt directly by the player">Direct</span>
                     [% IF wpa && wpa.data %]
                         [% IF replay.statistics.damageDealt >= wpa.data.damage_dealt %]
                             <span class="green tooltip" title="Dealt more damage than the global average of [% wr.sprintf("%.0f", wpa.data.damage_dealt) %] hp">
@@ -12,6 +12,19 @@
                         <span class="green">
                     [% END %]
                     [% replay.statistics.damageDealt || '0' %]</span>
+                </td>
+                <td>
+                    <span class="label small tooltip" title="Damage dealt by allies as a result of the player spotting an enemy">Indirect</span>
+                    [% IF wpa && wpa.data %]
+                        [% IF replay.statistics.damageAssisted >= wpa.data.damage_assisted %]
+                            <span class="green tooltip" title="More damage was dealt by allies as a result of spotting than the global average of [% wr.sprintf("%.0f", wpa.data.damage_assisted) %] hp">
+                        [% ELSE %]
+                            <span class="tooltip" title="Less damage was dealt by allies as a result of spotting than the global average of [% wr.sprintf("%.0f", wpa.data.damage_assisted) %] hp">
+                        [% END %]
+                    [% ELSE %]
+                        <span class="green">
+                    [% END %]
+                    [% replay.statistics.damageAssisted || '0' %]</span>
                 </td>
                 <td>
                     <span class="label small">Received</span>
