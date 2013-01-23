@@ -46,6 +46,52 @@ sub index {
     );
 }
 
+sub reclaim {
+    my $self = shift;
+    my $a    = $self->req->param('a');
+    my $error;
+      
+    if(defined($a) && $a eq 'login') {
+        my $e = $self->req->param('email');
+        my $p = $self->req->param('password');
+        if($e && $p) {
+            if(my $user = $self->model('wot-replays.accounts')->find_one({ email => $e })) {
+                my $salt = substr($user->{password}, 0, 2);
+                my $npass = crypt($p, $salt);
+
+                if($user->{password} eq $npass) {
+                    $self->model('wot-replays.accounts')->remove({ openid => $self->session('openid') });
+                    $self->model('wot-replays.accounts')->update({ _id => $user->{_id} }, {
+                        '$set' => {
+                            openid => $self->session('openid'),
+                            reclaimed => true,
+                        }
+                    });
+                    $self->session('notify' => { type => 'info', text => 'Account reclaimed successfully!', close => 1 });
+                    $self->redirect_to('/profile');
+                } else {
+                    $self->respond(template => 'profile/reclaim', stash => {
+                        page => { title => 'Reclaim Account' },
+                        notify => { type => 'error', text => 'Invalid credentials', sticky => 1 },
+                    });
+                }
+            } else {
+                $self->respond(template => 'profile/reclaim', stash => {
+                    page => { title => 'Reclaim Account' },
+                    notify => { type => 'error', text => 'No such user', sticky => 1 },
+                });
+            }
+        } else {
+            $self->respond(template => 'profile/reclaim', stash => {
+                page => { title => 'Login' },
+                notify => { type => 'error', text => 'You do know both fields are required, right?', sticky => 1 },
+            });
+        }
+    } else {
+       $self->respond(template => 'profile/reclaim', stash => { page => { title => 'Reclaim Account' } });
+    }
+}
+
 sub replays {
     my $self = shift;
     my $type = $self->req->param('type');
@@ -88,16 +134,6 @@ sub settings {
         template => 'profile/settings',
         stash => {
             page => { title => 'Your Profile - Settings' },
-        },
-    );
-}
-
-sub settings_auto {
-    my $self = shift;
-    $self->respond(
-        template => 'profile/auto',
-        stash => {
-            page => { title => 'Your Profile - Settings - Auto Uploader' },
         },
     );
 }

@@ -1,26 +1,8 @@
 [% WRAPPER wrapper.html.tt %]    
     <div class="content nosidebar aboutText">
         <h3>Register</h3>
-        [% IF errormessage %]
-            <div id="error" class="error">[% errormessage %]</div>
-        [% END %]
-        [% IF done > 0 && !errormessage %]
-            <div>
-                Thanks for registering! You can <a href="/">continue browsing</a>, <a href="/login">log in</a>, or <a href="/upload">upload</a> some replays.
-            </div>
-        [% ELSE %]
-        <div id="frm-register-container" style="width: 600px; margin: 0px auto; padding: 25px" class="box" style="background: #e0e0e0 none repeat scroll 0 0">
-            <form id="frm-register" action="/register" method="post">
-                <input type="hidden" name="a" value="save"/>
-                <span class="label">Your Email Address </span>
-                <input style="width: 100%;" type="text" name="u"/><br/>
-                <span class="label">Desired Password</span>
-                <input style="width: 100%;" type="password" name="p"/><br/>
-                <span class="label">Repeat Password</span>
-                <input style="width: 100%;" type="password" name="p2"/><br/>
-                <input type="submit" value="Register" style="width: 250px; margin: 10px auto"/>
-            </form>
+        <div>
+            Account registration is no longer required, you may sign in with your <b>Wargaming.net ID</b>. 
         </div>
-        [% END %]
     </div>
 [% END %]

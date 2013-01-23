@@ -109,6 +109,11 @@ sub index {
     $self->session('last_seen' => time());
     $self->session('first_visit' => 1) if($last_seen + 86400 < time());
 
+    if(my $notify = $self->session->{'notify'}) {
+        delete($self->session->{'notify'});
+        $self->stash(notify => $notify);
+    }
+
     my $wr;
     $wr = {
             get_id => sub { return shift->{_id} },
@@ -332,6 +337,9 @@ sub index {
             },
             is_the_boss => sub {
                 return ($self->is_user_authenticated && $self->current_user->{email} eq 'scrambled@xirinet.com') ? 1 : 0
+            },
+            current_user => sub {
+                return $self->current_user;
             },
             user => sub {
                 return $self->current_user;

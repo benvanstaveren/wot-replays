@@ -17,7 +17,7 @@ $Template::Stash::PRIVATE = undef;
 sub startup {
     my $self = shift;
     
-    $self->secret(q|youwillneverguessthissecretitssosecret|);
+    $self->secret(q|a superbly secret secret that nobody will ever guess in their entire damn life|);
 
     my $config = $self->plugin('Config', { file => 'wr.conf' });
     $self->plugin('mongodb', { host => $config->{mongodb}, patch_mongodb => 1 });
@@ -44,28 +44,32 @@ sub startup {
     # set up the key string
     $config->{wot}->{bf_key} = join('', map { chr(hex($_)) } (split(/\s/, $config->{wot}->{bf_key})));
 
-    $self->plugin('authentication', {
-        validate_user => sub {
-            my $self = shift;
-            my $u = shift;
-            my $p = shift;
+    # add some helpers here because we need to 
+    # "fake" some of it
+    $self->helper(is_user_authenticated => sub {
+        my $ctrl = shift;
 
-            if(my $user = $self->db('wot-replays')->get_collection('accounts')->find_one({ email => $u })) {
-                my $salt = substr($user->{password}, 0, 2);
-                return $user->{_id}->to_string() if(crypt($p, $salt) eq $user->{password});
+        if(my $openid = $ctrl->session('openid')) {
+            if(my $user = $ctrl->model('wot-replays.accounts')->find_one({ openid => $openid })) {
+                return 1;
+            } else {
+                return 0; # because the verification step will actually create it
             }
-            return undef;
-        },
-        load_user => sub {
-            my $self = shift;
-            my $uid = shift;
+        } else {
+            return 0;
+        }
+    });
 
-            if(my $user = $self->db('wot-replays')->get_collection('accounts')->find_one({ _id => bless({ value => $uid }, 'MongoDB::OID') })) {
+    $self->helper(current_user => sub {
+        my $ctrl = shift;
+        if(my $openid = $ctrl->session('openid')) {
+            if(my $user = $ctrl->model('wot-replays.accounts')->find_one({ openid => $openid })) {
                 return $user;
             } else {
                 return undef;
             }
         }
+        return undef;
     });
 
     $self->routes->namespaces([qw/WR::App::Controller/]);
@@ -114,16 +118,19 @@ sub startup {
     $r->route('/tournaments')->to('tournament#index', pageid => 'tournament');
 
     $r->route('/register')->to('ui#register', pageid => 'register');
-    $r->route('/login')->to('ui#login', pageid => 'login');
-    $r->route('/logout')->to('ui#do_logout');
+
+    $r->any('/login')->to('ui#do_login', pageid => 'login');
+    $r->any('/logout')->to('ui#do_logout');
+
+    my $openid = $r->under('/openid');
+        $openid->any('/return')->to('ui#openid_return');
 
     my $pb = $r->bridge('/profile')->to('profile#check');
         $pb->route('/')->to('profile#index', pageid => 'profile');
         $pb->route('/replays')->to('profile#replays', pageid => 'profile');
         $pb->route('/sr')->to('profile#sr', pageid => 'profile');
         $pb->route('/hr')->to('profile#hr', pageid => 'profile');
-
-        $pb->route('/settings/auto')->to('profile#settings_auto', pageid => 'profile');
+        $pb->route('/reclaim')->to('profile#reclaim', pageid => 'profile');
 
     my $stats = $r->under('/stats');
         $stats->route('/')->to('stats#index');
@@ -133,6 +140,7 @@ sub startup {
         $api->route('/bootstrap')->to('api#bootstrap');
 
     $self->sessions->default_expiration(86400 * 365); 
+    $self->sessions->cookie_name('wrsession');
 
     $self->helper(wr_query => sub {
         my $self = shift;

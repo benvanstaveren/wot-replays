@@ -19,6 +19,13 @@
             <meta name="description" content="[% page.description |html %]"/>
         [% END %]
         [% INCLUDE bricks/ga.js.tt %]
+        [% IF notify %]
+            <script type="text/javascript">
+                $(document).ready(function() {
+                    WR.ui.notify({ type: '[% notify.type %]', text: '[% notify.text |js %]', close: [% IF notify.close %]true[% ELSE %]false [% END %], sticky: [% IF notify.sticky %]true[% ELSE %]false[% END %] });
+                });
+            </script>
+        [% END %]
     </head>
     <body class="ui">
         <div style="padding: 15px 0px 15px 0px">

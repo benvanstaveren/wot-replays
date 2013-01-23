@@ -1,25 +1,30 @@
 [% WRAPPER wrapper.html.tt %]    
     <div class="content nosidebar aboutText">
         <h3>Login</h3>
-        [% IF errormessage %]
-            <div id="error" class="error">[% errormessage %]</div>
-        [% END %]
-        [% IF done > 0 && !errormessage %]
-            <div>
-                Thanks for logging in, you can now either <a href="/">continue browsing</a> or visit <a href="/profile">your profile</a>
-            </div>
-        [% END %]
-        [% IF done < 1 %]
         <div id="frm-login-container" style="width: 600px; margin: 0px auto; padding: 25px" class="box" style="background: #e0e0e0 none repeat scroll 0 0">
-            <form id="frm-login" action="/login" method="post">
-                <input type="hidden" name="a" value="login"/>
-                <span class="label">Email Address</span>
-                <input style="width: 100%;" type="text" name="email"/><br/>
-                <span class="label">Password</span>
-                <input style="width: 100%;" type="password" name="password"/><br/>
-                <input type="submit" value="Login" style="width: 250px; margin: 10px auto"/>
-            </form>
+            <span class="label">Please select your server</span>
+            <div id="locationselect">
+                <table style="width: 100%" cellpadding="0" cellspacing="0">
+                <tbody><tr>
+                    <td style="width: 33%; padding: 2px">
+                        <button style="width: 100%" id="eu" class="uploadButton">Europe</button>
+                    </td>
+                    <td style="width: 33%; padding: 2px">
+                        <button style="width: 100%" id="sea" class="uploadButton">South-East Asia</button>
+                    </td>
+                    <td style="width: 33%; padding: 2px">
+                        <button style="width: 100%" id="na" class="uploadButton">North America</button>
+                    </td>
+                </tr></tbody>
+                </table>
+            </div>
+            <script type="text/javascript">
+                $('#locationselect button').click(function() {
+                    WR.waitElement();
+                    var id = $(this).attr('id');
+                    document.location.href = '/login?s=' + id;
+                });
+            </script>
         </div>
-        [% END %]
     </div>
 [% END %]

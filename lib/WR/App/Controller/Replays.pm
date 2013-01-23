@@ -99,7 +99,7 @@ sub browse {
         template => $template,
         stash => {
             page => {
-                title   =>  'Browse',
+                title   =>  'Home',
             },
             replays => $query->page($p),
             filter  => $filter,
