@@ -2,85 +2,49 @@
 <div>
     <div class="content nosidebar aboutText">
         <h3>[% page.title %]</h3>
-            <div>
-                Below are some graphs that give a global idea of the replays stored on the site. More statistics are on the way, but this will do
-                as a placeholder ;)
+        <div class="box ui-corner-all" style="padding: 5px; background: rgba(0,0,0,0.2) none repeat scroll 0 0; margin: 0px 0px 10px 0px">
+            <div class="tablist">
+                <div class="tablist-inner">
+                    <div class="container-tablist">
+                        <ul class="nav">
+                            <li class="nav-item tab active"><a href="#global">Global</a></li>
+                            <li class="nav-item tab"><a href="#vehicle">Vehicles</a></li>
+                            <li class="nav-item tab"><a href="#map">Maps</a></li>
+                            <li class="nav-item tab"><a href="#cluster">Server Cluster</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div>
-                <div style="float: left; width: 470px; height: 470px; margin: 0px 2px 0px 0px">
-                    <span class="label">Match Types</span>
-                    <div id="bybonustype" style="width: 300px; height: 300px"></div>
-                </div>
-                <div style="float: left; width: 470px; height: 470px; margin: 0px 0px 0px 2px">
-                    <span class="label">Game Modes</span>
-                    <div id="bygametype" style="width: 300px; height: 300px"></div>
-                </div>
-                <div class="clear"></div>
-
-
-                <div style="float: left; width: 470px; height: 470px; margin: 0px 2px 0px 0px">
-                    <span class="label">Vehicle Class</span>
-                    <div id="byclass" style="width: 300px; height: 300px"></div>
-                </div>
-                <div style="float: left; width: 470px; height: 470px; margin: 0px 0px 0px 2px">
-                    <span class="label">Vehicle Tiers</span>
-                    <div id="bytier" style="width: 300px; height: 300px"></div>
-                </div>
-                <div class="clear"></div>
-
-                <div style="float: left; width: 470px; height: 470px; margin: 0px 2px 0px 0px">
-                    <span class="label">Vehicle Country</span>
-                    <div id="bycountry" style="width: 300px; height: 300px"></div>
-                </div>
-                <div style="float: left; width: 470px; height: 470px; margin: 0px 0px 0px 2px">
-                    <span class="label">Server Cluster</span>
-                    <div id="byserver" style="width: 300px; height: 300px"></div>
-                </div>
-                <div class="clear"></div>
+            <div id="stats-global" class="tab-panel">
             </div>
-            <script type="text/javascript">
-                var graphData = {};
-                [% FOREACH graphkey IN graphdata.keys %]
-                    [% gd = graphdata.$graphkey %]
-                    graphData['[% graphkey %]'] = [];
-                    [% FOREACH item IN gd %]
-                        [% IF graphkey == 'bygametype' %]
-                            [% label = wr.res.gametype.i18n(wr.get_id(item)) %]
-                        [% ELSIF graphkey == 'bybonustype' %]
-                            [% label = wr.res.bonustype.i18n(wr.get_id(item)) %]
-                        [% ELSIF graphkey == 'bycountry' %]
-                            [% label = wr.res.country.i18n(wr.get_id(item)) %]
-                        [% ELSIF graphkey == 'byclass' %]
-                            [% label = wr.res.vehicleclass.i18n(wr.get_id(item)) %]
-                        [% ELSE %]
-                            [% label = wr.get_id(item) %]
-                        [% END %]
-                        graphData['[% graphkey %]'].push({ label: '[% label %]', data: [% item.value %] });
-                    [% END %]
-                [% END %]
-                $(document).ready(function() {
-                    [% FOREACH graphkey IN graphdata.keys %]
-                        $.plot($('#[% graphkey %]'), graphData['[% graphkey %]'], {
-                            series: { 
-                                pie: {
-                                    show: true,
-                                    label: {
-                                        show: true,
-                                        radius: 3/4,
-                                        background: {
-                                            color: '#000',
-                                            opacity: 0.75,
-                                        },
-                                    },
-                                },
-                            },
-                            legend: {
-                                show: false,
-                            },
-                        });
-                    [% END %]
-                });
-            </script>
+            <div id="stats-vehicle" class="tab-panel" style="display: none">
+            </div>
+            <div id="stats-map" class="tab-panel" style="display: none">
+            </div>
+            <div id="stats-cluster" class="tab-panel" style="display: none">
+            </div>
+        </div>
     </div>
+    <script type="text/javascript">
+        function loadStatPanel(panel) {
+            WR.waitElement();
+            var url = '/stats/' + panel;
+            $('#stats-' + panel).load(url, {}, function() {
+                $('div.tab-panel').hide();
+                $('#stats-' + panel).show();
+                $.unblockUI();
+            });
+        }
+        $(document).ready(function() {
+            $('li.nav-item.tab a').click(function() {
+                $('li.nav-item.tab').removeClass('active');
+                $(this).parent().addClass('active');
+                var href = $(this).attr('href').substr(1);
+                loadStatPanel(href);
+                return false;
+            });
+            loadStatPanel('global');
+        });
+    </script>
 </div>
 [% END %]
