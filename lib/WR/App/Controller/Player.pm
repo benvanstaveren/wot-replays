@@ -18,7 +18,6 @@ sub index {
             ]
         };
 
-
         my $cursor = $self->model('wot-replays.replays')->find($query);
         while(my $replay = $cursor->next()) {
             $temp->{$replay->{player}->{server}}->{$replay->{player}->{name}}++ if($replay->{player}->{name} =~ qr/^$p/i);
@@ -42,6 +41,39 @@ sub index {
             results => $results,
         },
     );
+}
+
+sub get_quick_stats {
+    my $self = shift;
+    my $server = shift;
+    my $player = shift;
+
+    my $cmd = Tie::IxHash->new(
+        group => {
+            ns => 'replays',
+            initial => { 
+                kills => 0, 
+                damages => 0, 
+                spots => 0, 
+                c => 0, 
+                damagedone => 0,
+                vehicles => {},
+                maps => {},
+                },
+            key => { 'player.name' => 1 },
+            cond => {
+                'player.name'   => $player,
+                'player.server' => $server,
+                'site.visible'  => true,
+                'complete'      => true,
+            },
+            '$reduce' => q|function(obj, prev) { prev.kills += obj.statistics.kills; prev.damages += obj.statistics.damaged; prev.spots += obj.statistics.spotted; prev.c += 1; prev.damagedone += obj.statistics.damageDealt; if(!prev.vehicles[obj.player.vehicle.full]) { prev.vehicles[obj.player.vehicle.full] = 1 } else { prev.vehicles[obj.player.vehicle.full] += 1; } if(!prev.maps[obj.map.id]) { prev.maps[obj.map.id] = 1 } else {  prev.maps[obj.map.id] += 1 } }|,
+            finalize => q|function(out) { out.damagedone_a = (out.damagedone > 0 && out.c > 0) ? out.damagedone/out.c : 0; out.kills_a = (out.kills > 0 && out.c > 0) ?out.kills / out.c : 0; out.damages_a = (out.damages > 0 && out.c > 0) ? out.damages / out.c : 0; out.spots_a = (out.spots > 0 && out.c > 0) ? out.spots / out.c : 0; return out; }|
+        }
+    );
+
+    my $res = $self->db('wot-replays')->run_command($cmd);
+    return $res->{retval}->[0] || {};
 }
 
 sub ambi {
@@ -103,7 +135,7 @@ sub view {
                 'player.name' => { '$ne' => $player },
                 'site.visible' => true 
                 })->count(),
-            statistics => {},
+            statistics => $self->get_quick_stats($server => $player),
             page => {
                 title => sprintf('Players &raquo; %s', $player),
             },
