@@ -1,0 +1,69 @@
+<div>
+    <table style="width: 100%" cellspacing="0" cellpadding="0" class="box">
+        <thead>
+            <tr class="ui-widget-header">
+                <td>Replay</td>
+                <td>View Link</td>
+                <td>Download Link</td>
+            </tr>
+        </thead>
+        <tbody id="upload-list">
+        </tbody>
+    </table>
+</div>
+<script type="text/javascript">
+    var bunum = 1;
+    function appendUpload() {
+        $('#upload-list').append(
+            $('<tr>').css({ 'border-bottom': '#eee 1px solid' }).attr('id', 'row-' + bunum).append(
+                $('<td/>').append(
+                    $('<form/>')
+                        .attr('id', 'frm-upload-' + bunum)
+                        .attr('method', 'post')
+                        .attr('action', '/upload')
+                        .append(
+                            $('<input/>').attr('type', 'hidden').attr('name', 'a').attr('value', 'save'),
+                            $('<input/>').attr('type', 'file').attr('bunum', bunum).attr('name', 'replay')
+                        )
+                ).css({ 'padding': '2px' }).attr('id', 'form-' + bunum),
+                $('<td/>').css({ 'padding': '2px' }).attr('id', 'view-' + bunum),
+                $('<td/>').css({ 'padding': '2px' }).attr('id', 'dl-' + bunum)
+            )
+        );
+        makeForm(bunum);
+        bunum = bunum + 1;
+    }
+    function makeForm(bunum) {
+        $('#frm-upload-' + bunum).ajaxForm({
+            beforeSend: function() {
+                $('#view-' + bunum).html('<span class="small-waiting"></span>');
+                $('#dl-' + bunum).html('<span class="small-waiting"></span>');
+                $('#frm-upload-' + bunum + ' input[type="file"]').prop('disabled', true);
+                appendUpload();
+            },
+            complete: function(xhr) {
+                var j = JSON.parse(xhr.responseText);
+                if(j.ok == 1) {
+                    var l_dl = 'http://www.wot-replays.org/download/' + j.replay_id;
+                    var l_v  = 'http://www.wot-replays.org/replay/' + j.replay_id + '.html';
+                    $('#view-' + bunum).html('<a href="' + l_v + '">' + l_v + '</a>');
+                    $('#dl-' + bunum).html('<a href="' + l_dl + '">' + l_dl + '</a>');
+                    $('#form-' + bunum).html('<span class="green">OK</span>');
+                } else {
+                    $('#form-' + bunum).html('<span class="red">ERROR</span>');
+                    $('#dl-' + bunum).empty();
+                    $('#view-' + bunum).empty();
+                }
+            }
+        });
+
+        $('#frm-upload-' + bunum + ' input[type="file"]').change(function() {
+            $('#view-' + bunum).html('<span class="small-waiting"></span>');
+            $('#dl-' + bunum).html('<span class="small-waiting"></span>');
+            $('#frm-upload-' + bunum).submit();
+        });
+    }    
+    $(document).ready(function() {
+        appendUpload();
+    });
+</script>

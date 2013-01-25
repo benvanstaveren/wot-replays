@@ -23,6 +23,7 @@ sub startup {
     $self->plugin('mongodb', { host => $config->{mongodb}, patch_mongodb => 1 });
     $self->plugin('tt_renderer', { template_options => {
         COMPILE_DIR  => undef,
+        COMPILE_EXT  => undef,
         PRE_CHOMP    => 0,
         POST_CHOMP   => 1,
         TRIM => 1,

@@ -76,7 +76,7 @@ sub upload {
 
             $m_data->{file} = $filename;
             $m_data->{site} = {
-                description => $self->req->param('description'),
+                description => $self->req->param('description') || undef,
                 uploaded_at => time(),
                 uploaded_by => ($self->is_user_authenticated) ? $self->current_user->{_id} : undef,
                 visible     => ($self->req->param('hide') == 1) ? false : true,
