@@ -9,7 +9,7 @@ use MongoDB;
 
 $| = 1;
 
-my $mongo  = MongoDB::Connection->new();
+my $mongo  = MongoDB::Connection->new(host => $ENV{'MONGO'} || 'localhost');
 my $db     = $mongo->get_database('wot-replays');
 my $query  = {};
 my $rc = $db->get_collection('replays')->find($query)->sort({ 'site.uploaded_at' => -1 });
