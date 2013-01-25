@@ -15,7 +15,7 @@
             <div class="tab-panel" id="upload-single" style="padding: 20px">
                 [% INCLUDE upload/form_upload_single.html.tt %]
             </div>
-            <div class="tab-panel" id="upload-bulk" style="padding: 20px" style="display: none">
+            <div class="tab-panel" id="upload-bulk" style="padding: 20px; display: none">
                 Under construction...
             </div>
         </div>
