@@ -14,7 +14,7 @@ sub r_error {
 
     unlink($file);
 
-    $self->respond(stash => { page => { title => 'Upload Replay' }, errormessage => $message }, template => 'upload/form');
+    $self->render(json => { ok => 0, error => $message });
     return 0;
 }
 
@@ -34,11 +34,7 @@ sub upload {
 
     if($self->req->param('a')) {
         if(my $upload = $self->req->upload('replay')) {
-            $self->respond(stash => {
-                errormessage => 'That is not a .wotreplay file',
-                page => { title => 'Upload Replay' }, 
-            },
-            template => 'upload/form') and return 0 unless($upload->filename =~ /\.wotreplay$/);
+            return $self->r_error(q|That does not look like a replay|) unless($upload->filename =~ /\.wotreplay$/);
 
             # convert the asset to a file asset
             my $asset = $upload->asset;
@@ -88,18 +84,15 @@ sub upload {
 
             $self->db('wot-replays')->get_collection('replays')->save($m_data, { safe => 1 });
 
-            $self->respond(stash => {
-                page => { title => 'Upload Replay' }, 
-                id => $m_data->{_id}->to_string, 
-                done => 1,
+            $self->render(json => { 
+                ok        => 1,
+                replay_id => $m_data->{_id}->to_string,
                 published => ($self->req->param('hide') == 1) ? 0 : 1,
-                filename => $filename,
-            }, template => 'upload/form');
-
+            });
         } else {
-            $self->respond(template => 'upload/form', stash => {
-                page => { title => 'Upload Replay' },
-                errormessage => 'You did not select a file',
+            $self->render(json => {
+                ok => 0,
+                error => 'You did not select a file',
             });
         }
     } else {
