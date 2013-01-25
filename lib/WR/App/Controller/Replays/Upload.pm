@@ -105,7 +105,7 @@ sub upload {
                                 ? 'draw'
                                 : 'defeat',
                     credits => $m_data->{statistics}->{credits},
-                    xp      => $m_data->{statistics}->{xp},
+                    xp      => $xp,
                     kills   => $m_data->{statistics}->{kills},
                     spotted => $m_data->{statistics}->{spotted},
                     damaged => $m_data->{statistics}->{damaged},
