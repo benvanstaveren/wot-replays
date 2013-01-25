@@ -101,7 +101,7 @@ sub create {
     );
 
     $self->_bg->string(
-        text => $args{kills} || '-',
+        text => $args{kills} || '0',
         font => $textfont,
         aa   => 1,
         color => $textcolor,
@@ -110,7 +110,7 @@ sub create {
     );
 
     $self->_bg->string(
-        text => $args{damaged} || '-',
+        text => $args{damaged} || '0',
         font => $textfont,
         aa   => 1,
         color => $textcolor,
@@ -119,7 +119,7 @@ sub create {
     );
 
     $self->_bg->string(
-        text => $args{spotted} || '-',
+        text => $args{spotted} || '0',
         font => $textfont,
         aa   => 1,
         color => $textcolor,

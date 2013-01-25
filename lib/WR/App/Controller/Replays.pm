@@ -54,6 +54,7 @@ sub browse {
     my $self = shift;
     my $filter = {};
     my $skey = $self->req->param('skey') || sprintf('filter_%s', $self->stash('pageid'));
+    my $perpage = $self->req->param('perpage') || 15;
     my $sorting = {
         upload      => { 'site.uploaded_at' => -1 },
         xp          => { 'statistics.xp' => -1 },
@@ -88,25 +89,34 @@ sub browse {
 
     my $query = $self->wr_query(
         sort => $sort,
-        perpage => 15,
+        perpage => $perpage,
         filter => $filter,
         );
             
     my $p    = $self->req->param('p') || 1;
-    my $template = ($self->req->is_xhr) ? 'browse/ajax' : 'browse/index';
 
-    $self->respond(
-        template => $template,
-        stash => {
-            page => {
-                title   =>  'Home',
-            },
-            replays => $query->page($p),
+    if($self->stash('format') eq 'json') {
+        $self->render(json => {
+            replays => [ map { $query->fuck_mojo_json($_) } @{$query->page($p)} ],
             filter  => $filter,
             maxp    => $query->maxp,
             p       => $p,
-        }
-    );
+        });
+    } else {
+        my $template = ($self->req->is_xhr) ? 'browse/ajax' : 'browse/index';
+        $self->respond(
+            template => $template,
+            stash => {
+                page => {
+                    title   =>  'Home',
+                },
+                replays => $query->page($p),
+                filter  => $filter,
+                maxp    => $query->maxp,
+                p       => $p,
+            }
+        );
+    }
 }
 
 1;

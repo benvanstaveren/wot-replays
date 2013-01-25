@@ -183,6 +183,48 @@ sub startup {
             vehicleclass    => WR::Res::Vehicleclass->new(),
         }
     };
+
+    $self->helper(put_bean_and_get_reply => sub {
+        my $self = shift;
+        my %args = (
+            channel     => undef,
+            reply_to    => undef,
+            encode      => undef,
+            on_response => undef,
+            on_noresponse => undef,
+            timeout => 5,
+            @_,
+        );
+
+        return undef unless($args{reply_to} && $args{channel} && $args{encode});
+
+        $self->bean->use($args{channel});
+        $self->bean->watch_only($args{reply_to});
+        my $req = $self->bean->put({},$args{'encode'});
+        if(my $job = $self->bean->reserve($args{timeout})) {
+            my $data = $job->args;
+            $self->bean->delete($job->id);
+            $args{'on_response'}->($data) if(defined($args{'on_response'}));
+        } else {
+            $self->bean->delete($req->id);
+            $args{'on_noresponse'}->() if(defined($args{'on_noresponse'}));
+        }
+    });
+
+    $self->helper(put_bean => sub {
+        my $self = shift;
+        my %args = (
+            channel     => undef,
+            encode      => undef,
+            timeout => 5,
+            @_,
+        );
+
+        return undef unless($args{channel} && $args{encode});
+
+        $self->bean->use($args{channel});
+        my $req = $self->bean->put({}, $args{'encode'});
+    });
 }
 
 1;

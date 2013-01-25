@@ -60,6 +60,31 @@ sub fuck_tt {
     return $o;
 }
 
+sub fuck_mojo_json {
+    my $self = shift;
+    my $obj = shift;
+
+    return $obj unless(ref($obj));
+
+    if(ref($obj) eq 'ARRAY') {
+        return [ map { $self->fuck_mojo_json($_) } @$obj ];
+    } elsif(ref($obj) eq 'HASH') {
+        foreach my $field (keys(%$obj)) {
+            next unless(ref($obj->{$field}));
+            if(ref($obj->{$field}) eq 'HASH') {
+                $obj->{$field} = $self->fuck_mojo_json($obj->{$field});
+            } elsif(ref($obj->{$field}) eq 'ARRAY') {
+                my $t = [];
+                push(@$t, $self->fuck_mojo_json($_)) for(@{$obj->{$field}});
+                $obj->{$field} = $t;
+            } elsif(boolean::isBoolean($obj->{$field})) {
+                $obj->{$field} = ($obj->{$field}) ? Mojo::JSON->true : Mojo::JSON->false;
+            }
+        }
+        return $obj;
+    }
+}
+
 sub fixargs {
     my $self = shift;
     my $arg  = shift;

@@ -17,6 +17,12 @@ my $rc = $db->get_collection('replays')->find($query)->sort({ 'site.uploaded_at'
 while(my $m_data = $rc->next()) {
     my $pv = $m_data->{player}->{vehicle}->{full};
     $pv =~ s/:/-/;
+
+    my $xp = $m_data->{statistics}->{xp};
+    if($m_data->{statistics}->{dailyXPFactor10} > 10) {
+        $xp .= sprintf(' (x%d)', $m_data->{statistics}->{dailyXPFactor10}/10);
+    }
+
     my $i = WR::Imager->new();
     $i->create(
         map     => $m_data->{map}->{id},
