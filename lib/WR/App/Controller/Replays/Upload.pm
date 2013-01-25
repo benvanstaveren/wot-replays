@@ -85,27 +85,31 @@ sub upload {
 
             $self->db('wot-replays')->get_collection('replays')->save($m_data, { safe => 1 });
 
-            my $pv = $m_data->{player}->{vehicle}->{full};
-            $pv =~ s/:/-/;
-            my $i = WR::Imager->new();
-            $i->create(
-                map     => $m_data->{map}->{id},
-                vehicle => $pv,
-                result  => 
-                    ($m_data->{game}->{isWin})
-                        ? 'victory'
-                        : ($m_data->{game}->{isDraw})
-                            ? 'draw'
-                            : 'defeat',
-                credits => $m_data->{statistics}->{credits},
-                xp      => $m_data->{statistics}->{xp},
-                kills   => $m_data->{statistics}->{kills},
-                spotted => $m_data->{statistics}->{spotted},
-                damaged => $m_data->{statistics}->{damaged},
-                player  => $m_data->{player}->{name},
-                clan    => $m_data->{player}->{clan},
-                destination => sprintf('%s/%s.png', $self->stash('config')->{paths}->{replays}, $m_data->{_id}->to_string),
-            );
+            try {
+                my $pv = $m_data->{player}->{vehicle}->{full};
+                $pv =~ s/:/-/;
+                my $i = WR::Imager->new();
+                $i->create(
+                    map     => $m_data->{map}->{id},
+                    vehicle => lc($pv),
+                    result  => 
+                        ($m_data->{game}->{isWin})
+                            ? 'victory'
+                            : ($m_data->{game}->{isDraw})
+                                ? 'draw'
+                                : 'defeat',
+                    credits => $m_data->{statistics}->{credits},
+                    xp      => $m_data->{statistics}->{xp},
+                    kills   => $m_data->{statistics}->{kills},
+                    spotted => $m_data->{statistics}->{spotted},
+                    damaged => $m_data->{statistics}->{damaged},
+                    player  => $m_data->{player}->{name},
+                    clan    => $m_data->{player}->{clan},
+                    destination => sprintf('%s/%s.png', $self->stash('config')->{paths}->{replays}, $m_data->{_id}->to_string),
+                );
+            } catch {
+                # nothing
+            };
 
             $self->render(json => { 
                 ok        => 1,
