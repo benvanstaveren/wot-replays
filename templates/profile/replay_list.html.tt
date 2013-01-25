@@ -1,0 +1,13 @@
+<div id="replay-list">
+</div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        var type = '[% profile_replay_type %]';
+        $('#replay-list').html('Loading...');
+        $('#replay-list').load('/profile/replays/', { type: type }, function(d, t, x) {
+            if(t != 'success') {
+                $('#replay-list').html(t);
+            }
+        });
+    });
+</script>

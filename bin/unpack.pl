@@ -20,7 +20,8 @@ die 'Usage: unpack.pl <infile> <outfile>', "\n" unless($ARGV[1]);
 my $parser = WR::Parser->new(
     traits => [qw/LL::File Data::Decrypt Data::Reader Data::Attributes/],
     file   => $ARGV[0],
-    bf_key => WOT_BF_KEY
+    bf_key => WOT_BF_KEY,
+    cb_gun_shot_count => sub {},
     );
 
 $parser->unpack_replay(to => $ARGV[1]);

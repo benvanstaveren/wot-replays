@@ -1,0 +1,16 @@
+<div>
+    <div>
+    In order to reclaim your old account, enter your old username (email address) and password, and click
+    the "Reclaim" button.
+    </div>
+    <div style="padding: 5px; margin: 0px auto; width: 275px;" class="box ui-corner-all">
+            <form id="frm-login" action="/profile/reclaim" method="post">
+                <input type="hidden" name="a" value="login"/>
+                <span class="label">Email Address</span>
+                <input style="width: 250px;" type="text" name="email"/><br/>
+                <span class="label">Password</span>
+                <input style="width: 250px;" type="password" name="password"/><br/>
+                <input type="submit" value="Reclaim" style="width: 250px; margin: 10px auto"/>
+            </form>
+    </div>
+</div>

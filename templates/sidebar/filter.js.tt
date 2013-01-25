@@ -22,6 +22,7 @@
         WR.loadBrowseFilter();
         return false;
     });
+
     $('button#btn-browse-filter').click(function() {
         if(WR.filterBusy) return;
         $('form#frm-browse-filter input[name="p"]').val('1');

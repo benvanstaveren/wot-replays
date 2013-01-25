@@ -1,7 +1,16 @@
 <div>
+    [% IF !wr.current_user.reclaimed %]
+        <form action="/profile/reclaim" method="get">
+        <button title="If you used to have an account registered on wot-replays.org, you need to reclaim it in order to link your Wargaming.net ID to your old account. Please click this button to start the process." style="width: 99%" id="btn-reclaim" class="uploadButton">RECLAIM ACCOUNT</button>
+        </form>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('button').tooltip({ track: true });
+            });
+        </script>
+    [% END %]
     <h3>Settings</h3>
     <div>
-        under construction
-        <!-- <a href="/profile/settings/auto">Auto Uploader</a> -->
+        ...
     </div>
 </div>

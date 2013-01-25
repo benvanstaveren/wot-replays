@@ -33,15 +33,24 @@ around 'process' => sub {
             } else {
                 $v->{team} = -1;
             }
-            push(@{$teams->[ $v->{team} - 1 ]}, $v->{id});
-            $vehicle_hash->{$v->{id}} = $v;
+            if(scalar(keys(%$v)) > 0) {
+                push(@{$teams->[ $v->{team} - 1 ]}, $v->{id});
+                $vehicle_hash->{$v->{id}} = $v;
+            }
         }
         $all_players = $self->pickledata->{players};
     }
 
+
     # not sure where this comes from, appears to be coming from the pickle data,
     # and doesn't seem to be any existing vehicle. maybe fog of war?
 
+    my $player_clan = undef;
+
+    foreach my $vehicle (values(%{$vehicle_hash})) {
+        $player_clan = $vehicle->{clanAbbrev} and last if($vehicle->{name} eq $res->{playerName});
+    }
+            
     my $data = {
         _id             => $m_id,
         version         => substr($v, 0, 5),
@@ -65,6 +74,7 @@ around 'process' => sub {
         player => {
             id          => $pid,
             name        => $res->{playerName},
+            clan        => $pleyer_clan,
             vehicle => {
                 country => $pv_country,
                 name    => $pv_name,

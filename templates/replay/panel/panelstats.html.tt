@@ -12,8 +12,8 @@
                                 -
                             [% END %]
                         </span>
-                        <span class="label fw">xp:</span><span class="value fw">[% replay.statistics.xp || '0' %] [% IF replay.statistics.dailyXPFactor10 > 10 %](x[% replay.statistics.dailyXPFactor10 / 10 %])[% END %]</span>
-                        <span class="label fw">credits:</span><span class="value fw">[% replay.statistics.credits || '0' %]</span>
+                        <span class="label fw">xp:</span><span title="Earned [% replay.statistics.xp || '0' %] xp including premium and multiplier bonuses" class="value fw">[% replay.statistics.xp || '0' |truncate(5) %] [% IF replay.statistics.dailyXPFactor10 > 10 %](x[% replay.statistics.dailyXPFactor10 / 10 %])[% END %]</span>
+                        <span class="label fw">credits:</span><span class="value fw" title="Earned [% replay.statistics.credits %] credits including premium and other bonuses" >[% replay.statistics.credits || '0' |truncate(5)%]</span>
                     </div>
                     <div>
                         <span class="label fw">spotted:</span><span class="value fw">[% replay.statistics.spotted || '0' %]</span>

@@ -101,6 +101,72 @@ sub get_comparison {
     };
 }
 
+sub calculate_ranking {
+    my $self    = shift;
+    my $replay  = $self->stash('req_replay');
+    
+    #my $player_tier = $self->get_player_tier;
+
+    # find the total value for both teams
+    my $team_health = [ 0, 0 ];
+    foreach my $team (0, 1) {
+        foreach my $vid (@{$replay->{teams}->[$team]}) {
+            my $health = $replay->{vehicles}->{$vid}->{health} + $replay->{vehicles}->{$vid}->{damageReceived};
+            $team_health->[$team] += $health;
+        }
+    }
+
+    my $playerteam = $replay->{player}->{team} - 1;
+    my $otherteam  = ($playerteam == 0) ? 1 : 0;
+
+    my $team_health_diff_mult = (100 / ($team_health->[$playerteam]/$team_health->[$otherteam])) / 100;
+
+    my $d = $replay->{statistics}->{damageDealt} + $replay->{statistics}->{damageAssisted};
+    my $dp = ($d > 0) ? 100 / ($team_health->[$otherteam]/$d) : 0;
+
+    my $dsp = ($replay->{statistics}->{damageAssisted} > 0) ? 100 / ($team_health->[$otherteam]/$replay->{statistics}->{damageAssisted}) : 0;
+
+    my $spot_percentage = ($replay->{statistics}->{spotted} > 0) ? 100 / (15/$replay->{statistics}->{spotted}) : 0;
+    my $kill_percentage = ($replay->{statistics}->{kills} > 0) ? 100 / (15/$replay->{statistics}->{kills}) : 0;
+
+    # max values 0-15 * 3
+    # ranking expressed as a percentage / 10
+
+    my $ranking_values = {
+        spotting => 15 * (( $spot_percentage > 0) ? $spot_percentage / 100 : 0),
+        kills    => 15 * (( $kill_percentage > 0) ? $kill_percentage / 100 : 0),
+        damage   => 15 * (( $dp > 0) ? $dp / 100 : 0),
+        };
+
+    my $total_rank = $ranking_values->{spotting} + $ranking_values->{kills} + $ranking_values->{damage};
+
+    # percentage of 3*35
+    my $final_rank = sprintf('%.1f', ((100/((3 * 15)/$total_rank)) * $team_health_diff_mult ) * 0.10);
+    
+    $self->stash('ranking' => {
+        ranking_values => $ranking_values,
+        team_health => $team_health,
+        playerteam  => $playerteam,
+        team_health_diff_mult => $team_health_diff_mult,
+        damage_percent => $dp,
+        damage_spotted_percent => $dsp,
+        final_rank => $final_rank,
+        total_rank => $total_rank,
+        spotted => {
+            count => $replay->{statistics}->{spotted},
+            perc  => $spot_percentage,
+        },
+        killed => {
+            count => $replay->{statistics}->{kills},
+            perc  => $kill_percentage,
+        },
+        damage => {
+            direct => $replay->{statistics}->{damageDealt},
+            spotted => $replay->{statistics}->{damageAssisted},
+        },
+    });
+}
+
 sub comparison {
     my $self = shift;
     my $p    = $self->req->param('p') || 1;
@@ -262,6 +328,7 @@ sub view {
         '$inc' => { 'site.views' => 1 },
     });
 
+    $self->calculate_ranking;
     $self->stash('timing_view' => tv_interval($start, [ gettimeofday ]));
 
     $self->respond(

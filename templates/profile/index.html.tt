@@ -1,26 +1,44 @@
 [% WRAPPER wrapper.html.tt %]
-<div>
-    <div class="content">
+    <div class="content nosidebar">
         <h3>Your Profile</h3>
-        <div>
-            <div id="replay-list">
+        <div class="box ui-corner-all" style="padding: 5px; background: rgba(0,0,0,0.2) none repeat scroll 0 0; margin: 0px 0px 10px 0px">
+            <div class="tablist">
+                <div class="tablist-inner">
+                    <div class="container-tablist">
+                        <ul class="nav">
+                            <li class="nav-item tab active"><a href="#profile-replays">Replays</a></li>
+                            <li class="nav-item tab"><a href="#profile-settings">Settings</a></li>
+                            [% IF wr.current_user.reclaimed != 1%]
+                            <li class="nav-item tab"><a href="#profile-reclaim">Reclaim Account [% wr.current_user.reclaimed %]</a></li>
+                            [% END %]
+                        </ul>
+                    </div>
+                </div>
             </div>
+            <div class="tab-panel" id="profile-replays">
+                [% INCLUDE profile/replay_list.html.tt %]
+            </div>  
+            <div id="profile-settings" class="tab-panel" style="display: none">
+                [% INCLUDE profile/settings.html.tt %]
+            </div>
+            [% IF wr.current_user.reclaimed != 1 %]
+            <div id="profile-reclaim" class="tab-panel" style="display: none">
+                [% INCLUDE profile/reclaim.html.tt %]
+            </div>
+            [% END %]
         </div>
     </div>
-    <div class="sidebar">
-        [% INCLUDE sidebar/profile.html.tt %]
-    </div>
-    <div class="clear"></div>
-</div>
-<script type="text/javascript">
-    $(document).ready(function() {
-        var type = '[% profile_replay_type %]';
-        $('#replay-list').html('Loading...');
-        $('#replay-list').load('/profile/replays/', { type: type }, function(d, t, x) {
-            if(t != 'success') {
-                $('#replay-list').html(t);
-            }
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('li.nav-item.tab a').click(function() {
+                $('li.nav-item.tab').removeClass('active');
+                $(this).parent().addClass('active');
+                var href = $(this).attr('href');
+                $('div.tab-panel').hide();
+                $(href).show();
+                return false;
+            });
+            $('img.tooltip').tooltip({ track: true });
         });
-    });
-</script>
+    </script>
 [% END %]

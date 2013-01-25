@@ -94,4 +94,9 @@
             });
         </script>
     </div>
+    <!--
+        debug stuff:
+
+        [% wr.dump(ranking) %]
+    -->
 [% END %]

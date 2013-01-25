@@ -2,6 +2,10 @@ package WR::App::Controller::Ui;
 use Mojo::Base 'WR::App::Controller';
 use WR::Res::Achievements;
 use boolean;
+use Cache::File;
+use Net::OpenID::Consumer;
+use URI::Escape;
+use LWPx::ParanoidAgent;
 
 sub faq {
     shift->respond(template => 'faq', stash => { page => { title => 'Frequently Asked Questions' } });
@@ -17,29 +21,6 @@ sub about {
 
 sub credits {
     shift->respond(template => 'credits', stash => { page => { title => 'Credits' } });
-}
-
-sub dlg_achievement {
-    my $self = shift;
-    my $a    = $self->stash('achievement');
-    my $d;
-   
-    if($a =~ /^markOfMastery/) {
-        $d = 'markOfMastery_descr';
-    } else {
-        $d = sprintf('%s_descr', $a);
-    }
-
-    my $res = WR::Res::Achievements->new();
-    my $desc = $res->i18n($d);
-
-    $desc =~ s/\\t/<br\/><span style="margin-left: 20px"><\/span>/g;
-
-    $self->stash(
-        title => $res->i18n($a),
-        desc  => $desc,
-    );
-    $self->render(template => 'dlg/achievement');
 }
 
 sub generate_replay_count {
@@ -61,7 +42,6 @@ sub generate_replay_count {
     }
 
     delete($stats->{''});
-
     return $stats || {};
 }
 
@@ -73,16 +53,8 @@ sub index {
     my $replays = [ 
         map { { %{$_}, id => $_->{_id} } } $self->db('wot-replays')->get_collection('replays')->find({
             'site.visible' => true,
-            # 'version'      => $self->stash('config')->{wot}->{version},   # no longer used since the 0.7.4
-                                                                            # WoT client will play old replays
         })->sort({ 'site.uploaded_at' => -1 })->limit(15)->all()
     ];
-
-    #my $rc = $self->cachable(
-    #    key => 'frontpage_replay_count',
-    #    ttl => 120,
-    #    method => 'generate_replay_count',
-    #);
 
     $self->respond(template => 'index', stash => {
         page => { title => 'Home' },
@@ -91,84 +63,109 @@ sub index {
     });
 }
 
-sub register {
-    my $self = shift;
-    my $error;
-
-    if($self->req->param('a')) {
-        my $e = $self->req->param('u');
-        my $p = $self->req->param('p');
-        my $p2 = $self->req->param('p2');
-
-        if($e && $p && $p2) {
-            if($p eq undef || $p ne $p2) {
-                $error = 'You missed a field...';
-            } else {
-                if($e !~ /^.*\@.*\.\w{2,3}$/) {
-                    $error = 'That does not look like an email address to me';
-                } else {
-                    if($self->db('wot-replays')->get_collection('accounts')->find_one({ email => $e })) {
-                        $error = 'Oops, email already in use!';
-                    } else {
-                        my $data = {
-                            email => $e,
-                            password => crypt($p, 'wr'),
-                            };
-                        $self->db('wot-replays')->get_collection('accounts')->save($data);
-                        $error = undef;
-                    }
-                }
-            }
-        } else {
-            $error = 'You missed a field...';
-        }
-        $self->respond(template => 'register/form', stash => {
-            page => { title => 'Register Account' },
-            ($error) ? ( errormessage => $error ) : ( done => 1 )
-        });
-    } else {
-        $self->respond(template => 'register/form', stash => { page => { title => 'Register Account' } });
-    }
-}
+sub register { shift->respond(template => 'register/form', stash => { page => { title => 'Registration No Longer Required' } }) }
 
 sub do_logout {
     my $self = shift;
 
-    $self->logout();
+    # logging out just means we want to jack up the session cookie
+    $self->session('openid' => undef);
     $self->redirect_to('/');
 }
 
-sub login {
+sub do_login {
     my $self = shift;
-    my $a = $self->req->param('a');
-    my $error;
+    my $s    = $self->req->param('s');
 
-    if(defined($a) && $a eq 'login') {
-        my $e = $self->req->param('email');
-        my $p = $self->req->param('password');
-        if($e && $p) {
-            if($self->authenticate($e, $p)) {
-                $self->respond(template => 'login/form', stash => {
-                    page => { title => 'Login' },
-                    done => 1,
-                });
-            } else {
-                $self->respond(template => 'login/form', stash => {
-                    page => { title => 'Login' },
-                    errormessage => 'Invalid credentials',
-                });
-            }
-        } else {
-            $self->respond(template => 'login/form', stash => {
-                page => { title => 'Login' },
-                errormessage => 'You do know both fields are required, right?',
-            });
-        }
+    if(defined($s)) {
+        my %params = @{ $self->req->params->params };
+        my $my_url = $self->req->url->base;
+        my $cache = Cache::File->new(cache_root => sprintf('%s/openid', $self->app->home->rel_dir('tmp/cache')));
+        my $csr = Net::OpenID::Consumer->new(
+            ua              => LWPx::ParanoidAgent->new,
+            cache           => $cache,
+            args            => \%params,
+            consumer_secret => $self->app->secret,
+            required_root   => $my_url
+        );
+        my $claimed_identity = $csr->claimed_identity(sprintf('http://%s.wargaming.net/id/', $s));
+        my $check_url = $claimed_identity->check_url(
+            return_to      => qq{$my_url/openid/return},
+            trust_root     => qq{$my_url/},
+            delayed_return => 1,
+        );
+        return $self->redirect_to($check_url);
     } else {
         $self->respond(template => 'login/form', stash => {
             page => { title => 'Login' },
         });
     }
 }
+
+sub openid_return {
+    my $self = shift;
+    my $my_url = $self->req->url->base;
+    my %params = @{ $self->req->query_params->params };
+
+    while ( my ( $k, $v ) = each %params ) {
+        $params{$k} = URI::Escape::uri_unescape($v);
+    }
+
+    my $cache = Cache::File->new(cache_root => sprintf('%s/openid', $self->app->home->rel_dir('tmp/cache')));
+    my $csr = Net::OpenID::Consumer->new(
+        ua              => LWPx::ParanoidAgent->new,
+        cache           => $cache,
+        args            => \%params,
+        consumer_secret => $self->app->secret,
+        required_root   => $my_url
+    );
+
+    $self->render_later;
+
+    $csr->handle_server_response(
+        not_openid => sub {
+            $self->respond(template => 'login/form', stash => {
+                page    => { title => 'Login' },
+                notify  => { type => 'error', text => 'A message was received that was not an OpenID message', sticky => 1, close => 1 },
+            });
+        },
+        setup_needed => sub {
+            my $setup_url = shift;
+            $setup_url = URI::Escape::uri_unescape($setup_url);
+            return $self->redirect_to($setup_url);
+        },
+        cancelled => sub {
+            $self->respond(template => 'login/form', stash => {
+                page    => { title => 'Login' },
+                notify  => { type => 'error', text => 'You cancelled the signin process', sticky => 0, close => 1 },
+            });
+        },
+        verified => sub {
+            my $vident = shift;
+            my $url    = $vident->url;
+
+            # find an account that has this ID associted with it, if no account exists, 
+            # offer people an opportunity via profile to re-claim an existing account
+
+            unless(my $account = $self->model('wot-replays.accounts')->find_one({ openid => $vident->url })) {
+                $self->model('wot-replays.accounts')->save({ 
+                    openid => $vident->url
+                });
+            }
+            $self->session(
+                'openid' => $vident->url,
+                'notify' => { type => 'info', text => 'Login successful', close => 1 },
+            );
+            $self->redirect_to('/');
+        },
+        error => sub {
+            my $err = shift;
+            $self->respond(template => 'login/form', stash => {
+                page    => { title => 'Login' },
+                notify  => { type => 'error', text => sprintf('OpenID Error: %s', $err), sticky => 0, cloes => 1 },
+            });
+        },
+    );
+};
 
 1;

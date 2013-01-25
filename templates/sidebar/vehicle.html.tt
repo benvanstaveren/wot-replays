@@ -1,4 +1,5 @@
 <div>
+    [% INCLUDE sidebar/bricks/upload.html.tt %]
     [% INCLUDE sidebar/filter.html.tt %]
 </div>
 [% INCLUDE sidebar/filter.js.tt %]
