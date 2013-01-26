@@ -23,6 +23,15 @@ sub credits {
     shift->respond(template => 'credits', stash => { page => { title => 'Credits' } });
 }
 
+sub hint {
+    my $self = shift;
+    my $id   = $self->stash('hintid');
+    my $v    = $self->req->param('set');
+
+    $self->session($id => $v);
+    $self->render(json => { ok => 1 });
+}
+
 sub generate_replay_count {
     my $self = shift;
 

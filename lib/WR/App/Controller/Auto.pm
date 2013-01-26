@@ -109,6 +109,8 @@ sub index {
     $self->session('last_seen' => time());
     $self->session('first_visit' => 1) if($last_seen + 86400 < time());
 
+    $self->stash('hint_signin' => 1) unless($self->session('gotit_signin') > 0);
+
     if(my $notify = $self->session->{'notify'}) {
         delete($self->session->{'notify'});
         $self->stash(notify => $notify);

@@ -86,6 +86,8 @@ sub startup {
     $r->route('/about')->to('ui#about', pageid => 'about');
     $r->route('/credits')->to('ui#credits', pageid => 'credits');
 
+    $r->route('/hint/:hintid')->to('ui#hint', pageid => 'hint');
+
     $r->route('/upload')->to('replays-upload#upload', pageid => 'upload');
 
     $r->route('/download/:replay_id')->to('replays-export#download');
