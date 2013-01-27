@@ -273,32 +273,6 @@ sub view {
         '$inc' => { 'site.views' => 1 },
     });
 
-    if($self->stash('req_replay')->{complete}) {
-        if(my $tier = $self->get_vehicle_tier) {
-            my $e = WR::Efficiency->new(
-                killed  => $r->{statistics}->{kills} + 0,
-                spotted => $r->{statistics}->{spotted} + 0,
-                damaged => $r->{statistics}->{damaged} + 0,
-                tier    => $tier + 0,
-                damage_direct => $r->{statistics}->{damageDealt} + 0,
-                damage_spotted => $r->{statistics}->{damageAssisted} + 0,
-                capture_points => $r->{statistics}->{capturePoints} + 0,
-                defense_points => $r->{statistics}->{droppedCapturePoints} + 0,
-                winrate => ($r->{game}->{isWin})
-                    ? 100
-                    : ($r->{game}->{isDraw})
-                        ? 50
-                        : 0,
-                
-            );
-
-            $self->stash('eff' => {
-                'xvm' => $e->eff_xvm(),
-                'vba' => $e->eff_vba(),
-            });
-        }
-    }
-
     $self->stash('timing_view' => tv_interval($start, [ gettimeofday ]));
 
     $self->respond(
