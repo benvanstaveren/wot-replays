@@ -19,4 +19,6 @@ my $ppd = WR::PlayerProfileData->new(
     db      => $db
     );
 
-print $ppd->efficiency('xvm'), "\n";
+for(qw/xvm vba wn6/) {
+    print $_, ': ', $ppd->efficiency($_), "\n";
+}

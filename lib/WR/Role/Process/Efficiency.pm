@@ -28,10 +28,7 @@ around 'process' => sub {
             name => $res->{player}->{name},
             server => $res->{player}->{server},
         );
-        $res->{efficiency}->{$res->{player}->{name}} = {
-            xvm => $ppd->efficiency('xvm'),
-            vba => $ppd->efficiency('vba'),
-        };
+        $res->{efficiency}->{$res->{player}->{name}} = $ppd->efficiency();
     }
     return $res;
 };

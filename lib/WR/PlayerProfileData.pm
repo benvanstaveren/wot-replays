@@ -160,7 +160,7 @@ sub load_user {
 
 sub efficiency {
     my $self = shift;
-    my $type = shift || 'xvm';
+    my $type = shift;
     my $user = $self->load_user;
 
     my %args = (
@@ -176,9 +176,17 @@ sub efficiency {
         );
 
     my $e = WR::Efficiency->new(%args);
-    my $m = 'eff_' . $type;
-
-    return $e->$m();
+    if(defined($type)) {
+        my $m = 'eff_' . $type;
+        return $e->$m();
+    } else {
+        my $eff = {};
+        for(qw/xvm vba wn6/) {
+            my $m = 'eff_' . $_;
+            $eff->{$_} = $e->$m();
+        }
+        return $eff;
+    }
 }
 
 __PACKAGE__->meta->make_immutable;

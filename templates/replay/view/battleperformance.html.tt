@@ -12,6 +12,10 @@
                 <span class="label small">VBA</span>
                 [% wr.eff_color(wr.sprintf('%.0f', eff.vba)) %]
             </td>
+            <td class="tooltip" title="Player WN6 Rating">
+                <span class="label small">WN6</span>
+                [% wr.eff_color(wr.sprintf('%.0f', eff.wn6)) %]
+            </td>
         </tr></tbody></table>
     </div>
     <span style="margin-top: 15px" class="label">Performance</span>
