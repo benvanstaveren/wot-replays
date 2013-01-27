@@ -27,6 +27,9 @@
                     <a style="color: #000; text-decoration: underline" href="#" id="view-link"></a>
                     <span class="label">Download Link</span>
                     <a  style="color: #000; text-decoration: underline"href="#" id="download-link"></a>
+                    <span class="label">Embed</span>
+                    <img id="embed-image" style="width: 545px; height: 98px"/>
+                    <textarea id="embed-text" style="width: 545px; height: 55px; font-size: 1em; resize: none" readonly="true"></textarea>
                     <div style="margin: 25px 0px 0px 0px">
                         [% INCLUDE sidebar/bricks/upload.html.tt %] 
                     </div>
@@ -62,6 +65,8 @@
                             status.html('Upload successful!');
                             var l_dl = 'http://www.wot-replays.org/download/' + j.replay_id;
                             var l_v  = 'http://www.wot-replays.org/replay/' + j.replay_id + '.html';
+                            $('#embed-image').attr('src', '//dl.wot-replays.org/' + j.replay_id + '.png');
+                            $('#embed-text').text('[url=' + l_v + ']' + "\n" + '[img]http://dl.wot-replays.org/' + j.replay_id + '.png[/img]' + "\n" + '[/url]');
                             $('#completed #download-link').attr('href', l_dl).html(l_dl);
                             $('#completed #view-link').attr('href', l_v).html(l_v);
                             $('#completed button#btn-upload').html('UPLOAD ANOTHER REPLAY');
