@@ -17,8 +17,8 @@
                 <td></td>
             </tr>
             <tr><td><span class="label small">Credits</span></td><td><span class="green">[% replay.statistics.credits || '0' %]</span></td><td>
-                [% IF replay.statistics.creditPenalty > 0 %]
-                    <span title="Team Damage/Kill Credit Penalty" class="red">-[% replay.statistics.creditPenalty %]</span>
+                [% IF replay.statistics.creditsContributionOut > 0 %]
+                    <span title="Team Damage/Kill Credit Penalty" class="red">-[% replay.statistics.creditsContributionOut %]</span>
                 [% ELSE %]
                     <span></span>
                 [% END %]
@@ -48,7 +48,7 @@
             </tr>
             <tr><td>
                 <span class="label small">Net Credits</span>
-                [% ncr = replay.statistics.credits - replay.statistics.repair - replay.statistics.creditPenalty - replay.statistics.autoLoadCost.0 - replay.statistics.autoEquipCost.0 %]
+                [% ncr = replay.statistics.credits - replay.statistics.repair - replay.statistics.creditsContributionOut - replay.statistics.autoLoadCost.0 - replay.statistics.autoEquipCost.0 %]
             </td>
             <td>
                 [% IF ncr > 0 %]

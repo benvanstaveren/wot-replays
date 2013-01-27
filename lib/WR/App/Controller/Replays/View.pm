@@ -2,6 +2,7 @@ package WR::App::Controller::Replays::View;
 use Mojo::Base 'WR::App::Controller';
 use boolean;
 use WR::Query;
+use WR::Efficiency;
 use WR::Res::Achievements;
 use Time::HiRes qw/gettimeofday tv_interval/;
 use JSON::XS;
@@ -20,6 +21,16 @@ sub incview {
     my $self = shift;
     $self->db('wot-replays')->get_collection('replays')->update({ _id => $self->stash('req_replay')->{_id} }, { '$inc' => { 'site.views' => 1 } });
     $self->render(json => { ok => 1 });
+}
+
+sub get_vehicle_tier {
+    my $self = shift;
+
+    if(my $v = $self->model('wot-replays.data.vehicles')->find_one({ _id => $self->stash('req_replay')->{player}->{vehicle}->{full} })) {
+        return $v->{level};
+    } else {
+        return undef;
+    }
 }
 
 sub get_comparison {
@@ -99,72 +110,6 @@ sub get_comparison {
         results => $result,
         total => $total,
     };
-}
-
-sub calculate_ranking {
-    my $self    = shift;
-    my $replay  = $self->stash('req_replay');
-    
-    #my $player_tier = $self->get_player_tier;
-
-    # find the total value for both teams
-    my $team_health = [ 0, 0 ];
-    foreach my $team (0, 1) {
-        foreach my $vid (@{$replay->{teams}->[$team]}) {
-            my $health = $replay->{vehicles}->{$vid}->{health} + $replay->{vehicles}->{$vid}->{damageReceived};
-            $team_health->[$team] += $health;
-        }
-    }
-
-    my $playerteam = $replay->{player}->{team} - 1;
-    my $otherteam  = ($playerteam == 0) ? 1 : 0;
-
-    my $team_health_diff_mult = (100 / ($team_health->[$playerteam]/$team_health->[$otherteam])) / 100;
-
-    my $d = $replay->{statistics}->{damageDealt} + $replay->{statistics}->{damageAssisted};
-    my $dp = ($d > 0) ? 100 / ($team_health->[$otherteam]/$d) : 0;
-
-    my $dsp = ($replay->{statistics}->{damageAssisted} > 0) ? 100 / ($team_health->[$otherteam]/$replay->{statistics}->{damageAssisted}) : 0;
-
-    my $spot_percentage = ($replay->{statistics}->{spotted} > 0) ? 100 / (15/$replay->{statistics}->{spotted}) : 0;
-    my $kill_percentage = ($replay->{statistics}->{kills} > 0) ? 100 / (15/$replay->{statistics}->{kills}) : 0;
-
-    # max values 0-15 * 3
-    # ranking expressed as a percentage / 10
-
-    my $ranking_values = {
-        spotting => 15 * (( $spot_percentage > 0) ? $spot_percentage / 100 : 0),
-        kills    => 15 * (( $kill_percentage > 0) ? $kill_percentage / 100 : 0),
-        damage   => 15 * (( $dp > 0) ? $dp / 100 : 0),
-        };
-
-    my $total_rank = $ranking_values->{spotting} + $ranking_values->{kills} + $ranking_values->{damage};
-
-    # percentage of 3*35
-    my $final_rank = sprintf('%.1f', ((100/((3 * 15)/$total_rank)) * $team_health_diff_mult ) * 0.10);
-    
-    $self->stash('ranking' => {
-        ranking_values => $ranking_values,
-        team_health => $team_health,
-        playerteam  => $playerteam,
-        team_health_diff_mult => $team_health_diff_mult,
-        damage_percent => $dp,
-        damage_spotted_percent => $dsp,
-        final_rank => $final_rank,
-        total_rank => $total_rank,
-        spotted => {
-            count => $replay->{statistics}->{spotted},
-            perc  => $spot_percentage,
-        },
-        killed => {
-            count => $replay->{statistics}->{kills},
-            perc  => $kill_percentage,
-        },
-        damage => {
-            direct => $replay->{statistics}->{damageDealt},
-            spotted => $replay->{statistics}->{damageAssisted},
-        },
-    });
 }
 
 sub comparison {
@@ -328,7 +273,32 @@ sub view {
         '$inc' => { 'site.views' => 1 },
     });
 
-    $self->calculate_ranking;
+    if($self->stash('req_replay')->{complete}) {
+        if(my $tier = $self->get_vehicle_tier) {
+            my $e = WR::Efficiency->new(
+                killed  => $r->{statistics}->{kills} + 0,
+                spotted => $r->{statistics}->{spotted} + 0,
+                damaged => $r->{statistics}->{damaged} + 0,
+                tier    => $tier + 0,
+                damage_direct => $r->{statistics}->{damageDealt} + 0,
+                damage_spotted => $r->{statistics}->{damageAssisted} + 0,
+                capture_points => $r->{statistics}->{capturePoints} + 0,
+                defense_points => $r->{statistics}->{droppedCapturePoints} + 0,
+                winrate => ($r->{game}->{isWin})
+                    ? 100
+                    : ($r->{game}->{isDraw})
+                        ? 50
+                        : 0,
+                
+            );
+
+            $self->stash('eff' => {
+                'xvm' => $e->eff_xvm(),
+                'vba' => $e->eff_vba(),
+            });
+        }
+    }
+
     $self->stash('timing_view' => tv_interval($start, [ gettimeofday ]));
 
     $self->respond(

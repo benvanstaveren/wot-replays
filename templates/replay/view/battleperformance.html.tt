@@ -1,5 +1,18 @@
 <div>
-    <span class="label">Performance</span>
+    <span class="label">Efficiency</span>
+    <div>
+        <table style="width: 100%" cellspacing="0" cellpadding="0"><tbody><tr>
+            <td class="tooltip" title="XVM Efficiency">
+                <span class="label small">XVM</span>
+                <span>[% wr.sprintf('%.0f', eff.xvm) || '-' %]</span>
+            </td>
+            <td class="tooltip" title="vbaddict.net Efficiency">
+                <span class="label small">VBA</span>
+                <span>[% wr.sprintf('%.0f', eff.vba) || '-' %]</span>
+            </td>
+        </tr></tbody></table>
+    </div>
+    <span style="margin-top: 15px" class="label">Performance</span>
     <div class="replayTeamList" id="battlePerformance">
         <table style="width: 100%" class="battleperformance" cellspacing="0">
         <tbody>
@@ -22,3 +35,8 @@
         </tbody></table>
     </div>
 </div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('td.tooltip').tooltip({ track: true });
+    });
+</script>

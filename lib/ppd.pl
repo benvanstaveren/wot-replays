@@ -19,5 +19,4 @@ my $ppd = WR::PlayerProfileData->new(
     db      => $db
     );
 
-use Data::Dumper;
-print Dumper($ppd->load_user);
+print $ppd->efficiency('xvm'), "\n";

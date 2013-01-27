@@ -3,6 +3,7 @@ use Moose;
 use Mojo::UserAgent;
 use Try::Tiny;
 use Data::Dumper;
+use WR::Efficiency;
 
 has 'db' => (is => 'ro', isa => 'MongoDB::Database', required => 1);
 has 'name' => (is => 'ro', isa => 'Str', required => 1);
@@ -41,6 +42,26 @@ sub get_ua_res {
     return undef;
 }
 
+sub unroman {
+    my $self = shift;
+    my $table = {
+        'I' => 1,
+        'II' => 2,
+        'III' => 3,
+        'IV' => 4,
+        'V' => 5,
+        'VI' => 6,
+        'VII' => 7,
+        'VIII' => 8,
+        'IX' => 9,
+        'X' => 10
+        };
+    my $r = shift;
+
+    $r =~ s/\s+//g;
+    return $table->{uc($r)};
+}
+
 sub load_user {
     my $self = shift;
     my $res;
@@ -49,6 +70,12 @@ sub load_user {
         id      =>  $self->id,
         name    =>  $self->name,
     };
+
+    if(my $rec = $self->db->get_collection('cache.ppd')->find_one({ _id => sprintf('%s_%s', $self->id, $self->name) })) {
+        if($rec->{last} + 86400 > time()) {
+            return $rec->{data};
+        } 
+    }
 
     try {
         $res = $self->get_ua_res(sprintf(__PACKAGE__->SERVERS->{$self->server} . '/community/accounts/%d-%s/', $self->id, $self->name));
@@ -92,8 +119,66 @@ sub load_user {
         $i++;
     });
 
+    my $vehicles = [];
+    my $seen     = {};
+    my $tier     = 0;
+    my $skip     = 1;
+
+    $res->dom->find('table.t-statistic')->[1]->find('tr')->each(sub {
+        if($skip == 1) {
+            $skip = 0;
+            return;
+        }
+        my $tr = shift;
+
+        my $vtier = $self->unroman($tr->find('td')->[0]->at('span.level a')->text);
+        my $vname = $tr->find('td')->[1]->at('a')->text;
+        my $battles = $tr->find('td')->[2]->text + 0;
+        my $victories = $tr->find('td')->[3]->text + 0;
+
+        push(@$vehicles, { 
+            name => $vname,
+            tier => $vtier,
+            battles => $battles,
+            victories => $victories,
+            });
+
+        $tier += ($vtier * $battles),
+    });
+
+    $data->{vehicles} = $vehicles;
+    $data->{average_tier} = $tier / $data->{battles};
+
+    $self->db->get_collection('cache.ppd')->save({
+        _id     => sprintf('%s_%s', $self->id, $self->name),
+        last    => time(),
+        data    => $data,
+    });
+
     return $data;
 }
 
+sub efficiency {
+    my $self = shift;
+    my $type = shift || 'xvm';
+    my $user = $self->load_user;
+
+    my %args = (
+        killed          => $user->{destroyed} / $user->{battles} + 0,
+        spotted         => $user->{detected} / $user->{battles} + 0,
+        damaged         => 0,
+        damage_direct   => $user->{damage} / $user->{battles} + 0,
+        damage_spotted  => 0,
+        winrate         => 100/($user->{battles}/$user->{victories}) + 0,
+        capture_points  => $user->{capture_points} / $user->{battles},
+        defense_points  => $user->{defense_points} / $user->{battles},
+        tier            => $user->{average_tier} + 0,
+        );
+
+    my $e = WR::Efficiency->new(%args);
+    my $m = 'eff_' . $type;
+
+    return $e->$m();
+}
 
 __PACKAGE__->meta->make_immutable;
