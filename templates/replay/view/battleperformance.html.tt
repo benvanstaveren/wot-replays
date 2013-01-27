@@ -2,13 +2,15 @@
     <span class="label">Efficiency</span>
     <div>
         <table style="width: 100%" cellspacing="0" cellpadding="0"><tbody><tr>
-            <td class="tooltip" title="XVM Efficiency">
+            [% pname = replay.player.name %]
+            [% eff = replay.efficiency.$pname %]
+            <td class="tooltip" title="Player XVM Efficiency">
                 <span class="label small">XVM</span>
-                <span>[% wr.sprintf('%.0f', eff.xvm) || '-' %]</span>
+                [% wr.eff_color(wr.sprintf('%.0f', eff.xvm)) %]
             </td>
-            <td class="tooltip" title="vbaddict.net Efficiency">
+            <td class="tooltip" title="Player vbaddict.net Efficiency">
                 <span class="label small">VBA</span>
-                <span>[% wr.sprintf('%.0f', eff.vba) || '-' %]</span>
+                [% wr.eff_color(wr.sprintf('%.0f', eff.vba)) %]
             </td>
         </tr></tbody></table>
     </div>

@@ -33,6 +33,7 @@ with (
         'WR::Role::Process::Chat',           # chat messages
         'WR::Role::Process::WPA',            # Phalynx' stuff
         'WR::Role::Process::Digest',         # MD5 digest for the replay itself
+        'WR::Role::Process::Efficiency',     # XVM/VBA efficiencies
     );
 
 sub error {

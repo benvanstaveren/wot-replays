@@ -124,6 +124,28 @@ sub index {
             generate_vehicle_select => sub {
                 return $self->generate_vehicle_select();
             },
+            eff_color => sub {
+                my $eff = shift;
+                my $col;
+
+                return '<span>-</span>' unless(defined($eff));
+
+                if($eff < 600) {
+                    $col = '#e02225';
+                } elsif($eff >= 600 && $eff < 900) {
+                    $col = '#b86162';
+                } elsif($eff >= 900 && $eff < 1200) {
+                    $col = '#40c077';
+                } elsif($eff >= 1200 && $eff < 1500) {
+                    $col = '#539770'
+                } elsif($eff >= 1500 && $eff < 1800) {
+                    $col = '#5899B7';
+                } else {
+                    $col = '#17A6E8';
+                }
+
+                return sprintf('<span style="color: %s">%d</span>', $col, $eff);
+            },
             vehicles_by_frags => sub {
                 my $hash = shift;
 
