@@ -37,8 +37,6 @@ while(my $m_data = $rc->next()) {
         push(@$t, $str);
     }
 
-    warn 'v: ', $v->{label}, "\n";
-
     my $i = WR::Imager->new();
     $i->create(
         awards  => $t,
