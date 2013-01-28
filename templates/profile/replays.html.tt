@@ -1,4 +1,4 @@
-<span class="label">[% total_replays %] uploaded replays</span>
+<span class="label">[% total_replays %] replays featuring you</span>
 <table style="width: 100%" cellspacing="0" cellpadding="2">
 <thead>
     <tr style="background: #f0f0f0; color: #000">

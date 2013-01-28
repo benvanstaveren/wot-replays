@@ -97,8 +97,11 @@ sub replays {
     my $self = shift;
     my $type = $self->req->param('type');
     my $query = {
-        'site.uploaded_by' => $self->current_user->{_id},
+        'player.name'      => $self->stash('current_player_name'),
+        'player.server'    => lc($self->stash('current_player_server')),
         };
+        # 'site.uploaded_by' => $self->current_user->{_id},
+
     my $coll = $self->db('wot-replays')->get_collection('replays');
     my $p = $self->req->param('p') || 1;
 

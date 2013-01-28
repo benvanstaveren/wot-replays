@@ -1,6 +1,6 @@
 [% WRAPPER wrapper.html.tt %]
     <div class="content nosidebar">
-        <h3>Your Profile</h3>
+        <h3>Your Profile ([% current_player_name %] @ [% current_player_server %])</h3>
         <div class="box ui-corner-all" style="padding: 5px; background: rgba(0,0,0,0.2) none repeat scroll 0 0; margin: 0px 0px 10px 0px">
             <div class="tablist">
                 <div class="tablist-inner">

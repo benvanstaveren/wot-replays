@@ -109,295 +109,31 @@ sub index {
     $self->session('last_seen' => time());
     $self->session('first_visit' => 1) if($last_seen + 86400 < time());
 
-    $self->stash('hint_signin' => 1) unless($self->session('gotit_signin') > 0);
+    $self->stash('hint_signin' => 1) unless(defined($self->session('gotit_signin')) && $self->session('gotit_signin') > 0);
 
     if(my $notify = $self->session->{'notify'}) {
         delete($self->session->{'notify'});
         $self->stash(notify => $notify);
     }
 
-    my $wr;
-    $wr = {
-            get_id => sub { return shift->{_id} },
-            match_result => sub { return $self->get_match_result() },
-            res => sub { return $self->app->wr_res },
-            generate_vehicle_select => sub {
-                return $self->generate_vehicle_select();
-            },
-            eff_color => sub {
-                my $eff = shift;
-                my $col;
-
-                return '<span>-</span>' unless(defined($eff));
-
-                if($eff < 600) {
-                    $col = '#e02225';
-                } elsif($eff >= 600 && $eff < 900) {
-                    $col = '#b86162';
-                } elsif($eff >= 900 && $eff < 1200) {
-                    $col = '#40c077';
-                } elsif($eff >= 1200 && $eff < 1500) {
-                    $col = '#539770'
-                } elsif($eff >= 1500 && $eff < 1800) {
-                    $col = '#5899B7';
-                } else {
-                    $col = '#17A6E8';
-                }
-
-                return sprintf('<span style="color: %s">%d</span>', $col, $eff);
-            },
-            vehicles_by_frags => sub {
-                my $hash = shift;
-
-                return [ (sort({ $b->{kills} <=> $a->{kills} } values(%$hash))) ];
-            },
-            consumable_icon_style => sub {
-                my $a = shift;
-
-                if($a) {
-                    my $i = (ref($a) eq 'HASH') ? $a->{id} : $a;
-                    if(my $c = $self->model('wot-replays.data.consumables')->find_one({ wot_id => $i + 0 })) {
-                        return sprintf('style="background: transparent url(http://images.wot-replays.org/consumables/24x24/%s) no-repeat scroll 0 0"', $c->{icon});
-                    } else {
-                        return undef;
-                    }
-                } else {
-                    return undef;
-                }
-            },
-            ammo_icon_style => sub {
-                my $a = shift;
-                if($a) {
-                    my $i = (ref($a) eq 'HASH') ? $a->{id} : $a;
-                    if(my $c = $self->model('wot-replays.data.components')->find_one({ component => 'shells', _id => $i + 0 })) {
-                        my $n = ($a->{count} > 0) ? $c->{kind} : sprintf('NO_%s', $c->{kind});
-                        return sprintf('style="background: transparent url(http://images.wot-replays.org/ammo/24x24/%s.png) no-repeat scroll 0 0"', $n);
-                    } else {
-                        return undef;
-                    }
-                } else {
-                    return undef;
-                }
-            },
-            ammo_name => sub {
-                my $a = shift;
-                my $kind_map = {
-                    'ARMOR_PIERCING' => 'Armor-Piercing',
-                    'ARMOR_PIERCING_CR' => 'AP Composite-Rigid',
-                    'ARMOR_PIERCING_HE' => 'AP High-Explosive',
-                    'HIGH_EXPLOSIVE' => 'High-Explosive',
-                    'HOLLOW_CHARGE' => 'High-Explosive Anti-Tank',
-                };
-
-                if($a) {
-                    my $i = (ref($a) eq 'HASH') ? $a->{id} : $a;
-                    if(my $c = $self->model('wot-replays.data.components')->find_one({ component => 'shells', _id => $i + 0 })) {
-                        return sprintf('%s %dmm %s %s', 
-                            ($a->{count} > 0) ? sprintf('%d x', $a->{count}) : '',
-                            $c->{caliber}, 
-                            $kind_map->{$c->{kind}},
-                            $c->{label}
-                            );
-                    } else {
-                        return undef;
-                    }
-                } else {
-                    return undef;
-                }
-            },
-            consumable_name => sub {
-                my $a = shift;
-                
-                if($a) {
-                    my $i = (ref($a) eq 'HASH') ? $a->{id} : $a;
-                    if(my $c = $self->model('wot-replays.data.consumables')->find_one({ wot_id => $i + 0 })) {
-                        return $c->{label} || $c->{name};
-                    } else {
-                        return sprintf('404:%d', $i);
-                    }
-                } else {
-                    return undef;
-                }
-            },
-            generate_map_select => sub {
-                my $list = [];
-                my $cursor = $self->db('wot-replays')->get_collection('data.maps')->find()->sort({ label => 1 });
-
-                while(my $o = $cursor->next()) {
-                    push(@$list, {
-                        id => $o->{_id},
-                        label => $o->{label}
-                    });
-                }
-                return $list;
-            },
-            map_name => sub {
-                my $mid = shift;
-
-                if(my $obj = $self->db('wot-replays')->get_collection('data.maps')->find_one({ 
-                    '$or' => [
-                        { _id => $mid },
-                        { name_id => $mid },
-                        { slug => $mid },
-                    ],
-                })) {
-                    return $obj->{label};
-                } else {
-                    return sprintf('404:%s', $mid);
-                }
-            },
-            vehicle_icon => sub {
-                my $v = shift;
-                my $s = shift || 32;
-                my ($c, $n) = split(/:/, $v, 2);
-
-                return lc(sprintf('//images.wot-replays.org/vehicles/%d/%s-%s.png', $s, $c, $n));
-            },
-            vehicle_tier => sub {
-                my $v = shift;
-                if(my $obj = $self->db('wot-replays')->get_collection('data.vehicles')->find_one({ _id => $v })) {
-                    return sprintf('//images.wot-replays.org/icon/tier/%02d.png', $obj->{level});
-                } else {
-                    return '-';
-                }
-            },
-            vehicle_url => sub {
-                my $v = shift;
-                my ($c, $n) = split(/:/, $v, 2);
-
-                return sprintf('/vehicle/%s/%s/', $c, $n);
-            },
-            vehicle_description => sub {
-                my $v = shift;
-                my ($c, $n) = split(/:/, $v, 2);
-
-                if(my $obj = $self->db('wot-replays')->get_collection('data.vehicles')->find_one({ _id => $v })) {
-                    return $obj->{description};
-                } else {
-                    return sprintf('nodesc:%s', $v);
-                }
-            },
-            vehicle_name_short => sub {
-                my $v = shift;
-                my ($c, $n) = split(/:/, $v, 2);
-
-                if(my $obj = $self->db('wot-replays')->get_collection('data.vehicles')->find_one({ _id => $v })) {
-                    return $obj->{label_short} || $obj->{label};
-                } else {
-                    return sprintf('nolabel_short:%s', $v);
-                }
-            },
-            fix_map_id => sub {
-                return shift;
-            },
-            equipment_name => sub {
-                my $id = shift;
-                if(my $obj = $self->db('wot-replays')->get_collection('data.equipment')->find_one({ wot_id => $id })) {
-                    return $obj->{label};
-                } else {
-                    return undef;
-                }
-            },
-            equipment_icon => sub {
-                my $id = shift;
-                if(my $obj = $self->db('wot-replays')->get_collection('data.equipment')->find_one({ wot_id => $id })) {
-                    return $obj->{icon};
-                } else {
-                    return undef;
-                }
-            },
-            component_name => sub {
-                my $cnt = shift;
-                my $cmp = shift;
-                my $id  = shift;
-                if(my $obj = $self->db('wot-replays')->get_collection('data.components')->find_one({ 
-                    country => $cnt,
-                    component => $cmp,
-                    component_id => $id,
-                })) {
-                    return $obj->{label};
-                } else {
-                    return undef;
-                }
-            },
-            vehicle_name => sub {
-                my $v = shift;
-                my ($c, $n) = split(/:/, $v, 2);
-
-                if(my $obj = $self->db('wot-replays')->get_collection('data.vehicles')->find_one({ _id => $v })) {
-                    return $obj->{label};
-                } else {
-                    return sprintf('nolabel:%s', $v);
-                }
-            },
-            epoch_to_dt => sub {
-                my $epoch = shift;
-                my $dt = DateTime->from_epoch(epoch => $epoch);
-                return $dt;
-            },
-            sprintf => sub {
-                my $fmt = shift;
-                return sprintf($fmt, @_);
-            },
-            percentage_of => sub {
-                my $a = shift;
-                my $b = shift;
-
-                return 0 unless(($a > 0) && ($b > 0));
-
-                # a = 200, b = 100 -> 50% 
-                return sprintf('%.0f', 100/($a/$b));
-            },
-            is_user_authenticated => sub {
-                return $self->is_user_authenticated;
-            },
-            is_own_replay => sub {
-                if(my $r = $self->stash('req_replay')) {
-                    return (defined($r->{site}->{uploaded_by}) && ($r->{site}->{uploaded_by}->to_string eq $self->current_user->{_id}->to_string))
-                        ? 1 
-                        : 0
-                }
-                return 0;
-            },
-            is_the_boss => sub {
-                return ($self->is_user_authenticated && $self->current_user->{email} eq 'scrambled@xirinet.com') ? 1 : 0
-            },
-            current_user => sub {
-                return $self->current_user;
-            },
-            user => sub {
-                return $self->current_user;
-            },
-            user_display_name => sub {
-                return $self->current_user->{display_name};
-            },
-            map_slug => sub {
-                my $name = shift;
-                my $slug = lc($name);
-                $slug =~ s/\s+/_/g;
-                $slug =~ s/'//g;
-                return $slug;
-            },
-            map_image => sub {
-                my $size = shift;
-                my $id   = shift;
-                if(my $map = $self->db('wot-replays')->get_collection('data.maps')->find_one({ _id => $id })) {
-                    return lc(sprintf('//images.wot-replays.org/maps/%d/%s.png', $size, $id));
-                } else {
-                    return '404:' . $id;
-                }
-            },
-            dump => sub {
-                return Dumper(@_);
-            },
-        };
-
     $self->stash(
         settings => {
             first_visit => $self->session('first_visit'),
         },
-        wr => $wr,
     );
+
+    # twiddle peoples' openID username and password
+    if($self->is_user_authenticated) {
+        my $o = $self->current_user->{openid};
+        if($o =~ /https:\/\/(.*?)\..*\/id\/(\d+)-(.*)\//) {
+            my $server = $1;
+            my $pname = $3;
+            $self->stash('current_player_name' => $pname);
+            $self->stash('current_player_server' => uc($server));
+        } else {
+            die 'wotdafuq: ', $o, "\n";
+        }
+    }
 
     return 1;
 }
