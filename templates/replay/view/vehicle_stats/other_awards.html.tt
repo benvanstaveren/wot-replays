@@ -10,7 +10,7 @@
                                 [% title = h.get_achievements.i18n(h.get_achievements.index_to_idstr(award.type)) _ ' ' _ award.class_suffix _ ' Class' %]
                             [% END %]
                         [% ELSE %]
-                            [% title = h.get_achievements.i18n(h.res.achievements.index_to_idstr(award.type)) %]
+                            [% title = h.get_achievements.i18n(h.get_achievements.index_to_idstr(award.type)) %]
                         [% END %]
                         <div class="award [% h.get_achievements.index_to_idstr(award.type) %][% IF award.class_suffix %][% award.class_suffix %][% END %]" title="[% title |html %]">
                             [% IF award.count > 1 %]<b class="ui-corner-all">[% award.count %]</b>[% END %]

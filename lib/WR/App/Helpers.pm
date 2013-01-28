@@ -3,6 +3,8 @@ use strict;
 use warnings;
 use WR::Query;
 use WR::Res;
+use Data::Dumper;
+use Scalar::Util qw/looks_like_number/;
 
 use constant ROMAN_NUMERALS => [qw(0 I II III IV V VI VII VIII IX X)];
 
@@ -267,8 +269,8 @@ sub add_helpers {
     });
     $self->helper(vehicle_icon => sub {
         my $self = shift;
-        my $v = shift;
-        my $s = shift || 32;
+        my $v    = shift;
+        my $s    = shift || 32;
         my ($c, $n) = split(/:/, $v, 2);
 
         return lc(sprintf('//images.wot-replays.org/vehicles/%d/%s-%s.png', $s, $c, $n));
@@ -314,6 +316,13 @@ sub add_helpers {
     $self->helper(equipment_name => sub {
         my $self = shift;
         my $id = shift;
+
+        # here's a fun one, we need to see if id is a string or not, if it is, it's one of those
+        # weird unicode characters that came out wrong, so we want to convert that to something we can use
+
+        return unless defined($id);
+        $id = ord($id) if(looks_like_number($id) == 0);
+
         if(my $obj = $self->model('wot-replays.data.equipment')->find_one({ wot_id => $id })) {
             return $obj->{label};
         } else {
@@ -323,6 +332,10 @@ sub add_helpers {
     $self->helper(equipment_icon => sub {
         my $self = shift;
         my $id = shift;
+
+        return unless defined($id);
+        $id = ord($id) if(looks_like_number($id) == 0);
+
         if(my $obj = $self->model('wot-replays.data.equipment')->find_one({ wot_id => $id })) {
             return $obj->{icon};
         } else {
@@ -334,6 +347,9 @@ sub add_helpers {
         my $cnt = shift;
         my $cmp = shift;
         my $id  = shift;
+
+        $self->app->log->info(join(' ', 'component_name cnt ', $cnt, ' cmp ', $cmp, ' id ', $id));
+
         if(my $obj = $self->model('wot-replays.data.components')->find_one({ 
             country => $cnt,
             component => $cmp,
@@ -364,6 +380,9 @@ sub add_helpers {
     $self->helper(sprintf => sub {
         my $self = shift;
         my $fmt = shift;
+
+        $self->app->log->info('helper:sprintf: fmt: ' . $fmt . ' args: ' . join(', ', @_));
+
         return CORE::sprintf($fmt, @_);
     });
     $self->helper(percentage_of => sub {
@@ -409,8 +428,9 @@ sub add_helpers {
             return '404:' . $id;
         }
     });
-    $self->helper(dump => sub {
-        return Dumper(@_);
+    $self->helper(datadumper => sub {
+        shift;
+        return Dumper([ shift ]);
     });
     $self->helper(bonus_type_name => sub {
         return shift->app->wr_res->bonustype->get(shift, 'label_short');

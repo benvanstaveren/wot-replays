@@ -55,13 +55,13 @@
                                 [% INCLUDE replay/view/vehicle_loadout.html.tt %]
                             </div>
                             [% IF replay.complete %]
+                                <div id="teams" class="tab-panel" style="display: none">
+                                    [% INCLUDE replay/view/teams.html.tt %]
+                                </div>
                                 <div id="comparison" class="tab-panel" style="display: none">
                                     <div id="comparison-display">
                                         [% INCLUDE replay/view/comparison.html.tt %]
                                     </div>
-                                </div>
-                                <div id="teams" class="tab-panel" style="display: none">
-                                    [% INCLUDE replay/view/teams.html.tt %]
                                 </div>
                                 [% IF replay.chat.size > 0 %]
                                 <div id="battle-chat" class="tab-panel" style="display: none">

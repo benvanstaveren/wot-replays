@@ -62,6 +62,7 @@ sub index {
     my $replays = [ 
         map { { %{$_}, id => $_->{_id} } } $self->db('wot-replays')->get_collection('replays')->find({
             'site.visible' => true,
+            'complete'     => true,
         })->sort({ 'site.uploaded_at' => -1 })->limit(15)->all()
     ];
 
