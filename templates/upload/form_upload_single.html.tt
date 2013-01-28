@@ -44,6 +44,7 @@
 
                 $('#frm-upload').ajaxForm({
                     beforeSend: function() {
+                        WR.ui.hidenotify();
                         $('#upload-form-panel').hide();
                         $('#upload-progress-panel').show();
                         var percentVal = '0%';
