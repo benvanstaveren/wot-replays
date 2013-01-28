@@ -320,6 +320,7 @@ sub add_helpers {
         # weird unicode characters that came out wrong, so we want to convert that to something we can use
 
         return unless defined($id);
+        return if($id == 0);
 
         if(my $obj = $self->model('wot-replays.data.equipment')->find_one({ wot_id => $id })) {
             return $obj->{label};
@@ -332,6 +333,7 @@ sub add_helpers {
         my $id = shift;
 
         return unless defined($id);
+        return if($id == 0);
 
         if(my $obj = $self->model('wot-replays.data.equipment')->find_one({ wot_id => $id })) {
             return $obj->{icon};
