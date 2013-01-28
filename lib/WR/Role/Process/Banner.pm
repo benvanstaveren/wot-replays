@@ -52,8 +52,8 @@ around 'process' => sub {
                     : ($res->{game}->{isDraw})
                         ? 'draw'
                         : 'defeat',
-            map_name => $self->map_name($res->{map}->{id}),
-            vehicle_name => $self->vehicle_name($res->{player}->{vehicle}->{full}),
+            map_name => $self->db->get_collection('data.maps')->find_one({ _id => $res->{map}->{id} })->{label},
+            vehicle_name => $self->db->get_collection('data.vehicles')->find_one({ _id => $res->{player}->{vehicle}->{full} })->{label},
             credits => $res->{statistics}->{credits},
             xp      => $xp,
             kills   => $res->{statistics}->{kills},
