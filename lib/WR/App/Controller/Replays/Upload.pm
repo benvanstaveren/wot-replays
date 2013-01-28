@@ -132,7 +132,8 @@ sub upload {
                     awards  => $self->stringify_awards($m_data),
                 );
             } catch {
-                # nothing
+                $self->app->log->error('Error creating banner image: ' . $_);
+                $self->app->log->debug('Error creating banner image: ' . $_);
             };
 
             $self->render(json => { 
