@@ -162,6 +162,8 @@ sub view {
         return;
     }
 
+    $self->stash('cachereplay' => 1);
+
     my $replay = $self->stash('req_replay');
     my $r = { %$replay };
 
