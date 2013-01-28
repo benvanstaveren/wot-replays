@@ -32,8 +32,7 @@
     </td>
     <td class="playerDetails">
         [% FOREACH award IN player.achievements.nsort %]
-            [% award %]
-            [% IF h.achievement_is_battle(award) %]
+            [% IF h.get_achievements.is_battle(award) || h.get_achievements.is_repeatable(award) %]
                 <img src="//images.wot-replays.org/icon/awards/24/[% h.get_achievements.index_to_idstr(award) %].png" style="margin-top: 8px; height: 24px;" alt="[% h.get_achievements.i18n(h.res.achievements.index_to_idstr(award)) |html %]" title="[% h.get_achievements.i18n(h.get_achievements.index_to_idstr(award)) |html %]"/>
             [% END %]
         [% END %]
