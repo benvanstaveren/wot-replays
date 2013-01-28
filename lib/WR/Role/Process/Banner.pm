@@ -14,7 +14,7 @@ sub stringify_awards {
         next unless($a->is_award($item->[0]));
         my $str = $a->index_to_idstr($item->[0]);
         $str .= $item->[1] if($a->is_class($item->[0]));
-        push(@$t, $a->index_to_idstr($item->[0]));
+        push(@$t, $str);
     }
     return $t;
 }
