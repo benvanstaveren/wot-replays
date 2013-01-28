@@ -4,7 +4,6 @@ use warnings;
 use WR::Query;
 use WR::Res;
 use Data::Dumper;
-use Scalar::Util qw/looks_like_number/;
 
 use constant ROMAN_NUMERALS => [qw(0 I II III IV V VI VII VIII IX X)];
 
@@ -321,7 +320,6 @@ sub add_helpers {
         # weird unicode characters that came out wrong, so we want to convert that to something we can use
 
         return unless defined($id);
-        $id = ord($id) if(looks_like_number($id) == 0);
 
         if(my $obj = $self->model('wot-replays.data.equipment')->find_one({ wot_id => $id })) {
             return $obj->{label};
@@ -334,7 +332,6 @@ sub add_helpers {
         my $id = shift;
 
         return unless defined($id);
-        $id = ord($id) if(looks_like_number($id) == 0);
 
         if(my $obj = $self->model('wot-replays.data.equipment')->find_one({ wot_id => $id })) {
             return $obj->{icon};
