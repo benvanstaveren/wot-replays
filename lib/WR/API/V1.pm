@@ -118,6 +118,8 @@ sub parse {
             $asset = $fileasset; # heh
         }
 
+        $self->app->log->info('asset is a: ' . ref($asset));
+
         my $p = WR::Process->new(
             file    => $asset->path,
             db      => $self->db('wot-replays'),
