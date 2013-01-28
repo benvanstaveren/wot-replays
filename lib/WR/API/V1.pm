@@ -78,6 +78,33 @@ sub data {
     }
 }
 
+sub parse_rpc {
+    my $self = shift;
+    my $job  = {};
+
+    if(my $replay_url = $self->req->param('replay_url')) {
+        if(my $postback_url = $self->req->param('postback_url')) {
+            my $job = {
+                _id             => MongoDB::OID->new()->to_string,
+                replay_url      => $replay_url,
+                postback_url    => $postback_url,
+                store           => ($self->req->param('ns')) ? 0 : 1,
+                complete        => false,
+                processing      => false,
+                created         => time(),
+                completed       => 0,
+            };
+
+            $self->model('wot-replays.process')->save($job);
+            $self->render(json => { ok => 1, job_id => $job->{_id} });
+        } else {
+            $self->render(json => { ok => 0, error => '[missing]: postback url' });
+        }
+    } else {
+        $self->render(json => { ok => 0, error => '[missing]: replay url' });
+    }
+}
+
 sub parse {
     my $self = shift;
     my $s    = ($self->req->param('ns')) ? 0 : 1;
@@ -106,6 +133,7 @@ sub parse {
 
         my $filename = $upload->filename;
         $filename =~ s/.*\\//g if($filename =~ /\\/);
+        $filename =~ s/.*\///g if($filename =~ /\//);
         $m_data->{file} = $filename;
         
         my $url = undef;
