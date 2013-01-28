@@ -4,6 +4,7 @@ use WR::Parser;
 use WR::Util::PyPickle;
 use WR::Process;
 use WR::ServerFinder;
+use WR::Res::Achievements;
 use WR::Imager;
 use boolean;
 use Try::Tiny qw/try catch/;
@@ -22,7 +23,7 @@ sub token_valid {
 sub stringify_awards {
     my $self = shift;
     my $m_data = shift;
-    my $a    = $self->wr_res->achievements;
+    my $a    = WR::Res::Achievements->new();
     my $t    = [];
 
     foreach my $item (@{$m_data->{statistics}->{dossierPopUps}}) {

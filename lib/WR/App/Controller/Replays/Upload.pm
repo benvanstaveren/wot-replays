@@ -31,7 +31,7 @@ sub nv {
 sub stringify_awards {
     my $self = shift;
     my $m_data = shift;
-    my $a    = $self->wr_res->achievements;
+    my $a    = $self->app->wr_res->achievements;
     my $t    = [];
 
     foreach my $item (@{$m_data->{statistics}->{dossierPopUps}}) {
