@@ -24,7 +24,7 @@ sub get_base_path {
     my $res  = shift;
 
     my $filename = $self->file;
-    $file =~ s/(.*)\/.*/$1/gi;
+    $filename =~ s/(.*)\/.*/$1/gi;
     return $filename;
 }
 
