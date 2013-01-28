@@ -65,6 +65,7 @@ around 'process' => sub {
             awards  => $self->stringify_awards($res),
         );
     } catch {
+        die '[image]: ' . $_ . "\n";  
     };
     return $res;
 };
