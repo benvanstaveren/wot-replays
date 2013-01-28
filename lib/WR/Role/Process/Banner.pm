@@ -23,9 +23,11 @@ sub get_base_path {
     my $self = shift;
     my $res  = shift;
 
-    my $filename = $self->file;
-    $filename =~ s/(.*)\/.*/$1/gi;
-    return $filename;
+    # fuck it
+    return (-e '/home/ben/projects/wot-replays') 
+        ? '/home/ben/projects/wot-replays/data/replays'
+        : '/home/wotreplay/wot-replays/data/replays'
+    ;
 }
 
 around 'process' => sub {
