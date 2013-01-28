@@ -6,15 +6,15 @@
             [% eff = replay.efficiency.$pname %]
             <td class="tooltip" title="Player XVM Efficiency">
                 <span class="label small">XVM</span>
-                [% wr.eff_color(wr.sprintf('%.0f', eff.xvm)) %]
+                [% h.eff_color(h.sprintf('%.0f', eff.xvm)) %]
             </td>
             <td class="tooltip" title="Player vbaddict.net Efficiency">
                 <span class="label small">VBA</span>
-                [% wr.eff_color(wr.sprintf('%.0f', eff.vba)) %]
+                [% h.eff_color(h.sprintf('%.0f', eff.vba)) %]
             </td>
             <td class="tooltip" title="Player WN6 Rating">
                 <span class="label small">WN6</span>
-                [% wr.eff_color(wr.sprintf('%.0f', eff.wn6)) %]
+                [% h.eff_color(h.sprintf('%.0f', eff.wn6)) %]
             </td>
         </tr></tbody></table>
     </div>

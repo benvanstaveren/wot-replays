@@ -1,6 +1,1 @@
-[% USE cache = Cache %]
-[% cache.inc(
-    template => 'bricks/gametype/wr_name.html.tt',
-    keys => { 'gametype' => gametype },
-    ttl  => 'never'
-    ) %]
+[% INCLUDE bricks/gametype/wr_name.html.tt %]

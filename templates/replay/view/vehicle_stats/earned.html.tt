@@ -34,9 +34,9 @@
                     [% IF nxp > 0 %]
                         [% IF wpa && wpa.data %]
                             [% IF nxp >= wpa.data.experience %]
-                                <span class="green tooltip" title="Earned more than the global average of [% wr.sprintf('%.0f', wpa.data.experience) %] xp">
+                                <span class="green tooltip" title="Earned more than the global average of [% h.sprintf('%.0f', wpa.data.experience) %] xp">
                             [% ELSE %]
-                                <span class="tooltip" title="Earned less than the global average of [% wr.sprintf('%.0f', wpa.data.experience) %] xp">
+                                <span class="tooltip" title="Earned less than the global average of [% h.sprintf('%.0f', wpa.data.experience) %] xp">
                             [% END %]
                             [% nxp %]</span>
                         [% ELSE %]
@@ -54,9 +54,9 @@
                 [% IF ncr > 0 %]
                     [% IF wpa && wpa.data %]
                         [% IF ncr >= wpa.data.creditsn %]
-                            <span class="green tooltip" title="Earned more than the global average of [% wr.sprintf('%.0f', wpa.data.creditsn) %] credits">
+                            <span class="green tooltip" title="Earned more than the global average of [% h.sprintf('%.0f', wpa.data.creditsn) %] credits">
                         [% ELSE %]
-                            <span class="tooltip" title="Earned less than the global average of [% wr.sprintf('%.0f', wpa.data.creditsn) %] credits">
+                            <span class="tooltip" title="Earned less than the global average of [% h.sprintf('%.0f', wpa.data.creditsn) %] credits">
                         [% END %]
                         [% ncr %]</span>
                     [% ELSE %]

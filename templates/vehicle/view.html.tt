@@ -2,7 +2,7 @@
 <div>
     <div class="content">
         <h3>
-            <a href="/vehicles/">Vehicles</a> &raquo; [% wr.vehicle_name(vehicle_full) %]
+            <a href="/vehicles/">Vehicles</a> &raquo; [% h.vehicle_name(vehicle_full) %]
         </h3>
         <div id="browseContent">
             [% INCLUDE replay/panel_list.html.tt %]

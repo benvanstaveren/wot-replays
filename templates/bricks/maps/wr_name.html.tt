@@ -1,1 +1,1 @@
-[% wr.map_name(wr.fix_map_id(map)) %]
+[% h.map_name(map) %]

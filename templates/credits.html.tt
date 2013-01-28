@@ -13,5 +13,8 @@
         <div>
             wot-replays.org utilises data from <a href="http://www.vbaddict.net/">WoT Performance Analyzer</a>, a big shout to <b>Phalynx</b> for letting me use his data.
         </div>
+        <div>
+            And a big thank you to everyone who's suggested additions or changes to the site; it wouldn't be what it is without you.
+        </div>
     </div></div>
 [% END %]

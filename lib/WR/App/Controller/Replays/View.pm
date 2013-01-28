@@ -176,9 +176,9 @@ sub view {
 
     my $title = sprintf('%s - %s - %s (%s), %s',
         $r->{player}->{name},
-        $self->stash('wr')->{vehicle_name}->($r->{player}->{vehicle}->{full}),
-        $self->stash('wr')->{map_name}->($r->{map}->{id}),
-        $self->app->wr_res->{'gametype'}->i18n($r->{game}->{type}),
+        $self->vehicle_name($r->{player}->{vehicle}->{full}),
+        $self->map_name($r->{map}->{id}),
+        $self->app->wr_res->gametype->i18n($r->{game}->{type}),
         ($r->{game}->{isWin} > 0) 
             ? 'Victory'
             : ($r->{game}->{isDraw} > 0)
@@ -194,10 +194,10 @@ sub view {
     }
 
     my $description = sprintf('This is a replay of a %s match fought by %s, using the %s vehicle, on map %s', 
-        $self->app->wr_res->{'gametype'}->i18n($r->{game}->{type}), 
+        $self->app->wr_res->gametype->i18n($r->{game}->{type}), 
         $r->{player}->{name}, 
-        $self->stash('wr')->{vehicle_name}->($r->{player}->{vehicle}->{full}),
-        $self->stash('wr')->{map_name}->($r->{map}->{id})
+        $self->vehicle_name($r->{player}->{vehicle}->{full}),
+        $self->map_name($r->{map}->{id})
     );
 
     # need to bugger up the teams and sort them by the number of frags which we can obtain from the vehicle hash

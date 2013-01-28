@@ -4,9 +4,9 @@
                     <span class="label small tooltip" title="Damage dealt directly by the player">Direct</span>
                     [% IF wpa && wpa.data %]
                         [% IF replay.statistics.damageDealt >= wpa.data.damage_dealt %]
-                            <span class="green tooltip" title="Dealt more damage than the global average of [% wr.sprintf("%.0f", wpa.data.damage_dealt) %] hp">
+                            <span class="green tooltip" title="Dealt more damage than the global average of [% h.sprintf("%.0f", wpa.data.damage_dealt) %] hp">
                         [% ELSE %]
-                            <span class="tooltip" title="Dealt less damage than the global average of [% wr.sprintf("%.0f", wpa.data.damage_dealt) %] hp">
+                            <span class="tooltip" title="Dealt less damage than the global average of [% h.sprintf("%.0f", wpa.data.damage_dealt) %] hp">
                         [% END %]
                     [% ELSE %]
                         <span class="green">
@@ -17,9 +17,9 @@
                     <span class="label small tooltip" title="Damage dealt by allies as a result of the player spotting an enemy">Indirect</span>
                     [% IF wpa && wpa.data %]
                         [% IF replay.statistics.damageAssisted >= wpa.data.damage_assisted %]
-                            <span class="green tooltip" title="More damage was dealt by allies as a result of spotting than the global average of [% wr.sprintf("%.0f", wpa.data.damage_assisted) %] hp">
+                            <span class="green tooltip" title="More damage was dealt by allies as a result of spotting than the global average of [% h.sprintf("%.0f", wpa.data.damage_assisted) %] hp">
                         [% ELSE %]
-                            <span class="tooltip" title="Less damage was dealt by allies as a result of spotting than the global average of [% wr.sprintf("%.0f", wpa.data.damage_assisted) %] hp">
+                            <span class="tooltip" title="Less damage was dealt by allies as a result of spotting than the global average of [% h.sprintf("%.0f", wpa.data.damage_assisted) %] hp">
                         [% END %]
                     [% ELSE %]
                         <span class="green">
@@ -29,7 +29,7 @@
                 <td>
                     <span class="label small">Received</span>
                     [% totalhealth = replay.statistics.health + replay.statistics.damageReceived %]
-                    [% damageperc  = wr.percentage_of(totalhealth, replay.statistics.damageReceived) %]
+                    [% damageperc  = h.percentage_of(totalhealth, replay.statistics.damageReceived) %]
                     <span class="red">[% replay.statistics.damageReceived || '0' %] ([% damageperc %]%)</span>
                 </td>
             </tr></tbody></table>

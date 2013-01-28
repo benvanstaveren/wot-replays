@@ -6,7 +6,7 @@
                 </td>
                 <td>
                     <span class="label small">Hits</span>
-                    [% penperc = wr.percentage_of(replay.statistics.hits, replay.statistics.pierced) %]
+                    [% penperc = h.percentage_of(replay.statistics.hits, replay.statistics.pierced) %]
                     <span class="green">
                         <span title="Penetrating hits" [% IF penperc > 80 %]class="green"[% ELSIF penperc < 50 %]class="red"[% END %]>[% replay.statistics.pierced || '0' %]</span>
                         /
@@ -19,11 +19,11 @@
                 </td>
                 <td>
                     <span class="label small">Accuracy</span>
-                    [% accuracy = wr.percentage_of(replay.statistics.shots, replay.statistics.hits) %]
+                    [% accuracy = h.percentage_of(replay.statistics.shots, replay.statistics.hits) %]
                     [% IF wpa && wpa.data %]
                         <span 
-                            [% IF accuracy >= wpa.data.accuracy %]class="green tooltip" title="Accuracy above average of [% wr.sprintf("%.2f", wpa.data.accuracy) %]%"
-                            [% ELSE %]class="red tooltip" title="Accuracy below average of [% wr.sprintf("%.2f", wpa.data.accuracy) %]%"[% END %]>
+                            [% IF accuracy >= wpa.data.accuracy %]class="green tooltip" title="Accuracy above average of [% h.sprintf("%.2f", wpa.data.accuracy) %]%"
+                            [% ELSE %]class="red tooltip" title="Accuracy below average of [% h.sprintf("%.2f", wpa.data.accuracy) %]%"[% END %]>
                     [% ELSE %]
                         <span [% IF accuracy >= 60 %]class="green"[% ELSIF accuracy <= 30 %]class="red"[% END %]>
                     [% END %]

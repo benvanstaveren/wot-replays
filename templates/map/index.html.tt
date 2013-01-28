@@ -2,10 +2,10 @@
     <h3>Maps</h3>
     <div>
         [% FOREACH map IN map_list %]
-            <a href="/map/[% wr.map_slug(map.label) %]/">
+            <a href="/map/[% h.map_slug(map.label) %]/">
             <div title="[% map.count %] battles fought" style="width: 84px; float: left; height: 120px; margin: 0px 10px 10px 0px">
-                <img src="[% wr.map_image(84, map.id) %]" style="width: 84px; height: 84px"/>
-                <div style="font-size: 80%; font-family: monospace; text-align: center;">[% wr.map_name(wr.fix_map_id(map.id)) %]</div>
+                <img src="[% h.map_image(84, map.id) %]" style="width: 84px; height: 84px"/>
+                <div style="font-size: 80%; font-family: monospace; text-align: center;">[% h.map_name(map.id) %]</div>
             </div>
             </a>
         [% END %]

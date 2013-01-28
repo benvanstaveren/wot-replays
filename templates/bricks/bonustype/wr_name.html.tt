@@ -1,1 +1,1 @@
-[% wr.res.bonustype.get(bonustype, 'label_short') %]
+[% h.res.bonustype.get(bonustype, 'label_short') %]

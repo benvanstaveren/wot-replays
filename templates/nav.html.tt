@@ -49,7 +49,7 @@
                         About/FAQ
                     </a>
                 </li>
-                [% IF wr.is_user_authenticated %]
+                [% IF h.is_user_authenticated %]
                 <li class="nav-item signout [% IF pageid == 'signout' %]active[% END %]">
                     <a class="js-hover" href="/logout">
                         Sign out

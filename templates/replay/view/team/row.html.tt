@@ -15,12 +15,12 @@
         <span class="platoon"><span class="number" title="Platoon #[% platoon %]">[% platoon %]</span></span>
         [% END %]
     </span></td>
-    <td class="playerVehicle" style="background: transparent url([% wr.vehicle_icon(player.vehicleType.full, 48) %]) no-repeat scroll 0 0" title="[% INCLUDE bricks/vehicles/name.html.tt vehiclename = player.vehicleType.full |html%]">
+    <td class="playerVehicle" style="background: transparent url([% h.vehicle_icon(player.vehicleType.full, 48) %]) no-repeat scroll 0 0" title="[% INCLUDE bricks/vehicles/name.html.tt vehiclename = player.vehicleType.full |html%]">
         <div class="playerHealth">
             [% v = replay.vehicles.$pid %]
             [% h = v.health + v.damageReceived %]
-            [% hp = wr.percentage_of(h, v.health) %]
-            [% bs = wr.sprintf('%d', (74 / 100) * hp) %]
+            [% hp = h.percentage_of(h, v.health) %]
+            [% bs = h.sprintf('%d', (74 / 100) * hp) %]
             [% IF bs < 1 %][% bs = 1 %][% END %]
             <div class="health" style="width: [% bs %]px"></div>
             <div class="healthnumbers">[% v.health %]/[% h %]</div>
@@ -32,8 +32,8 @@
     </td>
     <td class="playerDetails">
         [% FOREACH award IN player.achievements.nsort %]
-            [% IF wr.res.achievements.is_battle(award) %]
-                <img src="//images.wot-replays.org/icon/awards/24/[% wr.res.achievements.index_to_idstr(award) %].png" style="margin-top: 8px; height: 24px;" alt="[% wr.res.achievements.i18n(wr.res.achievements.index_to_idstr(award)) |html %]" title="[% wr.res.achievements.i18n(wr.res.achievements.index_to_idstr(award)) |html %]"/>
+            [% IF h.res.achievements.is_battle(award) %]
+                <img src="//images.wot-replays.org/icon/awards/24/[% h.res.achievements.index_to_idstr(award) %].png" style="margin-top: 8px; height: 24px;" alt="[% h.res.achievements.i18n(h.res.achievements.index_to_idstr(award)) |html %]" title="[% h.res.achievements.i18n(h.res.achievements.index_to_idstr(award)) |html %]"/>
             [% END %]
         [% END %]
     </td>

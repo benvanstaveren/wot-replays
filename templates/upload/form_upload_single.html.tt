@@ -9,8 +9,8 @@
                     </div>
                     <span class="label">Description (optional)</span>
                     <textarea name="description" style="width: 100%; height: 50px">[% description %]</textarea>
-                    <span class="label">Options [% IF !wr.is_user_authenticated() %](You need to <a href="/login" style="color: #444">log in</a> to use these)[% END %]</span>
-                    <label><input type="checkbox" [% IF !wr.is_user_authenticated() %]disabled="true"[% END %] name="hide" value="1"> Hide replay on the site but give me a direct download link</label>
+                    <span class="label">Options [% IF !h.is_user_authenticated() %](You need to <a href="/login" style="color: #444">log in</a> to use these)[% END %]</span>
+                    <label><input type="checkbox" [% IF !h.is_user_authenticated() %]disabled="true"[% END %] name="hide" value="1"> Hide replay on the site but give me a direct download link</label>
                     <input type="submit" value="Upload" style="width: 250px; margin: 10px auto"/>
                 </form>
             </div>

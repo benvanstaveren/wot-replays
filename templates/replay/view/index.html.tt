@@ -7,7 +7,7 @@
                 </div>
                 <div style="float: left">
                     <h2 style="margin: 0px 0px 0px 0px">
-                        <a href="/player/[% replay.player.server |uri %]/[% replay.player.name |uri %]/">[% replay.player.name |html %]</a> - <a href="/vehicle/[% replay.player.vehicle.country  |uri %]/[% replay.player.vehicle.name |uri %]/">[% INCLUDE bricks/vehicles/name.html.tt vehiclename = replay.player.vehicle.full %]</a> - <a href="/map/[% replay.map.slug |uri %]/">[% INCLUDE bricks/maps/name.html.tt map = replay.map.id %]</a> ([% INCLUDE bricks/bonustype/name.html.tt bonustype = replay.game.bonus_type %] [% INCLUDE bricks/gametype/name.html.tt gametype = replay.game.type %])
+                        <a href="/player/[% replay.player.server |uri %]/[% replay.player.name |uri %]/">[% replay.player.name |html %]</a> - <a href="/vehicle/[% replay.player.vehicle.country  |uri %]/[% replay.player.vehicle.name |uri %]/">[% INCLUDE bricks/vehicles/name.html.tt vehiclename = replay.player.vehicle.full %]</a> - <a href="/map/[% replay.map.slug |uri %]/">[% INCLUDE bricks/maps/name.html.tt map = replay.map.id %]</a> ([% h.bonus_type_name(replay.game.bonus_type) %] [% h.game_type_name(replay.game.type) %])
                     </h2>
                     <h3 style="margin: 0px 0px 5px 0px">
                         <span style="font-weight: normal">Result:</span><span> [% IF replay.complete %][% INCLUDE replay/view/matchresult.html.tt %][% ELSE %]<span>unknown</span>[% END %]</span> <span style="margin: 0px 0px 0px 10px; font-weight: normal">Survived:</span><span> [% INCLUDE replay/view/vehicle_stats/survived.html.tt %]</span>

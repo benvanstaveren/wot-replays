@@ -1,6 +1,1 @@
-[% USE cache = Cache %]
-[% cache.inc(
-    template => 'bricks/bonustype/wr_name.html.tt',
-    keys => { 'bonustype' => bonustype },
-    ttl  => 'never'
-    ) %]
+[% INCLUDE bricks/bonustype/wr_name.html.tt %]

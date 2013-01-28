@@ -8,8 +8,8 @@
                         <ul class="nav">
                             <li class="nav-item tab active"><a href="#profile-replays">Replays</a></li>
                             <li class="nav-item tab"><a href="#profile-settings">Settings</a></li>
-                            [% IF wr.current_user.reclaimed != 1%]
-                            <li class="nav-item tab"><a href="#profile-reclaim">Reclaim Account [% wr.current_user.reclaimed %]</a></li>
+                            [% IF h.current_user.reclaimed != 1%]
+                            <li class="nav-item tab"><a href="#profile-reclaim">Reclaim Account [% h.current_user.reclaimed %]</a></li>
                             [% END %]
                         </ul>
                     </div>
@@ -21,7 +21,7 @@
             <div id="profile-settings" class="tab-panel" style="display: none">
                 [% INCLUDE profile/settings.html.tt %]
             </div>
-            [% IF wr.current_user.reclaimed != 1 %]
+            [% IF h.current_user.reclaimed != 1 %]
             <div id="profile-reclaim" class="tab-panel" style="display: none">
                 [% INCLUDE profile/reclaim.html.tt %]
             </div>

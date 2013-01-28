@@ -15,12 +15,12 @@
         <span class="platoon"><span class="number" title="Platoon #[% platoon %]">[% platoon %]</span></span>
         [% END %]
     </span></td>
-    <td class="playerVehicle" style="background: transparent url([% wr.vehicle_icon(player.vehicleType.full, 48) %]) no-repeat scroll 0 0" title="[% INCLUDE bricks/vehicles/name.html.tt vehiclename = player.vehicleType.full |html%]">
+    <td class="playerVehicle" style="background: transparent url([% h.vehicle_icon(player.vehicleType.full, 48) %]) no-repeat scroll 0 0" title="[% INCLUDE bricks/vehicles/name.html.tt vehiclename = player.vehicleType.full |html%]">
         <div class="playerHealth">
             [% v = replay.vehicles.$pid %]
             [% h = v.health + v.damageReceived %]
-            [% hp = wr.percentage_of(h, v.health) %]
-            [% bs = wr.sprintf('%d', (74 / 100) * hp) %]
+            [% hp = h.percentage_of(h, v.health) %]
+            [% bs = h.sprintf('%d', (74 / 100) * hp) %]
             [% IF bs < 1 %][% bs = 1 %][% END %]
             <div class="health" style="width: [% bs %]px"></div>
             <div class="healthnumbers">[% v.health %]/[% h %]</div>

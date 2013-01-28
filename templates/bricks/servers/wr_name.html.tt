@@ -1,1 +1,1 @@
-[% wr.res.servers.get(server, 'label') %]
+[% h.res.servers.get(server, 'label') %]

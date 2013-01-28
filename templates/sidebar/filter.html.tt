@@ -30,7 +30,7 @@
             <select name="map">
                 <option value="">-- All maps</option>
                 [% FOREACH map IN wr.generate_map_select() %]
-                    <option value="[% wr.fix_map_id(map.id) %]">[% map.label %]</option>
+                    <option value="[% map.id |html %]">[% map.label %]</option>
                 [% END %]
             </select>
             [% END %]

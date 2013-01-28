@@ -42,7 +42,7 @@
         <span>
             <table style="width: 100%" cellspacing="0" cellpadding="0"><tbody>
             [% FOREACH vid IN statistics.vehicles.keys %]
-                <tr><td><a href="[% wr.vehicle_url(vid) %]">[% wr.vehicle_name(vid) |truncate(12)%]</a></td><td style="width: 50%;">[% statistics.vehicles.$vid %]</td></tr>
+                <tr><td><a href="[% h.vehicle_url(vid) %]">[% h.vehicle_name(vid) |truncate(12)%]</a></td><td style="width: 50%;">[% statistics.vehicles.$vid %]</td></tr>
             [% END %]
             </tbody></table>
         </span>
@@ -50,7 +50,7 @@
         <span>
             <table style="width: 100%" cellspacing="0" cellpadding="0"><tbody>
             [% FOREACH mid IN statistics.maps.keys %]
-                <tr><td><a href="/map/[% mid %]/">[% wr.map_name(mid) |truncate(12)%]</a></td><td style="width: 50%;">[% statistics.maps.$mid %]</td></tr>
+                <tr><td><a href="/map/[% mid %]/">[% h.map_name(mid) |truncate(12)%]</a></td><td style="width: 50%;">[% statistics.maps.$mid %]</td></tr>
             [% END %]
             </tbody></table>
         </span>

@@ -1,13 +1,13 @@
-[% FOREACH player IN wr.vehicles_by_frags(replay.vehicles) %]
+[% FOREACH player IN h.vehicles_by_frags(replay.vehicles) %]
 [% pid = player.id %]
 [% details = replay.statistics.details.$pid %]
 [% IF details.killed > 0 || details.spotted > 0 || details.damageDealt > 0 || details.damageAssisted > 0 || details.hits > 0 %]
 <tr class="battleperformance">
-    <td class="playerVehicle" style="background: transparent url([% wr.vehicle_icon(player.vehicleType.full, 48) %]) no-repeat scroll 0 0" title="[% INCLUDE bricks/vehicles/name.html.tt vehiclename = player.vehicleType.full |html%]">
+    <td class="playerVehicle" style="background: transparent url([% h.vehicle_icon(player.vehicleType.full, 48) %]) no-repeat scroll 0 0" title="[% INCLUDE bricks/vehicles/name.html.tt vehiclename = player.vehicleType.full |html%]">
         <div class="playerHealth">
             [% h = player.health + player.damageReceived %]
-            [% hp = wr.percentage_of(h, player.health) %]
-            [% bs = wr.sprintf('%d', (74 / 100) * hp) %]
+            [% hp = h.percentage_of(h, player.health) %]
+            [% bs = h.sprintf('%d', (74 / 100) * hp) %]
             [% IF bs < 1 %][% bs = 1 %][% END %]
             <div class="health" style="width: [% bs %]px"></div>
             <div class="healthnumbers">[% player.health %]/[% h %]</div>

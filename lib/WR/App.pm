@@ -8,6 +8,7 @@ use lib "$FindBin::Bin/../lib";
 use WR;
 use WR::Query;
 use WR::Res;
+use WR::App::Helpers;
 
 use Time::HiRes qw/gettimeofday/;
 
@@ -21,58 +22,8 @@ sub startup {
 
     my $config = $self->plugin('Config', { file => 'wr.conf' });
     $self->plugin('mongodb', { host => $config->{mongodb}, patch_mongodb => 1 });
-    $self->plugin('tt_renderer', { template_options => {
-        COMPILE_DIR  => undef,
-        COMPILE_EXT  => undef,
-        PRE_CHOMP    => 0,
-        POST_CHOMP   => 1,
-        TRIM => 1,
-        FILTERS => {
-            'js' =>  sub {
-                my $text = shift;
-                $text =~ s/\'/\\\'/gi;
-                return $text;
-            },
-            'tabtospan' =>  sub {
-                my $text = shift;
-                $text =~ s/\\t/<br\/><span style="margin-left: 20px"><\/span>/g;
-                return $text;
-            },
-        },
-        RELATIVE => 1,
-        ABSOLUTE => 1, # otherwise hypnotoad gets a bit cranky, for some reason
-    }});
-
     # set up the key string
     $config->{wot}->{bf_key} = join('', map { chr(hex($_)) } (split(/\s/, $config->{wot}->{bf_key})));
-
-    # add some helpers here because we need to 
-    # "fake" some of it
-    $self->helper(is_user_authenticated => sub {
-        my $ctrl = shift;
-
-        if(my $openid = $ctrl->session('openid')) {
-            if(my $user = $ctrl->model('wot-replays.accounts')->find_one({ openid => $openid })) {
-                return 1;
-            } else {
-                return 0; # because the verification step will actually create it
-            }
-        } else {
-            return 0;
-        }
-    });
-
-    $self->helper(current_user => sub {
-        my $ctrl = shift;
-        if(my $openid = $ctrl->session('openid')) {
-            if(my $user = $ctrl->model('wot-replays.accounts')->find_one({ openid => $openid })) {
-                return $user;
-            } else {
-                return undef;
-            }
-        }
-        return undef;
-    });
 
     $self->routes->namespaces([qw/WR::App::Controller/]);
 
@@ -146,87 +97,31 @@ sub startup {
     $self->sessions->default_expiration(86400 * 365); 
     $self->sessions->cookie_name('wrsession');
 
-    $self->helper(wr_query => sub {
-        my $self = shift;
-        return WR::Query->new(@_, coll => $self->db('wot-replays')->get_collection('replays'));
-    });
+    has 'wr_res' => sub { return WR::Res->new() };
 
-    $self->helper(cachable => sub {
-        my $self = shift;
-        my %opts = (@_);
+    WR::App::Helpers->add_helpers($self);
 
-        my $ttl = $opts{'ttl'} || 120;
-
-        if(my $obj = $self->db('wot-replays')->get_collection('ui.cache')->find_one({ _id => $opts{'key'} })) {
-            return $obj->{value} unless($obj->{created} + $ttl < time());
-        }
-
-        my $method = $opts{'method'};
-        if(my $res = $self->$method()) {
-            my $data = {
-                _id     => $opts{'key'},
-                created => time(),
-                value   => $res || {},
-            };
-            $self->db('wot-replays')->get_collection('cache')->save($data, { safe => 1 });
-            return $res;
-        } else {
-            return undef;
-        }
-    });
-
-    has 'wr_res' => sub {
-        return {
-            achievements    => WR::Res::Achievements->new(),
-            bonustype       => WR::Res::Bonustype->new(),
-            gametype        => WR::Res::Gametype->new(),
-            servers         => WR::Res::Servers->new(),
-            country         => WR::Res::Country->new(),
-            vehicleclass    => WR::Res::Vehicleclass->new(),
-        }
-    };
-
-    $self->helper(put_bean_and_get_reply => sub {
-        my $self = shift;
-        my %args = (
-            channel     => undef,
-            reply_to    => undef,
-            encode      => undef,
-            on_response => undef,
-            on_noresponse => undef,
-            timeout => 5,
-            @_,
-        );
-
-        return undef unless($args{reply_to} && $args{channel} && $args{encode});
-
-        $self->bean->use($args{channel});
-        $self->bean->watch_only($args{reply_to});
-        my $req = $self->bean->put({},$args{'encode'});
-        if(my $job = $self->bean->reserve($args{timeout})) {
-            my $data = $job->args;
-            $self->bean->delete($job->id);
-            $args{'on_response'}->($data) if(defined($args{'on_response'}));
-        } else {
-            $self->bean->delete($req->id);
-            $args{'on_noresponse'}->() if(defined($args{'on_noresponse'}));
-        }
-    });
-
-    $self->helper(put_bean => sub {
-        my $self = shift;
-        my %args = (
-            channel     => undef,
-            encode      => undef,
-            timeout => 5,
-            @_,
-        );
-
-        return undef unless($args{channel} && $args{encode});
-
-        $self->bean->use($args{channel});
-        my $req = $self->bean->put({}, $args{'encode'});
-    });
+    $self->plugin('tt_renderer', { template_options => {
+        COMPILE_DIR  => undef,
+        COMPILE_EXT  => undef,
+        PRE_CHOMP    => 0,
+        POST_CHOMP   => 1,
+        TRIM => 1,
+        FILTERS => {
+            'js' =>  sub {
+                my $text = shift;
+                $text =~ s/\'/\\\'/gi;
+                return $text;
+            },
+            'tabtospan' =>  sub {
+                my $text = shift;
+                $text =~ s/\\t/<br\/><span style="margin-left: 20px"><\/span>/g;
+                return $text;
+            },
+        },
+        RELATIVE => 1,
+        ABSOLUTE => 1, # otherwise hypnotoad gets a bit cranky, for some reason
+    }});
 }
 
 1;
