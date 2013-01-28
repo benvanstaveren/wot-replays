@@ -33,9 +33,9 @@
                                             <li class="nav-item tab"><a href="#vehicle-loadout">Loadout</a></li>
                                             [% IF replay.complete %]
                                                 <li class="nav-item tab"><a href="#teams">Teams</a></li>
-                                            [% END %]
-                                            [% IF replay.chat.size > 0 %]
-                                                <li class="nav-item tab"><a href="#battle-chat">Chat</a></li>
+                                                [% IF replay.chat.size > 0 %]
+                                                    <li class="nav-item tab"><a href="#battle-chat">Chat</a></li>
+                                                [% END %]
                                             [% END %]
                                             <li class="nav-item tab"><a href="#comparison">Compare</a></li>
                                         </ul>
@@ -51,27 +51,29 @@
                                 </div>
                                 <div class="clear"></div>
                             </div>
-                            <div id="comparison" class="tab-panel" style="display: none">
-                                <div id="comparison-display">
-                                    [% INCLUDE replay/view/comparison.html.tt %]
-                                </div>
-                            </div>
                             <div id="vehicle-loadout" class="tab-panel" style="display: none">
                                 [% INCLUDE replay/view/vehicle_loadout.html.tt %]
                             </div>
-                            <div id="battle-chat" class="tab-panel" style="display: none">
-                                [% FOREACH message IN replay.chat %]
-                                    <div class="chatmessage">
-                                        <div class="from [% IF message.global == 1 %]global[% END %]">[% message.from |html %]</div>
-                                        <div class="message [% IF message.global == 1 %]global[% END %]">[% message.text %]</div>
-                                        <div class="clear"></div>
-                                    </div>
-                                [% END %]
-                            </div>
                             [% IF replay.complete %]
+                                <div id="comparison" class="tab-panel" style="display: none">
+                                    <div id="comparison-display">
+                                        [% INCLUDE replay/view/comparison.html.tt %]
+                                    </div>
+                                </div>
                                 <div id="teams" class="tab-panel" style="display: none">
                                     [% INCLUDE replay/view/teams.html.tt %]
                                 </div>
+                                [% IF replay.chat.size > 0 %]
+                                <div id="battle-chat" class="tab-panel" style="display: none">
+                                    [% FOREACH message IN replay.chat %]
+                                        <div class="chatmessage">
+                                            <div class="from [% IF message.global == 1 %]global[% END %]">[% message.from |html %]</div>
+                                            <div class="message [% IF message.global == 1 %]global[% END %]">[% message.text %]</div>
+                                            <div class="clear"></div>
+                                        </div>
+                                    [% END %]
+                                </div>
+                                [% END %]
                             [% END %]
                         </div>
                     </td>
