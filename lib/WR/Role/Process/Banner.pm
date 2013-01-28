@@ -3,6 +3,7 @@ use Moose::Role;
 use WR::Imager;
 use WR::Res::Achievements;
 use Try::Tiny qw/catch try/;
+use boolean;
 
 sub stringify_awards {
     my $self = shift;
