@@ -348,8 +348,6 @@ sub add_helpers {
         my $cmp = shift;
         my $id  = shift;
 
-        $self->app->log->info(join(' ', 'component_name cnt ', $cnt, ' cmp ', $cmp, ' id ', $id));
-
         if(my $obj = $self->model('wot-replays.data.components')->find_one({ 
             country => $cnt,
             component => $cmp,
@@ -380,8 +378,6 @@ sub add_helpers {
     $self->helper(sprintf => sub {
         my $self = shift;
         my $fmt = shift;
-
-        $self->app->log->info('helper:sprintf: fmt: ' . $fmt . ' args: ' . join(', ', @_));
 
         return CORE::sprintf($fmt, @_);
     });
