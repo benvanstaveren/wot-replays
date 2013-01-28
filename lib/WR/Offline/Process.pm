@@ -33,7 +33,11 @@ sub process {
     my $jobid = shift;
 
     if(my $job = $self->db->get_collection('job.process')->find_one({ _id => bless({ value => $jobid }, 'MongoDB::OID' ) })) {
-        $self->_process($job);
+        try {
+            $self->_process($job);
+        } catch {
+            unlink($job->{file});
+        };
     } else {
         return { ok => 0, error => 'No job found' };
     }
@@ -77,54 +81,45 @@ sub _process {
         visible     => ($job->{hide} == 1) ? false : true,
     };
 
-            $self->db('wot-replays')->get_collection('replays')->save($m_data, { safe => 1 });
-
-            try {
-                my $pv = $m_data->{player}->{vehicle}->{full};
-                $pv =~ s/:/-/;
-
-                my $xp = $m_data->{statistics}->{xp};
-                if($m_data->{statistics}->{dailyXPFactor10} > 10) {
-                    $xp .= sprintf(' (x%d)', $m_data->{statistics}->{dailyXPFactor10}/10);
-                }
-
-                my $i = WR::Imager->new();
-                $i->create(
-                    map     => $m_data->{map}->{id},
-                    vehicle => lc($pv),
-                    result  => 
-                        ($m_data->{game}->{isWin})
-                            ? 'victory'
-                            : ($m_data->{game}->{isDraw})
-                                ? 'draw'
-                                : 'defeat',
-                    credits => $m_data->{statistics}->{credits},
-                    xp      => $xp,
-                    kills   => $m_data->{statistics}->{kills},
-                    spotted => $m_data->{statistics}->{spotted},
-                    damaged => $m_data->{statistics}->{damaged},
-                    player  => $m_data->{player}->{name},
-                    clan    => $m_data->{player}->{clan},
-                    destination => sprintf('%s/%s.png', $self->stash('config')->{paths}->{replays}, $m_data->{_id}->to_string),
-                );
-            } catch {
-                # nothing
-            };
-
-            $self->render(json => { 
-                ok        => 1,
-                replay_id => $m_data->{_id}->to_string,
-                published => ($self->req->param('hide') == 1) ? 0 : 1,
-            });
-        } else {
-            $self->render(json => {
-                ok => 0,
-                error => 'You did not select a file',
-            });
+    if(defined($job->{site_extra})) {
+        foreach my $k (keys(%{$job->{site_extra}})) {
+            $m_data->{site}->{$k} = $job->{site_extra}->{$k};
         }
-    } else {
-        $self->respond(template => 'upload/form', stash => { page => { title => 'Upload Replay' } });
     }
+
+    $self->db('wot-replays')->get_collection('replays')->save($m_data, { safe => 1 });
+
+    try {
+        my $pv = $m_data->{player}->{vehicle}->{full};
+        $pv =~ s/:/-/;
+
+        my $xp = $m_data->{statistics}->{xp};
+        if($m_data->{statistics}->{dailyXPFactor10} > 10) {
+            $xp .= sprintf(' (x%d)', $m_data->{statistics}->{dailyXPFactor10}/10);
+        }
+
+        my $i = WR::Imager->new();
+        $i->create(
+            map     => $m_data->{map}->{id},
+            vehicle => lc($pv),
+            result  => 
+                ($m_data->{game}->{isWin})
+                    ? 'victory'
+                    : ($m_data->{game}->{isDraw})
+                        ? 'draw'
+                        : 'defeat',
+            credits => $m_data->{statistics}->{credits},
+            xp      => $xp,
+            kills   => $m_data->{statistics}->{kills},
+            spotted => $m_data->{statistics}->{spotted},
+            damaged => $m_data->{statistics}->{damaged},
+            player  => $m_data->{player}->{name},
+            clan    => $m_data->{player}->{clan},
+            destination => sprintf('%s/%s.png', $self->stash('config')->{paths}->{replays}, $m_data->{_id}->to_string),
+        );
+    } catch {
+        # not catastrophic if this isn't generated, we'll pawn it off into something else later
+    };
 }
 
 1;

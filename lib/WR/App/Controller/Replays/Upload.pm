@@ -2,7 +2,6 @@ package WR::App::Controller::Replays::Upload;
 use Mojo::Base 'WR::App::Controller';
 use boolean;
 use WR::Process;
-use WR::Imager;
 
 use FileHandle;
 use POSIX();
@@ -97,45 +96,7 @@ sub upload {
                 uploaded_by => ($self->is_user_authenticated) ? $self->current_user->{_id} : undef,
                 visible     => ($self->req->param('hide') == 1) ? false : true,
             };
-
             $self->db('wot-replays')->get_collection('replays')->save($m_data, { safe => 1 });
-
-            try {
-                my $pv = $m_data->{player}->{vehicle}->{full};
-                $pv =~ s/:/-/;
-
-                my $xp = $m_data->{statistics}->{xp};
-                if($m_data->{statistics}->{dailyXPFactor10} > 10) {
-                    $xp .= sprintf(' (x%d)', $m_data->{statistics}->{dailyXPFactor10}/10);
-                }
-
-                my $i = WR::Imager->new();
-                $i->create(
-                    map     => $m_data->{map}->{id},
-                    vehicle => lc($pv),
-                    result  => 
-                        ($m_data->{game}->{isWin})
-                            ? 'victory'
-                            : ($m_data->{game}->{isDraw})
-                                ? 'draw'
-                                : 'defeat',
-                    map_name => $self->map_name($m_data->{map}->{id}),
-                    vehicle_name => $self->vehicle_name($m_data->{player}->{vehicle}->{full}),
-                    credits => $m_data->{statistics}->{credits},
-                    xp      => $xp,
-                    kills   => $m_data->{statistics}->{kills},
-                    spotted => $m_data->{statistics}->{spotted},
-                    damaged => $m_data->{statistics}->{damaged},
-                    player  => $m_data->{player}->{name},
-                    clan    => $m_data->{player}->{clan},
-                    destination => sprintf('%s/%s.png', $self->stash('config')->{paths}->{replays}, $m_data->{_id}->to_string),
-                    awards  => $self->stringify_awards($m_data),
-                );
-            } catch {
-                $self->app->log->error('Error creating banner image: ' . $_);
-                $self->app->log->debug('Error creating banner image: ' . $_);
-            };
-
             $self->render(json => { 
                 ok        => 1,
                 replay_id => $m_data->{_id}->to_string,

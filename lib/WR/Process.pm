@@ -31,9 +31,10 @@ with (
         'WR::Role::Process::Fittings',       # process vehicle fittings
         'WR::Role::Process::Platoon',        # process platoons
         'WR::Role::Process::Chat',           # chat messages
-        'WR::Role::Process::WPA',            # Phalynx' stuff
         'WR::Role::Process::Digest',         # MD5 digest for the replay itself
+        'WR::Role::Process::WPA',            # Phalynx' stuff
         'WR::Role::Process::Efficiency',     # XVM/VBA efficiencies
+        'WR::Role::Process::Banner',         # create banner
     );
 
 sub error {
