@@ -13,6 +13,7 @@ sub token_valid {
     my $t    = shift;
 
     if(my $rec = $self->model('wot-replays.api')->find_one({ _id => $t })) {
+        $self->stash('token_ident' => $rec->{ident});
         return 1;
     } else {
         return undef;
@@ -148,7 +149,7 @@ sub parse {
                         description => undef,
                         uploaded_at => time(),
                         uploaded_by => undef,
-                        from_wpa    => true,
+                        ident       => $self->stash('token_ident'),
                         visible     => true,
                     }
                 });
