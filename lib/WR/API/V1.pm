@@ -110,12 +110,10 @@ sub parse {
         
         my $url = undef;
 
-
         if($s == 1) {
             unless($self->model('wot-replays.replays')->find_one({ replay_digest => $m_data->{replay_digest}})) {
                 my $replay_file = sprintf('%s/%s', $self->stash('config')->{paths}->{replays}, $filename);
                 $asset->move_to($replay_file);
-
                 $self->model('wot-replays.replays')->save({
                     %$m_data,
                     site => {
@@ -126,6 +124,9 @@ sub parse {
                         visible     => true,
                     }
                 });
+                $url = sprintf('http://www.wot-replays.org/replay/%s.html', $m_data->{_id}->to_string);
+            } else {
+                # still return it
                 $url = sprintf('http://www.wot-replays.org/replay/%s.html', $m_data->{_id}->to_string);
             }
         } else {
@@ -138,7 +139,7 @@ sub parse {
         $data->{url} = $url if($s == 1 && defined($url));
         $self->render(json => $data);
     } else {
-        $self->render(json => { ok => 0, error => 'No file passed' });
+        $self->render(json => { ok => 0, error => 'no such upload "replay"' });
     }
 }
 

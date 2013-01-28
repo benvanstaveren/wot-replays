@@ -192,7 +192,7 @@ sub create {
     my $x = 545 - 5 - 16;
     foreach my $award (@{$args{awards}}) {
         my $aicon = Imager->new();
-        $aicon->read(file => sprintf('%s/icon/awards/16/%s.png', $self->_path, $award)) or die 'failed reading award', "\n";
+        $aicon->read(file => sprintf('%s/icon/awards/16/%s.png', $self->_path, $award)) or die 'failed reading award: ' . $award, "\n";
         $self->_bg->compose(src => $aicon, tx => $x, ty => 2);
         $x -= (16 + 5);
     }
