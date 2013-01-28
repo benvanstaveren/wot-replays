@@ -418,6 +418,17 @@ sub add_helpers {
     $self->helper(game_type_name => sub {
         return shift->app->wr_res->gametype->i18n(shift);
     });
+    $self->helper('achievement_is_award' => sub {
+        my $self = shift;
+        return $self->app->wr_res->achievements->is_award(shift);
+    });
+    $self->helper('achievement_is_class' => sub {
+        my $self = shift;
+        return $self->app->wr_res->achievements->is_class(shift);
+    });
+    $self->helper('get_achievements' => sub {
+        return shift->app->wr_res->achievements;
+    });
 }
 
 1;

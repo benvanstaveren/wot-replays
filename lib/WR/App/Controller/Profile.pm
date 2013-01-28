@@ -2,6 +2,7 @@ package WR::App::Controller::Profile;
 use Mojo::Base 'WR::App::Controller';
 use WR::Query;
 use boolean;
+use WR::PlayerProfileData;
 
 sub check {
     my $self = shift;
@@ -136,6 +137,9 @@ sub settings {
             page => { title => 'Your Profile - Settings' },
         },
     );
+}
+
+sub overview {
 }
 
 1;

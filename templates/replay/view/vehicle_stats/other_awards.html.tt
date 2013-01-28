@@ -2,17 +2,17 @@
             <span class="label">Other Awards</span>
             <div class="heroawardlist">
                 [% FOREACH award IN other_awards %]
-                    [% IF h.res.achievements.is_award(award.type) %]
-                        [% IF h.res.achievements.is_class(award.type) %]
+                    [% IF h.achievement_is_award(award.type) %]
+                        [% IF h.achievement_is_class(award.type) %]
                             [% IF award.type == 79 %]
-                                [% title = h.res.achievements.i18n(h.res.achievements.index_to_idstr(award.type) _ award.class_suffix) %]
+                                [% title = h.get_achievements.i18n(h.get_achievements.index_to_idstr(award.type) _ award.class_suffix) %]
                             [% ELSE %]
-                                [% title = h.res.achievements.i18n(h.res.achievements.index_to_idstr(award.type)) _ ' ' _ award.class_suffix _ ' Class' %]
+                                [% title = h.get_achievements.i18n(h.get_achievements.index_to_idstr(award.type)) _ ' ' _ award.class_suffix _ ' Class' %]
                             [% END %]
                         [% ELSE %]
-                            [% title = h.res.achievements.i18n(h.res.achievements.index_to_idstr(award.type)) %]
+                            [% title = h.get_achievements.i18n(h.res.achievements.index_to_idstr(award.type)) %]
                         [% END %]
-                        <div class="award [% h.res.achievements.index_to_idstr(award.type) %][% IF award.class_suffix %][% award.class_suffix %][% END %]" title="[% title |html %]">
+                        <div class="award [% h.get_achievements.index_to_idstr(award.type) %][% IF award.class_suffix %][% award.class_suffix %][% END %]" title="[% title |html %]">
                             [% IF award.count > 1 %]<b class="ui-corner-all">[% award.count %]</b>[% END %]
                         </div>
                         [% awards = awards + 1 %]
