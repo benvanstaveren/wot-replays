@@ -444,6 +444,9 @@ sub add_helpers {
     $self->helper('get_achievements' => sub {
         return shift->app->wr_res->achievements;
     });
+    $self->helper('get_res' => sub {
+        return shift->app->wr_res;
+    });
 }
 
 1;
