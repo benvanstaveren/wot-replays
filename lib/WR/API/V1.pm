@@ -4,6 +4,7 @@ use WR::Parser;
 use WR::Util::PyPickle;
 use WR::Process;
 use WR::ServerFinder;
+use WR::Imager;
 use boolean;
 use Try::Tiny qw/try catch/;
 
@@ -16,6 +17,21 @@ sub token_valid {
     } else {
         return undef;
     }
+}
+
+sub stringify_awards {
+    my $self = shift;
+    my $m_data = shift;
+    my $a    = $self->wr_res->achievements;
+    my $t    = [];
+
+    foreach my $item (@{$m_data->{statistics}->{dossierPopUps}}) {
+        next unless($a->is_award($item->[0]));
+        my $str = $a->index_to_idstr($item->[0]);
+        $str .= $item->[1] if($a->is_class($item->[0]));
+        push(@$t, $a->index_to_idstr($item->[0]));
+    }
+    return $t;
 }
 
 sub check_token {
@@ -109,6 +125,7 @@ sub parse {
         
         my $url = undef;
 
+
         if($s == 1) {
             unless($self->model('wot-replays.replays')->find_one({ replay_digest => $m_data->{replay_digest}})) {
                 my $replay_file = sprintf('%s/%s', $self->stash('config')->{paths}->{replays}, $filename);
@@ -125,6 +142,42 @@ sub parse {
                     }
                 });
                 $url = sprintf('http://www.wot-replays.org/replay/%s.html', $m_data->{_id}->to_string);
+
+                # do the image thing
+                try {
+                    my $pv = $m_data->{player}->{vehicle}->{full};
+                    $pv =~ s/:/-/;
+
+                    my $xp = $m_data->{statistics}->{xp};
+                    if($m_data->{statistics}->{dailyXPFactor10} > 10) {
+                        $xp .= sprintf(' (x%d)', $m_data->{statistics}->{dailyXPFactor10}/10);
+                    }
+
+                    my $i = WR::Imager->new();
+                    $i->create(
+                        map     => $m_data->{map}->{id},
+                        vehicle => lc($pv),
+                        result  => 
+                            ($m_data->{game}->{isWin})
+                                ? 'victory'
+                                : ($m_data->{game}->{isDraw})
+                                    ? 'draw'
+                                    : 'defeat',
+                        map_name     => $self->model('wot-replays.data.maps')->find_one({ _id => $m_data->{map}->{id} })->{label},
+                        vehicle_name => $self->model('wot-replays.data.vehicles')->find_one({ _id => $m_data->{player}->{vehicle}->{full} })->{label},
+                        credits => $m_data->{statistics}->{credits},
+                        xp      => $xp,
+                        kills   => $m_data->{statistics}->{kills},
+                        spotted => $m_data->{statistics}->{spotted},
+                        damaged => $m_data->{statistics}->{damaged},
+                        player  => $m_data->{player}->{name},
+                        clan    => $m_data->{player}->{clan},
+                        destination => sprintf('%s/%s.png', $self->stash('config')->{paths}->{replays}, $m_data->{_id}->to_string),
+                        awards  => $self->stringify_awards($m_data),
+                    );
+                } catch {
+                    # nothing
+                };
             }
         } else {
             $asset->cleanup;
