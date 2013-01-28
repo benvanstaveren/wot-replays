@@ -28,6 +28,21 @@ sub nv {
     return $v;
 }
 
+sub stringify_awards {
+    my $self = shift;
+    my $m_data = shift;
+    my $a    = $self->wr_res->achievements;
+    my $t    = [];
+
+    foreach my $item (@{$m_data->{statistics}->{dossierPopUps}}) {
+        next unless($a->is_award($item->[0]));
+        my $str = $a->index_to_idstr($item->[0]);
+        $str .= $item->[1] if($a->is_class($item->[0]));
+        push(@$t, $a->index_to_idstr($item->[0]));
+    }
+    return $t;
+}
+
 sub upload {
     my $self = shift;
 
@@ -104,6 +119,8 @@ sub upload {
                             : ($m_data->{game}->{isDraw})
                                 ? 'draw'
                                 : 'defeat',
+                    map_name => $self->map_name($m_data->{map}->{id}),
+                    vehicle_name => $self->vehicle_name($m_data->{player}->{vehicle}->{full}),
                     credits => $m_data->{statistics}->{credits},
                     xp      => $xp,
                     kills   => $m_data->{statistics}->{kills},
@@ -112,6 +129,7 @@ sub upload {
                     player  => $m_data->{player}->{name},
                     clan    => $m_data->{player}->{clan},
                     destination => sprintf('%s/%s.png', $self->stash('config')->{paths}->{replays}, $m_data->{_id}->to_string),
+                    awards  => $self->stringify_awards($m_data),
                 );
             } catch {
                 # nothing

@@ -47,6 +47,9 @@ sub create {
     $mapscreen->read(file => sprintf('%s/mapscreen/%s.png', $self->_path, $args{map})) or die 'failed reading mapscreen from: ', sprintf('%s/mapscreen/%s.png', $self->_path, $args{map}), ': ', $mapscreen->errstr, "\n";
     $vehicle->read(file => sprintf('%s/vehicles/100/%s.png', $self->_path, $args{vehicle})) or die 'failed reading vehicle', "\n";
 
+    my $bar = Imager->new(xsize => 545, ysize => 20, channels => 4);
+    $bar->box(filled => 1, color => 'black');
+
     $self->_bg->rubthrough(top => 0, left => 0, src => $mapscreen);
     $self->_bg->rubthrough(top => 0, left => 0, src => $self->_overlay);
     $self->_bg->rubthrough(top => 0, left => 60, src => $vehicle);
@@ -79,7 +82,7 @@ sub create {
         aa   => 1,
         color => $textcolor,
         x => 260,
-        y => 22,
+        y => 36,
     );
 
     $self->_bg->string(
@@ -88,7 +91,7 @@ sub create {
         aa   => 1,
         color => $textcolor,
         x => 355,
-        y => 22,
+        y => 36,
     );
 
     $self->_bg->string(
@@ -96,8 +99,8 @@ sub create {
         font => $resultfont,
         aa   => 1,
         color => $resultcolor,
-        x => 450,
-        y => 22,
+        x => 445,
+        y => 36,
     );
 
     $self->_bg->string(
@@ -106,7 +109,7 @@ sub create {
         aa   => 1,
         color => $textcolor,
         x => 260,
-        y => 52,
+        y => 66,
     );
 
     $self->_bg->string(
@@ -115,7 +118,7 @@ sub create {
         aa   => 1,
         color => $textcolor,
         x => 355,
-        y => 52,
+        y => 66,
     );
 
     $self->_bg->string(
@@ -123,18 +126,12 @@ sub create {
         font => $textfont,
         aa   => 1,
         color => $textcolor,
-        x => 450,
-        y => 52,
+        x => 445,
+        y => 66,
     );
 
-    $self->_bg->string(
-        text => 'player:',
-        font => $textfont,
-        aa   => 1,
-        color => $textcolor,
-        x => 260,
-        y => 82,
-    );
+    $self->_bg->compose(tx => 0, ty => 0, src => $bar, opacity => 0.7);
+    $self->_bg->compose(tx => 0, ty => 98-20, src => $bar, opacity => 0.7);
 
     my $bbox = $textfont->bounding_box(string => $args{player});
 
@@ -143,8 +140,8 @@ sub create {
         font => $textfont,
         aa   => 1,
         color => $textcolor,
-        x => 300,
-        y => 82,
+        x => 5,
+        y => 14,
     );
 
     if($args{clan}) {
@@ -152,10 +149,52 @@ sub create {
             text => sprintf('[%s]', $args{clan}),
             font => $textfont,
             aa   => 1,
-            color => Imager::Color->new('#606060'),
-            x => 300 + $bbox->pos_width,
-            y => 82,
+            color => Imager::Color->new('#909090'),
+            x => 5 + $bbox->pos_width,
+            y => 14,
         );
+    }
+
+    $self->_bg->string(
+        text => $args{'vehicle_name'},
+        font => $textfont,
+        aa   => 1,
+        color => $textcolor,
+        x => 5,
+        y => (98-20) + 14,
+    );
+
+    $bbox = $textfont->bounding_box(string => $args{'vehicle_name'});
+    my $o1 = 10 + $bbox->pos_width;
+
+    $bbox = $textfont->bounding_box(string => ' - ');
+    my $o2 = $o1 + $bbox->pos_width + 5;
+
+    $self->_bg->string(
+        text => ' - ',
+        font => $textfont,
+        aa   => 1,
+        color => Imager::Color->new('#909090'),
+        x => $o1,
+        y => (98-20) + 14,
+    );
+
+    $self->_bg->string(
+        text => $args{'map_name'},
+        font => $textfont,
+        aa   => 1,
+        color => $textcolor,
+        x => $o2,
+        y => (98-20) + 14,
+    );
+
+    # load the award icons
+    my $x = 545 - 5 - 16;
+    foreach my $award (@{$args{awards}}) {
+        my $aicon = Imager->new();
+        $aicon->read(file => sprintf('%s/icon/awards/16/%s.png', $self->_path, $award)) or die 'failed reading award', "\n";
+        $self->_bg->compose(src => $aicon, tx => $x, ty => 2);
+        $x -= (16 + 5);
     }
 
     $self->_bg->write(file => $args{'destination'});

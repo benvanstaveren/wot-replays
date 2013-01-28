@@ -6,6 +6,8 @@ my $i = WR::Imager->new();
 $i->create(
     map     => '23_westfeld',
     vehicle => 'usa-m18_hellcat', 
+    vehicle_name => 'M18 Hellcat',
+    map_name => 'Westfield',
     result => 'victory',
     credits => 123450,
     xp      => 12345,
@@ -15,4 +17,5 @@ $i->create(
     player  => 'Scrambled',
     clan    => 'TDC-O',
     destination => '/tmp/replay.png',
+    awards   => [qw/markOfMastery4 sniper evileye defender/],
 );
