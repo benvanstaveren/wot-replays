@@ -124,6 +124,7 @@ sub parse {
             file    => $asset->path,
             db      => $self->db('wot-replays'),
             bf_key  => $self->stash('config')->{wot}->{bf_key},
+            banner  => $s,
         );
 
         my $m_data;
@@ -133,6 +134,7 @@ sub parse {
             $self->app->log->error("[process]: $_");
             $self->render(json => { ok => 0, error => "[process]: $_" });
         };
+
         return unless(defined($m_data));
 
         my $filename = $upload->filename;
@@ -162,6 +164,7 @@ sub parse {
                 $url = sprintf('http://www.wot-replays.org/replay/%s.html', $m_data->{_id}->to_string);
             }
         } else {
+            # ehrmahgerd, replays that aren't supposed to be stored still get their image saved, is no good jais?
             $asset->cleanup;
         }
         my $data = {

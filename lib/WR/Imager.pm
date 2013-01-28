@@ -196,8 +196,9 @@ sub create {
         $self->_bg->compose(src => $aicon, tx => $x, ty => 2);
         $x -= (16 + 5);
     }
-
     $self->_bg->write(file => $args{'destination'});
+
+    return $args{'destination'};
 }
 
 __PACKAGE__->meta->make_immutable;

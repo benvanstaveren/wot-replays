@@ -35,6 +35,8 @@ around 'process' => sub {
     my $self = shift;
     my $res  = $self->$orig;
 
+    return $res if($self->banner == 0);
+
     try {
         my $pv = $res->{player}->{vehicle}->{full};
         $pv =~ s/:/-/;
@@ -45,7 +47,7 @@ around 'process' => sub {
         }
 
         my $i = WR::Imager->new();
-        $i->create(
+        my $imagefile = $i->create(
             map     => $res->{map}->{id},
             vehicle => lc($pv),
             result  => 
@@ -66,8 +68,11 @@ around 'process' => sub {
             destination => sprintf('%s/%s.png', $self->get_base_path, $res->{_id}->to_string),
             awards  => $self->stringify_awards($res),
         );
+        $res->{image_file} = $imagefile;
     } catch {
-        die '[image]: ' . $_ . "\n";  
+        $res->{image_file} = undef;
+        $res->{image_error} = true;
+        $res->{image_error_message} = $_;
     };
     return $res;
 };

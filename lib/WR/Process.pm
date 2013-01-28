@@ -21,6 +21,8 @@ has 'match_info' => (is => 'ro', isa => 'HashRef', writer => '_set_match_info', 
 has 'match_result' => (is => 'ro', isa => 'ArrayRef', writer => '_set_match_result', init_arg => undef);
 has 'pickledata' => (is => 'ro', isa => 'HashRef', writer => '_set_pickledata', init_arg => undef);
 
+has 'banner' => (is => 'ro', isa => 'Bool', required => 1, default => 1);
+
 # load order here is important, the roles are applied left to right, first role applied is the first level in the 'around' chain
 
 with (
