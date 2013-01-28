@@ -128,6 +128,7 @@ sub parse {
         try {
             $m_data = $p->process();
         } catch {
+            $self->app->log->error("[process]: $_");
             $self->render(json => { ok => 0, error => "[process]: $_" });
         };
         return unless(defined($m_data));
