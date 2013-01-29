@@ -170,7 +170,7 @@ sub _build_query {
         }
     }
 
-    $query->{'complete'} = true if($args{'complete'});
+    $query->{'complete'} = true if($args{'complete'} == 1);
     $query->{'version'} = $args{'version'} if($args{'compatible'} == 1); 
 
     $query->{'game.type'} = $args{'matchmode'} if($args{'matchmode'} && $args{'matchmode'} ne '');

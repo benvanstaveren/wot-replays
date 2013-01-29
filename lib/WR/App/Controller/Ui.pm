@@ -46,8 +46,9 @@ sub generate_replay_count {
 
     my $stats = {};
     foreach my $item (@$r_stats) {
-        $stats->{$item->{version}}->{total} += $item->{count};
-        $stats->{$item->{version}}->{($item->{'site.visible'}) ? 'visible' : 'hidden'} = $item->{count};
+        $stats->{v}->{$item->{version}}->{total} += $item->{count};
+        $stats->{v}->{$item->{version}}->{($item->{'site.visible'}) ? 'visible' : 'hidden'} = $item->{count};
+        $stats->{t} += $item->{count};
     }
 
     delete($stats->{''});
@@ -76,7 +77,8 @@ sub index {
     $self->respond(template => 'index', stash => {
         page => { title => 'Home' },
         replays => $replays,
-        #replay_count => $rc,
+        #replay_count => $self->generate_replay_count,
+        replay_count => $self->model('wot-replays.replays')->count() + 0,
     });
 }
 
