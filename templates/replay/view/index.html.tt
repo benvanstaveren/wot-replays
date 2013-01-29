@@ -59,9 +59,12 @@
                                     [% INCLUDE replay/view/teams.html.tt %]
                                 </div>
                                 <div id="comparison" class="tab-panel" style="display: none">
-                                    <div id="comparison-display">
-                                        [% INCLUDE replay/view/comparison.html.tt %]
-                                    </div>
+                                    <div id="comparison-display">Loading...</div>
+                                    <script type="text/javascript">
+                                        $(document).ready(function() {
+                                            $('#comparison-display').load('/replay/[% replay.id %]/comparison', {}, function() {});
+                                        });
+                                    </script>
                                 </div>
                                 [% IF replay.chat.size > 0 %]
                                 <div id="battle-chat" class="tab-panel" style="display: none">
