@@ -59,11 +59,18 @@ sub index {
 
     # let's just do this by hand, fuck TT and it's private setting and it not wanting to use it properly.
     # fuck it up the ass with a big black rubber cock.
+    my $q = {
+        'site.visible' => true,
+    };
+
+    if($self->is_user_authenticated) {
+        if($self->current_user->{settings}->{hide_incomplete} == 1) {
+            $q->{'complete'} = true;
+        }
+    }
+
     my $replays = [ 
-        map { { %{$_}, id => $_->{_id} } } $self->db('wot-replays')->get_collection('replays')->find({
-            'site.visible' => true,
-            'complete'     => true,
-        })->sort({ 'site.uploaded_at' => -1 })->limit(15)->all()
+        map { { %{$_}, id => $_->{_id} } } $self->db('wot-replays')->get_collection('replays')->find($q)->sort({ 'site.uploaded_at' => -1 })->limit(15)->all()
     ];
 
     $self->respond(template => 'index', stash => {

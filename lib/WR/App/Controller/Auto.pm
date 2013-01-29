@@ -130,8 +130,14 @@ sub index {
             my $pname = $3;
             $self->stash('current_player_name' => $pname);
             $self->stash('current_player_server' => uc($server));
-        } else {
-            die 'wotdafuq: ', $o, "\n";
+
+            # needs to be updated 
+            $self->model('wot-replays.accounts')->update({ _id => $self->current_user->{_id} }, {
+                '$set' => {
+                    player_name     => $pname,
+                    player_server   => $server,
+                }
+            });
         }
     }
 

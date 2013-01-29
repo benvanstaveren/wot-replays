@@ -76,6 +76,10 @@ sub browse {
         my $compatible = $self->req->param('compatible');
         my $sort = $self->req->param('sort') || 'upload';
 
+        if($self->is_user_authenticated && $self->current_user->{settings}->{hide_incomplete} == 1)  {
+            $filter->{complete} = 1; 
+        }
+
         $filter->{complete} = 1 if(defined($complete) && $complete == 1);
         $filter->{survived} = 1 if(defined($survived) && $survived == 1);
         $filter->{compatible} = 1 if(defined($compatible) && $compatible == 1);

@@ -146,6 +146,17 @@ sub parse {
             unless($self->model('wot-replays.replays')->find_one({ replay_digest => $m_data->{replay_digest}})) {
                 my $replay_file = sprintf('%s/%s', $self->stash('config')->{paths}->{replays}, $filename);
                 $asset->move_to($replay_file);
+
+                my $visible = true;
+
+                unless($m_data->{complete}) {
+                    if(my $user = $self->model('wot-replays.accounts')->find_one({
+                        player_name     => $m_data->{player}->{name},
+                        player_server   => $m_data->{player}->{server},
+                    })) {
+                        $visible = ($user->{settings}->{upload_incomplete} == 1) ? true : false;
+                    }
+                }
                 $self->model('wot-replays.replays')->save({
                     %$m_data,
                     site => {
@@ -153,7 +164,7 @@ sub parse {
                         uploaded_at => time(),
                         uploaded_by => undef,
                         ident       => $self->stash('token_ident'),
-                        visible     => true,
+                        visible     => $visible,
                     }
                 });
                 $url = sprintf('http://www.wot-replays.org/replay/%s.html', $m_data->{_id}->to_string);

@@ -11,6 +11,19 @@ sub check {
     $self->redirect_to('/login') and return 0;
 }
 
+sub setting {
+    my $self = shift;
+    my $s    = $self->req->param('s');
+    my $v    = $self->req->param('v');
+
+    $self->model('wot-replays.accounts')->update({ _id => $self->current_user->{_id} }, {
+        '$set' => {
+            sprintf('settings.%s', $s) => ($v) ? 1 : 0,
+        },
+    });
+    $self->render(json => { ok => 1 });
+}
+
 sub sr {
     my $self = shift;
     my $id = bless({ value => $self->req->param('id') }, 'MongoDB::OID');

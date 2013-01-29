@@ -86,6 +86,7 @@ sub startup {
         $pb->route('/sr')->to('profile#sr', pageid => 'profile');
         $pb->route('/hr')->to('profile#hr', pageid => 'profile');
         $pb->route('/reclaim')->to('profile#reclaim', pageid => 'profile');
+        $pb->route('/j/setting')->to('profile#setting');
 
     my $stats = $r->under('/stats');
         $stats->route('/')->to('stats#index');

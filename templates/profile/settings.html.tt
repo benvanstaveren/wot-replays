@@ -1,1 +1,49 @@
-Under construction
+<div style="margin-bottom: 15px">
+    <div style="width: 350px; float: left; margin: 0px 15px 0px 0px">
+        <span class="label">Viewing</span>
+        <div> These options will alter the list of replays seen on the front page and browse pages.</div>
+        <div style="margin-top: 10px">
+            <span class="label small">Incomplete replays: <select name="hide_incomplete">
+                <option value="0" [% IF h.current_user.settings.hide_incomplete == 0 %]selected="true"[% END %]>Hide incomplete replays from me</option>
+                <option value="1" [% IF h.current_user.settings.hide_incomplete == 1 %]selected="true"[% END %]>Show me incomplete replays</option>
+                </select><span class="hide_incomplete_loading" style="display: none">Updating...</span>
+            </span>
+        </div>
+    </div>
+    <div style="width: 350px; float: left; margin: 0px 15px 0px 0px">
+        <span class="label">Uploads</span>
+        <div>These options will affect what happens to a replay when it is uploaded via a partner site</div>
+        <div style="margin-top: 10px">
+            <span class="label small">Incomplete replays: <select name="upload_incomplete">
+                <option value="0" [% IF h.current_user.settings.upload_incomplete == 0 %]selected="true"[% END %]>Do not publish incomplete replays</option>
+                <option value="1" [% IF h.current_user.settings.upload_incomplete == 1 %]selected="true"[% END %]>Publish incomplete replays</option>
+                </select><span class="upload_incomplete_loading" style="display: none">Updating...</span>
+            </span>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <script type="text/javascript">
+        $(document).ready(function() {
+        $('select[name="hide_incomplete"]').change(function() {
+            var v = $(this).val();
+            $(this).hide();
+            var select = this;
+            $('span.hide_incomplete_loading').show();
+            $.getJSON('/profile/j/setting', { s: 'hide_incomplete', v: v }, function() {$
+                $(select).show();
+                $('span.hide_incomplete_loading').hide();
+            });
+        });
+        $('select[name="upload_incomplete"]').change(function() {
+            var v = $(this).val();
+            $(this).hide();
+            $('span.upload_incomplete_loading').show();
+            var select = this;
+            $.getJSON('/profile/j/setting', { s: 'upload_incomplete', v: v }, function() {
+                $(select).show();
+                $('span.upload_incomplete_loading').hide();
+            });
+        });
+        });
+    </script>
+</div>
