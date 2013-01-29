@@ -105,7 +105,12 @@
                     $('<div>').attr('title', 'Embed Replay').append(
                         $('<div>').css({ 'font-size': '1.2em', 'padding': '2px'}).html('In order to embed this replay, use the supplied BBCode below'),
                         $('<img>').attr('src', 'http://dl.wot-replays.org/[% replay.id %].png').css({ 'width': '545px', 'height': '98px', 'margin': '10px 0px 10px 0px' }),
-                        $('<div>').attr('style', 'font-family: "Droid Sans Mono"').html('[url="http://www.wot-replays.org/replay/[% replay.id %].html"]<br/>[img]http://dl.wot-replays.org/[% replay.id %].png[/img]<br/>[/url]')
+                        $('<textarea>').css({
+                            width: '545px',
+                            height: '55px',
+                            'font-size': '1em',
+                            resize: 'none'
+                        }).html('[url="http://www.wot-replays.org/replay/[% replay.id %].html"]' + "\n" + '[img]http://dl.wot-replays.org/[% replay.id %].png[/img]' + "\n" + '[/url]')
                     ).dialog({
                         modal: true,
                         resizable: false,
