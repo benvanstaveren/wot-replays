@@ -27,18 +27,13 @@
                         Maps
                     </a>
                 </li>
-                <li class="nav-item maps [% IF pageid == 'tournament' %]active[% END %]">
-                    <a class="js-hover" href="/tournaments">
-                        Tournaments
-                    </a>
-                </li>
-            </ul>
-            <ul class="nav js-global-actions" id="global-pages" style="float: right">
                 <li class="nav-item maps [% IF pageid == 'stats' %]active[% END %]">
                     <a class="js-hover" href="/stats">
                         Statistics
                     </a>
                 </li>
+            </ul>
+            <ul class="nav js-global-actions" id="global-pages" style="float: right">
                 <li class="nav-item blog [% IF pageid == 'blog' %]active[% END %]">
                     <a class="js-hover" href="http://blog.wot-replays.org/">
                         Blog
@@ -50,25 +45,20 @@
                     </a>
                 </li>
                 [% IF h.is_user_authenticated %]
-                <li class="nav-item signout [% IF pageid == 'signout' %]active[% END %]">
-                    <a class="js-hover" href="/logout">
-                        Sign out
-                    </a>
-                </li>
-                <li class="ui-corner-tr nav-item profile [% IF pageid == 'profile' %]active[% END %]">
-                    <a class="js-hover ui-corner-tr " href="/profile">
+                <li class="nav-item profile [% IF pageid == 'profile' %]active[% END %]">
+                    <a class="js-hover" href="/profile">
                         Your Profile
                     </a>
                 </li>
-                [% ELSE %]
-                <li class="nav-item login [% IF pageid == 'login' %]active[% END %]">
-                    <a class="js-hover" href="/login">
-                        Login
+                <li class="nav-item signout ui-corner-tr [% IF pageid == 'signout' %]active[% END %]">
+                    <a class="js-hover ui-corner-tr" href="/logout">
+                        Sign out
                     </a>
                 </li>
-                <li class="ui-corner-tr nav-item register [% IF pageid == 'register' %]active[% END %]">
-                    <a class="ui-corner-tr js-hover" href="/register">
-                        Register
+                [% ELSE %]
+                <li class="nav-item login ui-corner-tr [% IF pageid == 'login' %]active[% END %]">
+                    <a class="ui-corner-tr js-hover" href="/login">
+                        Login
                     </a>
                 </li>
                 [% END %]
