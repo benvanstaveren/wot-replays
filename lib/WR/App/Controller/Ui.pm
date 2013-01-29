@@ -65,7 +65,7 @@ sub index {
     };
 
     if($self->is_user_authenticated) {
-        if($self->current_user->{settings}->{hide_incomplete} == 1) {
+        unless($self->current_user->{settings}->{hide_incomplete} == 1) {
             $q->{'complete'} = true;
         }
     }
@@ -75,10 +75,9 @@ sub index {
     ];
 
     $self->respond(template => 'index', stash => {
-        page => { title => 'Home' },
-        replays => $replays,
-        #replay_count => $self->generate_replay_count,
-        replay_count => $self->model('wot-replays.replays')->count() + 0,
+        page            => { title => 'Home' },
+        replays         => $replays,
+        replay_count    => $self->model('wot-replays.replays')->count() + 0,
     });
 }
 

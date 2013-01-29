@@ -77,6 +77,9 @@ sub browse {
         my $sort = $self->req->param('sort') || 'upload';
 
         if($self->is_user_authenticated && $self->current_user->{settings}->{hide_incomplete} == 1)  {
+            # show them
+            delete($filter->{complete});
+        } else {
             $filter->{complete} = 1; 
         }
 
