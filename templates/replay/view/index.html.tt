@@ -106,9 +106,9 @@
                         $('<div>').css({ 'font-size': '1.2em', 'padding': '2px'}).html('In order to embed this replay, use the supplied BBCode below'),
                         $('<img>').attr('src', 'http://dl.wot-replays.org/[% replay.id %].png').css({ 'width': '545px', 'height': '98px', 'margin': '10px 0px 10px 0px' }),
                         $('<textarea>').css({
-                            width: '545px',
-                            height: '55px',
-                            'font-size': '1em',
+                            width: '540px',
+                            height: '65px',
+                            'font-size': '1.4em',
                             resize: 'none'
                         }).html('[url="http://www.wot-replays.org/replay/[% replay.id %].html"]' + "\n" + '[img]http://dl.wot-replays.org/[% replay.id %].png[/img]' + "\n" + '[/url]')
                     ).dialog({
@@ -116,7 +116,7 @@
                         resizable: false,
                         draggable: false,
                         width: 600,
-                        height: 300,
+                        height: 350,
                         buttons: {
                             'Close': function() {
                                 $(this).dialog('close');
