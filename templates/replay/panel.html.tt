@@ -10,7 +10,7 @@
                     [% IF replay.site.from_wpa == 1 %]
                         <span class="partner vbaddict"></span>
                     [% ELSIF replay.site.ident %]
-                        <span class="partner [% replay.site.ident %]"></span>
+                        <span title="via [% h.partner_name(replay.site.ident) %]" class="tooltip partner [% replay.site.ident %]"></span>
                     [% END %]
                 </h3>
                 <div>

@@ -132,6 +132,16 @@ sub add_helpers {
         return WR::Query->new(@_, coll => $self->db('wot-replays')->get_collection('replays'));
     });
 
+    $self->helper('partner_name' => sub {
+        my $self = shift;
+        my $pid  = shift;
+        my $temptable = {
+            'vbaddict' => 'www.vbaddict.net',
+        };
+
+        my $n = $temptable->{$pid} || 'unknown';
+        return $n;
+    });
 
     $self->helper(get_id => sub { return $_[1]->{_id} });
     $self->helper(res => sub { return shift->app->wr_res });
