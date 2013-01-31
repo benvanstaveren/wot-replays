@@ -28,8 +28,9 @@ sub sr {
     my $self = shift;
     my $id = bless({ value => $self->req->param('id') }, 'MongoDB::OID');
 
-    if(my $replay = $self->db('wot-replays')->get_collection('replays')->find_one({ _id => $id, 'site.uploaded_by' => $self->current_user->{_id} })) {
+    if(my $replay = $self->db('wot-replays')->get_collection('replays')->find_one({ _id => $id, 'player.name' => $self->current_user->{player_name}, 'player.server' => $self->current_user->{player_server} })) {
         $self->db('wot-replays')->get_collection('replays')->update({ _id => $id }, { '$set' => { 'site.visible' => true } });
+        $self->clear_replay_page($self->req->param('id'));
         $self->render(json => { ok => 1 });
     } else {
         $self->render(json => { ok => 0, error => 'Replay does not exist, or it is not yours' });
@@ -40,8 +41,9 @@ sub hr {
     my $self = shift;
     my $id = bless({ value => $self->req->param('id') }, 'MongoDB::OID');
 
-    if(my $replay = $self->db('wot-replays')->get_collection('replays')->find_one({ _id => $id, 'site.uploaded_by' => $self->current_user->{_id} })) {
+    if(my $replay = $self->db('wot-replays')->get_collection('replays')->find_one({ _id => $id, 'player.name' => $self->current_user->{player_name}, 'player.server' => $self->current_user->{player_server} })) {
         $self->db('wot-replays')->get_collection('replays')->update({ _id => $id }, { '$set' => { 'site.visible' => false } });
+        $self->clear_replay_page($self->req->param('id'));
         $self->render(json => { ok => 1 });
     } else {
         $self->render(json => { ok => 0, error => 'Replay does not exist, or it is not yours' });

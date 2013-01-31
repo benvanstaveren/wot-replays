@@ -1,5 +1,9 @@
 <div style="margin-bottom: 15px">
-    Under construction
+    <div style="width: 200px; float: left; margin-right: 10px">
+        <span class="label">Personal Page</span>
+        <span>http://[% h.current_user.player_name |lower %].[% h.current_user.player_server |lower %].wot-replays.org/</span>
+    </div>
+    <div class="clear"></div>
 </div>
 <script type="text/javascript">
     $(document).ready(function() {

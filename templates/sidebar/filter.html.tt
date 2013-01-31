@@ -16,7 +16,7 @@
             <span class="label">Vehicle</span>
             <select name="vehicle">
                 <option value="">-- All vehicles</option>
-                [% FOREACH group IN wr.generate_vehicle_select() %]
+                [% FOREACH group IN h.generate_vehicle_select() %]
                     <optgroup label="[% group.label %]">
                         [% FOREACH option IN group.items %]
                             <option value="[% group.country %]:[% option.id %]">[% option.value %]</option>
@@ -29,7 +29,7 @@
             <span class="label">Map</span>
             <select name="map">
                 <option value="">-- All maps</option>
-                [% FOREACH map IN wr.generate_map_select() %]
+                [% FOREACH map IN h.generate_map_select() %]
                     <option value="[% map.id |html %]">[% map.label %]</option>
                 [% END %]
             </select>

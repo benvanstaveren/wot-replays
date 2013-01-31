@@ -1,5 +1,6 @@
 package WR::App;
 use Mojo::Base 'Mojolicious';
+use Mojo::JSON;
 
 # this is a bit cheesy but... 
 use FindBin;
@@ -7,7 +8,8 @@ use lib "$FindBin::Bin/../lib";
 
 use WR;
 use WR::Query;
-use WR::Res;
+use WR::Res;$
+use WR::Renderer;
 use WR::App::Helpers;
 
 use Time::HiRes qw/gettimeofday/;
@@ -19,6 +21,8 @@ sub startup {
     my $self = shift;
     
     $self->secret(q|a superbly secret secret that nobody will ever guess in their entire damn life|);
+
+    $self->attr(json => sub { return Mojo::JSON->new() });
 
     my $config = $self->plugin('Config', { file => 'wr.conf' });
     $self->plugin('mongodb', { host => $config->{mongodb}, patch_mongodb => 1 });
@@ -102,27 +106,36 @@ sub startup {
 
     WR::App::Helpers->add_helpers($self);
 
-    $self->plugin('tt_renderer', { template_options => {
-        COMPILE_DIR  => undef,
-        COMPILE_EXT  => undef,
-        PRE_CHOMP    => 0,
-        POST_CHOMP   => 1,
-        TRIM => 1,
-        FILTERS => {
-            'js' =>  sub {
-                my $text = shift;
-                $text =~ s/\'/\\\'/gi;
-                return $text;
+    # in order to mess around with our template paths we need to:
+    $self->renderer->paths([]); # clear this out
+
+    my $tt = WR::Renderer->build(
+        mojo => $self,
+        template_options => {
+            COMPILE_DIR  => undef,
+            COMPILE_EXT  => undef,
+            PRE_CHOMP    => 0,
+            POST_CHOMP   => 1,
+            TRIM => 1,
+            FILTERS => {
+                'js' =>  sub {
+                    my $text = shift;
+                    $text =~ s/\'/\\\'/gi;
+                    return $text;
+                },
+                'tabtospan' =>  sub {
+                    my $text = shift;
+                    $text =~ s/\\t/<br\/><span style="margin-left: 20px"><\/span>/g;
+                    return $text;
+                },
             },
-            'tabtospan' =>  sub {
-                my $text = shift;
-                $text =~ s/\\t/<br\/><span style="margin-left: 20px"><\/span>/g;
-                return $text;
-            },
+            RELATIVE => 1,
+            ABSOLUTE => 1, # otherwise hypnotoad gets a bit cranky, for some reason
+            INCLUDE_PATH => [ $self->app->home->rel_dir('templates') ],
         },
-        RELATIVE => 1,
-        ABSOLUTE => 1, # otherwise hypnotoad gets a bit cranky, for some reason
-    }});
+    );
+    $self->renderer->add_handler(tt => $tt);
+    $self->renderer->default_handler('tt');
 }
 
 1;

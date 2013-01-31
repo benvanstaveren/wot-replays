@@ -11,10 +11,14 @@
         <script type="text/javascript" src="[% config.urls.static %]/js/jquery.blockUI.js"></script>
         <script type="text/javascript" src="[% config.urls.static %]/js/flot/jquery.flot.js"></script>
         <script type="text/javascript" src="[% config.urls.static %]/js/flot/jquery.flot.pie.js"></script>
+        <script type="text/javascript" src="[% config.urls.static %]/js/underscore-min.js"></script>
+        <script type="text/javascript" src="[% config.urls.static %]/js/backbone-min.js"></script>
         <script type="text/javascript" src="[% config.urls.static %]/js/wr.js"></script>
-        <link rel="stylesheet" href="[% config.urls.static %]/css/style.css"/>
+        <script type="text/javascript" src="[% config.urls.static %]/js/wr/ui.js"></script>
+        <script type="text/javascript" src="[% config.urls.static %]/js/wr/init.js"></script>
+        <link rel="stylesheet" href="[% config.urls.static %]/css/style.css" type="text/css">
         <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-        <meta name="keywords" content="[% page.keywords %], world of tanks replays, wot replays, replays"/>
+        <meta name="keywords" content="[% IF page.keywords %][% page.keywords %], [% END %]world of tanks replays, wot replays, replays"/>
         [% IF page.description %]
             <meta name="description" content="[% page.description |html %]"/>
         [% END %]

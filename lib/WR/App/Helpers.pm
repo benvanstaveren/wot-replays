@@ -33,70 +33,6 @@ sub generate_vehicle_select {
     return $p;
 }
 
-sub get_match_result {
-    my $self = shift;
-    my $surv_player_team = $self->stash('req_replay')->{team_survivors}->[0];
-    my $surv_enemy_team = $self->stash('req_replay')->{team_survivors}->[1];
-
-    my $win = $self->stash('req_replay')->{game}->{isWin};
-    my $draw = $self->stash('req_replay')->{game}->{isDraw};
-
-    my $win_reasons = {
-        13  =>  [ 'by godlike slaughter' ],
-        10  =>  [ 'by shooting them like fish in a barrel' ],
-        8   =>  [ 'by utter annihilation' ],
-        5   =>  [ 'by annihilation' ],
-        2   =>  [ 'by attrition '],
-        1   =>  [ 'by that lucky last dude' ],
-    };
-
-    my $loss_reasons = {
-        13  =>  [ 'due to getting lollerstomped', 'due to surprise buttsecks, no lube.' ],
-        10  =>  [ 'due to overzealous use of high explosives' ],
-        8   =>  [ 'due to decisive action on the enemy\'s part' ],
-        5   =>  [ 'by annihilation' ],
-        2   =>  [ 'by attrition '],
-        1   =>  [ 'due to that last living bastard on the enemy team' ],
-    };
-        
-    return 'Draw' if($draw);
-
-    if($win) {
-        if($surv_enemy_team == 0) {
-            # won by annihilation
-            my $v = 'Victory';
-            foreach my $l (sort { $b <=> $a } (keys(%$win_reasons))) {
-                if($surv_player_team >= $l) {
-                    my $r = $win_reasons->{$l};
-                    my $rr = $r->[int(rand(scalar(@$)))];
-                    $v .= ' ' . $rr;
-                    return $v;
-                }
-            }
-            return "$v by miracle";
-        } else {
-            return 'Victory by capture';
-        }
-    } else {
-        if($surv_player_team == 0) {
-            # lost by annihilation
-            my $v = 'Defeat';
-
-            foreach my $l (sort { $b <=> $a } (keys(%$loss_reasons))) {
-                if($surv_enemy_team >= $l) {
-                    my $r = $loss_reasons->{$l};
-                    my $rr = $r->[int(rand(scalar(@$)))];
-                    $v .= ' ' . $rr;
-                    return $v;
-                }
-            }
-            return $v;
-        } else {
-            return 'Defeat by capture';
-        }
-    }
-}
-
 sub add_helpers {
     my $class = shift;
     my $self  = shift; # not really self but the Mojo app
@@ -145,6 +81,25 @@ sub add_helpers {
 
         my $n = $temptable->{$pid} || 'unknown';
         return $n;
+    });
+
+    $self->helper(to_json => sub {
+        my $self = shift;
+        my $v    = shift;
+
+        if(ref($v) eq 'ARRAY') {
+            return $self->app->json->encode([ map { WR::Query->fuck_mojo_json($_) } @$v ]);
+        } else {
+            return $self->app->json->encode(WR::Query->fuck_mojo_json($v));
+        }
+    });
+
+    $self->helper('clear_replay_page' => sub {
+        my $self = shift;
+        my $id   = shift;
+
+        my $filename = sprintf('%s/%s.html', $self->stash('config')->{paths}->{pages}, $id);
+        unlink($filename);
     });
 
     $self->helper(get_id => sub { return $_[1]->{_id} });

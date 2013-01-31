@@ -44,8 +44,9 @@ sub bridge {
 sub desc {
     my $self = shift;
     
-    if($self->stash('req_replay')->{site}->{uploaded_by}->to_string eq $self->current_user->{_id}->to_string) {
+    if($self->stash('req_replay')->{player}->{name} eq $self->current_user->{player}->{name} && $self->stash('req_replay')->{player}->{server} eq $self->current_user->{player}->{server}) {
         $self->db('wot-replays')->get_collection('replays')->update({ _id => $self->stash('req_replay')->{_id} }, { '$set' => { 'site.description' => $self->req->param('desc') }});
+        $self->clear_replay_page($self->stash('req_replay')->{_id}->to_string);
     }
     $self->redirect_to(sprintf('/replay/%s.html', $self->stash('req_replay')->{_id}->to_string));
 }
