@@ -132,6 +132,10 @@ sub add_helpers {
         return WR::Query->new(@_, coll => $self->db('wot-replays')->get_collection('replays'));
     });
 
+    $self->helper('lc' => sub {
+        shift and return lc(shift);
+    });
+
     $self->helper('partner_name' => sub {
         my $self = shift;
         my $pid  = shift;
