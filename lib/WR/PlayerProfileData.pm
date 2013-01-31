@@ -13,10 +13,11 @@ has 'id' => (is => 'ro', isa => 'Num', required => 1);
 has 'ua' => (is => 'ro', isa => 'Mojo::UserAgent', required => 1, default => sub { return Mojo::UserAgent->new() });
 
 use constant SERVERS => {
-    'na' => 'worldoftanks.com',
-    'eu' => 'worldoftanks.eu',
-    'ru' => 'worldoftanks.ru',
-    'sea' => 'worldoftanks-sea.com',
+    'na'    => 'worldoftanks.com',
+    'eu'    => 'worldoftanks.eu',
+    'ru'    => 'worldoftanks.ru',
+    'sea'   => 'worldoftanks-sea.com',
+    'vn'    => 'portal-wot.go.vn',
     };
 
 use constant T_RESULT_LAYOUT => [

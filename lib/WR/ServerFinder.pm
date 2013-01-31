@@ -9,6 +9,7 @@ use constant SERVERS => {
     'na' => 'worldoftanks.com/community/accounts/%d-%s/',
     'eu' => 'worldoftanks.eu/community/accounts/%d-%s/',
     'ru' => 'worldoftanks.ru/community/accounts/%d-%s/',
+    'vn' => 'portal-wot.go.vn/community/accounts/%d-%s/',
     'sea' => 'worldoftanks-sea.com/community/accounts/%d-%s/',
     };
 
@@ -39,9 +40,7 @@ sub find_user {
         $e = $_;
     };
 
-    if($e) {
-        return undef;
-    }
+    return undef if($e);
 
     if($res) {
         my $content = $res->dom->at('div.l-content');
@@ -56,10 +55,9 @@ sub find_server {
     my $id   = shift;
     my $name = shift;
 
-    foreach my $cluster (qw/na eu ru sea/) {
+    foreach my $cluster (qw/na eu ru sea vn/) {
         my $title = $self->ua->get(sprintf(__PACKAGE__->SERVERS->{$cluster}, $id, $name))->res->dom->at('title')->text;
         if($title =~ /\s$name\s\|/) {
-            # found them 
             return $cluster;
         }
     }

@@ -19,6 +19,11 @@
         "label_long": "Chinese Server",
         "label_short": "CN"
     },
+    "vn": {
+        "label": "Vietnam",
+        "label_long": "Vietnamese Server",
+        "label_short": "VN"
+    },
     "sea": {
         "label": "South East Asia",
         "label_long": "South East Asian Server",
