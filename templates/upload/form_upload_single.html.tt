@@ -59,7 +59,6 @@
                     },
                     complete: function(xhr) {
                         var j = JSON.parse(xhr.responseText);
-                        console.log('completed with: ', j);
                         if(j.ok == 1) {
                             $('#upload-progress-panel #progress').hide();
                             $('#upload-progress-panel #progress-label').hide();
@@ -74,10 +73,14 @@
                             $('#completed').show();
 
                         } else {
-                            // error
-                            $('#upload-form-panel').show();
-                            $('#upload-progress-panel').hide();
-                            WR.ui.notify({ type: 'error', close: true, sticky: true, text: j.error });
+                            if(j.redirect) {
+                                document.location.href = j.redirect;
+                            } else {
+                                // error
+                                $('#upload-form-panel').show();
+                                $('#upload-progress-panel').hide();
+                                WR.ui.notify({ type: 'error', close: true, sticky: true, text: j.error });
+                            }
                         }
                     }
                 });
