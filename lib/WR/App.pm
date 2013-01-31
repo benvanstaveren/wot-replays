@@ -8,7 +8,7 @@ use lib "$FindBin::Bin/../lib";
 
 use WR;
 use WR::Query;
-use WR::Res;$
+use WR::Res;
 use WR::Renderer;
 use WR::App::Helpers;
 
