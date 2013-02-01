@@ -128,6 +128,28 @@ sub add_helpers {
 
         return sprintf('<span style="color: %s">%d</span>', $col, $eff);
     });
+
+    $self->helper(show_efficiency => sub {
+        my $self = shift;
+        my $show = 1;
+
+        if($self->is_user_authenticated) {
+            if($self->current_user->{settings}->{hide_efficiency} == 1) {
+                $show = 0;
+            }
+        } 
+
+        if(my $user = $self->model('wot-replays.accounts')->find_one({ 
+            player_name     => $self->stash('req_replay')->{player}->{name},
+            player_server   => $self->stash('req_replay')->{player}->{server},
+        })) {
+            if($user->{settings}->{hide_my_efficiency} == 1) {
+                $show = 0;
+            }
+        }
+        return $show;
+    });
+
     $self->helper(vehicles_by_frags => sub {
         my $self = shift;
         my $hash = shift;
