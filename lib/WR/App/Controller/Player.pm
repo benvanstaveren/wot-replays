@@ -127,6 +127,7 @@ sub latest {
     my $query = {
         'player.name'   => $self->stash('player_name'),
         'player.server' => $self->stash('server'),
+        'site.visible'  => true,
     };
 
     if(my $replay = ($self->model('wot-replays.replays')->find($query)->sort({ 'site.uploaded_at' => -1 })->limit(1)->all())[0]) {
