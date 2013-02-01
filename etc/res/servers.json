@@ -24,6 +24,11 @@
         "label_long": "Vietnamese Server",
         "label_short": "VN"
     },
+    "kr": {
+        "label": "Korea",
+        "label_long": "Korean Server",
+        "label_short": "KR"
+    },
     "sea": {
         "label": "South East Asia",
         "label_long": "South East Asian Server",

@@ -41,6 +41,8 @@
                 <option value="eu">Europe</option>
                 <option value="ru">Russia</option>
                 <option value="sea">South East Asia</option>
+                <option value="vn">Vietnam</option>
+                <option value="kr">Korea</option>
             </select>
             <span class="label">Match Mode</span>
             <select name="matchmode">
