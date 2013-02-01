@@ -136,7 +136,7 @@ sub latest {
             $self->redirect_to(sprintf('/replay/%s.html', $replay->{_id}->to-string));
         }
     } else {
-        $self->redirect_to(sprintf('/player/%s/%s', $server, $player_name));
+        $self->redirect_to(sprintf('/player/%s/%s', $self->stash('server'), $self->stash('player_name')));
     }
 }
 
