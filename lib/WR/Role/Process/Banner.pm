@@ -70,8 +70,10 @@ around 'process' => sub {
             awards  => $self->stringify_awards($res),
         );
         $res->{image_file} = $imagefile;
+        $res->{image_url}  = sprintf('http://dl.wot-replays.org/%s.png', $res->{_id}->to_string);
     } catch {
         $res->{image_file} = undef;
+        $res->{image_url}  = undef;
         $res->{image_error} = true;
         $res->{image_error_message} = $_;
     };

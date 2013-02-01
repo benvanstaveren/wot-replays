@@ -115,6 +115,31 @@ sub involved {
     return shift->view(1);
 }
 
+sub player_bridge {
+    my $self = shift;
+
+    # there's no player record to load so...
+    return 1;
+}
+
+sub latest {
+    my $self = shift;
+    my $query = {
+        'player.name'   => $self->stash('player_name'),
+        'player.server' => $self->stash('server'),
+    };
+
+    if(my $replay = ($self->model('wot-replays.replays')->find($query)->sort({ 'site.uploaded_at' => -1 })->limit(1)->all())[0]) {
+        if(defined($self->stash('format')) && $self->stash('format') eq 'png') {
+            $self->redirect_to(sprintf('http://dl.wot-replays.org/%s.png', $replay->{_id}->to-string));
+        } else {
+            $self->redirect_to(sprintf('/replay/%s.html', $replay->{_id}->to-string));
+        }
+    } else {
+        $self->redirect_to(sprintf('/player/%s/%s', $server, $player_name));
+    }
+}
+
 sub view { 
     my $self = shift;
     my $inv  = shift;

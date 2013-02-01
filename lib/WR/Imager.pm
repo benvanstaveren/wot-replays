@@ -196,7 +196,12 @@ sub create {
         $self->_bg->compose(src => $aicon, tx => $x, ty => 2);
         $x -= (16 + 5);
     }
-    $self->_bg->write(file => $args{'destination'});
+
+    if(ref($args{destination}) eq 'ARRAY') {
+        $self->_bg->write(file => $_) for(@{$args{'destination'}});
+    } else {
+        $self->_bg->write(file => $args{'destination'});
+    }
 
     return $args{'destination'};
 }

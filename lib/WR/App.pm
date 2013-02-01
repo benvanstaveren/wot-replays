@@ -60,23 +60,24 @@ sub startup {
         $rb->route('/incview')->to('replays-view#incview', pageid => undef);
         $rb->route('/comparison')->to('replays-view#comparison', pageid => undef);
 
-    $r->route('/players/:server')->to('player#index', pageid => 'player', server => 'any');
-
-    $r->route('/player/:server/:player_name/involved')->to('player#involved', pageid => 'player');
-    $r->route('/player/:server/:player_name')->to('player#view', pageid => 'player');
+    $r->route('/players')->to('player#index', pageid => 'player');
     $r->route('/player/:player_name')->to('player#ambi', pageid => 'player');
+
+    my $playerbridge = $r->bridge('/player/:server/:player_name')->to('player#player_bridge');
+        $playerbridge->route('/')->to('player#view', pageid => 'player');
+        $playerbridge->route('/involved')->to('player#involved', pageid => 'player');
+        $playerbridge->route('/latest')->to('player#latest', pageid => 'player');
 
     $r->route('/clans')->to('clan#index', pageid => 'clan');
 
     $r->route('/vehicles')->to('vehicle#index', pageid => 'vehicle');
+    $r->route('/vehicle/:country')->to('vehicle#view', pageid => 'vehicle', countryonly => 1);
     $r->route('/vehicle/:country/:vehicle')->to('vehicle#view', pageid => 'vehicle');
 
     $r->route('/maps')->to('map#index', pageid => 'map');
     $r->route('/map/:map_id')->to('map#view', pageid => 'map');
 
     $r->route('/tournaments')->to('tournament#index', pageid => 'tournament');
-
-    $r->route('/register')->to('ui#register', pageid => 'register');
 
     $r->any('/login')->to('ui#do_login', pageid => 'login');
     $r->any('/logout')->to('ui#do_logout');
