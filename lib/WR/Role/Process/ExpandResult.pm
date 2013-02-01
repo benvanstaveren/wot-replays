@@ -137,6 +137,7 @@ around 'process' => sub {
                 ammo        => [ undef, undef, undef ],
                 consumables => [ undef, undef, undef ],
             };
+        }
     }
     use warnings;
     return $data;
