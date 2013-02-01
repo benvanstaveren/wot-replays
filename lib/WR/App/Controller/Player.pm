@@ -131,9 +131,9 @@ sub latest {
 
     if(my $replay = ($self->model('wot-replays.replays')->find($query)->sort({ 'site.uploaded_at' => -1 })->limit(1)->all())[0]) {
         if(defined($self->stash('format')) && $self->stash('format') eq 'png') {
-            $self->redirect_to(sprintf('http://dl.wot-replays.org/%s.png', $replay->{_id}->to-string));
+            $self->redirect_to(sprintf('http://dl.wot-replays.org/%s.png', $replay->{_id}->to_string));
         } else {
-            $self->redirect_to(sprintf('/replay/%s.html', $replay->{_id}->to-string));
+            $self->redirect_to(sprintf('/replay/%s.html', $replay->{_id}->to_string));
         }
     } else {
         $self->redirect_to(sprintf('/player/%s/%s', $self->stash('server'), $self->stash('player_name')));
