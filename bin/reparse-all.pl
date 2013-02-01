@@ -14,28 +14,34 @@ $| = 1;
 use constant WOT_BF_KEY_STR => 'DE 72 BE A0 DE 04 BE B1 DE FE BE EF DE AD BE EF';
 use constant WOT_BF_KEY     => join('', map { chr(hex($_)) } (split(/\s/, WOT_BF_KEY_STR)));
 
-my $mongo  = MongoDB::Connection->new();
+my $mongo  = MongoDB::Connection->new(host => $ENV{MONGO} || 'localhost');
 my $db     = $mongo->get_database('wot-replays');
 
-my $query = {};
+my $query = {
+    'site.uploaded_at' => {
+        '$lte' => time()
+    },
+};
 
-if($ARGV[0] eq 'version') {
-    $query->{version} = $ARGV[1];
-}
+$query->{version} = $ARGV[1] if(defined($ARGV[0]) && $ARGV[0] eq 'version');
 
 my $rc = $db->get_collection('replays')->find($query)->sort({ 'site.uploaded_at' => -1 });
 
-print 'reparsing: ', $rc->count(), ' replays', "\n";
-sleep(5);
+use Data::Dumper;
 
-$db->get_collection('track.mastery')->drop(); # drop that
+print 'reparsing: ', $rc->count(), ' replays', "\n";
+print 'query:',"\n",Dumper($query),"\n";
+
+my $path = (-e '/home/ben') 
+    ? '/home/ben/projects/wot-replays/data/replays'
+    : '/home/wotreplay/wot-replays/data/replays';
 
 while(my $r = $rc->next()) {
     print 'no file', "\n" and next unless(defined($r->{file}));
     my $process;
     my $m;
     my $e;
-    my $f = sprintf('/home/ben/projects/wot-replays/data/replays/%s', $r->{file});
+    my $f = sprintf('%s/%s', $path, $r->{file});
 
     try {
         $process = WR::Process->new(file => $f, db => $db, bf_key => WOT_BF_KEY);
