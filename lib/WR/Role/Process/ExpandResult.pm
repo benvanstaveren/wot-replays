@@ -98,9 +98,17 @@ around 'process' => sub {
 
     if($self->_parser->is_complete) {
         $data->{statistics} = $self->pickledata->{personal};
+        $data->{statistics}->{xp_base} = 0;
+        $data->{statistics}->{credits_base} = 0;
 
-        $data->{statistics}->{xp_base} = $data->{vehicles}->{$data->{player}->{name}}->{xp} + 0;
-        $data->{statistics}->{credits_base} = $data->{vehicles}->{$data->{player}->{name}}->{credits} + 0;
+        foreach my $vehicle (values(%{$data->{vehicles}})) {
+            next unless(defined($vehicle->{name}));
+            if($vehicle->{name} eq $data->{player}->{name}) {
+                $data->{statistics}->{xp_base} = $vehicle->{xp} + 0;
+                $data->{statistics}->{credits_base} = $vehicle->{credits} + 0;
+                last;
+            }
+        }
 
         $data->{game}->{arena_id} = $self->pickledata->{arenaUniqueID} + 0;
         $data->{game}->{bonus_type} = $self->pickledata->{common}->{bonusType};
