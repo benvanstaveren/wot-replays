@@ -23,7 +23,7 @@ around 'process' => sub {
     my $all_players  = {};
 
     if($self->_parser->is_complete) {
-        my $pd       =  $self->pickledata->{vehicles};
+        my $pd = $self->pickledata->{vehicles};
         foreach my $v (sort { $b->{frags} <=> $a->{frags} } (@$vehicles)) {
             my $pv = $pd->{$v->{id}};
             if($self->_parser->is_complete) {
@@ -40,7 +40,6 @@ around 'process' => sub {
         }
         $all_players = $self->pickledata->{players};
     }
-
 
     # not sure where this comes from, appears to be coming from the pickle data,
     # and doesn't seem to be any existing vehicle. maybe fog of war?
@@ -100,8 +99,10 @@ around 'process' => sub {
     if($self->_parser->is_complete) {
         $data->{statistics} = $self->pickledata->{personal};
 
-        $data->{game}->{arena_id} = $self->pickledata->{arenaUniqueID} + 0;
+        $data->{statistics}->{xp_base} = $data->{vehicles}->{$data->{player}->{name}}->{xp} + 0;
+        $data->{statistics}->{credits_base} = $data->{vehicles}->{$data->{player}->{name}}->{credits} + 0;
 
+        $data->{game}->{arena_id} = $self->pickledata->{arenaUniqueID} + 0;
         $data->{game}->{bonus_type} = $self->pickledata->{common}->{bonusType};
         $data->{game}->{isWin} = ($self->match_result->[0]->{isWinner} > 0) 
             ? true 
@@ -122,7 +123,7 @@ around 'process' => sub {
         $s = $v - ($m * 60);
         $data->{game}->{lifetime}->{minutes} = sprintf('%s:%s', $m, $s);
 
-        $data->{game}->{time}        = $self->pickledata->{common}->{arenaCreateTime};
+        $data->{game}->{time}        = $self->pickledata->{common}->{arenaCreateTime} + 0;
         $data->{player}->{killed_by} = undef if($data->{player}->{killed_by} + 0 == 0);
 
         # add a few things to the player
@@ -131,7 +132,11 @@ around 'process' => sub {
                 ammo            => $self->_parser->wot_ammo,
                 consumables     => $self->_parser->wot_consumables,
             };
-        }
+        } else {
+            $data->{player}->{loadout} = {
+                ammo        => [ undef, undef, undef ],
+                consumables => [ undef, undef, undef ],
+            };
     }
     use warnings;
     return $data;
