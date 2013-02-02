@@ -13,10 +13,13 @@ around 'process' => sub {
     $md5->add($res->{player}->{name});
     $md5->add($res->{player}->{vehicle}->{full});
 
-    foreach my $pid (keys(%{$res->{players}})) {
-        $md5->add($res->{players}->{$pid}->{name});
-        $md5->add($res->{vehicles}->{$pid}->{typeCompDescr});
+    foreach my $vid (keys(%{$res->{vehicles}})) {
+        next unless(defined($res->{vehicles}->{$vid}->{name});
+        $md5->add($res->{vehicles}->{$vid}->{name});
+        $md5->add($res->{vehicles}->{$vid}->{typeCompDescr});
     }
+
+    $md5->add($res->{map}->{id});
 
     $res->{replay_digest} = $md5->hexdigest;
     return $res;
