@@ -73,3 +73,4 @@
                             [% END %]
                         });
                     </script>
+[% INCLUDE bricks/timing.js.tt %]

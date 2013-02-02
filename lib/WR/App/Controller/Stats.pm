@@ -2,6 +2,7 @@ package WR::App::Controller::Stats;
 use Mojo::Base 'WR::App::Controller';
 use boolean;
 use WR::MR;
+use Time::HiRes qw/gettimeofday tv_interval/;
 
 sub index {
     my $self = shift;
@@ -19,6 +20,7 @@ sub index {
 sub view {
     my $self = shift;
     my $statid = $self->stash('statid');
+    my $start = [ gettimeofday ];
 
     my $m = sprintf('stats_%s', $statid);
     my $graphdata = ($self->can($m)) ? $self->$m() : {};
@@ -27,6 +29,7 @@ sub view {
         stash => {
             page => { title => 'Statistics' },
             graphdata => $graphdata,
+            timing_query => tv_interval($start),
         }
     );
 }
@@ -62,7 +65,6 @@ sub stats_global {
             $mr->execute('replays' => $out);
             $graphdata->{$_} = [ $self->model(sprintf('wot-replays.%s', $out))->find()->all() ];
         }
-
         $self->model('wot-replays.stats.times')->update({ _id => 'global' }, {
             '$set' => { last => time() }
         }, { upsert => 1 });

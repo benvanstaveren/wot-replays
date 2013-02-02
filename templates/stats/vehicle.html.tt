@@ -1,1 +1,2 @@
 under construction
+[% INCLUDE bricks/timing.js.tt %]

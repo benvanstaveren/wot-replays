@@ -1,0 +1,9 @@
+<script type="text/javascript">
+    [% IF timing_elapsed %]
+        $('span#timing_elapsed').html('[% timing_elapsed %]');
+    [% END %]
+    [% IF timing_query %]
+        $('span#timing_query').html('[% timing_query %]');
+    [% END %]
+    WR.trackAjaxPageview('/replay/browse/[% pageid %]/[% p %]');
+</script>
