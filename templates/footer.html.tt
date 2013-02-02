@@ -3,7 +3,7 @@
         <div class="container ui-corner-bottom">
             <ul class="nav ui-corner-bottom js-global-actions" id="footer-actions">
                 <li class="nav-item ui-corner-bl">
-                    &copy; 2012, 2013 Scrambled | wot [% config.wot.version %] | <a style="display: inline; text-decoration: underline; padding: 0px" href="/credits.html">additional credits</a> [% IF timing_elapsed %]| t: <span id="timing_elapsed">[% timing_elapsed %]</span> [% END %][% IF timing_view %]| v: [% timing_view %] [% END %][% IF timing_query %]| q: <span id="timing_query">[% timing_query %]</span>[% END %]
+                    &copy; 2012, 2013 Scrambled | wot [% config.wot.version %] | <a style="display: inline; text-decoration: underline; padding: 0px" href="/credits.html">additional credits</a> | t: <span id="timing_elapsed">[% timing_elapsed || '-' %]</span> | v: [% timing_view || '-' %] | q: <span id="timing_query">[% timing_query || '-' %]</span>
                 </li>
             </ul>
         </div>
