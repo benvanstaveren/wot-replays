@@ -85,6 +85,7 @@ sub load_user {
     };
 
     return undef if($e);
+    return undef unless(defined($res));
 
     # given $res, go dom it up
     if($res->dom->at('a.b-link-clan')) {
@@ -163,6 +164,8 @@ sub efficiency {
     my $self = shift;
     my $type = shift;
     my $user = $self->load_user;
+
+    return {} unless(defined($user));
 
     my %args = (
         killed          => $user->{destroyed} / $user->{battles} + 0,
