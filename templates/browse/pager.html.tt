@@ -30,7 +30,7 @@
         [% IF cpage == p %]
             <span class="rounded">[% cpage %]</span>
         [% ELSE %]
-            <a  class="gopage rounded" href="[% root %]?p=[% cpage %]">[% cpage %]</a>
+            <a  class="gopage rounded">[% cpage %]</a>
         [% END %]
         [% cpage = cpage + 1 %]
     [% END %]

@@ -1,3 +1,11 @@
 [% INCLUDE browse/pager.html.tt %]
 [% INCLUDE replay/panel_list.html.tt %]
 [% INCLUDE browse/pager.html.tt %]
+<script type="text/javascript">
+    [% IF timing_elapsed %]
+        $('span#timing_elapsed').html('[% timing_elapsed %]');
+    [% END %]
+    [% IF timing_query %]
+        $('span#timing_query').html('[% timing_query %]');
+    [% END %]
+</script>

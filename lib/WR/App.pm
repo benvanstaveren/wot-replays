@@ -50,7 +50,7 @@ sub startup {
     my $dlg = $r->under('/dlg');
         $dlg->route('/achievement/:achievement')->to('ui#dlg_achievement');
 
-    $r->route('/replay/browse')->to('replays#browse');
+    $r->route('/replay/browse/:page')->to('replays#browse', page => 1);
 
     my $rb = $r->bridge('/replay/:replay_id')->to('replays#bridge');
         $rb->route('/')->to('replays-view#view', pageid => undef)->name('viewreplay');

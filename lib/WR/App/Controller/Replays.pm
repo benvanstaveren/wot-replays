@@ -54,7 +54,7 @@ sub desc {
 sub browse {
     my $self = shift;
     my $filter = {};
-    my $skey = $self->req->param('skey') || sprintf('filter_%s', $self->stash('pageid'));
+    my $skey = sprintf('filter_%s', $self->stash('pageid'));
     my $perpage = $self->req->param('perpage') || 15;
     my $sorting = {
         upload      => { 'site.uploaded_at'         => -1 },
@@ -95,6 +95,7 @@ sub browse {
     my $sort = $sorting->{$filter->{sort} || 'upload'};
     $filter->{version} = $self->stash('config')->{wot}->{version} if($filter->{compatible}); 
 
+    my $start = [ gettimeofday ];
     my $query = $self->wr_query(
         sort => $sort,
         perpage => $perpage,
@@ -103,11 +104,16 @@ sub browse {
             
     my $p    = $self->req->param('p') || 1;
 
+    my $replays = $query->page($p);
+    my $maxp    = $query->maxp;
+
+    $self->stash('timing_query'  => tv_interval($start, [ gettimeofday ]));
+
     if($self->stash('format') eq 'json') {
         $self->render(json => {
-            replays => [ map { $query->fuck_mojo_json($_) } @{$query->page($p)} ],
+            replays => [ map { $query->fuck_mojo_json($_) } @$replays ],
             filter  => $filter,
-            maxp    => $query->maxp,
+            maxp    => $maxp,
             p       => $p,
         });
     } else {
@@ -118,9 +124,9 @@ sub browse {
                 page => {
                     title   =>  'Home',
                 },
-                replays => $query->page($p),
+                replays => $replays,
                 filter  => $filter,
-                maxp    => $query->maxp,
+                maxp    => $maxp,
                 p       => $p,
             }
         );
