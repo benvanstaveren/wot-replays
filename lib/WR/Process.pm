@@ -37,6 +37,7 @@ with (
         'WR::Role::Process::WPA',            # Phalynx' stuff
         'WR::Role::Process::Efficiency',     # XVM/VBA efficiencies
         'WR::Role::Process::Banner',         # create banner
+        'WR::Role::Process::InteractionDetails',   # vehicle interaction details
     );
 
 sub error {
