@@ -29,6 +29,7 @@
         function loadStatPanel(panel) {
             WR.waitElement();
             var url = '/stats/' + panel;
+            WR.trackAjaxPageview(url);
             $('#stats-' + panel).load(url, {}, function() {
                 $('div.tab-panel').hide();
                 $('#stats-' + panel).show();

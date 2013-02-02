@@ -91,6 +91,7 @@
                     $(this).parent().addClass('active');
                     var href = $(this).attr('href');
                     $('div.tab-panel').hide();
+                    WR.trackAjaxPageview('/replay/[% replay.id %]/' + href.substr(1));
                     $(href).show();
                     return false;
                 });
@@ -105,6 +106,7 @@
                 $('td.playerDetails span.tooltip').tooltip({ track: true }).css({ 'cursor': 'pointer' });
                 $('span.tooltip').tooltip({track: true}).css({ 'cursor': 'pointer' });
                 $('button#btn-embed').click(function() {
+                    WR.trackEvent('Replay','Embed', '/replay/[% replay.id %].html');
                     $('<div>').attr('title', 'Embed Replay').append(
                         $('<div>').css({ 'font-size': '1.2em', 'padding': '2px'}).html('In order to embed this replay, use the supplied BBCode below'),
                         $('<img>').attr('src', 'http://dl.wot-replays.org/[% replay.id %].png').css({ 'width': '545px', 'height': '98px', 'margin': '10px 0px 10px 0px' }),
