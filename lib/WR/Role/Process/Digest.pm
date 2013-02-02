@@ -14,7 +14,7 @@ around 'process' => sub {
     $md5->add($res->{player}->{vehicle}->{full});
 
     foreach my $vid (keys(%{$res->{vehicles}})) {
-        next unless(defined($res->{vehicles}->{$vid}->{name});
+        next unless(defined($res->{vehicles}->{$vid}->{name}));
         $md5->add($res->{vehicles}->{$vid}->{name});
         $md5->add($res->{vehicles}->{$vid}->{typeCompDescr});
     }
