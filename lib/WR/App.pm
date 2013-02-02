@@ -102,6 +102,7 @@ sub startup {
 
     $self->sessions->default_expiration(86400 * 365); 
     $self->sessions->cookie_name('wrsession');
+    $self->sessions->cookie_domain('.wot-replays.org');
 
     has 'wr_res' => sub { return WR::Res->new() };
 
