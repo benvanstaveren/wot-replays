@@ -6,6 +6,7 @@ use Cache::File;
 use Net::OpenID::Consumer;
 use URI::Escape;
 use LWPx::ParanoidAgent;
+use Time::HiRes qw/gettimeofday tv_interval/;
 
 sub faq {
     shift->respond(template => 'faq', stash => { page => { title => 'Frequently Asked Questions' } });
@@ -70,6 +71,8 @@ sub index {
         }
     }
 
+    my $start = [ gettimeofday ];
+
     my $replays = [ 
         map { { %{$_}, id => $_->{_id} } } $self->db('wot-replays')->get_collection('replays')->find($q)->sort({ 'site.uploaded_at' => -1 })->limit(15)->all()
     ];
@@ -78,6 +81,7 @@ sub index {
         page            => { title => 'Home' },
         replays         => $replays,
         replay_count    => $self->model('wot-replays.replays')->count() + 0,
+        timing_query    => tv_interval($start),
     });
 }
 
