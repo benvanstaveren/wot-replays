@@ -51,7 +51,7 @@ sub error {
 
 sub cleanup {
     my $self = shift;
-    $self->_parser = undef;
+    $self->_parser(undef);
 }
 
 sub process {
