@@ -45,13 +45,7 @@ sub error {
     my $message = join(' ', @_);
 
     $self->_set_error($message);
-    $self->cleanup;
     die '[process]: ', $message, "\n";
-}
-
-sub cleanup {
-    my $self = shift;
-    $self->_set_parser(undef);
 }
 
 sub process {
