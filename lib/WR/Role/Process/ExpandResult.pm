@@ -100,15 +100,26 @@ around 'process' => sub {
         $data->{statistics} = $self->pickledata->{personal};
         $data->{statistics}->{xp_base} = 0;
         $data->{statistics}->{credits_base} = 0;
+        $data->{involved} = {
+            players => [],
+            clans   => [],
+        };
+
+        my $tclan = {};
 
         foreach my $vehicle (values(%{$data->{vehicles}})) {
             next unless(defined($vehicle->{name}));
             if($vehicle->{name} eq $data->{player}->{name}) {
                 $data->{statistics}->{xp_base} = $vehicle->{xp} + 0;
                 $data->{statistics}->{credits_base} = $vehicle->{credits} + 0;
-                last;
+            } else {
+                push(@{$data->{involved}->{players}}, $vehicle->{name});
+                $tclan->{$vehicle->{clanAbbrev}}++ if(defined($vehicle->{clanAbbrev}) && length($vehicle->{clanAbbrev}) > 0);
             }
         }
+
+        # fix clan involvement
+        $data->{involved}->{clans} = [ keys(%$tclan) ];
 
         $data->{game}->{arena_id} = $self->pickledata->{arenaUniqueID} + 0;
         $data->{game}->{bonus_type} = $self->pickledata->{common}->{bonusType};
