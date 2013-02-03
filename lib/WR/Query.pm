@@ -105,6 +105,8 @@ sub _build_query {
         vehiclepov => 0,
         vehicleinv => 0,
         compatible => 0,
+        tier_min => 1,
+        tier_max => 10,
         %{ $self->filter },
         );
 
@@ -157,6 +159,11 @@ sub _build_query {
         }
     }
 
+    #$query->{'player.vehicle.tier'} = {
+    #    '$gte' => $args{tier_min} + 0,
+    #    '$lte' => $args{tier_max} + 0,
+    #};
+
     if($args{'clan'}) {
         if($args{'clanpov'}) {
             $query->{'player.clanAbbrev'} = $self->fixargs($args{'clan'});
@@ -184,6 +191,9 @@ sub _build_query {
     } elsif(scalar(@$ors) > 0) {
         $query->{'$or'} = shift(@$ors);
     }
+
+    use Data::Dumper;
+    warn 'query: ', Dumper($query);
 
     return $query;
 }

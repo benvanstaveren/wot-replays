@@ -76,6 +76,8 @@ sub browse {
         my $survived = $self->req->param('survived');
         my $compatible = $self->req->param('compatible');
         my $sort = $self->req->param('sort') || 'upload';
+        my $tier_min = $self->req->param('tier_min') || 1;
+        my $tier_max = $self->req->param('tier_max') || 10;
 
         if($self->is_user_authenticated && $self->current_user->{settings}->{hide_incomplete} == 1)  {
             # show them
@@ -88,7 +90,8 @@ sub browse {
         $filter->{survived} = 1 if(defined($survived) && $survived == 1);
         $filter->{compatible} = 1 if(defined($compatible) && $compatible == 1);
         $filter->{sort} = $sort;
-
+        $filter->{tier_min} = $tier_min;
+        $filter->{tier_max} = $tier_max;
         $self->session($skey => $filter);
     }
 

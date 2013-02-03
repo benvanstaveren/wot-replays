@@ -6,9 +6,25 @@
     $('#frm-browse-filter select[name="matchtype"]').val('[% filter.matchtype || ''%]');
     $('#frm-browse-filter select[name="sort"]').val('[% filter.sort || 'upload'%]');
 
+    $('#slider-tier').slider({
+        range: true,
+        min: 1,
+        max: 10,
+        values: [ [% filter.tier_min || '1' %], [% filter.tier_max || '10' %] ],
+        slide: function(event, ui) {
+            $('input[name="tier_min"]').val(ui.values[0]);
+            $('input[name="tier_max"]').val(ui.values[1]);
+            $('span#tier_min').html(ui.values[0]);
+            $('span#tier_max').html(ui.values[1]);
+        },
+    });
+
     $('button#btn-browse-reset').click(function() {
         if(WR.filterBusy) return;
+
         $('form#frm-browse-filter input[name="p"]').val('1');
+        $('form#frm-browse-filter input[name="tier_min"]').val('1');
+        $('form#frm-browse-filter input[name="tier_max"]').val('10');
 
         $('form#frm-browse-filter select[name="vehicle"]').val('');
         $('form#frm-browse-filter select[name="server"]').val('');
@@ -16,6 +32,10 @@
         $('form#frm-browse-filter select[name="matchmode"]').val('');
         $('form#frm-browse-filter select[name="matchtype"]').val('');
         $('form#frm-browse-filter select[name="sort"]').val('upload');
+
+        $('#slider-tier').slider('values', [ 1, 10 ]);
+        $('span#tier_min').html(1);
+        $('span#tier_max').html(10);
 
         $('form#frm-browse-filter input[name="complete"]').prop('checked', false);
         $('form#frm-browse-filter input[name="compatible"]').prop('checked', false);

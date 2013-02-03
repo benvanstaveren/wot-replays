@@ -5,6 +5,8 @@
             <input type="hidden" name="skey" value="filter_[% pageid %]"/>
             <input type="hidden" name="vehiclepov" value="1"/>
             <input type="hidden" name="vehicleinv" value="0"/>
+            <input type="hidden" name="tier_min" value="1"/>
+            <input type="hidden" name="tier_max" value="10"/>
             [% IF pageid == 'map' %]
                 <input type="hidden" name="map" value="[% map_id %]"/>
             [% ELSIF pageid == 'vehicle' %]
@@ -25,6 +27,16 @@
                 [% END %]
             </select>
             [% END %]
+            <span class="label">Tiers</span>
+            <div style="padding: 4px">
+                <div style="float: left; width: 45px; position: relative; top: -4px">
+                    <span id="tier_min">[% filter.tier_min || '1' %]</span> - <span id="tier_max">[% filter.tier_max || '10' %]</span>
+                </div>
+                <div style="float: left; width: 190px">
+                    <div id="slider-tier"></div>
+                </div>
+                <div class="clear"></div>
+            </div>
             [% IF pageid != 'map' %]
             <span class="label">Map</span>
             <select name="map">

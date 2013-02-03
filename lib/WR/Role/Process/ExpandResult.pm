@@ -3,6 +3,17 @@ use Moose::Role;
 use MongoDB::OID;
 use boolean;
 
+sub get_vehicle_tier {
+    my $self = shift;
+    my $id   = shift;
+
+    if(my $v = $self->db->get_collection('data.vehicles')->find_one({ _id => $id })) {
+        return $v->{level} + 0;
+    } else {
+        return 0;
+    }
+}
+
 around 'process' => sub {
     my $orig = shift;
     my $self = shift;
@@ -78,6 +89,7 @@ around 'process' => sub {
                 country => $pv_country,
                 name    => $pv_name,
                 full    => sprintf('%s:%s', $pv_country, $pv_name),
+                tier    => $self->get_vehicle_tier(sprintf('%s:%s', $pv_country, $pv_name)),
             },
             killed_by   => ($self->_parser->is_complete)
                 ? $self->pickledata->{personal}->{killerID} + 0
