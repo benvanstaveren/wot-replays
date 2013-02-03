@@ -1,12 +1,12 @@
 <tr class="battleperformance">
     <td class="playerVehicle" style="background: transparent url([% h.vehicle_icon(player.vehicleType.full, 48) %]) no-repeat scroll 0 0" title="[% INCLUDE bricks/vehicles/name.html.tt vehiclename = player.vehicleType.full |html%]">
         <div class="playerHealth">
-            [% h = player.health + player.damageReceived %]
-            [% hp = h.percentage_of(h, player.health) %]
+            [% ph = player.health + player.damageReceived %]
+            [% hp = h.percentage_of(ph, player.health) %]
             [% bs = h.sprintf('%d', (74 / 100) * hp) %]
             [% IF bs < 1 %][% bs = 1 %][% END %]
             <div class="health" style="width: [% bs %]px"></div>
-            <div class="healthnumbers">[% player.health %]/[% h %]</div>
+            <div class="healthnumbers">[% player.health %]/[% ph %]</div>
         </div>
     </td>
     <td class="tooltip playerName" title="[% player.name |html %][% IF player.clanAbbrev %][[% player.clanAbbrev %]][% END %]">
@@ -23,7 +23,7 @@
             [% IF player.team == replay.player.team %]
                 [% IF !details || details.damageDealt == 0 %]dimmed[% ELSE %]tooltip[% END %]" title="Player did [% details.damageDealt %] damage to a team member"
             [% ELSE %]
-                [% IF !details || details.damageDealt == 0 %]dimmed[% ELSE %]tooltip[% END %]" title="Player did [% details.damageDealt %] damage"
+                [% IF !details || details.damageDealt == 0 %]dimmed[% ELSE %]tooltip[% END %]" title="Player did [% details.damageDealt %] damage ([% h.percentage_of(ph, details.damageDealt) %]%)"
             [% END %]>
             [% IF details.hits + details.he_hits > 0 %]
             <b>[% details.hits + details.he_hits %]</b> 
@@ -35,7 +35,7 @@
             [% END %]
         </span>
         [% IF details && details.damageAssisted > 0 %]
-            <span class="evil tooltip" title="Player spotted this vehicle, and team members contributed [% details.damageAssisted %] points of damage"></span>
+            <span class="evil tooltip" title="Player spotted this vehicle, and team members contributed [% details.damageAssisted %] points ([% h.percentage_of(ph, details.damageAssisted) %]%) of damage"></span>
         [% ELSE %]
             <span class="spotted [% IF !details || details.spotted == 0 %]dimmed"[% ELSE %]tooltip" title="Player spotted this vehicle"[% END %]></span>
         [% END %]

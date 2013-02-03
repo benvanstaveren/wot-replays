@@ -27,9 +27,36 @@
                     [% replay.statistics.damageAssisted || '0' %]</span>
                 </td>
                 <td>
-                    <span class="label small">Received</span>
+                    <span class="damagereceiveddetail label small tooltip" title="Damage done to the player, click for detail view">Received</span>
                     [% totalhealth = replay.statistics.health + replay.statistics.damageReceived %]
                     [% damageperc  = h.percentage_of(totalhealth, replay.statistics.damageReceived) %]
-                    <span class="red">[% replay.statistics.damageReceived || '0' %] ([% damageperc %]%)</span>
+                    <span class="damagereceiveddetail red tooltip" title="Damage done to the player, click for detail view">[% replay.statistics.damageReceived || '0' %] ([% damageperc %]%)</span>
                 </td>
             </tr></tbody></table>
+            <div id="damage-received-detail" style="display: none" title="Details - Damage Received">
+                <div style="font-size: 1.2em">
+                    Details of damage done will be here, but as for now it's
+                    still under construction. Sorry! :P
+                </div>
+            </div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#damage-received-detail').dialog({
+            autoOpen: false,
+            width: 500,
+            height: 400,
+            modal: true,
+            resizable: false,
+            draggable: false,
+            buttons: {
+                'Close': function() {
+                    $(this).dialog('close');
+                },
+            },
+        });
+        $('span.damagereceiveddetail').click(function() {
+            $('#damage-received-detail').dialog('open');
+            return false;
+        });
+    });
+</script>

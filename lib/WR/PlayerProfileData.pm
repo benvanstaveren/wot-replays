@@ -1,7 +1,7 @@
 package WR::PlayerProfileData;
 use Moose;
 use Mojo::UserAgent;
-use Try::Tiny;
+use Try::Tiny qw/try catch/;
 use Data::Dumper;
 use WR::Efficiency;
 
@@ -73,7 +73,7 @@ sub load_user {
     };
 
     if(my $rec = $self->db->get_collection('cache.ppd')->find_one({ _id => sprintf('%s_%s', $self->id, $self->name) })) {
-        if($rec->{last} + 86400 > time()) {
+        if($rec->{last} + 86400 * 2 > time()) {
             return $rec->{data};
         } 
     }
@@ -87,75 +87,79 @@ sub load_user {
     return undef if($e);
     return undef unless(defined($res));
 
-    # given $res, go dom it up
-    if($res->dom->at('a.b-link-clan')) {
-        $data->{clan} = {
-            link => 'http://' . __PACKAGE__->SERVERS->{$self->server} . $res->dom->at('a.b-link-clan')->attrs('href'),
-            tag  => $res->dom->at('a.b-link-clan span.tag')->text,
-            name => $res->dom->at('a.b-link-clan span.name')->text,
+    try {
+        # given $res, go dom it up
+        if($res->dom->at('a.b-link-clan')) {
+            $data->{clan} = {
+                link => 'http://' . __PACKAGE__->SERVERS->{$self->server} . $res->dom->at('a.b-link-clan')->attrs('href'),
+                tag  => $res->dom->at('a.b-link-clan span.tag')->text,
+                name => $res->dom->at('a.b-link-clan span.name')->text,
+            }
+        } else {
+            $data->{clan} = undef;
         }
-    } else {
-        $data->{clan} = undef;
-    }
 
-    $data->{updated} = $res->dom->at('div.b-data-date span.js-datetime-format')->attrs('data-timestamp') + 0;
+        $data->{updated} = $res->dom->at('div.b-data-date span.js-datetime-format')->attrs('data-timestamp') + 0;
 
-    my $table = $res->dom->find('table.t-result')->[0];
-    my $i = 0;
+        my $table = $res->dom->find('table.t-result')->[0];
+        my $i = 0;
 
-    $table->find('td.td-number-nowidth')->each(sub {
-        my $f = __PACKAGE__->T_RESULT_LAYOUT->[$i];
-        if(__PACKAGE__->T_RESULT_FORMAT->[$i] eq 'num') {
-            my $t = shift->text;
-            $t =~ s/\s+//g;
-            $data->{$f} = $t + 0;
-        } elsif(__PACKAGE__->T_RESULT_FORMAT->[$i] eq 'splitnum') {
-            $data->{$f} = (split(/\s/, shift->text))[0] + 0,
-        } elsif(__PACKAGE__->T_RESULT_FORMAT->[$i] eq 'numsub') {
-            my $t = shift->text;
-            $t =~ s/\s+//g;
-            $data->{$f} = $t + 0;
-        } elsif(__PACKAGE__->T_RESULT_FORMAT->[$i] eq 'asis') {
-            $data->{$f} = shift->text;
-        }
-        $i++;
-    });
+        $table->find('td.td-number-nowidth')->each(sub {
+            my $f = __PACKAGE__->T_RESULT_LAYOUT->[$i];
+            if(__PACKAGE__->T_RESULT_FORMAT->[$i] eq 'num') {
+                my $t = shift->text;
+                $t =~ s/\s+//g;
+                $data->{$f} = $t + 0;
+            } elsif(__PACKAGE__->T_RESULT_FORMAT->[$i] eq 'splitnum') {
+                $data->{$f} = (split(/\s/, shift->text))[0] + 0,
+            } elsif(__PACKAGE__->T_RESULT_FORMAT->[$i] eq 'numsub') {
+                my $t = shift->text;
+                $t =~ s/\s+//g;
+                $data->{$f} = $t + 0;
+            } elsif(__PACKAGE__->T_RESULT_FORMAT->[$i] eq 'asis') {
+                $data->{$f} = shift->text;
+            }
+            $i++;
+        });
 
-    my $vehicles = [];
-    my $seen     = {};
-    my $tier     = 0;
-    my $skip     = 1;
+        my $vehicles = [];
+        my $seen     = {};
+        my $tier     = 0;
+        my $skip     = 1;
 
-    $res->dom->find('table.t-statistic')->[1]->find('tr')->each(sub {
-        if($skip == 1) {
-            $skip = 0;
-            return;
-        }
-        my $tr = shift;
+        $res->dom->find('table.t-statistic')->[1]->find('tr')->each(sub {
+            if($skip == 1) {
+                $skip = 0;
+                return;
+            }
+            my $tr = shift;
 
-        my $vtier = $self->unroman($tr->find('td')->[0]->at('span.level a')->text);
-        my $vname = $tr->find('td')->[1]->at('a')->text;
-        my $battles = $tr->find('td')->[2]->text + 0;
-        my $victories = $tr->find('td')->[3]->text + 0;
+            my $vtier = $self->unroman($tr->find('td')->[0]->at('span.level a')->text);
+            my $vname = $tr->find('td')->[1]->at('a')->text;
+            my $battles = $tr->find('td')->[2]->text + 0;
+            my $victories = $tr->find('td')->[3]->text + 0;
 
-        push(@$vehicles, { 
-            name => $vname,
-            tier => $vtier,
-            battles => $battles,
-            victories => $victories,
-            });
+            push(@$vehicles, { 
+                name => $vname,
+                tier => $vtier,
+                battles => $battles,
+                victories => $victories,
+                });
 
-        $tier += ($vtier * $battles),
-    });
+            $tier += ($vtier * $battles),
+        });
 
-    $data->{vehicles} = $vehicles;
-    $data->{average_tier} = $tier / $data->{battles};
+        $data->{vehicles} = $vehicles;
+        $data->{average_tier} = $tier / $data->{battles};
 
-    $self->db->get_collection('cache.ppd')->save({
-        _id     => sprintf('%s_%s', $self->id, $self->name),
-        last    => time(),
-        data    => $data,
-    });
+        $self->db->get_collection('cache.ppd')->save({
+            _id     => sprintf('%s_%s', $self->id, $self->name),
+            last    => time(),
+            data    => $data,
+        });
+    } catch {
+        $data = undef; 
+    };
 
     return $data;
 }
