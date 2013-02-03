@@ -49,7 +49,7 @@ while(my $r = $rc->next()) {
         $e = $_;
     };
 
-    $process->cleanup; 
+    $process = undef;
 
     unless($e) {
         $m->{site} = $r->{site}; # copy that over

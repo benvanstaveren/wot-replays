@@ -157,7 +157,7 @@ sub view {
                 })->count(),
             total_involved => $self->db('wot-replays')->get_collection('replays')->find({ 
                 'player.server' => $server, 
-                'vehicles.name' => $player,
+                'involved.players' => { '$in' => [ $player ] },
                 'player.name' => { '$ne' => $player },
                 'site.visible' => true 
                 })->count(),
