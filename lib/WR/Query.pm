@@ -159,10 +159,10 @@ sub _build_query {
         }
     }
 
-    #$query->{'player.vehicle.tier'} = {
-    #    '$gte' => $args{tier_min} + 0,
-    #    '$lte' => $args{tier_max} + 0,
-    #};
+    $query->{'player.vehicle.tier'} = {
+        '$gte' => $args{tier_min} + 0,
+        '$lte' => $args{tier_max} + 0,
+    };
 
     if($args{'clan'}) {
         if($args{'clanpov'}) {
