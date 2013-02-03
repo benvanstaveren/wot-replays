@@ -27,8 +27,6 @@ $query->{version} = $ARGV[1] if(defined($ARGV[0]) && $ARGV[0] eq 'version');
 
 my $rc = $db->get_collection('replays')->find($query)->sort({ 'site.uploaded_at' => -1 });
 
-use Data::Dumper;
-
 print 'reparsing: ', $rc->count(), ' replays', "\n";
 print 'query:',"\n",Dumper($query),"\n";
 
@@ -49,6 +47,8 @@ while(my $r = $rc->next()) {
     } catch {
         $e = $_;
     };
+
+    $process->cleanup; 
 
     unless($e) {
         $m->{site} = $r->{site}; # copy that over
