@@ -118,7 +118,7 @@ sub _build_query {
         if($args{'playerpov'} > 0) {
             $query->{'player.name'} = $self->fixargs($args{'player'});
         } elsif($args{'playerinv'}) {
-            $query->{'vehicles.name'} = $self->fixargs($args{'player'});
+            $query->{'involved.players'} = $self->fixargs($args{'player'});
             $query->{'player.name'} = $self->fixargs($args{'player'}, '$nin');
         } else {
             push(@$ors, [ 
