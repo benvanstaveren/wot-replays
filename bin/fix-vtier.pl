@@ -23,6 +23,6 @@ while(my $r = $rc->next()) {
         $db->get_collection('replays')->update({ _id => $r->{_id} }, {
             '$set' => { 'player.vehicle.tier' => $v->{level} + 0 },
         });
-        print $r->{_id]->to_string, "\n";
+        print $r->{_id}->to_string, "\n";
     }
 }
