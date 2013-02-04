@@ -108,15 +108,23 @@ sub do_login {
             cache           => $cache,
             args            => \%params,
             consumer_secret => $self->app->secret,
-            required_root   => $my_url
+            required_root   => $my_url,
+            debug           => 1,
         );
-        my $claimed_identity = $csr->claimed_identity(sprintf('http://%s.wargaming.net/id/', $s));
-        my $check_url = $claimed_identity->check_url(
-            return_to      => qq{$my_url/openid/return},
-            trust_root     => qq{$my_url/},
-            delayed_return => 1,
-        );
-        return $self->redirect_to($check_url);
+        my $url = sprintf('http://%s.wargaming.net/id/', $s);
+        if(my $claimed_identity = $csr->claimed_identity($url)) {
+            my $check_url = $claimed_identity->check_url(
+                return_to      => qq{$my_url/openid/return},
+                trust_root     => qq{$my_url/},
+                delayed_return => 1,
+            );
+            return $self->redirect_to($check_url);
+        } else {
+            $self->session(
+                'notify' => { type => 'error', text => sprintf('OpenID Error: %s', $csr->err),  close => 1, sticky => 1 },
+            );
+            $self->redirect_to('/');
+        }
     } else {
         $self->respond(template => 'login/form', stash => {
             page => { title => 'Login' },

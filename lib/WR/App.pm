@@ -100,6 +100,9 @@ sub startup {
     my $api = $r->under('/api/v1');
         $api->route('/bootstrap')->to('api#bootstrap');
 
+    my $admin = $r->bridge('/admin')->to('admin#bridge');
+        $admin->route('/')->to('admin#index');
+
     $self->sessions->default_expiration(86400 * 365); 
     $self->sessions->cookie_name('wrsession');
     $self->sessions->cookie_domain('.wot-replays.org');

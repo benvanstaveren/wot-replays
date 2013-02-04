@@ -1,0 +1,7 @@
+[% WRAPPER wrapper.html.tt %]
+    <div>
+        [% INCLUDE event/eu.html.tt %]
+        [% INCLUDE event/sea.html.tt %]
+        [% INCLUDE event/na.html.tt %]
+    </div>
+[% END %]

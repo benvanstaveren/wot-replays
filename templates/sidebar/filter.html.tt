@@ -82,11 +82,12 @@
             <span class="label">Sorting</span>
             <select name="sort">
                 <option value="upload">Upload Date</option>
-                <option value="likes">Most Likes</option>
-                <option value="downloads">Most Downloaded</option>
+                <option value="matchtime">Match Time</option>
                 <option value="xp">XP Earned</option>
                 <option value="credits">Credits Earned</option>
                 <option value="damage">Damage Done</option>
+                <option value="likes">Most Likes</option>
+                <option value="downloads">Most Downloaded</option>
             </select>
         </form>
         <div class="filter-buttons">

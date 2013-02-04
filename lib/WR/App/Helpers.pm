@@ -83,6 +83,20 @@ sub add_helpers {
         return $n;
     });
 
+    $self->helper('has_role' => sub {
+        my $self = shift;
+        my $u    = shift;
+        my $r    = shift;
+
+        return 0 unless(defined($u));
+        return 0 unless(defined($u->{roles}));
+
+        foreach my $role (@{$u->{roles}}) {
+            return 1 if($role eq $r);
+        }
+        return 0;
+    });
+
     $self->helper(to_json => sub {
         my $self = shift;
         my $v    = shift;

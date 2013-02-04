@@ -1,0 +1,5 @@
+[% WRAPPER admin/wrapper.html.tt %]
+    <div>
+        admin panel
+    </div>
+[% END %]

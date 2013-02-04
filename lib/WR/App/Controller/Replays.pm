@@ -58,6 +58,7 @@ sub browse {
     my $perpage = $self->req->param('perpage') || 15;
     my $sorting = {
         upload      => { 'site.uploaded_at'         => -1 },
+        matchtime   => { 'game.time'                => -1 },
         xp          => { 'statistics.xp_base'       => -1 },
         credits     => { 'statistics.credits_base'  => -1 },
         damage      => { 'statistics.damageDealt'   => -1 },
