@@ -42,41 +42,6 @@ sub index {
         }
     }
 
-    # find out what mode we're operating in, based on this we need to do some juju with the template paths
-    
-    my $url = $self->req->url->base;
-    my $host;
-
-    if($url =~ /http.*?:\/\/(.*?)(:\d+)*\//) {
-        $host = $1;
-    } else {
-        $host = undef;
-    }
-
-    my $opmode = 'default';
-
-    if(!defined($host) || $host eq 'localhost') {
-        $opmode = $self->stash('config')->{dev}->{opmode} || 'default';
-        $self->stash(page_owner => $self->stash('config')->{dev}->{page_owner});
-        $self->stash(page_owner_server => $self->stash('config')->{dev}->{page_owner_server});
-    } else {
-        my @hostparts = reverse(split(/\./, $host));
-        # org.wot-replays.<x>.<y>
-        if($hostparts[2] eq 'www') {
-            $opmode = 'default';
-        } elsif($hostparts[2] =~ /^(sea|ru|na|eu|vn)$/) {
-            $opmode = 'personal';
-            $self->stash('page_owner' => $hostparts[3]);
-            $self->stash('page_owner_server' => $hostparts[2]);
-        } else {
-            # figure it's a clan page
-            $opmode = 'clan';
-            $self->stash('page_owner' => $hostparts[2]);
-        }
-    }
-
-    $self->stash(opmode => $opmode);
-
     return 1;
 }
 

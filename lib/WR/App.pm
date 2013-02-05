@@ -40,15 +40,9 @@ sub startup {
     $r->route('/donate')->to('ui#donate', pageid => 'donate');
     $r->route('/about')->to('ui#about', pageid => 'about');
     $r->route('/credits')->to('ui#credits', pageid => 'credits');
-
     $r->route('/hint/:hintid')->to('ui#hint', pageid => 'hint');
-
     $r->route('/upload')->to('replays-upload#upload', pageid => 'upload');
-
     $r->route('/download/:replay_id')->to('replays-export#download');
-
-    my $dlg = $r->under('/dlg');
-        $dlg->route('/achievement/:achievement')->to('ui#dlg_achievement');
 
     $r->route('/replay/browse/:page')->to('replays#browse', page => 1);
 
