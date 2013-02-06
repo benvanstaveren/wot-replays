@@ -13,8 +13,8 @@
                         <span style="font-weight: normal">Result:</span><span> [% IF replay.complete %][% INCLUDE replay/view/matchresult.html.tt %][% ELSE %]<span>unknown</span>[% END %]</span> <span style="margin: 0px 0px 0px 10px; font-weight: normal">Survived:</span><span> [% INCLUDE replay/view/vehicle_stats/survived.html.tt %]</span>
                     </h3>
                     <div>
-                        <button class="rateUp" rid="[% replay.id %]" title="Like this replay"><span>Like</span> (<span class="rateUpCount"></span>)</button></a>
-                        <button href="/download/[% replay.id %]" class="panelButton downloadButton [% IF replay.version != config.wot.version %]incompatible[% END %]" style="width: 150px" id="btn-download">Download Replay (<span class="count"></span>)</button>
+                        <button class="rateUp" rid="[% replay.id %]" title="Like this replay"><span>Like</span> (<span class="rateUpCount">[% replay.site.likes || '0' %]</span>)</button></a>
+                        <button href="/download/[% replay.id %]" class="panelButton downloadButton [% IF replay.version != config.wot.version %]incompatible[% END %]" style="width: 150px" id="btn-download">Download Replay (<span class="count">[% replay.site.downloads || '0' %]</span>)</button>
                         <button class="panelButton" style="width: 150px" id="btn-embed">Embed Replay</button>
                     </div>
                 </div>
@@ -95,6 +95,7 @@
                     $(href).show();
                     return false;
                 });
+                /*
                 $.getJSON('/replay/[% replay.id %]/incview', {}, function(d, t, x) {});
                 $.getJSON('/replay/[% replay.id %]/stats', {}, function(d, t, x) {
                     $('span.rateUpCount').html(d.likes || '0');
@@ -102,6 +103,7 @@
                     $('span.replayviewcount').html(d.views || '0');
                     $('span.replayviewcount').attr('title', 'This replay has been viewed ' + d.views + ' times');
                 });
+                */
                 $('div.award').tooltip({ track: true }).css({ 'cursor': 'pointer' });
                 $('td.playerDetails span.tooltip').tooltip({ track: true }).css({ 'cursor': 'pointer' });
                 $('span.tooltip').tooltip({track: true}).css({ 'cursor': 'pointer' });

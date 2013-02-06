@@ -271,11 +271,10 @@ sub view {
     $self->stash('dossier_popups' => $dossier_popups);
     $self->stash('other_awards' => $other_awards);
 
-    #$self->model('wot-replays.replays')->update({ _id => $r->{_id} }, {
-    #    '$inc' => { 'site.views' => 1 },
-    #});
+    $self->model('wot-replays.replays')->update({ _id => $r->{_id} }, {
+        '$inc' => { 'site.views' => 1 },
+    });
 
-    $self->stash('timing_view' => tv_interval($start, [ gettimeofday ]));
 
     $self->respond(
         stash => {
@@ -285,6 +284,7 @@ sub view {
                 description => $description,
             },
             related => $self->related,
+            timing_view => tv_interval($start, [ gettimeofday ]),
         }, 
         template => 'replay/view/index',
     );
