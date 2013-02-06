@@ -275,6 +275,7 @@ sub view {
         '$inc' => { 'site.views' => 1 },
     });
 
+    $r->{site}->{views} += 1; 
 
     $self->respond(
         stash => {
