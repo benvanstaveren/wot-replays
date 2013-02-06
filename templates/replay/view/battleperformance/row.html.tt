@@ -21,7 +21,7 @@
             [% END %]></span>
         <span class="damage 
             [% IF player.team == replay.player.team %]
-                [% IF !details || details.damageDealt == 0 %]dimmed[% ELSE %]tooltip[% END %]" title="Player did [% details.damageDealt %] damage to a team member"
+                [% IF !details || (details.damageDealt == 0 && details.hits + details.he_hits == 0) %]dimmed[% ELSE %]tooltip[% END %]" title="Player did [% details.damageDealt %] damage to a team member"
             [% ELSE %]
                 [% IF !details || details.damageDealt == 0 %]dimmed[% ELSE %]tooltip[% END %]" title="Player did [% details.damageDealt %] damage ([% h.percentage_of(ph, details.damageDealt) %]%)"
             [% END %]>
