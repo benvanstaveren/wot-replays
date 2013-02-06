@@ -192,9 +192,6 @@ sub _build_query {
         $query->{'$or'} = shift(@$ors);
     }
 
-    use Data::Dumper;
-    warn 'query: ', Dumper($query);
-
     return $query;
 }
 
