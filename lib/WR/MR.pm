@@ -10,6 +10,7 @@ has 'map' => (is => 'ro', isa => 'Str', writer => '_set_map');
 has 'finalize' => (is => 'ro', isa => 'Str', writer => '_set_finalize');
 has 'reduce' => (is => 'ro', isa => 'Str', writer => '_set_reduce');
 has 'folder' => (is => 'ro', isa => 'Str');
+has 'cond'   => (is => 'ro', isa => 'HashRef', default => sub { {} });
 
 sub BUILD {
     my $self = shift;
@@ -39,6 +40,7 @@ sub execute {
         mapreduce => $name,
         map       => $self->map,
         reduce    => $self->reduce,
+        query     => $self->cond,
         out       => {
             replace => $out,
         }
