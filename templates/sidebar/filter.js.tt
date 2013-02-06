@@ -6,6 +6,7 @@
     $('#frm-browse-filter select[name="matchtype"]').val('[% filter.matchtype || ''%]');
     $('#frm-browse-filter select[name="sort"]').val('[% filter.sort || 'upload'%]');
 
+    [% IF pageid != "vehicle" && !filter.vehicle %]
     $('#slider-tier').slider({
         range: true,
         min: 1,
@@ -16,11 +17,34 @@
             $('input[name="tier_max"]').val(ui.values[1]);
             $('span#tier_min').html(ui.values[0]);
             $('span#tier_max').html(ui.values[1]);
+
+            $('select[name="vehicle"] option').each(function(i, e) {
+                var t = $(e).attr('tier');
+                if(t < ui.values[0] || t > ui.values[1]) {
+                    $(e).hide();
+                } else {
+                    $(e).show();
+                }
+            });
         },
+    });
+    [% END %]
+
+    $('select[name="vehicle"]').change(function() {
+        var v = $(this).val();
+        if(v == null || v == undefined || v == '') {
+            $('#vehicle-tier-container').show();
+        } else {
+            $('#vehicle-tier-container').hide();
+            $('input[name="tier_min"]').val(1);
+            $('input[name="tier_max"]').val(10);
+        }
     });
 
     $('button#btn-browse-reset').click(function() {
         if(WR.filterBusy) return;
+
+        $('#vehicle-tier-container').show();
 
         $('form#frm-browse-filter input[name="p"]').val('1');
         $('form#frm-browse-filter input[name="tier_min"]').val('1');
@@ -36,6 +60,8 @@
         $('#slider-tier').slider('values', [ 1, 10 ]);
         $('span#tier_min').html(1);
         $('span#tier_max').html(10);
+
+        $('select[name="vehicle"] option').show();
 
         $('form#frm-browse-filter input[name="complete"]').prop('checked', false);
         $('form#frm-browse-filter input[name="compatible"]').prop('checked', false);

@@ -21,13 +21,15 @@
                 [% FOREACH group IN h.generate_vehicle_select() %]
                     <optgroup label="[% group.label %]">
                         [% FOREACH option IN group.items %]
-                            <option value="[% group.country %]:[% option.id %]">[% option.value %]</option>
+                            <option tier="[% option.level %]" value="[% group.country %]:[% option.id %]">[% option.value %]</option>
                         [% END %]
                     </optgroup>
                 [% END %]
             </select>
             [% END %]
-            <span class="label">Tiers</span>
+            [% IF pageid != "vehicle" && !filter.vehicle %]
+            <div id="vehicle-tier-container">
+            <span class="label" style="margin: 10px 0px 0px 0px">Tiers</span>
             <div style="padding: 4px">
                 <div style="float: left; width: 45px; position: relative; top: -4px">
                     <span id="tier_min">[% filter.tier_min || '1' %]</span> - <span id="tier_max">[% filter.tier_max || '10' %]</span>
@@ -37,6 +39,8 @@
                 </div>
                 <div class="clear"></div>
             </div>
+            </div>
+            [% END %]
             [% IF pageid != 'map' %]
             <span class="label">Map</span>
             <select name="map">

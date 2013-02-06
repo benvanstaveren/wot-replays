@@ -26,6 +26,7 @@ sub generate_vehicle_select {
             push(@{$d->{items}}, {
                 id => $obj->{name},
                 value => $obj->{label},
+                level => $obj->{level},
             });
         }
         push(@$p, $d);
