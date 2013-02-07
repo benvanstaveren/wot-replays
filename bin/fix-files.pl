@@ -22,7 +22,6 @@ my $query = {
 
 my $rc = $db->get_collection('replays')->find($query)->sort({ 'site.uploaded_at' => -1 });
 
-
 my $path = (-e '/home/ben') 
     ? '/home/ben/projects/wot-replays/data/replays'
     : '/home/wotreplay/wot-replays/data/replays';
@@ -32,7 +31,6 @@ use DateTime;
 while(my $r = $rc->next()) {
     print $r->{file}, ': ';
     print 'no file', "\n" and next unless(defined($r->{file}));
-    print 'already', "\n" and next if($r->{file} =~ /(d{4})\/(\d{2})\/(\d{2})/);
 
     my $dt = DateTime->from_epoch(epoch => $r->{_id}->get_time);
 
@@ -42,6 +40,11 @@ while(my $r = $rc->next()) {
     my $new_file = sprintf('%s/%s', $dt->strftime('%Y/%m/%d'), $r->{file});
     my $dst_file = sprintf('%s/%s', $_path, $r->{file});
 
-    move(sprintf('%s/%s', $path, $r->{file}) => $dst_file);
-    print 'moved', "\n";
+    if(-e $dst_file) {
+        print 'already', "\n";
+    } else {
+        move(sprintf('%s/%s', $path, $r->{file}) => $dst_file);
+        $db->get_collection('replays')->update({ _id => $r->{_id} }, { '$set' => { file => $new_file } });
+        print 'moved', "\n";
+    }
 }
