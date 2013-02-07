@@ -166,7 +166,7 @@ sub parse {
                 }
                 $self->model('wot-replays.replays')->save({
                     %$m_data,
-                    file => sprintf('%s/%s', $dt->strftime('%Y/%m/%d'), $filename),
+                    file => $replay_filename,
                     site => {
                         description => undef,
                         uploaded_at => time(),
