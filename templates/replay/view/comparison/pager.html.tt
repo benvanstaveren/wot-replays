@@ -55,7 +55,7 @@
         $('form#comparisonform input[name="p"]').val(1);
         var s = $('form#comparisonform').serialize();
         WR.waitElement();
-        $('#comparison-display').load('/replay/' + g_currentReplayId + '/comparison', s, function() {
+        $('#comparison-display').load('/replay/' + WR.g_currentReplayId + '/comparison', s, function() {
             $.unblockUI();
         });
         return false;
@@ -64,7 +64,7 @@
         $('form#comparisonform input[name="p"]').val([% maxp %]);
         var s = $('form#comparisonform').serialize();
         WR.waitElement();
-        $('#comparison-display').load('/replay/' + g_currentReplayId + '/comparison', s, function() {
+        $('#comparison-display').load('/replay/' + WR.g_currentReplayId + '/comparison', s, function() {
             $.unblockUI();
         });
         return false;
@@ -73,7 +73,7 @@
         $('form#comparisonform input[name="p"]').val([% p + 1 %]);
         var s = $('form#comparisonform').serialize();
         WR.waitElement()
-        $('#comparison-display').load('/replay/' + g_currentReplayId + '/comparison', s, function() {
+        $('#comparison-display').load('/replay/' + WR.g_currentReplayId + '/comparison', s, function() {
             $.unblockUI();
         });
         return false;
@@ -82,7 +82,7 @@
         $('form#comparisonform input[name="p"]').val([% p - 1 %]);
         var s = $('form#comparisonform').serialize();
         WR.waitElement()
-        $('#comparison-display').load('/replay/' + g_currentReplayId + '/comparison', s, function() {
+        $('#comparison-display').load('/replay/' + WR.g_currentReplayId + '/comparison', s, function() {
             $.unblockUI();
         });
         return false;
@@ -92,7 +92,7 @@
         $('form#comparisonform input[name="p"]').val(v);
         var s = $('form#comparisonform').serialize();
         WR.waitElement()
-        $('#comparison-display').load('/replay/' + g_currentReplayId + '/comparison', s, function() {
+        $('#comparison-display').load('/replay/' + WR.g_currentReplayId + '/comparison', s, function() {
             $.unblockUI();
         });
         return false;
