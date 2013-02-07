@@ -19,7 +19,7 @@ my $mongo  = MongoDB::Connection->new(host => $ENV{MONGO} || 'localhost');
 my $db     = $mongo->get_database('wot-replays');
 
 my $query = {
-    '$exists' => { 'player.vehicle.label' => false },
+    'player.vehicle.label' => { '$exists' => false },
 };
 
 my $path = (-e '/home/ben') 
