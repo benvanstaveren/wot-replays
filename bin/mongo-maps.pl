@@ -26,12 +26,16 @@ foreach my $map (keys(%{$x->{map}})) {
     $icon =~ s/'//g;
     $icon =~ s/\W+/_/g;
 
+    my $slug = lc($name);
+    $slug =~ s/\s+/_/g;
+    $slug =~ s/'//g;
+
     my $data = {
         _id             => $map,
         name_id         => $id,
         numerical_id    => $x->{map}->{$map}->{id} + 0,
         label           => $name,
-        slug            => lc($name),
+        slug            => $slug,
         icon            => sprintf('%s.jpg', $icon),
     };
     $coll->save($data);
