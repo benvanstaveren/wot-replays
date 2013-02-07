@@ -41,6 +41,7 @@ while(my $r = $rc->next()) {
     my $dst_file = sprintf('%s/%s', $_path, $r->{file});
 
     if(-e $dst_file) {
+        $db->get_collection('replays')->update({ _id => $r->{_id} }, { '$set' => { file => $new_file } });
         print 'already', "\n";
     } else {
         move(sprintf('%s/%s', $path, $r->{file}) => $dst_file);
