@@ -9,6 +9,8 @@ sub download {
 
     if(my $replay = $self->db('wot-replays')->get_collection('replays')->find_one({ _id => bless({ value => $id }, 'MongoDB::OID') })) {
         $self->db('wot-replays')->get_collection('replays')->update({ _id => $replay->{_id} }, { '$inc' => { 'site.downloads' => 1 } });
+
+        # replay->{file} contains the file name including paths that we want so it's still valid
         my $url = Mojo::URL->new(sprintf('http://dl.wot-replays.org/%s', $replay->{file}));
         $self->redirect_to($url->to_string);
     } else {

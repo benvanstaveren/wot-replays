@@ -5,6 +5,8 @@ use WR::Util::PyPickle;
 use WR::Process;
 use WR::ServerFinder;
 use WR::Res::Achievements;
+use DateTime;
+use File::Path qw/make_path/;
 use boolean;
 use Try::Tiny qw/try catch/;
 
@@ -138,13 +140,18 @@ sub parse {
         my $filename = $upload->filename;
         $filename =~ s/.*\\//g if($filename =~ /\\/);
         $filename =~ s/.*\///g if($filename =~ /\//);
-        $m_data->{file} = $filename;
         
         my $url = undef;
 
         if($s == 1) {
             unless($self->model('wot-replays.replays')->find_one({ replay_digest => $m_data->{replay_digest}})) {
-                my $replay_file = sprintf('%s/%s', $self->stash('config')->{paths}->{replays}, $filename);
+                my $dt = DateTime->now();
+                my $replay_filename = sprintf('%s/%s', $dt->strftime('%Y/%m/%d'), $filename);
+                my $replay_path = sprintf('%s/%s', $self->stash('config')->{paths}->{replays}, $dt->strftime('%Y/%m/%d');) 
+                my $replay_file = sprintf('%s/%s', $replay_path, $filename);
+
+                make_path($replay_path);
+
                 $asset->move_to($replay_file);
 
                 my $visible = true;
@@ -159,6 +166,7 @@ sub parse {
                 }
                 $self->model('wot-replays.replays')->save({
                     %$m_data,
+                    file => sprintf('%s/%s', $dt->strftime('%Y/%m/%d'), $filename),
                     site => {
                         description => undef,
                         uploaded_at => time(),

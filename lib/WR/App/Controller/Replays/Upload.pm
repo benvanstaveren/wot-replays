@@ -2,6 +2,8 @@ package WR::App::Controller::Replays::Upload;
 use Mojo::Base 'WR::App::Controller';
 use boolean;
 use WR::Process;
+use DateTime;
+use File::Path qw/make_path/;
 
 use FileHandle;
 use POSIX();
@@ -73,7 +75,12 @@ sub upload {
             my $filename = $upload->filename;
             $filename =~ s/.*\\//g if($filename =~ /\\/);
 
-            my $replay_file = sprintf('%s/%s', $self->stash('config')->{paths}->{replays}, $filename);
+            my $dt = DateTime->now();
+            my $replay_filename = sprintf('%s/%s', $dt->strftime('%Y/%m/%d'), $filename);
+            my $replay_path = sprintf('%s/%s', $self->stash('config')->{paths}->{replays}, $dt->strftime('%Y/%m/%d');) 
+            my $replay_file = sprintf('%s/%s', $replay_path, $filename);
+
+            make_path($replay_path);
 
             $asset->move_to($replay_file);
 
@@ -81,7 +88,7 @@ sub upload {
 
             try {
                 my $p = WR::Process->new(
-                    file    => $replay_file,
+                    file    => $replay_filename,
                     db      => $self->db('wot-replays'),
                     bf_key  => $self->stash('config')->{wot}->{bf_key},
                 );
