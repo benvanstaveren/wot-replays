@@ -77,7 +77,7 @@ sub upload {
 
             my $dt = DateTime->now();
             my $replay_filename = sprintf('%s/%s', $dt->strftime('%Y/%m/%d'), $filename);
-            my $replay_path = sprintf('%s/%s', $self->stash('config')->{paths}->{replays}, $dt->strftime('%Y/%m/%d');) 
+            my $replay_path = sprintf('%s/%s', $self->stash('config')->{paths}->{replays}, $dt->strftime('%Y/%m/%d'));
             my $replay_file = sprintf('%s/%s', $replay_path, $filename);
 
             make_path($replay_path);
