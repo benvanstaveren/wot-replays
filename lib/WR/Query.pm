@@ -139,7 +139,12 @@ sub _build_query {
 
     # actually args{map} contains the map slug, not it's id so find it first
     if(defined($args{map})) {
-        if(my $map = $self->coll->_database->get_collection('data.maps')->find_one({ _id => $args{map} })) {
+        if(my $map = $self->coll->_database->get_collection('data.maps')->find_one({ 
+            '$or' => [
+                { _id => $args{map} },
+                { slug => $args{map} },
+            ]
+        })) {
             $query->{'map.id'} = $self->fixargs($map->{_id});
         } else {
             $query->{'map.id'} = 'mapdoesnotexist';
