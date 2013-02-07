@@ -88,7 +88,7 @@ sub upload {
 
             try {
                 my $p = WR::Process->new(
-                    file    => $replay_filename,
+                    file    => $replay_file,
                     db      => $self->db('wot-replays'),
                     bf_key  => $self->stash('config')->{wot}->{bf_key},
                 );
