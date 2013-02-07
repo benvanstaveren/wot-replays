@@ -30,6 +30,7 @@ my $path = (-e '/home/ben')
 use DateTime;
 
 while(my $r = $rc->next()) {
+    print $r->{file}, ': ';
     print 'no file', "\n" and next unless(defined($r->{file}));
     print 'already', "\n" and next if($r->{file} =~ /(d{4})\/(\d{2})\/(\d{2})/);
 
@@ -41,5 +42,6 @@ while(my $r = $rc->next()) {
     my $new_file = sprintf('%s/%s', $dt->strftime('%Y/%m/%d'), $r->{file});
     my $dst_file = sprintf('%s/%s', $_path, $r->{file});
 
-    print 'move(', sprintf('%s/%s', $path, $r->{file}), ' => ', $dst_file, ');', "\n";
+    move(sprintf('%s/%s', $path, $r->{file}) => $dst_file);
+    print 'moved', "\n";
 }
