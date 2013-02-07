@@ -53,6 +53,7 @@ if(my $r = $db->get_collection('replays')->find_one($query)) {
         $db->get_collection('replays')->save($m, { safe => 1 });
         print $r->{_id}, ': OK', "\n";
     } else {
+        $db->get_collection('replays')->update({ _id => $r->{_id} }, { '$set' => { 'player.vehicle.label' => 'corrupt replay' } });
         print $r->{_id}, ': ERROR: ', $e, "\n";
     }
     exit(0);
