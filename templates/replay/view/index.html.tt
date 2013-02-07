@@ -70,7 +70,7 @@
                             <div id="battle-chat" class="tab-panel" style="display: none">
                                 [% FOREACH message IN replay.chat %]
                                     <div class="chatmessage">
-                                        <div class="from [% IF message.global == 1 %]global[% END %]">[% message.from |html %]</div>
+                                        <div class="from [% IF message.global == 1 %]global[% END %]" title="[% message.from |html %]">[% message.from |truncate(12) |html %]</div>
                                         <div class="message [% IF message.global == 1 %]global[% END %]">[% message.text %]</div>
                                         <div class="clear"></div>
                                     </div>
