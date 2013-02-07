@@ -32,13 +32,20 @@ while(my $r = $rc->next()) {
     print $r->{file}, ': ';
     print 'no file', "\n" and next unless(defined($r->{file}));
 
+    # strip the filename out of $r->file
+    my $fn = $r->{file};
+
+    $fn =~ s/.*\///;
+
     my $dt = DateTime->from_epoch(epoch => $r->{_id}->get_time);
 
     my $_path = sprintf('%s/%s', $path, $dt->strftime('%Y/%m/%d'));
     make_path($_path);
 
-    my $new_file = sprintf('%s/%s', $dt->strftime('%Y/%m/%d'), $r->{file});
-    my $dst_file = sprintf('%s/%s', $_path, $r->{file});
+    my $new_file = sprintf('%s/%s', $dt->strftime('%Y/%m/%d'), $fn);
+    my $dst_file = sprintf('%s/%s', $_path, $fn);
+
+    die 'r->{file}: ', $r->{file}, ' new: ', $new_file, ' dst: ', $dst_file, "\n";
 
     if(-e $dst_file) {
         $db->get_collection('replays')->update({ _id => $r->{_id} }, { '$set' => { file => $new_file } });
