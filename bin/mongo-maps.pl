@@ -17,22 +17,21 @@ my $db     = $mongo->get_database('wot-replays');
 my $coll   = $db->get_collection('data.maps');
 
 my $x = XMLin(sprintf('../etc/res/raw/%s/arena.xml', $version));
-
+use Data::Dumper;
 foreach my $map (keys(%{$x->{map}})) {
-    my ($nid, $id) = split(/_/, $map, 2);
+    my ($dummy, $id) = split(/_/, $map, 2);
     my $name = $text->localize_for(lang => 'arenas', id => sprintf('%s/name', $map));
 
     my $icon = lc($name);
     $icon =~ s/'//g;
     $icon =~ s/\W+/_/g;
 
-    my $rnid = $nid + 0;
-
     my $data = {
         _id             => $map,
         name_id         => $id,
-        numerical_id    => $rnid + 0,
+        numerical_id    => $x->{map}->{$map}->{id} + 0,
         label           => $name,
+        slug            => lc($name),
         icon            => sprintf('%s.jpg', $icon),
     };
     $coll->save($data);

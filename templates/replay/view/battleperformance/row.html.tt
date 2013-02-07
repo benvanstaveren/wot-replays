@@ -1,5 +1,5 @@
 <tr class="battleperformance">
-    <td class="playerVehicle" style="background: transparent url([% h.vehicle_icon(player.vehicleType.full, 48) %]) no-repeat scroll 0 0" title="[% INCLUDE bricks/vehicles/name.html.tt vehiclename = player.vehicleType.full |html%]">
+    <td class="playerVehicle" style="background: transparent url(//images.wot-replays.org/vehicles/48/[% player.vehicleType.icon %]) no-repeat scroll 0 0" title="[% player.vehicleType.label |html %]">
         <div class="playerHealth">
             [% ph = player.health + player.damageReceived %]
             [% hp = h.percentage_of(ph, player.health) %]

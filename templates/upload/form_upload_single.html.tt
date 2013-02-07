@@ -23,13 +23,18 @@
                     <div id="upload-percent"></div>
                 </div>
                 <div id="completed" style="display: none">
+                    <div id="c-view-link">
                     <span class="label" style="margin-top: 25px">View Link</span>
                     <a style="color: #000; text-decoration: underline" href="#" id="view-link"></a>
+                    </div>
+                    <div id="c-incomplete" style="display: none">The replay you uploaded was incomplete and did not contain battle results, as such we can't generate a statistics page for it, but you do get a direct download link.</div>
                     <span class="label">Download Link</span>
                     <a  style="color: #000; text-decoration: underline"href="#" id="download-link"></a>
                     <span class="label">Embed</span>
+                    <div id="c-embed-link">
                     <img id="embed-image" style="width: 545px; height: 98px"/>
                     <textarea id="embed-text" style="width: 545px; height: 55px; font-size: 1em; resize: none"></textarea>
+                    </div>
                     <div style="margin: 25px 0px 0px 0px">
                         [% INCLUDE sidebar/bricks/upload.html.tt %] 
                     </div>
@@ -63,20 +68,27 @@
                             $('#upload-progress-panel #progress').hide();
                             $('#upload-progress-panel #progress-label').hide();
                             status.html('Upload successful!');
+
                             var l_dl = 'http://www.wot-replays.org/download/' + j.replay_id;
                             var l_v  = 'http://www.wot-replays.org/replay/' + j.replay_id + '.html';
-                            $('#embed-image').attr('src', '//dl.wot-replays.org/' + j.replay_id + '.png');
-                            $('#embed-text').text('[url=' + l_v + ']' + "\n" + '[img]http://dl.wot-replays.org/' + j.replay_id + '.png[/img]' + "\n" + '[/url]');
-                            $('#completed #download-link').attr('href', l_dl).html(l_dl);
-                            $('#completed #view-link').attr('href', l_v).html(l_v);
+                        
+                            if(j.incomplete == 1) {
+                                l_dl = j.ldl;
+                                $('#c-embed-link').hide();
+                                $('#c-view-link').hide();
+                                $('#c-incomplete').show();
+                            } else {
+                                $('#embed-image').attr('src', '//dl.wot-replays.org/' + j.replay_id + '.png');
+                                $('#embed-text').text('[url=' + l_v + ']' + "\n" + '[img]http://dl.wot-replays.org/' + j.replay_id + '.png[/img]' + "\n" + '[/url]');
+                                $('#completed #download-link').attr('href', l_dl).html(l_dl);
+                                $('#completed #view-link').attr('href', l_v).html(l_v);
+                            }
                             $('#completed button#btn-upload').html('UPLOAD ANOTHER REPLAY');
                             $('#completed').show();
-
                         } else {
                             if(j.redirect) {
                                 document.location.href = j.redirect;
                             } else {
-                                // error
                                 $('#upload-form-panel').show();
                                 $('#upload-progress-panel').hide();
                                 WR.ui.notify({ type: 'error', close: true, sticky: true, text: j.error });

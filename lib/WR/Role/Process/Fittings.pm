@@ -8,7 +8,6 @@ around 'process' => sub {
     my $res  = $self->$orig;
 
     $res->{vehicle_fittings} = $self->_parser->wot_vehicle_fittings || {};
-
     $res->{component_attributes} = {
         gun => {
             shot_count => $self->_parser->cb_gun_shot_count->(

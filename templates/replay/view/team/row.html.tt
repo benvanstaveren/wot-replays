@@ -1,7 +1,7 @@
 [% pname = player.name %]
 [% platoon = replay.platoons.$pname %]
 [% fitting = replay.vehicle_fittings.$pname %]
-[% IF player.isAlive == 1 %]
+[% IF player.health > 0 %]
     [% class = 'survived' %]
 [% ELSE %]
     [% class = 'died' %]
@@ -13,7 +13,7 @@
             <span class="platoon"><span class="tooltip number" title="Platoon #[% platoon %]">[% platoon %]</span></span>
         [% END %]
     </span></td>
-    <td class="tooltip playerVehicle" style="background: transparent url([% h.vehicle_icon(player.vehicleType.full, 48) %]) no-repeat scroll 0 0" title="[% h.vehicle_name(player.vehicleType.full) |html%]">
+    <td class="tooltip playerVehicle" style="background: transparent url(//images.wot-replays.org/vehicles/48/[% player.vehicleType.icon %]) no-repeat scroll 0 0" title="[% player.vehicleType.label |html %]">
         <div class="playerHealth">
             [% v = replay.vehicles.$playerid %]
             [% totalhealth = v.health + v.damageReceived %]

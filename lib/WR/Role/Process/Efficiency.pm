@@ -23,10 +23,10 @@ around 'process' => sub {
 
     if(my $playerid = $self->get_player_id($res => $res->{player}->{name})) {
         my $ppd = WR::PlayerProfileData->new(
-            db => $self->db,
-            id => $playerid + 0,
-            name => $res->{player}->{name},
-            server => $res->{player}->{server},
+            db      => $self->db,
+            id      => $playerid + 0,
+            name    => $res->{player}->{name},
+            server  => $res->{player}->{server},
         );
         $res->{efficiency}->{$res->{player}->{name}} = $ppd->efficiency();
     }

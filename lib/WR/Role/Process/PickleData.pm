@@ -11,10 +11,11 @@ around 'process' => sub {
     return $res unless($self->is_complete);
 
     # just load up the unpickle stuff
-    my $p = WR::Util::PyPickle->new(data => $self->_parser->get_block(3));
+    my $p = WR::Util::PyPickle->new(data => $self->_parser->get_block($self->_parser->pickle_block));
     $self->_set_pickledata($p->unpickle);
 
-    $res->{player}->{statistics} = $self->pickledata;
+    #$res->{player}->{statistics} = $self->pickledata;
+
     return $res;
 };
 

@@ -77,6 +77,8 @@ sub upload {
 
             $asset->move_to($replay_file);
 
+            my $incomplete = 0;
+
             try {
                 my $p = WR::Process->new(
                     file    => $replay_file,
@@ -85,36 +87,45 @@ sub upload {
                 );
                 $m_data = $p->process();
             } catch {
-                unlink($replay_file);
                 $pe = $_;
-            };
-
-            return $self->r_error(sprintf('Error parsing replay: %s', $pe), $replay_file) if($pe);
-            if(my $or = $self->db('wot-replays')->get_collection('replays')->find_one({ replay_digest => $m_data->{replay_digest} })) {
-                if($or->{site}->{visible}) {
-                    return $self->r_error_redirect(sprintf('/replay/%s.html', $or->{_id}->to_string()), $replay_file); 
+                if($pe =~ /incomplete/) {
+                    $incomplete = 1;
                 } else {
-                    return $self->r_error('That replay exists already', $replay_file);
+                    unlink($replay_file);
                 }
-            }
-            return $self->r_error('That replay seems to be coming from the public test server, we can\'t store those at the moment', $replay_file) if($m_data->{player}->{name} =~ /.*_(EU|NA|RU|SEA|US)$/);
-            return $self->r_error(q|Courtesy of WG, this replay can't be stored, it's missing your player ID, and we use that to uniquely identify each player|, $replay_file) if($m_data->{player}->{id} == 0);
-
-            my $rv = $self->nv($m_data->{version});
-
-            return $self->r_error(q|Sorry, but this replay is from an World of Tanks version that is no longer supported|, $replay_file) if($rv < $self->nv('0.8.2'));
-
-            $m_data->{file} = $filename;
-            $m_data->{site} = {
-                description => $self->req->param('description') || undef,
-                uploaded_at => time(),
-                uploaded_by => ($self->is_user_authenticated) ? $self->current_user->{_id} : undef,
-                visible     => ($self->req->param('hide') == 1) ? false : true,
             };
-            $self->db('wot-replays')->get_collection('replays')->save($m_data, { safe => 1 });
+
+            return $self->r_error(sprintf('Error parsing replay: %s', $pe), $replay_file) if($pe && $incomplete == 0);
+
+            if($incomplete == 0) {
+                if(my $or = $self->db('wot-replays')->get_collection('replays')->find_one({ replay_digest => $m_data->{replay_digest} })) {
+                    if($or->{site}->{visible}) {
+                        return $self->r_error_redirect(sprintf('/replay/%s.html', $or->{_id}->to_string()), $replay_file); 
+                    } else {
+                        return $self->r_error('That replay exists already', $replay_file);
+                    }
+                }
+                return $self->r_error('That replay seems to be coming from the public test server, we can\'t store those at the moment', $replay_file) if($m_data->{player}->{name} =~ /.*_(EU|NA|RU|SEA|US)$/);
+                return $self->r_error(q|Courtesy of WG, this replay can't be stored, it's missing your player ID, and we use that to uniquely identify each player|, $replay_file) if($m_data->{player}->{id} == 0);
+
+                my $rv = $self->nv($m_data->{version});
+
+                return $self->r_error(q|Sorry, but this replay is from an World of Tanks version that is no longer supported|, $replay_file) if($rv < $self->nv('0.8.2'));
+
+                $m_data->{file} = $filename;
+                $m_data->{site} = {
+                    description => $self->req->param('description') || undef,
+                    uploaded_at => time(),
+                    uploaded_by => ($self->is_user_authenticated) ? $self->current_user->{_id} : undef,
+                    visible     => ($self->req->param('hide') == 1) ? false : true,
+                };
+                $self->db('wot-replays')->get_collection('replays')->save($m_data, { safe => 1 });
+            }
             $self->render(json => { 
                 ok        => 1,
-                replay_id => $m_data->{_id}->to_string,
+                replay_id => ($incomplete == 0) ? $m_data->{_id}->to_string : undef,
+                incomplete => $incomplete,
+                ldl        => sprintf('http://dl.wot-replays.org/%s', $filename),
                 published => ($self->req->param('hide') == 1) ? 0 : 1,
             });
         } else {

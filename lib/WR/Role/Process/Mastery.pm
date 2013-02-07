@@ -6,10 +6,7 @@ around 'process' => sub {
     my $self = shift;
     my $res = $self->$orig;
 
-    return $res unless($self->is_complete());
     return $res unless(defined($res->{statistics}->{dossierPopUps}));
-
-    $res->{player}->{mastery} = 0;
 
     foreach my $i (@{$res->{statistics}->{dossierPopUps}}) {
         if($i->[0] == 79) {

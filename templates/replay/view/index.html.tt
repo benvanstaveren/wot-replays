@@ -7,10 +7,10 @@
                 </div>
                 <div style="float: left">
                     <h2 style="margin: 0px 0px 0px 0px">
-                        <a href="/player/[% replay.player.server |uri %]/[% replay.player.name |uri %]/">[% replay.player.name |html %]</a> - <a href="/vehicle/[% replay.player.vehicle.country  |uri %]/[% replay.player.vehicle.name |uri %]/">[% INCLUDE bricks/vehicles/name.html.tt vehiclename = replay.player.vehicle.full %]</a> - <a href="/map/[% replay.map.slug |uri %]/">[% INCLUDE bricks/maps/name.html.tt map = replay.map.id %]</a> ([% h.bonus_type_name(replay.game.bonus_type) %] [% h.game_type_name(replay.game.type) %])
+                        <a href="/player/[% replay.player.server |uri %]/[% replay.player.name |uri %]/">[% replay.player.name |html %]</a> - <a href="/vehicle/[% replay.player.vehicle.country  |uri %]/[% replay.player.vehicle.name |uri %]/">[% replay.player.vehicle.label |html %]</a> - <a href="/map/[% replay.map.slug |uri %]/">[% replay.map.name |html %]</a> ([% h.bonus_type_name(replay.game.bonus_type) %] [% h.game_type_name(replay.game.type) %])
                     </h2>
                     <h3 style="margin: 0px 0px 5px 0px">
-                        <span style="font-weight: normal">Result:</span><span> [% IF replay.complete %][% INCLUDE replay/view/matchresult.html.tt %][% ELSE %]<span>unknown</span>[% END %]</span> <span style="margin: 0px 0px 0px 10px; font-weight: normal">Survived:</span><span> [% INCLUDE replay/view/vehicle_stats/survived.html.tt %]</span>
+                        <span style="font-weight: normal">Result:</span><span>[% INCLUDE replay/view/matchresult.html.tt %]</span> <span style="margin: 0px 0px 0px 10px; font-weight: normal">Survived:</span><span> [% INCLUDE replay/view/vehicle_stats/survived.html.tt %]</span>
                     </h3>
                     <div>
                         <button class="rateUp" rid="[% replay.id %]" title="Like this replay"><span>Like</span> (<span class="rateUpCount">[% replay.site.likes || '0' %]</span>)</button></a>
@@ -31,11 +31,9 @@
                                         <ul class="nav">
                                             <li class="nav-item tab active"><a href="#vehicle-stats">Statistics</a></li>
                                             <li class="nav-item tab"><a href="#vehicle-loadout">Loadout</a></li>
-                                            [% IF replay.complete %]
-                                                <li class="nav-item tab"><a href="#teams">Teams</a></li>
-                                                [% IF replay.chat.size > 0 %]
-                                                    <li class="nav-item tab"><a href="#battle-chat">Chat</a></li>
-                                                [% END %]
+                                            <li class="nav-item tab"><a href="#teams">Teams</a></li>
+                                            [% IF replay.chat.size > 0 %]
+                                                <li class="nav-item tab"><a href="#battle-chat">Chat</a></li>
                                             [% END %]
                                             <li class="nav-item tab"><a href="#comparison">Compare</a></li>
                                         </ul>
@@ -54,29 +52,27 @@
                             <div id="vehicle-loadout" class="tab-panel" style="display: none">
                                 [% INCLUDE replay/view/vehicle_loadout.html.tt %]
                             </div>
-                            [% IF replay.complete %]
-                                <div id="teams" class="tab-panel" style="display: none">
-                                    [% INCLUDE replay/view/teams.html.tt %]
-                                </div>
-                                <div id="comparison" class="tab-panel" style="display: none">
-                                    <div id="comparison-display">Loading...</div>
-                                    <script type="text/javascript">
-                                        $(document).ready(function() {
-                                            $('#comparison-display').load('/replay/[% replay.id %]/comparison', {}, function() {});
-                                        });
-                                    </script>
-                                </div>
-                                [% IF replay.chat.size > 0 %]
-                                <div id="battle-chat" class="tab-panel" style="display: none">
-                                    [% FOREACH message IN replay.chat %]
-                                        <div class="chatmessage">
-                                            <div class="from [% IF message.global == 1 %]global[% END %]">[% message.from |html %]</div>
-                                            <div class="message [% IF message.global == 1 %]global[% END %]">[% message.text %]</div>
-                                            <div class="clear"></div>
-                                        </div>
-                                    [% END %]
-                                </div>
+                            <div id="teams" class="tab-panel" style="display: none">
+                                [% INCLUDE replay/view/teams.html.tt %]
+                            </div>
+                            <div id="comparison" class="tab-panel" style="display: none">
+                                <div id="comparison-display">Loading...</div>
+                                <script type="text/javascript">
+                                    $(document).ready(function() {
+                                        $('#comparison-display').load('/replay/[% replay.id %]/comparison', {}, function() {});
+                                    });
+                                </script>
+                            </div>
+                            [% IF replay.chat.size > 0 %]
+                            <div id="battle-chat" class="tab-panel" style="display: none">
+                                [% FOREACH message IN replay.chat %]
+                                    <div class="chatmessage">
+                                        <div class="from [% IF message.global == 1 %]global[% END %]">[% message.from |html %]</div>
+                                        <div class="message [% IF message.global == 1 %]global[% END %]">[% message.text %]</div>
+                                        <div class="clear"></div>
+                                    </div>
                                 [% END %]
+                            </div>
                             [% END %]
                         </div>
                     </td>
@@ -95,15 +91,6 @@
                     $(href).show();
                     return false;
                 });
-                /*
-                $.getJSON('/replay/[% replay.id %]/incview', {}, function(d, t, x) {});
-                $.getJSON('/replay/[% replay.id %]/stats', {}, function(d, t, x) {
-                    $('span.rateUpCount').html(d.likes || '0');
-                    $('span.count').html(d.downloads || '0');
-                    $('span.replayviewcount').html(d.views || '0');
-                    $('span.replayviewcount').attr('title', 'This replay has been viewed ' + d.views + ' times');
-                });
-                */
                 $('div.award').tooltip({ track: true }).css({ 'cursor': 'pointer' });
                 $('td.playerDetails span.tooltip').tooltip({ track: true }).css({ 'cursor': 'pointer' });
                 $('span.tooltip').tooltip({track: true}).css({ 'cursor': 'pointer' });

@@ -3,6 +3,9 @@ use Moose;
 use namespace::autoclean;
 use boolean;
 use WR::Parser;
+use WR::Constants qw/nation_id_to_name/;
+use WR::Util::TypeComp qw/parse_int_compact_descr/;
+
 use Try::Tiny qw/try catch/;
 
 has 'file' => (is => 'ro', isa => 'Str');
@@ -16,9 +19,6 @@ has 'bf_key' => (is => 'ro', isa => 'Str');
 has '_error' => (is => 'ro', isa => 'Maybe[Str]', required => 1, default => undef, writer => '_set_error', init_arg => undef);
 has '_parser' => (is => 'ro', isa => 'WR::Parser', writer => '_set_parser', init_arg => undef, handles => [qw/is_complete/]);
 has '_result' => (is => 'ro', isa => 'HashRef', writer => '_set_result', required => 1, default => sub { {} }, init_arg => undef);
-
-has 'match_info' => (is => 'ro', isa => 'HashRef', writer => '_set_match_info', init_arg => undef);
-has 'match_result' => (is => 'ro', isa => 'ArrayRef', writer => '_set_match_result', init_arg => undef);
 has 'pickledata' => (is => 'ro', isa => 'HashRef', writer => '_set_pickledata', init_arg => undef);
 
 has 'banner' => (is => 'ro', isa => 'Bool', required => 1, default => 1);
@@ -39,6 +39,14 @@ with (
         'WR::Role::Process::Banner',         # create banner
         'WR::Role::Process::InteractionDetails',   # vehicle interaction details
     );
+
+sub model {
+    my $self = shift;
+    my $m    = shift;
+
+    my ($db, $coll) = split(/\./, $m, 2);
+    return $self->db->get_collection($coll);
+}
 
 sub error {
     my $self = shift;
@@ -84,36 +92,8 @@ sub process {
         $self->error('unable to parse replay: ', $_);
     });
 
-    $self->_set_match_result($self->fuck_booleans($self->_parser->decode_block(2))) if($self->_parser->is_complete);
-
-    my $match_info = { 
-        %{$self->_parser->decode_block(1)},
-    };
-    my $vehicles = [];
-
-    my $realv = ($self->_parser->is_complete) ? $self->match_result->[1] : $match_info->{vehicles};
-
-    foreach my $vid (keys(%$realv)) {
-        my $veh = $realv->{$vid};
-        my ($v_c, $v_n) = split(/:/, $veh->{vehicleType}, 2);
-        $veh->{vehicleType} = {
-            name => $v_n,
-            country => $v_c,
-            full => $veh->{vehicleType},
-        };
-        my $data = { id => $vid, %$veh };
-        if($self->_parser->is_complete) {
-            $data->{frags} = (defined($self->match_result->[2]->{$vid}->{frags})) ? $self->match_result->[2]->{$vid}->{frags} + 0 : 0,
-        } else {
-            $data->{frags} = undef; 
-            $data->{isAlive} = undef; 
-        }
-        push(@$vehicles, $data);
-    }
-
-    $match_info->{vehicles} = $vehicles;
-    $self->_set_match_info($self->fuck_booleans($match_info));
-    return $self->match_info;
+    $self->error('incomplete') unless($self->_parser->is_complete);
+    return {};
 }
 
 sub fuck_booleans {
