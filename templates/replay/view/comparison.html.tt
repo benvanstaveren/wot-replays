@@ -29,19 +29,19 @@
                     <td><a href="[% entry.url %]">[% entry.player %]</a></td>
                     <td><a href="[% entry.url %]">[% INCLUDE bricks/gametype/name.html.tt gametype = replay.game.type %]</a></td>
                     <td 
-                        title="[% entry.player |html %] spotted [% IF entry.spotted.flag == '>' %]more[% ELSIF entry.spotted.flag == '<' %]less[% ELSE %]the same amount of[% END %] tanks" 
+                        title="[% entry.player |html %] spotted [% IF entry.spotted.flag == '>' %]less[% ELSIF entry.spotted.flag == '<' %]more[% ELSE %]the same amount of[% END %] tanks" 
                         class="num [% IF entry.spotted.flag == '>' %]green[% ELSIF entry.spotted.flag == '<' %]red[% END %]">[% entry.spotted.this %] [% entry.spotted.flag |html%] [% entry.spotted.that %]</td>
                     <td 
-                        title="[% entry.player |html %] damaged [% IF entry.damaged.flag == '>' %]more[% ELSIF entry.damaged.flag == '<' %]less[% ELSE %]the same amount of[% END %] tanks" 
+                        title="[% entry.player |html %] damaged [% IF entry.damaged.flag == '>' %]less[% ELSIF entry.damaged.flag == '<' %]more[% ELSE %]the same amount of[% END %] tanks" 
                         class="num [% IF entry.damaged.flag == '>' %]green[% ELSIF entry.damaged.flag == '<' %]red[% END %]">[% entry.damaged.this %] [% entry.damaged.flag |html %] [% entry.damaged.that %]</td>
                     <td 
-                        title="[% entry.player |html %] killed [% IF entry.kills.flag == '>' %]more[% ELSIF entry.kills.flag == '<' %]less[% ELSE %]the same amount of[% END %] tanks" 
+                        title="[% entry.player |html %] killed [% IF entry.kills.flag == '>' %]less[% ELSIF entry.kills.flag == '<' %]more[% ELSE %]the same amount of[% END %] tanks" 
                         class="num [% IF entry.kills.flag == '>' %]green[% ELSIF entry.kills.flag == '<' %]red[% END %]">[% entry.kills.this %] [% entry.kills.flag |html %] [% entry.kills.that %]</td>
                     <td 
-                        title="[% entry.player |html %] earned [% IF entry.xp.flag == '>' %]more[% ELSIF entry.xp.flag == '<' %]less[% ELSE %]the same amount of[% END %] experience" 
+                        title="[% entry.player |html %] earned [% IF entry.xp.flag == '>' %]less[% ELSIF entry.xp.flag == '<' %]more[% ELSE %]the same amount of[% END %] experience" 
                         class="num [% IF entry.xp.flag == '>' %]green[% ELSIF entry.xp.flag == '<' %]red[% END %]">[% entry.xp.this %] [% entry.xp.flag |html %] [% entry.xp.that %]</td>
                     <td 
-                        title="[% entry.player |html %] earned [% IF entry.credits.flag == '>' %]more[% ELSIF entry.credits.flag == '<' %]less[% ELSE %]the same amount of[% END %] credits" 
+                        title="[% entry.player |html %] earned [% IF entry.credits.flag == '>' %]less[% ELSIF entry.credits.flag == '<' %]more[% ELSE %]the same amount of[% END %] credits" 
                         class="num [% IF entry.credits.flag == '>' %]green[% ELSIF entry.credits.flag == '<' %]red[% END %]">[% entry.credits.this %] [% entry.credits.flag |html %] [% entry.credits.that %]</td>
                 </tr>
             [% END %]
