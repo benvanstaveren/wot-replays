@@ -133,6 +133,7 @@ sub get_map_data {
     return {
         id   => $map->{_id},
         name => $map->{label},
+        slug => lc($map->{label}),
     };
 }
 
