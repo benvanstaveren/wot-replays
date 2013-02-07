@@ -1,5 +1,5 @@
 [% WRAPPER wrapper.html.tt %]
-    <script type="text/javacript">
+    <script type="text/javascript">
         WR.g_currentReplayId = '[% replay.id %]';
     </script>
     <div class="content nosidebar">
