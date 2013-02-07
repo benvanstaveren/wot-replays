@@ -26,7 +26,7 @@ my $path = (-e '/home/ben')
     ? '/home/ben/projects/wot-replays/data/replays'
     : '/home/wotreplay/wot-replays/data/replays';
 
-while(my $r = $db->get_collection('replays')->find_one($query)) {
+if(my $r = $db->get_collection('replays')->find_one($query)) {
     unless(defined($r->{file})) {
         $db->get_collection('replays')->update({ _id => $r->{_id} }, { '$set' => { 'player.vehicle.label' => 'corrupt replay' } });
         print 'no file', "\n" and next;
@@ -54,4 +54,6 @@ while(my $r = $db->get_collection('replays')->find_one($query)) {
     } else {
         print $r->{_id}, ': ERROR: ', $e, "\n";
     }
+    exit(0);
 }
+exit(1);
