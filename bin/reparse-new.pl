@@ -29,7 +29,8 @@ my $path = (-e '/home/ben')
 if(my $r = $db->get_collection('replays')->find_one($query)) {
     unless(defined($r->{file})) {
         $db->get_collection('replays')->update({ _id => $r->{_id} }, { '$set' => { 'player.vehicle.label' => 'corrupt replay' } });
-        print 'no file', "\n" and next;
+        print $r->{_id}, ': NO FILE', "\n";
+        exit(0);
     }
     my $process;
     my $m;
