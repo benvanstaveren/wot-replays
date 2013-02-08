@@ -126,10 +126,12 @@ sub parse {
             bf_key  => $self->stash('config')->{wot}->{bf_key},
             banner  => $s,
         );
+        my $br;
 
         my $m_data;
         try {
             $m_data = $p->process();
+            $br     = $p->pickledata;
         } catch {
             $self->app->log->error("[process]: $_");
             $self->render(json => { ok => 0, error => "[process]: $_" });
@@ -174,6 +176,10 @@ sub parse {
                         ident       => $self->stash('token_ident'),
                         visible     => $visible,
                     }
+                });
+                $self->model('wot-replays.battleresults')->save({
+                    replay_id     => $m_data->{_id},
+                    battle_result => $br,
                 });
                 $url = sprintf('http://www.wot-replays.org/replay/%s.html', $m_data->{_id}->to_string);
             } else {

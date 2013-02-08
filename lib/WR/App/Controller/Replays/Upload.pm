@@ -85,6 +85,7 @@ sub upload {
             $asset->move_to($replay_file);
 
             my $incomplete = 0;
+            my $br;
 
             try {
                 my $p = WR::Process->new(
@@ -93,6 +94,7 @@ sub upload {
                     bf_key  => $self->stash('config')->{wot}->{bf_key},
                 );
                 $m_data = $p->process();
+                $br     = $p->pickledata;
             } catch {
                 $pe = $_;
                 if($pe =~ /incomplete/) {
@@ -126,7 +128,11 @@ sub upload {
                     uploaded_by => ($self->is_user_authenticated) ? $self->current_user->{_id} : undef,
                     visible     => ($self->req->param('hide') == 1) ? false : true,
                 };
-                $self->db('wot-replays')->get_collection('replays')->save($m_data, { safe => 1 });
+                $self->model('wot-replays.replays')->save($m_data, { safe => 1 });
+                $self->model('wot-replays.battleresults')->save({
+                    replay_id       => $m_data->{_id},
+                    battle_result   => $br,
+                }, { safe => 1 }) if(defined($br));
             }
             $self->render(json => { 
                 ok        => 1,
