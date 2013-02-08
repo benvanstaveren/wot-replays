@@ -92,7 +92,10 @@ sub do_logout {
 
     # logging out just means we want to jack up the session cookie
     $self->session('openid' => undef);
-    $self->redirect_to('/');
+    $self->respond(template => 'login/form', stash => {
+        page => { title => 'Login' },
+        notify  => { type => 'notify', text => 'You logged out successfully', sticky => 0, close => 1 },
+    });
 }
 
 sub do_login {
