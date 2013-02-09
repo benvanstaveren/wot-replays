@@ -11,7 +11,7 @@ use Time::HiRes qw/gettimeofday tv_interval/;
 sub xd {
     my $self = shift;
 
-    $self->res->headers->header('Access-Control-Allow-Origin' => $self->req->header('Origin'));
+    $self->res->headers->header('Access-Control-Allow-Origin' => $self->req->headers->header('Origin'));
     $self->render(text => q|var WR_CORS = true;|, status => 200);
 }
 

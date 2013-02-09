@@ -4,7 +4,7 @@ use Mojo::Base 'WR::App::Controller';
 sub bridge {
     my $self = shift;
 
-    if(my $origin = $self->req->header('Origin')) {
+    if(my $origin = $self->req->headers->header('Origin')) {
         if($origin =~ /\.wot-replays\.org$/) {
             $self->res->headers->header('Access-Control-Allow-Origin' => $origin);
         } else {
