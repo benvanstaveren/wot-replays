@@ -8,6 +8,13 @@ use URI::Escape;
 use LWPx::ParanoidAgent;
 use Time::HiRes qw/gettimeofday tv_interval/;
 
+sub xd {
+    my $self = shift;
+
+    $self->res->headers->header('Access-Control-Allow-Origin' => '*.wot-replays.org');
+    $self->render(text => 'OK', status => 200);
+}
+
 sub faq {
     shift->respond(template => 'faq', stash => { page => { title => 'Frequently Asked Questions' } });
 }

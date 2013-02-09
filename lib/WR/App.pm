@@ -43,6 +43,7 @@ sub startup {
     $r->route('/hint/:hintid')->to('ui#hint', pageid => 'hint');
     $r->route('/upload')->to('replays-upload#upload', pageid => 'upload');
     $r->route('/download/:replay_id')->to('replays-export#download');
+    $r->route('/xd')->to('ui#xd', pageid => 'xd');
 
     $r->route('/replay/browse/:page')->to('replays#browse', page => 1);
 
