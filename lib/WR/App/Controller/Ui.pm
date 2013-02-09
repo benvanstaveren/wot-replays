@@ -11,8 +11,8 @@ use Time::HiRes qw/gettimeofday tv_interval/;
 sub xd {
     my $self = shift;
 
-    $self->res->headers->header('Access-Control-Allow-Origin' => '*.wot-replays.org');
-    $self->render(text => 'OK', status => 200);
+    $self->res->headers->header('Access-Control-Allow-Origin' => $self->req->header('Origin'));
+    $self->render(text => q|var WR_CORS = true;|, status => 200);
 }
 
 sub faq {
