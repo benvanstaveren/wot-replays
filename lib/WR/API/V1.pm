@@ -133,8 +133,13 @@ sub parse {
             $m_data = $p->process();
             $br     = $p->pickledata;
         } catch {
-            $self->app->log->error("[process]: $_");
-            $self->render(json => { ok => 0, error => "[process]: $_" });
+            my $e = $_;
+            if($e =~ /incomplete/) {
+                $self->render(json => { ok => 0, error => 'no battle result block in replay' });
+            } else {
+                $self->app->log->error("[process]: $_");
+                $self->render(json => { ok => 0, error => "[process]: $_" });
+            }
         };
 
         return unless(defined($m_data));
