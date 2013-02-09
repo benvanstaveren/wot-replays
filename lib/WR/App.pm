@@ -91,7 +91,7 @@ sub startup {
         $stats->route('/')->to('stats#index');
         $stats->route('/:statid')->to('stats#view');
 
-    my $api = $r->under('/api/v1');
+    my $api = $r->bridge('/api/v1')->to('api#bridge');
         $api->route('/bootstrap')->to('api#bootstrap');
 
     my $admin = $r->bridge('/admin')->to('admin#bridge');

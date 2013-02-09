@@ -1,6 +1,13 @@
 package WR::App::Controller::Api;
 use Mojo::Base 'WR::App::Controller';
 
+sub bridge {
+    my $self = shift;
+
+    $self->res->headers->header('Access-Control-Allow-Origin' => '*.wot-replays.org');
+    return 1;
+}
+
 sub bootstrap {
     my $self = shift;
     my $data = {};
