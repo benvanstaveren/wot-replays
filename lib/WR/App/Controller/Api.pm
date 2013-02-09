@@ -4,7 +4,15 @@ use Mojo::Base 'WR::App::Controller';
 sub bridge {
     my $self = shift;
 
-    $self->res->headers->header('Access-Control-Allow-Origin' => '*.wot-replays.org');
+    if(my $origin = $self->req->header('Origin')) {
+        if($origin =~ /\.wot-replays\.org$/) {
+            $self->res->headers->header('Access-Control-Allow-Origin' => $origin);
+        } else {
+            $self->render(text => 'Forbidden', status => 403);
+        }
+    } else {
+        $self->render(text => 'Forbidden', status => 403);
+    }
     return 1;
 }
 
