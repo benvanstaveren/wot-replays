@@ -50,7 +50,7 @@ around 'process' => sub {
                 user_id     => $pid + 0,
                 user_name   => $name,
                 server      => $server,
-                via         => 'find_server',
+                via         => 'get_server_by_id',
             }, { safe => 1 });
         }
     }
