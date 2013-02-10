@@ -15,7 +15,9 @@ $| = 1;
 use constant WOT_BF_KEY_STR => 'DE 72 BE A0 DE 04 BE B1 DE FE BE EF DE AD BE EF';
 use constant WOT_BF_KEY     => join('', map { chr(hex($_)) } (split(/\s/, WOT_BF_KEY_STR)));
 
+print 'connecting mongo...', "\n";
 my $mongo  = MongoDB::Connection->new(host => $ENV{MONGO} || 'localhost');
+print 'select db...', "\n";
 my $db     = $mongo->get_database('wot-replays');
 
 my $query = {
@@ -25,6 +27,7 @@ my $query = {
     'player.server' => 'unknown',
 };
 
+print 'query...', "\n";
 my $rc = $db->get_collection('replays')->find($query)->sort({ 'site.uploaded_at' => -1 });
 
 print 'reparsing: ', $rc->count(), ' replays', "\n";
