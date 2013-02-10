@@ -8,27 +8,31 @@ around 'process' => sub {
     my $self = shift;
     my $res  = $self->$orig;
     my $coll = $self->db->get_collection('cache.server_finder');
+    my $sf   = WR::ServerFinder->new();
 
-    if(my $r = $coll->find_one({ _id => sprintf('%d-%s', $res->{player}->{account_id}, $res->{player}->{name}) })) {
-        $res->{player}->{server} = $r->{server};
+    if(my $server = $sf->get_server_by_id($res->{player}->{account_id})) {
+        $res->{player}->{server} = $server;
     } else {
-        my $sf = WR::ServerFinder->new();
-        if(my $server_res = $sf->find_server($res->{player}->{account_id}, $res->{player}->{name})) {
-            try {
-                $coll->save({
-                    _id => sprintf('%d-%s', $res->{player}->{account_id}, $res->{player}->{name}),
-                    user_id     => $res->{player}->{account_id},
-                    user_name   => $res->{player}->{name},
-                    server      => $server_res,
-                }, { safe => 1 });
-            };
-            $res->{player}->{server} = $server_res;
+        if(my $r = $coll->find_one({ _id => sprintf('%d-%s', $res->{player}->{account_id}, $res->{player}->{name}) })) {
+            $res->{player}->{server} = $r->{server};
         } else {
-            $res->{player}->{server} = 'unknown';
-            return $res; # we're done here
+            my $sf = WR::ServerFinder->new();
+            if(my $server_res = $sf->find_server($res->{player}->{account_id}, $res->{player}->{name})) {
+                try {
+                    $coll->save({
+                        _id => sprintf('%d-%s', $res->{player}->{account_id}, $res->{player}->{name}),
+                        user_id     => $res->{player}->{account_id},
+                        user_name   => $res->{player}->{name},
+                        server      => $server_res,
+                    }, { safe => 1 });
+                };
+                $res->{player}->{server} = $server_res;
+            } else {
+                $res->{player}->{server} = 'unknown';
+                return $res; # we're done here
+            }
         }
     }
-
     return $res;
 };
 
