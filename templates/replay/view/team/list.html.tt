@@ -18,7 +18,7 @@
     $('div.equipmentDialog').dialog({
         autoOpen: false,
         width: 800,
-        height: 400,
+        height: 550,
         open: function() {
             var dialog = $(this).parent();
             $(dialog).find('.ui-dialog-titlebar').css({
