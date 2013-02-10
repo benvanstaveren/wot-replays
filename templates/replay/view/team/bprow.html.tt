@@ -15,13 +15,13 @@
     </td>
     <td class="playerDetails">
         <span class="
-            [% IF targetplayer.team == replay.player.team %]
+            [% IF targetplayer.team == player.team %]
                 teamkill [% IF !details || details.killed == 0 %]dimmed[% ELSE %]tooltip[% END %]" title="Player killed this team member"
             [% ELSE %]
                 kill [% IF !details || details.killed == 0 %]dimmed[% ELSE %]tooltip[% END %]" title="Player got the killing blow on this enemy"
             [% END %]></span>
         <span class="damage 
-            [% IF targetplayer.team == replay.player.team %]
+            [% IF targetplayer.team == player.team %]
                 [% IF !details || details.hits + details.he_hits == 0 %]dimmed[% ELSE %]tooltip[% END %]" title="Player did [% details.damageDealt %] damage to a team member"
             [% ELSE %]
                 [% IF !details || details.hits + details.he_hits == 0 %]dimmed[% ELSE %]tooltip[% END %]" title="Player did [% details.damageDealt %] points of damage "
