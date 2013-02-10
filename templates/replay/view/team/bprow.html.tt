@@ -1,0 +1,45 @@
+[% targetplayer = h.get_vehicle_by_id(vid) %]
+<tr class="battleperformance">
+    <td class="playerVehicle" style="background: transparent url(//images.wot-replays.org/vehicles/48/[% targetplayer.vehicleType.icon %]) no-repeat scroll 0 0" title="[% targetplayer.vehicleType.label |html %]">
+        <div class="playerHealth">
+            [% ph = targetplayer.health + targetplayer.damageReceived %]
+            [% hp = h.percentage_of(ph, targetplayer.health) %]
+            [% bs = h.sprintf('%d', (74 / 100) * hp) %]
+            [% IF bs < 1 %][% bs = 1 %][% END %]
+            <div class="health" style="width: [% bs %]px"></div>
+            <div class="healthnumbers">[% targetplayer.health %]/[% ph %]</div>
+        </div>
+    </td>
+    <td class="tooltip playerName" title="[% targetplayer.name |html %][% IF targetplayer.clanAbbrev %][[% targetplayer.clanAbbrev %]][% END %]">
+        [% targetplayer.name |truncate(12) |html %][% IF targetplayer.clanAbbrev %]<span class="clan">[[% targetplayer.clanAbbrev %]]</span>[% END %]
+    </td>
+    <td class="playerDetails">
+        <span class="
+            [% IF targetplayer.team == replay.player.team %]
+                teamkill [% IF !details || details.killed == 0 %]dimmed[% ELSE %]tooltip[% END %]" title="Player killed this team member"
+            [% ELSE %]
+                kill [% IF !details || details.killed == 0 %]dimmed[% ELSE %]tooltip[% END %]" title="Player got the killing blow on this enemy"
+            [% END %]></span>
+        <span class="damage 
+            [% IF targetplayer.team == replay.player.team %]
+                [% IF !details || details.hits + details.he_hits == 0 %]dimmed[% ELSE %]tooltip[% END %]" title="Player did [% details.damageDealt %] damage to a team member"
+            [% ELSE %]
+                [% IF !details || details.hits + details.he_hits == 0 %]dimmed[% ELSE %]tooltip[% END %]" title="Player did [% details.damageDealt %] points of damage "
+            [% END %]>
+            [% IF details.hits + details.he_hits > 0 %]
+            <b>[% details.hits + details.he_hits %]</b> 
+            [% END %]
+        </span>
+        <span class="crits [% IF !details || details.crits == 0 %]dimmed"[% ELSE %]tooltip" title="Player made [% details.crits %] critical hits"[% END %]>
+            [% IF details.crits > 0 %]
+            <b>[% details.crits %]</b>
+            [% END %]
+        </span>
+        [% IF details && details.damageAssisted > 0 %]
+            <span class="evil tooltip" title="Player spotted this vehicle, and team members contributed [% details.damageAssisted %] points of damage"></span>
+        [% ELSE %]
+            <span class="spotted [% IF !details || details.spotted == 0 %]dimmed"[% ELSE %]tooltip" title="Player spotted this vehicle"[% END %]></span>
+        [% END %]
+        <div class="clear"></div>
+    </td>
+</tr>

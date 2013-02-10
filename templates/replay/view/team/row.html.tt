@@ -23,9 +23,9 @@
             <div class="health" style="width: [% bs %]px"></div>
             <div class="healthnumbers">[% v.health %]/[% totalhealth %]</div>
         </div>
-        <div title='<div class="dialog-tabs"><ul><li><a class="ui-corner-top active" href="#fitting">Fitting</a></li><li><a class="ui-corner-top" href="#performance">Performance</a></li></ul></div>' class="equipmentDialog" id="tt_[% player.name |html %]" style="display: none">
+        <div title='<div class="dialog-tabs"><ul><li><a class="ui-corner-top active" href="#performance">Performance</a></li><li><a class="ui-corner-top" href="#fitting">Fitting</a></li></ul></div>' class="equipmentDialog" id="tt_[% player.name |html %]" style="display: none">
             <div>
-                <div class="viewcontent" id="fitting">
+                <div class="viewcontent" id="fitting" style="display: none">
                         <table style="width: 100%;" cellspacing="0" cellpadding="0"> 
                             <tbody>
                                 <tr>
@@ -84,7 +84,11 @@
                             </tbody>
                         </table>
                 </div>
-                <div class="viewcontent" id="performance" style="display: none">...</div>
+                <div class="viewcontent" id="performance">
+                    <div>
+                        [% INCLUDE replay/view/team/bp.html.tt %]
+                    </div>
+                </div>
             </div>
         </div>
     </td>

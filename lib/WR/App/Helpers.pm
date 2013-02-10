@@ -186,6 +186,12 @@ sub add_helpers {
             return undef;
         }
     });
+    $self->helper(get_vehicle_by_id => sub {
+        my $self = shift;
+        my $id   = shift;
+
+        return $self->stash('req_replay')->{vehicles}->{$id};
+    });
     $self->helper(ammo_icon_style => sub {
         my $self = shift;
         my $a = shift;
