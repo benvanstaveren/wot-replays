@@ -94,6 +94,7 @@ sub startup {
 
     my $api = $r->bridge('/api/v1')->to('api#bridge');
         $api->route('/bootstrap')->to('api#bootstrap');
+        $api->route('/player')->to('api#player');
 
     my $admin = $r->bridge('/admin')->to('admin#bridge');
         $admin->route('/')->to('admin#index');

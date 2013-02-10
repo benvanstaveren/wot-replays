@@ -1,5 +1,7 @@
 package WR::App::Controller::Api;
 use Mojo::Base 'WR::App::Controller';
+use WR::ServerFinder;
+use WR::PlayerProfileData;
 
 sub bridge {
     my $self = shift;
@@ -14,6 +16,35 @@ sub bridge {
         $self->render(text => 'Forbidden', status => 403);
     }
     return 1;
+}
+
+sub player {
+    my $self = shift;
+    my $pn   = $self->req->param('player');
+    my $ps   = $self->req->param('server');
+
+    # need to get the playerid based on the above, which means that
+    # if they aren't in the server finder cache, they have no replays
+    # stored
+    if(my $s = $self->model('wot-replays.cache.server_finder')->find_one({
+        server => $ps,
+        user_name => $pn,
+    })) {
+        my $ppd = WR::PlayerProfileData->new(
+            db      => $self->db,
+            id      => $s->{user_id} + 0,
+            name    => $pn,
+            server  => $ps,
+        );
+
+        if(my $user = $ppd->load_user) {
+            $self->render(json => { ok => 1, player => $user });
+        } else {
+            $self->render(json => { ok => 0 });
+        }
+    } else {
+        $self->render(json => { ok => 0 });
+    }
 }
 
 sub bootstrap {
