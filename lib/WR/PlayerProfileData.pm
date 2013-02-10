@@ -88,13 +88,23 @@ sub load_user {
     return undef unless(defined($res));
 
     try {
+        $data->{name} = $res->dom->at('div.l-content h1')->text;
+
         # given $res, go dom it up
         if($res->dom->at('a.b-link-clan')) {
             $data->{clan} = {
                 link => 'http://' . __PACKAGE__->SERVERS->{$self->server} . $res->dom->at('a.b-link-clan')->attrs('href'),
                 tag  => $res->dom->at('a.b-link-clan span.tag')->text,
                 name => $res->dom->at('a.b-link-clan span.name')->text,
-            }
+            };
+            my $l = $data->{clan}->{link};
+            $l =~ m|/community/clans/(\d+)-.*|;
+            my $cid = $1 + 0;
+            $data->{clan}->{icon} = sprintf('http://%s/dcont/clans/emblems/clans_%d/%d/emblem_64x64.png', 
+                __PACKAGE__->SERVERS->{$self->server},
+                substr($cid, 0, 1),
+                $cid
+                );
         } else {
             $data->{clan} = undef;
         }
