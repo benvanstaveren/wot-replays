@@ -37,10 +37,24 @@ around 'process' => sub {
                 $res->{player}->{server} = $server_res;
             } else {
                 $res->{player}->{server} = 'unknown';
-                return $res; # we're done here
             }
         }
     }
+
+    # fix em up for the other players as well if we can do it with get_server_by_id 
+    foreach my $pid (keys(%{$res->{players}})) {
+        my $name = $res->{players}->{$pid}->{name};
+        if(my $server = $sf->get_server_by_id($pid + 0)) {
+            $coll->save({
+                _id => sprintf('%d-%s', $pid + 0, $name),
+                user_id     => $pid + 0,
+                user_name   => $name,
+                server      => $server,
+                via         => 'find_server',
+            }, { safe => 1 });
+        }
+    }
+
     return $res;
 };
 
