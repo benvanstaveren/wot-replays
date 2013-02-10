@@ -26,9 +26,10 @@ sub player {
     # need to get the playerid based on the above, which means that
     # if they aren't in the server finder cache, they have no replays
     # stored
+    my $re = '^' . $pn . '$';
     if(my $s = $self->model('wot-replays.cache.server_finder')->find_one({
         server => $ps,
-        user_name => $pn,
+        user_name => qr/$re/i,
     })) {
         my $ppd = WR::PlayerProfileData->new(
             db      => $self->db,
