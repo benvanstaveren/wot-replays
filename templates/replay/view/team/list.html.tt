@@ -41,6 +41,11 @@
                 }
             });
         },
+        buttons: {
+            'Close': function() {
+                $(this).dialog('close');
+            },
+        },
         modal: true,
         draggable: false,
         resizable: false,
