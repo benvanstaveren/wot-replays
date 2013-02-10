@@ -12,6 +12,13 @@ around 'process' => sub {
 
     if(my $server = $sf->get_server_by_id($res->{player}->{account_id})) {
         $res->{player}->{server} = $server;
+        $coll->save({
+            _id => sprintf('%d-%s', $res->{player}->{account_id}, $res->{player}->{name}),
+            user_id     => $res->{player}->{account_id},
+            user_name   => $res->{player}->{name},
+            server      => $server,
+            via         => 'get_server_by_id',
+        }, { safe => 1 });
     } else {
         if(my $r = $coll->find_one({ _id => sprintf('%d-%s', $res->{player}->{account_id}, $res->{player}->{name}) })) {
             $res->{player}->{server} = $r->{server};
@@ -24,6 +31,7 @@ around 'process' => sub {
                         user_id     => $res->{player}->{account_id},
                         user_name   => $res->{player}->{name},
                         server      => $server_res,
+                        via         => 'find_server',
                     }, { safe => 1 });
                 };
                 $res->{player}->{server} = $server_res;
