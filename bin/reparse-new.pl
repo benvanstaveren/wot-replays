@@ -43,6 +43,10 @@ if(my $r = $db->get_collection('replays')->find_one($query)) {
         $m = $process->process();
     } catch {
         $e = $_;
+        if($e =~ /incomplete/) {
+            # remove it
+            $db->get_collection('replays')->remove({ _id => $r->{_id} });
+        }
     };
 
     $process = undef;
@@ -54,8 +58,12 @@ if(my $r = $db->get_collection('replays')->find_one($query)) {
         $db->get_collection('replays')->save($m, { safe => 1 });
         print $r->{_id}, ': OK', "\n";
     } else {
-        $db->get_collection('replays')->update({ _id => $r->{_id} }, { '$set' => { 'player.vehicle.label' => 'corrupt replay' } });
-        print $r->{_id}, ': ERROR: ', $e, "\n";
+        if($e =~ /incomplete/) {
+            print $r->{_id}, ': INCOMPLETE REMOVED', "\n";
+        } else {
+            $db->get_collection('replays')->update({ _id => $r->{_id} }, { '$set' => { 'player.vehicle.label' => 'corrupt replay' } });
+            print $r->{_id}, ': ERROR: ', $e, "\n";
+        }
     }
     exit(0);
 }
