@@ -5,8 +5,8 @@ function() {
     var common      = this.battle_result.common;
 
     for(vehicleID in vehicles) {
-        var vehicle = vehicles[vehicleID];
-        var player  = players[vehicle.accountDBID];
+        var vehicle = vehicles[vehicleID + ''];
+        var player  = players[vehicle.accountDBID + ''];
         var key     = vehicle.accountDBID + '-' + player.name;
 
         var emitData = {
