@@ -272,10 +272,20 @@ sub view {
     $self->stash('other_awards' => $other_awards);
 
     # get any related replays
-    my $relcursor = $self->model('wot-replays.replays')->find({
-        'game.arena_id' => $r->{game}->{arena_id} . '',
-        '_id'           => { '$nin' => [ $r->{_id} ] }
-    });
+    if(my $related = $self->model('wot-replays.replays.related')->find_one({ 'value.count' => { '$gt' => 1 }, _id => $r->{game}->{arena_id} . '' })) {
+        my $in = [];
+        foreach my $id (@{$related->{value}->{ids}}) {
+            next if($id->to_string eq $r->{_id}->to_string);
+            push(@$in, $id);
+        }
+
+        $self->stash('related' => {
+            count   => $related->{value}->{count},
+            replays => [ $self->model('wot-replays.replays')->find({ _id => { '$in' => $in }})->all() ],
+        });
+    } else {
+        $self->stash(related => { count => 0, replays => [] });
+    }
 
     $self->stash('related' => {
         count       =>  $relcursor->count,
