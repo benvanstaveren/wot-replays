@@ -300,24 +300,10 @@ sub view {
                 title => $title,
                 description => $description,
             },
-            related => $self->related,
             timing_view => tv_interval($start, [ gettimeofday ]),
         }, 
         template => 'replay/view/index',
     );
-}
-
-sub related {
-    my $self = shift;
-    my $r = $self->stash('req_replay');
-
-    return [] unless($r->{complete});
-
-    return [ map { WR::Query->fuck_tt($_) } $self->db('wot-replays')->get_collection('replays')->find({
-        'site.visible' => true,
-        'game.arena_id' => $r->{game}->{arena_id},
-        '_id' => { '$nin' => [ $r->{_id} ] }
-        })->all() ];
 }
 
 1;
