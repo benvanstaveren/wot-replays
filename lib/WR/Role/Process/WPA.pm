@@ -31,6 +31,9 @@ around 'process' => sub {
     my $vehicle = $self->db->get_collection('data.vehicles')->find_one({ _id => $res->{player}->{vehicle}->{full} });
     my $j = JSON::XS->new();
 
+    $self->app->log->info('WPA: map says: ' . $map . ' id: ' . $res->{map}->{id});
+    $self->app->log->info('WPA: vehicle says: ' . $vehicle . ' id: ' . $res->{player}->{vehicle}->{full});
+
     my $url = sprintf('http://www.vbaddict.net/api/1/2de35957abcde312ea8212d3cddfc168/%d/%d/%d/%d/',
         $vehicle->{wpa_tank_id},
         $vehicle->{wpa_country_id},
