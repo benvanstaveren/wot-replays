@@ -8,7 +8,6 @@ function() {
         var vehicle = vehicles[vehicleID + ''];
         var player  = players[vehicle.accountDBID + ''];
         var key     = vehicle.accountDBID + '-' + player.name;
-
         var emitData = {
             count:          1,
             kills:          vehicle.kills,
@@ -24,25 +23,8 @@ function() {
             mileage:        vehicle.mileage,
             shots:          vehicle.shots,
             pierced:        vehicle.pierced,
-            hits:           vehicle.hits,
-            vehicleType:    {},
-            vehicleClass:   {},
-            gameMap:        {},
-            gameType:       {},
-            bonusType:      {}
+            hits:           vehicle.hits
         };
-
-        emitData.vehicleType[vehicle.vehicleType.full] = 1;
-        emitData.vehicleClass[vehicle.vehicleType.type] = 1;
-
-        var arenaTypeID = common.arenaTypeID;
-        var gameplayID = arenaTypeID >> 16;
-        var mapID = arenaTypeID & 32767;
-
-        emitData.gameMap[mapID] = 1;
-        emitData.gameType[gameplayID] = 1;
-        emitData.bonusType[common.bonusType] = 1;
-
         emit(key, emitData);
     }
 }

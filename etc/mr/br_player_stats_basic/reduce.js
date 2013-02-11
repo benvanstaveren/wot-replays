@@ -14,27 +14,12 @@ function(k, v) {
         mileage:        0,
         shots:          0,
         pierced:        0,
-        hits:           0,
-        vehicleType:    {},
-        vehicleClass:   {},
-        gameMap:        {},
-        gameType:       {},
-        bonusType:      {}
+        hits:           0
     };
 
     v.forEach(function(val) {
         [ 'count', 'kills', 'damaged', 'spotted', 'damageDealt', 'damageAssisted', 'xp', 'credits', 'repair', 'health', 'survived', 'mileage', 'shots', 'pierced', 'hits' ].forEach(function(ikey) {
             res[ikey] += val[ikey];
-        });
-
-        [ 'vehicleType', 'vehicleClass', 'gameMap', 'gameType', 'bonusType' ].forEach(function(ikey) {
-            for(t in val[ikey]) {
-                if(res[ikey][t]) {
-                    res[ikey][t] += val[ikey][t];
-                } else {
-                    res[ikey][t] = 1;
-                }
-            }
         });
     });
 
