@@ -27,6 +27,8 @@ my $path = (-e '/home/ben')
     ? '/home/ben/projects/wot-replays/data/replays'
     : '/home/wotreplay/wot-replays/data/replays';
 
+my $count = $db->get_collection('replays')->find($query)->count;
+
 if(my $r = $db->get_collection('replays')->find_one($query)) {
     unless(defined($r->{file})) {
         $db->get_collection('replays')->update({ _id => $r->{_id} }, { '$set' => { 'player.vehicle.label' => 'unknown' } });
@@ -56,15 +58,15 @@ if(my $r = $db->get_collection('replays')->find_one($query)) {
         $m->{_id}  = $r->{_id}; 
         $m->{file} = $r->{file};
         $db->get_collection('replays')->save($m, { safe => 1 });
-        print $r->{_id}, ': OK', "\n";
+        print $r->{_id}, ': OK ', $count - 1, ' remaining' "\n";
     } else {
         if($e =~ /incomplete/) {
-            print $r->{_id}, ': INCOMPLETE REMOVED', "\n";
+            print $r->{_id}, ': INCOMPLETE REMOVED ', $count - 1, ' remaining', "\n";
         } elsif($e =~ /could not open/) {
-            print $r->{_id}, ': FILE MISSING REMOVED', "\n";
+            print $r->{_id}, ': FILE MISSING REMOVED ', $count - 1, ' remaining', "\n";
         } else {
             $db->get_collection('replays')->update({ _id => $r->{_id} }, { '$set' => { 'player.vehicle.label' => 'corrupt replay' } });
-            print $r->{_id}, ': ERROR: ', $e, "\n";
+            print $r->{_id}, ': ERROR: ', $e, ' ', $count - 1, ' remaining', "\n";
         }
     }
     exit(0);
