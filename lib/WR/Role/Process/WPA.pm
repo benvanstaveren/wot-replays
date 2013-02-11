@@ -22,7 +22,9 @@ around 'process' => sub {
     my $coll = $self->db->get_collection('cache.wpa');
 
     if(my $r = $coll->find_one({ _id => sprintf('%s-%s', $res->{player}->{vehicle}->{full}, $res->{map}->{id}) })) {
+        $self->app->log->info('WPA: already have cached entry, checking expiry') if(defined($self->app));
         return $res if($r->{created} + 86400 > time());
+        $self->app->log->info('WPA: entry expired') if(defined($self->app));
     }
 
     my $map = $self->db->get_collection('data.maps')->find_one({ _id => $res->{map}->{id} });
@@ -36,9 +38,12 @@ around 'process' => sub {
         WPA_GAME_MODE_MAPPING->{$res->{game}->{type}}
         );
 
+    $self->app->log->info('WPA: getting data from: ' . $url) if(defined($self->app));
+
     my $ua = Mojo::UserAgent->new();
     my $tx = $ua->get($url);
     if(my $response = $tx->success) {
+        $self->app->log->info('WPA: fetch ok') if(defined($self->app));
         my $data = $j->decode($response->body);
 
         if($data->{result} eq 'OK') {
