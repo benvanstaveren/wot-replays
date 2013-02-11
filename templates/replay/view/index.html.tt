@@ -133,4 +133,9 @@
             });
         </script>
     </div>
+    <!--
+        debug stuff
+
+        [% h.dumper(related) %]
+    -->
 [% END %]
