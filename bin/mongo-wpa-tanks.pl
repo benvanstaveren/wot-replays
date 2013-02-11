@@ -20,8 +20,8 @@ my $j = JSON::XS->new();
 my $d = read_file($ARGV[0]);
 my $x = $j->decode($d);
 
-foreach my $wpa_tank (@$x) {
-    $coll->update({name_lc => $wpa_tank->{icon}}, {
+foreach my $wpa_tank (@$x) {$
+    $coll->update({ label_short => $wpa_tank->{title_short}}, {
         '$set' => { 
             'wpa_tank_id'    => $wpa_tank->{tankid} ,
             'wpa_country_id' => $wpa_tank->{countryid}  
