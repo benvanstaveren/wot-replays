@@ -20,7 +20,7 @@ my $db     = $mongo->get_database('wot-replays');
 
 my $query = {
     'player.vehicle.label' => 'corrupt replay',
-    '$exists' => { 'file' => true },
+    'file' => { '$exists' => true },
 };
 
 my $path = (-e '/home/ben') 
