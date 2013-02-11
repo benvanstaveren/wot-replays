@@ -54,8 +54,12 @@ around 'process' => sub {
                 data => $data
             });
         }
+    } else {
+        if($self->app) {
+            my ($err, $code) = $tx->error;
+            $self->app->log->error('[WPA]: could not fetch data from vbaddict.net, url: ' . $url . ' response code: ' . $code . ' response error: ' . $err);
+        }
     }
-
     return $res;
 };
 

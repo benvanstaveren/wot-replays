@@ -125,6 +125,7 @@ sub parse {
             db      => $self->db('wot-replays'),
             bf_key  => $self->stash('config')->{wot}->{bf_key},
             banner  => $s,
+            app     => $self->app,
         );
         my $br;
 

@@ -92,6 +92,7 @@ sub upload {
                     file    => $replay_file,
                     db      => $self->db('wot-replays'),
                     bf_key  => $self->stash('config')->{wot}->{bf_key},
+                    app     => $self->app,
                 );
                 $m_data = $p->process();
                 $br     = $p->pickledata;

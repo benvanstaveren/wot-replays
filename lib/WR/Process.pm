@@ -22,6 +22,7 @@ has '_result' => (is => 'ro', isa => 'HashRef', writer => '_set_result', require
 has 'pickledata' => (is => 'ro', isa => 'HashRef', writer => '_set_pickledata', init_arg => undef);
 
 has 'banner' => (is => 'ro', isa => 'Bool', required => 1, default => 1);
+has 'app'    => (is => 'ro', isa => 'Mojolicious');
 
 # load order here is important, the roles are applied left to right, first role applied is the first level in the 'around' chain
 

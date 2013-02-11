@@ -13,7 +13,7 @@ die 'Usage: $0 <mr folder> <output collection> [collection]', "\n" unless($ARGV[
 my $coll = $ARGV[2] || 'replays';
 
 my $mongo  = MongoDB::Connection->new({ host => $ENV{MONGO} || 'mongodb://hwn-01.blockstackers.net:27017' });
-$mongo->query_timeout(60 * 30);
+$mongo->query_timeout(-1);
 my $mr     = WR::MR->new(folder => $ARGV[0], db => $mongo->get_database('wot-replays'));
 
 print Dumper($mr->execute($coll => $ARGV[1]));
