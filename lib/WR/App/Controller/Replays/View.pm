@@ -287,11 +287,6 @@ sub view {
         $self->stash(related => { count => 0, replays => [] });
     }
 
-    $self->stash('related' => {
-        count       =>  $relcursor->count,
-        replays     =>  [ $relcursor->all() ],
-    });
-
     $self->model('wot-replays.replays')->update({ _id => $r->{_id} }, {
         '$inc' => { 'site.views' => 1 },
     });
