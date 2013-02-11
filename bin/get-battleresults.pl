@@ -40,7 +40,7 @@ while(my $r = $rc->next()) {
     my $e;
     my $f = sprintf('%s/%s', $path, $r->{file});
 
-    next if($db->get_collection('battleresults')->find({ replay_id => $r->{_id} })->count() > 0);
+    print $r->{_id}, ': already', "\n" and next if($db->get_collection('battleresults')->find({ replay_id => $r->{_id} })->count() > 0);
     my $br;
 
     try {
