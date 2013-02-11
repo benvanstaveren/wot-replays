@@ -43,7 +43,7 @@ if(my $r = $db->get_collection('replays')->find_one($query)) {
         $m = $process->process();
     } catch {
         $e = $_;
-        if($e =~ /incomplete/) {
+        if($e =~ /incomplete/ || $e =~ /could not open/) {
             # remove it
             $db->get_collection('replays')->remove({ _id => $r->{_id} });
         }
@@ -60,6 +60,8 @@ if(my $r = $db->get_collection('replays')->find_one($query)) {
     } else {
         if($e =~ /incomplete/) {
             print $r->{_id}, ': INCOMPLETE REMOVED', "\n";
+        } elsif($e =~ /could not open/) {
+            print $r->{_id}, ': FILE MISSING REMOVED', "\n";
         } else {
             $db->get_collection('replays')->update({ _id => $r->{_id} }, { '$set' => { 'player.vehicle.label' => 'corrupt replay' } });
             print $r->{_id}, ': ERROR: ', $e, "\n";
