@@ -43,7 +43,7 @@ if(my $r = $db->get_collection('replays')->find_one($query)) {
         $m = $process->process();
     } catch {
         $e = $_;
-        if($e =~ /incomplete/ || $e =~ /could not open/) {
+        if($e =~ /incomplete/ || $e =~ /could not open/ || $e =~ /Unpickling/i) {
             # remove it
             $db->get_collection('replays')->remove({ _id => $r->{_id} });
         }
