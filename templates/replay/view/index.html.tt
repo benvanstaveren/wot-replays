@@ -39,6 +39,9 @@
                                                 <li class="nav-item tab"><a href="#battle-chat">Chat</a></li>
                                             [% END %]
                                             <li class="nav-item tab"><a href="#comparison">Compare</a></li>
+                                            [% IF replay.related.count > 0 %]
+                                                <li class="nav-item tab"><a href="#replay-related">Related Replays ([% replay.related.count %])</a></li>
+                                            [% END %]
                                         </ul>
                                     </div>
                                 </div>
@@ -66,6 +69,11 @@
                                     });
                                 </script>
                             </div>
+                            [% IF replay.related.count > 0 %]
+                            <div id="replay-related" class="tab-panel" style="display: none">
+                                under construction
+                            </div>
+                            [% END %]
                             [% IF replay.chat.size > 0 %]
                             <div id="battle-chat" class="tab-panel" style="display: none">
                                 [% FOREACH message IN replay.chat %]

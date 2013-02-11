@@ -271,6 +271,17 @@ sub view {
     $self->stash('dossier_popups' => $dossier_popups);
     $self->stash('other_awards' => $other_awards);
 
+    # get any related replays
+    my $relcursor = $self->model('wot-replays.replays')->find({
+        'game.arena_id' => $r->{game}->{arena_id} . '',
+        '_id'           => { '$nin' => [ $r->{_id} ] }
+    });
+
+    $self->stash('related' => {
+        count       =>  $relcursor->count,
+        replays     =>  [ $relcursor->all() ],
+    });
+
     $self->model('wot-replays.replays')->update({ _id => $r->{_id} }, {
         '$inc' => { 'site.views' => 1 },
     });
