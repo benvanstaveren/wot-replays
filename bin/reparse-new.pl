@@ -20,6 +20,7 @@ my $db     = $mongo->get_database('wot-replays');
 
 my $query = {
     'player.vehicle.label' => 'corrupt replay',
+    '$exists' => { 'file' => true },
 };
 
 my $path = (-e '/home/ben') 
@@ -28,7 +29,7 @@ my $path = (-e '/home/ben')
 
 if(my $r = $db->get_collection('replays')->find_one($query)) {
     unless(defined($r->{file})) {
-        $db->get_collection('replays')->update({ _id => $r->{_id} }, { '$set' => { 'player.vehicle.label' => 'corrupt replay' } });
+        $db->get_collection('replays')->update({ _id => $r->{_id} }, { '$set' => { 'player.vehicle.label' => 'unknown' } });
         print $r->{_id}, ': NO FILE', "\n";
         exit(0);
     }
