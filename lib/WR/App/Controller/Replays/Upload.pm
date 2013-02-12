@@ -79,6 +79,7 @@ sub upload {
             my $replay_filename = sprintf('%s/%s', $dt->strftime('%Y/%m/%d'), $filename);
             my $replay_path = sprintf('%s/%s', $self->stash('config')->{paths}->{replays}, $dt->strftime('%Y/%m/%d'));
             my $replay_file = sprintf('%s/%s', $replay_path, $filename);
+            my $replay_file_base = sprintf('%s/%s', $dt->strftime('%Y/%m/%d'), $filename);
 
             make_path($replay_path);
 
@@ -122,7 +123,7 @@ sub upload {
 
                 return $self->r_error(q|Sorry, but this replay is from an World of Tanks version that is no longer supported|, $replay_file) if($rv < $self->nv('0.8.2'));
 
-                $m_data->{file} = $filename;
+                $m_data->{file} = $replay_file_base;
                 $m_data->{site} = {
                     description => $self->req->param('description') || undef,
                     uploaded_at => time(),
