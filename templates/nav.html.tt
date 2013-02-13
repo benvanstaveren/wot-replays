@@ -34,6 +34,11 @@
                 </li>
             </ul>
             <ul class="nav js-global-actions" id="global-pages" style="float: right">
+                <li class="nav-item wiki [% IF pageid == 'wiki' %]active[% END %]">
+                    <a class="js-hover" href="http://wiki.wot-replays.org/pages/WoT_Developer_Wiki">
+                        Wiki
+                    </a>
+                </li>
                 <li class="nav-item blog [% IF pageid == 'blog' %]active[% END %]">
                     <a class="js-hover" href="http://blog.wot-replays.org/">
                         Blog

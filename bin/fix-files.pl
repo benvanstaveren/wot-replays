@@ -18,6 +18,7 @@ my $query = {
     'site.uploaded_at' => {
         '$lte' => time()
     },
+    'file' => { '$not' => qr/^2013\// }
 };
 
 my $rc = $db->get_collection('replays')->find($query)->sort({ 'site.uploaded_at' => -1 });
