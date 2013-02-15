@@ -36,8 +36,10 @@ sub startup {
     my $b = WR_BRANCH;
     $b =~ s/\$Branch: (.*?)\$/$1/g;
     $b =~ s/\s+//g;
+
     my $v = WR_REV;
-    $v =~ s/\$Rev: (\d+)\$/$1/g;
+    $v =~ s/\D+//g;
+
    
     $config->{versions}->{app_branch} = (defined($b) && length($b) > 0) ? $b : 'default';
     $config->{versions}->{app_rev}    = $v + 0;
