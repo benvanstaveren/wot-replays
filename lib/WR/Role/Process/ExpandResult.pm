@@ -215,6 +215,16 @@ around 'process' => sub {
         statistics => $self->pickledata->{personal},
     };
 
+    # turn the vehicle hash into an array so indexing and searching works properly
+    my $vehicle_a = [];
+    foreach my $id (keys(%$vehicles)) {
+        my $v = $vehicles->{$id};
+        $v->{id} = $id;
+        push(@$vehicle_a, $v);
+    }
+
+    $data->{vehicles_a} = $vehicle_a;
+
     $data->{statistics}->{xp_base} = 0;
     $data->{statistics}->{credits_base} = 0;
     $data->{involved} = {
