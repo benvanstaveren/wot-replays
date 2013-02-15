@@ -14,7 +14,7 @@ my $db     = $mongo->get_database('wot-replays');
 my $e = WR::Events->new(db => $db, server => 'sea');
 
 foreach my $event (@{$e->events}) {
-    my $count = $e->event($event->{_id})->count;
+    my $count = $e->event($event->{_id})->{cursor}->count;
     print 'event: ', $event->{name}, ', ', $count, ' replays', "\n";
 
 }
