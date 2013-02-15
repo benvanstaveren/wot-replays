@@ -42,7 +42,7 @@ sub event {
                 my $pq = delete($query->{'player.name'});
                 $query->{'$or'} = [
                     { 'player.name' => $pq },
-                    { 'vehicles.name' => $pq },
+                    { 'vehicles_a.name' => $pq },
                 ];
             }
         }
