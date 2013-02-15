@@ -23,9 +23,12 @@ my $count = $rc->count;
 
 while($count > 0) {
     my $r = $rc->next;
+
+    next unless(defined($r));
+
+    print $r->{_id}->to_string, "\n";
     my $vehicles = $r->{vehicles};
     my $vehicles_a = [];
-    print $r->{_id}->to_string, "\n";
 
     foreach my $id (keys(%$vehicles)) {
         my $v = $vehicles->{$id};
@@ -35,8 +38,10 @@ while($count > 0) {
 
     try {
         $db->get_collection('replays')->update({ _id => $r->{_id} }, { '$set' => { 'vehicles_a' => $vehicles_a } });
+        $count--;
     } catch {
-        $mongo  = MongoDB::Connection->new(host => $ENV{MONGO} || 'localhost');
+        $mongo = MongoDB::Connection->new(host => $ENV{MONGO} || 'localhost');
+        $db = $mongo->get_database('wot-replays');
         $rc = $db->get_collection('replays')->find($query)->sort({ 'site.uploaded_at' => -1 });
         $count = $rc->count;
         print '-- exception caught, reconnected, ', $rc->count, ' replays left', "\n";
