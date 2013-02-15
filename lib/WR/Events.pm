@@ -17,8 +17,8 @@ sub events {
 
     my $query = {
         server       => $self->server,
-        event_starts => { '$lte' => $self->now },
-        event_ends   => { '$gte' => $self->now }
+        event_start  => { '$lte' => $self->now },
+        event_end    => { '$gte' => $self->now }
     };
 
     warn Dumper($query);
