@@ -58,7 +58,7 @@ if(my $r = $db->get_collection('replays')->find_one($query)) {
         $m->{_id}  = $r->{_id}; 
         $m->{file} = $r->{file};
         $db->get_collection('replays')->save($m, { safe => 1 });
-        print $r->{_id}, ': OK ', $count - 1, ' remaining' "\n";
+        print $r->{_id}, ': OK ', $count - 1, ' remaining', "\n";
     } else {
         if($e =~ /incomplete/) {
             print $r->{_id}, ': INCOMPLETE REMOVED ', $count - 1, ' remaining', "\n";
