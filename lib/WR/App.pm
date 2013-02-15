@@ -74,6 +74,12 @@ sub startup {
 
     $r->route('/tournaments')->to('tournament#index', pageid => 'tournament');
 
+
+    my $events = $r->under('/events');
+        $events->route('/')->to('events#index', pageid => 'event');
+        $events->route('/:server')->to('events#index_server', pageid => 'event');
+        $events->route('/:server/:eventid')->to('events#view', pageid => 'event');
+
     $r->any('/login')->to('ui#do_login', pageid => 'login');
     $r->any('/logout')->to('ui#do_logout');
 

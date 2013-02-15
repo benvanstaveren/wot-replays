@@ -37,6 +37,14 @@ sub event {
             if($filter->{regex}) {
                 $query->{$filter->{field}} = $filter->{regex};
             }
+
+            if(defined($query->{'player.name'})) {
+                my $pq = delete($query->{'player.name'});
+                $query->{'$or'} = [
+                    { 'player.name' => $pq },
+                    { 'vehicles.name' => $pq },
+                ];
+            }
         }
 
         $query->{'game.time'} = {

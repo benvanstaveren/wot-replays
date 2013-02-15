@@ -1,0 +1,12 @@
+[% WRAPPER wrapper.html.tt %]
+<div>
+    <div class="content">
+        <h3></h3>
+        [% INCLUDE replay/panel_list.html.tt %]
+    </div>
+    <div class="sidebar">
+        [% INCLUDE sidebar/event.html.tt %]
+    </div>
+    <div class="clear"></div>
+</div>
+[% END %]

@@ -1,0 +1,3 @@
+<div>
+    [% INCLUDE sidebar/bricks/upload.html.tt %]
+</div>

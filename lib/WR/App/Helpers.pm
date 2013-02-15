@@ -117,6 +117,16 @@ sub add_helpers {
         unlink($filename);
     });
 
+    $self->helper(is_event_account => sub {
+        my $self = shift;
+        my $r    = shift;
+
+        if($r->{player}->{server} eq 'sea') {
+            return ($r->{player}->{name} =~ /^WG_/) ? 1 : 0;
+        }
+        return 0;
+    });
+
     $self->helper(get_id => sub { return $_[1]->{_id} });
     $self->helper(res => sub { return shift->app->wr_res });
     $self->helper(generate_vehicle_select => \&generate_vehicle_select);
@@ -162,6 +172,7 @@ sub add_helpers {
                 $show = 0;
             }
         }
+        $show = 0 if($self->stash('req_replay')->{efficiency}->{$pname}->{xvm} == 0);
         return $show;
     });
 
