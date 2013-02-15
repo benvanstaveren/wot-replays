@@ -52,10 +52,10 @@ sub event {
             '$gte' => $event->{event_start},
         };
 
-        use Data::Dumper;
-        warn Dumper($query);
-
-        return $self->db->get_collection('replays')->find($query); 
+        return {
+            event => $event,
+            cursor => $self->db->get_collection('replays')->find($query),
+        };
     } else {
         return undef;
     }

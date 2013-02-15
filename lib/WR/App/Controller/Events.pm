@@ -44,6 +44,20 @@ sub view {
     my $eid  = $self->stash('eventid');
     my $e    = WR::Events->new(server => $s, db => $self->db('wot-replays'));
 
+    my $res  = $e->event($eid);
+    
+    $self->respond(
+        template => 'event/view',
+        stash    => {
+            page => {
+                title => sprintf('%s - %s - Events', $res->{event}->{name}, $self->app->wr_res->servers->get($s, 'label_long')),
+            },
+            event   => $res->{event},
+            servername => $self->app->wr_res->servers->get($s, 'label_long'),
+            replays => [ map { WR::Query->fuck_tt($_) } $res->{cursor}->sort({ 'game.time' => -1 })->all() ],
+        }
+    );
+
 }
 
 1;
