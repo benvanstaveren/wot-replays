@@ -32,6 +32,16 @@ sub startup {
     # set up the key string
     $config->{wot}->{bf_key} = join('', map { chr(hex($_)) } (split(/\s/, $config->{wot}->{bf_key})));
 
+    # add something to the config
+    my $b = WR_BRANCH;
+    $b =~ s/\$Branch: (.*?)\$/$1/g;
+    $b =~ s/\s+//g;
+    my $v = WR_REV;
+    $v =~ s/\$Rev: (\d+)\$/$1/g;
+   
+    $config->{versions}->{app_branch} = (defined($b) && length($b) > 0) ? $b : 'default';
+    $config->{versions}->{app_rev}    = $v + 0;
+
     $self->routes->namespaces([qw/WR::App::Controller/]);
 
     my $r = $self->routes->bridge('/')->to('auto#index');
