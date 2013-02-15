@@ -2,6 +2,7 @@ package WR::Events;
 use Mojo::Base '-base';
 use WR::Query;
 use DateTime;
+use Data::Dumper;
 
 has 'server';
 has 'db';
@@ -14,11 +15,15 @@ sub events {
         @_
         );
 
-    my $cursor = $self->db->get_collection('events')->find({
+    my $query = {
         server       => $self->server,
         event_starts => { '$lte' => $self->now },
         event_ends   => { '$gte' => $self->now }
-    })->sort({ event_starts => -1 });
+    };
+
+    warn Dumper($query);
+
+    my $cursor = $self->db->get_collection('events')->find($query)->sort({ event_starts => -1 });
 
     $cursor->limit(15) if($args{all} == 0);
     return [ $cursor->all() ];
