@@ -172,6 +172,7 @@ sub add_helpers {
                 $show = 0;
             }
         }
+        my $pname = $self->stash('req_replay')->{player}->{name};
         $show = 0 if($self->stash('req_replay')->{efficiency}->{$pname}->{xvm} == 0);
         return $show;
     });
