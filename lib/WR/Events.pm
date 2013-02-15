@@ -2,7 +2,6 @@ package WR::Events;
 use Mojo::Base '-base';
 use WR::Query;
 use DateTime;
-use Data::Dumper;
 
 has 'server';
 has 'db';
@@ -20,8 +19,6 @@ sub events {
         event_start  => { '$lte' => $self->now },
         event_end    => { '$gte' => $self->now }
     };
-
-    warn Dumper($query);
 
     my $cursor = $self->db->get_collection('events')->find($query)->sort({ event_starts => -1 });
 
@@ -41,6 +38,15 @@ sub event {
                 $query->{$filter->{field}} = $filter->{regex};
             }
         }
+
+        $query->{'game.time'} = {
+            '$lte' => $event->{event_end},
+            '$gte' => $event->{event_start},
+        };
+
+        use Data::Dumper;
+        warn Dumper($query);
+
         return $self->db->get_collection('replays')->find($query); 
     } else {
         return undef;
