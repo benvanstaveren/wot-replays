@@ -14,9 +14,6 @@ use WR::App::Helpers;
 
 use Time::HiRes qw/gettimeofday/;
 
-use constant WR_BRANCH => '$Branch$';
-use constant WR_REV    => '$Rev$';
-
 $Template::Stash::PRIVATE = undef;
 
 # This method will run once at server start
@@ -31,18 +28,6 @@ sub startup {
     $self->plugin('mongodb', { host => $config->{mongodb}, patch_mongodb => 1 });
     # set up the key string
     $config->{wot}->{bf_key} = join('', map { chr(hex($_)) } (split(/\s/, $config->{wot}->{bf_key})));
-
-    # add something to the config
-    my $b = WR_BRANCH;
-    $b =~ s/\$Branch: (.*?)\$/$1/g;
-    $b =~ s/\s+//g;
-
-    my $v = WR_REV;
-    $v =~ s/\D+//g;
-
-   
-    $config->{versions}->{app_branch} = (defined($b) && length($b) > 0) ? $b : 'default';
-    $config->{versions}->{app_rev}    = $v + 0;
 
     $self->routes->namespaces([qw/WR::App::Controller/]);
 
