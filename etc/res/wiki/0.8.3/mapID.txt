@@ -1,0 +1,66 @@
+|-
+| 1||01_karelia||Karelia
+|-
+| 2||02_malinovka||Malinovka
+|-
+| 3||04_himmelsdorf||Himmelsdorf
+|-
+| 4||05_prohorovka||Prokhorovka
+|-
+| 5||07_lakeville||Lakeville
+|-
+| 6||06_ensk||Ensk
+|-
+| 7||11_murovanka||Murovanka
+|-
+| 8||13_erlenberg||Erlenberg
+|-
+| 9||10_hills||Mines
+|-
+| 10||15_komarin||Komarin
+|-
+| 11||18_cliff||Cliff
+|-
+| 12||19_monastery||Abbey
+|-
+| 13||28_desert||Sand River
+|-
+| 14||35_steppes||Steppes
+|-
+| 15||37_caucasus||Mountain Pass
+|-
+| 16||33_fjord||Fjords
+|-
+| 17||34_redshire||Redshire
+|-
+| 18||36_fishing_bay||Fisherman's Bay
+|-
+| 19||38_mannerheim_line||Arctic Region
+|-
+| 20||08_ruinberg||Ruinberg
+|-
+| 21||14_siegfried_line||Siegfried Line
+|-
+| 22||22_slough||Swamp
+|-
+| 23||23_westfeld||Westfield
+|-
+| 24||29_el_hallouf||El Halluf
+|-
+| 26||31_airfield||Airfield
+|-
+| 27||03_campania||Province
+|-
+| 28||17_munchen||Widepark
+|-
+| 31||44_north_america||Live Oaks
+|-
+| 32||39_crimea||South Coast
+|-
+| 34||45_north_america||Highway
+|-
+| 36||42_north_america||Port
+|-
+| 44||51_asia||Dragon Ridge
+|-
+| 49||47_canada_a||Serene Coast
