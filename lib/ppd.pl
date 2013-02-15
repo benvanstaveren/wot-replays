@@ -14,8 +14,8 @@ my $db     = $mongo->get_database('wot-replays');
 
 my $ppd = WR::PlayerProfileData->new(
     name    => 'Scrambled',
-    id      => 2000036302,
-    server  => 'sea',
+    id      => 500120062,
+    server  => 'eu',
     db      => $db
     );
 
