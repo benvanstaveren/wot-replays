@@ -21,8 +21,8 @@ my $query = {
 my $sf = WR::ServerFinder->new();
 my $rc = $db->get_collection('replays')->find($query)->sort({ 'site.uploaded_at' => -1 });
 while(my $r = $rc->next()) {
-    foreach my $pid (keys(%{$res->{players}})) {
-        my $name = $res->{players}->{$pid}->{name};
+    foreach my $pid (keys(%{$r->{players}})) {
+        my $name = $r->{players}->{$pid}->{name};
         if(my $server = $sf->get_server_by_id($pid + 0)) {
             $db->get_collection('cache.server_finder')->save({
                 _id => sprintf('%d-%s', $pid + 0, $name),
