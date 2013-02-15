@@ -21,13 +21,14 @@ my $query = {
 my $rc = $db->get_collection('replays')->find($query)->sort({ 'site.uploaded_at' => -1 });
 my $count = $rc->count;
 
-while(my $r = $rc->next()) {
+while($count > 0) {
+    my $r = $rc->next;
     my $vehicles = $r->{vehicles};
     my $vehicles_a = [];
     print $r->{_id}->to_string, "\n";
 
     foreach my $id (keys(%$vehicles)) {
-        $v = $vehicles->{$id};
+        my $v = $vehicles->{$id};
         $v->{id} = $id;
         push(@$vehicles_a, $v);
     }
@@ -37,6 +38,7 @@ while(my $r = $rc->next()) {
     } catch {
         $mongo  = MongoDB::Connection->new(host => $ENV{MONGO} || 'localhost');
         $rc = $db->get_collection('replays')->find($query)->sort({ 'site.uploaded_at' => -1 });
+        $count = $rc->count;
         print '-- exception caught, reconnected, ', $rc->count, ' replays left', "\n";
     };
 }
