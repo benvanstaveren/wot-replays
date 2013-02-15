@@ -14,6 +14,9 @@ use WR::App::Helpers;
 
 use Time::HiRes qw/gettimeofday/;
 
+use constant WR_BRANCH => '$Branch$';
+use constant WR_REV    => '$Rev$';
+
 $Template::Stash::PRIVATE = undef;
 
 # This method will run once at server start
