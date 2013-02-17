@@ -13,8 +13,6 @@ has 'winrate' => (is => 'ro', isa => 'Num', required => 1);
 has 'capture_points' => (is => 'ro', isa => 'Num', required => 1);
 has 'defense_points' => (is => 'ro', isa => 'Num', required => 1);
 
-use constant E => 2.71828;
-
 sub eff_xvm {
     my $self = shift;
 
@@ -52,14 +50,14 @@ sub min {
 sub eff_wn6 {
     my $self = shift;
 
-    return
-        (1240 - 1040 / ($self->min($self->tier, 6)) ** 0.164) * $self->killed
-        + $self->damage_direct * 530 / (184 * E ** (0.24 * $self->tier) + 130)
-        + $self->spotted * 125
-        + $self->min($self->defense_points, 2.2) * 100
-        + ((185 / ( 0.17 + E ** (($self->winrate - 35) * -0.134))) - 500) * 0.45
-        + (6 - $self->min($self->tier, 6)) * -60
-    ;
+    my $t1 = (1240 - 1040 / ($self->min($self->tier, 6)) ** 0.164) * $self->killed;
+    my $t2 = $self->damage_direct * 530 / (184 * exp(0.24 * $self->tier) + 130);
+    my $t3 = $self->spotted * 125;
+    my $t4 = $self->min(($self->defense_points, 2.2)) * 100;
+    my $t5 = ((185 / ( 0.17 + exp(($self->winrate - 35) * -0.134))) - 500) * 0.45;
+    my $t6 = (6 - $self->min($self->tier, 6)) * -60;
+
+    return $t1 + $t2 + $t3 + $t4 + $t5 + $t6;
 }
 
 __PACKAGE__->meta->make_immutable;

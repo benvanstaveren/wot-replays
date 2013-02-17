@@ -187,7 +187,7 @@ sub efficiency {
         damaged         => 0,
         damage_direct   => $user->{damage} / $user->{battles} + 0,
         damage_spotted  => 0,
-        winrate         => 100/($user->{battles}/$user->{victories}) + 0,
+        winrate         => ($user->{victories} / $user->{battles}) * 100,
         capture_points  => $user->{capture_points} / $user->{battles},
         defense_points  => $user->{defense_points} / $user->{battles},
         tier            => $user->{average_tier} + 0,
