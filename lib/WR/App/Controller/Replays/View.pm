@@ -203,19 +203,19 @@ sub view {
     );
 
     # need to bugger up the teams and sort them by the number of frags which we can obtain from the vehicle hash
-    my $frag_sorted_teams = [];
+    my $xp_sorted_teams = [];
     my $team_xp = [];
 
     foreach my $tid (0..1) {
         my $list = {};
         foreach my $player (@{$r->{teams}->[$tid]}) {
-            my $frags = $r->{vehicles}->{$player}->{frags} || 0;
-            $list->{$player} = $frags;
+            my $xp = $r->{vehicles}->{$player}->{xp} || 0;
+            $list->{$player} = $xp;
             $team_xp->[$tid] += $r->{vehicles}->{$player}->{xp};
         }
 
         foreach my $id (sort { $list->{$b} <=> $list->{$a} } (keys(%$list))) {
-            push(@{$frag_sorted_teams->[$tid]}, $id);
+            push(@{$xp_sorted_teams->[$tid]}, $id);
         }
     }
 
@@ -226,10 +226,10 @@ sub view {
     my $playerteam = $r->{player}->{team} - 1;
 
     if($playerteam == 0) {
-        $r->{teams} = [ $frag_sorted_teams->[0], $frag_sorted_teams->[1] ];
+        $r->{teams} = [ $xp_sorted_teams->[0], $xp_sorted_teams->[1] ];
         $r->{teamxp} = [ $team_xp->[0], $team_xp->[1], $team_xp->[2] ];
     } else {
-        $r->{teams} = [ $frag_sorted_teams->[1], $frag_sorted_teams->[0] ];
+        $r->{teams} = [ $xp_sorted_teams->[1], $xp_sorted_teams->[0] ];
         $r->{teamxp} = [ $team_xp->[1], $team_xp->[0], $team_xp->[2] ];
     }
 

@@ -176,12 +176,17 @@ sub add_helpers {
         $show = 0 if($self->stash('req_replay')->{efficiency}->{$pname}->{xvm} == 0);
         return $show;
     });
-
     $self->helper(vehicles_by_frags => sub {
         my $self = shift;
         my $hash = shift;
 
         return [ (sort({ $b->{kills} <=> $a->{kills} } values(%$hash))) ];
+    });
+    $self->helper(vehicles_by_xp => sub {
+        my $self = shift;
+        my $hash = shift;
+
+        return [ (sort({ $b->{xp} <=> $a->{xp} } values(%$hash))) ];
     });
     $self->helper(consumable_icon_style => sub {
         my $self = shift;

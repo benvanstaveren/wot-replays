@@ -1,4 +1,4 @@
-[% FOREACH player IN h.vehicles_by_frags(replay.vehicles) %]
+[% FOREACH player IN h.vehicles_by_xp(replay.vehicles) %]
     [% pid = player.id %]
     [% details = replay.statistics.details.$pid %]
     [% IF details.killed > 0 || details.spotted > 0 || details.damageDealt > 0 || details.damageAssisted > 0 || details.hits > 0 %]
