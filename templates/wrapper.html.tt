@@ -62,9 +62,7 @@
     </head>
     <body class="ui">
         <div style="padding: 25px 0px 25px 0px">
-        <div class="top-bar-container">
-            <div class="top-bar-content">
-            </div>
+        <div class="top-bar-content" class="ui-corner-bottom">
         </div>
         <div id="container" class="ui-corner-all">
             [% INCLUDE nav.html.tt %]
