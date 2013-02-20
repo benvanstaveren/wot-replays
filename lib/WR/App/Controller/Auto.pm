@@ -34,7 +34,7 @@ sub index {
     }
 
     if(my $url = $self->req->url->base) {
-        if($url =~ /https?:\/\/(.*?)\//) {
+        if($url =~ /http.*?:\/\/(.*?)\//) {
             my $host = $1;
             my @parts = reverse(split(/\./, $host));
             my $d = $parts[2];

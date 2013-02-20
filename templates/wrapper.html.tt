@@ -44,7 +44,6 @@
         <div style="padding: 25px 0px 25px 0px">
         <div class="top-bar-content ui-corner-bottom">
             [% IF h.is_user_authenticated %]
-                [% ssel = h.current_user.settings.server || h.current_user.player_server %]
                 Welcome back, <a href="/profile/">[% h.current_user.player_name %]</a> | <a href="/profile/">profile</a> | <a href="/logout">sign out</a>
             [% ELSE %]
                 Please <a href="/login">sign in</a>!
