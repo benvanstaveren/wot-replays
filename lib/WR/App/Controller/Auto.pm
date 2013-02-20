@@ -31,6 +31,7 @@ sub index {
             $self->stash('req_host' => $d);
         } else {
             $self->stash('req_host' => 'www');
+        }
     } else {
         $self->stash('req_host' => 'www');
     }
