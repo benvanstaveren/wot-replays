@@ -30,35 +30,12 @@
                 });
             </script>
         [% END %]
-        [% IF hint_signin && !h.is_user_authenticated %]
-            <script type="text/javascript">
-                $(document).ready(function() {
-                    $('#hint-signin').dialog({
-                        width: 600,
-                        height: 275,
-                        modal: true,
-                        resizable: false,
-                        draggable: false,
-                        autoOpen: true,
-                        buttons: {
-                            'No Thanks': function() {
-                                $.getJSON('/hint/gotit_signin', { set: 1 }, function() {
-                                    $('#hint-signin').dialog('close');
-                                });
-                            },
-                        },
-                    }); 
-                    $('button.signin').click(function() {
-                        $('#hint-signin').dialog('close');
-                        WR.waitElement();
-                        var id = $(this).attr('id');
-                        $.getJSON('/hint/gotit_signin', { set: 1 }, function() {
-                            document.location.href = '/login?s=' + id;
-                        });
-                    });
-                });
-            </script>
-        [% END %]
+        <script type="text/javascript">
+            $('.top-bar-content select[name="server-selector"]').change(function() {
+                var v = $(this).val();
+                document.location.href = 'http://' + v + '.wot-replays.org/';
+            });
+        </script>
     </head>
     <body class="ui">
         <div style="padding: 25px 0px 25px 0px">
@@ -69,6 +46,15 @@
             [% ELSE %]
                 Please <a href="/login">sign in</a>!
             [% END %]
+            <select name="server-selector">
+                <option value="www" [% IF req_host == 'www' %]selected="true"[% END %]>ALL</option>
+                <option value="sea" [% IF req_host == 'sea' %]selected="true"[% END %]>SEA</option>
+                <option value="na" [% IF req_host == 'na' %]selected="true"[% END %]>NA</option>
+                <option value="eu" [% IF req_host == 'eu' %]selected="true"[% END %]>EU</option>
+                <option value="ru" [% IF req_host == 'ru' %]selected="true"[% END %]>RU</option>
+                <option value="vn" [% IF req_host == 'vn' %]selected="true"[% END %]>VN</option>
+                <option value="kr" [% IF req_host == 'kr' %]selected="true"[% END %]>KR</option>
+            </select>
         </div>
         <div id="container" class="ui-corner-all">
             [% INCLUDE nav.html.tt %]
@@ -79,33 +65,5 @@
         </div>
         <div class="clear"></div>
         </div>
-        [% IF hint_signin %]
-        <div id="hint-signin" title="Signing In: The Easy Way" style="display: none">
-            <div style="font-size: 1.2em">
-                Recently Wargaming has started testing of their Wargaming.net ID which is used to sign into the forums; besides that, it also lets you authenticate on third party sites (like this one.
-            </div>
-            <div style="font-size: 1.2em; margin: 10px 0px 0px 0px">
-                Registration is no longer necessary, and signing in is as easy as clicking a button. You will (optionally) be asked for your Wargaming.net ID by the Wargaming website, and will then be returned to wot-replays where you will be magically signed in.
-            </div>
-            <div style="margin: 10px 0px 0px 0px; font-size: 1.2em">
-                To get started, select your server:
-            </div>
-            <div style="margin: 10px 0px 0px 0px; font-size: 1.2em">
-                <table style="width: 100%" cellpadding="0" cellspacing="0">
-                <tbody><tr>
-                    <td style="width: 33%; padding: 2px">
-                        <button style="width: 100%" id="eu" class="signin uploadButton">Europe</button>
-                    </td>
-                    <td style="width: 33%; padding: 2px">
-                        <button style="width: 100%" id="sea" class="signin uploadButton">South-East Asia</button>
-                    </td>
-                    <td style="width: 33%; padding: 2px">
-                        <button style="width: 100%" id="na" class="signin uploadButton">North America</button>
-                    </td>
-                </tr></tbody>
-                </table>
-            </div>
-        </div>
-        [% END %]
     </body>
 </html>

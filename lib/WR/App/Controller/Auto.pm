@@ -23,6 +23,18 @@ sub index {
         },
     );
 
+    if(my $url = $self->req->url->base) {
+        if($url =~ /https?:\/\/(.*?)\//) {
+            my $host = $1;
+            my @parts = reverse(split(/\./, $host));
+            my $d = $parts[2];
+            $self->stash('req_host' => $d);
+        } else {
+            $self->stash('req_host' => 'www');
+    } else {
+        $self->stash('req_host' => 'www');
+    }
+
     # twiddle peoples' openID username and password
     if($self->is_user_authenticated) {
         my $o = $self->current_user->{openid};
