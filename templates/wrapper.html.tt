@@ -63,6 +63,13 @@
     <body class="ui">
         <div style="padding: 25px 0px 25px 0px">
         <div class="top-bar-content ui-corner-bottom">
+            [% IF h.is_user_authenticated %]
+                Welcome back, <a href="/profile/">[% h.current_user.player_name %]</a> | <a href="/profile/">profile</a>
+            [% ELSE %]
+                <a href="/login">Sign in</a>
+            [% END %]
+            <select name="global-server-selector">
+            </select>
         </div>
         <div id="container" class="ui-corner-all">
             [% INCLUDE nav.html.tt %]
