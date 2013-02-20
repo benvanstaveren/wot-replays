@@ -34,7 +34,7 @@ sub index {
     }
 
     if(my $url = $self->req->url->base) {
-        if($url =~ /http.*?:\/\/(.*?)\//) {
+        if($url =~ /http.*?:\/\/(.*?)\/?.*/) {
             my $host = $1;
             my @parts = reverse(split(/\./, $host));
             my $d = $parts[2];
@@ -48,6 +48,7 @@ sub index {
 
     $self->app->log->info('url: ' . $self->req->url);
     $self->app->log->info('url->base: ' . $self->req->url->base);
+    $self->app->log->info('req-host: ' . $self->stash('req_host'));
 
     # twiddle peoples' openID username and password
     if($self->is_user_authenticated) {
