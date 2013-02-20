@@ -46,6 +46,8 @@ sub index {
         $self->stash('req_host' => 'www');
     }
 
+    $self->app->log->info('url: ' . $self->req->url);
+
     # twiddle peoples' openID username and password
     if($self->is_user_authenticated) {
         my $o = $self->current_user->{openid};
