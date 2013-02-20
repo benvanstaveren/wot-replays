@@ -31,9 +31,12 @@
             </script>
         [% END %]
         <script type="text/javascript">
-            $('.top-bar-content select[name="server-selector"]').change(function() {
-                var v = $(this).val();
-                document.location.href = 'http://' + v + '.wot-replays.org/';
+            $(document).ready(function() {
+                $('.top-bar-content select[name="server-selector"]').change(function() {
+                    WR.waitElement();
+                    var v = $(this).val();
+                    document.location = 'http://' + v + '.wot-replays.org/';
+                });
             });
         </script>
     </head>
