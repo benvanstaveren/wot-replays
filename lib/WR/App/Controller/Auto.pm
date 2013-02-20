@@ -25,10 +25,8 @@ sub index {
 
     my $req_host;
     if(my $url = $self->req->url->base) {
-        if($url =~ /http.*?:\/\/(.*?)\/?.*/) {
-            my $host = $1;
-            my @parts = reverse(split(/\./, $host));
-            $req_host = $parts[2];
+        if($url =~ /.*:\/\/(.*?)\.wot-replays\.org/) {
+            $req_host = $1;
         }
     }
 
