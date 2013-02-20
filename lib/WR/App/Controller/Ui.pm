@@ -81,15 +81,17 @@ sub index {
     }
 
     my $start = [ gettimeofday ];
+    my $cursor = $self->db('wot-replays')->get_collection('replays')->find($q);
+    my $total = $cursor->count;
 
     my $replays = [ 
-        map { { %{$_}, id => $_->{_id} } } $self->db('wot-replays')->get_collection('replays')->find($q)->sort({ 'site.uploaded_at' => -1 })->limit(15)->all()
+        map { { %{$_}, id => $_->{_id} } } $cursor->sort({ 'site.uploaded_at' => -1 })->limit(15)->all()
     ];
 
     $self->respond(template => 'index', stash => {
         page            => { title => 'Home' },
         replays         => $replays,
-        replay_count    => $self->model('wot-replays.replays')->count() + 0,
+        replay_count    => $total + 0,
         timing_query    => tv_interval($start),
     });
 }
