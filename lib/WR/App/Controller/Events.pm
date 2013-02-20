@@ -8,7 +8,7 @@ sub index {
 
     for(qw/sea na eu/) {
         my $e = WR::Events->new(server => $_, db => $self->db('wot-replays'));
-        $self->stash(sprintf('events_%s', $_) => $e->events);
+        $self->stash(sprintf('events_%s', $_) => $e->events(all => 1));
     }
 
     $self->respond(

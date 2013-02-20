@@ -16,8 +16,6 @@ sub events {
 
     my $query = {
         server       => $self->server,
-        event_start  => { '$lte' => $self->now },
-        event_end    => { '$gte' => $self->now }
     };
 
     my $cursor = $self->db->get_collection('events')->find($query)->sort({ event_starts => -1 });
