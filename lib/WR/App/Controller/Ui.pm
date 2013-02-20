@@ -72,6 +72,8 @@ sub index {
         'site.visible' => true,
     };
 
+    $q->{'player.server'} = $self->stash('req_host') if($self->stash('req_host') ne 'www');
+
     if($self->is_user_authenticated) {
         unless($self->current_user->{settings}->{hide_incomplete} == 1) {
             $q->{'complete'} = true;

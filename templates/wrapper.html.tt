@@ -37,7 +37,6 @@
                     var v = $(this).val();
                     document.location = 'http://' + v + '.wot-replays.org/';
                 });
-                $('select[name="server-selector"]').val(document.location.hostname.split('.')[0]);
             });
         </script>
     </head>
