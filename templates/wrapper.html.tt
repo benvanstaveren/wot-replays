@@ -44,7 +44,7 @@
         <div style="padding: 25px 0px 25px 0px">
         <div class="top-bar-content ui-corner-bottom">
             [% IF h.is_user_authenticated %]
-                Welcome back, <a href="/profile/">[% h.current_user.player_name %]</a> | <a href="/profile/">profile</a> | <a href="/logout">sign out</a>
+                Welcome back, <a href="/[% h.current_user.player_server |uri %]/[% h.current_user.player_name |uri %]/">[% h.current_user.player_name %]</a> | <a href="/profile/">profile</a> | <a href="/logout">sign out</a>
             [% ELSE %]
                 Please <a href="/login">sign in</a>!
             [% END %]
