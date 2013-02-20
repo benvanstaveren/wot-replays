@@ -96,6 +96,11 @@ sub browse {
         $self->session($skey => $filter);
     }
 
+    # fix this, because we want it to keep the same setting as it did in the session
+    if($self->stash('req_host') ne 'www') {
+        $filter->{server} = $self->stash('req_host');
+    }
+
     my $sort = $sorting->{$filter->{sort} || 'upload'};
     $filter->{version} = $self->stash('config')->{wot}->{version} if($filter->{compatible}); 
 
