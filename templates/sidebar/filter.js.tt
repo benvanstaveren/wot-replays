@@ -1,10 +1,15 @@
 <script type="text/javascript">
     $('#frm-browse-filter select[name="vehicle"]').val('[% filter.vehicle || '' %]');
     $('#frm-browse-filter select[name="map"]').val('[% filter.map || ''%]');
-    $('#frm-browse-filter select[name="server"]').val('[% filter.server || ''%]');
+    [% IF req_host != 'www' %]
+        $('#frm-browse-filter input[name="server"]').val('[% req_host %]');
+    [% ELSE %]
+        $('#frm-browse-filter select[name="server"]').val('[% filter.server || ''%]');
+    [% END %]
     $('#frm-browse-filter select[name="matchmode"]').val('[% filter.matchmode || ''%]');
     $('#frm-browse-filter select[name="matchtype"]').val('[% filter.matchtype || ''%]');
     $('#frm-browse-filter select[name="sort"]').val('[% filter.sort || 'upload'%]');
+
 
     [% IF pageid != "vehicle" && !filter.vehicle %]
     $('#slider-tier').slider({
@@ -51,7 +56,11 @@
         $('form#frm-browse-filter input[name="tier_max"]').val('10');
 
         $('form#frm-browse-filter select[name="vehicle"]').val('');
-        $('form#frm-browse-filter select[name="server"]').val('');
+        [% IF req_host != 'www' %]
+            $('form#frm-browse-filter input[name="server"]').val('[% req_host %]');
+        [% ELSE %]
+            $('form#frm-browse-filter select[name="server"]').val('');
+        [% END %]
         $('form#frm-browse-filter select[name="map"]').val('');
         $('form#frm-browse-filter select[name="matchmode"]').val('');
         $('form#frm-browse-filter select[name="matchtype"]').val('');

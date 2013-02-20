@@ -7,6 +7,9 @@
             <input type="hidden" name="vehicleinv" value="0"/>
             <input type="hidden" name="tier_min" value="1"/>
             <input type="hidden" name="tier_max" value="10"/>
+            [% IF req_host != 'www' %]
+                <input type="hidden" name="server" value="[% req_host %]"/>
+            [% END %]
             [% IF pageid == 'map' %]
                 <input type="hidden" name="map" value="[% map_id %]"/>
             [% ELSIF pageid == 'vehicle' %]
@@ -61,8 +64,6 @@
                 <option value="vn">Vietnam</option>
                 <option value="kr">Korea</option>
             </select>
-            [% ELSE %]
-                <input name="server" type="hidden" value="[% req_host %]"/>
             [% END %]
             <span class="label">Match Mode</span>
             <select name="matchmode">
