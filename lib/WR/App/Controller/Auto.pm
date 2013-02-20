@@ -23,18 +23,7 @@ sub index {
         },
     );
 
-    if(my $host = $self->req->url->host) {
-        if($host =~ /(www|na|sea|ru|vn|kr|eu)\.wot-replays\.org/) {
-            $self->stash(req_host => $1);
-            $self->stash(req_full => $host);
-        }
-    } else {
-        $self->stash(req_host => 'www');
-        $self->stash(req_full => 'unknown');
-    }
-
     my $req_host;
-
     if(my $url = $self->req->url->base) {
         if($url =~ /http.*?:\/\/(.*?)\/?.*/) {
             my $host = $1;
