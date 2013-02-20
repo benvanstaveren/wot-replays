@@ -47,6 +47,7 @@ sub index {
     }
 
     $self->app->log->info('url: ' . $self->req->url);
+    $self->app->log->info('url->base: ' . $self->req->url->base);
 
     # twiddle peoples' openID username and password
     if($self->is_user_authenticated) {
