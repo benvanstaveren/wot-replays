@@ -56,24 +56,6 @@
                         About/FAQ
                     </a>
                 </li>
-                [% IF h.is_user_authenticated %]
-                <li class="nav-item profile [% IF pageid == 'profile' %]active[% END %]">
-                    <a class="js-hover" href="/profile">
-                        Your Profile
-                    </a>
-                </li>
-                <li class="nav-item signout ui-corner-tr [% IF pageid == 'signout' %]active[% END %]">
-                    <a class="js-hover ui-corner-tr" href="/logout">
-                        Sign out
-                    </a>
-                </li>
-                [% ELSE %]
-                <li class="nav-item login ui-corner-tr [% IF pageid == 'login' %]active[% END %]">
-                    <a class="ui-corner-tr js-hover" href="/login">
-                        Login
-                    </a>
-                </li>
-                [% END %]
             </ul>
             <div class="clear"></div>
         </div>
