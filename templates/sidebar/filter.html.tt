@@ -50,6 +50,7 @@
                 [% END %]
             </select>
             [% END %]
+            [% IF req_host == 'www' %]
             <span class="label">Server</span>
             <select name="server">
                 <option value="">-- All servers</option>
@@ -60,6 +61,9 @@
                 <option value="vn">Vietnam</option>
                 <option value="kr">Korea</option>
             </select>
+            [% ELSE %]
+                <input name="server" type="hidden" value="[% req_host %]"/>
+            [% END %]
             <span class="label">Match Mode</span>
             <select name="matchmode">
                 <option value="">-- All modes</option>
