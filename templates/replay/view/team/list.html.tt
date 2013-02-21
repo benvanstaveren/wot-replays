@@ -55,5 +55,4 @@
         if(href) $(href).dialog('open');
         return false;
     });
-
 </script>

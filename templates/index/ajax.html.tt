@@ -1,6 +1,6 @@
 [% INCLUDE replay/panel_list.html.tt %]
 <script type="text/javascript">
     $(document).ready(function() {
-        $('.global-replay-count').html('[% replay_count || '0' %]');
+        $('h3.frontlistheader').html('Newest 15 out of [% replay_count %] Replays');
     });
 </script>

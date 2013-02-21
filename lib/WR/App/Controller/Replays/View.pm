@@ -219,6 +219,8 @@ sub view {
         }
     }
 
+    my $team_total_xp = [ $team_xp->[0], $team_xp->[1] ];
+
     $team_xp->[0] = ($team_xp->[0] > 0 && scalar(@{$r->{teams}->[0]}) > 0) ? int($team_xp->[0] / scalar(@{$r->{teams}->[0]})) : 0;
     $team_xp->[1] = ($team_xp->[1] > 0 && scalar(@{$r->{teams}->[1]}) > 0) ? int($team_xp->[1] / scalar(@{$r->{teams}->[1]})) : 0;
     $team_xp->[2] = ($team_xp->[0] + $team_xp->[1] > 0) ? int(($team_xp->[0] + $team_xp->[1]) / 2) : 0;
@@ -228,9 +230,11 @@ sub view {
     if($playerteam == 0) {
         $r->{teams} = [ $xp_sorted_teams->[0], $xp_sorted_teams->[1] ];
         $r->{teamxp} = [ $team_xp->[0], $team_xp->[1], $team_xp->[2] ];
+        $r->{teamtotalxp} = [ $team_total_xp->[0], $team_total_xp->[1] ];
     } else {
         $r->{teams} = [ $xp_sorted_teams->[1], $xp_sorted_teams->[0] ];
         $r->{teamxp} = [ $team_xp->[1], $team_xp->[0], $team_xp->[2] ];
+        $r->{teamtotalxp} = [ $team_total_xp->[1], $team_total_xp->[0] ];
     }
 
     my $dossier_popups = {};
