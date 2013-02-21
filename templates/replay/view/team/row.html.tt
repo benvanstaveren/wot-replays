@@ -103,6 +103,6 @@
         [% END %]
     </td>
     <td class="playerXP tooltip"><span class="[% IF player.xp > avgxp %]green[% ELSE %]red[% END %]" 
-        title="Player earned [% player.xp %] xp ([% h.percentage_of(teamxp, player.xp) %]%), which is [% player.xp > avgxp %]more[% ELSE %]less[%END %] than the team average of [% avgxp %] XP">[% player.xp %]</span></td>
+        title="Player earned [% player.xp %] xp ([% h.percentage_of(teamxp, player.xp) %]%), which is [% IF player.xp > avgxp %]more[% ELSE %]less[%END %] than the team average of [% avgxp %] XP">[% player.xp %]</span></td>
     <td class="playerFrags [% IF player.frags > 0 %]green[% ELSIF player.frags < 0 %]red[% END %]">[% player.frags || '0' %]</td>
 </tr>
