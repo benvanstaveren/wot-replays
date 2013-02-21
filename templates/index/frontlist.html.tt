@@ -1,4 +1,4 @@
-<h3>Newest 15 out of <span id="global-replay-count">[% replay_count %]</span> Replays</h3> <span class="small-waiting" style="display: none"></span>
+<h3>Newest 15 out of <span class="global-replay-count">[% replay_count %]</span> Replays <span class="small-waiting" style="display: none"></span></h3> 
 <div id="front-panel-list">
 [% INCLUDE replay/panel_list.html.tt %]
 </div>
