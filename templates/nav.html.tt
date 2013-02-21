@@ -51,11 +51,13 @@
                         Blog
                     </a>
                 </li>
+                <!--
                 <li class="nav-item wiki [% IF pageid == 'tools' %]active[% END %]">
                     <a class="js-hover" href="/tools">
                         Tools
                     </a>
                 </li>
+                -->
                 <li class="nav-item about [% IF pageid == 'about' %]active[% END %]">
                     <a class="js-hover" href="/about">
                         About/FAQ
