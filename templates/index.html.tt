@@ -1,11 +1,7 @@
 [% WRAPPER wrapper.html.tt %]
 <div>
     <div class="content">
-        <h3>Newest 15 out of [% replay_count %] Replays</h3>
-        [% INCLUDE replay/panel_list.html.tt %]
-        <div style="text-align: right"">
-            <a href="/browse/">see all &raquo;</a>
-        </div>
+        [% INCLUDE index/frontlist.html.tt %]
     </div>
     <div class="sidebar">
         [% INCLUDE sidebar/home.html.tt %]

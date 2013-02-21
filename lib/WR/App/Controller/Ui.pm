@@ -65,9 +65,6 @@ sub generate_replay_count {
 
 sub index {
     my $self = shift;
-
-    # let's just do this by hand, fuck TT and it's private setting and it not wanting to use it properly.
-    # fuck it up the ass with a big black rubber cock.
     my $q = {
         'site.visible' => true,
     };
@@ -88,12 +85,19 @@ sub index {
         map { { %{$_}, id => $_->{_id} } } $cursor->sort({ 'site.uploaded_at' => -1 })->limit(15)->all()
     ];
 
-    $self->respond(template => 'index', stash => {
-        page            => { title => 'Home' },
-        replays         => $replays,
-        replay_count    => $total + 0,
-        timing_query    => tv_interval($start),
-    });
+    if($self->req->is_xhr) {
+        $self->respond(template => 'index/ajax', stash => {
+            replays         => $replays,
+            replay_count    => $total + 0,
+        });
+    } else {
+        $self->respond(template => 'index', stash => {
+            page            => { title => 'Home' },
+            replays         => $replays,
+            replay_count    => $total + 0,
+            timing_query    => tv_interval($start),
+        });
+    }
 }
 
 sub register { shift->respond(template => 'register/form', stash => { page => { title => 'Registration No Longer Required' } }) }

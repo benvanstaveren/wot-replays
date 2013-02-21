@@ -102,6 +102,6 @@
             [% END %]
         [% END %]
     </td>
-    <td class="playerXP"><span class="[% IF player.xp > avgxp %]green" title="Player earned more than the global average of [% avgxp %] XP"[% ELSE %]red" title="Player earned less than the global average of [% avgxp %] XP"[% END %]>[% player.xp %]</span></td>
+    <td class="playerXP"><span class="[% IF player.xp > avgxp %]green" title="Player earned more than the team average of [% avgxp %] XP"[% ELSE %]red" title="Player earned less than the team average of [% avgxp %] XP"[% END %]>[% player.xp %]</span></td>
     <td class="playerFrags [% IF player.frags > 0 %]green[% ELSIF player.frags < 0 %]red[% END %]">[% player.frags || '0' %]</td>
 </tr>

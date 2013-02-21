@@ -1,0 +1,8 @@
+[% WRAPPER wrapper.html.tt %]    
+    <div><div class="content nosidebar aboutText">
+        <h3>Tools</h3>
+        <div>
+
+        </div>
+    </div></div>
+[% END %]

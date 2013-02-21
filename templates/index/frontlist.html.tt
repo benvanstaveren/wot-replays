@@ -1,0 +1,16 @@
+<h3>Newest 15 out of <span id="global-replay-count">[% replay_count %]</span> Replays</h3> <span class="small-waiting" style="display: none"></span>
+<div id="front-panel-list">
+[% INCLUDE replay/panel_list.html.tt %]
+</div>
+<div style="text-align: right"><a href="/browse/">see all &raquo;</a></div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('div.content').everyTime(10000, function() {
+            $('span.small-waiting').show(); 
+            // reload just the panel contents
+            $('#front-panel-list').load('/', function() {
+                $('span.small-waiting').hide();
+            });
+        });
+    });
+</script>
