@@ -5,7 +5,7 @@ use Try::Tiny;
 use File::Slurp qw/read_file/;
 use Data::Dumper;
 
-has 'db' => (is => 'ro', isa => 'MongoDB::Database', required => 1);
+has 'db' => (is => 'ro', isa => 'Mango::Database', required => 1);
 has 'map' => (is => 'ro', isa => 'Str', writer => '_set_map');
 has 'finalize' => (is => 'ro', isa => 'Str', writer => '_set_finalize');
 has 'reduce' => (is => 'ro', isa => 'Str', writer => '_set_reduce');
@@ -36,16 +36,14 @@ sub execute {
     my $name = shift || 'replays';
     my $out  = shift;
 
-    my $job = Tie::IxHash->new(
-        mapreduce => $name,
-        map       => $self->map,
-        reduce    => $self->reduce,
-        query     => $self->cond,
-        out       => {
-            replace => $out,
+    return $self->db->collection($name)->map_reduce(
+        bson_code($self->map),
+        bson_code($self->reduce),
+        {
+            query   =>  $self->cond,
+            out     =>  { 'replace' => $out }
         }
     );
-    return $self->db->run_command($job);
 }
 
 __PACKAGE__->meta->make_immutable;
