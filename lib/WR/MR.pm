@@ -35,15 +35,23 @@ sub execute {
     my $self = shift;
     my $name = shift || 'replays';
     my $out  = shift;
+    my $cb   = shift;
 
-    return $self->db->collection($name)->map_reduce(
-        bson_code($self->map),
-        bson_code($self->reduce),
-        {
-            query   =>  $self->cond,
-            out     =>  { 'replace' => $out }
+    my @args = (
+        bson-code($self->map), bson_code($self->reduce), {
+            query => $self->cond,
+            out   => { replace => $out }
         }
     );
+
+    if(defined($cb) {
+        $self->db->collection($name)->map_reduce(@args => sub {
+            my ($c, $e, $d) = (@_);
+            $cb->($d);
+        });
+    } else {
+        return $self->db->collection($name)->map_reduce(@args);
+    }
 }
 
 __PACKAGE__->meta->make_immutable;
