@@ -29,14 +29,7 @@ sub index {
             $req_host = $1;
         }
     }
-
-    $req_host ||= 'www';
-
-    $self->app->log->info('url: ' . $self->req->url);
-    $self->app->log->info('url->base: ' . $self->req->url->base);
-    $self->app->log->info('req_host: ' . $req_host);
-
-    $self->stash(req_host => $req_host);
+    $self->stash(req_host => $req_host || 'www');
 
     # twiddle peoples' openID username and password
     if($self->is_user_authenticated) {
