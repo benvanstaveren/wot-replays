@@ -85,6 +85,8 @@ around 'process' => sub {
                 xvm => $self->calc_eff($data),
                 wn6 => $self->calc_wn($data),
             };
+        } else {
+            $self->model('xvmp.missing')->save({ _id => $playerid + 0, l => time() });
         }
     }
     return $res;
