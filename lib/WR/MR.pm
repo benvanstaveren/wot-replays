@@ -1,6 +1,6 @@
 package WR::MR;
 use Moose;
-use Tie::IxHash;
+use Mango::BSON ':bson';
 use Try::Tiny;
 use File::Slurp qw/read_file/;
 use Data::Dumper;
@@ -38,13 +38,13 @@ sub execute {
     my $cb   = shift;
 
     my @args = (
-        bson-code($self->map), bson_code($self->reduce), {
+        bson_code($self->map), bson_code($self->reduce), {
             query => $self->cond,
             out   => { replace => $out }
         }
     );
 
-    if(defined($cb) {
+    if(defined($cb)) {
         $self->db->collection($name)->map_reduce(@args => sub {
             my ($c, $e, $d) = (@_);
             $cb->($d);

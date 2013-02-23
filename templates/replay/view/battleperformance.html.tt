@@ -9,10 +9,6 @@
                 <span class="label small">XVM</span>
                 [% h.eff_color(h.sprintf('%.0f', eff.xvm)) %]
             </td>
-            <td class="tooltip" title="Player vbaddict.net Efficiency">
-                <span class="label small">VBA</span>
-                [% h.eff_color(h.sprintf('%.0f', eff.vba)) %]
-            </td>
             <td class="tooltip" title="Player WN6 Rating">
                 <span class="label small">WN6</span>
                 [% h.eff_color(h.sprintf('%.0f', eff.wn6)) %]
