@@ -46,7 +46,12 @@ sub model {
     my $m    = shift;
 
     my ($db, $coll) = split(/\./, $m, 2);
-    return $self->db->get_collection($coll);
+
+    if($db ne 'wot-replays') {
+        return $self->db->_connection->get_database($db)->get_collection($coll);
+    } else {
+        return $self->db->get_collection($coll);
+    }
 }
 
 sub error {
