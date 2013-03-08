@@ -32,10 +32,12 @@
                         Events
                     </a>
                 </li>
+                <!--
                 <li class="nav-item hof [% IF pageid == 'fame' %]active[% END %]">
                     <a class="js-hover" href="/fame">
                         Hall Of Fame
                     </a>
+                </li>
                 -->
             </ul>
             <ul class="nav js-global-actions" id="global-pages" style="float: right">
