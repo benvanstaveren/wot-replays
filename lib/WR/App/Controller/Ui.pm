@@ -94,6 +94,7 @@ sub index {
             replays         => $replays,
             replay_count    => $total + 0,
             archived_count  => $archived + 0,
+            timing_query    => tv_interval($start),
         });
     } else {
         $self->respond(template => 'index', stash => {
