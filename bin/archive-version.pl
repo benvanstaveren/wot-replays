@@ -7,6 +7,7 @@ use WR;
 use boolean;
 use MongoDB;
 use Try::Tiny;
+use Data::Dumper;
 
 $| = 1;
 
@@ -28,8 +29,7 @@ $nv =~ s/\D+//g;
 $nv += 0;
 
 print 'Archiving version ', $version, ' -> ', $nv, "\n";
-
-my $cursor = $coll->find({ 
+my $q = {
     version_numeric => { 
         '$lte' => $nv
     },
@@ -42,7 +42,12 @@ my $cursor = $coll->find({
     'site.like' => {
         '$lt' => $minlike,
     },
-});
+};
+
+print 'Query: ', Dumper($q), "\n";
+
+my $cursor = $coll->find($q);
+
 
 print 'Have ', $cursor->count, ' replays to archive', "\n";
 while(my $r = $cursor->next()) {
