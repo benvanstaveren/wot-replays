@@ -33,33 +33,35 @@ my $q = {
     version_numeric => { 
         '$lte' => $nv
     },
-    'site.views' => { 
-        '$lt' => $minviews, 
-    },
-    'site.downloads' => {
-        '$lt' => $mindl
-    },
-    'site.like' => {
-        '$lt' => $minlike,
-    },
 };
-
-print 'Query: ', Dumper($q), "\n";
 
 my $cursor = $coll->find($q);
 
-
-print 'Have ', $cursor->count, ' replays to archive', "\n";
+print 'Have ', $cursor->count, ' replays to consider for archiving', "\n";
 while(my $r = $cursor->next()) {
-    $coll->update({ 
-        _id => $r->{_id},
-    }, 
-    { 
-        '$set' => {
-            'site.download_disabled' => true,
-            'site.download_disabled_at' => time(),
-        },
-    });
-    print $r->{_id}->to_string, ': download disabled', "\n";
+    print $r->{_id}->to_string, ': ';
+
+    my $views = (defined($r->{site}->{views})) ? $r->{site}->{views} : 0;
+    my $likes = (defined($r->{site}->{like})) ? $r->{site}->{like} : 0;
+    my $downloads = (defined($r->{site}->{downloads})) ? $r->{site}->{downloads} : 0;
+
+    if($views <= $minviews && $likes <= $minlike && $downloads <= $mindl) {
+        $coll->update({ 
+            _id => $r->{_id},
+        }, 
+        { 
+            '$set' => {
+                'site.download_disabled' => true,
+                'site.download_disabled_at' => time(),
+            },
+        });
+        print 'download disabled, ';
+        # find the associated file
+        my $file = sprintf('/home/wotreplay/wot-replays/data/replays/%s', $r->{file});
+        unlink($file);
+        print 'file removed', "\n";
+    } else {
+        print 'keeping', "\n";
+    }
 }
 print 'Done', "\n";
