@@ -29,10 +29,7 @@ my $d = 0;
 my $t = $cursor->count();
 
 while(my $r = $cursor->next()) {
-    print $r->{_id}->to_string, ': ';
     my $perc = ($d >0 && $t > 0) ? int(100/($t/$d)) : 0;
-
-
     $coll->remove({ _id => $r->{_id} });
     my $file = sprintf('/home/wotreplay/wot-replays/data/replays/%s', $r->{file});
     unlink($file);
