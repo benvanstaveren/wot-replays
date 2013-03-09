@@ -33,14 +33,11 @@ my $q = {
     version_numeric => { 
         '$lte' => $nv
     },
-    '$or' => [
-        { 'site.download_disabled' => false },
-        { 'site.download_disabled' => { '$exists' => false } },
-    ],
 };
 my $cursor = $coll->find($q);
 print 'Have ', $cursor->count, ' replays to consider for archiving', "\n";
 while(my $r = $coll->find_one($q)) {
+    next if($r->{site}->{download_disabled});
     print $r->{_id}->to_string, ': ', $r->{version}, ': ';
 
     my $views = (defined($r->{site}->{views})) ? $r->{site}->{views} : 0;
