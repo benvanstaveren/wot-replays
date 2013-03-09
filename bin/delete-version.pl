@@ -24,13 +24,18 @@ my $coll   = $db->get_collection('replays');
 print 'Deleting version ', $version, "\n";
 my $cursor = $coll->find({ 'version' => $version });
 
-print 'Have ', $cursor->count, ' replays to delete';
+print 'Have ', $cursor->count, ' replays to delete', "\n";
+my $d = 0;
+my $t = $cursor->count();
+
 while(my $r = $cursor->next()) {
     print $r->{_id}->to_string, ': ';
+    my $perc = ($d >0 && $t > 0) ? int(100/($t/$d)) : 0;
+
 
     $coll->remove({ _id => $r->{_id} });
     my $file = sprintf('/home/wotreplay/wot-replays/data/replays/%s', $r->{file});
     unlink($file);
-    print 'deleted', "\n";
+    print sprintf('[%04d/%04d] %d%%', $d, $t, $perc), "\r";
 }
-print 'Done', "\n";
+print "\n", 'Done', "\n";
