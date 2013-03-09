@@ -38,7 +38,10 @@ my $q = {
 my $cursor = $coll->find($q);
 
 print 'Have ', $cursor->count, ' replays to consider for archiving', "\n";
-while(my $r = $cursor->next()) {
+
+my @replays = $cursor->all;
+
+while(my $r = shift(@replays)) {
     print $r->{_id}->to_string, ': ';
 
     my $views = (defined($r->{site}->{views})) ? $r->{site}->{views} : 0;

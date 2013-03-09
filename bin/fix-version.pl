@@ -20,8 +20,7 @@ my $query = {
     },
 };
 
-my $rc = $db->get_collection('replays')->find($query)->sort({ 'site.uploaded_at' => -1 });
-while(my $r = $rc->next()) {
+while(my $r = $db->get_collection('replays')->find_one($query)) {
     my $nv = $r->{version};
     $nv =~ s/\D+//g;
     $nv += 0;
