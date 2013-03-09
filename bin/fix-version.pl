@@ -23,5 +23,5 @@ while(my $r = $rc->next()) {
     $nv += 0;
 
     $db->get_collection('replays')->update({ _id => $r->{_id} }, { '$set' => { 'version_numeric' => $nv } });
-    print $r->{_id}->to_string, "\n";
+    print $r->{_id}->to_string, ' ', $r->{version}, ' -> ', $nv, "\n";
 }
