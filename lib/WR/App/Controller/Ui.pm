@@ -93,6 +93,7 @@ sub index {
         $self->respond(template => 'index/ajax', stash => {
             replays         => $replays,
             replay_count    => $total + 0,
+            archived_count  => $archived + 0,
         });
     } else {
         $self->respond(template => 'index', stash => {
