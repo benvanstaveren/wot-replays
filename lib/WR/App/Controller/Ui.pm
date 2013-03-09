@@ -82,8 +82,8 @@ sub index {
     my $total = $cursor->count;
 
     $q->{'site.download_disabled'} = true;
-    $cursor = $self->db('wot-replays')->get_collection('replays')->find($q);
-    my $archived = $cursor->count;
+    my $acursor = $self->db('wot-replays')->get_collection('replays')->find($q);
+    my $archived = $acursor->count;
 
     my $replays = [ 
         map { { %{$_}, id => $_->{_id} } } $cursor->sort({ 'site.uploaded_at' => -1 })->limit(15)->all()
