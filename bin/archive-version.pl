@@ -33,7 +33,7 @@ my $q = {
     version_numeric => { 
         '$lte' => $nv
     },
-    '$or': [
+    '$or' => [
         { 'site.download_disabled' => false },
         { 'site.download_disabled' => { '$exists' => false } },
     ],
