@@ -18,7 +18,7 @@ sub events {
         server       => $self->server,
     };
 
-    my $cursor = $self->db->get_collection('events')->find($query)->sort({ event_starts => -1 });
+    my $cursor = $self->db->get_collection('events')->find($query)->sort({ event_start => -1 });
 
     $cursor->limit(15) if($args{all} == 0);
     return [ $cursor->all() ];
