@@ -81,6 +81,10 @@ sub index {
     my $cursor = $self->db('wot-replays')->get_collection('replays')->find($q);
     my $total = $cursor->count;
 
+    $q->{'site.download_disabled'} = true;
+    $cursor = $self->db('wot-replays')->get_collection('replays')->find($q);
+    my $archived = $cursor->count;
+
     my $replays = [ 
         map { { %{$_}, id => $_->{_id} } } $cursor->sort({ 'site.uploaded_at' => -1 })->limit(15)->all()
     ];
@@ -95,6 +99,7 @@ sub index {
             page            => { title => 'Home' },
             replays         => $replays,
             replay_count    => $total + 0,
+            archived_count  => $archived + 0,
             timing_query    => tv_interval($start),
         });
     }
