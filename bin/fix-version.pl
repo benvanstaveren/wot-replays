@@ -4,6 +4,7 @@ use warnings;
 use FindBin;
 use lib "$FindBin::Bin/../lib";
 use MongoDB;
+use boolean;
 
 $| = 1;
 
@@ -13,6 +14,9 @@ my $db     = $mongo->get_database('wot-replays');
 my $query = {
     'site.uploaded_at' => {
         '$lte' => time()
+    },
+    'version_numeric' => {
+        '$exists' => false,
     },
 };
 
