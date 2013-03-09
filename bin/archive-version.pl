@@ -10,7 +10,7 @@ use Try::Tiny;
 
 $| = 1;
 
-die 'Usage: archive-version.pl <version number>', "\n" unless($ARGV[0]);
+die 'Usage: archive-version.pl <version number> [min views] [min downloads]', "\n" unless($ARGV[0]);
 
 my $version = $ARGV[0];
 

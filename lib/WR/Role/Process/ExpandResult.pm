@@ -193,11 +193,16 @@ around 'process' => sub {
     }
 
     my $player_clan = $playerdata->{player}->{clanAbbrev};
+
+    my $nv = $substr($v, 0, 5);
+    $nv =~ s/\D+//g;
+    $nv += 0;
             
     my $data = {
         _id             => $m_id,
         version         => substr($v, 0, 5),
         version_full    => $v,
+        version_numeric => $nv,
         site            => { 
             meta => {
                 views       => 0,
