@@ -194,7 +194,7 @@ around 'process' => sub {
 
     my $player_clan = $playerdata->{player}->{clanAbbrev};
 
-    my $nv = $substr($v, 0, 5);
+    my $nv = substr($v, 0, 5);
     $nv =~ s/\D+//g;
     $nv += 0;
             
