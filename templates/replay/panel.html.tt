@@ -19,7 +19,7 @@
                     </div>
                     <div class="panelButtons">
                         <button class="rateUp" rid="[% replay.id %]" title="Like this replay" style="width: 75px">Like (<span class="rateUpCount">[% replay.site.like || '0' %]</span>)</button>
-                        [% IF !replay.download_disabled %]
+                        [% IF !replay.site.download_disabled %]
                             <button title="Download this replay" href="/download/[% replay.id %]" class="panelButton downloadButton [% IF replay.version != config.wot.version %]incompatible[% END %]">Save (<span class="count">[% replay.site.downloads || '0' %]</span>)</button>
                         [% END %]
                     </div>

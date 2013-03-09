@@ -10,45 +10,49 @@ use Try::Tiny;
 
 $| = 1;
 
-die 'Usage: archive-version.pl <version number> [min views] [min downloads]', "\n" unless($ARGV[0]);
+die 'Usage: archive-version.pl <version number> [min views] [min downloads] [min likes]', "\n" unless($ARGV[0]);
 
-my $version = $ARGV[0];
+my $version     = $ARGV[0];
+my $minviews    = $ARGV[1] || 10;
+my $mindl       = $ARGV[2] || 10; 
+my $minlike     = $ARGV[3] || 5;
 
-my $mongo  = MongoDB::Connection->new();
+# the above will keep versions if they have more than minviews views, or more than minviews downloads
+
+my $mongo  = MongoDB::Connection->new(host => $ENV{MONGO} || 'localhost');
 my $db     = $mongo->get_database('wot-replays');
-my $gfs    = $db->get_gridfs;
 my $coll   = $db->get_collection('replays');
 
-my $acoll   = $db->get_collection(sprintf('archive-%s.replays', $version));
+my $nv = $version;
+$nv =~ s/\D+//g;
+$nv += 0;
 
-my $file_coll  = $db->get_collection('fs.files');
-my $chunk_coll = $db->get_collection('fs.chunks');
+my $cursor = $coll->find({ 
+    version_numeric => { 
+        '$lte' => $nv
+    },
+    'site.views' => { 
+        '$lt' => $minviews, 
+    },
+    'site.downloads' => {
+        '$lt' => $mindl
+    },
+    'site.like' => {
+        '$lt' => $minlike,
+    },
+});
 
-my $afile_coll = $db->get_collection(sprintf('archive-%s.files', $version));
-my $achunk_coll = $db->get_collection(sprintf('archive-%s.chunks', $version));
-
-
-# archived stuff is basically moved 1:1 to acoll and agfs
-
-my $cursor = $coll->find({ version => $version});
-my $total = $cursor->count();
-my $i = 0;
-
-while(my $o = $cursor->next()) {
-    printf('Processing: %05d of %05d', ++$i, $total);
-    print "\r";
- 
-    $acoll->save($o);
-
-    # find the file 
-    my $f = $file_coll->find_one({ _id => $o->{file} });
-    $afile_coll->save($f);
-    my $fc = $chunk_coll->find({ files_id => $f->{_id} });
-    while(my $c = $fc->next()) {
-        $achunk_coll->save($c);
-    }
-
-    $chunk_coll->remove({ files_id => $f->{_id} });
-    $file_coll->remove({ _id => $f->{_id} });
-    $coll->remove({ _id => $o->{_id} });
+print 'Have ', $cursor->count, ' replays to archive', "\n";
+while(my $r = $cursor->next()) {
+    $coll->update({ 
+        _id => $r->{_id},
+    }, 
+    { 
+        '$set' => {
+            'site.download_disabled' => true,
+            'site.download_disabled_at' => time(),
+        },
+    });
+    print $r->{_id}->to_string, ': download disabled', "\n";
 }
+print 'Done', "\n";
