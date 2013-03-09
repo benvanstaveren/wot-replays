@@ -67,6 +67,7 @@ sub index {
     my $self = shift;
     my $q = {
         'site.visible' => true,
+        'version'      => $self->stash('config')->{wot}->{version},
     };
 
     $q->{'player.server'} = $self->stash('req_host') if($self->stash('req_host') ne 'www');
@@ -81,13 +82,13 @@ sub index {
     my $cursor = $self->db('wot-replays')->get_collection('replays')->find($q);
     my $total = $cursor->count;
 
-    $q->{'site.download_disabled'} = true;
-    my $acursor = $self->db('wot-replays')->get_collection('replays')->find($q);
-    my $archived = $acursor->count;
-
     my $replays = [ 
         map { { %{$_}, id => $_->{_id} } } $cursor->sort({ 'site.uploaded_at' => -1 })->limit(15)->all()
     ];
+
+    $q->{'site.download_disabled'} = true;
+    my $acursor = $self->db('wot-replays')->get_collection('replays')->find($q);
+    my $archived = $acursor->count;
 
     if($self->req->is_xhr) {
         $self->respond(template => 'index/ajax', stash => {
