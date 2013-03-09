@@ -27,6 +27,8 @@ my $nv = $version;
 $nv =~ s/\D+//g;
 $nv += 0;
 
+print 'Archiving version ', $version, ' -> ', $nv, "\n";
+
 my $cursor = $coll->find({ 
     version_numeric => { 
         '$lte' => $nv
