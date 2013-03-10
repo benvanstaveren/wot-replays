@@ -67,16 +67,9 @@ sub index {
     my $self = shift;
     my $q = {
         'site.visible' => true,
-        'version'      => $self->stash('config')->{wot}->{version},
     };
 
     $q->{'player.server'} = $self->stash('req_host') if($self->stash('req_host') ne 'www');
-
-    #if($self->is_user_authenticated) {
-    #    unless($self->current_user->{settings}->{hide_incomplete} == 1) {
-    #        $q->{'complete'} = true;
-    #    }
-    #}
 
     my $start = [ gettimeofday ];
     my $cursor = $self->db('wot-replays')->get_collection('replays')->find($q);
@@ -87,7 +80,6 @@ sub index {
     ];
 
     $q->{'site.download_disabled'} = true;
-    delete($q->{version});
     my $another_cursor = $self->db('wot-replays')->get_collection('replays')->find($q);
     my $archived = $another_cursor->count;
 
