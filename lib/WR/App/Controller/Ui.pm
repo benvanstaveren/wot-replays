@@ -73,6 +73,9 @@ sub index {
 
     my $start = [ gettimeofday ];
     my $cursor = $self->db('wot-replays')->get_collection('replays')->find($q);
+
+    my $explain = $cursor->explain();
+
     my $total = $cursor->count;
 
     my $replays = [ 
@@ -97,6 +100,7 @@ sub index {
             replay_count    => $total + 0,
             archived_count  => $archived + 0,
             timing_query    => tv_interval($start),
+            explain         => $explain,
         });
     }
 }

@@ -8,4 +8,7 @@
     </div>
     <div class="clear"></div>
 </div>
+<!--
+[% h.dumper(explain) %]
+-->
 [% END %]
