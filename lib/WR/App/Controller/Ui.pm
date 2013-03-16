@@ -100,7 +100,10 @@ sub index {
             replay_count    => $total + 0,
             archived_count  => $archived + 0,
             timing_query    => tv_interval($start),
-            explain         => $explain,
+            query           => {
+                query       => $q,
+                explain     => $explain,
+            },
         });
     }
 }

@@ -9,6 +9,10 @@
     <div class="clear"></div>
 </div>
 <!--
-[% h.dumper(explain) %]
+query:
+[% h.dumper(query.query) %]
+
+explain:
+[% h.dumper(query.explain) %]
 -->
 [% END %]
