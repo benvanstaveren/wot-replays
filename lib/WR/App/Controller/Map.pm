@@ -5,34 +5,7 @@ use boolean;
 sub index {
     my $self = shift;
 
-    # get the number of matches per map and order them like that
-    my $res = $self->db('wot-replays')->get_collection('replays')->group({
-        initial => { count => 0 },
-        key => { 'map.id' => 1 },
-        cond => { 
-            'site.visible' => true
-        },
-        reduce => q|function(obj, prev) { prev.count += 1 }|,
-    })->{retval};
-
-    # there is no real easy way to fix all the maps, beyond flat out reparsing
-    # every replay, which is a pain, so this has been disabled until all "old" replays have been purged
-
-    my $map_hash = { map { $_->{'map.id'} => $_->{count} } @$res };
-    my $map_list = [];
-
-    my $cursor = $self->db('wot-replays')->get_collection('data.maps')->find();
-
-    while(my $o = $cursor->next()) {
-        push(@$map_list, { 
-            id => $o->{_id},        # the id is always the one with the given shortname
-            count => $map_hash->{$o->{_id}} || 0,
-            label => $o->{label},
-        });
-    }
-
-    # re-order the map list, alphabetically this time
-    $map_list = [ sort { $a->{label} cmp $b->{label} } (@$map_list) ];
+    $map_list = [ $self->model('wot-replays.data.maps')->find()->sort({ label => 1 })->all() ];
 
     $self->respond(
         template => 'map/index',
@@ -48,39 +21,10 @@ sub view {
     my $map_id = $self->stash('map_id');
 
     my $m_obj = $self->model('wot-replays.data.maps')->find_one({ slug => $map_id });
-    my $t_stats = $self->db('wot-replays')->get_collection('replays')->group({
-        initial => { 
-            c => 0, 
-            win => 0,
-            loss => 0,
-            draw => 0
-            },
-        key => { 'player.name' => 1 },
-        cond => {
-            'map.id' => $m_obj->{_id},
-            'site.visible' => true,
-            'complete' => true,
-        },
-        reduce => q|
-function(obj, prev) { 
-    if(obj.game.isDraw == true) { 
-        prev.draw += 1; 
-    } else { 
-        if(obj.game.isWin == true) { 
-            prev.win += 1; 
-        } else { 
-            prev.loss += 1; 
-        } 
-    } 
-    prev.c += 1;
-}|,
-    })->{retval}->[0];
-
 
     $self->respond(
         template => 'map/view',
         stash    => {
-            statistics => $t_stats,
             page => {
                 title => sprintf('Maps &raquo; %s', $m_obj->{label}),
             },
