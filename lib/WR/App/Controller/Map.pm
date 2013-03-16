@@ -5,7 +5,7 @@ use boolean;
 sub index {
     my $self = shift;
 
-    $map_list = [ $self->model('wot-replays.data.maps')->find()->sort({ label => 1 })->all() ];
+    my $map_list = [ $self->model('wot-replays.data.maps')->find()->sort({ label => 1 })->all() ];
 
     $self->respond(
         template => 'map/index',
