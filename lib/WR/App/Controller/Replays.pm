@@ -116,7 +116,7 @@ sub browse {
     $self->stash('query' => {
         query   => $query->_query,
         explain => $query->exec->explain,
-    };
+    });
 
     my $replays = $query->page($p);
     my $maxp    = $query->maxp;
