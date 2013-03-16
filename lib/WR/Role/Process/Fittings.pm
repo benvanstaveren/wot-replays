@@ -8,7 +8,7 @@ around 'process' => sub {
     my $self = shift;
     my $res  = $self->$orig;
 
-    my $it = WR::Util::ItemTypes;
+    my $it = WR::Util::ItemTypes->new();
 
     $res->{vehicle_fittings} = $self->_parser->wot_vehicle_fittings || {};
     $res->{component_attributes} = {
