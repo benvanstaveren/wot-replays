@@ -4,7 +4,7 @@
         [% FOREACH map IN map_list %]
             <a href="/map/[% h.map_slug(map.label) %]/">
             <div title="[% map.label |html %]" style="width: 84px; float: left; height: 120px; margin: 0px 10px 10px 0px">
-                <img src="[% h.map_image(84, map.id) %]" style="width: 84px; height: 84px"/>
+                <img src="//images.wot-replays.org/maps/84/[% map.icon %]" style="width: 84px; height: 84px"/>
                 <div style="font-size: 80%; font-family: monospace; text-align: center;">[% map.label |html %]</div>
             </div>
             </a>
