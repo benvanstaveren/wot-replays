@@ -13,4 +13,8 @@
     </div>
     <div class="clear"></div>
 </div>
+<script type="text/javascript">
+    console.log('query: [% h.dumper(query.query) %]');
+    console.log('explain: [% h.dumper(query.explain) %]');
+</script>
 [% END %]

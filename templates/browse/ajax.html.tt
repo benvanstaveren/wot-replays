@@ -2,3 +2,7 @@
 [% INCLUDE replay/panel_list.html.tt %]
 [% INCLUDE browse/pager.html.tt %]
 [% INCLUDE bricks/timing.js.tt %]
+<script type="text/javascript">
+    console.log('query: [% h.dumper(query.query) %]');
+    console.log('explain: [% h.dumper(query.explain) %]');
+</script>
