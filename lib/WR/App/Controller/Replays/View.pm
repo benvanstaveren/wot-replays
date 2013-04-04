@@ -6,6 +6,7 @@ use WR::Efficiency;
 use WR::Res::Achievements;
 use Time::HiRes qw/gettimeofday tv_interval/;
 use JSON::XS;
+use Text::CSV_XS;
 
 sub stats {
     my $self = shift;
@@ -147,6 +148,12 @@ sub fuck_jsonxs {
     }
 }
 
+sub view_as_json {
+    my $self = shift;
+
+    my $j = JSON::XS->new()->pretty->allow_blessed(1)->convert_blessed(1);
+    $self->render(text => $j->encode($self->fuck_jsonxs($self->stash('req_replay'))));
+}
 
 sub view {
     my $self = shift;
@@ -156,18 +163,14 @@ sub view {
 
     $self->redirect_to(sprintf('%s.html', $self->req->url)) unless(defined($format));
 
-    if($format eq 'json') {
-        my $j = JSON::XS->new()->pretty->allow_blessed(1)->convert_blessed(1);
-        $self->render(text => $j->encode($self->fuck_jsonxs($self->stash('req_replay'))));
-        return;
-    }
+    $self->view_as_json and return if($format eq 'json');
 
     $self->stash('cachereplay' => 1);
 
     my $replay = $self->stash('req_replay');
     my $r = { %$replay };
 
-    # get the wpa record for this repla
+    # get the wpa record for this replay
     if(my $wpa = $self->model('wot-replays.cache.wpa')->find_one({ _id => sprintf('%s-%s', $r->{player}->{vehicle}->{full}, $r->{map}->{id})})) {
         $self->stash('wpa' => $wpa);
     }

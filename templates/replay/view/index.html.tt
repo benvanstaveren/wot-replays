@@ -21,6 +21,7 @@
                         [% IF !replay.site.download_disabled %]
                         <button href="/download/[% replay.id %]" class="panelButton downloadButton [% IF replay.version != config.wot.version %]incompatible[% END %]" style="width: 150px" id="btn-download">Download Replay (<span class="count">[% replay.site.downloads || '0' %]</span>)</button>
                         [% END %]
+                        <button href="/csv/[% replay.id %].csv" class="panelButton downloadButton" style="width: 75px" id="btn-csv">As CSV</button>
                     </div>
                 </div>
                 <div class="clear"></div>

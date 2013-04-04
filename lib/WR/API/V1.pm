@@ -162,7 +162,9 @@ sub parse {
 
                 $asset->move_to($replay_file);
 
-                my $visible = true;
+                # figure out if it's a clan war or training battle, they are hidden
+                # by default
+                my $visible = ($m_data->{game}->{bonus_type} == 2 || $m_data->{game}->{bonus_type} == 5) ? false : true;
 
                 unless($m_data->{complete}) {
                     if(my $user = $self->model('wot-replays.accounts')->find_one({
@@ -172,6 +174,7 @@ sub parse {
                         $visible = ($user->{settings}->{upload_incomplete} == 1) ? true : false;
                     }
                 }
+
                 $self->model('wot-replays.replays')->save({
                     %$m_data,
                     file => $replay_filename,

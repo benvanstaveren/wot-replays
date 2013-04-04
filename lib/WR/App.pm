@@ -43,6 +43,7 @@ sub startup {
     $r->route('/hint/:hintid')->to('ui#hint', pageid => 'hint');
     $r->route('/upload')->to('replays-upload#upload', pageid => 'upload');
     $r->route('/download/:replay_id')->to('replays-export#download');
+    $r->route('/csv/:replay_id')->to('replays-export#csv');
     $r->route('/xd')->to('ui#xd', pageid => 'xd');
 
     $r->route('/replay/browse/:page')->to('replays#browse', page => 1);
@@ -141,6 +142,7 @@ sub startup {
             INCLUDE_PATH => [ $self->app->home->rel_dir('templates') ],
         },
     );
+    $self->types->type(csv => 'text/csv; charset=utf-8');
     $self->renderer->add_handler(tt => $tt);
     $self->renderer->default_handler('tt');
 }
