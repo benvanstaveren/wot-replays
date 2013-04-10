@@ -174,6 +174,11 @@ sub load_user {
     return $data;
 }
 
+# the stuff from the ppd cache is used to calculate efficiency by way of the 
+# data garnered from it, only thing to do now is to hook this back into 
+# the xvmp tool to get our hands on it
+
+
 sub efficiency {
     my $self = shift;
     my $type = shift;
