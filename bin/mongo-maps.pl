@@ -38,5 +38,8 @@ foreach my $map (keys(%{$x->{map}})) {
         slug            => $slug,
         icon            => sprintf('%s.jpg', $icon),
     };
+
+    warn 'id: ', $map, ' name: ', $name, "\n";
+
     $coll->save($data);
 }
