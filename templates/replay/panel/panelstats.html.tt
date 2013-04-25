@@ -26,10 +26,32 @@
         </tr>
         <tr>
             <td> 
-                <span class="label fw">spotted:</span><span class="value fw">[% replay.statistics.spotted || '0' %]/[% replay.statistics.damageAssisted || '0' %]</span>
+                <span class="label fw">spotted:</span><span class="value fw">[% replay.statistics.spotted || '0' %] /
+                    [% wpa = h.replay_wpa(replay) %]
+                    [% IF wpa && wpa.data %]
+                        [% IF replay.statistics.damageAssisted >= wpa.data.damage_assisted %]
+                            <span class="value fw green tooltip" title="More damage was dealt by allies as a result of spotting than the global average of [% h.sprintf("%.0f", wpa.data.damage_assisted) %] hp">
+                        [% ELSE %]
+                            <span class="value fw tooltip" title="Less damage was dealt by allies as a result of spotting than the global average of [% h.sprintf("%.0f", wpa.data.damage_assisted) %] hp">
+                        [% END %]
+                    [% ELSE %]
+                        <span class="green value fw">
+                    [% END %]
+                    [% replay.statistics.damageAssisted || '0' %]</span>
             </td>
             <td>
-                <span class="label fw">damaged:</span><span class="value fw">[% replay.statistics.damaged || '0' %]/[% replay.statistics.damageDealt || '0' %]</span>
+                <span class="label fw">damaged:</span><span class="value fw">[% replay.statistics.damaged || '0' %] /
+                    [% IF wpa && wpa.data %]
+                        [% IF replay.statistics.damageDealt >= wpa.data.damage_dealt %]
+                            <span class="value fw green tooltip" title="Dealt more damage than the global average of [% h.sprintf("%.0f", wpa.data.damage_dealt) %] hp">
+                        [% ELSE %]
+                            <span class="value fw tooltip" title="Dealt less damage than the global average of [% h.sprintf("%.0f", wpa.data.damage_dealt) %] hp">
+                        [% END %]
+                    [% ELSE %]
+                        <span class="green value fw">
+                    [% END %]
+                    [% replay.statistics.damageDealt || '0' %]</span>
+
             </td>
             <td>
                 <span class="label fw">killed:</span><span class="value fw">[% replay.statistics.kills || '0' %]</span>
