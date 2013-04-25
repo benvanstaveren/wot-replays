@@ -27,12 +27,11 @@
         <tr>
             <td> 
                 <span class="label fw">spotted:</span><span class="value fw">[% replay.statistics.spotted || '0' %] /
-                    [% wpa = h.replay_wpa(replay) %]
-                    [% IF wpa && wpa.data %]
-                        [% IF replay.statistics.damageAssisted >= wpa.data.damage_assisted %]
-                            <span class="value fw green tooltip" title="More damage was dealt by allies as a result of spotting than the global average of [% h.sprintf("%.0f", wpa.data.damage_assisted) %] hp">
+                    [% IF replay.wpa && replay.wpa.damage_assisted %]
+                        [% IF replay.statistics.damageAssisted >= replay.wpa.damage_assisted %]
+                            <span class="value fw green tooltip" title="More damage was dealt by allies as a result of spotting than the global average of [% h.sprintf("%.0f", replay.wpa.damage_assisted) %] hp">
                         [% ELSE %]
-                            <span class="value fw tooltip" title="Less damage was dealt by allies as a result of spotting than the global average of [% h.sprintf("%.0f", wpa.data.damage_assisted) %] hp">
+                            <span class="value fw tooltip" title="Less damage was dealt by allies as a result of spotting than the global average of [% h.sprintf("%.0f", replay.wpa.damage_assisted) %] hp">
                         [% END %]
                     [% ELSE %]
                         <span class="green value fw">
@@ -41,11 +40,11 @@
             </td>
             <td>
                 <span class="label fw">damaged:</span><span class="value fw">[% replay.statistics.damaged || '0' %] /
-                    [% IF wpa && wpa.data %]
-                        [% IF replay.statistics.damageDealt >= wpa.data.damage_dealt %]
-                            <span class="value fw green tooltip" title="Dealt more damage than the global average of [% h.sprintf("%.0f", wpa.data.damage_dealt) %] hp">
+                    [% IF replay.wpa && replay.wpa.damage_dealt %]
+                        [% IF replay.statistics.damageDealt >= replay.wpa.damage_dealt %]
+                            <span class="value fw green tooltip" title="Dealt more damage than the global average of [% h.sprintf("%.0f", replay.wpa.damage_dealt) %] hp">
                         [% ELSE %]
-                            <span class="value fw tooltip" title="Dealt less damage than the global average of [% h.sprintf("%.0f", wpa.data.damage_dealt) %] hp">
+                            <span class="value fw tooltip" title="Dealt less damage than the global average of [% h.sprintf("%.0f", replay.wpa.damage_dealt) %] hp">
                         [% END %]
                     [% ELSE %]
                         <span class="green value fw">

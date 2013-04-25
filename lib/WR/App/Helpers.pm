@@ -84,17 +84,6 @@ sub add_helpers {
         return $n;
     });
 
-    $self->helper('replay_wpa' => sub {
-        my $self = shift;
-        my $r = shift;
-
-        if(my $wpa = $self->model('wot-replays.cache.wpa')->find_one({ _id => sprintf('%s-%s', $r->{player}->{vehicle}->{full}, $r->{map}->{id})})) {
-            return $wpa;
-        } else {
-            return {};
-        }
-    });
-
     $self->helper('has_role' => sub {
         my $self = shift;
         my $u    = shift;

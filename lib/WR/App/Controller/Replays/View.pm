@@ -170,11 +170,6 @@ sub view {
     my $replay = $self->stash('req_replay');
     my $r = { %$replay };
 
-    # get the wpa record for this replay
-    if(my $wpa = $self->model('wot-replays.cache.wpa')->find_one({ _id => sprintf('%s-%s', $r->{player}->{vehicle}->{full}, $r->{map}->{id})})) {
-        $self->stash('wpa' => $wpa);
-    }
-
     my $comp = $self->get_comparison(1);
 
     $self->stash(%$comp);

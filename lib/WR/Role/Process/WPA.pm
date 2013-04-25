@@ -21,9 +21,15 @@ around 'process' => sub {
     my $res  = $self->$orig;
     my $coll = $self->db->get_collection('cache.wpa');
 
+    $res->{wpa} = {}; # just for the sake of sanity
+
     if(my $r = $coll->find_one({ _id => sprintf('%s-%s', $res->{player}->{vehicle}->{full}, $res->{map}->{id}) })) {
         $self->app->log->info('WPA: already have cached entry, checking expiry') if(defined($self->app));
-        return $res if($r->{created} + 86400 > time());
+        if($r->{created} + 86400 > time()) {
+            $res->{wpa} = $r->{data};
+            $self->app->log->info('WPA: added current entry to replay');
+            return $res;
+        }
         $self->app->log->info('WPA: entry expired') if(defined($self->app));
     }
 
@@ -58,6 +64,9 @@ around 'process' => sub {
                 created => time(),
                 data => $data
             });
+
+            $self->app->log->info('WPA: added new entry to replay and stored in cache');
+            $res->{wpa} = $data;
         }
     } else {
         if($self->app) {

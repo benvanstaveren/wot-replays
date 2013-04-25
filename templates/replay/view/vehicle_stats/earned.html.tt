@@ -32,11 +32,11 @@
             </td>
                 <td>
                     [% IF nxp > 0 %]
-                        [% IF wpa && wpa.data %]
-                            [% IF nxp >= wpa.data.experience %]
-                                <span class="green tooltip" title="Earned more than the global average of [% h.sprintf('%.0f', wpa.data.experience) %] xp">
+                        [% IF replay.wpa && replay.wpa.experience %]
+                            [% IF nxp >= replay.wpa.experience %]
+                                <span class="green tooltip" title="Earned more than the global average of [% h.sprintf('%.0f', replay.wpa.experience) %] xp">
                             [% ELSE %]
-                                <span class="tooltip" title="Earned less than the global average of [% h.sprintf('%.0f', wpa.data.experience) %] xp">
+                                <span class="tooltip" title="Earned less than the global average of [% h.sprintf('%.0f', replay.wpa.experience) %] xp">
                             [% END %]
                             [% nxp %]</span>
                         [% ELSE %]
@@ -52,11 +52,11 @@
             </td>
             <td>
                 [% IF ncr > 0 %]
-                    [% IF wpa && wpa.data %]
+                    [% IF replay.wpa && replay.wpa.creditsn %]
                         [% IF ncr >= wpa.data.creditsn %]
-                            <span class="green tooltip" title="Earned more than the global average of [% h.sprintf('%.0f', wpa.data.creditsn) %] credits">
+                            <span class="green tooltip" title="Earned more than the global average of [% h.sprintf('%.0f', replay.wpa.creditsn) %] credits">
                         [% ELSE %]
-                            <span class="tooltip" title="Earned less than the global average of [% h.sprintf('%.0f', wpa.data.creditsn) %] credits">
+                            <span class="tooltip" title="Earned less than the global average of [% h.sprintf('%.0f', replay.wpa.creditsn) %] credits">
                         [% END %]
                         [% ncr %]</span>
                     [% ELSE %]

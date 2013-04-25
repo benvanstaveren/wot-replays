@@ -20,10 +20,10 @@
                 <td>
                     <span class="label small">Accuracy</span>
                     [% accuracy = h.percentage_of(replay.statistics.shots, replay.statistics.hits) %]
-                    [% IF wpa && wpa.data %]
+                    [% IF replay.wpa && replay.wpa.accuracy %]
                         <span 
-                            [% IF accuracy >= wpa.data.accuracy %]class="green tooltip" title="Accuracy above average of [% h.sprintf("%.2f", wpa.data.accuracy) %]%"
-                            [% ELSE %]class="red tooltip" title="Accuracy below average of [% h.sprintf("%.2f", wpa.data.accuracy) %]%"[% END %]>
+                            [% IF accuracy >= replay.wpa.accuracy %]class="green tooltip" title="Accuracy above average of [% h.sprintf("%.2f", replay.wpa.accuracy) %]%"
+                            [% ELSE %]class="red tooltip" title="Accuracy below average of [% h.sprintf("%.2f", replay.wpa.accuracy) %]%"[% END %]>
                     [% ELSE %]
                         <span [% IF accuracy >= 60 %]class="green"[% ELSIF accuracy <= 30 %]class="red"[% END %]>
                     [% END %]
