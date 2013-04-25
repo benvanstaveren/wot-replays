@@ -16,8 +16,8 @@
                         <span class="label fw">credits:</span><span class="value fw" title="Earned [% replay.statistics.credits %] credits including premium and other bonuses" >[% replay.statistics.credits || '0' |truncate(5)%]</span>
                     </div>
                     <div>
-                        <span class="label fw">spotted:</span><span class="value fw">[% replay.statistics.spotted || '0' %]</span>
-                        <span class="label fw">damaged:</span><span class="value fw">[% replay.statistics.damaged || '0' %]</span>
+                        <span class="label fw">spotted:</span><span class="value fw">[% replay.statistics.spotted || '0' %]</span><span class="value fw">/</span><span class="value fw tooltip" title="Damage done by teammates due to spotting">[% replay.statistics.damageAssisted || '0' %]</span>
+                        <span class="label fw">damaged:</span><span class="value fw">[% replay.statistics.damaged || '0' %]</span><span class="value fw">/<span><span class="value fw tooltip" title="Damage done to enemy players">[% replay.statistics.damageDealt || '0' %]</span>
                         <span class="label fw">killed:</span><span class="value fw">[% replay.statistics.kills || '0' %]</span>
                     </div>
                     <div>
