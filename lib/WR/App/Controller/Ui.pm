@@ -67,22 +67,23 @@ sub index {
     my $self = shift;
     my $q = {
         'site.visible' => true,
+        'version'      => '0.8.5',
     };
 
     $q->{'player.server'} = $self->stash('req_host') if($self->stash('req_host') ne 'www');
 
     my $start = [ gettimeofday ];
-    my $cursor = $self->db('wot-replays')->get_collection('replays')->find($q);
 
+    my $cursor  = $self->db('wot-replays')->get_collection('replays')->find($q);
     my $explain = $cursor->explain();
-
-    my $total = $cursor->count;
+    my $total   = $cursor->count;
 
     my $replays = [ 
         map { { %{$_}, id => $_->{_id} } } $cursor->sort({ 'site.uploaded_at' => -1 })->limit(15)->all()
     ];
 
     $q->{'site.download_disabled'} = true;
+
     my $another_cursor = $self->db('wot-replays')->get_collection('replays')->find($q);
     my $archived = $another_cursor->count;
 
