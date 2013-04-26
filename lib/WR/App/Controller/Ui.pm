@@ -67,7 +67,6 @@ sub index {
     my $self = shift;
     my $q = {
         'site.visible' => true,
-        'version'      => '0.8.5',
     };
 
     $q->{'player.server'} = $self->stash('req_host') if($self->stash('req_host') ne 'www');
