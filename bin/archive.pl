@@ -4,9 +4,12 @@ use warnings;
 use lib qw{../lib};
 use WR;
 use WR::MR;
+use boolean;
+use MongoDB;
 
 my $version = $ARGV[0];
 
+my $mongo  = MongoDB::Connection->new(host => $ENV{MONGO} || 'localhost');
 my $map_function = sprintf(q|function() {
     if(this.version == '%s') {
         if(!this.site.download_disabled) {
@@ -24,6 +27,7 @@ return sum;
 }|;
 
 my $mr = WR::MR->new(
+    db     => $mongo->get_database('wot-replays'),
     map    => $map_function,
     reduce => $reduce_function,
 );
