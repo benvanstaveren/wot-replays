@@ -69,7 +69,11 @@ sub index {
         'site.visible' => true,
     };
 
-    $q->{'player.server'} = $self->stash('req_host') if($self->stash('req_host') ne 'www');
+    if($self->stash('req_host') ne 'www') {
+        $q->{'player.server'} = $self->stash('req_host');
+    } else {
+        $q->{'player.server'} = { '$in' => [qw/na eu sea ru vn kr/] };
+    }
 
     my $start = [ gettimeofday ];
 
