@@ -1,0 +1,2656 @@
+msgid "AN-GRC-4"
+msgstr "AN/GRC-4"
+
+msgid "APCNR"
+msgstr "Pzgr. 41 HK"
+
+msgid "APCNR.erz"
+msgstr "Pzgr. 41 StK"
+
+msgid "Agrimotor"
+msgstr "Agrimotor"
+
+msgid "Agrimotorketten"
+msgstr "SuperMegaketten"
+
+msgid "Agrimotorturm"
+msgstr "Agrimotorturm"
+
+msgid "Auf_Panther"
+msgstr "Aufklärungspanzer Panther"
+
+msgid "Auf_Panther_descr"
+msgstr ""
+"Planned heavy reconnaissance vehicle. The plans called for using the Panther "
+"hull in order to facilitate rapid mass production. The vehicle was to "
+"feature the Leopard turret with a gun not longer than the tank's hull, which "
+"was to ensure maneuverability in forested terrain. No prototypes were built."
+
+msgid "Auf_Panther_short"
+msgstr "Aufkl.Panther"
+
+msgid "B-1bis_captured"
+msgstr "Pz.Kpfw. B2 740 (f)"
+
+msgid "B-1bis_captured_descr"
+msgstr ""
+"After modernization, part of a total of 365 vehicles were used by the German "
+"Army, but only on secondary fronts."
+
+msgid "B-1bis_captured_short"
+msgstr "Pz. B2"
+
+msgid "B2_740Fturm"
+msgstr "B2-740-(f)-Turm"
+
+msgid "B2ketten"
+msgstr "B2-740-(f)-Ketten"
+
+msgid "Bison_I"
+msgstr "Sturmpanzer I Bison"
+
+msgid "Bison_I_descr"
+msgstr ""
+"This SPG was equipped with a gun that could fire from the armored enclosure "
+"or be removed to fire from a regular gun carriage. In February 1940 a total "
+"of 38 PzKpfw I were converted to the Sturmpanzer I model."
+
+msgid "Bison_I_short"
+msgstr "Bison"
+
+msgid "Chassis_Auf_Panther"
+msgstr "Aufkl. Panther"
+
+msgid "Chassis_Auf_Panther_2"
+msgstr "Aufkl. Panther verstärkteketten"
+
+msgid "Chassis_DW_II"
+msgstr "D.W."
+
+msgid "Chassis_DW_II_2"
+msgstr "D.W. 2"
+
+msgid "Chassis_DickerMax"
+msgstr "B.W.-Laufwerk"
+
+msgid "Chassis_E-100"
+msgstr "E-100-Ketten"
+
+msgid "Chassis_E-50"
+msgstr "E-50-Ketten Ausf. A"
+
+msgid "Chassis_E-50_2"
+msgstr "E-50-Ketten Ausf. C"
+
+msgid "Chassis_E-75"
+msgstr "MAN-Ketten Ausf. A"
+
+msgid "Chassis_E-75_2"
+msgstr "MAN-Ketten Ausf. B"
+
+msgid "Chassis_E50_Ausf_M"
+msgstr "E-50M-Ketten Ausf. A"
+
+msgid "Chassis_G_E"
+msgstr "Fgst E-100"
+
+msgid "Chassis_G_E_2"
+msgstr "Sd. Fgst. E-100"
+
+msgid "Chassis_G_Panther_1"
+msgstr "GW-Panther-Ketten Ausf. A"
+
+msgid "Chassis_G_Panther_2"
+msgstr "GW-Panther-Ketten Ausf. B"
+
+msgid "Chassis_G_Tiger"
+msgstr "GW-Tiger-Ketten Ausf. A"
+
+msgid "Chassis_G_Tiger2"
+msgstr "GW-Tiger-Ketten Ausf. B"
+
+msgid "Chassis_G_Tiger2_short"
+msgstr "GwTiger-Ketten (B)"
+
+msgid "Chassis_G_Tiger_short"
+msgstr "GwTiger-Ketten (A)"
+
+msgid "Chassis_Indien_Panzer"
+msgstr "B-PS 102"
+
+msgid "Chassis_Indien_Panzer_2"
+msgstr "Indien-Panzer"
+
+msgid "Chassis_JagdPantherII"
+msgstr "Panther-II-Ketten Ausf. F"
+
+msgid "Chassis_JagdPantherII_2"
+msgstr "Panther-II-Ketten Ausf. G"
+
+msgid "Chassis_JagdPz_E100"
+msgstr "JagdPz E-100-Ketten"
+
+msgid "Chassis_JagdTiger_SdKfz_185"
+msgstr "Verstärkte Ketten"
+
+msgid "Chassis_Leopard1"
+msgstr "Leopard 1"
+
+msgid "Chassis_Lowe"
+msgstr "Löweketten"
+
+msgid "Chassis_Panther_II"
+msgstr "Panther-II-Ketten Ausf. A"
+
+msgid "Chassis_Panther_II_2"
+msgstr "Panther-II-Ketten Ausf. B"
+
+msgid "Chassis_Panther_II_2_short"
+msgstr "Panther-II-Ketten (B)"
+
+msgid "Chassis_Panther_II_short"
+msgstr "Panther-II-Ketten (A)"
+
+msgid "Chassis_Panther_M10"
+msgstr "PzKpfw-V-Ketten Ausf. 1943"
+
+msgid "Chassis_Pro_Ag_A"
+msgstr "Leopard prototyp A1"
+
+msgid "Chassis_Pro_Ag_A_2"
+msgstr "Leopard prototyp A2"
+
+msgid "Chassis_Pz38_NA_1"
+msgstr "PzKpfw-38-nA-Standardketten"
+
+msgid "Chassis_Pz38_NA_1_short"
+msgstr "Pz38nA-Standardketten"
+
+msgid "Chassis_Pz38_NA_2"
+msgstr "PzKpfw 38 nA verstärkte Ketten"
+
+msgid "Chassis_Pz38_NA_2_short"
+msgstr "Pz38nA verstärkte Ketten"
+
+msgid "Chassis_PzI"
+msgstr "Pz.Kpfw. I Ausf. A"
+
+msgid "Chassis_PzIV_Hydro"
+msgstr "PzKpfw-IV-Ketten Ausf. C"
+
+msgid "Chassis_PzI_2"
+msgstr "Pz.Kpfw. I Ausf. B"
+
+msgid "Chassis_PzI_ausf_C"
+msgstr "VK 6.01"
+
+msgid "Chassis_PzI_ausf_C_2"
+msgstr "VK 6.02"
+
+msgid "Chassis_PzVI_Tiger_P"
+msgstr "Tiger-(P)-Ketten Ausf. A"
+
+msgid "Chassis_PzVI_Tiger_P_2"
+msgstr "Tiger-(P)-Ketten Ausf. C"
+
+msgid "Chassis_PzVI_Tiger_P_2_short"
+msgstr "Tiger-(P)-Ketten (C)"
+
+msgid "Chassis_PzVI_Tiger_P_short"
+msgstr "Tiger-(P)-Ketten (A)"
+
+msgid "Chassis_Pz_II_AusfG"
+msgstr "VK 9.01"
+
+msgid "Chassis_Pz_II_AusfG_2"
+msgstr "Pz.Kpfw. II Ausf. G"
+
+msgid "Chassis_T-15"
+msgstr "T-15 Ketten"
+
+msgid "Chassis_T-25"
+msgstr "T-25 Ketten"
+
+msgid "Chassis_VK2001DB"
+msgstr "VK 20.01 (III)"
+
+msgid "Chassis_VK2001DB_2"
+msgstr "VK 20.01 (D)"
+
+msgid "Chassis_VK2801"
+msgstr "VK-2801-Ketten Ausf. A"
+
+msgid "Chassis_VK2801_2"
+msgstr "VK-2801-Ketten Ausf. B"
+
+msgid "Chassis_VK2801_2_short"
+msgstr "VK2801-Ketten (B)"
+
+msgid "Chassis_VK2801_short"
+msgstr "VK2801-Ketten (A)"
+
+msgid "Chassis_VK3002DB_V1"
+msgstr "VK 30.01 (D)"
+
+msgid "Chassis_VK3002DB_V1_2"
+msgstr "VK 30.01 (D) verstärkteketten"
+
+msgid "Chassis_VK4502A"
+msgstr "VK-4502-(A)-Ketten Ausf. A"
+
+msgid "Chassis_VK4502A_2"
+msgstr "VK-4502-(A)-Ketten Ausf. C"
+
+msgid "Chassis_VK4502A_2_short"
+msgstr "VK4502A-Ketten (C)"
+
+msgid "Chassis_VK4502A_short"
+msgstr "VK4502A-Ketten (A)"
+
+msgid "Chassis_VK7201"
+msgstr "VK 72.01 (K)"
+
+msgid "DW_II"
+msgstr "Durchbruchswagen 2"
+
+msgid "DW_II_descr"
+msgstr ""
+"Prototype heavy tank. Developed by the Henschel und Sohn Company as part of "
+"a heavy tank program. A prototype was built in 1938. However, in September "
+"1939 the VK 30.01 project was preferred, and the DW program was officially "
+"canceled. Nevertheless, the DW I and DW II prototypes were used extensively "
+"for testing purposes until 1941."
+
+msgid "DW_II_short"
+msgstr "D.W. 2"
+
+msgid "Daimler-Benz_DB-603A2"
+msgstr "MB 507"
+
+msgid "Daimler-Benz_DB-603A2_short"
+msgstr "MB 507"
+
+msgid "Daimler-Benz_MB-809"
+msgstr "Daimler-Benz MB 809"
+
+msgid "Daimler-Benz_MB-809_short"
+msgstr "MB 809"
+
+msgid "DickerMax"
+msgstr "Dicker Max"
+
+msgid "DickerMax_descr"
+msgstr ""
+"The Dicker Max (\"Fat Max\") was initially intended to destroy bunkers. Two "
+"prototypes were built in the spring of 1941. Later the vehicle was "
+"redesignated a heavy tank destroyer. The design was never put into mass "
+"production, but the prototypes fought on the Eastern Front."
+
+msgid "DickerMax_short"
+msgstr "D. Max"
+
+msgid "Die_Signalfahnen"
+msgstr "Signal Flags"
+
+msgid "E-100"
+msgstr "E-100"
+
+msgid "E-100_descr"
+msgstr ""
+"In June 1943 the Adlerwerke company received an order for development of the "
+"E-100. However, in 1944 development of heavy tanks was discontinued. By the "
+"end of the war only the chassis was completed, which was later captured by "
+"the British Army."
+
+msgid "E-100_short"
+msgstr "E-100"
+
+msgid "E-50"
+msgstr "E-50"
+
+msgid "E-50_descr"
+msgstr ""
+"In 1945 the E-50 was conceived as a standard medium tank of the Panzerwaffe "
+"to replace the Panther and Panther II. It existed only in blueprints."
+
+msgid "E-50_short"
+msgstr "E-50"
+
+msgid "E-75"
+msgstr "E-75"
+
+msgid "E-75_descr"
+msgstr ""
+"In 1945 the E-75 was conceived as a standard heavy tank of the Panzerwaffe "
+"to replace the Tiger II. It existed only in blueprints."
+
+msgid "E-75_short"
+msgstr "E-75"
+
+msgid "E50_Ausf_M"
+msgstr "E-50 Ausf. M"
+
+msgid "E50_Ausf_M_descr"
+msgstr ""
+"The German Army demanded that the E-series tanks had transmissions "
+"positioned in the rear portion of the hull. However, the E-50 and E-75 tanks "
+"used the Tiger II engine-transmission compartment, which made rear placement "
+"of the transmission impossible. The E-50 Ausf. M tank was a redesign of the "
+"E-50 project with a rear placement of the transmission."
+
+msgid "E50_Ausf_M_short"
+msgstr "E-50M"
+
+msgid "Ferdinand"
+msgstr "Ferdinand"
+
+msgid "Ferdinand_descr"
+msgstr ""
+"Developed on the chassis of the Porsche Tiger, with a total of 90 vehicles "
+"produced in April and May 1943. They first saw combat in the Battle of Kursk "
+"(Operation Citadel)."
+
+msgid "Ferdinandstandardketten"
+msgstr "Ferdinand Standardketten"
+
+msgid "Ferdinandstandardketten_short"
+msgstr "Ferdinand-StK"
+
+msgid "Ferdinandturm"
+msgstr "Ferdinandturm"
+
+msgid "Ferdinandvetstaerktketten"
+msgstr "Ferdinand verstärkte Ketten"
+
+msgid "Ferdinandvetstaerktketten_short"
+msgstr "Ferdinand-VK"
+
+msgid "FuG10"
+msgstr "FuG 10"
+
+msgid "FuG11"
+msgstr "FuG 11"
+
+msgid "FuG12"
+msgstr "FuG 12"
+
+msgid "FuG12A"
+msgstr "FuG 12A"
+
+msgid "FuG16"
+msgstr "FuG 16"
+
+msgid "FuG2"
+msgstr "FuG 2"
+
+msgid "FuG37"
+msgstr "FuG 37"
+
+msgid "FuG5"
+msgstr "FuG 5"
+
+msgid "FuG5A"
+msgstr "FuG5 mit 20 WS.E."
+
+msgid "FuG6"
+msgstr "FuG 6"
+
+msgid "FuG7"
+msgstr "FuG 7"
+
+msgid "FuG7A"
+msgstr "FuG 7 Ausf. F"
+
+msgid "FuG8"
+msgstr "FuG 8"
+
+msgid "FuG8f"
+msgstr "FuG 8 (f)"
+
+msgid "FuG_Spr.1"
+msgstr "FuG Spr. 1"
+
+msgid "FuG_Spr.A"
+msgstr "FuG Spr. A"
+
+msgid "G20_Marder_II"
+msgstr "Marder II"
+
+msgid "G20_Marder_II_descr"
+msgstr ""
+"A total of 576 of these vehicles were built from June 1942 through June "
+"1943. In addition, 75 PzKpfw II were converted to Marder II in 1944. These "
+"tank destroyers fought on all fronts until the end of the war."
+
+msgid "G20_Marder_II_short"
+msgstr "Marder II"
+
+msgid "G_E"
+msgstr "GW Typ E"
+
+msgid "G_E_descr"
+msgstr ""
+"Development of this heavy SPG on the E-100 chassis started at the end of "
+"1943, but it was never completed. No prototypes were ever manufactured and "
+"the vehicle did not undergo any trials."
+
+msgid "G_E_short"
+msgstr "GwTyp E"
+
+msgid "G_Panther"
+msgstr "GW Panther"
+
+msgid "G_Panther_descr"
+msgstr ""
+"Developed by the Krupp company in 1943 and 1944. A scale model of the SPG "
+"was built, but no full-size prototypes were ever produced."
+
+msgid "G_Panther_short"
+msgstr "GwPanther"
+
+msgid "G_Tiger"
+msgstr "GW Tiger"
+
+msgid "G_Tiger_descr"
+msgstr ""
+"The decision to build this heavy artillery system came in June 1942. In "
+"January 1943 a suspension based on that of the Tiger II was ordered. The "
+"first prototype underwent trials at the very end of the war. The vehicle "
+"never saw service."
+
+msgid "G_Tiger_short"
+msgstr "GwTiger"
+
+msgid "Grille"
+msgstr "Grille"
+
+msgid "Grille_descr"
+msgstr ""
+"Manufactured on the PzKpfw 38(t) chassis from 1943 through 1944, with "
+"several interruptions in production and a total of 282 vehicles completed."
+
+msgid "Grille_mod_1"
+msgstr "Grille Mod. 1"
+
+msgid "Grille_short"
+msgstr "Grille"
+
+msgid "Grilleketten_ausf_A"
+msgstr "Grille-Ketten Ausf. A"
+
+msgid "Grilleketten_ausf_B"
+msgstr "Grille-Ketten Ausf. B"
+
+msgid "H35ketten"
+msgstr "H35-Ketten"
+
+msgid "H39_captured"
+msgstr "Pz.Kpfw. 38H 735 (f)"
+
+msgid "H39_captured_descr"
+msgstr ""
+"In May 1940 the French Army had more than 800 vehicles of this type, most of "
+"which were captured by the German forces. They were widely used by the "
+"Wehrmacht to supplement existing armor."
+
+msgid "H39_captured_short"
+msgstr "Pz. 38H"
+
+msgid "H39turm"
+msgstr "38H735-(f)-Turm"
+
+msgid "Hetzer"
+msgstr "Hetzer"
+
+msgid "Hetzer_0"
+msgstr "Hetzer"
+
+msgid "Hetzer_0_1"
+msgstr "Hetzer 0 1"
+
+msgid "Hetzer_Ausf_A"
+msgstr "Hetzer-Ketten Ausf. A"
+
+msgid "Hetzer_Ausf_B"
+msgstr "Hetzer-Ketten Ausf. B"
+
+msgid "Hetzer_descr"
+msgstr ""
+"A light, low-profile tank destroyer designed according to General Heinz "
+"Guderian's specifications. The Hetzer was produced from April 1944 to May "
+"1945, with a total of 2,584 vehicles manufactured."
+
+msgid "Hetzer_short"
+msgstr "Hetzer"
+
+msgid "Hotchkiss"
+msgstr "Hotchkiss"
+
+msgid "Hummel"
+msgstr "Hummel"
+
+msgid "Hummel_0"
+msgstr "Hummel"
+
+msgid "Hummel_01"
+msgstr "Hummel 01"
+
+msgid "Hummel_Ausf_1943"
+msgstr "Hummel Ausf. A"
+
+msgid "Hummel_Ausf_1943B"
+msgstr "Hummelketten Ausf. 1943B"
+
+msgid "Hummel_Ausf_1944"
+msgstr "Hummel Ausf. B"
+
+msgid "Hummel_B"
+msgstr "Hummel B"
+
+msgid "Hummel_descr"
+msgstr ""
+"Produced from 1943 through 1944, with a total of 666 vehicles manufactured. "
+"They first saw combat in the Battle of Kursk (Operation Citadel)."
+
+msgid "Hummel_short"
+msgstr "Hummel"
+
+msgid "Indien_Panzer"
+msgstr "Indien-Panzer"
+
+msgid "Indien_Panzer_descr"
+msgstr ""
+"The project was developed as a medium tank for the Indian Army. The work on "
+"the project was carried out by Porsche, Daimler-Benz, and Zahnradfabrik AG "
+"of Friedrichshafen. However, the vehicle was deemed to be too complicated "
+"for production in India, and the project was canceled."
+
+msgid "Indien_Panzer_short"
+msgstr "Indien-Pz."
+
+msgid "JagdPanther"
+msgstr "Jagdpanther"
+
+msgid "JagdPantherII"
+msgstr "Jagdpanther II"
+
+msgid "JagdPantherII_descr"
+msgstr ""
+"Developed on the basis of the Panther II. The vehicle was to be equipped "
+"with a 128 mm gun, with the cabin to be located in the rear. Existed only in "
+"blueprints."
+
+msgid "JagdPantherII_short"
+msgstr "JgPanthII"
+
+msgid "JagdPanther_descr"
+msgstr ""
+"This tank destroyer was based on the Panther chassis. It was produced from "
+"January 1944 through March 1945, with a total of 392 vehicles manufactured."
+
+msgid "JagdPanther_short"
+msgstr "JgPanther"
+
+msgid "JagdPzIV"
+msgstr "JagdPz IV"
+
+msgid "JagdPzIV_01"
+msgstr "JagdPz IV 01"
+
+msgid "JagdPzIV_Ausf_1940"
+msgstr "JagdPz-IV-Ketten Ausf. A"
+
+msgid "JagdPzIV_Ausf_1943"
+msgstr "JagdPz-IV-Ostketten"
+
+msgid "JagdPzIV_descr"
+msgstr ""
+"Produced from January 1944 through March 1945, with a total of 1,699 tank "
+"destroyers manufactured. They saw combat on all fronts."
+
+msgid "JagdPzIV_short"
+msgstr "JagdPzIV"
+
+msgid "JagdPz_E100"
+msgstr "JagdPz E-100"
+
+msgid "JagdPz_E100_descr"
+msgstr ""
+"The E-100 was conceived as the basis for a self-propelled gun, an "
+"antiaircraft vehicle, and a tank destroyer. However, the development was "
+"never started."
+
+msgid "JagdPz_E100_short"
+msgstr "JgPzE100"
+
+msgid "JagdTiger"
+msgstr "Jagdtiger"
+
+msgid "JagdTiger_SdKfz_185"
+msgstr "8,8 cm PaK 43 Jagdtiger"
+
+msgid "JagdTiger_SdKfz_185_descr"
+msgstr ""
+"In 1945, the production order for the Jagdtiger was increased, and the "
+"supply of compatible guns became insufficient. As a result, approximately 20 "
+"vehicles were equipped with the 8,8 cm PaK 43 L/71 gun."
+
+msgid "JagdTiger_SdKfz_185_short"
+msgstr "JgTig.8,8 cm"
+
+msgid "JagdTiger_Standardketten"
+msgstr "Jagdtiger-Standardketten"
+
+msgid "JagdTiger_Standardketten_short"
+msgstr "Jagdtiger-StK"
+
+msgid "JagdTiger_Vetstaerktketten"
+msgstr "Jagdtiger verstärkte Ketten"
+
+msgid "JagdTiger_Vetstaerktketten_short"
+msgstr "Jagdtiger-VK"
+
+msgid "JagdTiger_descr"
+msgstr ""
+"Developed from the fall of 1943 through the spring of 1944. Mass-produced "
+"from July 1944 until the end of the war, with a total of almost 80 vehicles "
+"manufactured. They fought primarily on the Western Front."
+
+msgid "JagdTiger_turm"
+msgstr "Jagdtiger-Turm"
+
+msgid "JgPzPanther"
+msgstr "Jagdpanther"
+
+msgid "JgPzV_Standardketten"
+msgstr "JgPz-V-Ketten Ausf. A"
+
+msgid "JgPzV_Vetstaerktketten"
+msgstr "JgPz-V-Ketten Ausf. B"
+
+msgid "Krupp_M301"
+msgstr "Krupp M301"
+
+msgid "Krupp_M305"
+msgstr "Krupp M305"
+
+msgid "Krupp_M311"
+msgstr "Krupp M311"
+
+msgid "LT-40_turm"
+msgstr "LT-40-Turm"
+
+msgid "Leichtertaktorketten"
+msgstr "Leichttraktorketten"
+
+msgid "LeichtertaktorkettenB"
+msgstr "Leichttraktorketten Ausf. B"
+
+msgid "Leopard1"
+msgstr "Leopard 1"
+
+msgid "Leopard1_descr"
+msgstr ""
+"Main battle tank of the Federal Republic of Germany. Development was started "
+"in 1956. The first prototypes were built in 1965 at the Krauss-Maffei "
+"factory. The Leopard 1 was in service in more than 10 countries."
+
+msgid "Leopard1_short"
+msgstr "Leopard 1"
+
+msgid "Leopardketten_Ausf_A"
+msgstr "Leopardketten Ausf. A"
+
+msgid "Leopardketten_Ausf_B"
+msgstr "Leopardketten Ausf. B"
+
+msgid "Leopardturm"
+msgstr "VK 16.02 Leopard"
+
+msgid "Lowe"
+msgstr "Löwe"
+
+msgid "Lowe_descr"
+msgstr ""
+"A super-heavy tank blueprint developed by the Krupp company. Several "
+"designs, varying in armament and configuration, were drafted. No prototypes "
+"were ever built. The vehicle did not undergo any trials."
+
+msgid "Ltraktor"
+msgstr "Leichttraktor"
+
+msgid "Ltraktor_descr"
+msgstr ""
+"Produced from 1930 to 1934. Four prototypes with different armament, crew, "
+"weight, and suspension features were manufactured."
+
+msgid "Ltraktor_short"
+msgstr "LTraktor"
+
+msgid "Luchsketten_Ausf_A"
+msgstr "Luchsketten Ausf. A"
+
+msgid "Luchsketten_Ausf_B"
+msgstr "Luchsketten Ausf. B"
+
+msgid "MB-503"
+msgstr "Daimler-Benz MB 503"
+
+msgid "MB-503_short"
+msgstr "MB 503"
+
+msgid "MB-837"
+msgstr "MTU MB 837"
+
+msgid "MB-837A"
+msgstr "MTU MB 837 A"
+
+msgid "MB-837A_short"
+msgstr "MB 837 A"
+
+msgid "MB-838_CAM-500"
+msgstr "MTU MB 838 CaM 500"
+
+msgid "MB-838_CAM-500_short"
+msgstr "MB 838 CaM 500"
+
+msgid "MB507"
+msgstr "DB 603 A2"
+
+msgid "MB517"
+msgstr "MB 517"
+
+msgid "MarderII"
+msgstr "Marder-II-Ketten Ausf. A"
+
+msgid "MarderII_short"
+msgstr "MarderII-Ketten (A)"
+
+msgid "MarderIIketten_ausf_B"
+msgstr "Marder-II-Ketten Ausf. B"
+
+msgid "MarderIIketten_ausf_B_short"
+msgstr "MarderII-Ketten (B)"
+
+msgid "Marderturm"
+msgstr "Marderturm"
+
+msgid "Maus"
+msgstr "Maus"
+
+msgid "Maus_descr"
+msgstr ""
+"Developed from June 1942 through July 1944, with two prototypes produced, "
+"only one of which received a turret and armament."
+
+msgid "Maus_short"
+msgstr "Maus"
+
+msgid "Mausketten"
+msgstr "Mausketten"
+
+msgid "Mausturm"
+msgstr "Mausturm"
+
+msgid "Maybach_HL45P"
+msgstr "Maybach HL 45 P"
+
+msgid "Maybach_HL57TR"
+msgstr "Maybach HL 57 TR"
+
+msgid "Maybach_HL62TR"
+msgstr "Maybach HL 62 TR"
+
+msgid "Maybach_HL62TRM"
+msgstr "Maybach HL 62 TRM"
+
+msgid "Maybach_HL66P"
+msgstr "Maybach HL 66 P"
+
+msgid "Maybach_HL66Px2"
+msgstr "2 x Maybach HL 66 P"
+
+msgid "Maybach_HL90"
+msgstr "Maybach HL 90"
+
+msgid "Maybach_HL_108TR"
+msgstr "Maybach HL 108 TR"
+
+msgid "Maybach_HL_116"
+msgstr "Maybach HL 116"
+
+msgid "Maybach_HL_120_TR"
+msgstr "Maybach HL 120 TR"
+
+msgid "Maybach_HL_120_TRM"
+msgstr "Maybach HL 120 TRM"
+
+msgid "Maybach_HL_120_TRM_C"
+msgstr "Maybach HL 120 TRM V12"
+
+msgid "Maybach_HL_120_TR_A"
+msgstr "Maybach HL 120 TRM 112"
+
+msgid "Maybach_HL_157P"
+msgstr "Maybach HL 157 P"
+
+msgid "Maybach_HL_174"
+msgstr "Maybach HL 174"
+
+msgid "Maybach_HL_174_05"
+msgstr "Maybach HL 87"
+
+msgid "Maybach_HL_210P30"
+msgstr "Maybach HL 210 P 30"
+
+msgid "Maybach_HL_210P30_05"
+msgstr "Maybach HL 110 P 30"
+
+msgid "Maybach_HL_210P30_Ausf_A"
+msgstr "Maybach HL 230 P 30"
+
+msgid "Maybach_HL_210_TRM_P30"
+msgstr "Maybach HL 210 TRM P30"
+
+msgid "Maybach_HL_210_TRM_P30_short"
+msgstr ""
+"Maybach\n"
+"HL 210 TRM P30"
+
+msgid "Maybach_HL_230P30A"
+msgstr "Maybach HL 230 P 30"
+
+msgid "Maybach_HL_230P45"
+msgstr "Maybach HL 230 P 45"
+
+msgid "Maybach_HL_230P45_05"
+msgstr "Maybach HL 130 P 50"
+
+msgid "Maybach_HL_230_TRM_P30"
+msgstr "Maybach HL 230 TRM P30"
+
+msgid "Maybach_HL_230_TRM_P30_short"
+msgstr ""
+"Maybach\n"
+"HL 230 TRM P30"
+
+msgid "Maybach_HL_234P30_Ausf_A"
+msgstr "Maybach HL 234 P 30 Ausf. A"
+
+msgid "Maybach_HL_234P30_Ausf_A_short"
+msgstr "Maybach HL234 P 30(A)"
+
+msgid "Maybach_HL_234P45"
+msgstr "Maybach HL 234"
+
+msgid "Maybach_HL_234P50"
+msgstr "Maybach HL 295 Ausf. A"
+
+msgid "Maybach_HL_234P50_short"
+msgstr "Maybach HL 295 (A)"
+
+msgid "Maybach_HL_234P60"
+msgstr "Maybach HL 295 Ausf. B"
+
+msgid "Maybach_HL_234P60_short"
+msgstr "Maybach HL 295(B)"
+
+msgid "Maybach_HL_234_TRM_P30"
+msgstr "Maybach HL 234 TRM P30"
+
+msgid "Maybach_HL_234_TRM_P30_short"
+msgstr ""
+"Maybach\n"
+"HL 234 TRM P30"
+
+msgid "Maybach_HL_235"
+msgstr "Maybach HL 235"
+
+msgid "Maybach_HL_45P"
+msgstr "Maybach HL 45 P"
+
+msgid "Maybach_NL38TR"
+msgstr "Maybach HL 38 TR"
+
+msgid "Panther_II"
+msgstr "Panther II"
+
+msgid "Panther_II_descr"
+msgstr ""
+"The vehicle was conceived in 1943. Two prototypes with the existing Panther "
+"I turrets were ordered in 1944. By 1945 only one of them had been built by "
+"the MAN company."
+
+msgid "Panther_II_short"
+msgstr "Panther II"
+
+msgid "Panther_M10"
+msgstr "Panther/M10"
+
+msgid "Panther_M10_descr"
+msgstr ""
+"During the Ardennes Offensive several Panthers assigned to Panzerbrigade 150 "
+"were disguised as M10 Wolverine tank destroyers. This was a part of a larger "
+"operation aimed to cause confusion in the rear of the Allied lines. On "
+"February 1945 disguised Panthers encountered the 120th Infantry Regiment "
+"(United States). One vehicle was destroyed, three were captured."
+
+msgid "Panther_M10_short"
+msgstr "Pz. V/M10"
+
+msgid "PanzerJager"
+msgstr "Panzerjäger"
+
+msgid "PanzerJager_I"
+msgstr "Panzerjäger I"
+
+msgid "PanzerJager_I_descr"
+msgstr ""
+"From March 1940 through February 1941, a total of 202 PzKpfw I were "
+"converted into tank destroyers, the Panzerjäger I. This vehicle remained in "
+"service until the end of 1941."
+
+msgid "PanzerJager_I_short"
+msgstr "PzJg I"
+
+msgid "Porsche_Deutz_Typ180_2"
+msgstr "Porsche Deutz Typ 180/2"
+
+msgid "Porsche_Deutz_Typ180_2_short"
+msgstr ""
+"Porsche Deutz\n"
+"Typ 180/2"
+
+msgid "Porsche_Typ_100"
+msgstr "2x Porsche Typ 100"
+
+msgid "Porsche_Typ_100_1"
+msgstr "2x Porsche Typ 100/1"
+
+msgid "Porsche_Typ_100_1A"
+msgstr "2x Porsche Typ 100/1 Ausf. A"
+
+msgid "Porsche_Typ_100_1A_short"
+msgstr "2x Porsche Typ100/1(A)"
+
+msgid "Porsche_Typ_100_3"
+msgstr "2x Porsche Typ 100/3"
+
+msgid "Praga_C9"
+msgstr "Praga C9"
+
+msgid "Praga_EPA_2"
+msgstr "Praga EPA/2"
+
+msgid "Praga_EPA_3"
+msgstr "Praga EPA/3"
+
+msgid "Praga_NR"
+msgstr "Praga NR"
+
+msgid "Praga_NRi"
+msgstr "Praga NRi"
+
+msgid "Praga_TNPS"
+msgstr "Praga TNPS"
+
+msgid "Praga_TN_100"
+msgstr "Praga TN 100"
+
+msgid "Pro_Ag_A"
+msgstr "Leopard prototyp A"
+
+msgid "Pro_Ag_A_descr"
+msgstr ""
+"Prototype developed from 1960 through 1961 as a medium tank for the "
+"Bundeswehr, with a total of 26 prototypes manufactured. The prototypes were "
+"tested up to 1963. The vehicle was the predecessor of the Leopard medium "
+"tank."
+
+msgid "Pro_Ag_A_short"
+msgstr "Leopard PT A"
+
+msgid "Pz-V_Shmallturm"
+msgstr "PzKpfw-V-Schmalturm"
+
+msgid "Pz-V_Shmallturm_short"
+msgstr "PzV-Schmalturm"
+
+msgid "Pz-V_Standardketten"
+msgstr "PzKpfw-V-Ketten Ausf. 1943"
+
+msgid "Pz-V_Standardketten_short"
+msgstr "PzV-Ketten Ausf. 1943"
+
+msgid "Pz-V_Standardturm"
+msgstr "PzKpfw-V-Turm Ausf. G"
+
+msgid "Pz-V_Standardturm_short"
+msgstr "PzV-Turm Ausf. G"
+
+msgid "Pz-V_Vetstaerktketten"
+msgstr "PzKpfw-V-Ketten Ausf. 1945"
+
+msgid "Pz-V_Vetstaerktketten_short"
+msgstr "PzV-Ketten Ausf. 1945"
+
+msgid "Pz-V_ketten"
+msgstr "PzKpfw-V-Ketten"
+
+msgid "Pz35t"
+msgstr "Pz.Kpfw. 35 (t)"
+
+msgid "Pz35t_Standardketten"
+msgstr "PzKpfw-35-(t)-Standardketten"
+
+msgid "Pz35t_Standardketten_short"
+msgstr "Pz35t-Standardketten"
+
+msgid "Pz35t_Standardturm"
+msgstr "PzKpfw-35-(t)-Standardturm"
+
+msgid "Pz35t_Standardturm_short"
+msgstr "Pz35t-Standardturm"
+
+msgid "Pz35t_Verstaerktturm"
+msgstr "PzKpfw-35-(t)-Verstärkterturm"
+
+msgid "Pz35t_VerstaerktturmA"
+msgstr "PzKpfw 35 (t) verstärkter Turm Ausf. A"
+
+msgid "Pz35t_Verstaerktturm_short"
+msgstr "Pz35t-Verstärkterturm"
+
+msgid "Pz35t_Vetstaerktketten"
+msgstr "PzKpfw-35-(t)-Verstärkteketten"
+
+msgid "Pz35t_VetstaerktkettenA"
+msgstr "PzKpfw 35 (t) verstärkte Ketten Ausf. A"
+
+msgid "Pz35t_Vetstaerktketten_short"
+msgstr "Pz35t-Verstärkteketten"
+
+msgid "Pz35t_descr"
+msgstr ""
+"Produced from 1935 through 1938 in Czechoslovakia. A total of 202 of these "
+"vehicles were appropriated by the Wehrmacht in 1938 and were used for three "
+"years."
+
+msgid "Pz35t_short"
+msgstr "Pz. 35 (t)"
+
+msgid "Pz38_NA"
+msgstr "Pz.Kpfw. 38 (t) n.A."
+
+msgid "Pz38_NA_descr"
+msgstr ""
+"Developed on the chassis of the PzKpfw 38 (t) in the fall of 1939, this "
+"prototype used welding technology instead of rivets. The 250 h.p. engine "
+"allowed for a top speed of 62 km/h. The vehicle was never mass-produced."
+
+msgid "Pz38_NA_short"
+msgstr "Pz. 38 nA"
+
+msgid "Pz38t"
+msgstr "Pz.Kpfw. 38 (t)"
+
+msgid "Pz38t_Ausf_G_turm"
+msgstr "PzKpfw-38-(t)-Turm Ausf. G"
+
+msgid "Pz38t_Standardketten"
+msgstr "PzKpfw-38-(t)-Standardketten"
+
+msgid "Pz38t_Vetstaerktketten"
+msgstr "PzKpfw 38 (t) verstärkte Ketten"
+
+msgid "Pz38t_descr"
+msgstr ""
+"The tank was developed for the Czechoslovakian Army. However, it was mostly "
+"produced for the Panzerwaffe from 1939 through 1942, with a total of 1,411 "
+"vehicles manufactured."
+
+msgid "Pz38t_short"
+msgstr "Pz. 38 (t)"
+
+msgid "PzI"
+msgstr "Pz.Kpfw. I"
+
+msgid "PzII"
+msgstr "Pz.Kpfw. II"
+
+msgid "PzIII"
+msgstr "Pz.Kpfw. III"
+
+msgid "PzIII-IV"
+msgstr "Pz.Kpfw. III/IV"
+
+msgid "PzIII-IV_ausf_B"
+msgstr "Pz.Kpfw. III/IV verstärkteketten"
+
+msgid "PzIII_A"
+msgstr "Pz.Kpfw. III Ausf. A"
+
+msgid "PzIII_A_descr"
+msgstr ""
+"Produced in 1937, with a total of 10 vehicles manufactured. The project was "
+"canceled due to its weak suspension and inadequate armor."
+
+msgid "PzIII_A_short"
+msgstr "Pz. III A"
+
+msgid "PzIII_Ausf_A"
+msgstr "PzKpfw-III-Turm Ausf. A"
+
+msgid "PzIII_Ausf_A_short"
+msgstr "PzIII-Turm Ausf. A"
+
+msgid "PzIII_Ausf_C"
+msgstr "PzKpfw-III-Turm Ausf. C"
+
+msgid "PzIII_Ausf_C_short"
+msgstr "PzIII-Turm Ausf. C"
+
+msgid "PzIII_Ausf_E"
+msgstr "PzKpfw-III-Turm Ausf. E"
+
+msgid "PzIII_Ausf_E_short"
+msgstr "PzIII-Turm Ausf. E"
+
+msgid "PzIII_Ausf_M"
+msgstr "PzKpfw-III-Turm Ausf. M"
+
+msgid "PzIII_Ausf_M_short"
+msgstr "PzIII-Turm Ausf. M"
+
+msgid "PzIII_IV"
+msgstr "Pz.Kpfw. III/IV"
+
+msgid "PzIII_IV_descr"
+msgstr ""
+"The tank was intended to use parts and components of the PzKpfw III and "
+"PzKpfw IV vehicles. Only blueprints were developed."
+
+msgid "PzIII_IV_short"
+msgstr "Pz. III/IV"
+
+msgid "PzIII_descr"
+msgstr ""
+"Used the \"classic\" chassis starting with the Ausführung E. Produced from "
+"December 1938 to February 1943, a total of 4,958 tanks and 321 command "
+"vehicles were manufactured."
+
+msgid "PzIII_short"
+msgstr "Pz. III"
+
+msgid "PzIIIketten_Ausf_A"
+msgstr "PzKpfw-III-Ketten Ausf. A"
+
+msgid "PzIIIketten_Ausf_A_short"
+msgstr "PzIII-Ketten Ausf. A"
+
+msgid "PzIIIketten_Ausf_B"
+msgstr "PzKpfw-III-Ketten Ausf. B"
+
+msgid "PzIIIketten_Ausf_B_short"
+msgstr "PzIII-Ketten Ausf. B"
+
+msgid "PzIIIketten_Ausf_J"
+msgstr "PzKpfw-III-Ketten Ausf. J"
+
+msgid "PzIIIketten_Ausf_J_short"
+msgstr "PzIII-Ketten Ausf. J"
+
+msgid "PzIIIketten_Ausf_L"
+msgstr "PzKpfw-III-Ostketten"
+
+msgid "PzIIIketten_Ausf_L_short"
+msgstr "PzIII-Ostketten"
+
+msgid "PzIIL_Grosseturm"
+msgstr "Luchs 5 cm"
+
+msgid "PzIIL_Luchsturm"
+msgstr "Luchs 2 cm"
+
+msgid "PzII_J"
+msgstr "Pz.Kpfw. II Ausf. J"
+
+msgid "PzII_J_descr"
+msgstr ""
+"A modernized version of the PzKpfw II Ausf. G with enhanced armor. Produced "
+"from April through December 1942, with a total of 22 vehicles built."
+
+msgid "PzII_J_short"
+msgstr "Pz. II J"
+
+msgid "PzII_Luchs"
+msgstr "Pz.Kpfw. II Luchs"
+
+msgid "PzII_Luchs_descr"
+msgstr ""
+"Produced from September 1943 through January 1944, with a total of 100 "
+"vehicles completed. Another four vehicles were converted from the "
+"prototypes. This vehicle remained in service until the end of the war."
+
+msgid "PzII_Luchs_short"
+msgstr "Luchs"
+
+msgid "PzII_Luchsturm"
+msgstr "PzKpfw-II-Turm Ausf. F"
+
+msgid "PzII_Luchsturm_short"
+msgstr "PzII-Turm Ausf. F"
+
+msgid "PzII_Standartturm"
+msgstr "PzKpfw-II-Turm Ausf. B"
+
+msgid "PzII_Standartturm_short"
+msgstr "PzII-Turm Ausf. B"
+
+msgid "PzII_ausf_J"
+msgstr "PzKpfw II Ausf. J"
+
+msgid "PzII_descr"
+msgstr ""
+"The A, B, C, and F models were produced from March 1937 through April 1940 "
+"and from March 1941 through December 1942, with a total of 1,637 vehicles "
+"built."
+
+msgid "PzII_ketten"
+msgstr "PzKpfw-II-Ketten"
+
+msgid "PzII_ketten_Ausf_A"
+msgstr "PzKpfw-II-Ketten Ausf. A"
+
+msgid "PzII_ketten_Ausf_A_short"
+msgstr "PzII-Ketten Ausf. A"
+
+msgid "PzII_ketten_Ausf_B"
+msgstr "PzKpfw-II-Ketten Ausf. B"
+
+msgid "PzII_ketten_Ausf_B_short"
+msgstr "PII-Ketten Ausf. B"
+
+msgid "PzII_short"
+msgstr "Pz. II"
+
+msgid "PzII_turm"
+msgstr "PzKpfw-II-Turm"
+
+msgid "PzIIturm_ausf_J"
+msgstr "PzKpfw-II-Turm Ausf. J"
+
+msgid "PzIV"
+msgstr "Pz.Kpfw. IV"
+
+msgid "PzIV_Ausf_1940"
+msgstr "BW Ausf. G"
+
+msgid "PzIV_Ausf_1942"
+msgstr "BW Ausf. H"
+
+msgid "PzIV_Ausf_1942A"
+msgstr "PzKpfw-IV-Ketten Ausf. 1942 A"
+
+msgid "PzIV_Hydro"
+msgstr "Pz.Kpfw. IV Hydraulic"
+
+msgid "PzIV_Hydro_descr"
+msgstr ""
+"This experimental version of the PzKpfw IV Ausf. G, incorporating "
+"hydrostatic drive, began development in 1944. Trials were discontinued due "
+"to the unreliability of the transmission and the lack of spare parts."
+
+msgid "PzIV_Hydro_short"
+msgstr "Pz. IV Hyd."
+
+msgid "PzIV_Schmalturm_A"
+msgstr "PzKpfw-IV-Schmalturm"
+
+msgid "PzIV_Shmallturm"
+msgstr "Pz.Kpfw. IV Ausf. H"
+
+msgid "PzIV_Shmallturm_short"
+msgstr ""
+"Pz.Kpfw. IV\n"
+"Ausf. H"
+
+msgid "PzIV_Standart"
+msgstr "Pz.Kpfw. IV Ausf. G"
+
+msgid "PzIV_StandartA"
+msgstr "PzKpfw-IV-Turm Standard A"
+
+msgid "PzIV_Standart_short"
+msgstr ""
+"Pz.Kpfw. IV\n"
+"Ausf. G"
+
+msgid "PzIV_ausf43"
+msgstr "PzKpfw-IV-Ketten Ausf. G"
+
+msgid "PzIV_ausf_F"
+msgstr "Pz.Kpfw. III/IV Ausf. A"
+
+msgid "PzIV_ausf_F_short"
+msgstr ""
+"Pz.Kpfw. III/IV\n"
+"Ausf. A"
+
+msgid "PzIV_ausf_H"
+msgstr "Pz.Kpfw. III/IV Ausf. B"
+
+msgid "PzIV_ausf_H_short"
+msgstr ""
+"Pz.Kpfw. III/IV\n"
+"Ausf. B"
+
+msgid "PzIV_descr"
+msgstr ""
+"Produced in greater numbers than any other tank of the Panzerwaffe. "
+"Manufactured from October 1937 through March 1945, with a total production "
+"of 8,519 tanks plus command vehicles. Beginning in May 1942 this tank was "
+"equipped with a long-barreled gun."
+
+msgid "PzIV_schmalturm"
+msgstr "Pz.Kpfw. IV Schmalturm"
+
+msgid "PzIV_schmalturm_descr"
+msgstr ""
+"In November 1944 the Krupp company presented several avant-projects aimed to "
+"upgrade armament of tanks and tank destroyers in service. Among them there "
+"was a project of mounting a Panther's Schmalturm (tight turret) on the Pz IV "
+"Ausf. J. The project was canceled due to phasing out the Pz IV  production."
+
+msgid "PzIV_schmalturm_short"
+msgstr "Pz. IV S."
+
+msgid "PzIV_short"
+msgstr "Pz. IV"
+
+msgid "PzIVturm"
+msgstr "PzKpfw-IV-Turm"
+
+msgid "PzI_ausf_C"
+msgstr "Pz.Kpfw. I Ausf. C"
+
+msgid "PzI_ausf_C_descr"
+msgstr ""
+"The initial order for this tank was placed in 1939. It was originally "
+"conceived as a high-speed reconaissance tank for airborne units. Mass "
+"production started at the beginning of 1942. In early 1943 two vehicles were "
+"deployed with the 1st Tank Division. Another 38 vehicles were deployed with "
+"the 58th Reserve Tank Corps in the summer of 1944."
+
+msgid "PzI_ausf_C_short"
+msgstr "Pz. I C"
+
+msgid "PzI_descr"
+msgstr ""
+"The Pz I Ausf. A was the first mass-produced German tank. In 1935 the design "
+"received an upgrade, including elongated hull and a more powerful engine. "
+"Mass production of this version, the Pz I Ausf. B, eventually totalled 675 "
+"tanks. The standard armament was weak, but some tanks were upgraded on the "
+"battlefield to mount 20-mm guns."
+
+msgid "PzI_short"
+msgstr "Pz. I"
+
+msgid "PzJgd_ketten_I"
+msgstr "PzJg-Ketten I"
+
+msgid "PzJgd_ketten_II"
+msgstr "PzJg-Ketten II"
+
+msgid "PzV"
+msgstr "Pz.Kpfw. V Panther"
+
+msgid "PzV-IVketten"
+msgstr "PzKpfw-V-IV-Ketten"
+
+msgid "PzVI"
+msgstr "Pz.Kpfw. VI Tiger"
+
+msgid "PzVIB_Heinschel_Turm"
+msgstr "PzKpfw-VIB-Henschel-Turm"
+
+msgid "PzVIB_Heinschel_Turm_short"
+msgstr "PzVIB-Henschel-Turm"
+
+msgid "PzVIB_Porsche_Turm"
+msgstr "PzKpfw-VIB-Porsche-Turm"
+
+msgid "PzVIB_Porsche_Turm_short"
+msgstr "PzVIB-Porsche-Turm"
+
+msgid "PzVIB_Standardketten"
+msgstr "PzKpfw-VIB-Standardketten"
+
+msgid "PzVIB_Standardketten_short"
+msgstr "PzVIB-StK"
+
+msgid "PzVIB_Tiger_II"
+msgstr "Pz.Kpfw. Tiger II"
+
+msgid "PzVIB_Tiger_II_descr"
+msgstr ""
+"Also known as the King or Royal Tiger. Produced from January 1944 through "
+"March 1945, with a total of 489 vehicles built."
+
+msgid "PzVIB_Tiger_II_short"
+msgstr "Tiger II"
+
+msgid "PzVIB_Vetstaerktketten"
+msgstr "PzKpfw VIB verstärkte Ketten"
+
+msgid "PzVIB_Vetstaerktketten_short"
+msgstr "PzVIB-VK"
+
+msgid "PzVI_Anfangsturm"
+msgstr "PzKpfw-VI-Tiger-I-Turm Ausf. H2"
+
+msgid "PzVI_Anfangsturm_short"
+msgstr "PzVI-Turm Ausf.H2"
+
+msgid "PzVI_Porsche_Turm"
+msgstr "PzKpfw-VI-Tiger-I-Porscheturm"
+
+msgid "PzVI_Porsche_Turm1"
+msgstr "PzKpfw-VI-Porscheturm A"
+
+msgid "PzVI_Porsche_Turm_short"
+msgstr "PzVI-Porscheturm"
+
+msgid "PzVI_Standardketten"
+msgstr "Transportketten"
+
+msgid "PzVI_Tiger_P"
+msgstr "Pz.Kpfw. VI Tiger (P)"
+
+msgid "PzVI_Tiger_P_descr"
+msgstr ""
+"Work on the VK4501(P) was initiated in April 1942. The prototype was "
+"developed immediately and entered production without any trials. In August "
+"production was discontinued, with a total of five vehicles manufactured."
+
+msgid "PzVI_Tiger_P_short"
+msgstr "Tiger P"
+
+msgid "PzVI_Vetstaerktketten"
+msgstr "Breitketten"
+
+msgid "PzVI_Vetstaerktketten1"
+msgstr "PzKpfw VI verstärkte Ketten"
+
+msgid "PzVI_descr"
+msgstr ""
+"Development of the Tiger I was started in 1937 by the Henschel company. Mass "
+"production began in 1942, with an eventual total of 1,354 vehicles "
+"manufactured. The tank first saw combat in the fighting for Leningrad, and "
+"Tigers were at the forefront of battles from Tunisia to Kursk. Although "
+"production was discontinued in the summer of 1944, the Tiger I continued to "
+"see action until the end of the war."
+
+msgid "PzV_PzIV"
+msgstr "Pz.Kpfw. V/IV"
+
+msgid "PzV_PzIV_ausf_Alfa"
+msgstr "Pz.Kpfw. V/IV Alpha"
+
+msgid "PzV_PzIV_ausf_Alfa_descr"
+msgstr ""
+"Only one prototype was built. The PzKpfw IV turret was mounted as a "
+"stationary module on the Panther hull for testing."
+
+msgid "PzV_PzIV_ausf_Alfa_short"
+msgstr "Pz. V/IV A"
+
+msgid "PzV_PzIV_descr"
+msgstr ""
+"Only one prototype was built. The PzKpfw IV turret was mounted as a "
+"stationary module on the Panther hull for testing."
+
+msgid "PzV_PzIV_short"
+msgstr "Pz. V/IV"
+
+msgid "PzV_descr"
+msgstr ""
+"This famous tank was produced from January 1943 through April 1945, with a "
+"total of 5,796 vehicles built plus eight vehicles built on the F series "
+"chassis."
+
+msgid "PzV_short"
+msgstr "Panther"
+
+msgid "Pz_II_AusfG"
+msgstr "Pz.Kpfw. II Ausf. G"
+
+msgid "Pz_II_AusfG_descr"
+msgstr ""
+"On June 18th, 1938 MAN and Daimler-Benz received an order for an initial "
+"batch of 75 Pz II Ausf. G tanks. A prototype was manufactured in 1939. The "
+"vehicle was mass-produced from April 1941 through February 1942, with a "
+"total of only 12 tanks built."
+
+msgid "Pz_II_AusfG_short"
+msgstr "Pz. II G"
+
+msgid "Renault"
+msgstr "Renault"
+
+msgid "S-35ketten"
+msgstr "S-35-Ketten"
+
+msgid "S35_captured"
+msgstr "Pz.Kpfw. S35 739 (f)"
+
+msgid "S35_captured_descr"
+msgstr ""
+"Some of 400 of these French tanks were captured by the German Army. They "
+"were later used for training purposes and on secondary fronts."
+
+msgid "S35_captured_short"
+msgstr "Pz. S35"
+
+msgid "SEM25"
+msgstr "SEM 25"
+
+msgid "Scania_Vabis1664"
+msgstr "Scania Vabis 1664"
+
+msgid "Siemens_Electric_motors_Typ_D1495A"
+msgstr "Siemens-Elektromotoren Typ D 1495 A"
+
+msgid "Siemens_Generators_Typ_aGV"
+msgstr "Siemens-Generatoren Typ aGV"
+
+msgid "Skoda_T-11"
+msgstr "Skoda T-11"
+
+msgid "Skoda_T-15"
+msgstr "Skoda T-15"
+
+msgid "Somua_S-40"
+msgstr "Somua S-40"
+
+msgid "Somuaturm"
+msgstr "Somuaturm"
+
+msgid "StuGIII"
+msgstr "StuG III"
+
+msgid "StuGIIIH"
+msgstr "StuG III Ausf. H"
+
+msgid "StuGIII_0"
+msgstr "StuG III"
+
+msgid "StuGIII_01"
+msgstr "StuG III"
+
+msgid "StuGIII_Ausf_1940"
+msgstr "StuG-III-Ketten Ausf. A"
+
+msgid "StuGIII_Ausf_1943"
+msgstr "StuG-III-Ostketten"
+
+msgid "StuGIII_descr"
+msgstr ""
+"Originally designed as an assault vehicle, this self-propelled gun was "
+"converted into a tank destroyer beginning with the F series. A total of "
+"9,265 vehicles of this series and 1,211 of the StuH 42 were produced."
+
+msgid "StuGIII_short"
+msgstr "StuGIII"
+
+msgid "SturmpanzerII"
+msgstr "Sturmpanzer II"
+
+msgid "Sturmpanzer_II"
+msgstr "Sturmpanzer II"
+
+msgid "Sturmpanzer_II_descr"
+msgstr ""
+"Produced from November through December 1941, with a total of only 12 "
+"vehicles built. Saw combat in North Africa."
+
+msgid "Sturmpanzer_II_short"
+msgstr "StPz II"
+
+msgid "Sturmpanzerketten_I"
+msgstr "Sturmpanzerketten I"
+
+msgid "Sturmpanzerketten_II"
+msgstr "Sturmpanzerketten II"
+
+msgid "Sturmpanzerketten_II_short"
+msgstr "StPz-ketten II"
+
+msgid "Sturmpanzerketten_I_short"
+msgstr "StPz-ketten I"
+
+msgid "Sturmpanzerketten_ausf_A"
+msgstr "StPz-Ketten Ausf. A"
+
+msgid "Sturmpanzerketten_ausf_B"
+msgstr "StPz-Ketten Ausf. B"
+
+msgid "Swedish_Bofors"
+msgstr "Turm Schwedisch Bofors"
+
+msgid "T-15"
+msgstr "T-15"
+
+msgid "T-15_descr"
+msgstr ""
+"This experimental light tank was developed at the Skoda factory in 1941–"
+"1943, with a total of five prototypes manufactured. The vehicle was never "
+"mass-produced, nor saw service."
+
+msgid "T-15_short"
+msgstr "T-15"
+
+msgid "T-25"
+msgstr "T-25"
+
+msgid "T-25_descr"
+msgstr ""
+"The vehicle was developed by the Skoda company under the Panzer Development "
+"Program initiated by the Heer (German Army land forces). The T-25 existed "
+"only in blueprints."
+
+msgid "T-25_short"
+msgstr "T-25"
+
+msgid "T_Bison"
+msgstr "T Bison"
+
+msgid "T_Bison1"
+msgstr "T Bison1"
+
+msgid "Tatra_V-103"
+msgstr "Tatra Typ 103"
+
+msgid "Tiger_short"
+msgstr "Tiger"
+
+msgid "Turret_1_Auf_Panther"
+msgstr "VK 16.02 Leopard"
+
+msgid "Turret_1_DW_II"
+msgstr "D.W.-Versuchsturm"
+
+msgid "Turret_1_DickerMax"
+msgstr "Dicker Max"
+
+msgid "Turret_1_E-100"
+msgstr "E-100-Turm Ausf. A"
+
+msgid "Turret_1_E-25"
+msgstr "E-25"
+
+msgid "Turret_1_E-50"
+msgstr "E-50-Turm Ausf. A"
+
+msgid "Turret_1_E-75"
+msgstr "E-75-Turm Ausf. A"
+
+msgid "Turret_1_E50_Ausf_M"
+msgstr "E-50M-Turm Ausf. F"
+
+msgid "Turret_1_G_E"
+msgstr "GW Aufbau"
+
+msgid "Turret_1_G_Panther"
+msgstr "GW-Panther-Aufbau Ausf. A"
+
+msgid "Turret_1_G_Tiger"
+msgstr "GW-Tiger-Aufbau Ausf. A"
+
+msgid "Turret_1_JagdPantherII"
+msgstr "Jagdpanther II"
+
+msgid "Turret_1_JagdPz_E100"
+msgstr "JagdPz E100"
+
+msgid "Turret_1_JagdTiger_SdKfz_185"
+msgstr "SdKfz 185"
+
+msgid "Turret_1_Leopard1"
+msgstr "Leopard 1"
+
+msgid "Turret_1_Lowe"
+msgstr "Löweturm"
+
+msgid "Turret_1_Panther_II"
+msgstr "Panther-II Turm Ausf. A"
+
+msgid "Turret_1_Panther_II_short"
+msgstr "Panther-II-Turm (A)"
+
+msgid "Turret_1_Panther_M10"
+msgstr "PzKpfw-V-Turm Ausf. G"
+
+msgid "Turret_1_Pro_Ag_A"
+msgstr "Leopard prototyp A2"
+
+msgid "Turret_1_Pz38_NA"
+msgstr "PzKpfw-38-nA-Standardturm"
+
+msgid "Turret_1_PzI"
+msgstr "L.K.A. 2"
+
+msgid "Turret_1_PzIV_Hydro"
+msgstr "PzKpfw-IV-Turm Ausf. J"
+
+msgid "Turret_1_PzI_ausf_C"
+msgstr "Pz.Kpfw. I Breda"
+
+msgid "Turret_1_PzVI_Tiger_P"
+msgstr "Tiger-(P)-Turm Ausf. A"
+
+msgid "Turret_1_PzVI_Tiger_P_short"
+msgstr "Tiger-(P)-Turm (A)"
+
+msgid "Turret_1_Pz_II_AusfG"
+msgstr "Pz.Kpfw. II Ausf. C"
+
+msgid "Turret_1_T-15"
+msgstr "T-15 Turm"
+
+msgid "Turret_1_T-25"
+msgstr "T-25 Turm"
+
+msgid "Turret_1_VK2001DB"
+msgstr "VK 20.01 (D)"
+
+msgid "Turret_1_VK2801"
+msgstr "VK 28.01 Ausf. A"
+
+msgid "Turret_1_VK3002DB_V1"
+msgstr "Pz.Kpfw. III/IV Ausf. B"
+
+msgid "Turret_1_VK4502A"
+msgstr "VK-4502-(A)-Turm Ausf. A"
+
+msgid "Turret_1_VK4502A_short"
+msgstr "VK4502A-Turm (A)"
+
+msgid "Turret_2_Auf_Panther"
+msgstr "VK 28.01 Ausf. B"
+
+msgid "Turret_2_DW_II"
+msgstr "VK 30.01 (H) 0-Serie"
+
+msgid "Turret_2_E-100"
+msgstr "E-100-Turm Ausf. B"
+
+msgid "Turret_2_E-50"
+msgstr "E-50-Turm Ausf. F"
+
+msgid "Turret_2_E-75"
+msgstr "E-75-Turm Ausf. F"
+
+msgid "Turret_2_Indien_Panzer"
+msgstr "Indien-Panzer"
+
+msgid "Turret_2_Panther_II"
+msgstr "Panther-II-Schmalturm"
+
+msgid "Turret_2_Pro_Ag_A"
+msgstr "Porsche Standardpanzer"
+
+msgid "Turret_2_Pz38_NA"
+msgstr "PzKpfw-38-nA-Turm-Ausf. G"
+
+msgid "Turret_2_PzI"
+msgstr "Pz.Kpfw. I Breda"
+
+msgid "Turret_2_PzI_ausf_C"
+msgstr "Pz.Kpfw. I Ausf. C"
+
+msgid "Turret_2_PzVI_Tiger_P"
+msgstr "Tiger-(P)-Turm Ausf. F"
+
+msgid "Turret_2_PzVI_Tiger_P_short"
+msgstr "Tiger-(P)-Turm (F)"
+
+msgid "Turret_2_Pz_II_AusfG"
+msgstr "Pz.Kpfw. II Ausf. G"
+
+msgid "Turret_2_VK2001DB"
+msgstr "Pz.Kpfw. III Ausf. M"
+
+msgid "Turret_2_VK2801"
+msgstr "VK 28.01 Ausf. B"
+
+msgid "Turret_2_VK3002DB_V1"
+msgstr "VK 30.01 (D)"
+
+msgid "Turret_2_VK4502A"
+msgstr "VK-4502-(A)-Turm Ausf. F"
+
+msgid "Turret_2_VK4502A_short"
+msgstr "VK4502A-Turm (F)"
+
+msgid "Turret_VK7201"
+msgstr "VK 72.01 (K)"
+
+msgid "VK1602"
+msgstr "VK 16.02 Leopard"
+
+msgid "VK1602_descr"
+msgstr ""
+"Developed from March through October 1942. The plans were to launch mass "
+"production in April 1943, but the project was canceled before the first "
+"prototype was built."
+
+msgid "VK1602_short"
+msgstr "Leopard"
+
+msgid "VK2001DB"
+msgstr "VK 20.01 (D)"
+
+msgid "VK2001DB_descr"
+msgstr ""
+"Prototype of a medium tank developed by Daimler-Benz from 1939 through 1941. "
+"The new vehicle was to become a new standard medium tank of the Wehrmacht. "
+"The prototype was deployed on the Eastern front. Combat testing revealed a "
+"number of serious faults. In 1941 the tank was deemed obsolete, and the "
+"project was canceled."
+
+msgid "VK2001DB_short"
+msgstr "VK 20.01 D"
+
+msgid "VK2801"
+msgstr "VK 28.01"
+
+msgid "VK2801_descr"
+msgstr ""
+"The vehicle was intended as a standard light tank of the Panzerwaffe and a "
+"basis for antiaircraft tanks and vehicles able to ride on any terrain and "
+"railroad tracks. Existed only in blueprints."
+
+msgid "VK2801_short"
+msgstr "VK 28.01"
+
+msgid "VK3001H"
+msgstr "VK 30.01 (H)"
+
+msgid "VK3001H_Eliteturm"
+msgstr "VK-3001-(H)-Großturm"
+
+msgid "VK3001H_Eliteturm_short"
+msgstr "VK3001H-Großturm"
+
+msgid "VK3001H_Standardturm"
+msgstr "VK-3001-(H)-Standardturm"
+
+msgid "VK3001H_Standardturm_short"
+msgstr "VK3001H-StT"
+
+msgid "VK3001H_ausf_B"
+msgstr "VK-3001-(H)-Ketten Ausf. B"
+
+msgid "VK3001H_ausf_B_short"
+msgstr "VK3001H-Ketten (B)"
+
+msgid "VK3001H_descr"
+msgstr ""
+"Prototype based on the Henschel hull, with four chassis produced for this "
+"model from March through October 1941. The Krupp company manufactured 12 "
+"turrets for this vehicle."
+
+msgid "VK3001H_short"
+msgstr "VK 30.01 H"
+
+msgid "VK3001P"
+msgstr "VK 30.01 (P)"
+
+msgid "VK3001P_Krupp_turm"
+msgstr "VK-3001-(P)-Krupp-Turm"
+
+msgid "VK3001P_Krupp_turm_short"
+msgstr "VK3001P-Krupp-Turm"
+
+msgid "VK3001P_Porsche_turm"
+msgstr "VK-3001-(P)-Porsche-Turm"
+
+msgid "VK3001P_Porsche_turm_short"
+msgstr "VK3001P-Porsche-Turm"
+
+msgid "VK3001P_ausf_B"
+msgstr "VK-3001-(P)-Ketten Ausf. B"
+
+msgid "VK3001P_ausf_B_short"
+msgstr "VK3001P-Ketten (B)"
+
+msgid "VK3001P_descr"
+msgstr ""
+"Two prototypes were built on the Porsche chassis from 1940 to 1941, but the "
+"vehicle never entered mass production."
+
+msgid "VK3001P_short"
+msgstr "VK 30.01 P"
+
+msgid "VK3002DB"
+msgstr "VK 30.02 (D)"
+
+msgid "VK3002DB_Shmallturm"
+msgstr "VK 30.02 (D) Schmalturm"
+
+msgid "VK3002DB_Standardtketten"
+msgstr "VK 30.02 (D)"
+
+msgid "VK3002DB_Standardtketten_short"
+msgstr "VK 30.02 (D)"
+
+msgid "VK3002DB_V1"
+msgstr "VK 30.01 (D)"
+
+msgid "VK3002DB_V1_descr"
+msgstr ""
+"In the winter of 1941–1942 the WaPrüf 6 issued technical requirements for a "
+"new 30-ton tank. The orders for development were placed with MAN and Daimler-"
+"Benz. The prototypes were to be ready by May 1942. However, on May 13th, "
+"1942 only comparative characteristics of the projects were submitted. The "
+"MAN's project was preferred, and the Daimler-Benz's project was canceled."
+
+msgid "VK3002DB_V1_short"
+msgstr "VK 30.01 D"
+
+msgid "VK3002DB_Vetstaerktketten"
+msgstr "VK 30.02 (D) verstärkteketten"
+
+msgid "VK3002DB_Vetstaerktketten_short"
+msgstr "VK 30.02 (D) VK"
+
+msgid "VK3002DB_descr"
+msgstr ""
+"Developed as a response to and under the influence of the Soviet T-34. The "
+"initial order for the production of 200 vehicles was canceled in favor of "
+"the Panther."
+
+msgid "VK3002DB_short"
+msgstr "VK 30.02 D"
+
+msgid "VK3002DB_turm"
+msgstr "VK 30.02 (D)"
+
+msgid "VK3601H"
+msgstr "VK 36.01 (H)"
+
+msgid "VK3601H_Grosseturm"
+msgstr "VK-3601-(H)-Großturm"
+
+msgid "VK3601H_Grosseturm_short"
+msgstr "VK3601H-Großturm"
+
+msgid "VK3601H_Standardturm"
+msgstr "VK-3601-(H)-Standardturm"
+
+msgid "VK3601H_Standardturm_short"
+msgstr "VK3601H-StT"
+
+msgid "VK3601H_descr"
+msgstr ""
+"Six chassis and one prototype of this vehicle were produced at the beginning "
+"of 1942. It never saw mass production due to problems with development of "
+"the conical gun."
+
+msgid "VK3601H_henshelketten"
+msgstr "VK-3601-(H)-Ketten"
+
+msgid "VK3601H_henshelketten_ausf_B"
+msgstr "VK-3601-(H)-Ketten Ausf. B"
+
+msgid "VK3601H_henshelketten_ausf_B_short"
+msgstr "VK3601H-Ketten (B)"
+
+msgid "VK3601H_henshelketten_short"
+msgstr "VK3601H-Ketten"
+
+msgid "VK3601H_short"
+msgstr "VK 36.01 H"
+
+msgid "VK4502A"
+msgstr "VK 45.02 (P) Ausf. A"
+
+msgid "VK4502A_descr"
+msgstr ""
+"Development of this vehicle started in April 1942. The Krupp company "
+"received an order for construction of turrets. However, the prototype was "
+"never manufactured. The turrets were mounted on the first Tiger IIs."
+
+msgid "VK4502A_short"
+msgstr "VK 45.02 A"
+
+msgid "VK4502P"
+msgstr "VK 45.02 (P) Ausf. B"
+
+msgid "VK4502P_Eliteturm"
+msgstr "VK-4502-(P)-Eliteturm"
+
+msgid "VK4502P_Eliteturm_short"
+msgstr "VK4502P-Eliteturm"
+
+msgid "VK4502P_Standardketten"
+msgstr "VK-4502-(P)-Standardketten"
+
+msgid "VK4502P_Standardketten_short"
+msgstr "VK4502P-StK"
+
+msgid "VK4502P_Standardturm"
+msgstr "VK-4502-(P)-Standardturm"
+
+msgid "VK4502P_Standardturm_short"
+msgstr "VK4502P-StT"
+
+msgid "VK4502P_Vetstaerktketten"
+msgstr "VK 4502 (P) verstärkte Ketten"
+
+msgid "VK4502P_Vetstaerktketten_short"
+msgstr "VK4502P-VK"
+
+msgid "VK4502P_descr"
+msgstr ""
+"Two designs of this vehicle (one with the forward-mounted turret and the "
+"other with the rear-mounted turret) were drawn up by Ferdinand Porsche. The "
+"tank never saw mass production."
+
+msgid "VK4502P_short"
+msgstr "VK 45.02 P"
+
+msgid "VK7201"
+msgstr "VK 72.01 (K)"
+
+msgid "VK7201_descr"
+msgstr ""
+"A superheavy tank with rear placement of the turret. Developed by the Krupp "
+"company. A new vehicle was to have stronger armament and enhanced armor "
+"compared to the VK 70.01. Existed only in blueprints."
+
+msgid "VK7201_short"
+msgstr "VK 72.01 K"
+
+msgid "Verbesserteturm"
+msgstr "L.K.A. 2"
+
+msgid "Wespe"
+msgstr "Wespe"
+
+msgid "Wespe_descr"
+msgstr ""
+"First saw combat in the Battle of Kursk (Operation Citadel) and went on to "
+"fight on all fronts. Manufactured from February 1943 through July 1944, with "
+"a total production of 675 self-propelled guns and 159 ammunition carriers."
+
+msgid "Wespe_short"
+msgstr "Wespe"
+
+msgid "Wespeketten_ausf_A"
+msgstr "Wespe-Ketten Ausf. A"
+
+msgid "Wespeketten_ausf_B"
+msgstr "Wespe-Ketten Ausf. B"
+
+msgid "Wespeturm"
+msgstr "Wespe-Turm"
+
+msgid "_105mmGr39H1A"
+msgstr "Gr 39 H1A"
+
+msgid "_105mmGr_39H1A_K"
+msgstr "Gr 39 H1A K"
+
+msgid "_105mm_BK_L7A3_L51"
+msgstr "10,5 cm Bordkanone L7A3"
+
+msgid "_105mm_Gr19"
+msgstr "Gr 19"
+
+msgid "_105mm_K18_L52"
+msgstr "10,5 cm PaK 45 L/52"
+
+msgid "_105mm_K18_L52A"
+msgstr "10,5 cm K 18 L/52"
+
+msgid "_105mm_KwK45_L52"
+msgstr "10,5 cm KwK 45 L/52"
+
+msgid "_105mm_KwK45_L52_ausf_B"
+msgstr "10,5 cm KwK 45 L/52 Ausf. B"
+
+msgid "_105mm_KwK45_L52_ausf_B_short"
+msgstr "10,5 cm KwK45 L/52(B)"
+
+msgid "_105mm_KwK45_L52_ausf_K"
+msgstr "10,5 cm KwK 45 L/52 Ausf. K"
+
+msgid "_105mm_KwK45_L52_ausf_K_short"
+msgstr "10,5 cm KwK45 L/52(K)"
+
+msgid "_105mm_KwK46_L68"
+msgstr "10,5 cm KwK 46 L/68"
+
+msgid "_105mm_KwK46_L70"
+msgstr "10,5 cm KwK46 L/70"
+
+msgid "_105mm_KwK_L100"
+msgstr "10,5 cm KwK L/100"
+
+msgid "_105mm_PaK46_L68"
+msgstr "10,5 cm PaK 46 L/68"
+
+msgid "_105mm_PzGr.40Rot"
+msgstr "PzGr 40 rot"
+
+msgid "_105mm_PzGr39G"
+msgstr "PzGr 39 G"
+
+msgid "_105mm_PzGr39K"
+msgstr "Pzgr 39 K"
+
+msgid "_105mm_PzGr39L"
+msgstr "Pzgr 39 L"
+
+msgid "_105mm_PzGr39L1"
+msgstr "Pzgr 39 L1"
+
+msgid "_105mm_PzGr39L2"
+msgstr "Pzgr 39 L2"
+
+msgid "_105mm_PzGrRot"
+msgstr "PzGr rot"
+
+msgid "_105mm_PzGr_K"
+msgstr "Pzgr K"
+
+msgid "_105mm_Pzgr.40"
+msgstr "Pzgr 40"
+
+msgid "_105mm_Pzgr.40G"
+msgstr "Pzgr 40 G"
+
+msgid "_105mm_Pzgr.40K"
+msgstr "Pzgr 40 K"
+
+msgid "_105mm_Pzgr.40L1"
+msgstr "Pzgr 40 L1"
+
+msgid "_105mm_Pzgr.40L2"
+msgstr "Pzgr 40 L2"
+
+msgid "_105mm_Sprg.18G"
+msgstr "Sprgr 18G"
+
+msgid "_105mm_Sprg.18K"
+msgstr "Sprgr 18 K"
+
+msgid "_105mm_Sprg_K"
+msgstr "Sprgr K"
+
+msgid "_105mm_Sprg_L"
+msgstr "Sprgr L"
+
+msgid "_105mm_Sprg_L1"
+msgstr "Sprgr L1"
+
+msgid "_105mm_Sprg_L2"
+msgstr "Sprgr L2"
+
+msgid "_105mm_StuH42_L28"
+msgstr "10,5 cm StuH 42 L/28"
+
+msgid "_105mm_StuH42_L28Pz"
+msgstr "10,5 cm KwK 42 L/28"
+
+msgid "_105mm_leFH16_L22"
+msgstr "10,5 cm leFH 16 L/22"
+
+msgid "_105mm_leFH18_L28"
+msgstr "10,5 cm leFH 18 L/28"
+
+msgid "_10WSc"
+msgstr "10WSc"
+
+msgid "_128mm_KwK44_2_L61"
+msgstr "12,8 cm KwK 44/2 L/61"
+
+msgid "_128mm_KwK44_L55"
+msgstr "12,8 cm KwK 44 L/55"
+
+msgid "_128mm_PaK44_2_L61"
+msgstr "12,8 cm PaK 44/2 L/61"
+
+msgid "_128mm_PaK44_L55"
+msgstr "12,8 cm PaK 44 L/55"
+
+msgid "_128mm_PzGr39"
+msgstr "Pzgr 39"
+
+msgid "_128mm_PzGr39L"
+msgstr "Pzgr 39 L"
+
+msgid "_128mm_PzGr40"
+msgstr "Pzgr 40"
+
+msgid "_128mm_PzGr43"
+msgstr "Pzgr 43"
+
+msgid "_128mm_SprG18"
+msgstr "Sprgr 18"
+
+msgid "_128mm_SprG19"
+msgstr "Sprgr 19"
+
+msgid "_150mmGr_39H1A"
+msgstr "Gr 39 H1A"
+
+msgid "_150mmGr_39H1A_G"
+msgstr "Gr 39 H1A G"
+
+msgid "_150mmGr_39H1A_L"
+msgstr "Gr 39 H1A L"
+
+msgid "_150mmGr_39H2A_G"
+msgstr "Gr 39H2A G"
+
+msgid "_150mmGr_39H3A_G"
+msgstr "Gr 39 H3A G"
+
+msgid "_150mm_KwK44_L38"
+msgstr "15 cm KwK 44 L/38"
+
+msgid "_150mm_KwK45_L67"
+msgstr "15 cm KwK45 L/67"
+
+msgid "_150mm_PzGr42"
+msgstr "Pzgr 42"
+
+msgid "_150mm_PzGr43"
+msgstr "Pzgr 43"
+
+msgid "_150mm_PzGr45"
+msgstr "Pzgr 45"
+
+msgid "_150mm_Sprg"
+msgstr "Sprgr 18"
+
+msgid "_150mm_SprgG"
+msgstr "Sprgr G"
+
+msgid "_150mm_SprgG31"
+msgstr "Sprgr G 31"
+
+msgid "_150mm_SprgG36"
+msgstr "Sprgr 36"
+
+msgid "_150mm_SprgG_ausf_45"
+msgstr "Sprgr G 45"
+
+msgid "_150mm_SprgG_ausf_46"
+msgstr "Sprgr G Ausf. 46"
+
+msgid "_150mm_Sprg_L"
+msgstr "Sprgr L"
+
+msgid "_150mm_Sprg_L.erz."
+msgstr "Sprgr L erz."
+
+msgid "_150mm_sFH13_L17"
+msgstr "15 cm sFH 13 L/17"
+
+msgid "_150mm_sFH18_L30"
+msgstr "15 cm sFH 18 L/30"
+
+msgid "_150mm_sFH36_L43"
+msgstr "15 cm sFH 36 L/30 Ausf. 1943"
+
+msgid "_150mm_sFH36_L43_short"
+msgstr "15 cm sFH36 L/30(1943)"
+
+msgid "_150mm_sIG33L11"
+msgstr "15 cm sIG 33 L/11"
+
+msgid "_170mm_K72_Sf_"
+msgstr "17 cm K72 (Sf)"
+
+msgid "_170mm_PaK_K72"
+msgstr "17 cm PaK46"
+
+msgid "_170mm_PaK_K72_PzGr43"
+msgstr "PzGr 46"
+
+msgid "_170mm_PaK_K72_PzGr45"
+msgstr "Gr 46 H1A"
+
+msgid "_170mm_PaK_K72_SprgG_ausf_46"
+msgstr "SprgG 46"
+
+msgid "_170mm_Sprg18"
+msgstr "Sprgr 18"
+
+msgid "_170mm_Sprg18_Ausf_G"
+msgstr "Sprg18 Ausf. G"
+
+msgid "_20cm_Pzgr40"
+msgstr "Pzgr 40"
+
+msgid "_20mm_Breda"
+msgstr "2 cm Breda"
+
+msgid "_20mm_Flak_30_L115"
+msgstr "2 cm FlaK 30 L/115"
+
+msgid "_20mm_Flak_38_L112"
+msgstr "2 cm Flak 38 L/112"
+
+msgid "_20mm_KwK_30"
+msgstr "2 cm KwK 30 L/55"
+
+msgid "_20mm_KwK_38_L55"
+msgstr "2 cm KwK 38 L/55"
+
+msgid "_20mm_KwK_38_L55A"
+msgstr "2 cm KwK 38 L/55J"
+
+msgid "_20mm_Pzgr33"
+msgstr "Pzgr 33"
+
+msgid "_20mm_Pzgr39"
+msgstr "Pzgr 39"
+
+msgid "_20mm_Sprg.18"
+msgstr "Sprgr 18"
+
+msgid "_210mm_Gr.18Be"
+msgstr "Gr. 18Be"
+
+msgid "_210mm_Morser_18"
+msgstr "21 cm Mörser 18/2"
+
+msgid "_210mm_Morser_21"
+msgstr "21 cm Mrs 18/1 (Sf)"
+
+msgid "_210mm_Sprg18"
+msgstr "Gr. 18 Stg"
+
+msgid "_210mm_Sprg18_Ausf_G"
+msgstr "Gr. 18"
+
+msgid "_30mm_M"
+msgstr "Spgr. Patr. 103 M"
+
+msgid "_30mm_MK103"
+msgstr "3 cm M.K.103"
+
+msgid "_30mm_Pzgr"
+msgstr "H-Pzgr. Patr. 103 (w)"
+
+msgid "_30mm_Pzgr43"
+msgstr "H-Pzgr. Patr. 103 (u)"
+
+msgid "_37cm_Pzgr40"
+msgstr "Pzgr 40"
+
+msgid "_37cm_Pzgr40t"
+msgstr "Pzgr 40 (t)"
+
+msgid "_37mm_KwK_34t_L40"
+msgstr "3,7 cm KwK 34 (t) L/40"
+
+msgid "_37mm_KwK_38t_L47"
+msgstr "3,7 cm KwK 38 (t) L/47"
+
+msgid "_37mm_KwK_38t_L47_A"
+msgstr "3,7 cm KwK 38 (t) L/47"
+
+msgid "_37mm_KwK_L46"
+msgstr "3,7 cm KwK 36 L/46.5"
+
+msgid "_37mm_PaK_38t_L47"
+msgstr "3,7 cm PaK 38 (t) L/47"
+
+msgid "_37mm_Pzgr33"
+msgstr "Pzgr 33"
+
+msgid "_37mm_Pzgr33t"
+msgstr "Pzgr 33 (t)"
+
+msgid "_37mm_Pzgr36"
+msgstr "Pzgr 36"
+
+msgid "_37mm_Pzgr39"
+msgstr "Pzgr 39"
+
+msgid "_37mm_Pzgr39t"
+msgstr "Pzgr 39 (t)"
+
+msgid "_37mm_SA_38f_L34"
+msgstr "3,7 cm SA 38 L/34"
+
+msgid "_37mm_Sprg.18"
+msgstr "Sprgr 18"
+
+msgid "_37mm_Sprg.18t"
+msgstr "Sprgr 18 (t)"
+
+msgid "_47cm_Pzgr40f"
+msgstr "Pzgr 40 (f)"
+
+msgid "_47cm_Pzgr40t"
+msgstr "Pzgr 40 (t)"
+
+msgid "_47mm_PaK_38t_L43"
+msgstr "4,7 cm PaK 38 (t) L/43"
+
+msgid "_47mm_Pzgr39f"
+msgstr "Pzgr 39 (f)"
+
+msgid "_47mm_Pzgr39t"
+msgstr "Pzgr 39 (t)"
+
+msgid "_47mm_SA35_L34"
+msgstr "4,7 cm SA 35 L/34"
+
+msgid "_47mm_Sprg.18f"
+msgstr "Sprgr 18 (f)"
+
+msgid "_47mm_Sprg.18t"
+msgstr "Sprgr 18 (t)"
+
+msgid "_50mm_KwK_38_L42"
+msgstr "5 cm KwK 38 L/42"
+
+msgid "_50mm_KwK_39_L60"
+msgstr "5 cm KwK 39 L/60"
+
+msgid "_50mm_PaK_39_L60"
+msgstr "5 cm PaK 39 L/60"
+
+msgid "_50mm_Pzgr33"
+msgstr "Pzgr 33"
+
+msgid "_50mm_Pzgr39"
+msgstr "Pzgr 39"
+
+msgid "_50mm_Pzgr40"
+msgstr "Pzgr 40"
+
+msgid "_50mm_Sprg.18"
+msgstr "Sprgr 18"
+
+msgid "_7.92mm_AP"
+msgstr "Patrone 318 SmK-Rs-L'spur"
+
+msgid "_7.92mm_APCR"
+msgstr "Patrone 318 SmKH-Rs-L'spur"
+
+msgid "_7.92mm_Mauser_EW_141"
+msgstr "7,92 mm Mauser E.W.141"
+
+msgid "_75mmK.Gr.rot_Pz"
+msgstr "K.Gr. rot Pz"
+
+msgid "_75mm_A18KwK"
+msgstr "7.5 cm A18 KwK"
+
+msgid "_75mm_APCBC"
+msgstr "APCBC"
+
+msgid "_75mm_KwK41_L58_conic"
+msgstr "7,5 cm KwK 41 L/58 Konisch"
+
+msgid "_75mm_KwK45_L100"
+msgstr "7,5 cm KwK 45 L/100"
+
+msgid "_75mm_KwK_37_L24"
+msgstr "7,5 cm KwK 37 L/24"
+
+msgid "_75mm_KwK_40_L43"
+msgstr "7,5 cm KwK 40 L/43"
+
+msgid "_75mm_KwK_40_L48"
+msgstr "7,5 cm KwK 40 L/48"
+
+msgid "_75mm_KwK_441_A"
+msgstr "7,5 cm KwK 44/1 L/70"
+
+msgid "_75mm_KwK_L70"
+msgstr "7,5 cm KwK 42 L/70"
+
+msgid "_75mm_KwK_L70_A"
+msgstr "7.5 cm KwK L70"
+
+msgid "_75mm_PaK_39_L48"
+msgstr "7,5 cm PaK 39 L/48"
+
+msgid "_75mm_PaK_40_2"
+msgstr "7,5 cm PaK 40/2"
+
+msgid "_75mm_Pzgr.40"
+msgstr "Pzgr 40"
+
+msgid "_75mm_Pzgr.40L"
+msgstr "Pzgr 40 L"
+
+msgid "_75mm_Pzgr33"
+msgstr "Pzgr 33"
+
+msgid "_75mm_Pzgr33L"
+msgstr "Pzgr 33 L"
+
+msgid "_75mm_Pzgr39"
+msgstr "Pzgr 39"
+
+msgid "_75mm_Pzgr39L"
+msgstr "Pzgr 39 L"
+
+msgid "_75mm_Sprg.18"
+msgstr "Sprgr 18"
+
+msgid "_75mm_Sprg.18A"
+msgstr "Sprgr 18 A"
+
+msgid "_75mm_Sprg.18L"
+msgstr "Sprgr 18 L"
+
+msgid "_75mm_StuK42_L70"
+msgstr "7,5 cm StuK 42 L/70"
+
+msgid "_75mm_StuK42_L70A"
+msgstr "7,5 cm StuK42 L70A"
+
+msgid "_75mm_StuK_37_L24"
+msgstr "7,5 cm StuK 37 L/24"
+
+msgid "_75mm_StuK_40_L43"
+msgstr "7,5 cm StuK 40 L/43"
+
+msgid "_76mm_PaK_36r"
+msgstr "7,6 cm PaK 36 (r)"
+
+msgid "_76mm_Pzgr.40r"
+msgstr "Pzgr 40 (r)"
+
+msgid "_76mm_Pzgr39r"
+msgstr "Pzgr 39 (r)"
+
+msgid "_76mm_Sprg.18r"
+msgstr "Sprgr 18 (r)"
+
+msgid "_88mm_KwK_36_L56"
+msgstr "8,8 cm KwK 36 L/56"
+
+msgid "_88mm_KwK_43_L71"
+msgstr "8,8 cm KwK 43 L/71"
+
+msgid "_88mm_KwK_43_L71A"
+msgstr "8.8 cm PaK 43 L/71 Ausf. A"
+
+msgid "_88mm_KwK_44_L100"
+msgstr "8,8 cm KwK 44 L/100"
+
+msgid "_88mm_KwK_L100"
+msgstr "8,8 cm KwK 46 L/100"
+
+msgid "_88mm_PaK_36_L56"
+msgstr "8,8 cm PaK 36 L/56"
+
+msgid "_88mm_PaK_43_L71"
+msgstr "8,8 cm PaK 43 L/71"
+
+msgid "_88mm_Pzgr"
+msgstr "Pzgr"
+
+msgid "_88mm_Pzgr.40"
+msgstr "Pzgr 40"
+
+msgid "_88mm_Pzgr.40L"
+msgstr "Pzgr 40 L"
+
+msgid "_88mm_Pzgr.40_43"
+msgstr "Pzgr 40/43"
+
+msgid "_88mm_Pzgr39"
+msgstr "Pzgr 39"
+
+msgid "_88mm_Pzgr39L"
+msgstr "Pzgr 39 L"
+
+msgid "_88mm_Pzgr39_43"
+msgstr "Pzgr 39/43"
+
+msgid "_88mm_Sprg.18"
+msgstr "Sprgr 18"
+
+msgid "_88mm_Sprg.18L"
+msgstr "Sprgr 18 L"
+
+msgid "_88mm_Sprg.43"
+msgstr "Sprgr 43"
+
+msgid "_90mm_Pzgr39_48"
+msgstr "Pzgr 39/48"
+
+msgid "_90mm_Pzgr40_48"
+msgstr "Pzgr 40/48"
+
+msgid "_90mm_Sprg48"
+msgstr "Sprgr 48"
+
+msgid "_9cm_KwK_51_L71"
+msgstr "9 cm KwK 54"
+
+msgid "_Gr_38_HL_A"
+msgstr "Gr 38 HL A"
+
+msgid "ketten"
+msgstr "City"
+
+msgid "ketten2"
+msgstr "Summer"
+
+msgid "ketten3"
+msgstr "Winter"
