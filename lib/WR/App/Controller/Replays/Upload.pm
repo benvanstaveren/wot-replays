@@ -131,10 +131,6 @@ sub upload {
                     visible     => ($self->req->param('hide') == 1) ? false : true,
                 };
                 $self->model('wot-replays.replays')->save($m_data, { safe => 1 });
-                $self->model('wot-replays.battleresults')->save({
-                    replay_id       => $m_data->{_id},
-                    battle_result   => $br,
-                }, { safe => 1 }) if(defined($br));
 
                 # add to the newest
                 $self->model('wot-replays.newest.www')->insert({ 

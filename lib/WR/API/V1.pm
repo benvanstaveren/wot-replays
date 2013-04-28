@@ -186,11 +186,6 @@ sub parse {
                         visible     => $visible,
                     }
                 });
-                $self->model('wot-replays.battleresults')->save({
-                    replay_id     => $m_data->{_id},
-                    battle_result => $br,
-                });
-
                 # add to the newest
                 $self->model('wot-replays.newest.www')->insert({ 
                     replay => $m_data->{_id}
