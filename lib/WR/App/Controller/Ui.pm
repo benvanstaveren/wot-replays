@@ -64,31 +64,17 @@ sub generate_replay_count {
 }
 
 sub index {
-    my $self = shift;
-    my $q = {
-        'site.visible' => true,
-    };
+    my $self    = shift;
+    my $start   = [ gettimeofday ];
+    my $newest  = [ $self->model(sprintf('wot-replays.newest.%s', $self->stash('req_host')))->find()->sort({ '$natural': -1 })->all() ];
+    my $replays = [];
 
-    if($self->stash('req_host') ne 'www') {
-        $q->{'player.server'} = $self->stash('req_host');
-    } else {
-        $q->{'player.server'} = { '$in' => [qw/na eu sea ru vn kr/] };
+    foreach my $id (@$newest) {
+        push(@$replays, $self->model('wot-replays.replays')->find_one({ _id => $id->{replay} }));
     }
 
-    my $start = [ gettimeofday ];
-
-    my $cursor  = $self->db('wot-replays')->get_collection('replays')->find($q);
-    my $explain = $cursor->explain();
-    my $total   = $cursor->count;
-
-    my $replays = [ 
-        map { { %{$_}, id => $_->{_id} } } $cursor->sort({ 'site.uploaded_at' => -1 })->limit(15)->all()
-    ];
-
-    $q->{'site.download_disabled'} = true;
-
-    my $another_cursor = $self->db('wot-replays')->get_collection('replays')->find($q);
-    my $archived = $another_cursor->count;
+    my $total = $self->model('wot-replays.replays')->count();
+    my $archived = $self->model('wot-replays.replays')->find({ 'site.download_disabled' => true })->count();
 
     if($self->req->is_xhr) {
         $self->respond(template => 'index/ajax', stash => {
@@ -104,10 +90,6 @@ sub index {
             replay_count    => $total + 0,
             archived_count  => $archived + 0,
             timing_query    => tv_interval($start),
-            query           => {
-                query       => $q,
-                explain     => $explain,
-            },
         });
     }
 }
