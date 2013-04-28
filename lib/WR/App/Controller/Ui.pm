@@ -74,8 +74,10 @@ sub index {
     }
 
     my $total = $self->model('wot-replays.replays')->count();
-    my $archived = $self->model('wot-replays.replays')->find({ 'site.download_disabled' => true })->count();
-
+    my $archived = 0;
+    foreach my $v (@{$self->stash('config')->{wot}->{history}}) {
+        $archived += $self->model(sprintf('wot-replays.replays.%s', $v))->count();
+    }
     if($self->req->is_xhr) {
         $self->respond(template => 'index/ajax', stash => {
             replays         => $replays,

@@ -130,9 +130,11 @@ sub upload {
                     uploaded_by => ($self->is_user_authenticated) ? $self->current_user->{_id} : undef,
                     visible     => ($self->req->param('hide') == 1) ? false : true,
                 };
-                $self->model('wot-replays.replays')->save($m_data, { safe => 1 });
 
-                if($m_data->{site}->{visible}) {
+                my $mdl = ($self->stash('config')->{wot}->{version} eq $m_data->{version}) ? 'replays' : sprintf('replays.%s', $m_data->{version});
+                $self->model($mdl)->save($m_data, { safe => 1 });
+
+                if($m_data->{site}->{visible} && $m_data->{version} eq $self->stash('config')->{wot}->{version}) {
                     $self->model('wot-replays.newest.www')->insert({ 
                         replay => $m_data->{_id}
                     });

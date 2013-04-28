@@ -6,6 +6,22 @@ use WR::Query;
 use Time::HiRes qw/gettimeofday tv_interval/;
 use Data::Dumper;
 
+sub hunt_replay {
+    my $self = shift;
+    my $id   = shift;
+
+    if(my $r = $self->model('wot-replays.replays')->find_one({ _id => $id })) {
+        return $r;
+    } else {
+        foreach my $v (@{$self->stash('config')->{wot}->{history}}) {
+            if(my $r = $self->model(sprintf('wot-replays.replays.%s', $v))->find_one({ _id => $id })) {
+                return $r;
+            }
+        }
+    }
+    return undef;
+}
+
 sub bridge {
     my $self = shift;
     my $replay_id = bless({ value => $self->stash('replay_id') }, 'MongoDB::OID');
@@ -17,12 +33,13 @@ sub bridge {
 
     my $start = [ gettimeofday ];
 
-    if(my $replay = $self->model('wot-replays.replays')->find_one({ _id => $replay_id })) {
+
+
+    if(my $replay = $self->hunt_replay($replay_id)) {
         unless($replay->{site}->{visible}) {
             if($self->is_user_authenticated) {
                 my $uid = $self->current_user->{_id}->to_string();
                 my $uplid = (defined($replay->{site}->{uploaded_by})) ? $replay->{site}->{uploaded_by}->to_string : undef;
-
                 if($uid eq $uplid) {
                     $self->stash(req_replay => WR::Query->fuck_tt($replay));
                     return 1;

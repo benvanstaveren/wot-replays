@@ -175,7 +175,9 @@ sub parse {
                     }
                 }
 
-                $self->model('wot-replays.replays')->save({
+                my $mdl = ($m_data->{version} eq $self->stash('config')->{wot}->{version}) ? 'replays' : sprintf('replays.%s', $m_data->{version});
+
+                $self->model($mdl)->save({
                     %$m_data,
                     file => $replay_filename,
                     site => {
@@ -186,7 +188,8 @@ sub parse {
                         visible     => $visible,
                     }
                 });
-                if($visible) {
+
+                if($visible && $m_data->{version} eq $self->stash('config')->{wot}->{version}) {
                     $self->model('wot-replays.newest.www')->insert({ 
                         replay => $m_data->{_id}
                     });
