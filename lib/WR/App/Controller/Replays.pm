@@ -92,7 +92,6 @@ sub browse {
         }
         my $complete = $self->req->param('complete');
         my $survived = $self->req->param('survived');
-        my $compatible = $self->req->param('compatible');
         my $sort = $self->req->param('sort') || 'upload';
         my $tier_min = $self->req->param('tier_min') || 1;
         my $tier_max = $self->req->param('tier_max') || 10;
@@ -106,7 +105,6 @@ sub browse {
 
         $filter->{complete} = 1 if(defined($complete) && $complete == 1);
         $filter->{survived} = 1 if(defined($survived) && $survived == 1);
-        $filter->{compatible} = 1 if(defined($compatible) && $compatible == 1);
         $filter->{sort} = $sort;
         $filter->{tier_min} = $tier_min;
         $filter->{tier_max} = $tier_max;
@@ -119,7 +117,6 @@ sub browse {
     }
 
     my $sort = $sorting->{$filter->{sort} || 'upload'};
-    $filter->{version} = $self->stash('config')->{wot}->{version} if($filter->{compatible}); 
 
     my $start = [ gettimeofday ];
     my $query = $self->wr_query(

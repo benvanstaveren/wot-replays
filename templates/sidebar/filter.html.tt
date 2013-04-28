@@ -83,11 +83,6 @@
                 <option value="5">Clan Battle</option>
             </select>
             [% END %]
-            <span class="label">Version</span>
-            <select name="compatible">
-                <option value="0">-- All versions</option>
-                <option value="1">[% config.wot.version %] only</option>
-            </select>
             <span class="label">Sorting</span>
             <select name="sort">
                 <option value="upload">Upload Date</option>

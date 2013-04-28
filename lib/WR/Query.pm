@@ -104,7 +104,6 @@ sub _build_query {
         playerinv => 0,
         vehiclepov => 0,
         vehicleinv => 0,
-        compatible => 0,
         tier_min => 1,
         tier_max => 10,
         %{ $self->filter },
@@ -183,8 +182,6 @@ sub _build_query {
     }
 
     $query->{'complete'} = true if($args{'complete'} == 1);
-    $query->{'version'} = $args{'version'} if($args{'compatible'} == 1); 
-
     $query->{'game.type'} = $args{'matchmode'} if($args{'matchmode'} && $args{'matchmode'} ne '');
     $query->{'game.bonus_type'} = $args{'matchtype'} + 0 if($args{'matchtype'} && $args{'matchtype'} ne '');
 
