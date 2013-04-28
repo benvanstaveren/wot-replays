@@ -70,7 +70,7 @@ sub index {
     my $replays = [];
 
     foreach my $id (@$newest) {
-        push(@$replays, $self->model('wot-replays.replays')->find_one({ _id => $id->{replay} }));
+        push(@$replays, WR::Query->fuck_tt($self->model('wot-replays.replays')->find_one({ _id => $id->{replay} })));
     }
 
     my $total = $self->model('wot-replays.replays')->count();
