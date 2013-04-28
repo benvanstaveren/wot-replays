@@ -135,6 +135,14 @@ sub upload {
                     replay_id       => $m_data->{_id},
                     battle_result   => $br,
                 }, { safe => 1 }) if(defined($br));
+
+                # add to the newest
+                $self->model('wot-replays.newest.www')->insert({ 
+                    replay => $m_data->{_id}
+                });
+                $self->model(sprintf('wot-replays.newest.%s', $m_data->{player}->{server}))->insert({
+                    replay => $m_data->{_id}
+                });
             }
             $self->render(json => { 
                 ok        => 1,

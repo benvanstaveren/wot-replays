@@ -1,28 +1,33 @@
-db.replays.ensureIndex({ 'version': 1 });
-db.replays.ensureIndex({ 'complete': 1 });
-db.replays.ensureIndex({ 'map.id': 1 });
-db.replays.ensureIndex({ 'map.name': 1 });
-db.replays.ensureIndex({ 'statistics.xp': 1 });
-db.replays.ensureIndex({ 'statistics.xp': -1 });
-db.replays.ensureIndex({ 'statistics.xp_base': 1 });
-db.replays.ensureIndex({ 'statistics.xp_base': -1 });
-db.replays.ensureIndex({ 'statistics.credits_base': 1 });
-db.replays.ensureIndex({ 'statistics.credits_base': -1 });
-db.replays.ensureIndex({ 'statistics.credits': 1 });
-db.replays.ensureIndex({ 'statistics.credits': -1 });
-db.replays.ensureIndex({ 'statistics.damageDealt': 1 });
-db.replays.ensureIndex({ 'statistics.damageDealt': -1 });
-db.replays.ensureIndex({ 'player.name': 1, 'player.server': 1 });
-db.replays.ensureIndex({ 'player.name': 1 });
-db.replays.ensureIndex({ 'player.server': 1 });
-db.replays.ensureIndex({ 'player.vehicle.full': 1 });
-db.replays.ensureIndex({ 'player.vehicle.country': 1 });
-db.replays.ensureIndex({ 'player.vehicle.name': 1 });
-db.replays.ensureIndex({ 'site.uploaded_at': 1 });
-db.replays.ensureIndex({ 'site.uploaded_at': -1 });
-db.replays.ensureIndex({ 'site.views': 1 });
-db.replays.ensureIndex({ 'site.views': -1 });
-db.replays.ensureIndex({ 'vehicles.name': 1 });
-db.replays.ensureIndex({ 'vehicles.vehicleType.full': 1 });
+db.replays.ensureIndex({ 
+'version': 1, 
+'map.id': 1, 
+'map.name': 1, 
+'statistics.xp': 1,
+'statistics.xp': -1,
+'statistics.xp_base': 1,
+'statistics.xp_base': -1,
+'statistics.credits_base': 1,
+'complete': 1,
+'statistics.credits_base': -1,
+'statistics.credits': 1,
+'statistics.credits': -1,
+'statistics.damageDealt': 1,
+'statistics.damageDealt': -1,
+'game.time': 1,
+'game.time': -1,
+'player.name': 1,
+'player.server': 1,
+'player.vehicle.full': 1,
+'player.vehicle.country': 1,
+'player.vehicle.name': 1,
+'player.vehicle.tier': 1,
+'site.uploaded_at': 1,
+'site.uploaded_at': -1,
+'site.visible': 1,
+'site.views': 1,
+'site.views': -1,
+'vehicles.name': 1,
+'vehicles.vehicleType.full': 1,
+}, { name: 'thebigone', 'background': true });
 
 

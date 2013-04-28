@@ -190,6 +190,15 @@ sub parse {
                     replay_id     => $m_data->{_id},
                     battle_result => $br,
                 });
+
+                # add to the newest
+                $self->model('wot-replays.newest.www')->insert({ 
+                    replay => $m_data->{_id}
+                });
+                $self->model(sprintf('wot-replays.newest.%s', $m_data->{player}->{server}))->insert({
+                    replay => $m_data->{_id}
+                });
+
                 $url = sprintf('http://www.wot-replays.org/replay/%s.html', $m_data->{_id}->to_string);
             } else {
                 # still return it
