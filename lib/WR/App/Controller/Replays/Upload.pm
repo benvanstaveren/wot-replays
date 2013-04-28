@@ -132,13 +132,14 @@ sub upload {
                 };
                 $self->model('wot-replays.replays')->save($m_data, { safe => 1 });
 
-                # add to the newest
-                $self->model('wot-replays.newest.www')->insert({ 
-                    replay => $m_data->{_id}
-                });
-                $self->model(sprintf('wot-replays.newest.%s', $m_data->{player}->{server}))->insert({
-                    replay => $m_data->{_id}
-                });
+                if($m_data->{site}->{visible}) {
+                    $self->model('wot-replays.newest.www')->insert({ 
+                        replay => $m_data->{_id}
+                    });
+                    $self->model(sprintf('wot-replays.newest.%s', $m_data->{player}->{server}))->insert({
+                        replay => $m_data->{_id}
+                    });
+                }
             }
             $self->render(json => { 
                 ok        => 1,
