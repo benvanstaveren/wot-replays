@@ -66,7 +66,7 @@ sub generate_replay_count {
 sub index {
     my $self    = shift;
     my $start   = [ gettimeofday ];
-    my $newest  = [ $self->model(sprintf('wot-replays.newest.%s', $self->stash('req_host')))->find()->sort({ '$natural': -1 })->all() ];
+    my $newest  = [ $self->model(sprintf('wot-replays.newest.%s', $self->stash('req_host')))->find()->sort({ '$natural' => -1 })->all() ];
     my $replays = [];
 
     foreach my $id (@$newest) {
