@@ -7,6 +7,7 @@
             <input type="hidden" name="vehicleinv" value="0"/>
             <input type="hidden" name="tier_min" value="1"/>
             <input type="hidden" name="tier_max" value="10"/>
+            <input type="hidden" name="version" value=""/>
             [% IF req_host != 'www' %]
                 <input type="hidden" name="server" value="[% req_host %]"/>
             [% END %]

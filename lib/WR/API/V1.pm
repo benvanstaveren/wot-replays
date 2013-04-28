@@ -198,6 +198,20 @@ sub parse {
                     });
                 }
 
+                my $playerkey = sprintf('%s_%s', $m_data->{player}->{server}, $m_data->{player}->{name});
+                $self->model('wot-replays.player.%s')->insert({ 
+                    replay          => $m_data->{_id}, 
+                    uploaded_at     => $m_data->{site}->{uploaded_at},
+                });
+
+                if(defined($m_data->{player}->{clan})) {
+                    my $clankey = sprintf('%s_%s', $m_data->{player}->{server}, $m_data->{player}->{clan});
+                    $self->model('wot-replays.clan.%s')->insert({
+                        replay          => $m_data->{_id},
+                        uploaded_at     => $m_data->{site}->{uploaded_at},
+                    });
+                }
+
                 $url = sprintf('http://www.wot-replays.org/replay/%s.html', $m_data->{_id}->to_string);
             } else {
                 # still return it

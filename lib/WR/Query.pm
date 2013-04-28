@@ -115,6 +115,8 @@ sub _build_query {
 
     my $ors = [];
 
+    $query->{version} = $args{'version'} if($args{'version'});
+
     if($args{'player'}) {
         if($args{'playerpov'} > 0) {
             $query->{'player.name'} = $self->fixargs($args{'player'});

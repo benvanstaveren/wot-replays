@@ -3,14 +3,6 @@
     <div class="content">
         <h3>
             <a href="/players/">Players</a> &raquo; [% player_name %]</a> 
-            <div style="float: right">
-                <select name="prv">
-                    <option value="">Current Version</option>
-                    [% FOREACH v IN config.wot.version %]
-                        <option [% IF viewversion == v %]selected="true"[% END %] value="[% v %]">[% v %]</option>
-                    [% END %]
-                </select>
-            </div>
         </h3>
         <span style="margin: 10px 0px 20px 0px" class="label">
             <span title="The number of replays as seen from the point of view of this player">[% total_replays %] replays featured</span>,
@@ -34,6 +26,7 @@
         $('form#frm-browse-filter input[name="p"]').val('1');
         $('form#frm-browse-filter input[name="playerpov"]').val('1');
         $('form#frm-browse-filter input[name="playerinv"]').val('0');
+        $('form#frm-browse-filter input[name="version"]').val('[% viewversion %]');
         var s = $('form#frm-browse-filter').serialize();
         $('#browseContent').load('/replay/browse', s, function() {
         });
