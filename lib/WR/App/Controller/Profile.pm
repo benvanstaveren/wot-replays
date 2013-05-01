@@ -127,7 +127,7 @@ sub replays {
         $query->{'site.visible'} = false;
     }
 
-    my $cursor = $self->model('replays.players')->find($query);
+    my $cursor = $self->model('wot-replays.replays.players')->find($query);
     my $count  = $cursor->count();
     my $maxp   = int($count/25);
     $maxp++ if($maxp * 25 < $count);
