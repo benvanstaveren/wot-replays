@@ -142,18 +142,20 @@ sub upload {
                         replay => $m_data->{_id}
                     });
                 }
-
-                my $playerkey = sprintf('%s_%s', $m_data->{player}->{server}, $m_data->{player}->{name});
-                $self->model('wot-replays.player.%s')->insert({ 
-                    replay          => $m_data->{_id}, 
-                    uploaded_at     => $m_data->{site}->{uploaded_at},
+                $self->model('wot-replays.replays.players')->insert({
+                    _id    => $m_data->{_id},
+                    server => $m_data->{player}->{server},
+                    player => $m_data->{player}->{name},
+                    uploaded_at => $m_data->{site}->{uploaded_at},
+                    version => $m_data->{version},
                 });
-
                 if(defined($m_data->{player}->{clan})) {
-                    my $clankey = sprintf('%s_%s', $m_data->{player}->{server}, $m_data->{player}->{clan});
-                    $self->model('wot-replays.clan.%s')->insert({ 
-                        replay          => $m_data->{_id}, 
-                        uploaded_at     => $m_data->{site}->{uploaded_at},
+                    $self->model('wot-replays.replays.clans')->insert({
+                        _id    => $m_data->{_id},
+                        server => $m_data->{player}->{server},
+                        clan   => $m_data->{player}->{clan},
+                        uploaded_at => $m_data->{site}->{uploaded_at},
+                        version => $m_data->{version},
                     });
                 }
             }

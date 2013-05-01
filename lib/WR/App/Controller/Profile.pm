@@ -112,12 +112,11 @@ sub replays {
     my $self = shift;
     my $type = $self->req->param('type');
     my $query = {
-        'player.name'      => $self->stash('current_player_name'),
-        'player.server'    => lc($self->stash('current_player_server')),
+        'name'      => $self->stash('current_player_name'),
+        'server'    => lc($self->stash('current_player_server')),
         };
-        # 'site.uploaded_by' => $self->current_user->{_id},
 
-    my $coll = $self->db('wot-replays')->get_collection('replays');
+
     my $p = $self->req->param('p') || 1;
 
     $self->session('profile_replay_type' => $type);
@@ -128,20 +127,34 @@ sub replays {
         $query->{'site.visible'} = false;
     }
 
-    my $cursor = $coll->find($query);
-    my $count = $cursor->count();
-    my $maxp = int($count/25);
+    my $cursor = $self->model('replays.players')->find($query);
+    my $count  = $cursor->count();
+    my $maxp   = int($count/25);
     $maxp++ if($maxp * 25 < $count);
 
     $cursor->skip( ($p - 1) * 25 );
     $cursor->limit(25);
-    $cursor->sort({ 'site.uploaded_at' => -1 });
+    $cursor->sort({ 'uploaded_at' => -1 });
+    $cursor->fields({ '_id' => 1, version => 1 });
+
+    my $replays = [];
+    foreach my $r ($cursor->all) {
+        push(@$replays, 
+            WR::Query->fuck_tt(
+                $self->model(
+                    ($r->{version} eq $self->stash('config')->{wot}->{version}) 
+                        ? 'replays' 
+                        : sprintf('replays.%s', $r->{version})
+                )->find_one({ _id => $r->{_id} })
+            )
+        );
+    }
     
     $self->respond(template => 'profile/replays', stash => {
         maxp => $maxp,
         type => $type,
         p    => $p,
-        replays => [ map { { %$_, id => $_->{_id} } } $cursor->all() ],
+        replays => $replays,
         total_replays => $count,
     });
 }

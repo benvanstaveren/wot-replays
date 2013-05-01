@@ -1,33 +1,65 @@
-db.replays.ensureIndex({ 
-'version': 1, 
-'map.id': 1, 
-'map.name': 1, 
-'statistics.xp': 1,
-'statistics.xp': -1,
-'statistics.xp_base': 1,
-'statistics.xp_base': -1,
-'statistics.credits_base': 1,
-'complete': 1,
-'statistics.credits_base': -1,
-'statistics.credits': 1,
-'statistics.credits': -1,
-'statistics.damageDealt': 1,
-'statistics.damageDealt': -1,
-'game.time': 1,
-'game.time': -1,
-'player.name': 1,
-'player.server': 1,
-'player.vehicle.full': 1,
-'player.vehicle.country': 1,
-'player.vehicle.name': 1,
-'player.vehicle.tier': 1,
-'site.uploaded_at': 1,
-'site.uploaded_at': -1,
-'site.visible': 1,
-'site.views': 1,
-'site.views': -1,
-'vehicles.name': 1,
-'vehicles.vehicleType.full': 1,
-}, { name: 'thebigone', 'background': true });
+db.replays.ensureIndex({
+    'site.uploaded_at': -1,
+    'game.time': -1,
+    'statistics.xp_base': -1,
+    'statistics.credits_base': -1,
+    'statistics.damageDealt': -1,
+    'site.like': -1,
+    'site.downloads': -1,
+    'site.visible': 1,
 
+    'map.id': 1,
+    'player.server': 1,
+    'game.type': 1,
+    'game.bonus_type': 1,
+}, {
+    name: 'list.vehicles',
+});
 
+db.replays.ensureIndex({
+    'site.uploaded_at': -1,
+    'game.time': -1,
+    'statistics.xp_base': -1,
+    'statistics.credits_base': -1,
+    'statistics.damageDealt': -1,
+    'site.like': -1,
+    'site.downloads': -1,
+    'site.visible': 1,
+
+    'player.vehicle.tier': 1,
+    'player.vehicle.full': 1,
+    'player.server': 1,
+    'game.type': 1,
+    'game.bonus_type': 1,
+}, {
+    name: 'list.maps',
+});
+
+db.replays.ensureIndex({
+    'site.uploaded_at': -1,
+
+    'player.name': 1,
+    'player.server': 1,
+}, {
+    name: 'list.players',
+});
+
+db.replays.ensureIndex({
+    'site.uploaded_at': -1,
+    'game.time': -1,
+    'statistics.xp_base': -1,
+    'statistics.credits_base': -1,
+    'statistics.damageDealt': -1,
+    'site.like': -1,
+    'site.downloads': -1,
+    'site.visible': 1,
+
+    'player.vehicle.tier': 1,
+    'player.vehicle.full': 1,
+    'map.id': 1,
+    'player.server': 1,
+    'game.type': 1,
+    'game.bonus_type': 1,
+}, {
+    name: 'list.browse',
+});
