@@ -11,6 +11,7 @@
         <td>spotted</td>
         <td>xp</td>
         <td>credits</td>
+        <td>version</td>
         <td>links</td>
         <td colspan="2">
             <select name="type" style="width: 100%">
@@ -39,6 +40,7 @@
             <td>[% replay.statistics.spotted + 0 %]</td>
             <td>[% replay.statistics.xp + 0 %]</td>
             <td>[% replay.statistics.credits + 0 %]</td>
+            <td>[% replay.version %]</td>
             <td><a href="/replay/[% replay.id %].html">view</a></td>
             <td>[% IF replay.site.visible %]visible[% ELSE %]hidden[% END %]</td>
             <td>
