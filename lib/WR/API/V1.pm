@@ -204,6 +204,7 @@ sub parse {
                     player => $m_data->{player}->{name},
                     uploaded_at => $m_data->{site}->{uploaded_at},
                     version => $m_data->{version},
+                    visible     => $visible,
                 });
                 if(defined($m_data->{player}->{clan})) {
                     $self->model('wot-replays.replays.clans')->insert({
@@ -212,6 +213,7 @@ sub parse {
                         clan   => $m_data->{player}->{clan},
                         uploaded_at => $m_data->{site}->{uploaded_at},
                         version => $m_data->{version},
+                        visible     => $visible,
                     });
                 }
                 $url = sprintf('http://www.wot-replays.org/replay/%s.html', $m_data->{_id}->to_string);

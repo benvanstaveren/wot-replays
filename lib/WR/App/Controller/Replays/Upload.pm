@@ -148,6 +148,7 @@ sub upload {
                     player => $m_data->{player}->{name},
                     uploaded_at => $m_data->{site}->{uploaded_at},
                     version => $m_data->{version},
+                    visible     => ($self->req->param('hide') == 1) ? false : true,
                 });
                 if(defined($m_data->{player}->{clan})) {
                     $self->model('wot-replays.replays.clans')->insert({
@@ -156,6 +157,7 @@ sub upload {
                         clan   => $m_data->{player}->{clan},
                         uploaded_at => $m_data->{site}->{uploaded_at},
                         version => $m_data->{version},
+                        visible     => ($self->req->param('hide') == 1) ? false : true,
                     });
                 }
             }
