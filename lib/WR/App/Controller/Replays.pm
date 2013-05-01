@@ -83,6 +83,10 @@ sub browse {
         downloads   => { 'site.downloads'           => -1 },
         };
 
+    if($self->req->param('playerpov') == 1 && $self->req->param('playerlist') == 1) {
+        return $self->browse_player;
+    }
+
     # restore the original filter if it's the initial load (e.g. non-ajax)
     if($self->session->{$skey} && !$self->req->is_xhr) {
         $filter = $self->session->{$skey};

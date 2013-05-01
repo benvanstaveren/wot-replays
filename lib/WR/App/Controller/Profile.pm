@@ -149,6 +149,8 @@ sub replays {
             )
         );
     }
+
+
     
     $self->respond(template => 'profile/replays', stash => {
         maxp => $maxp,

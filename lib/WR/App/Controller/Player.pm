@@ -147,20 +147,18 @@ sub view {
     my $server = $self->stash('server');
     my $player = $self->stash('player_name');
 
+    my $total    = $self->model('wot-replays.replays.players')->find({ server => $server, player => $player })->count();
+    my $involved = $self->model('wot-replays.replays')->find({ 'player.server' => $server, 'site.visible' => 1, 'involved.players' => { '$in' => [ $player ] }, 'player.name' => { '$ne' => $player })->count();
+
+    foreach my $v (@{$self->stash('config')->{wot}->{history}}) {
+        $involved += $self->model(sprintf('wot-replays.replays.%s', $v)->find({ 'site.visible' => 1, 'player.server' => $server, 'involved.players' => { '$in' => [ $player ] }, 'player.name' => { '$ne' => $player })->count()
+    }
+
     $self->respond(
         template => ($inv) ? 'player/involved' : 'player/view',
         stash    => {
-            total_replays => $self->db('wot-replays')->get_collection('replays')->find({ 
-                'player.name' => $player, 
-                'player.server' => $server, 
-                'site.visible' => true 
-                })->count(),
-            total_involved => $self->db('wot-replays')->get_collection('replays')->find({ 
-                'player.server' => $server, 
-                'involved.players' => { '$in' => [ $player ] },
-                'player.name' => { '$ne' => $player },
-                'site.visible' => true 
-                })->count(),
+            total_replays => $total,
+            total_involved => $involved,
             statistics => $self->get_quick_stats($server => $player),
             page => {
                 title => sprintf('Players &raquo; %s', $player),
