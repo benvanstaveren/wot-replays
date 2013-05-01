@@ -112,8 +112,8 @@ sub replays {
     my $self = shift;
     my $type = $self->req->param('type');
     my $query = {
-        'name'      => $self->stash('current_player_name'),
-        'server'    => lc($self->stash('current_player_server')),
+        'player' => $self->stash('current_player_name'),
+        'server' => lc($self->stash('current_player_server')),
         };
 
 
