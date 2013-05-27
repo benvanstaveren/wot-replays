@@ -20,7 +20,7 @@
     </tr>
     <tr>
         <td colspan="2">
-            <span class="label">Description </span>
+            <span class="label">Description [% IF h.is_own_replay %](<a href="#edit-desc" id="edit-desc-link">edit</a>)[% END %]</span>
             <div style="width: 95%" id="desc-show">
             [% IF replay.site.description.length > 0 %]
                 [% replay.site.description |html|html_line_break %]
@@ -28,7 +28,34 @@
                 No description
             [% END %]
             </div>
+            [% IF h.is_own_replay %]
+            <div style="width: 95%; display: none" id="desc-edit">
+                <textarea id="edit-text" style="width: 100%; min-height: 75px">[% replay.site.description |html|html_line_break %]</textarea>
+                <button id="edit-save">Save</button>
+            </div>
+            [% END %]
         </td>
     </tr>
 </tbody>
 </table>
+[% IF h.is_own_replay %]
+<script type="text/javascript">
+    $('a#edit-desc-link').click(function() {
+        $('#desc-show').hide();
+        $('#desc-edit').show();
+    });
+    $('button#edit-save').click(function() {
+        var v = $('textarea#edit-text').val();
+        $(this).attr('disabled', true);
+        $('textarea#edit-text').attr('disabled', true);
+        $(this).html('Saving...');
+        
+        $.getJSON('/replay/[% replay.id %]/desc', {
+            desc: v,
+        }, function(d, t, x) {
+            if(d.ok == 1) {
+                document.location.reload(); 
+            }
+        }
+    });
+</script>

@@ -419,17 +419,28 @@ sub add_helpers {
         # a = 200, b = 100 -> 50% 
         return sprintf('%.0f', 100/($a/$b));
     });
+    $self->helper(model_for_replay => sub {
+        my $self = shift;
+        my $r    = shift || $self->stash('req_replay');
+        my $v    = $r->{version};
+
+        return ($self->stash('config')->{wot}->{version} eq $v)
+            ? 'wot-replays.replays'
+            : sprintf('wot-replays.replays.%s', $v);
+    });
     $self->helper(is_own_replay => sub {
         my $self = shift;
         if(my $r = $self->stash('req_replay')) {
-            return (defined($r->{site}->{uploaded_by}) && ($r->{site}->{uploaded_by}->to_string eq $self->current_user->{_id}->to_string))
-                ? 1 
-                : 0
+            if($self->is_user_authenticated && ( ($self->current_user->{player_name} eq $r->{player}->{name}) && ($self->current_user->{player_server} eq $r->{player}->{server}))) {
+                return 1;
+            } else {
+                return 0;
+            }
         }
         return 0;
     });
     $self->helper(is_the_boss => sub {
-        return ($self->is_user_authenticated && $self->current_user->{email} eq 'scrambled@xirinet.com') ? 1 : 0
+        return ($self->is_user_authenticated && ($self->current_user->{player_name} eq 'Scrambled' && $self->current_user->{player_server} eq 'sea')) ? 1 : 0
     });
     $self->helper(user => sub {
         return shift->current_user;
