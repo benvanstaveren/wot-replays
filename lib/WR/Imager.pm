@@ -1,23 +1,28 @@
 package WR::Imager;
-use Moose;
+use Mojo::Base '-base';
 use Imager;
 
-has '_path' => (is => 'ro', isa => 'Str', required => 1, builder => '_build_path', lazy => 1);
-has '_bg'   => (is => 'ro', isa => 'Imager', builder => '_build_bg', required => 1, lazy => 1);
-has '_overlay' => (is => 'ro', isa => 'Imager', builder => '_build_overlay', required => 1, lazy => 1);
+has '_path'     => sub { return shift->_build_path };
+has '_bg'       => sub { return shift->_build_bg };
+has '_overlay'  => sub { return shift->_build_overlay };
 
-sub BUILD {
-    my $self = shift;
-
+sub new {   
+    my $package = shift;
+    my $self = $package->SUPER::new(@_);
+    
+    bless($self, $package);
     $self->_path;
+    return $self;
 }
 
 sub _build_path {
     my $self = shift;
 
+    # this is still cheese, need to either take a root param or figure this out
+    # better, we know the 'sites/images...' bit is always the same regardless.
     return (-e '/home/ben') 
         ? '/home/ben/projects/wot-replays/sites/images.wot-replays.org'
-        : '/home/wotreplay/wot-replays/sites/images.wot-replays.org'
+        : '/home/wotreplay/site/sites/images.wot-replays.org'
         ;
 }
 

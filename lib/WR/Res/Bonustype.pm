@@ -1,7 +1,4 @@
 package WR::Res::Bonustype;
-use Moose;
-use namespace::autoclean;
+use Mojo::Base 'WR::Base::Catalog';
 
-with 'WR::Role::Catalog';
-
-__PACKAGE__->meta->make_immutable;
+1;

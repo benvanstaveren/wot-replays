@@ -1,55 +1,71 @@
 package WR::Query;
-use Moose;
-use namespace::autoclean;
+use Mojo::Base '-base';
 use boolean;
 use Mojo::JSON;
 use DateTime;
 use Data::Dumper;
 
 # args
-has 'coll' => (is => 'ro', isa => 'MongoDB::Collection', required => 1);
-has 'perpage' => (is => 'ro', isa => 'Num', required => 1, default => 15);
-has 'filter' => (is => 'ro', isa => 'HashRef', required => 1, default => sub { {} });
-has 'sort' => (is => 'ro', isa => 'HashRef', required => 0);
+has 'coll'    => undef;
+has 'perpage' => 15;
+has 'filter'  => sub { {} };
+has 'sort'    => sub { {} };
 
-has '_res' => (is => 'ro', isa => 'MongoDB::Cursor', writer => '_set_res');
-has '_query' => (is => 'ro', isa => 'HashRef', required => 1, lazy => 1, builder => '_build_query');
-has 'total' => (is => 'ro', isa => 'Num', required => 1, default => 0, writer => '_set_total');
+has '_res'    => undef;
+has '_query'  => sub {
+    return shift->_build_query;
+};
+has 'total'   => 0;
 
 sub exec {
     my $self = shift;
+    my $cb   = shift;
 
-    return($self->_res) if(defined($self->_res));
-    my $cursor = $self->coll->find($self->_query);
-    $self->_set_total($cursor->count());
-    $self->_set_res($cursor);
-    return $cursor;
+    if(defined($self->_res)) {
+        $cb->($self->_res);
+    } else {
+        my $cursor = $self->coll->find($self->_query);
+        $cursor->count(sub {
+            my ($c, $e, $count) = (@_);
+            $self->total($count);
+            $self->res($cursor);
+            $cb->($cursor);
+        });
+    }
 }
 
 sub maxp {
     my $self = shift;
-    my $total = $self->exec()->count();
+    my $total = $self->total;;
     my $perpage = $self->perpage;
     my $maxp = int($total/$perpage);
     $maxp++ if($maxp * $perpage < $total);
-
     return $maxp;
 }
 
 sub page {
     my $self = shift;
     my $page = shift || 1;
+    my $cb   = shift;
 
     my $offset = ($page - 1) * $self->perpage;
 
-    my $cursor = $self->exec();
-    $cursor->sort($self->sort) if($self->sort);
-    $cursor->skip($offset);
-    $cursor->limit($self->perpage);
+    $self->exec(sub {
+        my $cursor = shift;
+        $cursor->sort($self->sort) if($self->sort);
+        $cursor->skip($offset);
+        $cursor->limit($self->perpage);
 
-    return [ 
-        map { $self->fuck_tt($_) } $cursor->all() 
-    ];
+        $cursor->all(sub {
+            my ($c, $e, $d) = (@_);
+
+            if($e) {
+                $cb->(undef);
+            } else {
+                $cb->([ map { $self->fuck_tt($_) } @$d ]);
+            }
+        });
+    });
 }
 
 sub fuck_tt {
@@ -139,6 +155,8 @@ sub _build_query {
     }
 
     # actually args{map} contains the map slug, not it's id so find it first
+    # - temporarily removed until i figure out how to do this in a non-blocking happy call-backy fashion 
+=pod
     if(defined($args{map})) {
         if(my $map = $self->coll->_database->get_collection('data.maps')->find_one({ 
             '$or' => [
@@ -151,6 +169,7 @@ sub _build_query {
             $query->{'map.id'} = 'mapdoesnotexist';
         }
     }
+=cut
 
     if($args{'vehicle'}) {
         if($args{'vehiclepov'}) {
@@ -183,7 +202,9 @@ sub _build_query {
         }
     }
 
-    $query->{'complete'} = true if($args{'complete'} == 1);
+    # is there such a thing?
+    #$query->{'complete'} = true if($args{'complete'} == 1);
+
     $query->{'game.type'} = $args{'matchmode'} if($args{'matchmode'} && $args{'matchmode'} ne '');
     $query->{'game.bonus_type'} = $args{'matchtype'} + 0 if($args{'matchtype'} && $args{'matchtype'} ne '');
 
