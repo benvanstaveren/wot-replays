@@ -1,4 +1,4 @@
-sites/static.wot-replays.org = ssh://hg@bitbucket.org/wotreplays/wot-replays-static
-sites/images.wot-replays.org = ssh://hg@bitbucket.org/wotreplays/wot-replays-images
+sites/static = ssh://hg@bitbucket.org/wotreplays/wot-replays-static
+sites/images = ssh://hg@bitbucket.org/wotreplays/wot-replays-images
 extlib/wot-replay-parser = ssh://hg@bitbucket.org/wotreplays/wot-replay-parser
 extlib/wot-xml-reader = ssh://hg@bitbucket.org/wotreplays/wot-xml-reader

@@ -12,5 +12,5 @@ _Inline/*
 data/*
 *.ttc
 wr.conf
-wrapi.conf
 wr.development.conf
+wrapi.conf
