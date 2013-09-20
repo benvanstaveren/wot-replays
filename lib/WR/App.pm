@@ -1,6 +1,7 @@
 package WR::App;
 use Mojo::Base 'Mojolicious';
 use Mojo::JSON;
+use Mango;
 
 # this is a bit cheesy but... 
 use FindBin;
@@ -20,14 +21,28 @@ $Template::Stash::PRIVATE = undef;
 sub startup {
     my $self = shift;
     
-    $self->secret(q|a superbly secret secret that nobody will ever guess in their entire damn life|);
-
     $self->attr(json => sub { return Mojo::JSON->new() });
 
     my $config = $self->plugin('Config', { file => 'wr.conf' });
-    $self->plugin('mongodb', { host => $config->{mongodb}, patch_mongodb => 1 });
-    # set up the key string
+    $self->secret($config->{secrets}->{app});
+
     $config->{wot}->{bf_key} = join('', map { chr(hex($_)) } (split(/\s/, $config->{wot}->{bf_key})));
+
+    # set up the mango stuff here
+    $self->attr(mango => sub { Mango->new($config->{mongodb}->{host}) });
+    $self->helper(model => sub {
+        my $s = shift;
+        my ($d, $c) = split(/\./, shift);
+
+        unless(defined($c)) {
+            $c = $d ;
+            $d = $config->{mongodb}->{database};
+        }
+
+        $d = 'wt-replays' if($d eq 'wot-replays'); # FIXME FIXME: haxxoring teh gibz0n
+
+        return $s->app->mango->db($d)->collection($c);
+    });
 
     $self->routes->namespaces([qw/WR::App::Controller/]);
 
@@ -40,11 +55,9 @@ sub startup {
     $r->route('/donate')->to('ui#donate', pageid => 'donate');
     $r->route('/about')->to('ui#about', pageid => 'about');
     $r->route('/credits')->to('ui#credits', pageid => 'credits');
-    $r->route('/hint/:hintid')->to('ui#hint', pageid => 'hint');
     $r->route('/upload')->to('replays-upload#upload', pageid => 'upload');
     $r->route('/download/:replay_id')->to('replays-export#download');
     $r->route('/csv/:replay_id')->to('replays-export#csv');
-    $r->route('/xd')->to('ui#xd', pageid => 'xd');
 
     $r->route('/replay/browse/:page')->to('replays#browse', page => 1);
 
@@ -64,22 +77,12 @@ sub startup {
         $playerbridge->route('/involved')->to('player#involved', pageid => 'player');
         $playerbridge->route('/latest')->to('player#latest', pageid => 'player');
 
-    $r->route('/clans')->to('clan#index', pageid => 'clan');
-
     $r->route('/vehicles')->to('vehicle#index', pageid => 'vehicle');
     $r->route('/vehicle/:country')->to('vehicle#view', pageid => 'vehicle', countryonly => 1);
     $r->route('/vehicle/:country/:vehicle')->to('vehicle#view', pageid => 'vehicle');
 
     $r->route('/maps')->to('map#index', pageid => 'map');
     $r->route('/map/:map_id')->to('map#view', pageid => 'map');
-
-    $r->route('/tournaments')->to('tournament#index', pageid => 'tournament');
-
-
-    my $events = $r->under('/events');
-        $events->route('/')->to('events#index', pageid => 'event');
-        $events->route('/:server')->to('events#index_server', pageid => 'event');
-        $events->route('/:server/:eventid')->to('events#view', pageid => 'event');
 
     $r->any('/login')->to('ui#do_login', pageid => 'login');
     $r->any('/logout')->to('ui#do_logout');
@@ -99,16 +102,12 @@ sub startup {
         $stats->route('/')->to('stats#index');
         $stats->route('/:statid')->to('stats#view');
 
-    my $api = $r->bridge('/api/v1')->to('api#bridge');
-        $api->route('/bootstrap')->to('api#bootstrap');
-        $api->route('/player')->to('api#player');
-
     my $admin = $r->bridge('/admin')->to('admin#bridge');
         $admin->route('/')->to('admin#index');
 
     $self->sessions->default_expiration(86400 * 365); 
     $self->sessions->cookie_name('wrsession');
-    $self->sessions->cookie_domain('.wot-replays.org');
+    $self->sessions->cookie_domain('.wt-replays.org');
 
     has 'wr_res' => sub { return WR::Res->new() };
 
