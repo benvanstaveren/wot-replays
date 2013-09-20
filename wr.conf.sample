@@ -1,0 +1,38 @@
+{
+    mode => 'prod',     # unused flag
+    secrets => {
+        app     =>  'some phrase',          # used to encrypt cookies
+        openid  =>  'another phrase',       # used as an OpenID secret
+    },
+    versions => {
+        app     => '1.5',                   # display only
+        static  => '1.0',                   # display only
+        images  => '0.8.5',                 # display only
+    },
+    paths    => {
+        replays        => '/home/wotreplay/wot-replays/data/replays',   # where to store replay files
+    },
+    mongodb  => {
+        host => 'mongodb://your-mongo-host:27017',
+        database => 'wt-replays',
+    },
+    urls => {
+        app     =>  'http://www.wot-replays.org',           # base url to site
+        static  =>  'http://static.wot-replays.org',        # base url to static
+        assets  =>  'http://images.wot-replays.org',        # base ur to images
+    },
+    wot => {
+        version => '0.8.8',                                 # the current WoT version
+        bf_key  => 'DE 72 BE A0 DE 04 BE B1 DE FE BE EF DE AD BE EF',   # the blowfish encryption key for replay files
+    },
+    hypnotoad => {
+        listen => [ 'http://127.0.0.1:8080' ],
+	    pid_file => '/home/wotreplay/wot-replays/script/wr.pid',
+        proxy  => 1,
+        accepts => 50,
+        clients => 100,
+        inactivity_timeout => 30,
+        workers => 6,
+        heartbeat_timeout => 120,
+    }
+}
