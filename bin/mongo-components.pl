@@ -23,21 +23,27 @@ my $nations = {
     usa => 2,
     china => 3,
     france => 4,
-    uk => 5
+    uk => 5,
+    japan => 6,
 };
 
 $| = 1;
 
 my $j = JSON::XS->new();
 
-for my $country (qw/china france germany usa ussr uk/) {
+for my $country (qw/japan china france germany usa ussr uk/) {
     for my $comptype (qw/chassis engines fueltanks guns radios turrets/) {
         my $f = sprintf('../etc/res/raw/%s/components/%s_%s.json', $version, $country, $comptype);
-        print 'processing: ', $f, "\n";
+        warn 'processing: ', $f, "\n";
         my $d = read_file($f);
+        warn 'read', "\n";
         my $x = $j->decode($d);
+        warn 'decode', "\n";
 
-        foreach my $name (keys(%{$x->{ids}})) {
+        my $ids = (defined($x->{ids})) ? $x->{ids} : $x;
+
+        foreach my $name (keys(%$ids)) {
+            warn 'name: ', $name, "\n";
             next if($name eq 'text');
             my $id = $x->{ids}->{$name};
             next if($id eq '' || $id == 0);
@@ -49,17 +55,27 @@ for my $country (qw/china france germany usa ussr uk/) {
             };
 
             if(defined($x->{shared}) && ref($x->{shared}) && defined($x->{shared}->{$name})) {
-                my $us = $x->{shared}->{$name}->{userString};
+                warn 'is shared', "\n";
+                my $us   = $x->{shared}->{$name}->{userString};
                 my $desc = $x->{shared}->{$name}->{description};
 
-                $data->{label} = $text->localize_for(lang => sprintf('%s_vehicles', $country), id => $us) || $text->localize_for(lang => sprintf('%s_vehicles', $country), id => $name);
-                $data->{description} = $text->localize_for(lang => sprintf('%s_vehicles', $country), id => $desc) || '';
+                warn 'label', "\n";
+                $data->{label} = (defined($us)) 
+                    ? $text->localize_for(lang => sprintf('%s_vehicles', $country), id => $us) 
+                    : (defined($name)) 
+                        ? $text->localize_for(lang => sprintf('%s_vehicles', $country), id => $name)
+                        : sprintf('nolabel:%s', $name);
+
+                warn 'desc', "\n";
+                $data->{description} = (defined($desc)) ? $text->localize_for(lang => sprintf('%s_vehicles', $country), id => $desc) : undef;
                 
                 if($comptype eq 'guns') {
                     $data->{shots} = [ keys(%{$x->{shared}->{$name}->{shots}}) ];
                 }
             } else {
+                warn 'label', "\n";
                 $data->{label} = $text->localize_for(lang => sprintf('%s_vehicles', $country), id => $name);
+                warn 'desc', "\n";
                 $data->{description} = '';
             }
 
@@ -69,7 +85,7 @@ for my $country (qw/china france germany usa ussr uk/) {
     }
 
     my $f = sprintf('../etc/res/raw/%s/components/%s_%s.json', $version, $country, 'shells');
-    print 'processing: ', $f, "\n";
+    warn 'processing: ', $f, "\n";
     my $d = read_file($f);
     my $x = $j->decode($d);
 
@@ -94,8 +110,13 @@ for my $country (qw/china france germany usa ussr uk/) {
 
         my $us = delete($data->{userString});
         my $desc = delete($data->{description});
-        $data->{label} = $text->localize_for(lang => sprintf('%s_vehicles', $country), id => $us) || $text->localize_for(lang => sprintf('%s_vehicles', $country), id => $name);
-        $data->{description} = $text->localize_for(lang => sprintf('%s_vehicles', $country), id => $desc) || '';
-        $coll->save($data, { safe => 1 }) and print 'saved: ', $name, "\n";
+        $data->{label} = (defined($us)) 
+            ? $text->localize_for(lang => sprintf('%s_vehicles', $country), id => $us) 
+            : (defined($name))
+                ? $text->localize_for(lang => sprintf('%s_vehicles', $country), id => $name)
+                : sprintf('nolabel:%s', $name);
+
+        $data->{description} = (defined($desc)) ? $text->localize_for(lang => sprintf('%s_vehicles', $country), id => $desc) : '';
+        $coll->save($data, { safe => 1 }) and warn 'saved: ', $name, "\n";
     }
 }

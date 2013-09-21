@@ -165,7 +165,7 @@ sub upload {
                 ok        => 1,
                 replay_id => ($incomplete == 0) ? $m_data->{_id}->to_string : undef,
                 incomplete => $incomplete,
-                ldl        => sprintf('http://dl.wot-replays.org/%s', $filename),
+                ldl        => sprintf('http://dl.wt-replays.org/%s', $filename),
                 published => ($self->req->param('hide') == 1) ? 0 : 1,
             });
         } else {

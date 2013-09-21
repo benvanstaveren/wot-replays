@@ -21,8 +21,8 @@ sub _build_path {
     # this is still cheese, need to either take a root param or figure this out
     # better, we know the 'sites/images...' bit is always the same regardless.
     return (-e '/home/ben') 
-        ? '/home/ben/projects/wot-replays/sites/images.wot-replays.org'
-        : '/home/wotreplay/site/sites/images.wot-replays.org'
+        ? '/home/ben/projects/wot-replays/sites/images'
+        : '/home/wotreplay/site/sites/images'
         ;
 }
 

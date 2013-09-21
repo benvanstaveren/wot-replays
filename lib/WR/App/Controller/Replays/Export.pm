@@ -11,7 +11,7 @@ sub download {
         $self->db('wot-replays')->get_collection('replays')->update({ _id => $replay->{_id} }, { '$inc' => { 'site.downloads' => 1 } });
 
         # replay->{file} contains the file name including paths that we want so it's still valid
-        my $url = Mojo::URL->new(sprintf('http://dl.wot-replays.org/%s', $replay->{file}));
+        my $url = Mojo::URL->new(sprintf('http://dl.wt-replays.org/%s', $replay->{file}));
         $self->redirect_to($url->to_string);
     } else {
         $self->render(status => 404, text => 'Not Found');

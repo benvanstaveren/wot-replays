@@ -5,31 +5,36 @@ use boolean;
 sub index {
     my $self = shift;
 
-    my $map_list = [ $self->model('wot-replays.data.maps')->find()->sort({ label => 1 })->all() ];
-
-    $self->respond(
-        template => 'map/index',
-        stash => {
-            map_list => $map_list,
-            page => { title => 'Maps' },
-        },
-    );
+    $self->render_later;
+    $self->model('wot-replays.data.maps')->find()->sort({ label => 1 })->all(sub {
+        my ($c, $e, $map_list) = (@_);
+        $self->respond(
+            template => 'map/index',
+            stash => {
+                map_list => $map_list,
+                page => { title => 'Maps' },
+            },
+        );
+    });
 }
 
 sub view {
     my $self   = shift;
     my $map_id = $self->stash('map_id');
 
-    my $m_obj = $self->model('wot-replays.data.maps')->find_one({ slug => $map_id });
+    $self->render_later;
 
-    $self->respond(
-        template => 'map/view',
-        stash    => {
-            page => {
-                title => sprintf('Maps &raquo; %s', $m_obj->{label}),
-            },
-        }
-    );
+    $self->model('wot-replays.data.maps')->find_one({ slug => $map_id } => sub {
+        my ($c, $e, $m_obj) = (@_);
+        $self->respond(
+            template => 'map/view',
+            stash    => {
+                page => {
+                    title => sprintf('Maps &raquo; %s', $m_obj->{label}),
+                },
+            }
+        );
+    });
 }
 
 1;

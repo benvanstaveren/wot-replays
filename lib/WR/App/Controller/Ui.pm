@@ -66,34 +66,14 @@ sub generate_replay_count {
 sub index {
     my $self    = shift;
     my $start   = [ gettimeofday ];
-    my $newest  = [ $self->model(sprintf('wot-replays.newest.%s', $self->stash('req_host')))->find()->sort({ '$natural' => -1 })->all() ];
     my $replays = [];
 
-    foreach my $id (@$newest) {
-        push(@$replays, WR::Query->fuck_tt($self->model('wot-replays.replays')->find_one({ _id => $id->{replay} })));
-    }
+    # here comes the happy delay train
+    $self->render_later;
 
-    my $total = $self->model('wot-replays.replays')->count();
-    my $archived = 0;
-    foreach my $v (@{$self->stash('config')->{wot}->{history}}) {
-        $archived += $self->model(sprintf('wot-replays.replays.%s', $v))->count();
-    }
-    if($self->req->is_xhr) {
-        $self->respond(template => 'index/ajax', stash => {
-            replays         => $replays,
-            replay_count    => $total + 0,
-            archived_count  => $archived + 0,
-            timing_query    => tv_interval($start),
-        });
-    } else {
-        $self->respond(template => 'index', stash => {
-            page            => { title => 'Home' },
-            replays         => $replays,
-            replay_count    => $total + 0,
-            archived_count  => $archived + 0,
-            timing_query    => tv_interval($start),
-        });
-    }
+    $self->respond(template => 'index', stash => {
+        page        =>  { title => 'Home' },
+    });
 }
 
 sub register { shift->respond(template => 'register/form', stash => { page => { title => 'Registration No Longer Required' } }) }

@@ -1,0 +1,214 @@
+{
+   "Ch02_Type62" : {
+      "userString" : "#china_vehicles:Ch02_Type62",
+      "level" : 7,
+      "price" : 4800,
+      "id" : 1,
+      "description" : "#china_vehicles:Ch02_Type62_descr",
+      "tags" : "lightTank secret enhancedTorsions3t_user mediumCaliberTankRammer_user wetCombatPack_class1_user aimingStabilizer_Mk1_user",
+      "notInShop" : true
+   },
+   "Ch04_T34_1_training" : {
+      "userString" : "#china_vehicles:Ch04_T34_1",
+      "level" : 7,
+      "price" : 1355000,
+      "id" : 251,
+      "description" : "#china_vehicles:Ch04_T34_1_descr",
+      "tags" : "mediumTank secret enhancedSuspension_Christie_user mediumCaliberTankRammer_user wetCombatPack_class1_user",
+      "notInShop" : true
+   },
+   "Ch12_111_1_2_3" : {
+      "userString" : "#china_vehicles:Ch12_111_1_2_3",
+      "level" : 9,
+      "shortUserString" : "#china_vehicles:Ch12_111_1_2_3_short",
+      "price" : 3500000,
+      "id" : 8,
+      "description" : "#china_vehicles:Ch12_111_1_2_3_descr",
+      "tags" : "heavyTank enhancedTorsions5t_user largeCaliberTankRammer_user wetCombatPack_class2_user aimingStabilizer_Mk2_user"
+   },
+   "Ch07_Vickers_MkE_Type_BT26" : {
+      "userString" : "#china_vehicles:Ch07_Vickers_MkE_Type_BT26",
+      "level" : 2,
+      "shortUserString" : "#china_vehicles:Ch07_Vickers_MkE_Type_BT26_short",
+      "price" : 3900,
+      "id" : 9,
+      "description" : "#china_vehicles:Ch07_Vickers_MkE_Type_BT26_descr",
+      "tags" : "lightTank enhancedSuspension_Vikkers_user"
+   },
+   "Ch10_IS2" : {
+      "userString" : "#china_vehicles:Ch10_IS2",
+      "level" : 7,
+      "price" : 1450000,
+      "id" : 14,
+      "description" : "#china_vehicles:Ch10_IS2_descr",
+      "tags" : "heavyTank enhancedTorsions5t_user largeCaliberTankRammer_user wetCombatPack_class2_user"
+   },
+   "Ch14_T34_3" : {
+      "userString" : "#china_vehicles:Ch14_T34_3",
+      "level" : 8,
+      "price" : 11000,
+      "id" : 250,
+      "description" : "#china_vehicles:Ch14_T34_3_descr",
+      "tags" : "mediumTank enhancedTorsions3t_user largeCaliberTankRammer_user wetCombatPack_class1_user aimingStabilizer_Mk1_user",
+      "notInShop" : true
+   },
+   "Ch21_T34" : {
+      "userString" : "#china_vehicles:Ch21_T34",
+      "level" : 5,
+      "price" : 430000,
+      "id" : 18,
+      "description" : "#china_vehicles:Ch21_T34_descr",
+      "tags" : "mediumTank enhancedSuspension_Christie_user mediumCaliberTankRammer_user wetCombatPack_class1_user"
+   },
+   "Ch04_T34_1" : {
+      "userString" : "#china_vehicles:Ch04_T34_1",
+      "level" : 7,
+      "price" : 1400000,
+      "id" : 4,
+      "description" : "#china_vehicles:Ch04_T34_1_descr",
+      "tags" : "mediumTank enhancedSuspension_Christie_user mediumCaliberTankRammer_user wetCombatPack_class1_user"
+   },
+   "Ch18_WZ-120" : {
+      "userString" : "#china_vehicles:Ch18_WZ-120",
+      "level" : 9,
+      "price" : 3520000,
+      "id" : 7,
+      "description" : "#china_vehicles:Ch18_WZ-120_descr",
+      "tags" : "mediumTank enhancedTorsions3t_user mediumCaliberTankRammer_user wetCombatPack_class1_user aimingStabilizer_Mk1_user"
+   },
+   "Ch19_121" : {
+      "userString" : "#china_vehicles:Ch19_121",
+      "level" : 10,
+      "price" : 6100000,
+      "id" : 16,
+      "description" : "#china_vehicles:Ch19_121_descr",
+      "tags" : "mediumTank enhancedTorsions3t_user largeCaliberTankRammer_user wetCombatPack_class1_user aimingStabilizer_Mk1_user"
+   },
+   "Ch20_Type58" : {
+      "userString" : "#china_vehicles:Ch20_Type58",
+      "level" : 6,
+      "price" : 920000,
+      "id" : 20,
+      "description" : "#china_vehicles:Ch20_Type58_descr",
+      "tags" : "mediumTank enhancedSuspension_Christie_user mediumCaliberTankRammer_user wetCombatPack_class1_user"
+   },
+   "Ch11_110" : {
+      "userString" : "#china_vehicles:Ch11_110",
+      "level" : 8,
+      "price" : 2600000,
+      "id" : 11,
+      "description" : "#china_vehicles:Ch11_110_descr",
+      "tags" : "heavyTank enhancedTorsions5t_user largeCaliberTankRammer_user wetCombatPack_class2_user aimingStabilizer_Mk2_user"
+   },
+   "Ch09_M5" : {
+      "userString" : "#china_vehicles:Ch09_M5",
+      "level" : 4,
+      "price" : 143000,
+      "id" : 12,
+      "description" : "#china_vehicles:Ch09_M5_descr",
+      "tags" : "lightTank scout wetCombatPack_class1_user enhancedVertical_springs_class2_user"
+   },
+   "Ch17_WZ131_1_WZ132" : {
+      "userString" : "#china_vehicles:Ch17_WZ131_1_WZ132",
+      "level" : 8,
+      "price" : 2400000,
+      "id" : 15,
+      "description" : "#china_vehicles:Ch17_WZ131_1_WZ132_descr",
+      "tags" : "lightTank scout enhancedTorsions3t_user mediumCaliberTankRammer_user wetCombatPack_class1_user aimingStabilizer_Mk1_user"
+   },
+   "Ch01_Type59" : {
+      "userString" : "#china_vehicles:Ch01_Type59",
+      "level" : 8,
+      "price" : 7500,
+      "id" : "",
+      "description" : "#china_vehicles:Ch01_Type59_descr",
+      "notInShop" : true,
+      "tags" : "mediumTank enhancedTorsions3t_user mediumCaliberTankRammer_user wetCombatPack_class1_user aimingStabilizer_Mk1_user"
+   },
+   "Ch23_112" : {
+      "userString" : "#china_vehicles:Ch23_112",
+      "level" : 8,
+      "price" : 12250,
+      "id" : 252,
+      "description" : "#china_vehicles:Ch23_112_descr",
+      "tags" : "heavyTank enhancedTorsions5t_user largeCaliberTankRammer_user wetCombatPack_class2_user aimingStabilizer_Mk2_user",
+      "notInShop" : true
+   },
+   "Ch06_Renault_NC31" : {
+      "userString" : "#china_vehicles:Ch06_Renault_NC31",
+      "level" : 1,
+      "shortUserString" : "#china_vehicles:Ch06_Renault_NC31_short",
+      "price" : "",
+      "id" : 5,
+      "description" : "#china_vehicles:Ch06_Renault_NC31_descr",
+      "tags" : "lightTank"
+   },
+   "Ch16_WZ_131" : {
+      "userString" : "#china_vehicles:Ch16_WZ_131",
+      "level" : 7,
+      "price" : 1350000,
+      "id" : 13,
+      "description" : "#china_vehicles:Ch16_WZ_131_descr",
+      "tags" : "lightTank scout enhancedTorsions3t_user mediumCaliberTankRammer_user wetCombatPack_class1_user aimingStabilizer_Mk1_user"
+   },
+   "Ch22_113" : {
+      "userString" : "#china_vehicles:Ch22_113",
+      "level" : 10,
+      "price" : 6100000,
+      "id" : 21,
+      "description" : "#china_vehicles:Ch22_113_descr",
+      "tags" : "heavyTank enhancedTorsions5t_user largeCaliberTankRammer_user wetCombatPack_class2_user aimingStabilizer_Mk2_user"
+   },
+   "Ch15_59_16" : {
+      "userString" : "#china_vehicles:Ch15_59_16",
+      "level" : 6,
+      "price" : 900000,
+      "id" : 19,
+      "description" : "#china_vehicles:Ch15_59_16_descr",
+      "tags" : "lightTank scout enhancedTorsions3t_user mediumCaliberTankRammer_user wetCombatPack_class1_user"
+   },
+   "Ch01_Type59_Gold" : {
+      "userString" : "#china_vehicles:Type59_gold",
+      "level" : 8,
+      "price" : 155520,
+      "id" : 2,
+      "description" : "#china_vehicles:Ch01_Type59_descr",
+      "tags" : "mediumTank secret enhancedTorsions3t_user mediumCaliberTankRammer_user wetCombatPack_class1_user aimingStabilizer_Mk1_user",
+      "notInShop" : true
+   },
+   "Ch24_Type64" : {
+      "userString" : "#china_vehicles:Ch24_Type64",
+      "level" : 6,
+      "price" : 3500,
+      "id" : 253,
+      "description" : "#china_vehicles:Ch24_Type64_descr",
+      "tags" : "lightTank secret scout noImprovedVentilation enhancedTorsions3t_user mediumCaliberTankRammer_user wetCombatPack_class1_user",
+      "notInShop" : true
+   },
+   "Ch08_Type97_Chi_Ha" : {
+      "userString" : "#china_vehicles:Ch08_Type97_Chi_Ha",
+      "level" : 3,
+      "shortUserString" : "#china_vehicles:Ch08_Type97_Chi_Ha_short",
+      "price" : 42000,
+      "id" : 17,
+      "description" : "#china_vehicles:Ch08_Type97_Chi_Ha_descr",
+      "tags" : "lightTank wetCombatPack_class1_user"
+   },
+   "Ch03_WZ-111" : {
+      "userString" : "#china_vehicles:Ch03_WZ-111",
+      "level" : 8,
+      "price" : 12250,
+      "id" : 3,
+      "description" : "#china_vehicles:Ch03_WZ-111_descr",
+      "tags" : "heavyTank secret enhancedTorsions5t_user largeCaliberTankRammer_user wetCombatPack_class2_user aimingStabilizer_Mk2_user",
+      "notInShop" : true
+   },
+   "Ch05_T34_2" : {
+      "userString" : "#china_vehicles:Ch05_T34_2",
+      "level" : 8,
+      "price" : 2480000,
+      "id" : 6,
+      "description" : "#china_vehicles:Ch05_T34_2_descr",
+      "tags" : "mediumTank enhancedTorsions3t_user mediumCaliberTankRammer_user wetCombatPack_class1_user aimingStabilizer_Mk1_user"
+   }
+}

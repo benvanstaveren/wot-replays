@@ -32,14 +32,12 @@ sub startup {
     $self->attr(mango => sub { Mango->new($config->{mongodb}->{host}) });
     $self->helper(model => sub {
         my $s = shift;
-        my ($d, $c) = split(/\./, shift);
+        my ($d, $c) = split(/\./, shift, 2);
 
         unless(defined($c)) {
             $c = $d ;
             $d = $config->{mongodb}->{database};
         }
-
-        $d = 'wt-replays' if($d eq 'wot-replays'); # FIXME FIXME: haxxoring teh gibz0n
 
         return $s->app->mango->db($d)->collection($c);
     });

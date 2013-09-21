@@ -1,8 +1,9 @@
 #!/usr/bin/perl
 use strict;
 use lib qw(lib ../lib ../../lib);
-use XML::Simple;
 use Data::Localize;
+use JSON::XS;
+use File::Slurp qw/read_file/;
 use Data::Localize::Gettext;
 use MongoDB;
 use boolean;
@@ -18,7 +19,11 @@ my $coll   = $db->get_collection('data.vehicles');
 
 $| = 1;
 
-my $langfix = XMLin(sprintf('../etc/res/raw/%s/vehicles/fix.xml', $version));
+my $j = JSON::XS->new;
+
+
+my $b = read_file(sprintf('../etc/res/raw/%s/vehicles/fix.json', $version));
+my $langfix = $j->decode($b);
 
 sub fixed_ident {
     my $id = shift;
@@ -28,10 +33,11 @@ sub fixed_ident {
         : $id
 } 
 
-for my $country (qw/china france germany usa ussr uk/) {
-    my $f = sprintf('../etc/res/raw/%s/vehicles/%s.xml', $version, $country);
+for my $country (qw/japan china france germany usa ussr uk/) {
+    my $f = sprintf('../etc/res/raw/%s/vehicles/%s.json', $version, $country);
     print 'processing: ', $f, "\n";
-    my $x = XMLin($f);
+    my $b = read_file($f);
+    my $x = $j->decode($b);
 
     foreach my $vid (keys(%$x)) {
         print "\t", 'ID: ', $vid, "\n";
@@ -41,7 +47,7 @@ for my $country (qw/china france germany usa ussr uk/) {
         $v =~ s/\s+$//g;
         $data->{level} = int($v + 0);
 
-        $data->{is_premium} = (ref($x->{$vid}->{price}) eq 'HASH' && exists($x->{$vid}->{price}->{gold})) ? true : false;
+        #$data->{is_premium} = (ref($x->{$vid}->{price}) eq 'HASH' && exists($x->{$vid}->{price}->{gold})) ? true : false;
 
         my $us = $x->{$vid}->{'userString'};
         my ($cat, $ident) = split(/:/, $us);
@@ -74,7 +80,6 @@ for my $country (qw/china france germany usa ussr uk/) {
         $data->{description} = $text->localize_for(lang => $cat, id => fixed_ident(sprintf('%s_descr', $vid)));
         $data->{type} = $type;
         $data->{wot_id} = $x->{$vid}->{id} + 0;
-
         $coll->save($data);
     }
     print "\n";

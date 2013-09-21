@@ -4,14 +4,15 @@ use warnings;
 require Exporter;
 our @ISA = qw(Exporter);
 
-use constant NATION_NAMES => [(qw/ussr germany usa china france uk/)];
+use constant NATION_NAMES => [(qw/ussr germany usa china france uk japan/)];
 use constant NATION_INDICES => {
     ussr => 0,
     germany => 1,
     usa => 2,
     china => 3,
     france => 4,
-    uk => 5
+    uk => 5,
+    japan => 6
 };
     
 sub nation_id_to_name {
