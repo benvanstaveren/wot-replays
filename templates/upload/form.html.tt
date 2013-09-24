@@ -2,34 +2,7 @@
     <div class="content nosidebar">
         <h3>Upload</h3>
         <div class="box ui-corner-all" style="padding: 5px; background: rgba(0,0,0,0.2) none repeat scroll 0 0; margin: 0px 0px 10px 0px">
-            <div class="tablist">
-                <div class="tablist-inner">
-                    <div class="container-tablist">
-                        <ul class="nav">
-                            <li class="nav-item tab active"><a href="#upload-single">Single Replay</a></li>
-                            <li class="nav-item tab"><a href="#upload-bulk">Bulk Upload</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="tab-panel" id="upload-single" style="padding: 20px">
-                [% INCLUDE upload/form_upload_single.html.tt %]
-            </div>
-            <div class="tab-panel" id="upload-bulk" style="padding: 20px; display: none">
-                Under construction...
-            </div>
+            [% INCLUDE upload/form_upload_single.html.tt %]
         </div>
     </div>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('li.nav-item.tab a').click(function() {
-                $('li.nav-item.tab').removeClass('active');
-                $(this).parent().addClass('active');
-                var href = $(this).attr('href');
-                $('div.tab-panel').hide();
-                $(href).show();
-                return false;
-            });
-        });
-    </script>
 [% END %]

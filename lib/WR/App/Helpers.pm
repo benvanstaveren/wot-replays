@@ -68,8 +68,9 @@ sub add_helpers {
     $self->helper('hashbucket' => sub {
         my $self = shift;
         my $name = shift;
+        my $size = shift || 6;
 
-        my @parts = split(//, substr($name, 0, 5));
+        my @parts = split(//, substr($name, 0, $size));
         return join('/', (@parts, $name));
     });
 

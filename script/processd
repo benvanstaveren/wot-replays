@@ -1,0 +1,79 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+use FindBin;
+use lib "$FindBin::Bin/../lib";
+use Getopt::Long;
+use WR;
+use WR::Process;
+use GEQ::Publish;
+use Mojo::IOLoop;
+use Mojo::Log;
+use Mango;
+
+my $config  = {};
+my $cfile   = undef;
+
+GetOptions(
+    'config=s'      => \$cfile,
+);
+
+die 'Usage: ', $0, ' --config <path to config file>', "\n" unless(defined($cfile));
+
+my $craw = '';
+if(my $fh = IO::File->new($cfile)) {
+    $craw .= $_ while(<$fh>);
+    $fh->close;
+
+    $config = eval($craw);
+
+    die 'Error parsing configuration: ', $@, "\n" if($@);
+} else {
+    die 'Could not open configuration file "', $cfile, '": ', $!, "\n";
+}
+
+my $log =Mojo::Log->new(path => sprintf('%s/../log/processd.log', $FindBin::Bin), level => 'debug');
+
+$log->info('processd starting: ' . $$);
+
+if(my $pfile = IO::File->new(sprintf('>%s/processd.pid', $FindBin::Bin))) {
+    $pfile->print($$);
+    $pfile->close;
+} else {
+    die 'Could not create pid file', "\n";
+}
+
+my $mango = Mango->new($config->{mongodb}->{host});
+my $db    = $mango->db($config->{mongodb}->{database});
+my $pub   = GEQ::Publish->new(db => $db, blocking => 1);
+
+my $timersub;
+my $timer;
+my $last_time = Mango::BSON::bson_time(1); # yeah
+
+my $processtimer;
+my $process_queue = [];
+
+$timersub = sub {
+    my $cursor = $db->collection('jobs')->find({ ctime => { '$gte' => $last_time }})->sort({ ctime => 1 });
+    $cursor->next(sub {
+        my ($c, $e, $d) = (@_);
+
+        Mojo::IOLoop->singleton->remove($timer);
+        if(defined($d)) {
+            $last_time = $d->{ctime};
+            push(@$process_queue, $d);
+            Mojo::IOLoop->singleton->timer(1 => $timersub);
+        } else {
+            Mojo::IOLoop->singleton->timer(5 => $timersub);
+        }
+    });
+};
+$timer = Mojo::IOLoop->singleton->timer(1 => $timersub);
+$processtimer = Mojo::IOLoop->singleton->recurring(10 => sub {
+    $log->info('process queue: ' . scalar(@$process_queue) . ' items queued');
+    if(my $d = shift(@$process_queue)) {
+        process($d);
+    }
+});
+Mojo::IOLoop->start unless(Mojo::IOLoop->is_running);

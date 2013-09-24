@@ -14,3 +14,4 @@ data/*
 wr.conf
 wr.development.conf
 wrapi.conf
+bin/*.txt

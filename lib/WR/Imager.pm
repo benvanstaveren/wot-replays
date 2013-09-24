@@ -211,4 +211,5 @@ sub create {
     return $args{'destination'};
 }
 
-__PACKAGE__->meta->make_immutable;
+1;
+

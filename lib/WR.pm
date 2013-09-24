@@ -5,8 +5,8 @@ use warnings;
 BEGIN {
 
     my $libdir = (-e "/home/ben/projects/wt-replays/")
-        ? '/home/ben/projects/wt-replays/wot-replay-parser'
-        : '/home/wotreplay/wt-replays/wot-replay-parser';
+        ? '/home/ben/projects/wot-replays/site/extlib/wot-replay-parser'
+        : '/home/wotreplay/wot-replays/site/extlib/wot-replay-parser';
 
     unshift(@INC, sprintf('%s/lib', $libdir));
 }
