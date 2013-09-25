@@ -1,22 +1,5 @@
 <div>
-    [% IF h.show_efficiency == 1 %]
-    <span class="label">Efficiency</span>
-    <div>
-        <table style="width: 100%" cellspacing="0" cellpadding="0"><tbody><tr>
-            [% pname = replay.player.name %]
-            [% eff = replay.efficiency.$pname %]
-            <td class="tooltip" title="Player XVM Efficiency">
-                <span class="label small">XVM</span>
-                [% h.eff_color(h.sprintf('%.0f', eff.xvm)) %]
-            </td>
-            <td class="tooltip" title="Player WN6 Rating">
-                <span class="label small">WN6</span>
-                [% h.eff_color(h.sprintf('%.0f', eff.wn6)) %]
-            </td>
-        </tr></tbody></table>
-    </div>
-    [% END %]
-    <span [% IF h.show_efficiency == 1 %]style="margin-top: 15px"[% END %] class="label">Performance</span>
+    <span class="label">Performance</span>
     <div class="replayTeamList" id="battlePerformance">
         <table style="width: 100%" class="battleperformance" cellspacing="0">
         <tbody>
@@ -25,19 +8,6 @@
         </table>
     </div>
     <div class="clear"></div>
-    <span style="margin-top: 15px" class="label">Base Capture</span>
-    <div>
-        <table style="width: 100%" cellspacing="0" cellpadding="0"><tbody><tr>
-            <td>
-                <span class="label small">Invaded Points</span>
-                <span class="[% IF replay.statistics.capturePoints > 0 %]green[% END %]">[% replay.statistics.capturePoints || '0' %]</span>
-            </td><td>
-                <span class="label small">Defended Points</span>
-                <span class="[% IF replay.statistics.droppedCapturePoints > 0 %]green[% END %]">[% replay.statistics.droppedCapturePoints || '0' %]</span>
-            </td>
-        </tr>
-        </tbody></table>
-    </div>
 </div>
 <script type="text/javascript">
     $(document).ready(function() {

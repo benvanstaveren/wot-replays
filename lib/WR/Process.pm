@@ -1,9 +1,12 @@
 package WR::Process;
 use Mojo::Base '-base';
-use boolean;
 use WR::Parser;
+use File::Path qw/make_path/;
 use Data::Dumper;
 use WR::Process::Player;
+use WR::Res::Achievements;
+use WR::ServerFinder;
+use WR::Imager;
 use Mango::BSON;
 use WR::Constants qw/nation_id_to_name decode_arena_type_id/;
 use WR::Util::TypeComp qw/parse_int_compact_descr/;
@@ -12,6 +15,7 @@ use Try::Tiny qw/try catch/;
 has 'file'      => undef;
 has 'mango'     => undef;
 has 'bf_key'    => undef;
+has 'banner_path' => undef;
 has '_error'    => undef;
 has '_parser'   => undef;
 has 'banner'    => 1;
@@ -93,11 +97,14 @@ sub packet_parse_using_format {
 
 sub process {
     my $self = shift;
+    my $skip_packets = shift || 0;
+    my $replay_packets = [];
 
     my %args = (
         bf_key  => $self->bf_key,
         file    => $self->file,
     );
+
     $self->_parser(try {
         return WR::Parser->new(%args);
     } catch {
@@ -121,28 +128,11 @@ sub process {
         },
         game    => $self->_game($battle_result),
         %{$self->_players($battle_result)},                 # combines the data from vehicles and players, partially decodes vehicleID for easier lookups later
+        stats   => $battle_result->{personal},
         chat    => [],
     };
 
-    my $pignore = { map { $_ => 1 } (qw//) };
-
-    # 0x03 0x05 0x0a - movement, position etc.
-
-    # 0x16, 0x1b 0x22   - seems to be related to camera angles, and zoom level
-    # 0x18, 0x19        - always show up in pairs, seems to be some sort of timer since the noticeable values
-    #                     will increment in steps about the same as clock data does, perhaps for the in-game
-    #                     
-    #                     time-remaining counter? 
-
-    # stream packets out 
     if(my $stream = $self->_parser->stream) {
-        my $stream_players = {};
-        foreach my $vid (keys(%{$replay->{vehicles}})) {
-            $stream_players->{$vid} = WR::Process::Player->new(
-                health => $replay->{roster}->[$replay->{vehicles}->{$vid}]->{health}->{total},
-                name   => $replay->{roster}->[$replay->{vehicles}->{$vid}]->{player}->{name},
-            );
-        }
         $stream->on('game.version' => sub {
             my ($s, $v) = (@_);
             $replay->{game}->{version} = $v;
@@ -153,7 +143,7 @@ sub process {
         });
         $stream->on('game.recorder' => sub {
             my ($s, $v) = (@_);
-            $replay->{game}->{recorder} = $v;
+            $replay->{game}->{recorder}->{name} = $v;
         });
         $stream->on('setup.battle_level' => sub {
             my ($s, $v) = (@_);
@@ -171,16 +161,129 @@ sub process {
             my ($s, $po) = (@_);
             my $p = $po->to_hash;
 
-            return if(defined($p->{player_id}) && !defined($stream_players->{$p->{player_id}}));
             if($p->{type} == 0x1f) {
                 push(@{$replay->{chat}}, $p->{message});
+            } else {
+                push(@$replay_packets, $p);
             }
         });
         $stream->start;
     } else {
         $self->error('unable to stream replay');
     }
+
+    $replay->{__packets__} = $replay_packets unless($skip_packets); # this is quite ghetto but..
+
+    my $d = Digest::SHA1->new();
+    $d->add($replay->{game}->{recorder}->{name});
+    $d->add($replay->{game}->{map});
+    $d->add($replay->{game}->{arena_id});
+    $d->add($_->{vehicle}->{id}) for(@{$replay->{roster}});
+
+    $replay->{digest} = $d->hexdigest;
+    $replay->{site}->{banner} = $self->generate_banner($replay) if(defined($self->banner_path));
+
+    # do a little fixup of things that we needed previous data for
+    $replay->{game}->{server} = WR::ServerFinder->new->get_server_by_id($replay->{roster}->[ $replay->{players}->{$replay->{game}->{recorder}->{name}} ]->{player}->{dbid} + 0);
+    $replay->{game}->{recorder}->{index} = $replay->{players}->{$replay->{game}->{recorder}->{name}};
+
+    # here goes
+    $replay->{game}->{recorder}->{vehicle} = {
+        id => $replay->{roster}->[ $replay->{players}->{$replay->{game}->{recorder}->{name}} ]->{vehicle}->{id},
+        tier => $replay->{roster}->[ $replay->{players}->{$replay->{game}->{recorder}->{name}} ]->{vehicle}->{level},
+    };
+
+    $replay->{involved} = {
+        players => [ keys(%{$replay->{players}}) ],
+        clans   => [],
+    };
+
+    my $tc = {};
+    foreach my $entry (@{$replay->{roster}}) {
+        next unless(length($entry->{player}->{clan}) > 0);
+        $tc->{$entry->{player}->{clan}}++;
+    }
+
+    $replay->{involved}->{clans} = [ keys(%$tc) ];
     return $replay;
+}
+
+sub stringify_awards {
+    my $self = shift;
+    my $res  = shift;
+    my $a    = WR::Res::Achievements->new();
+    my $t    = [];
+
+    foreach my $item (@{$res->{stats}->{dossierPopUps}}) {
+        next unless($a->is_award($item->[0]));
+        my $str = $a->index_to_idstr($item->[0]);
+        $str .= $item->[1] if($a->is_class($item->[0]));
+        push(@$t, $str);
+    }
+    return $t;
+}
+
+sub hashbucket {
+    my $self = shift;
+    my $str = shift;
+    my $l = shift || 6;
+
+    return join('/', (split(//, substr($str, 0, $l))));
+}
+
+sub generate_banner {
+    my $self = shift;
+    my $res  = shift;
+    my $image;
+    my $recorder = $res->{players}->{$res->{game}->{recorder}->{name}};
+
+    try {
+        my $pv = $res->{roster}->[ $recorder ]->{vehicle}->{ident};
+        $pv =~ s/:/-/;
+
+        my $xp = $res->{stats}->{xp};
+        $xp .= sprintf(' (x%d)', $res->{statistics}->{dailyXPFactor10}/10) if($res->{stats}->{dailyXPFactor10} > 10);
+
+        my $map = $self->model('wot-replays.data.maps')->find_one({ numerical_id => $res->{game}->{map} });
+        die 'no map', "\n" unless(defined($map));
+        my $match_result = ($res->{game}->{winner} < 1) 
+            ? 'draw'
+            : ($res->{game}->{winner} == $res->{roster}->[ $recorder ]->{player}->{team})
+                ? 'victory'
+                : 'defeat';
+                
+        my $base_path = sprintf('%s/%s', $self->banner_path, $self->hashbucket($res->{_id} . ''));
+        make_path($base_path) unless(-e $base_path);
+
+        my $i = WR::Imager->new();
+        my $imagefile = $i->create(
+            map     => $map->{_id} . '',
+            vehicle => lc($pv),
+            result  => $match_result,
+            map_name => $map->{label},
+            vehicle_name => $res->{roster}->[ $recorder ]->{vehicle}->{label},
+            credits => $res->{stats}->{credits},
+            xp      => $xp,
+            kills   => $res->{stats}->{kills},
+            spotted => $res->{stats}->{spotted},
+            damaged => $res->{stats}->{damaged},
+            player  => $res->{roster}->[ $recorder ]->{player}->{name},
+            clan    => $res->{roster}->[ $recorder ]->{player}->{clan},
+            destination => sprintf('%s/%s.png', $base_path, $res->{_id} . ''),
+            awards  => $self->stringify_awards($res),
+        );
+        $image = {
+            available => Mango::BSON::bson_true,
+            file => $imagefile,
+            url_path => sprintf('%s/%s.png', $self->hashbucket($res->{_id} . ''), $res->{_id} . ''),
+        };
+    } catch {
+        $image = {
+            available => Mango::BSON::bson_false,
+            error => $_,
+        };
+    };
+    return $image;
 }
 
 sub _game {
@@ -199,8 +302,13 @@ sub _game {
         winner          => $b->{common}->{winnerTeam},
         bonus_type      => $b->{common}->{bonusType},
         finish_reason   => $b->{common}->{finishReason},
-
     };
+
+    # add some
+    $game->{recorder}->{team} = $b->{personal}->{team} + 0;
+    $game->{recorder}->{survived} = ($b->{personal}->{deathReason} == -1) ? Mango::BSON::bson_true : Mango::BSON::bson_false;
+    $game->{recorder}->{killer} = ($b->{personal}->{killerID} > 0) ? $b->{personal}->{killerID} : undef;
+    $game->{recorder}->{lifetime} = $b->{personal}->{lifeTime} + 0;
 
     my $decoded_arena_type_id = decode_arena_type_id($b->{common}->{arenaTypeID});
 
@@ -227,19 +335,20 @@ sub get_vehicle_from_typecomp {
 
 sub _players {
     my $self = shift;
-    my $b    = shift;
+    my $br   = shift;
     my $players = {};
     my $t_p  = {};
     my $plat = {};
-    my $teams = [ [], [] ]; # keys on vehicle
+    my $teams = [ [], [] ]; # keys on vid
     my $roster = [];
     my $name_to_vidx = {};
     my $vid_to_vidx = {};
     my $i = 0;
 
-    foreach my $dbid (keys(%{$b->{players}})) {
-        my $player = $b->{players}->{$dbid};
+    foreach my $dbid (keys(%{$br->{players}})) {
+        my $player = $br->{players}->{$dbid};
         $t_p->{$dbid} = {
+            dbid => $dbid,
             name => $player->{name},
             clan => $player->{clanAbbrev},
             team => $player->{team}, 
@@ -247,26 +356,23 @@ sub _players {
         $plat->{$dbid} = $player->{prebattleID} if($player->{prebattleID} > 0);
     }
 
-    foreach my $vid (keys(%{$b->{vehicles}})) {
-        my $rawv = $b->{vehicles}->{$vid};
+    foreach my $vid (keys(%{$br->{vehicles}})) {
+        my $rawv = $br->{vehicles}->{$vid};
         my $entry = {
             health  =>  {
                 total       => ($rawv->{health} + $rawv->{damageReceived}),
                 remaining   => $rawv->{health},
             },
-            stats => { map { $_ => $rawv->{$_} } (qw/this damageAssistedTrack damageAssistedRadio he_hits pierced kills shots spotted tkills potentialDamageReceived noDamageShotsReceived credits mileage heHitsReceived hits damaged piercedReceived droppedCapturePoints damageReceived killerID damageDealt shotsReceived xp deathReason lifeTime tdamageDealt capturePoints/) },
+            stats => { map { $_ => $rawv->{$_} } (qw/this damageAssistedTrack damageAssistedRadio he_hits pierced kills shots spotted tkills potentialDamageReceived noDamageShotsReceived credits mileage heHitsReceived hits damaged piercedReceived droppedCapturePoints damageReceived killerID damageDealt shotsReceived xp deathReason lifeTime tdamageDealt capturePoints achievements/) },
             player => $t_p->{$rawv->{accountDBID}},
             platoon => (defined($plat->{$rawv->{accountDBID}})) ? $plat->{$rawv->{accountDBID}} : undef,
-            vehicle => {
-                
-            },
+            vehicle => {},
         };
         $entry->{stats}->{isTeamKiller} = ($rawv->{isTeamKiller}) ? Mango::BSON::bson_true : Mango::BSON::bson_false;
-        $entry->{stats}->{achievements} = $self->get_achievements($rawv->{achievements});
 
         # get the vehicle from db
         if(my $v = $self->get_vehicle_from_typecomp($rawv->{typeCompDescr})) {
-            $entry->{vehicle} = {};
+            $entry->{vehicle} = { id => $vid, ident => $v->{_id} };
             $entry->{vehicle}->{$_} = $v->{$_} for(qw/label label_short level/);
             $entry->{vehicle}->{icon} = sprintf('%s-%s.png', $v->{country}, $v->{name_lc});
         }
@@ -280,39 +386,34 @@ sub _players {
         push(@{$teams->[$entry->{player}->{team} - 1]}, $idx);
     }
 
-    return { vehicles => $vid_to_vidx, roster => $roster, teams => $teams, players => $name_to_vidx };
-}
+    # sort the roster and teams by xp earned, damage dealt, and kills made, stores indexes into the roster
+    my $teams_sorted = {};
+    my $roster_sorted = {};
+    my $sort_key = { 
+        damageDealt => 'damage',
+        xp          => 'xp',
+        kills       => 'kills',
+    };
 
-sub get_achievements {
-    my $self = shift;
-    my $a = shift;
+    foreach my $key (keys(%$sort_key)) {
+        my $sk = $sort_key->{$key};
 
-    return [];
-}
+        $teams_sorted->{$sk} = [ [], [] ];
 
-sub fuck_booleans {
-    my $self = shift;
-    my $obj = shift;
-
-    return $obj unless(ref($obj));
-
-    if(ref($obj) eq 'ARRAY') {
-        return [ map { $self->fuck_booleans($_) } @$obj ];
-    } elsif(ref($obj) eq 'HASH') {
-        foreach my $field (keys(%$obj)) {
-            next unless(ref($obj->{$field}));
-            if(ref($obj->{$field}) eq 'HASH') {
-                $obj->{$field} = $self->fuck_booleans($obj->{$field});
-            } elsif(ref($obj->{$field}) eq 'ARRAY') {
-                my $t = [];
-                push(@$t, $self->fuck_booleans($_)) for(@{$obj->{$field}});
-                $obj->{$field} = $t;
-            } elsif(ref($obj->{$field}) eq 'JSON::XS::Boolean') {
-                $obj->{$field} = ($obj->{$field}) ? true : false;
-            }
+        foreach my $entry (sort { $b->{stats}->{$key} <=> $a->{stats}->{$key} } (@$roster)) {
+            push(@{$roster_sorted->{$sk}}, $vid_to_vidx->{$entry->{vehicle}->{id}});
+            push(@{$teams_sorted->{$sk}->[$entry->{player}->{team} - 1]}, $entry->{vehicle}->{id});
         }
-        return $obj;
     }
+
+    return { 
+        roster => $roster, 
+        vehicles => $vid_to_vidx, 
+        players => $name_to_vidx,
+        teams => $teams, 
+        roster_sorted => $roster_sorted,
+        teams_sorted => $teams_sorted,
+        };
 }
 
 1;

@@ -3,6 +3,7 @@ use strict;
 use warnings;
 use WR::Query;
 use WR::Res;
+use WR::Util::CritDetails;
 use Data::Dumper;
 
 use constant ROMAN_NUMERALS => [qw(0 I II III IV V VI VII VIII IX X)];
@@ -25,7 +26,7 @@ sub generate_vehicle_select {
         my $cursor = $self->model('wot-replays.data.vehicles')->find({ country => $country })->sort({ label => 1 });
         while(my $obj = $cursor->next()) {
             push(@{$d->{items}}, {
-                id => $obj->{name},
+                id => $obj->{id},
                 value => $obj->{label},
                 level => $obj->{level},
             });
@@ -38,6 +39,15 @@ sub generate_vehicle_select {
 sub add_helpers {
     my $class = shift;
     my $self  = shift; # not really self but the Mojo app
+
+    $self->helper(wot_version => sub {
+        my $self = shift;
+        my $replay = shift;
+
+        my @parts = split(/, /, $replay->{game}->{version});
+        pop(@parts); # drop the last 0
+        return join('.', @parts);
+    });
 
     $self->helper(is_user_authenticated => sub {
         my $ctrl = shift;
@@ -65,18 +75,37 @@ sub add_helpers {
         return undef;
     });
 
+    $self->helper(get_replay_stats => sub {
+        my $self = shift;
+        my $r = shift;
+        my $field = shift;
+
+        return $r->{stats}->{$field};
+    });
+
+    $self->helper(is_old_version => sub {
+        my $self = shift;
+        my $r    = shift;
+
+        if($self->stash('config')->{wot}->{version_numeric} != $r->{game}->{version_numeric}) {
+            return 1;
+        } else {
+            return 0;
+        }
+    });
+
     $self->helper('hashbucket' => sub {
         my $self = shift;
         my $name = shift;
-        my $size = shift || 6;
+        my $size = shift || 7;
 
         my @parts = split(//, substr($name, 0, $size));
-        return join('/', (@parts, $name));
+        return join('/', @parts);
     });
 
     $self->helper(wr_query => sub {
         my $self = shift;
-        return WR::Query->new(@_, coll => $self->db('wot-replays')->get_collection('replays'));
+        return WR::Query->new(@_, coll => $self->model('wot-replays.replays'));
     });
 
     $self->helper('lc' => sub {
@@ -132,20 +161,6 @@ sub add_helpers {
 
     $self->helper(generate_vehicle_select => \&generate_vehicle_select);
 
-    $self->helper(vehicles_by_frags => sub {
-        my $self = shift;
-        my $hash = shift;
-
-        return [ (sort({ $b->{kills} <=> $a->{kills} } values(%$hash))) ];
-    });
-
-    $self->helper(vehicles_by_xp => sub {
-        my $self = shift;
-        my $hash = shift;
-
-        return [ (sort({ $b->{xp} <=> $a->{xp} } values(%$hash))) ];
-    });
-
     $self->helper(consumable_icon_style => sub {
         my $self = shift;
         my $a = shift;
@@ -160,13 +175,6 @@ sub add_helpers {
         } else {
             return undef;
         }
-    });
-
-    $self->helper(get_vehicle_by_id => sub {
-        my $self = shift;
-        my $id   = shift;
-
-        return $self->stash('req_replay')->{vehicles}->{$id};
     });
 
     $self->helper(ammo_icon_style => sub {
@@ -236,11 +244,37 @@ sub add_helpers {
 
         while(my $o = $cursor->next()) {
             push(@$list, {
-                id => $o->{_id},
+                id => $o->{numerical_id},
                 label => $o->{label}
             });
         }
         return $list;
+    });
+
+    $self->helper(map_icon => sub {
+        my $self = shift;
+        my $mid  = shift;
+
+        if(my $obj = $self->model('wot-replays.data.maps')->find_one({ 
+            '$or' => [
+                { _id => $mid },
+                { numerical_id => $mid },
+                { name_id => $mid },
+                { slug => $mid },
+            ],
+        })) {
+            return $obj->{icon};
+        } else {
+            return sprintf('404:%s', $mid);
+        }
+    });
+
+    $self->helper(vehicle_link => sub {
+        my $self = shift;
+        my $ident = shift;
+
+        $ident =~ s/:/\//g;
+        return $ident;
     });
 
     $self->helper(map_name => sub {
@@ -250,6 +284,7 @@ sub add_helpers {
         if(my $obj = $self->model('wot-replays.data.maps')->find_one({ 
             '$or' => [
                 { _id => $mid },
+                { numerical_id => $mid },
                 { name_id => $mid },
                 { slug => $mid },
             ],
@@ -258,6 +293,45 @@ sub add_helpers {
         } else {
             return sprintf('404:%s', $mid);
         }
+    });
+
+    $self->helper(was_killed_by_recorder => sub {
+        my $self = shift;
+        my $r    = shift;
+        my $id   = shift;
+        my $rec  = $self->get_recorder_vehicle($r);
+
+        return ($id == $rec->{vehicle}->{id}) ? 1 : 0;
+    });
+
+    # this parses out the crit info
+    $self->helper(get_crit_details => sub {
+        my $crit = shift;
+
+        return WR::Util::CritDetails->new(crit => $crit)->parse;
+    });
+
+    $self->helper(get_roster_by_vid => sub {
+        my $self = shift;
+        my $r    = shift;
+        my $v    = shift;
+
+        return $self->get_roster_entry($r, $r->{vehicles}->{$v});
+    });
+
+    $self->helper(get_roster_entry => sub {
+        my $self = shift;
+        my $r    = shift;
+        my $i    = shift;
+
+        return $r->{roster}->[$i];
+    });
+
+    $self->helper(get_recorder_vehicle => sub {
+        my $self = shift;
+        my $r = shift;
+
+        return $self->get_roster_entry($r, $r->{game}->{recorder}->{index});
     });
 
     $self->helper(vehicle_icon => sub {
@@ -408,14 +482,13 @@ sub add_helpers {
 
     $self->helper(is_own_replay => sub {
         my $self = shift;
-        if(my $r = $self->stash('req_replay')) {
-            if($self->is_user_authenticated && ( ($self->current_user->{player_name} eq $r->{player}->{name}) && ($self->current_user->{player_server} eq $r->{player}->{server}))) {
-                return 1;
-            } else {
-                return 0;
-            }
+        my $r = shift;
+
+        if($self->is_user_authenticated && ( ($self->current_user->{player_name} eq $r->{game}->{recorder}->{name}) && ($self->current_user->{player_server} eq $r->{game}->{server}))) {
+            return 1;
+        } else {
+            return 0;
         }
-        return 0;
     });
 
     $self->helper(is_the_boss => sub {
@@ -428,11 +501,20 @@ sub add_helpers {
 
     $self->helper(map_slug => sub {
         my $self = shift;
-        my $name = shift;
-        my $slug = lc($name);
-        $slug =~ s/\s+/_/g;
-        $slug =~ s/'//g;
-        return $slug;
+        my $mid = shift;
+
+        if(my $obj = $self->model('wot-replays.data.maps')->find_one({ 
+            '$or' => [
+                { _id => $mid },
+                { numerical_id => $mid },
+                { name_id => $mid },
+                { slug => $mid },
+            ],
+        })) {
+            return $obj->{slug};
+        } else {
+            return undef;
+        }
     });
 
     $self->helper(map_image => sub {

@@ -2,9 +2,10 @@ package WR::Imager;
 use Mojo::Base '-base';
 use Imager;
 
-has '_path'     => sub { return shift->_build_path };
-has '_bg'       => sub { return shift->_build_bg };
-has '_overlay'  => sub { return shift->_build_overlay };
+has '_path'         => sub { return shift->_build_path };
+has '_config_path'  => sub { return shift->_build_config_path };
+has '_bg'           => sub { return shift->_build_bg };
+has '_overlay'      => sub { return shift->_build_overlay };
 
 sub new {   
     my $package = shift;
@@ -21,8 +22,19 @@ sub _build_path {
     # this is still cheese, need to either take a root param or figure this out
     # better, we know the 'sites/images...' bit is always the same regardless.
     return (-e '/home/ben') 
-        ? '/home/ben/projects/wot-replays/sites/images'
+        ? '/home/ben/projects/wot-replays/site/sites/images'
         : '/home/wotreplay/site/sites/images'
+        ;
+}
+
+sub _build_config_path {
+    my $self = shift;
+
+    # this is still cheese, need to either take a root param or figure this out
+    # better, we know the 'sites/images...' bit is always the same regardless.
+    return (-e '/home/ben') 
+        ? '/home/ben/projects/wot-replays/site/etc'
+        : '/home/wotreplay/site/etc'
         ;
 }
 
@@ -37,7 +49,7 @@ sub _build_overlay {
 sub _build_bg {
     my $self    = shift;
     my $background = Imager->new();
-    $background->read(file => sprintf('%s/../../etc/img/background.png', $self->_path)) or die 'failed reading background', "\n";
+    $background->read(file => sprintf('%s/img/background.png', $self->_config_path)) or die 'failed reading background', "\n";
     return $background;
 }
 
@@ -70,16 +82,18 @@ sub create {
 
 
     my $resultfont = Imager::Font->new(
-        file => sprintf('%s/../../etc/fonts/OpenSans-CondBold.ttf', $self->_path),
+        file => sprintf('%s/fonts/OpenSans-CondBold.ttf', $self->_config_path),
         size => 12,
         color => $resultcolor,
         );
+    die 'No resultfont from: ', sprintf('%s/fonts/OpenSans-CondBold.ttf', $self->_config_path), "\n" unless(defined($resultfont));
 
     my $textfont = Imager::Font->new(
-        file => sprintf('%s/../../etc/fonts/OpenSans-CondBold.ttf', $self->_path),
+        file => sprintf('%s/fonts/OpenSans-CondBold.ttf', $self->_config_path),
         size => 12,
         color => $textcolor,
         );
+    die 'No textfont from: ', sprintf('%s/fonts/OpenSans-CondBold.ttf', $self->_config_path), "\n" unless(defined($textfont));
 
     $self->_bg->string(
         text => $args{xp} || '-',

@@ -1,9 +1,9 @@
             [% awards = 0 %]
             <span class="label">Battle Awards</span>
             <div class="heroawardlist">
-                [% FOREACH award IN replay.statistics.achievements.nsort %]
+                [% FOREACH award IN replay.stats.achievements.nsort %]
                         <div class="award [% h.get_achievements.index_to_idstr(award) %]" title="[% h.get_achievements.i18n(h.get_achievements.index_to_idstr(award)) |html %] (#[% dossier_popups.$award %])">
-                            <b class="ui-corner-all">[% dossier_popups.$award || '1' %]</b>
+                            [% IF !h.get_achievements.is_battle(award) %]<b class="ui-corner-all">[% dossier_popups.$award || '1' %]</b>[% END %]
                         </div>
                         [% awards = awards + 1 %]
                 [% END %]

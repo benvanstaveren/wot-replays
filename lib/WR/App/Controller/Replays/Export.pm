@@ -7,15 +7,22 @@ sub download {
     my $self = shift;
     my $id   = $self->stash('replay_id');
 
-    if(my $replay = $self->db('wot-replays')->get_collection('replays')->find_one({ _id => bless({ value => $id }, 'MongoDB::OID') })) {
-        $self->db('wot-replays')->get_collection('replays')->update({ _id => $replay->{_id} }, { '$inc' => { 'site.downloads' => 1 } });
+    $self->render_later;
 
-        # replay->{file} contains the file name including paths that we want so it's still valid
-        my $url = Mojo::URL->new(sprintf('http://dl.wt-replays.org/%s', $replay->{file}));
-        $self->redirect_to($url->to_string);
-    } else {
-        $self->render(status => 404, text => 'Not Found');
-    }
+    $self->model('wot-replays.replays')->find_one({ _id => Mango::BSON::bson_oid($id) } => sub {
+        my ($c, $e, $d) = (@_);
+
+        if($e) {
+            $self->render(status => 404, text => 'Not Found');
+        } else {
+            $self->model('wot-replays.replays')->update({ _id => Mango::BSON::bson_oid($id) }, { '$inc' => { 'site.downloads' => 1 }} => sub {
+                my ($c, $e, $d) = (@_);
+
+                my $url = Mojo::URL->new(sprintf('http://dl.wt-replays.org/%s', $d->{file}));
+                $self->redirect_to($url->to_string);
+            });
+        }
+    });
 }
 
 sub csv {
@@ -25,7 +32,13 @@ sub csv {
     my $res  = [];
     my $cols = [qw/player_name vehicle vehicle_type survived health kills damaged spotted damage_done damage_assisted shots hits penetrations xp_earned credits_earned /];
 
-    if(my $replay = $self->db('wot-replays')->get_collection('replays')->find_one({ _id => bless({ value => $id }, 'MongoDB::OID') })) {
+    $self->render_later;
+
+    $self->model('wot-replays.replays')->find_one({ _id => Mango::BSON::bson_oid($id) } => sub {
+        my ($c, $e, $replay) = (@_);
+
+        $self->render(text => 'No such replay') and return if($e);
+
         my $playerteam = $replay->{player}->{team}; 
 
         foreach my $vid (keys(%{$replay->{vehicles}})) {
@@ -61,9 +74,7 @@ sub csv {
         }
 
         $self->render(text => $csv, content_type => 'text/csv', format => 'csv');
-    } else {
-        $self->render(text => 'No such replay');
-    }
+    });
 }
 
 1;

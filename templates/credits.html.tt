@@ -2,7 +2,7 @@
     <div><div class="content nosidebar aboutText">
         <h3>Tools Used</h3>
         <div>
-            wot-replays.org is made possible using the following bits and pieces:
+            wt-replays.org is made possible using the following bits and pieces:
             <ul>
                 <li><a href="http://www.perl.org/">Perl</a>, the swiss army chainsaw programming language of the internet</li>
                 <li><a href="http://mojolicio.us">Mojolicious</a>, a next generation web framework</li>
@@ -15,8 +15,6 @@
             These are people that have helped out or contributed in a big way:
             <ul>
                 <li> <b>Phalynx</b> from <a href="http://www.vbaddict.net/">WoT Performance Analyzer</a>; for letting me use his collected data </li>
-                <li> <b>Mick666</b> from the SEA forums; for reposting the support thread on the NA forums (where I can't post), and going the extra step putting in support tickets to resolve the image linking issues that have plagued the forums </li>
-                <li> An anonymous person who has kindly donated $50 and asked not to be named; but I can't let it go unmentioned so: thank you! </li>
             </ul>
         </div>
         <div>

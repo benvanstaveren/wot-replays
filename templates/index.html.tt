@@ -8,11 +8,4 @@
     </div>
     <div class="clear"></div>
 </div>
-<!--
-query:
-[% h.dumper(query.query) %]
-
-explain:
-[% h.dumper(query.explain) %]
--->
 [% END %]

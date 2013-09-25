@@ -4,8 +4,8 @@ use Data::Localize;
 use Data::Localize::Gettext;
 
 has 'type'      => undef;
-has '_path'     => undef;
-has '_catalog'  => undef;
+has 'path'     => undef;
+has 'catalog'  => undef;
 
 sub new {
     my $package = shift;
@@ -15,15 +15,15 @@ sub new {
 
     $self->path((-e '/home/wotreplay/site/etc/res') 
         ? '/home/wotreplay/site/etc/res'
-        : sprintf('%s/projects/wot-replays/etc/res', $ENV{HOME}));
-    $self->catalog(Data::Localize::Gettext->new(path => sprintf('%s/*.po', $self->_path)));
+        : sprintf('%s/projects/wot-replays/site/etc/res', $ENV{HOME}));
+    $self->catalog(Data::Localize::Gettext->new(path => sprintf('%s/*.po', $self->path)));
 }
 
 sub i18n {
     my $self = shift;
     my $key  = shift;
 
-    return $self->_catalog->localize_for(lang => $self->type, id => $key);
+    return $self->catalog->localize_for(lang => $self->type, id => $key);
 }
 
 1;

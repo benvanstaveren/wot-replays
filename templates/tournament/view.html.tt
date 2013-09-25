@@ -1,3 +1,0 @@
-[% WRAPPER wrapper.html.tt %]
-    [% INCLUDE construct.html.tt %]
-[% END %]

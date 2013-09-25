@@ -18,7 +18,7 @@ use constant WOT_BF_KEY     => join('', map { chr(hex($_)) } (split(/\s/, WOT_BF
 my $mango = Mango->new('mongodb://localhost:27017/');
 
 my $start = [ gettimeofday ];
-my $process = WR::Process->new(bf_key => WOT_BF_KEY, file => $ARGV[0], mango => $mango);
+my $process = WR::Process->new(bf_key => WOT_BF_KEY, file => $ARGV[0], mango => $mango, banner_path => sprintf('%s/../tmp/banner', $FindBin::Bin));
 
 my $d;
 
@@ -30,7 +30,5 @@ try {
 };
 
 my $end = tv_interval($start);
-
-print 'TOOK: ', $end, "\n";
 
 print Dumper($d);

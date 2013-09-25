@@ -2,7 +2,6 @@
             <div id="upload-form-panel">
                 <form id="frm-upload" action="/upload" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="a" value="save"/>
-                    <input type="hidden" name="timezone" value=""/>
                     <span class="label">Replay File</span>
                     <div>
                         <input style="width: 100%;" type="file" name="replay"/> 
@@ -22,11 +21,19 @@
                     <div id="upload-bar"></div>
                     <div id="upload-percent"></div>
                 </div>
-                <div id="completed" style="display: none">
-                    <div id="process-output">
-                        Please wait while we process your replay...
+                <div id="process-completed" style="display: none">
+                    <div id="c-view-link">
+                    <span class="label" style="margin-top: 25px">View Link</span>
+                    <a style="color: #000; text-decoration: underline" href="#" id="view-link"></a>
                     </div>
-                    <div style="margin: 25px 0px 0px 0px; display: none" id="upload-another">
+                    <span class="label">Download Link</span>
+                    <a  style="color: #000; text-decoration: underline"href="#" id="download-link"></a>
+                    <span class="label">Embed</span>
+                    <div id="c-embed-link">
+                    <img id="embed-image" style="width: 545px; height: 98px"/>
+                    <textarea id="embed-text" style="width: 545px; height: 55px; font-size: 1em; resize: none"></textarea>
+                    </div>
+                    <div style="margin: 25px 0px 0px 0px">
                         [% INCLUDE sidebar/bricks/upload.html.tt %] 
                     </div>
                 </div>
@@ -59,6 +66,37 @@
                             $('#upload-progress-panel #progress').hide();
                             $('#upload-progress-panel #progress-label').hide();
                             status.html('Upload successful!');
+
+                            WR.ui.notify({ type: 'notify', close: false, sticky: true, block: true, wait: true, text: 'Upload complete, please wait while we process the replay' });
+
+                            $.getJSON('/process', { jid: j.jid }, function(d) {
+                                WR.ui.hidenotify();
+
+                                if(d.ok == 1) {
+                                    d = d.result;
+
+                                    // downloads need to be tracked so
+                                    var l_dl = 'http://www.wt-replays.org/replay/' + d.oid + '/download';
+                                    var l_v  = 'http://www.wt-replays.org/replay/' + d.oid + '.html';
+                                
+                                    $('#embed-image').attr('src', '//banners.wt-replays.org/' + d.banner.url_path);
+                                    $('#embed-text').text('[url=' + l_v + ']' + "\n" + '[img]http://banners.wt-replays.org/' + d.banner.url_path + '[/img]' + "\n" + '[/url]');
+                                    $('#completed #download-link').attr('href', l_dl).html(l_dl);
+                                    $('#completed #view-link').attr('href', l_v).html(l_v);
+
+                                    $('#upload-completed').hide();
+                                    $('#process-completed button#btn-upload').html('UPLOAD ANOTHER REPLAY');
+                                    $('#process-completed').show();
+                                } else {
+                                    if(d.redirect) {
+                                        document.location.href = d.redirect;
+                                    } else {
+                                        $('#upload-form-panel').show();
+                                        $('#upload-progress-panel').hide();
+                                        WR.ui.notify({ type: 'error', close: true, sticky: true, text: d.error });
+                                    }
+                                }
+                            });
                         } else {
                             if(j.redirect) {
                                 document.location.href = j.redirect;

@@ -54,12 +54,13 @@ sub startup {
     $r->route('/about')->to('ui#about', pageid => 'about');
     $r->route('/credits')->to('ui#credits', pageid => 'credits');
     $r->route('/upload')->to('replays-upload#upload', pageid => 'upload');
+    $r->route('/process')->to('replays-upload#process_replay', pageid => 'upload');
     $r->route('/download/:replay_id')->to('replays-export#download');
     $r->route('/csv/:replay_id')->to('replays-export#csv');
 
     $r->route('/replay/browse/:page')->to('replays#browse', page => 1);
 
-    my $rb = $r->bridge('/replay/:replay_id')->to('replays#bridge');
+    my $rb = $r->under('/replay/:replay_id');
         $rb->route('/')->to('replays-view#view', pageid => undef)->name('viewreplay');
         $rb->route('/desc')->to('replays#desc', pageid => undef);
         $rb->route('/up')->to('replays-rate#rate_up', pageid => undef);
@@ -75,12 +76,14 @@ sub startup {
         $playerbridge->route('/involved')->to('player#involved', pageid => 'player');
         $playerbridge->route('/latest')->to('player#latest', pageid => 'player');
 
-    $r->route('/vehicles')->to('vehicle#index', pageid => 'vehicle');
-    $r->route('/vehicle/:country')->to('vehicle#view', pageid => 'vehicle', countryonly => 1);
-    $r->route('/vehicle/:country/:vehicle')->to('vehicle#view', pageid => 'vehicle');
+    my $vehicles = $r->under('/vehicle');
+        $vehicles->route('/')->to('vehicle#index', pageid => 'vehicle');
+        $vehicles->route('/:country')->to('vehicle#view', pageid => 'vehicle', countryonly => 1);
+        $vehicles->route('/:country/:vehicle')->to('vehicle#view', pageid => 'vehicle');
 
-    $r->route('/maps')->to('map#index', pageid => 'map');
-    $r->route('/map/:map_id')->to('map#view', pageid => 'map');
+    my $map = $r->under('/maps');
+        $map->route('/')->to('map#index', pageid => 'map');
+        $map->route('/:map_id')->to('map#view', pageid => 'map');
 
     $r->any('/login')->to('ui#do_login', pageid => 'login');
     $r->any('/logout')->to('ui#do_logout');
@@ -96,16 +99,9 @@ sub startup {
         $pb->route('/reclaim')->to('profile#reclaim', pageid => 'profile');
         $pb->route('/j/setting')->to('profile#setting');
 
-    my $stats = $r->under('/stats');
-        $stats->route('/')->to('stats#index');
-        $stats->route('/:statid')->to('stats#view');
-
-    my $admin = $r->bridge('/admin')->to('admin#bridge');
-        $admin->route('/')->to('admin#index');
-
     $self->sessions->default_expiration(86400 * 365); 
     $self->sessions->cookie_name('wrsession');
-    $self->sessions->cookie_domain('.wt-replays.org');
+    $self->sessions->cookie_domain('.wt-replays.org') if(!defined($config->{mode}) || $config->{mode} ne 'dev');
 
     has 'wr_res' => sub { return WR::Res->new() };
 

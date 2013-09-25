@@ -8,13 +8,6 @@ use URI::Escape;
 use LWPx::ParanoidAgent;
 use Time::HiRes qw/gettimeofday tv_interval/;
 
-sub xd {
-    my $self = shift;
-
-    $self->res->headers->header('Access-Control-Allow-Origin' => $self->req->headers->header('Origin'));
-    $self->render(text => q|var WR_CORS = true;|, status => 200);
-}
-
 sub faq {
     shift->respond(template => 'faq', stash => { page => { title => 'Frequently Asked Questions' } });
 }
@@ -66,17 +59,47 @@ sub generate_replay_count {
 sub index {
     my $self    = shift;
     my $start   = [ gettimeofday ];
+    my $newest  = [];
     my $replays = [];
 
-    # here comes the happy delay train
+    # here we generate a bunch of hoohah 
     $self->render_later;
 
-    $self->respond(template => 'index', stash => {
-        page        =>  { title => 'Home' },
+    # get a total count first
+    my $count_cursor = $self->model('wot-replays.replays')->find();
+    $count_cursor->count(sub {
+        my ($c, $e, $count) = (@_);
+
+        my $replay_count = $count;
+
+        my $q = {
+            'site.visible' => Mango::BSON::bson_true
+        };
+        $q->{'game.server'} = $self->stash('req_host') if($self->stash('req_host') ne 'www');
+
+        my $new_cursor = $self->model('wot-replays.replays')->find($q)->sort({ 'site.uploaded_at' => -1 })->limit(15);
+        $new_cursor->all(sub {
+            my ($c, $e, $docs) = (@_);
+
+            my $replays = [ map { WR::Query->fuck_tt($_) } (@$docs) ];
+            
+            if($self->req->is_xhr) {
+                $self->respond(template => 'index/ajax', stash => {
+                    replays         => $replays,
+                    replay_count    => $replay_count,
+                    timing_query    => tv_interval($start),
+                });
+            } else {
+                $self->respond(template => 'index', stash => {
+                    replays         => $replays,
+                    replay_count    => $replay_count,
+                    page            => { title => 'Home' },
+                    timing_query    => tv_interval($start),
+                });
+            }
+        });
     });
 }
-
-sub register { shift->respond(template => 'register/form', stash => { page => { title => 'Registration No Longer Required' } }) }
 
 sub do_logout {
     my $self = shift;
@@ -94,6 +117,8 @@ sub do_login {
     my $s    = $self->req->param('s');
 
     if(defined($s)) {
+        # fix for the sea -> asia move
+        $s = 'asia' if($s eq 'sea');
         my %params = @{ $self->req->params->params };
         my $my_url = $self->req->url->base;
         my $cache = Cache::File->new(cache_root => sprintf('%s/openid', $self->app->home->rel_dir('tmp/cache')));

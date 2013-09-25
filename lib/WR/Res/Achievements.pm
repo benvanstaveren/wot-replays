@@ -8,9 +8,14 @@ has 'achievements_by_single'        => sub { return shift->_build_achievements_b
 has 'achievements_by_class'         => sub { return shift->_build_achievements_by_class };
 has 'achievements_by_battle'        => sub { return shift->_build_achievements_by_battle };
 has 'achievements_by_repeatable'    => sub { return shift->_build_achievements_by_repeatable };
+has '_l'                            => sub { return WR::Localize->new(type => 'achievements') };
 
-has '_l' =>  sub { return WR::Localize->new(type => 'achievements') };
-sub i18n { return shift->_l->(@_) }
+sub i18n { 
+    my $self = shift;
+    my $l = $self->_l();
+
+    return $l->i18n(@_);
+}
 
 sub _build_achievements {
     my $self = shift;

@@ -1,0 +1,2 @@
+            <span class="label" style="margin-top: 10px">Invaded Points</span>
+            <span class="[% IF replay.stats.capturePoints > 0 %]green[% END %]">[% replay.stats.capturePoints || '0' %]</span>

@@ -3,6 +3,7 @@ use Mojo::Base '-base';
 use File::Slurp;
 use JSON::XS qw(decode_json);
 use Try::Tiny;
+use Scalar::Util qw/blessed/;
 
 has '_catalog' => sub { return shift->_build_catalog };
 has '_path'    => sub { return shift->_build_path };
@@ -12,7 +13,7 @@ sub _build_path {
 
     return (-e '/home/wotreplay/site/etc/res') 
         ? '/home/wotreplay/site/etc/res'
-        : sprintf('%s/projects/wot-replays/etc/res', $ENV{HOME});
+        : sprintf('%s/projects/wot-replays/site/etc/res', $ENV{HOME});
 }
 
 sub _build_catalog {

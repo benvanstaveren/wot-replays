@@ -1,8 +1,7 @@
 package WR::Query;
 use Mojo::Base '-base';
-use boolean;
 use Mojo::JSON;
-use DateTime;
+use Mango::BSON;
 use Data::Dumper;
 
 # args
@@ -10,11 +9,10 @@ has 'coll'    => undef;
 has 'perpage' => 15;
 has 'filter'  => sub { {} };
 has 'sort'    => sub { {} };
-
-has '_res'    => undef;
 has '_query'  => sub {
     return shift->_build_query;
 };
+has '_res'    => undef;
 has 'total'   => 0;
 
 sub exec {
@@ -28,7 +26,7 @@ sub exec {
         $cursor->count(sub {
             my ($c, $e, $count) = (@_);
             $self->total($count);
-            $self->res($cursor);
+            $self->_res($cursor);
             $cb->($cursor);
         });
     }
@@ -36,7 +34,7 @@ sub exec {
 
 sub maxp {
     my $self = shift;
-    my $total = $self->total;;
+    my $total = $self->total;
     my $perpage = $self->perpage;
     my $maxp = int($total/$perpage);
     $maxp++ if($maxp * $perpage < $total);
@@ -76,31 +74,6 @@ sub fuck_tt {
     return $o;
 }
 
-sub fuck_mojo_json {
-    my $self = shift;
-    my $obj = shift;
-
-    return $obj unless(ref($obj));
-
-    if(ref($obj) eq 'ARRAY') {
-        return [ map { $self->fuck_mojo_json($_) } @$obj ];
-    } elsif(ref($obj) eq 'HASH') {
-        foreach my $field (keys(%$obj)) {
-            next unless(ref($obj->{$field}));
-            if(ref($obj->{$field}) eq 'HASH') {
-                $obj->{$field} = $self->fuck_mojo_json($obj->{$field});
-            } elsif(ref($obj->{$field}) eq 'ARRAY') {
-                my $t = [];
-                push(@$t, $self->fuck_mojo_json($_)) for(@{$obj->{$field}});
-                $obj->{$field} = $t;
-            } elsif(boolean::isBoolean($obj->{$field})) {
-                $obj->{$field} = ($obj->{$field}) ? Mojo::JSON->true : Mojo::JSON->false;
-            }
-        }
-        return $obj;
-    }
-}
-
 sub fixargs {
     my $self = shift;
     my $arg  = shift;
@@ -126,7 +99,7 @@ sub _build_query {
         );
 
     my $query = {
-        'site.visible' => true,
+        'site.visible' => Mango::BSON::bson_true,
     };
 
     my $ors = [];
@@ -135,75 +108,45 @@ sub _build_query {
 
     if($args{'player'}) {
         if($args{'playerpov'} > 0) {
-            $query->{'player.name'} = $self->fixargs($args{'player'});
+            $query->{'game.recorder.name'} = $self->fixargs($args{'player'});
         } elsif($args{'playerinv'}) {
-            $query->{'involved.players'} = $self->fixargs($args{'player'});
-            $query->{'player.name'} = $self->fixargs($args{'player'}, '$nin');
+            $query->{'involved.players'} = $self->fixargs($args{'player'}, '$in'); 
+            $query->{'game.recorder.name'} = $self->fixargs($args{'player'}, '$nin');
         } else {
             push(@$ors, [ 
-                { 'player.name' => $self->fixargs($args{'player'}) }, { 'vehicles.name' => $self->fixargs($args{'player'}) } 
+                { 'game.recorder.name' => $self->fixargs($args{'player'}) }, { 'involved.players' => $self->fixargs($args{'player'}, '$in') } 
             ]);
         }
     }
 
     if($args{'server'}) {
         if(ref($args{'server'}) eq 'ARRAY') {
-            $query->{'player.server'} = { '$in' => $args{'server'} };
+            $query->{'game.server'} = { '$in' => $args{'server'} };
         } elsif(!ref($args{'server'})) {
-            $query->{'player.server'} = $args{'server'} if($args{'server'} ne 'any');
+            $query->{'game.server'} = $args{'server'} if($args{'server'} ne 'any');
         }
     }
 
-    # actually args{map} contains the map slug, not it's id so find it first
-    # - temporarily removed until i figure out how to do this in a non-blocking happy call-backy fashion 
-=pod
-    if(defined($args{map})) {
-        if(my $map = $self->coll->_database->get_collection('data.maps')->find_one({ 
-            '$or' => [
-                { _id => $args{map} },
-                { slug => $args{map} },
-            ]
-        })) {
-            $query->{'map.id'} = $self->fixargs($map->{_id});
-        } else {
-            $query->{'map.id'} = 'mapdoesnotexist';
-        }
-    }
-=cut
+    $query->{'game.map'} = $self->fixargs($args{map} + 0) if(defined($args{map}));
 
     if($args{'vehicle'}) {
         if($args{'vehiclepov'}) {
-            $query->{'player.vehicle.full'} = $self->fixargs($args{'vehicle'});
+            $query->{'game.recorder.vehicle.id'} = $self->fixargs($args{'vehicle'});
         } elsif($args{'vehicleinv'}) {
-            $query->{'vehicles.vehicleType.full'} = $self->fixargs($args{'vehicle'});
+            $query->{'roster.vehicle.id'} = $self->fixargs($args{'vehicle'});
         } else {
             push(@$ors, [
-                { 'player.vehicle.full' => $self->fixargs($args{'vehicle'}) },
-                { 'vehicles.vehicleType.full' => $self->fixargs($args{'vehicle'}) },
+                { 'game.recorder.vehicle.id' => $self->fixargs($args{'vehicle'}) },
+                { 'roster.vehicle.id' => $self->fixargs($args{'vehicle'}) },
             ]);
         }
     }
 
-    $query->{'player.vehicle.tier'} = {
+    $query->{'game.recorder.vehicle.tier'} = {
         '$gte' => $args{tier_min} + 0,
         '$lte' => $args{tier_max} + 0,
     };
 
-    if($args{'clan'}) {
-        if($args{'clanpov'}) {
-            $query->{'player.clanAbbrev'} = $self->fixargs($args{'clan'});
-        } elsif($args{'claninv'}) {
-            $query->{'vehicles.clanAbbrev'} = $self->fixargs($args{'clan'});
-        } else {
-            push(@$ors, [ 
-                { 'player.clanAbbrev' => $self->fixargs($args{'clan'}) }, 
-                { 'vehicles.clanAbbrev' => $self->fixargs($args{'clan'}) } 
-            ]);
-        }
-    }
-
-    # is there such a thing?
-    #$query->{'complete'} = true if($args{'complete'} == 1);
 
     $query->{'game.type'} = $args{'matchmode'} if($args{'matchmode'} && $args{'matchmode'} ne '');
     $query->{'game.bonus_type'} = $args{'matchtype'} + 0 if($args{'matchtype'} && $args{'matchtype'} ne '');
@@ -216,6 +159,8 @@ sub _build_query {
     } elsif(scalar(@$ors) > 0) {
         $query->{'$or'} = shift(@$ors);
     }
+
+    warn 'WR::Query->build_query:', "\n", Dumper($query), "\n";
 
     return $query;
 }
