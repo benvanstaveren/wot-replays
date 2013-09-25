@@ -277,6 +277,24 @@ sub add_helpers {
         return $ident;
     });
 
+    $self->helper(map_numericid => sub {
+        my $self = shift;
+        my $mid = shift;
+
+        if(my $obj = $self->model('wot-replays.data.maps')->find_one({ 
+            '$or' => [
+                { _id => $mid },
+                { numerical_id => $mid },
+                { name_id => $mid },
+                { slug => $mid },
+            ],
+        })) {
+            return $obj->{numerical_id} + 0;
+        } else {
+            return 0;
+        }
+    });
+
     $self->helper(map_name => sub {
         my $self = shift;
         my $mid = shift;
@@ -373,6 +391,19 @@ sub add_helpers {
         }
     });
 
+    $self->helper(vehicle_name => sub {
+        my $self = shift;
+        my $v = shift;
+        my ($c, $n) = split(/:/, $v, 2);
+
+        if(my $obj = $self->model('wot-replays.data.vehicles')->find_one({ _id => $v })) {
+            return $obj->{label};
+        } else {
+            return sprintf('nolabel:%s', $v);
+        }
+    });
+
+
     $self->helper(vehicle_name_short => sub {
         my $self = shift;
         my $v = shift;
@@ -418,30 +449,12 @@ sub add_helpers {
 
     $self->helper(component_name => sub {
         my $self = shift;
-        my $cnt = shift;
-        my $cmp = shift;
         my $id  = shift;
 
-        if(my $obj = $self->model('wot-replays.data.components')->find_one({ 
-            country => $cnt,
-            component => $cmp,
-            component_id => $id,
-        })) {
-            return $obj->{label};
+        if(my $obj = $self->model('wot-replays.data.components')->find_one({ _id => $id + 0 })) {
+            return $obj->{label} || sprintf('nodblabel: %d', $id);
         } else {
-            return sprintf('nolabel:%s/%s/%d', $cnt, $cmp, $id);
-        }
-    });
-
-    $self->helper(vehicle_name => sub {
-        my $self = shift;
-        my $v = shift;
-        my ($c, $n) = split(/:/, $v, 2);
-
-        if(my $obj = $self->model('wot-replays.data.vehicles')->find_one({ _id => $v })) {
-            return $obj->{label};
-        } else {
-            return sprintf('nolabel:%s', $v);
+            return sprintf('nolabel:%d', $id);
         }
     });
 

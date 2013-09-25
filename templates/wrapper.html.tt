@@ -22,7 +22,6 @@
         [% IF page.description %]
             <meta name="description" content="[% page.description |html %]"/>
         [% END %]
-        [% INCLUDE bricks/ga.js.tt %]
         [% IF notify %]
             <script type="text/javascript">
                 $(document).ready(function() {

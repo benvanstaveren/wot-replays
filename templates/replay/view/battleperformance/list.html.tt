@@ -1,6 +1,4 @@
 [% FOREACH pid IN replay.stats.details.keys %]
     [% details = replay.stats.details.$pid %]
-    [% IF details.killed > 0 || details.spotted > 0 || details.damageDealt > 0 || details.damageAssisted > 0 || details.hits > 0 %]
-        [% INCLUDE replay/view/battleperformance/row.html.tt details=details pid=pid %]  
-    [% END %]
+    [% INCLUDE replay/view/battleperformance/row.html.tt details=details pid=pid %]  
 [% END %]

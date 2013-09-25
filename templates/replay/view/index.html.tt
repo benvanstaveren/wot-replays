@@ -16,7 +16,7 @@
                         <span style="font-weight: normal">Result:</span><span>[% INCLUDE replay/view/matchresult.html.tt %]</span> <span style="margin: 0px 0px 0px 10px; font-weight: normal">Survived:</span><span> [% INCLUDE replay/view/vehicle_stats/survived.html.tt %]</span>
                     </h3>
                     <div>
-                        <button class="rateUp" rid="[% h.get_id(replay) %]" title="Like this replay"><span>Like</span> (<span class="rateUpCount">[% replay.site.likes || '0' %]</span>)</button></a>
+                        <button class="rateUp" rid="[% h.get_id(replay) %]" title="Like this replay"><span>Like</span> (<span class="rateUpCount">[% replay.site.like || '0' %]</span>)</button></a>
                         <button class="panelButton" style="width: 150px" id="btn-embed">Embed Replay</button>
                         [% IF !replay.site.download_disabled %]
                         <button href="/replay/[% h.get_id(replay) %]/download" class="panelButton downloadButton [% IF h.is_old_version(replay) %]incompatible[% END %]" style="width: 150px" id="btn-download">Download Replay (<span class="count">[% replay.site.downloads || '0' %]</span>)</button>

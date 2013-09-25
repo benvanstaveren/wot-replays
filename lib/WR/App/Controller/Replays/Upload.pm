@@ -61,10 +61,12 @@ sub process_replay {
 
             # figure out if we have a replay like this already
             if(my $d = $self->model('wot-replays.replays')->find_one({ digest => $replay->{digest} })) {
+                unlink($file); # and yes, it's possible to rename your uploads and clobber an existing file this way
                 $self->render(json => { ok => 0, error => 'That replay has already been uploaded' }) and return;
             }
 
             $replay->{site}->{visible} = Mango::BSON::bson_false if($job->{data}->{visible} < 1);
+            $replay->{file} = $job->{data}->{replay_file_base}; # kind of essential to have that, yeah...
 
             # get the packets out
             my $packets = delete($replay->{__packets__});
@@ -107,6 +109,10 @@ sub upload {
             my $replay_file_base = sprintf('%s/%s', $self->hashbucket($filename), $filename);
 
             make_path($replay_path);
+
+            if(-e $replay_file) {
+                $self->render(json => { ok => 0, error => 'You might want to rename the replay file first, we already seem to have one with the same name...' }) and return;
+            }
 
             $upload->asset->move_to($replay_file);
 

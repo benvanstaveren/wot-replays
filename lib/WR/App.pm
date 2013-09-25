@@ -76,13 +76,13 @@ sub startup {
         $playerbridge->route('/involved')->to('player#involved', pageid => 'player');
         $playerbridge->route('/latest')->to('player#latest', pageid => 'player');
 
+    $r->route('/vehicles')->to('vehicle#index', pageid => 'vehicle');
     my $vehicles = $r->under('/vehicle');
-        $vehicles->route('/')->to('vehicle#index', pageid => 'vehicle');
         $vehicles->route('/:country')->to('vehicle#view', pageid => 'vehicle', countryonly => 1);
         $vehicles->route('/:country/:vehicle')->to('vehicle#view', pageid => 'vehicle');
 
-    my $map = $r->under('/maps');
-        $map->route('/')->to('map#index', pageid => 'map');
+    $r->route('/maps')->to('map#index', pageid => 'map');
+    my $map = $r->under('/map');
         $map->route('/:map_id')->to('map#view', pageid => 'map');
 
     $r->any('/login')->to('ui#do_login', pageid => 'login');

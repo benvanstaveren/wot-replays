@@ -191,11 +191,13 @@ sub process {
     $replay->{game}->{recorder}->{vehicle} = {
         id => $replay->{roster}->[ $replay->{players}->{$replay->{game}->{recorder}->{name}} ]->{vehicle}->{id},
         tier => $replay->{roster}->[ $replay->{players}->{$replay->{game}->{recorder}->{name}} ]->{vehicle}->{level},
+        ident => $replay->{roster}->[ $replay->{players}->{$replay->{game}->{recorder}->{name}} ]->{vehicle}->{ident},
     };
 
     $replay->{involved} = {
         players => [ keys(%{$replay->{players}}) ],
         clans   => [],
+        vehicles => [ map { $_->{vehicle}->{ident} } @{$replay->{roster}} ],
     };
 
     my $tc = {};

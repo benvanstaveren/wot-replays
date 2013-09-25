@@ -12,11 +12,9 @@
                 <input type="hidden" name="server" value="[% req_host %]"/>
             [% END %]
             [% IF pageid == 'map' %]
-                <input type="hidden" name="map" value="[% map_id %]"/>
+                <input type="hidden" name="map" value="[% h.map_numericid(map_id) %]"/>
             [% ELSIF pageid == 'vehicle' %]
                 <input type="hidden" name="vehicle" value="[% vehicle_full %]"/>
-            [% ELSIF pageid == 'tournament' %]
-                <input type="hidden" name="matchtype" value="4"/>
             [% END %]
             [% IF pageid != 'vehicle' %]
             <span class="label">Vehicle</span>
