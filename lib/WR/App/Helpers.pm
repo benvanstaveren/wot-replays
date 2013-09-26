@@ -320,6 +320,8 @@ sub add_helpers {
         my $id   = shift;
         my $rec  = $self->get_recorder_vehicle($r);
 
+        return 0 unless(defined($id));
+
         return ($id == $rec->{vehicle}->{id}) ? 1 : 0;
     });
 
@@ -453,6 +455,8 @@ sub add_helpers {
         my $nid  = shift;
         my $type = shift;
         my $id  = shift;
+
+        return 'missing' unless(defined($nid) && defined($type) && defined($id));
 
         # nation->text
         my $nation = nation_id_to_name($nid);

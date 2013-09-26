@@ -44,7 +44,7 @@
                                                 <li class="nav-item tab"><a href="#battle-chat">Chat</a></li>
                                             [% END %]
                                             <li class="nav-item tab"><a href="#comparison">Compare</a></li>
-                                            [% IF related.count > 0 %]
+                                            [% IF related && related.count > 0 %]
                                                 <li class="nav-item tab"><a href="#replay-related">Related Replays ([% related.count %])</a></li>
                                             [% END %]
                                         </ul>
@@ -69,7 +69,7 @@
                             <div id="comparison" class="tab-panel" style="display: none">
                                 <div id="comparison-display">Loading...</div>
                             </div>
-                            [% IF related.count > 0 %]
+                            [% IF related.count && related.count > 0 %]
                             <div id="replay-related" class="tab-panel" style="display: none">
                                 under construction
                             </div>

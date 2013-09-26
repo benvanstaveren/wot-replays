@@ -30,7 +30,7 @@
         <td colspan="2">
             <span class="label" style="margin-top: 10px">Description [% IF h.is_own_replay(replay) %](<a href="#edit-desc" id="edit-desc-link">edit</a>)[% END %]</span>
             <div style="width: 95%" id="desc-show">
-            [% IF replay.site.description.length > 0 %]
+            [% IF replay.site.description && replay.site.description.length > 0 %]
                 [% replay.site.description |html|html_line_break %]
             [% ELSE %]
                 No description
