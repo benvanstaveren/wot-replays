@@ -29,7 +29,7 @@ sub _build_catalog {
     try {
         $cat = decode_json($content);
     } catch {
-        warn __PACKAGE__, ': catalog decoding error for ', $catfile, ': ', $_, "\n";
+        die __PACKAGE__, ': catalog decoding error for ', $catfile, ': ', $_, "\n";
     };
 
     return $cat;
