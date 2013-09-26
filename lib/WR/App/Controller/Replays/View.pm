@@ -196,38 +196,43 @@ sub actual_view_replay {
 
     foreach my $e (@{$replay->{stats}->{dossierPopUps}}) {
         $dossier_popups->{$e->[0]} = $e->[1]; # id, count
-        warn 'dossier: ', $e->[0], "\n";
-        warn 'is_battle', "\n" and next if($achievements->is_battle($e->[0])); # don't want the battle awards to be in other awards
-        warn 'is defined in achievements', "\n" and next if(defined($ah->{$e->[0]})); # if they were given in battle, keep them there
+        next if($achievements->is_battle($e->[0])); # don't want the battle awards to be in other awards
+        next if(defined($ah->{$e->[0]})); # if they were given in battle, keep them there
 
         if($achievements->is_class($e->[0])) {
             # class achievements get the whole medalKay1..4 etc. bit so add a class suffix, and no count
-            warn 'is_class', "\n";
             push(@$other_awards, {
                 class_suffix => $e->[1],
                 count => undef,
                 type => $e->[0],
             });
         } elsif($achievements->is_single($e->[0])) {
-            # non-repeatables, no suffix, no count
-            warn 'is_single', "\n";
-            warn 'is_single', "\n";
-            warn 'is_single', "\n";
-            warn 'is_single', "\n";
             push(@$other_awards, {
                 class_suffix => undef,
                 count => undef,
                 type => $e->[0],
             });
         } elsif($achievements->is_repeatable($e->[0])) {
-            # repeatables, have a count
-            warn 'is_repeatable', "\n";
             push(@$other_awards, {
                 class_suffix => undef,
                 count => $e->[1],
                 type => $e->[0],
             });
         }
+    }
+
+    # and here one thing we need to do is generate the platoons and their counts
+    my $pl_indexes = {};
+    my $idx = 0;
+    my $pl_members = {}; 
+
+    foreach my $v (@{$replay->{roster}}) {
+        next unless(defined($v->{platoon}));
+        # platoon contains the prebattleID
+        unless(defined($pl_indexes->{$v->{platoon}})) {
+            $pl_indexes->{$v->{platoon}} = ++$idx;
+        }
+        $pl_members->{$v->{player}->{name}} = $pl_indexes->{$v->{platoon}};
     }
 
     $self->model('wot-replays.replays')->update({ _id => $replay->{_id} }, {
@@ -243,6 +248,7 @@ sub actual_view_replay {
                     description => $description,
                 },
                 other_awards => $other_awards,
+                platoons => $pl_members,
                 timing_view => tv_interval($start, [ gettimeofday ]),
             }, 
             template => 'replay/view/index',

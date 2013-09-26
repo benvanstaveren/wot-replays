@@ -1,5 +1,5 @@
 [% pname = player.player.name %]
-[% platoon = 0 %]
+[% platoon = platoons.$pname %]
 [% fitting = player.vehicle.fitting %]
 [% IF player.stats.deathReason == -1 %]
     [% class = 'survived' %]
@@ -33,6 +33,7 @@
             [% END %]
         [% END %]
     </td>
+    <td class="playerDamage"><span class="green">[% player.stats.damageDealt %]</td>
     <td class="playerXP tooltip"><span class="green" title="Player earned [% player.stats.xp %] xp not including bonuses and premium multipliers">[% player.stats.xp %]</span></td>
     <td class="playerFrags [% IF player.stats.kills > 0 %]green[% ELSIF player.stats.kills < 0 %]red[% END %]">[% player.stats.kills || '0' %]</td>
 </tr>
