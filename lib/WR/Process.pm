@@ -271,16 +271,13 @@ sub generate_banner {
             damaged => $res->{stats}->{damaged},
             player  => $res->{roster}->[ $recorder ]->{player}->{name},
             clan    => $res->{roster}->[ $recorder ]->{player}->{clan},
-            destination => [
-                sprintf('%s/%s.png', $base_path, $res->{_id} . ''),
-                sprintf('%s/%s.jpg', $base_path, $res->{_id} . ''),
-            ],
+            destination => sprintf('%s/%s.jpg', $base_path, $res->{_id} . ''),
             awards  => $self->stringify_awards($res),
         );
         $image = {
             available => Mango::BSON::bson_true,
             file => $imagefile,
-            url_path => sprintf('%s/%s.png', $self->hashbucket($res->{_id} . ''), $res->{_id} . ''),
+            url_path => sprintf('%s/%s.jpg', $self->hashbucket($res->{_id} . ''), $res->{_id} . ''),
         };
     } catch {
         $image = {

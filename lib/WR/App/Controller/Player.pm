@@ -99,9 +99,9 @@ sub latest {
         
         if($d && $d->[0]) {
             my $replay = $d->[0];
-            if(defined($self->stash('format')) && $self->stash('format') eq 'png') {
+            if(defined($self->stash('format')) && $self->stash('format') =~ /png|jpg/) {
                 # hashify the string
-                $self->redirect_to(sprintf('http://dl.wt-replays.org/%s.png', $self->hashbucket($replay->{_id}->to_string)));
+                $self->redirect_to(sprintf('http://dl.wt-replays.org/%s.jpg', $self->hashbucket($replay->{_id} . '')));
             } else {
                 $self->redirect_to(sprintf('/replay/%s.html', $replay->{_id}->to_string));
             }
