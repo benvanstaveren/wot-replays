@@ -16,9 +16,9 @@
     <td class="playerDetails">
         <span class="
             [% IF roster.player.team == replay.game.recorder.team %]
-                teamkill [% IF !h.was_killed_by_recorder(replay, pid) %]dimmed[% ELSE %]tooltip" title="Player killed this team member"[% END %]
+                teamkill [% IF !h.was_killed_by_recorder(replay, pid) %]dimmed"[% ELSE %]tooltip" title="Player killed this team member"[% END %]
             [% ELSE %]
-                kill [% IF !details || !h.was_killed_by_recorder(replay, pid) %]dimmed[% ELSE %]tooltip" title="Player got the killing blow on this enemy"[% END %]
+                kill [% IF !details || !h.was_killed_by_recorder(replay, pid) %]dimmed"[% ELSE %]tooltip" title="Player got the killing blow on this enemy"[% END %]
             [% END %]></span>
         <span class="damage 
             [% IF roster.player.team == replay.game.recorder.team %]
