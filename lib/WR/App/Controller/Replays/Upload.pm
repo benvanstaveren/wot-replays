@@ -47,18 +47,20 @@ sub process_replay {
 
     if(my $job = $self->model('wot-replays.jobs')->find_one({ _id => $oid })) {
         my $file = $job->{data}->{file};
-        if(my $replay = try {
+        my $replay;
+        try {
             my $process = WR::Process->new(
                 bf_key      => $self->stash('config')->{wot}->{bf_key},
                 file        => $file,
                 mango       => $self->app->mango,
                 banner_path => $self->stash('config')->{paths}->{banners},
             );
-            return $process->process;
+            $replay = $process->process;
         } catch {
-            return undef;
-        }) {
-
+            unlink($file);
+            $self->render(json => { ok => 0, error => 'Could not parse replay: ' . $_ });
+        };
+        if(defined($replay)) {
             # figure out if we have a replay like this already
             if(my $d = $self->model('wot-replays.replays')->find_one({ digest => $replay->{digest} })) {
                 unlink($file); # and yes, it's possible to rename your uploads and clobber an existing file this way
