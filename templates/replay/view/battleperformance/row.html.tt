@@ -12,7 +12,7 @@
         </div>
     </td>
     <td class="tooltip playerName" title="[% roster.player.name |html %][% IF roster.player.clan %][[% roster.player.clan %]][% END %]">
-        [% roster.player.name |truncate(12) |html %][% IF roster.player.clan %]<span class="clan">[[% roster.player.clan %]]</span>[% END %]
+        [% roster.player.name |truncate(10) |html %][% IF roster.player.clan %]<span class="clan">[[% roster.player.clan %]]</span>[% END %]
     </td>
     <td class="playerDetails">
         <span class="
