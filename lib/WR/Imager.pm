@@ -23,7 +23,7 @@ sub _build_path {
     # better, we know the 'sites/images...' bit is always the same regardless.
     return (-e '/home/ben') 
         ? '/home/ben/projects/wot-replays/site/sites/images'
-        : '/home/wotreplay/site/sites/images'
+        : '/home/wotreplay/wot-replays/sites/images'
         ;
 }
 
@@ -34,7 +34,7 @@ sub _build_config_path {
     # better, we know the 'sites/images...' bit is always the same regardless.
     return (-e '/home/ben') 
         ? '/home/ben/projects/wot-replays/site/etc'
-        : '/home/wotreplay/site/etc'
+        : '/home/wotreplay/wot-replays/etc'
         ;
 }
 
