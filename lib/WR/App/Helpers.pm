@@ -340,11 +340,7 @@ sub add_helpers {
         my $r    = shift;
         my $id   = shift;
         my $rec  = $self->get_recorder_vehicle($r);
-
-        warn 'was_killed_by_recorder, recorder vid: ', $rec->{vehicle}->{id}, ' pid: ', $id, "\n";
-
         return 0 unless(defined($id));
-
         return ($id == $rec->{vehicle}->{id}) ? 1 : 0;
     });
 
