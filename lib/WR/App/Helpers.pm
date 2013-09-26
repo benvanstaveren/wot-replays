@@ -4,6 +4,7 @@ use warnings;
 use WR::Query;
 use WR::Res;
 use WR::Util::CritDetails;
+use WR::ServerFinder;
 use WR::Constants qw/nation_id_to_name/;
 use Data::Dumper;
 
@@ -40,6 +41,15 @@ sub generate_vehicle_select {
 sub add_helpers {
     my $class = shift;
     my $self  = shift; # not really self but the Mojo app
+
+    $self->attr(_sf => sub { WR::ServerFinder->new });
+
+    $self->helper(resolve_server_by_playerid => sub {
+        my $self = shift;
+        my $id   = shift;
+
+        return $self->app->_sf->get_server_by_id($id + 0);
+    });
 
     $self->helper(wot_version => sub {
         my $self = shift;

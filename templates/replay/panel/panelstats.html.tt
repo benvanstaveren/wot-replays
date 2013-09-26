@@ -45,7 +45,7 @@
                 </span>
             </td>
             <td>
-                <span class="label fw">server:</span><span class="value fw">[% replay.game.server |upper %]</span>
+                <span class="label fw">server:</span><span class="value fw">[% h.resolve_server_by_playerid(h.get_recorder_vehicle(replay).player.dbid) %]</span>
             </td>
             <td>
                 <span class="label fw">version:</span><span class="value fw" title="[% IF !h.is_old_version(replay) %]Current version[% ELSE %]Incompatible version[% END %]" style="color: #6[% IF !h.is_old_version(replay) %]66[% ELSE %]00[% END %]">[% h.wot_version(replay) %]</span>
