@@ -1,4 +1,5 @@
 [% roster = h.get_roster_by_vid(replay, pid) %]
+[% cd = h.get_crit_details(details.crits) %]
 <tr class="battleperformance">
     <td class="playerVehicle" style="background: transparent url(//images.wt-replays.org/vehicles/48/[% roster.vehicle.icon %]) no-repeat scroll 0 0" title="[% roster.vehicle.label |html %]">
         <div class="playerHealth">
@@ -30,12 +31,23 @@
             <b>[% details.hits + details.he_hits %]</b> 
             [% END %]
         </span>
-        [% cd = h.get_crit_details(details.crits) %]
-        <span class="crits [% IF cd.count == 0 %]dimmed"[% ELSE %]tooltip" title="Player made [% cd.count %] critical hits"[% END %]>
+        <span class="crits [% IF cd.count == 0 %]dimmed"[% ELSE %]tooltip hasdetails" player="[% pid %]" title="Player made [% cd.count %] critical hits, click for details"[% END %]>
             [% IF cd.count > 0 %]
             <b>[% cd.count %]</b>
             [% END %]
         </span>
+        [% IF cd.count > 0 %]
+            <div id="crit-details-[% pid %]" class="crit-details-dlg" style="display: none" title="Critical Hit Details">
+                <div>
+                    <h3>Damaged Modules</h3>
+                    <h3>Destroyed Modules</h3>
+                    <h3>Injured Crew</h3>
+                    <pre>
+                        [% h.datadumper(cd) %]
+                    </pre>
+                </div>
+            </div>
+        [% END %]
         [% IF details && (details.damageAssistedRadio + details.damageAssistedTrack) > 0 %]
             <span class="evil tooltip" title="Player spotted this vehicle, and team members contributed [% details.damageAssistedRadio + details.damageAssistedTrack %] points ([% h.percentage_of(ph, details.damageAssistedRadio + details.damageAssistedTrack) %]%) of damage"></span>
         [% ELSE %]

@@ -24,7 +24,11 @@
         </div>
     </td>
     <td class="playerName" title="[% player.player.name |html %]">
-        [% player.player.name |truncate(15)|html %][% IF player.player.clan %]<span class="clan">[[% player.player.clan %]]</span>[% END %]
+        [% IF player.player.clan %]
+            [% player.player.name |truncate(12)|html %]<span class="clan">[[% player.player.clan %]]</span>
+        [% ELSE %]
+            [% player.player.name |truncate(16)|html %]
+        [% END %]
     </td>
     <td class="playerDetails">
         [% FOREACH award IN player.stats.achievements.nsort %]
