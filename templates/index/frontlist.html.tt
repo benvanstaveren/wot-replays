@@ -1,4 +1,4 @@
-<h3 class="frontlistheader">Newest 15 out of [% replay_count %] Replays</span></h3> 
+<h3 class="frontlistheader">Newest [% replays.size %] out of [% replay_count %] Replays</span></h3> 
 <div id="front-panel-list">
 [% INCLUDE replay/panel_list.html.tt %]
 </div>
