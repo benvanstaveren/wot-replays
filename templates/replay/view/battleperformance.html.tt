@@ -16,27 +16,27 @@
                     <table style="width: 100%" cellspacing="0" cellpadding="0"><tbody>
                     <tr>
                         <td style="width: 33%; vertical-align: top">
-                            <h3>Damaged Modules</h3>
+                            <h2>Damaged Modules</h2>
                             [% FOREACH id IN cd.critical_devices %]
-                                <div>
+                                <div style="font-size: 1.4em">
                                     <span><img src="//images.wt-replays.org/icon/crit/[% id %]CriticalSmall.png" style="width: 16px; height: 16px"></span>
                                     <span>[% h.crit_component_name(id) %]</span>
                                 </div>
                             [% END %]
                         </td>
                         <td style="width: 33%; vertical-align: top">
-                            <h3>Destroyed Modules</h3>
+                            <h2>Destroyed Modules</h2>
                             [% FOREACH id IN cd.destroyed_devices %]
-                                <div>
+                                <div style="font-size: 1.4em">
                                     <span><img src="//images.wt-replays.org/icon/crit/[% id %]DestroyedSmall.png" style="width: 16px; height: 16px"></span>
                                     <span>[% h.crit_component_name(id) %]</span>
                                 </div>
                             [% END %]
                         </td>
                         <td style="width: 33%; vertical-align: top">
-                            <h3>Injured Crew</h2>
+                            <h2>Injured Crew</h2>
                             [% FOREACH id IN cd.destroyed_tankmen %]
-                                <div>
+                                <div style="font-size: 1.4em">
                                     <span><img src="//images.wt-replays.org/icon/crit/[% id %]DestroyedSmall.png" style="width: 16px; height: 16px"></span>
                                     <span>[% h.crit_tankman_name(id) %]</span>
                                 </div>
