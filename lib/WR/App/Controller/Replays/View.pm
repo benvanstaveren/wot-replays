@@ -159,7 +159,7 @@ sub actual_view_replay {
 
     my $title = sprintf('%s - %s - %s (%s)',
         $replay->{game}->{recorder}->{name},
-        $self->get_recorder_vehicle($replay)->{label},
+        $self->get_recorder_vehicle($replay)->{vehicle}->{label},
         $self->map_name($replay->{game}->{map}),
         $self->app->wr_res->gametype->i18n($replay->{game}->{type})
         );
@@ -168,7 +168,7 @@ sub actual_view_replay {
     my $description = sprintf('This is a replay of a %s match fought by %s, using the %s vehicle, on map %s', 
         $self->app->wr_res->gametype->i18n($replay->{game}->{type}), 
         $replay->{game}->{recorder}->{name}, 
-        $self->get_recorder_vehicle($replay)->{label},
+        $self->get_recorder_vehicle($replay)->{vehicle}->{label},
         $self->map_name($replay->{game}->{map})
         );
 
@@ -236,6 +236,7 @@ sub actual_view_replay {
         $replay->{site}->{views} += 1; 
         $self->respond(
             stash => {
+                pageid => 'browse', # really? yah really
                 replay => $replay,
                 page   => {
                     title => $title,

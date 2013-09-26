@@ -29,6 +29,11 @@
                 </li>
             </ul>
             <ul class="nav js-global-actions" id="global-pages" style="float: right">
+                <li class="nav-item issues [% IF pageid == 'issues' %]active[% END %]">
+                    <a class="js-hover" href="https://bitbucket.org/wotreplays/wot-replays/issues">
+                        Issue Tracker
+                    </a>
+                </li>
                 <li class="nav-item wiki [% IF pageid == 'wiki' %]active[% END %]">
                     <a class="js-hover" href="http://wiki.vbaddict.net/pages/WoT_Developer_Wiki">
                         Wiki
