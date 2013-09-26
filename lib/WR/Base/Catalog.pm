@@ -39,11 +39,17 @@ sub i18n {
     my $self = shift;
     my $key  = shift;
 
-    return (defined($self->_catalog->{$key})) 
-        ? (defined($self->_catalog->{$key}->{label}))
-            ? $self->_catalog->{$key}->{label}
-            : sprintf('nolabel:%s', $key)
-        : sprintf('nocat:%s', $key);
+    if(defined($self->_catalog->{$key})) {
+        my $v = $self->_catalog->{$key};
+
+        if(ref($v) eq 'HASH') {
+            return $v->{label};
+        } else {
+            return $v;
+        }
+    } else {
+        return sprintf('nolabel:%s', $key);
+    }
 }
 
 sub get {
