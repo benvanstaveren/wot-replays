@@ -35,7 +35,7 @@ sub get_server_by_id {
         my $v = __PACKAGE__->SERVER_ID_MAPPING->{$server};
         return $server if($id >= $v->[0] && $id <= $v->[1]);
     }
-    return undef;
+    return sprintf('unknown:%d', $id);
 }
 
 1;
