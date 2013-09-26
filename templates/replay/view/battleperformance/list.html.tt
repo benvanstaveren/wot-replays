@@ -2,27 +2,3 @@
     [% details = replay.stats.details.$pid %]
     [% INCLUDE replay/view/battleperformance/row.html.tt details=details pid=pid %]  
 [% END %]
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('div.crit-details-dlg').dialog({
-            autoOpen: false,
-            modal: true,
-            resizable: false,
-            closeOnEscape: true,
-            buttons: {
-                'Ok': function() {
-                    $(this).dialog('close');
-                }
-            },
-            width: 400,
-            height: 400,
-        });
-        $('span.crits.hasdetails').css({ 'pointer': 'cursor' }).click(function() {
-            var pid = $(this).attr('player');
-            var dlg = $('#crit-details-' + pid);
-
-            $(dlg).dialog('open');
-            return false;
-        });
-    });
-</script>

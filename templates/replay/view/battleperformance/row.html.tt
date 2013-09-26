@@ -36,18 +36,6 @@
             <b>[% cd.count %]</b>
             [% END %]
         </span>
-        [% IF cd.count > 0 %]
-            <div id="crit-details-[% pid %]" class="crit-details-dlg" style="display: none" title="Critical Hit Details">
-                <div>
-                    <h3>Damaged Modules</h3>
-                    <h3>Destroyed Modules</h3>
-                    <h3>Injured Crew</h3>
-                    <pre>
-                        [% h.datadumper(cd) %]
-                    </pre>
-                </div>
-            </div>
-        [% END %]
         [% IF details && (details.damageAssistedRadio + details.damageAssistedTrack) > 0 %]
             <span class="evil tooltip" title="Player spotted this vehicle, and team members contributed [% details.damageAssistedRadio + details.damageAssistedTrack %] points ([% h.percentage_of(ph, details.damageAssistedRadio + details.damageAssistedTrack) %]%) of damage"></span>
         [% ELSE %]

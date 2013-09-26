@@ -7,10 +7,45 @@
         </tbody>
         </table>
     </div>
+    [% FOREACH pid IN replay.stats.details.keys %]
+        [% details = replay.stats.details.$pid %]
+        [% cd = h.get_crit_details(details.crits) %]
+        [% IF cd.count > 0 %]
+            <div id="crit-details-[% pid %]" class="crit-details-dlg" style="display: none" title="Critical Hit Details">
+                <div>
+                    <h3>Damaged Modules</h3>
+                    <h3>Destroyed Modules</h3>
+                    <h3>Injured Crew</h3>
+                    <pre>
+                        [% h.datadumper(cd) %]
+                    </pre>
+                </div>
+            </div>
+        [% END %]
+    [% END %]
     <div class="clear"></div>
 </div>
 <script type="text/javascript">
     $(document).ready(function() {
         $('td.tooltip').tooltip({ track: true });
+        $('div.crit-details-dlg').dialog({
+            autoOpen: false,
+            modal: true,
+            resizable: false,
+            closeOnEscape: true,
+            buttons: {
+                'Ok': function() {
+                    $(this).dialog('close');
+                }
+            },
+            width: 400,
+            height: 400,
+        });
+        $('span.crits.hasdetails').css({ 'pointer': 'cursor' }).click(function() {
+            var pid = $(this).attr('player');
+            var dlg = $('#crit-details-' + pid);
+            $(dlg).dialog('open');
+            return false;
+        });
     });
 </script>
