@@ -11,8 +11,8 @@ has '_path'    => sub { return shift->_build_path };
 sub _build_path {
     my $self = shift;
 
-    return (-e '/home/wotreplay/site/etc/res') 
-        ? '/home/wotreplay/site/etc/res'
+    return (-e '/home/wotreplay/wot-replays/etc/res') 
+        ? '/home/wotreplay/wot-replays/etc/res'
         : sprintf('%s/projects/wot-replays/site/etc/res', $ENV{HOME});
 }
 

@@ -13,8 +13,8 @@ sub new {
     
     bless($self, $package);
 
-    $self->path((-e '/home/wotreplay/site/etc/res') 
-        ? '/home/wotreplay/site/etc/res'
+    $self->path((-e '/home/wotreplay/wot-replays/etc/res') 
+        ? '/home/wotreplay/wot-replays/etc/res'
         : sprintf('%s/projects/wot-replays/site/etc/res', $ENV{HOME}));
     $self->catalog(Data::Localize::Gettext->new(path => sprintf('%s/*.po', $self->path)));
 }

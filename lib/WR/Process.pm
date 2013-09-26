@@ -244,7 +244,7 @@ sub generate_banner {
         $pv =~ s/:/-/;
 
         my $xp = $res->{stats}->{xp};
-        $xp .= sprintf(' (x%d)', $res->{statistics}->{dailyXPFactor10}/10) if($res->{stats}->{dailyXPFactor10} > 10);
+        $xp .= sprintf(' (x%d)', $res->{stats}->{dailyXPFactor10}/10) if($res->{stats}->{dailyXPFactor10} > 10);
 
         my $map = $self->model('wot-replays.data.maps')->find_one({ numerical_id => $res->{game}->{map} });
         die 'no map', "\n" unless(defined($map));
