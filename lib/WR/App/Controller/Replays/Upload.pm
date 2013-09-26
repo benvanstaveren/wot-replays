@@ -66,7 +66,7 @@ sub process_replay {
             }
 
             $replay->{site}->{visible} = Mango::BSON::bson_false if($job->{data}->{visible} < 1);
-            $replay->{site}->{desc} = (defined($job->{data}->{desc}) && length($job->{data}->{desc}) > 0) ? $job->{data}->{desc} : undef;
+            $replay->{site}->{description} = (defined($job->{data}->{desc}) && length($job->{data}->{desc}) > 0) ? $job->{data}->{desc} : undef;
             $replay->{file} = $job->{data}->{file_base}; # kind of essential to have that, yeah...
 
             # get the packets out
