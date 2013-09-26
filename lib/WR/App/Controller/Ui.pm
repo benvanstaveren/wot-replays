@@ -115,10 +115,12 @@ sub do_logout {
 sub do_login {
     my $self = shift;
     my $s    = $self->req->param('s');
+    my $f    = $self->req->param('f');
 
     if(defined($s)) {
         # fix for the sea -> asia move
         $s = 'asia' if($s eq 'sea');
+        $self->session('after_openid' => $f);
         my %params = @{ $self->req->params->params };
         my $my_url = $self->req->url->base;
         my $cache = Cache::File->new(cache_root => sprintf('%s/openid', $self->app->home->rel_dir('tmp/cache')));
@@ -205,7 +207,12 @@ sub openid_return {
                 'openid' => $vident->url,
                 'notify' => { type => 'info', text => 'Login successful', close => 1 },
             );
-            $self->redirect_to('/');
+
+            if(my $f = $self->session('after_openid')) {
+                $self->redirect_to(sprintf('/%s', $f));
+            } else {
+                $self->redirect_to('/');
+            }
         },
         error => sub {
             my $err = shift;

@@ -196,11 +196,13 @@ sub actual_view_replay {
 
     foreach my $e (@{$replay->{stats}->{dossierPopUps}}) {
         $dossier_popups->{$e->[0]} = $e->[1]; # id, count
-        next if($achievements->is_battle($e->[0])); # don't want the battle awards to be in other awards
-        next if(defined($ah->{$e->[0]})); # if they were given in battle, keep them there
+        warn 'dossier: ', $e->[0], "\n";
+        warn 'is_battle', "\n" and next if($achievements->is_battle($e->[0])); # don't want the battle awards to be in other awards
+        warn 'is defined in achievements', "\n" and next if(defined($ah->{$e->[0]})); # if they were given in battle, keep them there
 
         if($achievements->is_class($e->[0])) {
             # class achievements get the whole medalKay1..4 etc. bit so add a class suffix, and no count
+            warn 'is_class', "\n";
             push(@$other_awards, {
                 class_suffix => $e->[1],
                 count => undef,
@@ -208,6 +210,10 @@ sub actual_view_replay {
             });
         } elsif($achievements->is_single($e->[0])) {
             # non-repeatables, no suffix, no count
+            warn 'is_single', "\n";
+            warn 'is_single', "\n";
+            warn 'is_single', "\n";
+            warn 'is_single', "\n";
             push(@$other_awards, {
                 class_suffix => undef,
                 count => undef,
@@ -215,6 +221,7 @@ sub actual_view_replay {
             });
         } elsif($achievements->is_repeatable($e->[0])) {
             # repeatables, have a count
+            warn 'is_repeatable', "\n";
             push(@$other_awards, {
                 class_suffix => undef,
                 count => $e->[1],
@@ -234,6 +241,7 @@ sub actual_view_replay {
                     title => $title,
                     description => $description,
                 },
+                other_awards => $other_awards,
                 timing_view => tv_interval($start, [ gettimeofday ]),
             }, 
             template => 'replay/view/index',

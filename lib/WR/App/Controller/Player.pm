@@ -1,48 +1,9 @@
 package WR::App::Controller::Player;
 use Mojo::Base 'WR::App::Controller';
 use WR::Query;
-use Tie::IxHash;
-use boolean;
+use Mango::BSON;
 
-sub index {
-    my $self = shift;
-    my $p    = $self->req->param('player');
-    my $results = [];
-    my $temp = {};
-
-    if(defined($p)) {
-        my $query = {
-            '$or' => [
-                { 'player.name' => qr/^$p/i },
-                { 'vehicles.name' => qr/^$p/i },
-            ]
-        };
-
-        my $cursor = $self->model('wot-replays.replays')->find($query);
-        while(my $replay = $cursor->next()) {
-            $temp->{$replay->{player}->{server}}->{$replay->{player}->{name}}++ if($replay->{player}->{name} =~ qr/^$p/i);
-            foreach my $v (values(%{$replay->{vehicles}})) {
-                $temp->{$replay->{player}->{server}}->{$v->{name}}++ if($v->{name} =~ qr/^$p/i);
-            }
-        }
-    }
-
-    foreach my $server (keys(%$temp)) {
-        foreach my $player (keys(%{$temp->{$server}})) {
-            push(@$results, { player => $player, server => $server });
-        }
-    }
-
-    $self->respond(
-        template => 'player/index',
-        stash => {
-            page    => { title => 'Players' },
-            player  => $p,
-            results => $results,
-        },
-    );
-}
-
+=pod
 sub get_quick_stats {
     my $self = shift;
     my $server = shift;
@@ -110,36 +71,44 @@ sub ambi {
         });
     }
 }
+=cut
 
 sub involved {
     return shift->view(1);
 }
 
-sub player_bridge {
+sub player_bridge { return 1; }
+
+sub index {
     my $self = shift;
 
-    # there's no player record to load so...
-    return 1;
+    $self->respond(template => 'player/index');
 }
 
 sub latest {
     my $self = shift;
     my $query = {
-        'player.name'   => $self->stash('player_name'),
-        'player.server' => $self->stash('server'),
-        'site.visible'  => true,
+        'game.recorder.name'   => $self->stash('player_name'),
+        'game.server' => $self->stash('server'),
+        'site.visible'  => Mango::BSON::bson_true,
     };
 
-    if(my $replay = ($self->model('wot-replays.replays')->find($query)->sort({ 'site.uploaded_at' => -1 })->limit(1)->all())[0]) {
-        if(defined($self->stash('format')) && $self->stash('format') eq 'png') {
-            # hashify the string
-            $self->redirect_to(sprintf('http://dl.wt-replays.org/%s.png', $self->hashbucket($replay->{_id}->to_string)));
+    $self->render_later;
+    $self->model('wot-replays.replays')->find($query)->sort({ 'site.uploaded_at' => -1 })->limit(1)->all(sub {
+        my ($c, $e, $d) = (@_);
+        
+        if($d && $d->[0]) {
+            my $replay = $d->[0];
+            if(defined($self->stash('format')) && $self->stash('format') eq 'png') {
+                # hashify the string
+                $self->redirect_to(sprintf('http://dl.wt-replays.org/%s.png', $self->hashbucket($replay->{_id}->to_string)));
+            } else {
+                $self->redirect_to(sprintf('/replay/%s.html', $replay->{_id}->to_string));
+            }
         } else {
-            $self->redirect_to(sprintf('/replay/%s.html', $replay->{_id}->to_string));
+            $self->redirect_to(sprintf('/player/%s/%s', $self->stash('server'), $self->stash('player_name')));
         }
-    } else {
-        $self->redirect_to(sprintf('/player/%s/%s', $self->stash('server'), $self->stash('player_name')));
-    }
+    });
 }
 
 sub view { 
@@ -148,24 +117,32 @@ sub view {
     my $server = $self->stash('server');
     my $player = $self->stash('player_name');
 
-    my $total    = $self->model('wot-replays.replays.players')->find({ server => $server, player => $player })->count();
-    my $involved = $self->model('wot-replays.replays')->find({ 'player.server' => $server, 'site.visible' => 1, 'involved.players' => { '$in' => [ $player ] }, 'player.name' => { '$ne' => $player })->count();
+    $self->render_later;
 
-    foreach my $v (@{$self->stash('config')->{wot}->{history}}) {
-        $involved += $self->model(sprintf('wot-replays.replays.%s', $v)->find({ 'site.visible' => 1, 'player.server' => $server, 'involved.players' => { '$in' => [ $player ] }, 'player.name' => { '$ne' => $player })->count()
-    }
+    $self->model('wot-replays.replays')->find({ 'game.server' => $server, 'site.visible' => Mango::BSON::bson_true, 'game.recorder.name' => $player })->count(sub {
+        my ($c, $e, $total) = (@_);
 
-    $self->respond(
-        template => ($inv) ? 'player/involved' : 'player/view',
-        stash    => {
-            total_replays => $total,
-            total_involved => $involved,
-            statistics => $self->get_quick_stats($server => $player),
-            page => {
-                title => sprintf('Players &raquo; %s', $player),
-            },
-        }
-    );
+        $self->model('wot-replays.replays')->find({ 
+            'game.server' => $server, 
+            'site.visible' => Mango::BSON::bson_true, 
+            'involved.players' => { '$in' => [ $player ] }, 
+            'game.recorder.name' => { '$ne' => $player }
+        })->count(sub {
+            my ($c, $e, $involved) = (@_);
+
+            $self->respond(
+                template => ($inv) ? 'player/involved' : 'player/view',
+                stash    => {
+                    total_replays => $total,
+                    total_involved => $involved,
+                    #statistics => $self->get_quick_stats($server => $player),
+                    page => {
+                        title => sprintf('Players &raquo; %s', $player),
+                    },
+                }
+            );
+        });
+    });
 }
 
 1;

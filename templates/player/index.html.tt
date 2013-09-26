@@ -1,33 +1,5 @@
 [% WRAPPER wrapper.html.tt %]
     <div><div class="content nosidebar aboutText">
-        <div>
-            <form action="/players" method="post">
-            <span class="label">Player Name</span>
-            <input type="text" name="player" value="[% player |html %]"/>
-            <input type="submit" value="Search"/>
-            </form>
-        </div>
-        <div>
-            [% IF results.size > 0 %]
-                <span class="label">[% results.size %] players found</span>
-                <table style="width: 500px" cellspacing="0" cellpadding="0">
-                    <thead>
-                        <tr class="ui-widget-header">
-                            <td>Player</td>
-                            <td>Server</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    [% FOREACH result IN results %]
-                        <tr><td><a href="/player/[% result.server %]/[% result.player |uri %]">[% result.player |html %]</a></td><td>[% result.server %]</td></tr>
-                    [% END %]
-                    </tbody>
-                </table>
-            [% ELSIF player %]
-                <b>We could not find any results...</b>
-            [% ELSE %]
-                <b>Please type a part of the players' name in the search box above...</b>
-            [% END %]
-        </div>
+        Sorry, player searching is disabled for the time being
     </div></div>
 [% END %]

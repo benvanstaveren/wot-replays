@@ -10,7 +10,7 @@
                 </div>
                 <div style="float: left">
                     <h2 style="margin: 0px 0px 0px 0px">
-<a class="[% IF h.get_replay_stats(replay, 'isPremium') %]premium[% END %]" href="/player/[% replay.game.server %]/[% replay.game.recorder.name |uri %]/" title="[% replay.game.recorder.name |html %] [% IF h.get_replay_stats(replay, 'isPremium') %](Premium)[% END %]">[% replay.game.recorder.name |truncate(15) |html %]</a> - <a href="/vehicle/[% h.vehicle_link(h.get_recorder_vehicle(replay).vehicle.ident) %]/" title="[% h.get_recorder_vehicle(replay).vehicle.label |html %]">[% h.get_recorder_vehicle(replay).vehicle.label_short |html %]</a> - <a href="/map/[% h.map_slug(replay.game.map) |uri %]/">[% h.map_name(replay.game.map) |html %]</a> ([% h.bonus_type_name(replay.game.bonus_type) %] [% h.game_type_name(replay.game.type) %])</a>
+<a class="[% IF h.get_replay_stats(replay, 'isPremium') %]premium" style="background-position: center left;"[% END %] href="/player/[% replay.game.server %]/[% replay.game.recorder.name |uri %]/" title="[% replay.game.recorder.name |html %] [% IF h.get_replay_stats(replay, 'isPremium') %](Premium)[% END %]">[% replay.game.recorder.name |truncate(15) |html %]</a> - <a href="/vehicle/[% h.vehicle_link(h.get_recorder_vehicle(replay).vehicle.ident) %]/" title="[% h.get_recorder_vehicle(replay).vehicle.label |html %]">[% h.get_recorder_vehicle(replay).vehicle.label_short |html %]</a> - <a href="/map/[% h.map_slug(replay.game.map) |uri %]/">[% h.map_name(replay.game.map) |html %]</a> ([% h.bonus_type_name(replay.game.bonus_type) %] [% h.game_type_name(replay.game.type) %])</a>
                     </h2>
                     <h3 style="margin: 0px 0px 5px 0px">
                         <span style="font-weight: normal">Result:</span><span>[% INCLUDE replay/view/matchresult.html.tt %]</span> <span style="margin: 0px 0px 0px 10px; font-weight: normal">Survived:</span><span> [% INCLUDE replay/view/vehicle_stats/survived.html.tt %]</span>
@@ -21,7 +21,9 @@
                         [% IF !replay.site.download_disabled %]
                         <button href="/replay/[% h.get_id(replay) %]/download" class="panelButton downloadButton [% IF h.is_old_version(replay) %]incompatible[% END %]" style="width: 150px" id="btn-download">Download Replay (<span class="count">[% replay.site.downloads || '0' %]</span>)</button>
                         [% END %]
-                        <button href="/csv/[% replay.id %].csv" class="panelButton downloadButton" style="width: 75px" id="btn-csv">As CSV</button>
+                        [% IF 1 == 0 %]
+                        <button href="/replay/[% h.get_id(replay) %]/csv.csv" class="panelButton downloadButton" style="width: 75px" id="btn-csv">As CSV</button>
+                        [% END %]
                     </div>
                 </div>
                 <div class="clear"></div>
@@ -113,16 +115,15 @@
                 $('td.playerDetails span.tooltip').tooltip({ track: true }).css({ 'cursor': 'pointer' });
                 $('span.tooltip').tooltip({track: true}).css({ 'cursor': 'pointer' });
                 $('button#btn-embed').click(function() {
-                    WR.trackEvent('Replay','Embed', '/replay/[% replay.id %].html');
                     $('<div>').attr('title', 'Embed Replay').append(
                         $('<div>').css({ 'font-size': '1.2em', 'padding': '2px'}).html('In order to embed this replay, use the supplied BBCode below'),
-                        $('<img>').attr('src', 'http://banners.wt-replays.org/[% replay.image.url_base %]').css({ 'width': '545px', 'height': '98px', 'margin': '10px 0px 10px 0px' }),
+                        $('<img>').attr('src', 'http://banners.wt-replays.org/[% replay.site.banner.url_base %]').css({ 'width': '545px', 'height': '98px', 'margin': '10px 0px 10px 0px' }),
                         $('<textarea>').css({
                             width: '540px',
                             height: '65px',
                             'font-size': '1.4em',
                             resize: 'none'
-                        }).html('[url="http://www.wt-replays.org/replay/[% replay.id %].html"]' + "\n" + '[img]http://banners.wt-replays.org/[% replay.image.url_base %][/img]' + "\n" + '[/url]')
+                        }).html('[url=http://www.wt-replays.org/replay/[% h.get_id(replay) %].html]' + "\n" + '[img]http://banners.wt-replays.org/[% replay.site.banner.url_path %][/img]' + "\n" + '[/url]')
                     ).dialog({
                         modal: true,
                         resizable: false,

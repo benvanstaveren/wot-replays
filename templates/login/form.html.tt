@@ -1,45 +1,6 @@
 [% WRAPPER wrapper.html.tt %]    
     <div class="content nosidebar aboutText">
         <h3>Login</h3>
-        <div id="frm-login-container" style="width: 600px; margin: 0px auto; padding: 25px" class="box" style="background: #e0e0e0 none repeat scroll 0 0">
-            <span class="label">Please select your server</span>
-            <div id="locationselect">
-                <table style="width: 100%" cellpadding="0" cellspacing="0">
-                <tbody><tr>
-                    <td style="width: 33%; padding: 2px">
-                        <button style="width: 100%" id="eu" class="uploadButton">Europe</button>
-                    </td>
-                    <td style="width: 33%; padding: 2px">
-                        <button style="width: 100%" id="sea" class="uploadButton">South-East Asia</button>
-                    </td>
-                    <td style="width: 33%; padding: 2px">
-                        <button style="width: 100%" id="na" class="uploadButton">North America</button>
-                    </td>
-                </tr><tr>
-                    <td style="width: 33%; padding: 2px">
-                        <button style="width: 100%" id="ru" class="uploadButton">Russia</button>
-                    </td>
-                    <td style="width: 33%; padding: 2px">
-                        <button style="width: 100%; opacity: 0.30" id="vn" class="uploadButton">Vietnam</button>
-                    </td>
-                    <td style="width: 33%; padding: 2px">
-                        <button style="width: 100%; opacity: 0.30" id="kr" class="uploadButton">Korea</button>
-                    </td>
-                </tr></tbody>
-                </table>
-            </div>
-            <script type="text/javascript">
-                $('#locationselect button').click(function() {
-                    var id = $(this).attr('id');
-                    if(id == "vn" || id == "kr") {
-                        WR.ui.notify({ type: 'error', text: 'Sorry, but the Wargaming.net OpenID service is not available here yet...', close: true, sticky: false });
-                    } else {
-                        WR.waitElement();
-                        document.location.href = '/login?s=' + id;
-                    }
-                    return false;
-                });
-            </script>
-        </div>
+        [% INCLUDE login/container.html.tt %]
     </div>
 [% END %]

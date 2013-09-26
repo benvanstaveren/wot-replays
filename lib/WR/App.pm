@@ -55,22 +55,20 @@ sub startup {
     $r->route('/credits')->to('ui#credits', pageid => 'credits');
     $r->route('/upload')->to('replays-upload#upload', pageid => 'upload');
     $r->route('/process')->to('replays-upload#process_replay', pageid => 'upload');
-    $r->route('/download/:replay_id')->to('replays-export#download');
-    $r->route('/csv/:replay_id')->to('replays-export#csv');
 
     $r->route('/replay/browse/:page')->to('replays#browse', page => 1);
 
     my $rb = $r->under('/replay/:replay_id');
         $rb->route('/')->to('replays-view#view', pageid => undef)->name('viewreplay');
         $rb->route('/desc')->to('replays#desc', pageid => undef);
+        $rb->route('/download')->to('replays-export#download', pageid => undef);
+        $rb->route('/csv')->to('replays-export#csv', pageid => undef);
         $rb->route('/up')->to('replays-rate#rate_up', pageid => undef);
         $rb->route('/stats')->to('replays-view#stats', pageid => undef);
         $rb->route('/incview')->to('replays-view#incview', pageid => undef);
         $rb->route('/comparison')->to('replays-view#comparison', pageid => undef);
 
     $r->route('/players')->to('player#index', pageid => 'player');
-    $r->route('/player/:player_name')->to('player#ambi', pageid => 'player');
-
     my $playerbridge = $r->bridge('/player/:server/:player_name')->to('player#player_bridge');
         $playerbridge->route('/')->to('player#view', pageid => 'player');
         $playerbridge->route('/involved')->to('player#involved', pageid => 'player');

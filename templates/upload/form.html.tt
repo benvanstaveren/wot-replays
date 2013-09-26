@@ -1,6 +1,14 @@
 [% WRAPPER wrapper.html.tt %]
     <div class="content nosidebar">
-        <h3>Upload</h3>
-        [% INCLUDE upload/form_upload_single.html.tt %]
+        [% IF !h.is_user_authenticated %]
+            <h3>Log in to upload</h3>
+            <div>
+                In order to upload replays, you'll have to sign in. We use Wargaming's OpenID service for this. 
+            </div>
+            [% INCLUDE login/container.html.tt from=upload%]
+        [% ELSE %]
+            <h3>Upload</h3>
+            [% INCLUDE upload/form_upload_single.html.tt %]
+        [% END %]
     </div>
 [% END %]

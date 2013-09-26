@@ -131,13 +131,13 @@ sub _build_query {
 
     if($args{'vehicle'}) {
         if($args{'vehiclepov'}) {
-            $query->{'game.recorder.vehicle.id'} = $self->fixargs($args{'vehicle'});
+            $query->{'game.recorder.vehicle.ident'} = $self->fixargs($args{'vehicle'});
         } elsif($args{'vehicleinv'}) {
-            $query->{'roster.vehicle.id'} = $self->fixargs($args{'vehicle'});
+            $query->{'roster.vehicle.ident'} = $self->fixargs($args{'vehicle'});
         } else {
             push(@$ors, [
-                { 'game.recorder.vehicle.id' => $self->fixargs($args{'vehicle'}) },
-                { 'roster.vehicle.id' => $self->fixargs($args{'vehicle'}) },
+                { 'game.recorder.vehicle.ident' => $self->fixargs($args{'vehicle'}) },
+                { 'roster.vehicle.ident' => $self->fixargs($args{'vehicle'}) },
             ]);
         }
     }

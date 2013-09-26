@@ -4,6 +4,7 @@ use warnings;
 use WR::Query;
 use WR::Res;
 use WR::Util::CritDetails;
+use WR::Constants qw/nation_id_to_name/;
 use Data::Dumper;
 
 use constant ROMAN_NUMERALS => [qw(0 I II III IV V VI VII VIII IX X)];
@@ -449,12 +450,17 @@ sub add_helpers {
 
     $self->helper(component_name => sub {
         my $self = shift;
+        my $nid  = shift;
+        my $type = shift;
         my $id  = shift;
 
-        if(my $obj = $self->model('wot-replays.data.components')->find_one({ _id => $id + 0 })) {
+        # nation->text
+        my $nation = nation_id_to_name($nid);
+
+        if(my $obj = $self->model('wot-replays.data.components')->find_one({ country => $nation, component => $type, component_id => $id + 0 })) {
             return $obj->{label} || sprintf('nodblabel: %d', $id);
         } else {
-            return sprintf('nolabel:%d', $id);
+            return sprintf('nolabel:%s/%s/%d', $nation, $type, $id);
         }
     });
 

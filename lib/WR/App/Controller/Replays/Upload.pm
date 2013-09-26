@@ -66,7 +66,8 @@ sub process_replay {
             }
 
             $replay->{site}->{visible} = Mango::BSON::bson_false if($job->{data}->{visible} < 1);
-            $replay->{file} = $job->{data}->{replay_file_base}; # kind of essential to have that, yeah...
+            $replay->{site}->{desc} = (defined($job->{data}->{desc}) && length($job->{data}->{desc}) > 0) ? $job->{data}->{desc} : undef;
+            $replay->{file} = $job->{data}->{file_base}; # kind of essential to have that, yeah...
 
             # get the packets out
             my $packets = delete($replay->{__packets__});
@@ -84,7 +85,7 @@ sub process_replay {
                     delete($replay->{site}->{packets});
                 }
                 $self->model('wot-replays.replays')->insert($replay);
-                $self->render(json => { ok => 1, result => { oid => $replay->{_id}, banner => $replay->{site}->{banner}, base => $job->{data}->{file_base} }});
+                $self->render(json => { ok => 1, result => { oid => $replay->{_id} . '', banner => $replay->{site}->{banner}, base => $job->{data}->{file_base} }});
             } catch {
                 $self->render(json => { ok => 0, error => $_ });
             };
@@ -119,9 +120,17 @@ sub upload {
             $self->render_later;
 
             my $hide = (defined($self->req->param('hide'))) ? $self->req->param('hide') : 0;
+            my $desc = $self->req->param('description');
+
+            my $data = {
+                file => $replay_file,
+                file_base => $replay_file_base,
+                desc => (defined($desc)) ? $desc : '',
+                visible => ($hide == 1) ? 0 : 1,
+                };
 
             # store a quick key and return for processing 
-            $self->model('wot-replays.jobs')->insert({ type => 'process', data => { file => $replay_file, file_base => $replay_file_base, visible => ($hide == 1) ? 0 : 1 }} => sub {
+            $self->model('wot-replays.jobs')->insert({ type => 'process', data => $data  } => sub {
                 my ($c, $e, $oid) = (@_);
                 if($e) {
                     $self->render(json => { ok => 0, error => $_ });

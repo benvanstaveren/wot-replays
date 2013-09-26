@@ -27,7 +27,7 @@
                     <a style="color: #000; text-decoration: underline" href="#" id="view-link"></a>
                     </div>
                     <span class="label">Download Link</span>
-                    <a  style="color: #000; text-decoration: underline"href="#" id="download-link"></a>
+                    <a style="color: #000; text-decoration: underline" href="#" id="download-link"></a>
                     <span class="label">Embed</span>
                     <div id="c-embed-link">
                     <img id="embed-image" style="width: 545px; height: 98px"/>
@@ -81,8 +81,8 @@
                                 
                                     $('#embed-image').attr('src', '//banners.wt-replays.org/' + d.banner.url_path);
                                     $('#embed-text').text('[url=' + l_v + ']' + "\n" + '[img]http://banners.wt-replays.org/' + d.banner.url_path + '[/img]' + "\n" + '[/url]');
-                                    $('#completed #download-link').attr('href', l_dl).html(l_dl);
-                                    $('#completed #view-link').attr('href', l_v).html(l_v);
+                                    $('#process-completed #download-link').attr('href', l_dl).html(l_dl);
+                                    $('#process-completed #view-link').attr('href', l_v).html(l_v);
 
                                     $('#upload-completed').hide();
                                     $('#process-completed button#btn-upload').html('UPLOAD ANOTHER REPLAY');
