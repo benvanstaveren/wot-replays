@@ -16,8 +16,8 @@
                     <table style="width: 100%" cellspacing="0" cellpadding="0"><tbody>
                     <tr>
                         <td style="width: 33%; vertical-align: top">
-                            <h2>Damaged Modules</h3>
-                            [% FOREACH id IN critical_devices %]
+                            <h3>Damaged Modules</h3>
+                            [% FOREACH id IN cd.critical_devices %]
                                 <div>
                                     <span><img src="//images.wt-replays.org/icon/crit/[% id %]CriticalSmall.png" style="width: 16px; height: 16px"></span>
                                     <span>[% h.crit_component_name(id) %]</span>
@@ -25,8 +25,8 @@
                             [% END %]
                         </td>
                         <td style="width: 33%; vertical-align: top">
-                            <h2>Destroyed Modules</h3>
-                            [% FOREACH id IN destroyed_devices %]
+                            <h3>Destroyed Modules</h3>
+                            [% FOREACH id IN cd.destroyed_devices %]
                                 <div>
                                     <span><img src="//images.wt-replays.org/icon/crit/[% id %]DestroyedSmall.png" style="width: 16px; height: 16px"></span>
                                     <span>[% h.crit_component_name(id) %]</span>
@@ -34,8 +34,8 @@
                             [% END %]
                         </td>
                         <td style="width: 33%; vertical-align: top">
-                            <h2>Injured Crew</h2>
-                            [% FOREACH id IN destroyed_tankmen %]
+                            <h3>Injured Crew</h2>
+                            [% FOREACH id IN cd.destroyed_tankmen %]
                                 <div>
                                     <span><img src="//images.wt-replays.org/icon/crit/[% id %]DestroyedSmall.png" style="width: 16px; height: 16px"></span>
                                     <span>[% h.crit_tankman_name(id) %]</span>
@@ -63,8 +63,8 @@
                     $(this).dialog('close');
                 }
             },
-            width: 400,
-            height: 400,
+            width: 550,
+            height: 300,
         });
         $('span.crits.hasdetails').css({ 'pointer': 'cursor' }).click(function() {
             var pid = $(this).attr('player');
