@@ -580,6 +580,14 @@ sub add_helpers {
         return shift->app->wr_res->bonustype->get(shift, 'label_short');
     });
 
+    $self->helper(crit_component_name => sub {
+        return shift->app->wr_res->components->i18n(shift);
+    });
+
+    $self->helper(crit_tankman_name => sub {
+        return shift->app->wr_res->tankman->i18n(shift);
+    });
+
     $self->helper(game_type_name => sub {
         return shift->app->wr_res->gametype->i18n(shift);
     });
