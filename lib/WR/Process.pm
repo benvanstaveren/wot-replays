@@ -271,7 +271,10 @@ sub generate_banner {
             damaged => $res->{stats}->{damaged},
             player  => $res->{roster}->[ $recorder ]->{player}->{name},
             clan    => $res->{roster}->[ $recorder ]->{player}->{clan},
-            destination => sprintf('%s/%s.png', $base_path, $res->{_id} . ''),
+            destination => [
+                sprintf('%s/%s.png', $base_path, $res->{_id} . ''),
+                sprintf('%s/%s.jpg', $base_path, $res->{_id} . ''),
+            ],
             awards  => $self->stringify_awards($res),
         );
         $image = {
