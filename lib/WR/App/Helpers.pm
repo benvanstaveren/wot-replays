@@ -346,6 +346,7 @@ sub add_helpers {
 
     # this parses out the crit info
     $self->helper(get_crit_details => sub {
+        my $self = shift;
         my $crit = shift;
 
         return WR::Util::CritDetails->new(crit => $crit)->parse;
