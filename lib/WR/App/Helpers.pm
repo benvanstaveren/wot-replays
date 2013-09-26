@@ -64,6 +64,27 @@ sub add_helpers {
         }
     });
 
+    $self->helper(is_victory => sub {
+        my $self = shift;
+        my $replay = shift;
+
+        return ($replay->{game}->{winner} == $self->get_recorder_vehicle($replay)->{player}->{team}) ? 1 : 0;
+    });
+
+    $self->helper(is_draw => sub {
+        my $self = shift;
+        my $replay = shift;
+
+        return ($replay->{game}->{winner} < 1) ? 1 : 0;
+    });
+
+    $self->helper(is_defeat => sub {
+        my $self = shift;
+        my $replay = shift;
+
+        return ($self->is_victory($replay)) ? 0 : 1;
+    });
+
     $self->helper(current_user => sub {
         my $ctrl = shift;
         if(my $openid = $ctrl->session('openid')) {
