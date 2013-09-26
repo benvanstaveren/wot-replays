@@ -217,9 +217,9 @@ sub create {
     }
 
     if(ref($args{destination}) eq 'ARRAY') {
-        $self->_bg->write(file => $_) for(@{$args{'destination'}});
+        $self->_bg->write(file => $_, type => 'jpeg') for(@{$args{'destination'}});
     } else {
-        $self->_bg->write(file => $args{'destination'});
+        $self->_bg->write(file => $args{'destination'}, type => 'jpeg');
     }
 
     return $args{'destination'};
