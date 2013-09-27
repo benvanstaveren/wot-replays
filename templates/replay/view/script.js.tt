@@ -56,6 +56,15 @@
                 WR.battleViewer.start();
             },
             buttons: {
+                'Slow': function() {
+                    WR.battleViewer.setSpeed(200);
+                },
+                'Realtime': function() {
+                    WR.battleViewer.setSpeed(100);
+                },
+                'Fast': function() {
+                    WR.battleViewer.setSpeed(50);
+                },
                 'Close': function() {
                     WR.battleViewer.stop();
                     $(this).dialog('close');
