@@ -152,6 +152,12 @@ sub view {
     });
 }
 
+sub battlereplay {
+    my $self = shift;
+
+
+}
+
 sub actual_view_replay {
     my $self = shift;
     my $replay = shift;
@@ -250,6 +256,7 @@ sub actual_view_replay {
                 other_awards => $other_awards,
                 platoons => $pl_members,
                 hashbucket => $self->hashbucket($replay->{_id} . ''), # easier to handle some things 
+                include_battleviewer => 1,
                 timing_view => tv_interval($start, [ gettimeofday ]),
             }, 
             template => 'replay/view/index',

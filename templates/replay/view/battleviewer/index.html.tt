@@ -1,4 +1,34 @@
-<div>
-    <div id="target" style="margin: 10px auto">
+<div id="battleviewer-dlg" title="Battle Viewer">
+    <div id="battleviewer-container">
+        <div 
+            id="battleviewer-player" 
+            style="background: #000 url(//images.wt-replays.org/battleviewer/maps/[% h.map_ident(replay.game.map) %]_[% h.short_game_type(replay.game.type) %]_[% h.get_recorder_vehicle(replay).player.team - 1 %].png) no-repeat scroll 0 0">
+            <div id="battleviewer-clock">15:00</div>
+            [% FOREACH roster IN replay.roster %]
+                <div id="player-[% roster.vehicle.id %]" class="player [% IF roster.player.name == replay.game.recorder.name %]recorder[% END %]" style="background: transparent url(//images.wt-replays.org/battleviewer/vehicle/[% h.get_battleviewer_icon(replay, roster.vehicle.id) %]) no-repeat scroll center center"></div>
+            [% END %]
+        </div>
     </div>
 </div>
+<script type="text/javascript">
+    // set up the battle viewer 
+    WR.battleViewer = new BattleViewer({
+        container: $('#battleviewer-player'), 
+        packets: '[% config.urls.packets %]/[% hashbucket %]/[% h.get_id(replay) %].json',
+        clock: $('#battleviewer-clock'),
+        gamedata: {
+            mode: '[% h.short_game_type(replay.game.type) |js %]',
+            map_boundaries: [% h.as_json(h.map_boundingbox(replay.game.map)) %]
+        },
+        player_details: {
+            [% FOREACH roster IN replay.roster %]
+                '[% roster.vehicle.id |js %]': { 'hp': [% roster.health.total %] } ,
+            [% END %]
+        },
+        onError: function() {
+            $('#battleviewer-dlg').dialog('close');
+            WR.ui.notify({ text: 'Could not load packet data', sticky: false, close: true, type: 'error' });
+            $('#btn-battleviewer').addClass('disabled').hide();
+        },
+    });
+</script>

@@ -9,7 +9,7 @@
 <tr class="playerRow [% class %]" style="cursor: default">
     <td class="playerSurvived">
     <span>
-        [% IF replay.game.bonus_type == 1 && platoon > 0 %]
+        [% IF replay.game.bonus_type == 1 && (platoon && platoon > 0) %]
             <span class="platoon"><span class="tooltip number" title="Platoon #[% platoon %]">[% platoon %]</span></span>
         [% END %]
     </span></td>

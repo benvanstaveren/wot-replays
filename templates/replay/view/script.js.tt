@@ -48,21 +48,25 @@
         $('td.playerDetails span.tooltip').tooltip({ track: true }).css({ 'cursor': 'pointer' });
         $('span.tooltip').tooltip({track: true}).css({ 'cursor': 'pointer' });
 
-        $('button#btn-battleviewer').click(function() {
-            $('<div>').attr('title', 'Battle Viewer').append(
-                $('<div>').attr('id', 'target')
-            ).dialog({
-                modal: true,
-                resizable: false,
-                draggable: false,
-                width: 400,
-                height: 500,
-                buttons: {
-                    Close: function() {
-                        $(this).dialog('close');
-                    },
-                }
-            });
+        $('#battleviewer-dlg').dialog({
+            autoOpen: false,
+            width: 575,
+            height: 650,
+            open: function() {
+                WR.battleViewer.start();
+            },
+            buttons: {
+                'Close': function() {
+                    WR.battleViewer.stop();
+                    $(this).dialog('close');
+                },
+            },
+            modal: true,
+            resizable: false,
+        });
+
+        $('#btn-battleviewer').click(function() {
+            $('#battleviewer-dlg').dialog('open');
             return false;
         });
     });

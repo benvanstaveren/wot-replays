@@ -169,15 +169,11 @@ sub add_helpers {
         return 0;
     });
 
-    $self->helper(to_json => sub {
+    $self->helper(as_json => sub {
         my $self = shift;
         my $v    = shift;
 
-        if(ref($v) eq 'ARRAY') {
-            return $self->app->json->encode([ map { WR::Query->fuck_mojo_json($_) } @$v ]);
-        } else {
-            return $self->app->json->encode(WR::Query->fuck_mojo_json($v));
-        }
+        return $self->app->json->encode($v);
     });
 
     $self->helper('clear_replay_page' => sub {
@@ -253,6 +249,21 @@ sub add_helpers {
         }
     });
 
+    $self->helper(get_battleviewer_icon => sub {
+        my $self = shift;
+        my $r = shift;
+        my $i = shift;
+
+        my $roster = $self->get_roster_by_vid($r, $i);
+
+        my $color = ($roster->{player}->{team} == $r->{game}->{recorder}->{team}) ? 'g' : 'r';
+        if(my $obj = $self->model('wot-replays.data.vehicles')->find_one({ _id => $roster->{vehicle}->{ident}})) {
+            return sprintf('%s_%s.png', lc($obj->{type}), $color);
+        } else {
+            return 'blank.png';
+        }
+    });
+
     $self->helper(consumable_name => sub {
         my $self = shift;
         my $a = shift;
@@ -301,6 +312,24 @@ sub add_helpers {
         }
     });
 
+    $self->helper(map_boundingbox => sub {
+        my $self = shift;
+        my $mid  = shift;
+
+        if(my $obj = $self->model('wot-replays.data.maps')->find_one({ 
+            '$or' => [
+                { _id => $mid },
+                { numerical_id => $mid },
+                { name_id => $mid },
+                { slug => $mid },
+            ],
+        })) {
+            return [ $obj->{attributes}->{geometry}->{bottom_left}, $obj->{attributes}->{geometry}->{upper_right} ];
+        } else {
+            return undef;
+        }
+    });
+
     $self->helper(vehicle_link => sub {
         my $self = shift;
         my $ident = shift;
@@ -324,6 +353,24 @@ sub add_helpers {
             return $obj->{numerical_id} + 0;
         } else {
             return 0;
+        }
+    });
+
+    $self->helper(map_ident => sub {
+        my $self = shift;
+        my $mid = shift;
+
+        if(my $obj = $self->model('wot-replays.data.maps')->find_one({ 
+            '$or' => [
+                { _id => $mid },
+                { numerical_id => $mid },
+                { name_id => $mid },
+                { slug => $mid },
+            ],
+        })) {
+            return $obj->{_id};
+        } else {
+            return sprintf('404:%s', $mid);
         }
     });
 
@@ -596,6 +643,14 @@ sub add_helpers {
 
     $self->helper(crit_tankman_name => sub {
         return shift->app->wr_res->tankman->i18n(shift);
+    });
+
+    $self->helper(short_game_type => sub {
+        my $self = shift;
+        my $gametype = shift;
+
+        my $long = $self->game_type_name($gametype);
+        return lc(substr($long, 0, 3));
     });
 
     $self->helper(game_type_name => sub {

@@ -48,7 +48,6 @@
                                             [% IF related && related.count > 0 %]
                                                 <li class="nav-item tab"><a href="#replay-related">Related Replays ([% related.count %])</a></li>
                                             [% END %]
-                                            <li class="nav-item tab"><a href="#replay-viewer">Battle Viewer</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -76,9 +75,6 @@
                                 under construction
                             </div>
                             [% END %]
-                            <div id="replay-viewer" class="tab-panel" style="display: none">
-                                [% INCLUDE replay/view/battleviewer/index.html.tt %]
-                            </div>
                             [% IF replay.chat.size > 0 %]
                             <div id="battle-chat" class="tab-panel" style="display: none">
                                 [% FOREACH message IN replay.chat %]
@@ -95,5 +91,6 @@
             </table>
         </div>
     </div>
+    [% INCLUDE replay/view/battleviewer/index.html.tt %]
     [% INCLUDE replay/view/script.js.tt %]
 [% END %]
