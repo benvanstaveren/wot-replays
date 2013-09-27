@@ -10,6 +10,7 @@
                 [% ELSE %]
                     <div id="player-[% roster.vehicle.id %]" class="player" style="background: transparent url(//images.wt-replays.org/battleviewer/vehicle/[% h.get_battleviewer_icon(replay, roster.vehicle.id) %]) no-repeat scroll center center"></div>
                 [% END %]
+            [% END %]
         </div>
     </div>
 </div>
