@@ -14,7 +14,7 @@
     // set up the battle viewer 
     WR.battleViewer = new BattleViewer({
         container: $('#battleviewer-player'), 
-        packets: '[% config.urls.packets %]/[% hashbucket %]/[% h.get_id(replay) %].json',
+        packets: '/replay/[% h.get_id(replay) %]/packets',
         clock: $('#battleviewer-clock'),
         gamedata: {
             mode: '[% h.short_game_type(replay.game.type) |js %]',
