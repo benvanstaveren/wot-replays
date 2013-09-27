@@ -2,7 +2,7 @@
     <div id="battleviewer-container">
         <div 
             id="battleviewer-player" 
-            style="background: #000 url(//images.wt-replays.org/battleviewer/maps/[% h.map_ident(replay.game.map) %]_[% h.short_game_type(replay.game.type) %]_[% h.get_recorder_vehicle(replay).player.team - 1 %].png) no-repeat scroll 0 0">
+            style="overflow: hidden; background: #000 url(//images.wt-replays.org/battleviewer/maps/[% h.map_ident(replay.game.map) %]_[% h.short_game_type(replay.game.type) %]_[% h.get_recorder_vehicle(replay).player.team - 1 %].png) no-repeat scroll 0 0">
             <div id="battleviewer-clock">15:00</div>
             [% FOREACH roster IN replay.roster %]
                 [% IF roster.player.name == replay.game.recorder.name %]

@@ -75,6 +75,9 @@
                 'Really Fast': function() {
                     WR.battleViewer.setSpeed(25);
                 },
+                'Ludicrous Speed': function() {
+                    WR.battleViewer.setSpeed(12);
+                },
                 'Close': function() {
                     WR.battleViewer.stop();
                     $(this).dialog('close');
