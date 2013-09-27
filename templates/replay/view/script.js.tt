@@ -55,6 +55,10 @@
             open: function() {
                 WR.battleViewer.start();
             },
+            beforeClose: function() {
+                WR.battleViewer.stop();
+                return true;
+            },
             buttons: {
                 'Really Slow': function() {
                     WR.battleViewer.setSpeed(400);
