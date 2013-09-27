@@ -5,8 +5,11 @@
             style="background: #000 url(//images.wt-replays.org/battleviewer/maps/[% h.map_ident(replay.game.map) %]_[% h.short_game_type(replay.game.type) %]_[% h.get_recorder_vehicle(replay).player.team - 1 %].png) no-repeat scroll 0 0">
             <div id="battleviewer-clock">15:00</div>
             [% FOREACH roster IN replay.roster %]
-                <div id="player-[% roster.vehicle.id %]" class="player [% IF roster.player.name == replay.game.recorder.name %]recorder[% END %]" style="background: transparent url(//images.wt-replays.org/battleviewer/vehicle/[% h.get_battleviewer_icon(replay, roster.vehicle.id) %]) no-repeat scroll center center"></div>
-            [% END %]
+                [% IF roster.player.name == replay.game.recorder.name %]
+                    <div id="player-[% roster.vehicle.id %]" class="player recorder" style="background: transparent url(//images.wt-replays.org/battleviewer/vehicle/recorder.png) no-repeat scroll center center"></div>
+                [% ELSE %]
+                    <div id="player-[% roster.vehicle.id %]" class="player" style="background: transparent url(//images.wt-replays.org/battleviewer/vehicle/[% h.get_battleviewer_icon(replay, roster.vehicle.id) %]) no-repeat scroll center center"></div>
+                [% END %]
         </div>
     </div>
 </div>
@@ -19,6 +22,7 @@
         gamedata: {
             mode: '[% h.short_game_type(replay.game.type) |js %]',
             map_boundaries: [% h.as_json(h.map_boundingbox(replay.game.map)) %]
+            recorder_id: '[% replay.game.recorder.vehicle.id |js %]',
         },
         player_details: {
             [% FOREACH roster IN replay.roster %]
