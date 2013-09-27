@@ -57,29 +57,19 @@
             },
             buttons: {
                 'Really Slow': function() {
-                    $('.ui-dialog-buttonset button').removeClass('ui-state-active');
                     WR.battleViewer.setSpeed(400);
-                    $(this).addClass('ui-state-active');
                 },
                 'Slow': function() {
-                    $('.ui-dialog-buttonset button').removeClass('ui-state-active');
                     WR.battleViewer.setSpeed(200);
-                    $(this).addClass('ui-state-active');
                 },
                 'Realtime': function() {
-                    $('.ui-dialog-buttonset button').removeClass('ui-state-active');
                     WR.battleViewer.setSpeed(100);
-                    $(this).addClass('ui-state-active');
                 },
                 'Fast': function() {
-                    $('.ui-dialog-buttonset button').removeClass('ui-state-active');
                     WR.battleViewer.setSpeed(50);
-                    $(this).addClass('ui-state-active');
                 },
                 'Really Fast': function() {
-                    $('.ui-dialog-buttonset button').removeClass('ui-state-active');
                     WR.battleViewer.setSpeed(25);
-                    $(this).addClass('ui-state-active');
                 },
                 'Close': function() {
                     WR.battleViewer.stop();
