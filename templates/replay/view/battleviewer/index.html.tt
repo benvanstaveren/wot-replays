@@ -22,7 +22,7 @@
         clock: $('#battleviewer-clock'),
         gamedata: {
             mode: '[% h.short_game_type(replay.game.type) |js %]',
-            map_boundaries: [% h.as_json(h.map_boundingbox(replay.game.map)) %]
+            map_boundaries: [% h.as_json(h.map_boundingbox(replay.game.map)) %],
             recorder_id: '[% replay.game.recorder.vehicle.id |js %]',
         },
         player_details: {
