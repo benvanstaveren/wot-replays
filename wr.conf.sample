@@ -19,11 +19,14 @@
     urls => {
         app     =>  'http://www.wot-replays.org',           # base url to site
         static  =>  'http://static.wot-replays.org',        # base url to static
-        assets  =>  'http://images.wot-replays.org',        # base ur to images
+        assets  =>  'http://images.wot-replays.org',        # base url to images
+        packets =>  'http://images.wot-replays.org',        # base url to banners
+        banners =>  'http://images.wot-replays.org',        # base url to packet files
     },
     wot => {
         version => '0.8.8',                                 # the current WoT version
         bf_key  => 'DE 72 BE A0 DE 04 BE B1 DE FE BE EF DE AD BE EF',   # the blowfish encryption key for replay files
+        min_version => 088,                                 # the minimum version we'll accept for upload
     },
     hypnotoad => {
         listen => [ 'http://127.0.0.1:8080' ],

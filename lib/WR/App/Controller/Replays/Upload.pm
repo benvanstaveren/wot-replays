@@ -67,6 +67,11 @@ sub process_replay {
                 $self->render(json => { ok => 0, error => 'That replay has already been uploaded' }) and return;
             }
 
+            if(!defined($replay->{game}->{version_numeric}) || (defined($replay->{game}->{version_numeric}) && $replay->{game}->{version_numeric} < $self->stash('config')->{wot}->{min_version})) {
+                unlink($file);
+                $self->render(json => { ok => 0, error => 'That replay is from an older version of World of Tanks which we cannot process' }) and return;
+            }
+
             $replay->{site}->{visible} = Mango::BSON::bson_false if($job->{data}->{visible} < 1);
             $replay->{site}->{description} = (defined($job->{data}->{desc}) && length($job->{data}->{desc}) > 0) ? $job->{data}->{desc} : undef;
             $replay->{file} = $job->{data}->{file_base}; # kind of essential to have that, yeah...
