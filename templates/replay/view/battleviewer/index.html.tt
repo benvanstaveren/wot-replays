@@ -25,9 +25,9 @@
                 '[% roster.vehicle.id |js %]': { 'hp': [% roster.health.total %] } ,
             [% END %]
         },
-        onError: function() {
+        onError: function(t, e) {
             $('#battleviewer-dlg').dialog('close');
-            WR.ui.notify({ text: 'Could not load packet data', sticky: false, close: true, type: 'error' });
+            WR.ui.notify({ text: 'Could not load packet data: ' + t + ', ' + e, sticky: false, close: true, type: 'error' });
             $('#btn-battleviewer').addClass('disabled').hide();
         },
     });
