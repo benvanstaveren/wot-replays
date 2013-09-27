@@ -123,7 +123,7 @@ sub _build_query {
         if(ref($args{'server'}) eq 'ARRAY') {
             $query->{'game.server'} = { '$in' => $args{'server'} };
         } elsif(!ref($args{'server'})) {
-            $query->{'game.server'} = $args{'server'} if($args{'server'} ne 'any');
+            $query->{'game.server'} = $args{'server'} if($args{'server'} ne 'www');
         }
     }
 
