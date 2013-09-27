@@ -249,6 +249,7 @@ sub actual_view_replay {
                 },
                 other_awards => $other_awards,
                 platoons => $pl_members,
+                hashbucket => $self->hashbucket($replay->{_id} . ''), # easier to handle some things 
                 timing_view => tv_interval($start, [ gettimeofday ]),
             }, 
             template => 'replay/view/index',
