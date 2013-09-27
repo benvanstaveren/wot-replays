@@ -3,6 +3,7 @@ use Mojo::Base 'WR::App::Controller';
 use Mango::BSON;
 use WR::Query;
 use WR::Res::Achievements;
+use File::Slurp qw/read_file/;
 use Time::HiRes qw/gettimeofday tv_interval/;
 use JSON::XS;
 use Text::CSV_XS;
@@ -152,10 +153,17 @@ sub view {
     });
 }
 
-sub battlereplay {
+sub packets {
     my $self = shift;
+    my $id   = $self->stash('replay_id');
 
+    my $packet_base = sprintf('%s/%s.json', $self->hashbucket($id), $id);
+    my $packet_uri  = sprintf('/packets/%s', $packet_base);
 
+    # nginx trickery ahead
+    $self->res->headers->header('X-Accel-Redirect' => $packet_uri);
+    $self->res->headers->content_type('application/json');
+    $self->render(text => 'x-accel-redirect');
 }
 
 sub actual_view_replay {

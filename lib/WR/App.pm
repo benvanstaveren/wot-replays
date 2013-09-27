@@ -67,6 +67,7 @@ sub startup {
         $rb->route('/stats')->to('replays-view#stats', pageid => undef);
         $rb->route('/incview')->to('replays-view#incview', pageid => undef);
         $rb->route('/comparison')->to('replays-view#comparison', pageid => undef);
+        $rb->route('/packets')->to('replays-view#packets', pageid => undef);
 
     $r->route('/players')->to('player#index', pageid => 'player');
     my $playerbridge = $r->bridge('/player/:server/:player_name')->to('player#player_bridge');
