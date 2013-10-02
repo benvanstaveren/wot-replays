@@ -5,23 +5,10 @@ sub index {
     my $self = shift;
 
     $self->stash('timing.start' => [ Time::HiRes::gettimeofday ]);
-
-    my $last_seen = $self->session('last_seen') || 0;
-
-    $self->session('last_seen' => time());
-    $self->session('first_visit' => 1) if($last_seen + 86400 < time());
-    $self->stash('hint_signin' => 1) unless(defined($self->session('gotit_signin')) && $self->session('gotit_signin') > 0);
-
     if(my $notify = $self->session->{'notify'}) {
         delete($self->session->{'notify'});
         $self->stash(notify => $notify);
     }
-
-    $self->stash(
-        settings => {
-            first_visit => $self->session('first_visit'),
-        },
-    );
 
     my $req_host;
     if(my $url = $self->req->url->base) {
@@ -30,6 +17,11 @@ sub index {
         }
     }
     $self->stash(req_host => $req_host || 'www');
+
+    # this really should be happening nonblocking, is it possible to fire it up, pass it by in the return value,
+    # and stick the data in the stash if needed? 
+    #
+    # perhaps...
 
     # twiddle peoples' openID username and password
     if($self->is_user_authenticated) {

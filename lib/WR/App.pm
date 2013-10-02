@@ -58,6 +58,9 @@ sub startup {
 
     $r->route('/replay/browse/:page')->to('replays#browse', page => 1);
 
+    my $proxy = $r->under('/proxy');
+        $proxy->route('/wotlabs/:server/:players')->to('proxy#wotlabs');
+
     my $rb = $r->under('/replay/:replay_id');
         $rb->route('/')->to('replays-view#view', pageid => undef)->name('viewreplay');
         $rb->route('/desc')->to('replays#desc', pageid => undef);
