@@ -3,14 +3,14 @@ use Mojo::Base '-base';
 use WR::Parser;
 use File::Path qw/make_path/;
 use Data::Dumper;
-use WR::Process::Player;
+use Mango::BSON;
+use Try::Tiny qw/try catch/;
+
 use WR::Res::Achievements;
 use WR::ServerFinder;
 use WR::Imager;
-use Mango::BSON;
 use WR::Constants qw/nation_id_to_name decode_arena_type_id/;
 use WR::Util::TypeComp qw/parse_int_compact_descr/;
-use Try::Tiny qw/try catch/;
 
 has 'file'      => undef;
 has 'mango'     => undef;
@@ -189,10 +189,11 @@ sub process {
 
     # here goes
     $replay->{game}->{recorder}->{vehicle} = {
-        id => $replay->{roster}->[ $replay->{players}->{$replay->{game}->{recorder}->{name}} ]->{vehicle}->{id},
-        tier => $replay->{roster}->[ $replay->{players}->{$replay->{game}->{recorder}->{name}} ]->{vehicle}->{level},
-        ident => $replay->{roster}->[ $replay->{players}->{$replay->{game}->{recorder}->{name}} ]->{vehicle}->{ident},
+        id      => $replay->{roster}->[ $replay->{players}->{$replay->{game}->{recorder}->{name}} ]->{vehicle}->{id},
+        tier    => $replay->{roster}->[ $replay->{players}->{$replay->{game}->{recorder}->{name}} ]->{vehicle}->{level},
+        ident   => $replay->{roster}->[ $replay->{players}->{$replay->{game}->{recorder}->{name}} ]->{vehicle}->{ident},
     };
+
 
     $replay->{involved} = {
         players => [ keys(%{$replay->{players}}) ],
