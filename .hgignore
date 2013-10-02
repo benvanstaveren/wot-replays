@@ -15,3 +15,6 @@ wr.conf
 wr.development.conf
 wrapi.conf
 bin/*.txt
+wrapi.development.conf
+bannerserver.conf
+bannerserver.development.conf
