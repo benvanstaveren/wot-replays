@@ -33,29 +33,6 @@ sub hint {
     $self->render(json => { ok => 1 });
 }
 
-sub generate_replay_count {
-    my $self = shift;
-
-    # get the different replays and versions using group()
-    my $r_stats = $self->db('wot-replays')->get_collection('replays')->group({
-        initial => { 
-            count => 0,
-            },
-        key => { 'version' => 1, 'site.visible' => 1 },
-        reduce => q|function(obj, prev) { prev.count += 1 }|,
-    })->{retval};
-
-    my $stats = {};
-    foreach my $item (@$r_stats) {
-        $stats->{v}->{$item->{version}}->{total} += $item->{count};
-        $stats->{v}->{$item->{version}}->{($item->{'site.visible'}) ? 'visible' : 'hidden'} = $item->{count};
-        $stats->{t} += $item->{count};
-    }
-
-    delete($stats->{''});
-    return $stats || {};
-}
-
 sub index {
     my $self    = shift;
     my $start   = [ gettimeofday ];
@@ -71,7 +48,6 @@ sub index {
         my ($c, $e, $count) = (@_);
 
         my $replay_count = $count;
-
         my $q = {
             'site.visible' => Mango::BSON::bson_true
         };
@@ -79,10 +55,7 @@ sub index {
 
         my $new_cursor = $self->model('wot-replays.replays')->find($q)->sort({ 'site.uploaded_at' => -1 })->limit(15);
         $new_cursor->all(sub {
-            my ($c, $e, $docs) = (@_);
-
-            my $replays = [ map { WR::Query->fuck_tt($_) } (@$docs) ];
-            
+            my ($c, $e, $replays) = (@_);
             if($self->req->is_xhr) {
                 $self->respond(template => 'index/ajax', stash => {
                     replays         => $replays,
