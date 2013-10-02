@@ -194,7 +194,6 @@ sub process {
         ident   => $replay->{roster}->[ $replay->{players}->{$replay->{game}->{recorder}->{name}} ]->{vehicle}->{ident},
     };
 
-
     $replay->{involved} = {
         players => [ keys(%{$replay->{players}}) ],
         clans   => [],
@@ -202,6 +201,7 @@ sub process {
     };
 
     my $tc = {};
+    my $wotlabs = WR::Wotlabs::Cached->new(ua => $self->ua, cache => $self->model('wot-replays.cache.wotlabs'));
     foreach my $entry (@{$replay->{roster}}) {
         next unless(length($entry->{player}->{clan}) > 0);
         $tc->{$entry->{player}->{clan}}++;
