@@ -3,6 +3,9 @@ use strict;
 use warnings;
 use WR::Query;
 use WR::Res;
+use WR::Util::CritDetails;
+use WR::ServerFinder;
+use WR::Constants qw/nation_id_to_name/;
 use Data::Dumper;
 
 use constant ROMAN_NUMERALS => [qw(0 I II III IV V VI VII VIII IX X)];
@@ -16,15 +19,16 @@ sub generate_vehicle_select {
         germany => 'Germany',
         usa => 'USA',
         ussr => 'USSR',
+        japan => 'Japan',
         uk => 'UK',
         };
    
-    foreach my $country (qw/china france germany usa ussr uk/) {
+    foreach my $country (qw/china france germany usa japan ussr uk/) {
         my $d = { label => $l->{$country}, country => $country };
-        my $cursor = $self->db('wot-replays')->get_collection('data.vehicles')->find({ country => $country })->sort({ label => 1 });
+        my $cursor = $self->model('wot-replays.data.vehicles')->find({ country => $country })->sort({ label => 1 });
         while(my $obj = $cursor->next()) {
             push(@{$d->{items}}, {
-                id => $obj->{name},
+                id => $obj->{id},
                 value => $obj->{label},
                 level => $obj->{level},
             });
@@ -37,6 +41,24 @@ sub generate_vehicle_select {
 sub add_helpers {
     my $class = shift;
     my $self  = shift; # not really self but the Mojo app
+
+    $self->attr(_sf => sub { WR::ServerFinder->new });
+
+    $self->helper(resolve_server_by_playerid => sub {
+        my $self = shift;
+        my $id   = shift;
+
+        return $self->app->_sf->get_server_by_id($id + 0);
+    });
+
+    $self->helper(wot_version => sub {
+        my $self = shift;
+        my $replay = shift;
+
+        my @parts = split(/, /, $replay->{game}->{version});
+        pop(@parts); # drop the last 0
+        return join('.', @parts);
+    });
 
     $self->helper(is_user_authenticated => sub {
         my $ctrl = shift;
@@ -52,6 +74,27 @@ sub add_helpers {
         }
     });
 
+    $self->helper(is_victory => sub {
+        my $self = shift;
+        my $replay = shift;
+
+        return ($replay->{game}->{winner} == $self->get_recorder_vehicle($replay)->{player}->{team}) ? 1 : 0;
+    });
+
+    $self->helper(is_draw => sub {
+        my $self = shift;
+        my $replay = shift;
+
+        return ($replay->{game}->{winner} < 1) ? 1 : 0;
+    });
+
+    $self->helper(is_defeat => sub {
+        my $self = shift;
+        my $replay = shift;
+
+        return ($self->is_victory($replay)) ? 0 : 1;
+    });
+
     $self->helper(current_user => sub {
         my $ctrl = shift;
         if(my $openid = $ctrl->session('openid')) {
@@ -64,9 +107,37 @@ sub add_helpers {
         return undef;
     });
 
+    $self->helper(get_replay_stats => sub {
+        my $self = shift;
+        my $r = shift;
+        my $field = shift;
+
+        return $r->{stats}->{$field};
+    });
+
+    $self->helper(is_old_version => sub {
+        my $self = shift;
+        my $r    = shift;
+
+        if($self->stash('config')->{wot}->{version_numeric} != $r->{game}->{version_numeric}) {
+            return 1;
+        } else {
+            return 0;
+        }
+    });
+
+    $self->helper('hashbucket' => sub {
+        my $self = shift;
+        my $name = shift;
+        my $size = shift || 7;
+
+        my @parts = split(//, substr($name, 0, $size));
+        return join('/', @parts);
+    });
+
     $self->helper(wr_query => sub {
         my $self = shift;
-        return WR::Query->new(@_, coll => $self->db('wot-replays')->get_collection('replays'));
+        return WR::Query->new(@_, coll => $self->model('wot-replays.replays'));
     });
 
     $self->helper('lc' => sub {
@@ -98,15 +169,11 @@ sub add_helpers {
         return 0;
     });
 
-    $self->helper(to_json => sub {
+    $self->helper(as_json => sub {
         my $self = shift;
         my $v    = shift;
 
-        if(ref($v) eq 'ARRAY') {
-            return $self->app->json->encode([ map { WR::Query->fuck_mojo_json($_) } @$v ]);
-        } else {
-            return $self->app->json->encode(WR::Query->fuck_mojo_json($v));
-        }
+        return $self->app->json->encode($v);
     });
 
     $self->helper('clear_replay_page' => sub {
@@ -117,77 +184,11 @@ sub add_helpers {
         unlink($filename);
     });
 
-    $self->helper(is_event_account => sub {
-        my $self = shift;
-        my $r    = shift;
-
-        if($r->{player}->{server} eq 'sea') {
-            return ($r->{player}->{name} =~ /^WG_/) ? 1 : 0;
-        }
-        return 0;
-    });
-
     $self->helper(get_id => sub { return $_[1]->{_id} });
     $self->helper(res => sub { return shift->app->wr_res });
+
     $self->helper(generate_vehicle_select => \&generate_vehicle_select);
-    $self->helper(eff_color => sub {
-        my $self = shift;
-        my $eff = shift;
-        my $col;
 
-        return '<span>-</span>' unless(defined($eff));
-
-        if($eff < 600) {
-            $col = '#e02225';
-        } elsif($eff >= 600 && $eff < 900) {
-            $col = '#b86162';
-        } elsif($eff >= 900 && $eff < 1200) {
-            $col = '#40c077';
-        } elsif($eff >= 1200 && $eff < 1500) {
-            $col = '#539770'
-        } elsif($eff >= 1500 && $eff < 1800) {
-            $col = '#5899B7';
-        } else {
-            $col = '#17A6E8';
-        }
-
-        return sprintf('<span style="color: %s">%d</span>', $col, $eff);
-    });
-
-    $self->helper(show_efficiency => sub {
-        my $self = shift;
-        my $show = 1;
-
-        if($self->is_user_authenticated) {
-            if($self->current_user->{settings}->{hide_efficiency} == 1) {
-                $show = 0;
-            }
-        } 
-
-        if(my $user = $self->model('wot-replays.accounts')->find_one({ 
-            player_name     => $self->stash('req_replay')->{player}->{name},
-            player_server   => $self->stash('req_replay')->{player}->{server},
-        })) {
-            if($user->{settings}->{hide_my_efficiency} == 1) {
-                $show = 0;
-            }
-        }
-        my $pname = $self->stash('req_replay')->{player}->{name};
-        $show = 0 if($self->stash('req_replay')->{efficiency}->{$pname}->{xvm} == 0);
-        return $show;
-    });
-    $self->helper(vehicles_by_frags => sub {
-        my $self = shift;
-        my $hash = shift;
-
-        return [ (sort({ $b->{kills} <=> $a->{kills} } values(%$hash))) ];
-    });
-    $self->helper(vehicles_by_xp => sub {
-        my $self = shift;
-        my $hash = shift;
-
-        return [ (sort({ $b->{xp} <=> $a->{xp} } values(%$hash))) ];
-    });
     $self->helper(consumable_icon_style => sub {
         my $self = shift;
         my $a = shift;
@@ -195,7 +196,7 @@ sub add_helpers {
         if($a) {
             my $i = (ref($a) eq 'HASH') ? $a->{id} : $a;
             if(my $c = $self->model('wot-replays.data.consumables')->find_one({ wot_id => $i + 0 })) {
-                return sprintf('style="background: transparent url(http://images.wot-replays.org/consumables/24x24/%s) no-repeat scroll 0 0"', $c->{icon});
+                return sprintf('style="background: transparent url(http://images.wt-replays.org/consumables/24x24/%s) no-repeat scroll 0 0"', $c->{icon});
             } else {
                 return undef;
             }
@@ -203,12 +204,7 @@ sub add_helpers {
             return undef;
         }
     });
-    $self->helper(get_vehicle_by_id => sub {
-        my $self = shift;
-        my $id   = shift;
 
-        return $self->stash('req_replay')->{vehicles}->{$id};
-    });
     $self->helper(ammo_icon_style => sub {
         my $self = shift;
         my $a = shift;
@@ -216,7 +212,7 @@ sub add_helpers {
             my $i = (ref($a) eq 'HASH') ? $a->{id} : $a;
             if(my $c = $self->model('wot-replays.data.components')->find_one({ component => 'shells', _id => $i + 0 })) {
                 my $n = ($a->{count} > 0) ? $c->{kind} : sprintf('NO_%s', $c->{kind});
-                return sprintf('style="background: transparent url(http://images.wot-replays.org/ammo/24x24/%s.png) no-repeat scroll 0 0"', $n);
+                return sprintf('style="background: transparent url(http://images.wt-replays.org/ammo/24x24/%s.png) no-repeat scroll 0 0"', $n);
             } else {
                 return undef;
             }
@@ -224,6 +220,7 @@ sub add_helpers {
             return undef;
         }
     });
+
     $self->helper(ammo_name => sub {
         my $self = shift;
         my $a = shift;
@@ -251,6 +248,22 @@ sub add_helpers {
             return undef;
         }
     });
+
+    $self->helper(get_battleviewer_icon => sub {
+        my $self = shift;
+        my $r = shift;
+        my $i = shift;
+
+        my $roster = $self->get_roster_by_vid($r, $i);
+
+        my $color = ($roster->{player}->{team} == $r->{game}->{recorder}->{team}) ? 'g' : 'r';
+        if(my $obj = $self->model('wot-replays.data.vehicles')->find_one({ _id => $roster->{vehicle}->{ident}})) {
+            return sprintf('%s_%s.png', lc($obj->{type}), $color);
+        } else {
+            return 'blank.png';
+        }
+    });
+
     $self->helper(consumable_name => sub {
         my $self = shift;
         my $a = shift;
@@ -266,6 +279,7 @@ sub add_helpers {
             return undef;
         }
     });
+
     $self->helper(generate_map_select => sub {
         my $self = shift;
         my $list = [];
@@ -273,12 +287,93 @@ sub add_helpers {
 
         while(my $o = $cursor->next()) {
             push(@$list, {
-                id => $o->{_id},
+                id => $o->{numerical_id},
                 label => $o->{label}
             });
         }
         return $list;
     });
+
+    $self->helper(map_icon => sub {
+        my $self = shift;
+        my $mid  = shift;
+
+        if(my $obj = $self->model('wot-replays.data.maps')->find_one({ 
+            '$or' => [
+                { _id => $mid },
+                { numerical_id => $mid },
+                { name_id => $mid },
+                { slug => $mid },
+            ],
+        })) {
+            return $obj->{icon};
+        } else {
+            return sprintf('404:%s', $mid);
+        }
+    });
+
+    $self->helper(map_boundingbox => sub {
+        my $self = shift;
+        my $mid  = shift;
+
+        if(my $obj = $self->model('wot-replays.data.maps')->find_one({ 
+            '$or' => [
+                { _id => $mid },
+                { numerical_id => $mid },
+                { name_id => $mid },
+                { slug => $mid },
+            ],
+        })) {
+            return [ $obj->{attributes}->{geometry}->{bottom_left}, $obj->{attributes}->{geometry}->{upper_right} ];
+        } else {
+            return undef;
+        }
+    });
+
+    $self->helper(vehicle_link => sub {
+        my $self = shift;
+        my $ident = shift;
+
+        $ident =~ s/:/\//g;
+        return $ident;
+    });
+
+    $self->helper(map_numericid => sub {
+        my $self = shift;
+        my $mid = shift;
+
+        if(my $obj = $self->model('wot-replays.data.maps')->find_one({ 
+            '$or' => [
+                { _id => $mid },
+                { numerical_id => $mid },
+                { name_id => $mid },
+                { slug => $mid },
+            ],
+        })) {
+            return $obj->{numerical_id} + 0;
+        } else {
+            return 0;
+        }
+    });
+
+    $self->helper(map_ident => sub {
+        my $self = shift;
+        my $mid = shift;
+
+        if(my $obj = $self->model('wot-replays.data.maps')->find_one({ 
+            '$or' => [
+                { _id => $mid },
+                { numerical_id => $mid },
+                { name_id => $mid },
+                { slug => $mid },
+            ],
+        })) {
+            return $obj->{_id};
+        } else {
+            return sprintf('404:%s', $mid);
+        }
+    });
+
     $self->helper(map_name => sub {
         my $self = shift;
         my $mid = shift;
@@ -286,6 +381,7 @@ sub add_helpers {
         if(my $obj = $self->model('wot-replays.data.maps')->find_one({ 
             '$or' => [
                 { _id => $mid },
+                { numerical_id => $mid },
                 { name_id => $mid },
                 { slug => $mid },
             ],
@@ -295,23 +391,66 @@ sub add_helpers {
             return sprintf('404:%s', $mid);
         }
     });
+
+    $self->helper(was_killed_by_recorder => sub {
+        my $self = shift;
+        my $r    = shift;
+        my $id   = shift;
+        my $rec  = $self->get_recorder_vehicle($r);
+        return 0 unless(defined($id));
+        return ($id == $rec->{vehicle}->{id}) ? 1 : 0;
+    });
+
+    # this parses out the crit info
+    $self->helper(get_crit_details => sub {
+        my $self = shift;
+        my $crit = shift;
+
+        return WR::Util::CritDetails->new(crit => $crit)->parse;
+    });
+
+    $self->helper(get_roster_by_vid => sub {
+        my $self = shift;
+        my $r    = shift;
+        my $v    = shift;
+
+        return $self->get_roster_entry($r, $r->{vehicles}->{$v});
+    });
+
+    $self->helper(get_roster_entry => sub {
+        my $self = shift;
+        my $r    = shift;
+        my $i    = shift;
+
+        return $r->{roster}->[$i];
+    });
+
+    $self->helper(get_recorder_vehicle => sub {
+        my $self = shift;
+        my $r = shift;
+
+        return $self->get_roster_entry($r, $r->{game}->{recorder}->{index});
+    });
+
     $self->helper(vehicle_icon => sub {
         my $self = shift;
         my $v    = shift;
         my $s    = shift || 32;
         my ($c, $n) = split(/:/, $v, 2);
 
-        return lc(sprintf('//images.wot-replays.org/vehicles/%d/%s-%s.png', $s, $c, $n));
+        return lc(sprintf('//images.wt-replays.org/vehicles/%d/%s-%s.png', $s, $c, $n));
     });
+
     $self->helper(vehicle_tier => sub {
         my $self = shift;
         my $v = shift;
         if(my $obj = $self->model('wot-replays.data.vehicles')->find_one({ _id => $v })) {
-            return sprintf('//images.wot-replays.org/icon/tier/%02d.png', $obj->{level});
+            return sprintf('//images.wt-replays.org/icon/tier/%02d.png', $obj->{level});
         } else {
             return '-';
         }
     });
+
     $self->helper(vehicle_url => sub {
         my $self = shift;
         my $v = shift;
@@ -319,6 +458,7 @@ sub add_helpers {
 
         return sprintf('/vehicle/%s/%s/', $c, $n);
     });
+
     $self->helper(vehicle_description => sub {
         my $self = shift;
         my $v = shift;
@@ -330,6 +470,20 @@ sub add_helpers {
             return sprintf('nodesc:%s', $v);
         }
     });
+
+    $self->helper(vehicle_name => sub {
+        my $self = shift;
+        my $v = shift;
+        my ($c, $n) = split(/:/, $v, 2);
+
+        if(my $obj = $self->model('wot-replays.data.vehicles')->find_one({ _id => $v })) {
+            return $obj->{label};
+        } else {
+            return sprintf('nolabel:%s', $v);
+        }
+    });
+
+
     $self->helper(vehicle_name_short => sub {
         my $self = shift;
         my $v = shift;
@@ -341,6 +495,7 @@ sub add_helpers {
             return sprintf('nolabel_short:%s', $v);
         }
     });
+
     $self->helper(equipment_name => sub {
         my $self = shift;
         my $id = shift;
@@ -357,6 +512,7 @@ sub add_helpers {
             return sprintf('nolabel:%d', $id);
         }
     });
+
     $self->helper(equipment_icon => sub {
         my $self = shift;
         my $id = shift;
@@ -370,45 +526,39 @@ sub add_helpers {
             return undef;
         }
     });
+
     $self->helper(component_name => sub {
         my $self = shift;
-        my $cnt = shift;
-        my $cmp = shift;
+        my $nid  = shift;
+        my $type = shift;
         my $id  = shift;
 
-        if(my $obj = $self->model('wot-replays.data.components')->find_one({ 
-            country => $cnt,
-            component => $cmp,
-            component_id => $id,
-        })) {
-            return $obj->{label};
-        } else {
-            return sprintf('nolabel:%s/%s/%d', $cnt, $cmp, $id);
-        }
-    });
-    $self->helper(vehicle_name => sub {
-        my $self = shift;
-        my $v = shift;
-        my ($c, $n) = split(/:/, $v, 2);
+        return 'missing' unless(defined($nid) && defined($type) && defined($id));
 
-        if(my $obj = $self->model('wot-replays.data.vehicles')->find_one({ _id => $v })) {
-            return $obj->{label};
+        # nation->text
+        my $nation = nation_id_to_name($nid);
+
+        if(my $obj = $self->model('wot-replays.data.components')->find_one({ country => $nation, component => $type, component_id => $id + 0 })) {
+            return $obj->{label} || sprintf('nodblabel: %d', $id);
         } else {
-            return sprintf('nolabel:%s', $v);
+            return sprintf('nolabel:%s/%s/%d', $nation, $type, $id);
         }
     });
+
     $self->helper(epoch_to_dt => sub {
         my $self = shift;
         my $epoch = shift;
         my $dt = DateTime->from_epoch(epoch => $epoch);
         return $dt;
     });
+
     $self->helper(sprintf => sub {
         my $self = shift;
         my $fmt = shift;
 
         return CORE::sprintf($fmt, @_);
     });
+
     $self->helper(percentage_of => sub {
         my $self = shift;
         my $a = shift;
@@ -419,60 +569,108 @@ sub add_helpers {
         # a = 200, b = 100 -> 50% 
         return sprintf('%.0f', 100/($a/$b));
     });
+
+    $self->helper(model_for_replay => sub {
+        my $self = shift;
+        my $r    = shift || $self->stash('req_replay');
+        my $v    = $r->{version};
+
+        return ($self->stash('config')->{wot}->{version} eq $v)
+            ? 'wot-replays.replays'
+            : sprintf('wot-replays.replays.%s', $v);
+    });
+
     $self->helper(is_own_replay => sub {
         my $self = shift;
-        if(my $r = $self->stash('req_replay')) {
-            return (defined($r->{site}->{uploaded_by}) && ($r->{site}->{uploaded_by}->to_string eq $self->current_user->{_id}->to_string))
-                ? 1 
-                : 0
+        my $r = shift;
+
+        if($self->is_user_authenticated && ( ($self->current_user->{player_name} eq $r->{game}->{recorder}->{name}) && ($self->current_user->{player_server} eq $r->{game}->{server}))) {
+            return 1;
+        } else {
+            return 0;
         }
-        return 0;
     });
+
     $self->helper(is_the_boss => sub {
-        return ($self->is_user_authenticated && $self->current_user->{email} eq 'scrambled@xirinet.com') ? 1 : 0
+        return ($self->is_user_authenticated && ($self->current_user->{player_name} eq 'Scrambled' && $self->current_user->{player_server} eq 'sea')) ? 1 : 0
     });
+
     $self->helper(user => sub {
         return shift->current_user;
     });
+
     $self->helper(map_slug => sub {
         my $self = shift;
-        my $name = shift;
-        my $slug = lc($name);
-        $slug =~ s/\s+/_/g;
-        $slug =~ s/'//g;
-        return $slug;
+        my $mid = shift;
+
+        if(my $obj = $self->model('wot-replays.data.maps')->find_one({ 
+            '$or' => [
+                { _id => $mid },
+                { numerical_id => $mid },
+                { name_id => $mid },
+                { slug => $mid },
+            ],
+        })) {
+            return $obj->{slug};
+        } else {
+            return undef;
+        }
     });
+
     $self->helper(map_image => sub {
         my $self = shift;
         my $size = shift;
         my $id   = shift;
         if(my $map = $self->db('wot-replays.data.maps')->find_one({ _id => $id })) {
-            return lc(sprintf('//images.wot-replays.org/maps/%d/%s.png', $size, $id));
+            return lc(sprintf('//images.wt-replays.org/maps/%d/%s.png', $size, $id));
         } else {
             return '404:' . $id;
         }
     });
+
     $self->helper(datadumper => sub {
         shift;
         return Dumper([ shift ]);
     });
+
     $self->helper(bonus_type_name => sub {
         return shift->app->wr_res->bonustype->get(shift, 'label_short');
     });
+
+    $self->helper(crit_component_name => sub {
+        return shift->app->wr_res->components->i18n(shift);
+    });
+
+    $self->helper(crit_tankman_name => sub {
+        return shift->app->wr_res->tankman->i18n(shift);
+    });
+
+    $self->helper(short_game_type => sub {
+        my $self = shift;
+        my $gametype = shift;
+
+        my $long = $self->game_type_name($gametype);
+        return lc(substr($long, 0, 3));
+    });
+
     $self->helper(game_type_name => sub {
         return shift->app->wr_res->gametype->i18n(shift);
     });
+
     $self->helper('achievement_is_award' => sub {
         my $self = shift;
         return $self->app->wr_res->achievements->is_award(shift);
     });
+
     $self->helper('achievement_is_class' => sub {
         my $self = shift;
         return $self->app->wr_res->achievements->is_class(shift);
     });
+
     $self->helper('get_achievements' => sub {
         return shift->app->wr_res->achievements;
     });
+
     $self->helper('get_res' => sub {
         return shift->app->wr_res;
     });

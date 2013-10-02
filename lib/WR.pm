@@ -4,24 +4,14 @@ use warnings;
 
 BEGIN {
 
-my $libdir = (-e "/home/ben/projects/wot-replays/extlib")
-    ? '/home/ben/projects/wot-replays/extlib'
-    : '/home/wotreplay/wot-replays/extlib';
+    my $libdir = (-e "/home/ben/projects/wt-replays/")
+        ? [ '/home/ben/projects/wot-replays/wot-replay-parser', '/home/ben/projects/wot-replays/wot-xml-reader' ]
+        : [ '/home/wotreplay/wot-replay-parser', '/home/wotreplay/wot-xml-reader' ]
+        ;
 
-my @lib_dirs = ();
-my $dir;
-opendir($dir, $libdir);
-foreach my $e (readdir($dir)) {
-    next unless($e !~ /^\./ && -d "$libdir/$e");
-    if(-e "$libdir/$e/lib") {
-        push(@lib_dirs, "$libdir/$e/lib");
-    } else {
-        push(@lib_dirs, "$libdir/$e");
+    foreach my $dir (@$libdir) {
+        unshift(@INC, sprintf('%s/lib', $dir));
     }
-}
-closedir($dir);
-unshift(@INC, @lib_dirs);
-
 }
 
 1;

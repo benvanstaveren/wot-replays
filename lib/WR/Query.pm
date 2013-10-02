@@ -1,55 +1,69 @@
 package WR::Query;
-use Moose;
-use namespace::autoclean;
-use boolean;
+use Mojo::Base '-base';
 use Mojo::JSON;
-use DateTime;
+use Mango::BSON;
 use Data::Dumper;
 
 # args
-has 'coll' => (is => 'ro', isa => 'MongoDB::Collection', required => 1);
-has 'perpage' => (is => 'ro', isa => 'Num', required => 1, default => 15);
-has 'filter' => (is => 'ro', isa => 'HashRef', required => 1, default => sub { {} });
-has 'sort' => (is => 'ro', isa => 'HashRef', required => 0);
-
-has '_res' => (is => 'ro', isa => 'MongoDB::Cursor', writer => '_set_res');
-has '_query' => (is => 'ro', isa => 'HashRef', required => 1, lazy => 1, builder => '_build_query');
-has 'total' => (is => 'ro', isa => 'Num', required => 1, default => 0, writer => '_set_total');
+has 'coll'    => undef;
+has 'perpage' => 15;
+has 'filter'  => sub { {} };
+has 'sort'    => sub { {} };
+has '_query'  => sub {
+    return shift->_build_query;
+};
+has '_res'    => undef;
+has 'total'   => 0;
 
 sub exec {
     my $self = shift;
+    my $cb   = shift;
 
-    return($self->_res) if(defined($self->_res));
-    my $cursor = $self->coll->find($self->_query);
-    $self->_set_total($cursor->count());
-    $self->_set_res($cursor);
-    return $cursor;
+    if(defined($self->_res)) {
+        $cb->($self->_res);
+    } else {
+        my $cursor = $self->coll->find($self->_query);
+        $cursor->count(sub {
+            my ($c, $e, $count) = (@_);
+            $self->total($count);
+            $self->_res($cursor);
+            $cb->($cursor);
+        });
+    }
 }
 
 sub maxp {
     my $self = shift;
-    my $total = $self->exec()->count();
+    my $total = $self->total;
     my $perpage = $self->perpage;
     my $maxp = int($total/$perpage);
     $maxp++ if($maxp * $perpage < $total);
-
     return $maxp;
 }
 
 sub page {
     my $self = shift;
     my $page = shift || 1;
+    my $cb   = shift;
 
     my $offset = ($page - 1) * $self->perpage;
 
-    my $cursor = $self->exec();
-    $cursor->sort($self->sort) if($self->sort);
-    $cursor->skip($offset);
-    $cursor->limit($self->perpage);
+    $self->exec(sub {
+        my $cursor = shift;
+        $cursor->sort($self->sort) if($self->sort);
+        $cursor->skip($offset);
+        $cursor->limit($self->perpage);
 
-    return [ 
-        map { $self->fuck_tt($_) } $cursor->all() 
-    ];
+        $cursor->all(sub {
+            my ($c, $e, $d) = (@_);
+
+            if($e) {
+                $cb->(undef);
+            } else {
+                $cb->([ map { $self->fuck_tt($_) } @$d ]);
+            }
+        });
+    });
 }
 
 sub fuck_tt {
@@ -58,31 +72,6 @@ sub fuck_tt {
 
     $o->{id} = $o->{_id};
     return $o;
-}
-
-sub fuck_mojo_json {
-    my $self = shift;
-    my $obj = shift;
-
-    return $obj unless(ref($obj));
-
-    if(ref($obj) eq 'ARRAY') {
-        return [ map { $self->fuck_mojo_json($_) } @$obj ];
-    } elsif(ref($obj) eq 'HASH') {
-        foreach my $field (keys(%$obj)) {
-            next unless(ref($obj->{$field}));
-            if(ref($obj->{$field}) eq 'HASH') {
-                $obj->{$field} = $self->fuck_mojo_json($obj->{$field});
-            } elsif(ref($obj->{$field}) eq 'ARRAY') {
-                my $t = [];
-                push(@$t, $self->fuck_mojo_json($_)) for(@{$obj->{$field}});
-                $obj->{$field} = $t;
-            } elsif(boolean::isBoolean($obj->{$field})) {
-                $obj->{$field} = ($obj->{$field}) ? Mojo::JSON->true : Mojo::JSON->false;
-            }
-        }
-        return $obj;
-    }
 }
 
 sub fixargs {
@@ -104,86 +93,60 @@ sub _build_query {
         playerinv => 0,
         vehiclepov => 0,
         vehicleinv => 0,
-        compatible => 0,
         tier_min => 1,
         tier_max => 10,
         %{ $self->filter },
         );
 
     my $query = {
-        'site.visible' => true,
+        'site.visible' => Mango::BSON::bson_true,
     };
 
     my $ors = [];
 
+    $query->{version} = $args{'version'} if($args{'version'});
+
     if($args{'player'}) {
         if($args{'playerpov'} > 0) {
-            $query->{'player.name'} = $self->fixargs($args{'player'});
+            $query->{'game.recorder.name'} = $self->fixargs($args{'player'});
         } elsif($args{'playerinv'}) {
-            $query->{'involved.players'} = $self->fixargs($args{'player'});
-            $query->{'player.name'} = $self->fixargs($args{'player'}, '$nin');
+            $query->{'involved.players'} = $self->fixargs($args{'player'}, '$in'); 
+            $query->{'game.recorder.name'} = $self->fixargs($args{'player'}, '$nin');
         } else {
             push(@$ors, [ 
-                { 'player.name' => $self->fixargs($args{'player'}) }, { 'vehicles.name' => $self->fixargs($args{'player'}) } 
+                { 'game.recorder.name' => $self->fixargs($args{'player'}) }, { 'involved.players' => $self->fixargs($args{'player'}, '$in') } 
             ]);
         }
     }
 
     if($args{'server'}) {
         if(ref($args{'server'}) eq 'ARRAY') {
-            $query->{'player.server'} = { '$in' => $args{'server'} };
+            $query->{'game.server'} = { '$in' => $args{'server'} };
         } elsif(!ref($args{'server'})) {
-            $query->{'player.server'} = $args{'server'} if($args{'server'} ne 'any');
+            $query->{'game.server'} = $args{'server'} if($args{'server'} ne 'www');
         }
     }
 
-    # actually args{map} contains the map slug, not it's id so find it first
-    if(defined($args{map})) {
-        if(my $map = $self->coll->_database->get_collection('data.maps')->find_one({ 
-            '$or' => [
-                { _id => $args{map} },
-                { slug => $args{map} },
-            ]
-        })) {
-            $query->{'map.id'} = $self->fixargs($map->{_id});
-        } else {
-            $query->{'map.id'} = 'mapdoesnotexist';
-        }
-    }
+    $query->{'game.map'} = $self->fixargs($args{map} + 0) if(defined($args{map}));
 
     if($args{'vehicle'}) {
         if($args{'vehiclepov'}) {
-            $query->{'player.vehicle.full'} = $self->fixargs($args{'vehicle'});
+            $query->{'game.recorder.vehicle.ident'} = $self->fixargs($args{'vehicle'});
         } elsif($args{'vehicleinv'}) {
-            $query->{'vehicles.vehicleType.full'} = $self->fixargs($args{'vehicle'});
+            $query->{'roster.vehicle.ident'} = $self->fixargs($args{'vehicle'});
         } else {
             push(@$ors, [
-                { 'player.vehicle.full' => $self->fixargs($args{'vehicle'}) },
-                { 'vehicles.vehicleType.full' => $self->fixargs($args{'vehicle'}) },
+                { 'game.recorder.vehicle.ident' => $self->fixargs($args{'vehicle'}) },
+                { 'roster.vehicle.ident' => $self->fixargs($args{'vehicle'}) },
             ]);
         }
     }
 
-    $query->{'player.vehicle.tier'} = {
+    $query->{'game.recorder.vehicle.tier'} = {
         '$gte' => $args{tier_min} + 0,
         '$lte' => $args{tier_max} + 0,
     };
 
-    if($args{'clan'}) {
-        if($args{'clanpov'}) {
-            $query->{'player.clanAbbrev'} = $self->fixargs($args{'clan'});
-        } elsif($args{'claninv'}) {
-            $query->{'vehicles.clanAbbrev'} = $self->fixargs($args{'clan'});
-        } else {
-            push(@$ors, [ 
-                { 'player.clanAbbrev' => $self->fixargs($args{'clan'}) }, 
-                { 'vehicles.clanAbbrev' => $self->fixargs($args{'clan'}) } 
-            ]);
-        }
-    }
-
-    $query->{'complete'} = true if($args{'complete'} == 1);
-    $query->{'version'} = $args{'version'} if($args{'compatible'} == 1); 
 
     $query->{'game.type'} = $args{'matchmode'} if($args{'matchmode'} && $args{'matchmode'} ne '');
     $query->{'game.bonus_type'} = $args{'matchtype'} + 0 if($args{'matchtype'} && $args{'matchtype'} ne '');
@@ -196,6 +159,8 @@ sub _build_query {
     } elsif(scalar(@$ors) > 0) {
         $query->{'$or'} = shift(@$ors);
     }
+
+    warn 'WR::Query->build_query:', "\n", Dumper($query), "\n";
 
     return $query;
 }

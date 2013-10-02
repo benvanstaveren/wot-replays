@@ -1,0 +1,1728 @@
+{
+   "shared" : {
+      "_37mm_M-6_L53" : {
+         "recoil" : {
+            "returnTime" : "0.32",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.3",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.10"
+         },
+         "maxRegenHealth" : 33,
+         "repairCost" : 2,
+         "weight" : 84,
+         "aimingTime" : "1.71428571428571",
+         "shots" : {
+            "_37mm_AP_M74" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "1.0",
+               "speed" : 792,
+               "gravity" : "9.81",
+               "piercingPower" : "56 38"
+            },
+            "_37mm_APC_M51" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 990,
+               "gravity" : "9.81",
+               "piercingPower" : "78 66"
+            },
+            "_37mm_HE_M63" : {
+               "maxDistance" : 720,
+               "speed" : 792,
+               "gravity" : "9.81",
+               "piercingPower" : "19 19"
+            }
+         },
+         "shotDispersionRadius" : "0.422857142857143",
+         "impulse" : "0.26",
+         "effects" : "shot_small",
+         "maxAmmo" : 103,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#china_vehicles:_37mm_M-6_L53",
+         "rotationSpeed" : "43.75",
+         "maxHealth" : 66,
+         "level" : 3,
+         "reloadTime" : "2.28571428571429",
+         "price" : 8350,
+         "pitchLimits" : "-25 8"
+      },
+      "_100mm_44-100JTtraining" : {
+         "recoil" : {
+            "returnTime" : "0.54",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.56",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 74,
+         "repairCost" : 8,
+         "weight" : 2257,
+         "aimingTime" : "2.85714285714286",
+         "shots" : {
+            "_100mm_UBR-412training" : {
+               "maxDistance" : 720,
+               "defaultPortion" : 1,
+               "speed" : 895,
+               "gravity" : "9.81",
+               "piercingPower" : "120 100"
+            }
+         },
+         "shotDispersionRadius" : "0.388571428571429",
+         "impulse" : "0.44",
+         "effects" : "shot_main",
+         "maxAmmo" : 34,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#china_vehicles:_100mm_44-100JT",
+         "rotationSpeed" : "33.25",
+         "maxHealth" : 160,
+         "level" : 7,
+         "reloadTime" : "8.0",
+         "price" : 90000,
+         "pitchLimits" : "-20 7",
+         "notInShop" : true
+      },
+      "_76mm_F-34" : {
+         "recoil" : {
+            "returnTime" : "0.34",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.32",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 53,
+         "repairCost" : 4,
+         "weight" : 538,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_76mm_UBR-354A" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.80",
+               "speed" : 640,
+               "gravity" : "9.81",
+               "piercingPower" : "86 75"
+            },
+            "_76mm_UOF-354" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.20",
+               "speed" : 640,
+               "gravity" : "9.81",
+               "piercingPower" : "38 38"
+            },
+            "_76mm_UBR-354MP" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 800,
+               "gravity" : "9.81",
+               "piercingPower" : "102 92"
+            }
+         },
+         "shotDispersionRadius" : "0.457142857142857",
+         "impulse" : "0.44",
+         "effects" : "shot_medium",
+         "maxAmmo" : 77,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#china_vehicles:_76mm_F-34",
+         "rotationSpeed" : "39.375",
+         "maxHealth" : 106,
+         "level" : 4,
+         "reloadTime" : "3.77142857142857",
+         "price" : 30550,
+         "pitchLimits" : "-17 6"
+      },
+      "_122-mm_60-122TG" : {
+         "recoil" : {
+            "returnTime" : "0.58",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.62",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 105,
+         "repairCost" : 8,
+         "weight" : 2800,
+         "aimingTime" : "3.1",
+         "shots" : {
+            "_122mm_PO-122" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 1000,
+               "gravity" : "9.81",
+               "piercingPower" : "340 340"
+            },
+            "_122mm_SB-472" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.40",
+               "speed" : 1000,
+               "gravity" : "9.81",
+               "piercingPower" : "68 68"
+            },
+            "_122mm_CB-472" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.60",
+               "speed" : 1000,
+               "gravity" : "9.81",
+               "piercingPower" : "258 244"
+            }
+         },
+         "shotDispersionRadius" : "0.35",
+         "impulse" : "0.62",
+         "effects" : "shot_large_mb",
+         "maxAmmo" : 24,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#china_vehicles:_122-mm_60-122TG",
+         "rotationSpeed" : "26.25",
+         "maxHealth" : 210,
+         "level" : 10,
+         "reloadTime" : 11,
+         "price" : 185140,
+         "pitchLimits" : "-25 6",
+         "notInShop" : true
+      },
+      "_57mm_Gun_Type_97" : {
+         "recoil" : {
+            "returnTime" : "0.3",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.35",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.08"
+         },
+         "maxRegenHealth" : 42,
+         "repairCost" : 4,
+         "weight" : 150,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_57mm_AP_Type_97" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "1.0",
+               "speed" : 420,
+               "gravity" : "9.81",
+               "piercingPower" : "30 23"
+            },
+            "_57mm_HE_Type_97" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 420,
+               "gravity" : "9.81",
+               "piercingPower" : "28 28"
+            },
+            "_57mm_HEAT_Type_97" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 420,
+               "gravity" : "9.81",
+               "piercingPower" : "55 55"
+            }
+         },
+         "shotDispersionRadius" : "0.434285714285714",
+         "impulse" : "0.26",
+         "effects" : "shot_medium",
+         "maxAmmo" : 92,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#china_vehicles:_57mm_Gun_Type_97",
+         "rotationSpeed" : "43.75",
+         "maxHealth" : 84,
+         "level" : 2,
+         "reloadTime" : "2.28571428571429",
+         "price" : 2000,
+         "pitchLimits" : "-12 6"
+      },
+      "_85mm_Tip_64-85T" : {
+         "recoil" : {
+            "returnTime" : "0.28",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.3",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 67,
+         "repairCost" : 6,
+         "weight" : 1700,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_85mm_Po_367" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 860,
+               "gravity" : "9.81",
+               "piercingPower" : "230 230"
+            },
+            "_85mm_CB_367G" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.80",
+               "speed" : 860,
+               "gravity" : "9.81",
+               "piercingPower" : "159 150"
+            },
+            "_85mm_SB_367G" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.20",
+               "speed" : 860,
+               "gravity" : "9.81",
+               "piercingPower" : "43 43"
+            }
+         },
+         "shotDispersionRadius" : "0.31",
+         "impulse" : "0.44",
+         "effects" : "shot_main_mb",
+         "maxAmmo" : 59,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#china_vehicles:_85mm_Tip_64-85T",
+         "rotationSpeed" : "39.375",
+         "maxHealth" : 134,
+         "level" : 8,
+         "reloadTime" : "5.1",
+         "price" : 89000,
+         "pitchLimits" : "-22 5"
+      },
+      "_100mm_62-100T" : {
+         "recoil" : {
+            "returnTime" : "0.54",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.56",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 97,
+         "repairCost" : 10,
+         "weight" : 2557,
+         "aimingTime" : "2.85714285714286",
+         "shots" : {
+            "_100mm_CJ-412G" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.80",
+               "speed" : 950,
+               "gravity" : "9.81",
+               "piercingPower" : "215 185"
+            },
+            "_100mm_TC-412G" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 1188,
+               "gravity" : "9.81",
+               "piercingPower" : "265 255"
+            },
+            "_100mm_SB-412G" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.20",
+               "speed" : 950,
+               "gravity" : "9.81",
+               "piercingPower" : "50 50"
+            }
+         },
+         "shotDispersionRadius" : "0.388571428571429",
+         "impulse" : "0.44",
+         "effects" : "shot_main",
+         "maxAmmo" : 34,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#china_vehicles:_100mm_62-100T",
+         "rotationSpeed" : "33.25",
+         "maxHealth" : 194,
+         "level" : 9,
+         "reloadTime" : "8.0",
+         "price" : 221000,
+         "pitchLimits" : "-20 7"
+      },
+      "_85mm_Tip_64-85TG" : {
+         "recoil" : {
+            "returnTime" : "0.28",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.3",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 67,
+         "repairCost" : 6,
+         "weight" : 1750,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_85mm_Po_367" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 880,
+               "gravity" : "9.81",
+               "piercingPower" : "230 230"
+            },
+            "_85mm_CB_367G" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.80",
+               "speed" : 880,
+               "gravity" : "9.81",
+               "piercingPower" : "172 160"
+            },
+            "_85mm_SB_367G" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.20",
+               "speed" : 880,
+               "gravity" : "9.81",
+               "piercingPower" : "43 43"
+            }
+         },
+         "shotDispersionRadius" : "0.3",
+         "impulse" : "0.44",
+         "effects" : "shot_main_mb",
+         "maxAmmo" : 59,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#china_vehicles:_85mm_Tip_64-85TG",
+         "rotationSpeed" : "39.375",
+         "maxHealth" : 134,
+         "level" : 8,
+         "reloadTime" : 5,
+         "price" : 90000,
+         "pitchLimits" : "-22 5"
+      },
+      "_13.2mm_Hotchkiss_mle._1930" : {
+         "recoil" : {
+            "returnTime" : "0.1",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.2",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "1.1",
+            "turretRotation" : "0.12"
+         },
+         "maxRegenHealth" : 17,
+         "repairCost" : 1,
+         "clip" : {
+            "rate" : 450,
+            "count" : 15
+         },
+         "shortUserString" : "#china_vehicles:_13.2mm_Hotchkiss_mle._1930_short",
+         "weight" : 38,
+         "aimingTime" : "1.94285714285714",
+         "shots" : {
+            "_13.2mm_Balle_T.P." : {
+               "maxDistance" : 350,
+               "defaultPortion" : "0.0",
+               "speed" : 1000,
+               "gravity" : "9.81",
+               "piercingPower" : "36 15"
+            },
+            "_13.2mm_Balle_P." : {
+               "maxDistance" : 350,
+               "defaultPortion" : "1.0",
+               "speed" : 800,
+               "gravity" : "9.81",
+               "piercingPower" : "23 16"
+            }
+         },
+         "shotDispersionRadius" : "0.582857142857143",
+         "impulse" : "0.06",
+         "effects" : "shot_auto",
+         "burst" : {
+            "rate" : 450,
+            "count" : 5
+         },
+         "maxAmmo" : 720,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "maxHealth" : 34,
+         "userString" : "#china_vehicles:_13.2mm_Hotchkiss_mle._1930",
+         "rotationSpeed" : "43.75",
+         "level" : 1,
+         "reloadTime" : "5.71428571428571",
+         "price" : 1600,
+         "pitchLimits" : "-20 10"
+      },
+      "_122-mm_37-122JT" : {
+         "recoil" : {
+            "returnTime" : "0.58",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.62",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 96,
+         "repairCost" : 8,
+         "weight" : 2440,
+         "aimingTime" : "3.42857142857143",
+         "shots" : {
+            "_122mm_Type_68" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.40",
+               "speed" : 800,
+               "gravity" : "9.81",
+               "piercingPower" : "61 61"
+            },
+            "_122mm_Type_57" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.60",
+               "speed" : 800,
+               "gravity" : "9.81",
+               "piercingPower" : "175 152"
+            },
+            "_122mm_Type_64" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 640,
+               "gravity" : "9.81",
+               "piercingPower" : "250 250"
+            }
+         },
+         "shotDispersionRadius" : "0.45714285714286",
+         "impulse" : "0.62",
+         "effects" : "shot_large",
+         "maxAmmo" : 24,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#china_vehicles:_122-mm_37-122JT",
+         "rotationSpeed" : "26.25",
+         "maxHealth" : 192,
+         "level" : 8,
+         "reloadTime" : "12.34285714285710",
+         "price" : 120000,
+         "pitchLimits" : "-25 6"
+      },
+      "_122-mm_D25-T" : {
+         "recoil" : {
+            "returnTime" : "0.58",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.62",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 96,
+         "repairCost" : 8,
+         "weight" : 2590,
+         "aimingTime" : "3.42857142857143",
+         "shots" : {
+            "_122mm_Type_68" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.40",
+               "speed" : 800,
+               "gravity" : "9.81",
+               "piercingPower" : "61 61"
+            },
+            "_122mm_Type_57" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.60",
+               "speed" : 800,
+               "gravity" : "9.81",
+               "piercingPower" : "175 152"
+            },
+            "_122mm_Type_64" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 640,
+               "gravity" : "9.81",
+               "piercingPower" : "250 250"
+            }
+         },
+         "shotDispersionRadius" : "0.45714285714286",
+         "impulse" : "0.62",
+         "effects" : "shot_large_mb",
+         "maxAmmo" : 24,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#china_vehicles:_122-mm_D25-T",
+         "rotationSpeed" : "26.25",
+         "maxHealth" : 192,
+         "level" : 8,
+         "reloadTime" : "12.34285714285710",
+         "price" : 135000,
+         "pitchLimits" : "-25 6"
+      },
+      "_37mm_KwK_L46" : {
+         "recoil" : {
+            "returnTime" : "0.26",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.26",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 27,
+         "repairCost" : 1,
+         "weight" : 100,
+         "aimingTime" : "1.71428571428571",
+         "shots" : {
+            "_37mm_Pzgr36" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "1.0",
+               "speed" : 750,
+               "gravity" : "9.81",
+               "piercingPower" : "40 33"
+            },
+            "_37cm_Pzgr40" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 938,
+               "gravity" : "9.81",
+               "piercingPower" : "74 36"
+            },
+            "_37mm_Sprg.18" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 750,
+               "gravity" : "9.81",
+               "piercingPower" : "18 18"
+            }
+         },
+         "shotDispersionRadius" : "0.457142857142857",
+         "impulse" : "0.22",
+         "effects" : "shot_KwK_L46",
+         "maxAmmo" : 42,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#china_vehicles:_37mm_KwK_L46",
+         "rotationSpeed" : "43.75",
+         "maxHealth" : 54,
+         "level" : 1,
+         "reloadTime" : "2.28571428571429",
+         "price" : 1900,
+         "pitchLimits" : "-20 10"
+      },
+      "_37mm_APX_SA18" : {
+         "recoil" : {
+            "returnTime" : "0.2",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.1",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 27,
+         "repairCost" : 1,
+         "weight" : 110,
+         "aimingTime" : "2.51428571428571",
+         "shots" : {
+            "_37mm_OE_mle._1916" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 600,
+               "gravity" : "9.81",
+               "piercingPower" : "18 18"
+            },
+            "_37mm_FrtPrf1935" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 750,
+               "gravity" : "9.81",
+               "piercingPower" : "46 34"
+            },
+            "_37mm_Odr_mle._1935" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "1.0",
+               "speed" : 600,
+               "gravity" : "9.81",
+               "piercingPower" : "29 22"
+            }
+         },
+         "shotDispersionRadius" : "0.537142857142857",
+         "impulse" : "0.26",
+         "effects" : "shot_small",
+         "maxAmmo" : 237,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#china_vehicles:_37mm_APX_SA18",
+         "rotationSpeed" : "43.75",
+         "maxHealth" : 54,
+         "level" : 1,
+         "reloadTime" : "2.51428571428571",
+         "price" : "",
+         "pitchLimits" : "-35 20"
+      },
+      "_85mm_Tip_56-85JT" : {
+         "recoil" : {
+            "returnTime" : "0.28",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.3",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 61,
+         "repairCost" : 6,
+         "weight" : 1750,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_85mm_CJ_365" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.80",
+               "speed" : 792,
+               "gravity" : "9.81",
+               "piercingPower" : "128 111"
+            },
+            "_85mm_SB_365" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.20",
+               "speed" : 792,
+               "gravity" : "9.81",
+               "piercingPower" : "43 43"
+            },
+            "_85mm_367" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 990,
+               "gravity" : "9.81",
+               "piercingPower" : "172 139"
+            }
+         },
+         "shotDispersionRadius" : "0.34",
+         "impulse" : "0.44",
+         "effects" : "shot_main",
+         "maxAmmo" : 59,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#china_vehicles:_85mm_Tip_56-85JT",
+         "rotationSpeed" : "39.375",
+         "maxHealth" : 122,
+         "level" : 6,
+         "reloadTime" : "5.71428571428571",
+         "price" : 72000,
+         "pitchLimits" : "-22 5"
+      },
+      "_76mm_54-76TG" : {
+         "recoil" : {
+            "returnTime" : "0.4",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.4",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 65,
+         "repairCost" : 4,
+         "shortUserString" : "#china_vehicles:_76mm_54-76TG_short",
+         "weight" : 1000,
+         "aimingTime" : "2.85714285714286",
+         "shots" : {
+            "_76mm_HE_type1" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.20",
+               "speed" : 700,
+               "gravity" : "9.81",
+               "piercingPower" : "38 38"
+            },
+            "_76mm_AP_type1" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.80",
+               "speed" : 700,
+               "gravity" : "9.81",
+               "piercingPower" : "85 69"
+            },
+            "_76mm_APCR_type1" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 875,
+               "gravity" : "9.81",
+               "piercingPower" : "106 90"
+            }
+         },
+         "shotDispersionRadius" : "0.39",
+         "impulse" : "0.44",
+         "effects" : "shot_medium",
+         "maxAmmo" : 52,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#china_vehicles:_76mm_54-76TG",
+         "rotationSpeed" : "39.375",
+         "maxHealth" : 130,
+         "level" : 6,
+         "reloadTime" : 4,
+         "price" : 69000,
+         "pitchLimits" : "-26 8"
+      },
+      "_100mm_44-100JT" : {
+         "recoil" : {
+            "returnTime" : "0.54",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.56",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 74,
+         "repairCost" : 8,
+         "weight" : 2257,
+         "aimingTime" : "2.85714285714286",
+         "shots" : {
+            "_100mm_UBR-412P" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 1119,
+               "gravity" : "9.81",
+               "piercingPower" : "235 208"
+            },
+            "_100mm_UBR-412" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.80",
+               "speed" : 895,
+               "gravity" : "9.81",
+               "piercingPower" : "175 155"
+            },
+            "_100mm_UOF-412" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.20",
+               "speed" : 895,
+               "gravity" : "9.81",
+               "piercingPower" : "50 50"
+            }
+         },
+         "shotDispersionRadius" : "0.388571428571429",
+         "impulse" : "0.44",
+         "effects" : "shot_main",
+         "maxAmmo" : 34,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#china_vehicles:_100mm_44-100JT",
+         "rotationSpeed" : "33.25",
+         "maxHealth" : 160,
+         "level" : 7,
+         "reloadTime" : "8.0",
+         "price" : 79000,
+         "pitchLimits" : "-20 7"
+      },
+      "_100mm_59-100T" : {
+         "recoil" : {
+            "returnTime" : "0.54",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.56",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 90,
+         "repairCost" : 8,
+         "weight" : 2257,
+         "aimingTime" : "2.85714285714286",
+         "shots" : {
+            "_100mm_UBR-412P" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 1125,
+               "gravity" : "9.81",
+               "piercingPower" : "241 213"
+            },
+            "_100mm_UBR-412" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.80",
+               "speed" : 900,
+               "gravity" : "9.81",
+               "piercingPower" : "181 160"
+            },
+            "_100mm_UOF-412" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.20",
+               "speed" : 900,
+               "gravity" : "9.81",
+               "piercingPower" : "50 50"
+            }
+         },
+         "shotDispersionRadius" : "0.31",
+         "impulse" : "0.44",
+         "effects" : "shot_main_mb",
+         "maxAmmo" : 34,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#china_vehicles:_100mm_59-100T",
+         "rotationSpeed" : "33.25",
+         "maxHealth" : 180,
+         "level" : 8,
+         "reloadTime" : "8.0",
+         "price" : 102000,
+         "pitchLimits" : "-20 7"
+      },
+      "_76mm_Gun_Type64" : {
+         "recoil" : {
+            "returnTime" : "0.2",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.30",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "3.5",
+            "turretRotation" : "0.12"
+         },
+         "maxRegenHealth" : 65,
+         "repairCost" : 5,
+         "weight" : 587,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_76mm_AP_M79" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.8",
+               "speed" : 792,
+               "gravity" : "9.81",
+               "piercingPower" : "128 110"
+            },
+            "_76mm_HE_M42A1" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.2",
+               "speed" : 792,
+               "gravity" : "9.81",
+               "piercingPower" : "38 38"
+            },
+            "_76mm_HVAP_M93" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 990,
+               "gravity" : "9.81",
+               "piercingPower" : "177 158"
+            }
+         },
+         "shotDispersionRadius" : "0.4",
+         "impulse" : "0.48",
+         "effects" : "shot_medium_mb",
+         "maxAmmo" : 75,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#china_vehicles:_76mm_Gun_Type64",
+         "rotationSpeed" : "40.25",
+         "maxHealth" : 130,
+         "level" : 6,
+         "reloadTime" : "3.25714285714286",
+         "price" : 62000,
+         "pitchLimits" : "-25 10",
+         "notInShop" : true
+      },
+      "_130mm_59-130T" : {
+         "recoil" : {
+            "returnTime" : "0.64",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.66",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.08"
+         },
+         "maxRegenHealth" : 105,
+         "repairCost" : 10,
+         "weight" : 3090,
+         "aimingTime" : "3.42",
+         "shots" : {
+            "_130mm_AP" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.60",
+               "speed" : 930,
+               "gravity" : "9.81",
+               "piercingPower" : "244 225"
+            },
+            "_130mm_HE" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.40",
+               "speed" : 930,
+               "gravity" : "9.81",
+               "piercingPower" : "65 65"
+            },
+            "_130mm_HEAT" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 930,
+               "gravity" : "9.81",
+               "piercingPower" : "340 340"
+            }
+         },
+         "shotDispersionRadius" : "0.4",
+         "impulse" : "0.62",
+         "effects" : "shot_large_mb",
+         "maxAmmo" : 28,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#china_vehicles:_130mm_59-130T",
+         "rotationSpeed" : "26.25",
+         "maxHealth" : 210,
+         "level" : 10,
+         "reloadTime" : "15.4",
+         "price" : 330000,
+         "pitchLimits" : "-18 6"
+      },
+      "_85mm_Tip_62-85T" : {
+         "recoil" : {
+            "returnTime" : "0.28",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.3",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 67,
+         "repairCost" : 6,
+         "weight" : 1650,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_85mm_UOF" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.20",
+               "speed" : 793,
+               "gravity" : "9.81",
+               "piercingPower" : "43 43"
+            },
+            "_85mm_UBR" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.80",
+               "speed" : 793,
+               "gravity" : "9.81",
+               "piercingPower" : "145 135"
+            },
+            "_85mm_HEAT" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 793,
+               "gravity" : "9.81",
+               "piercingPower" : "220 220"
+            }
+         },
+         "shotDispersionRadius" : "0.31",
+         "impulse" : "0.44",
+         "effects" : "shot_main",
+         "maxAmmo" : 59,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#china_vehicles:_85mm_Tip_62-85T",
+         "rotationSpeed" : "39.375",
+         "maxHealth" : 134,
+         "level" : 7,
+         "reloadTime" : "5.1",
+         "price" : 75000,
+         "pitchLimits" : "-22 5"
+      },
+      "_85mm_S-53" : {
+         "recoil" : {
+            "returnTime" : "0.28",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.3",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 61,
+         "repairCost" : 6,
+         "weight" : 1550,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_85mm_CJ_365" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.80",
+               "speed" : 792,
+               "gravity" : "9.81",
+               "piercingPower" : "126 110"
+            },
+            "_85mm_SB_365" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.20",
+               "speed" : 792,
+               "gravity" : "9.81",
+               "piercingPower" : "43 43"
+            },
+            "_85mm_367" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 990,
+               "gravity" : "9.81",
+               "piercingPower" : "167 140"
+            }
+         },
+         "shotDispersionRadius" : "0.388571428571429",
+         "impulse" : "0.44",
+         "effects" : "shot_main",
+         "maxAmmo" : 59,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#china_vehicles:_85mm_S-53",
+         "rotationSpeed" : "39.375",
+         "maxHealth" : 122,
+         "level" : 6,
+         "reloadTime" : "5.71428571428571",
+         "price" : 61530,
+         "pitchLimits" : "-22 5"
+      },
+      "_45mm_20K" : {
+         "recoil" : {
+            "returnTime" : "0.36",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.32",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 34,
+         "repairCost" : 2,
+         "weight" : 313,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_45mm_UBR-240A" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "1.0",
+               "speed" : 757,
+               "gravity" : "9.81",
+               "piercingPower" : "51 38"
+            },
+            "_45mm_UOF-240A" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 757,
+               "gravity" : "9.81",
+               "piercingPower" : "23 23"
+            },
+            "_45mm_UBR-240PA" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 946,
+               "gravity" : "9.81",
+               "piercingPower" : "88 66"
+            }
+         },
+         "shotDispersionRadius" : "0.457142857142857",
+         "impulse" : "0.24",
+         "effects" : "shot_small",
+         "maxAmmo" : 84,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#china_vehicles:_45mm_20K",
+         "rotationSpeed" : "43.75",
+         "maxHealth" : 68,
+         "level" : 2,
+         "reloadTime" : "2.28571428571429",
+         "price" : 2530,
+         "pitchLimits" : "-25 8"
+      },
+      "_122-mm_D25-TA" : {
+         "recoil" : {
+            "returnTime" : "0.58",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.62",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 96,
+         "repairCost" : 8,
+         "weight" : 2590,
+         "aimingTime" : "3.42857142857143",
+         "shots" : {
+            "_122mm_Type_68" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.40",
+               "speed" : 800,
+               "gravity" : "9.81",
+               "piercingPower" : "61 61"
+            },
+            "_122mm_Type_57" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.60",
+               "speed" : 800,
+               "gravity" : "9.81",
+               "piercingPower" : "175 152"
+            },
+            "_122mm_Type_64" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 640,
+               "gravity" : "9.81",
+               "piercingPower" : "250 250"
+            }
+         },
+         "shotDispersionRadius" : "0.45714285714286",
+         "impulse" : "0.62",
+         "effects" : "shot_large_mb",
+         "maxAmmo" : 24,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#china_vehicles:_122-mm_D25-TA",
+         "rotationSpeed" : "26.25",
+         "maxHealth" : 192,
+         "level" : 8,
+         "reloadTime" : "12.34285714285710",
+         "price" : 135000,
+         "pitchLimits" : "-25 6",
+         "notInShop" : true
+      },
+      "_100mm_59" : {
+         "recoil" : {
+            "returnTime" : "0.54",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.56",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 90,
+         "repairCost" : 8,
+         "weight" : 2257,
+         "aimingTime" : "2.85714285714286",
+         "shots" : {
+            "_100mm_UBR-412P" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 1125,
+               "gravity" : "9.81",
+               "piercingPower" : "241 213"
+            },
+            "_100mm_UBR-412" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.80",
+               "speed" : 900,
+               "gravity" : "9.81",
+               "piercingPower" : "181 160"
+            },
+            "_100mm_UOF-412" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.20",
+               "speed" : 900,
+               "gravity" : "9.81",
+               "piercingPower" : "50 50"
+            }
+         },
+         "shotDispersionRadius" : "0.31",
+         "impulse" : "0.44",
+         "effects" : "shot_main",
+         "maxAmmo" : 34,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#china_vehicles:_100mm_59",
+         "rotationSpeed" : "33.25",
+         "maxHealth" : 180,
+         "level" : 8,
+         "reloadTime" : "8.0",
+         "price" : 78180,
+         "pitchLimits" : "-20 7",
+         "notInShop" : true
+      },
+      "_40mm_Pom_Pom" : {
+         "recoil" : {
+            "returnTime" : "0.1",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.14",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.08"
+         },
+         "maxRegenHealth" : 35,
+         "repairCost" : 2,
+         "weight" : 160,
+         "aimingTime" : "1.14285714285714",
+         "shots" : {
+            "_40mm_AP" : {
+               "maxDistance" : 395,
+               "defaultPortion" : "1.0",
+               "speed" : 732,
+               "gravity" : "9.81",
+               "piercingPower" : "49 38"
+            },
+            "_40mm_HE" : {
+               "maxDistance" : 395,
+               "defaultPortion" : "1.0",
+               "speed" : 732,
+               "gravity" : "9.81",
+               "piercingPower" : "23 23"
+            },
+            "_40mm_APCR" : {
+               "maxDistance" : 395,
+               "defaultPortion" : "0.0",
+               "speed" : 915,
+               "gravity" : "9.81",
+               "piercingPower" : "71 61"
+            }
+         },
+         "shotDispersionRadius" : "0.377142857142857",
+         "impulse" : "0.26",
+         "effects" : "shot_medium",
+         "maxAmmo" : 100,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#china_vehicles:_40mm_Pom_Pom",
+         "rotationSpeed" : "43.75",
+         "maxHealth" : 70,
+         "level" : 4,
+         "reloadTime" : "1.2",
+         "price" : 20000,
+         "pitchLimits" : "-25 10"
+      },
+      "_100mm_60-100T" : {
+         "recoil" : {
+            "returnTime" : "0.54",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.56",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 90,
+         "repairCost" : 8,
+         "weight" : 2257,
+         "aimingTime" : "2.85714285714286",
+         "shots" : {
+            "_100mm_UBR-412P" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 1150,
+               "gravity" : "9.81",
+               "piercingPower" : "244 215"
+            },
+            "_100mm_UBR-412" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.80",
+               "speed" : 920,
+               "gravity" : "9.81",
+               "piercingPower" : "189 167"
+            },
+            "_100mm_UOF-412" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.20",
+               "speed" : 920,
+               "gravity" : "9.81",
+               "piercingPower" : "50 50"
+            }
+         },
+         "shotDispersionRadius" : "0.27",
+         "impulse" : "0.44",
+         "effects" : "shot_main",
+         "maxAmmo" : 34,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#china_vehicles:_100mm_60-100T",
+         "rotationSpeed" : "33.25",
+         "maxHealth" : 180,
+         "level" : 9,
+         "reloadTime" : "8.0",
+         "price" : 180000,
+         "pitchLimits" : "-20 7"
+      },
+      "_85mm_Tip_62-85TS" : {
+         "recoil" : {
+            "returnTime" : "0.28",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.3",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 67,
+         "repairCost" : 6,
+         "weight" : 1650,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_85mm_UOF" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.20",
+               "speed" : 793,
+               "gravity" : "9.81",
+               "piercingPower" : "43 43"
+            },
+            "_85mm_UBR" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.80",
+               "speed" : 793,
+               "gravity" : "9.81",
+               "piercingPower" : "145 135"
+            },
+            "_85mm_HEAT" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 793,
+               "gravity" : "9.81",
+               "piercingPower" : "220 220"
+            }
+         },
+         "shotDispersionRadius" : "0.388571428571429",
+         "impulse" : "0.44",
+         "effects" : "shot_main",
+         "maxAmmo" : 59,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#china_vehicles:_85mm_Tip_62-85TS",
+         "rotationSpeed" : "39.375",
+         "maxHealth" : 134,
+         "level" : 7,
+         "reloadTime" : "5.71428571428571",
+         "price" : 61530,
+         "pitchLimits" : "-22 5",
+         "notInShop" : true
+      },
+      "_47mm_Gun_Type_1" : {
+         "recoil" : {
+            "returnTime" : "0.36",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.32",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 38,
+         "repairCost" : 1,
+         "weight" : 350,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_47mm_HE_Type1" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 834,
+               "gravity" : "9.81",
+               "piercingPower" : "25 25"
+            },
+            "_47mm_APCR_Type1" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 1043,
+               "gravity" : "9.81",
+               "piercingPower" : "130 110"
+            },
+            "_47mm_APHE_Type1" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "1.0",
+               "speed" : 834,
+               "gravity" : "9.81",
+               "piercingPower" : "81 69"
+            }
+         },
+         "shotDispersionRadius" : "0.42",
+         "impulse" : "0.24",
+         "effects" : "shot_small",
+         "maxAmmo" : 84,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#china_vehicles:_47mm_Gun_Type_1",
+         "rotationSpeed" : "43.75",
+         "maxHealth" : 76,
+         "level" : 4,
+         "reloadTime" : "2.1",
+         "price" : 21000,
+         "pitchLimits" : "-25 8"
+      },
+      "_76mm_54-76T" : {
+         "recoil" : {
+            "returnTime" : "0.4",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.4",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 65,
+         "repairCost" : 4,
+         "weight" : 550,
+         "aimingTime" : "2.85714285714286",
+         "shots" : {
+            "_76mm_HE_type1" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.20",
+               "speed" : 700,
+               "gravity" : "9.81",
+               "piercingPower" : "38 38"
+            },
+            "_76mm_AP_type1" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.80",
+               "speed" : 700,
+               "gravity" : "9.81",
+               "piercingPower" : "85 69"
+            },
+            "_76mm_APCR_type1" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 875,
+               "gravity" : "9.81",
+               "piercingPower" : "106 90"
+            }
+         },
+         "shotDispersionRadius" : "0.42",
+         "impulse" : "0.44",
+         "effects" : "shot_medium",
+         "maxAmmo" : 52,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#china_vehicles:_76mm_54-76T",
+         "rotationSpeed" : "39.375",
+         "maxHealth" : 130,
+         "level" : 5,
+         "reloadTime" : "4.5",
+         "price" : 49000,
+         "pitchLimits" : "-26 8"
+      },
+      "_57mm_55-57FG" : {
+         "recoil" : {
+            "returnTime" : "0.32",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.38",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 52,
+         "repairCost" : 4,
+         "weight" : 448,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_57mm_HE_Type_55_57" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 990,
+               "gravity" : "9.81",
+               "piercingPower" : "29 29"
+            },
+            "_57mm_AP_Type_55_57" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "1.0",
+               "speed" : 990,
+               "gravity" : "9.81",
+               "piercingPower" : "112 98"
+            },
+            "_57mm_APCR_Type_55_57" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 1238,
+               "gravity" : "9.81",
+               "piercingPower" : "189 147"
+            }
+         },
+         "shotDispersionRadius" : "0.342857142857143",
+         "impulse" : "0.24",
+         "effects" : "shot_medium",
+         "maxAmmo" : 77,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#china_vehicles:_57mm_55-57FG",
+         "rotationSpeed" : "43.75",
+         "maxHealth" : 104,
+         "level" : 5,
+         "reloadTime" : "2.85714285714286",
+         "price" : 48000,
+         "pitchLimits" : "-20 8"
+      },
+      "_47mm_QFSA" : {
+         "recoil" : {
+            "returnTime" : "0.36",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.32",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 35,
+         "repairCost" : 2,
+         "weight" : 100,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_47mm_APCR" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 610,
+               "gravity" : "9.81",
+               "piercingPower" : "70 45"
+            },
+            "_47mm_AP" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "1.0",
+               "speed" : 488,
+               "gravity" : "9.81",
+               "piercingPower" : "45 23"
+            },
+            "_47mm_HE" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 488,
+               "gravity" : "9.81",
+               "piercingPower" : "23 23"
+            }
+         },
+         "shotDispersionRadius" : "0.45714285714286",
+         "impulse" : "0.24",
+         "effects" : "shot_small",
+         "maxAmmo" : 84,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#china_vehicles:_47mm_QFSA",
+         "rotationSpeed" : "43.75",
+         "maxHealth" : 70,
+         "level" : 2,
+         "reloadTime" : "2.28571428571429",
+         "price" : 1500,
+         "pitchLimits" : "-25 8"
+      },
+      "_122-mm_60-122T" : {
+         "recoil" : {
+            "returnTime" : "0.58",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.62",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 105,
+         "repairCost" : 8,
+         "weight" : 2757,
+         "aimingTime" : "3.42857142857143",
+         "shots" : {
+            "_122mm_PO-122" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 950,
+               "gravity" : "9.81",
+               "piercingPower" : "340 340"
+            },
+            "_122mm_SB-472" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.40",
+               "speed" : 950,
+               "gravity" : "9.81",
+               "piercingPower" : "68 68"
+            },
+            "_122mm_CB-472" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.60",
+               "speed" : 950,
+               "gravity" : "9.81",
+               "piercingPower" : "249 235"
+            }
+         },
+         "shotDispersionRadius" : "0.4",
+         "impulse" : "0.62",
+         "effects" : "shot_large_mb",
+         "maxAmmo" : 24,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#china_vehicles:_122-mm_60-122T",
+         "rotationSpeed" : "26.25",
+         "maxHealth" : 210,
+         "level" : 10,
+         "reloadTime" : "12.34285714285710",
+         "price" : 300000,
+         "pitchLimits" : "-25 6"
+      }
+   },
+   "ids" : {
+      "_37mm_M-6_L53" : 19,
+      "_100mm_44-100JTtraining" : 33,
+      "_76mm_F-34" : 28,
+      "_57mm_Gun_Type_97" : 27,
+      "_122-mm_60-122TG" : 26,
+      "_85mm_Tip_64-85T" : 24,
+      "_100mm_62-100T" : 13,
+      "_85mm_Tip_64-85TG" : 25,
+      "_13.2mm_Hotchkiss_mle._1930" : 8,
+      "_122-mm_D25-T" : 12,
+      "_122-mm_37-122JT" : 9,
+      "_37mm_KwK_L46" : 7,
+      "_37mm_APX_SA18" : 6,
+      "_76mm_54-76TG" : 22,
+      "_85mm_Tip_56-85JT" : 4,
+      "_100mm_44-100JT" : 5,
+      "_76mm_Gun_Type64" : 34,
+      "_100mm_59-100T" : 10,
+      "_85mm_Tip_62-85T" : 23,
+      "_130mm_59-130T" : 15,
+      "_85mm_S-53" : 3,
+      "_45mm_20K" : 18,
+      "_122-mm_D25-TA" : 2,
+      "_100mm_59" : "",
+      "_40mm_Pom_Pom" : 17,
+      "_100mm_60-100T" : 11,
+      "_85mm_Tip_62-85TS" : 1,
+      "_47mm_Gun_Type_1" : 20,
+      "_57mm_55-57FG" : 29,
+      "_76mm_54-76T" : 30,
+      "_122-mm_60-122T" : 14,
+      "_47mm_QFSA" : 16
+   }
+}

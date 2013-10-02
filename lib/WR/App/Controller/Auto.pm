@@ -37,6 +37,9 @@ sub index {
         if($o =~ /https:\/\/(.*?)\..*\/id\/(\d+)-(.*)\//) {
             my $server = $1;
             my $pname = $3;
+
+            $server = 'sea' if(lc($server) eq 'asia'); # fuck WG and renaming endpoints
+
             $self->stash('current_player_name' => $pname);
             $self->stash('current_player_server' => uc($server));
 

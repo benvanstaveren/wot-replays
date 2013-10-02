@@ -1,11 +1,11 @@
             <span class="label" style="margin-top: 10px">Earned/Costs</span>
             <table style="width: 100%" cellspacing="0" cellpadding="0"><tbody>
             <tr>
-                <td><span class="label small">XP [% IF replay.statistics.dailyXPFactor10 > 10 %](x[% replay.statistics.dailyXPFactor10 / 10 %])[% END %]</span></td>
-                <td><span class="green">[% replay.statistics.xp || '0' %]</span></td>
+                <td><span class="label small">XP [% IF replay.stats.dailyXPFactor10 > 10 %](x[% replay.stats.dailyXPFactor10 / 10 %])[% END %]</span></td>
+                <td><span class="green">[% replay.stats.xp || '0' %]</span></td>
                 <td>
-                [% IF replay.statistics.xpPenalty > 0 %]
-                    <span title="Team Damage/Kill XP Penalty" class="red">-[% replay.statistics.xpPenalty %]</span>
+                [% IF replay.stats.xpPenalty > 0 %]
+                    <span title="Team Damage/Kill XP Penalty" class="red">-[% replay.stats.xpPenalty %]</span>
                 [% ELSE %]
                     <span></span>
                 [% END %]
@@ -13,30 +13,30 @@
             </tr>
             <tr>
                 <td><span class="label small">Free XP</span></td>
-                <td><span class="green">[% replay.statistics.freeXP || '0' %]</span></td>
+                <td><span class="green">[% replay.stats.freeXP || '0' %]</span></td>
                 <td></td>
             </tr>
-            <tr><td><span class="label small">Credits</span></td><td><span class="green">[% replay.statistics.credits || '0' %]</span></td><td>
-                [% IF replay.statistics.creditsContributionOut > 0 %]
-                    <span title="Team Damage/Kill Credit Penalty" class="red">-[% replay.statistics.creditsContributionOut %]</span>
+            <tr><td><span class="label small">Credits</span></td><td><span class="green">[% replay.stats.credits || '0' %]</span></td><td>
+                [% IF replay.stats.creditsContributionOut > 0 %]
+                    <span title="Team Damage/Kill Credit Penalty" class="red">-[% replay.stats.creditsContributionOut %]</span>
                 [% ELSE %]
                     <span></span>
                 [% END %]
             </td></tr>
-            <tr><td><span class="label small">Repairs</span></td><td></td><td><span class="red">[% replay.statistics.repair || '0' %]</span></td></tr>
-            <tr><td><span class="label small">Reload</span></td><td></td><td><span class="red">[% replay.statistics.autoLoadCost.0 || '0' %]</span></td></tr>
-            <tr><td><span class="label small">Resupply</span></td><td></td><td><span class="red">[% replay.statistics.autoEquipCost.0 || '0' %]</span></td></tr>
+            <tr><td><span class="label small">Repairs</span></td><td></td><td><span class="red">[% replay.stats.repair || '0' %]</span></td></tr>
+            <tr><td><span class="label small">Reload</span></td><td></td><td><span class="red">[% replay.stats.autoLoadCost.0 || '0' %]</span></td></tr>
+            <tr><td><span class="label small">Resupply</span></td><td></td><td><span class="red">[% replay.stats.autoEquipCost.0 || '0' %]</span></td></tr>
             <tr><td>
                 <span class="label small">Net XP</span>
-                [% nxp = replay.statistics.xp + replay.statistics.freeXP - replay.statistics.xpPenalty %]
+                [% nxp = replay.stats.xp + replay.stats.freeXP - replay.stats.xpPenalty %]
             </td>
                 <td>
                     [% IF nxp > 0 %]
-                        [% IF wpa && wpa.data %]
-                            [% IF nxp >= wpa.data.experience %]
-                                <span class="green tooltip" title="Earned more than the global average of [% h.sprintf('%.0f', wpa.data.experience) %] xp">
+                        [% IF replay.wpa && replay.wpa.experience %]
+                            [% IF nxp >= replay.wpa.experience %]
+                                <span class="green tooltip" title="Earned more than the global average of [% h.sprintf('%.0f', replay.wpa.experience) %] xp">
                             [% ELSE %]
-                                <span class="tooltip" title="Earned less than the global average of [% h.sprintf('%.0f', wpa.data.experience) %] xp">
+                                <span class="tooltip" title="Earned less than the global average of [% h.sprintf('%.0f', replay.wpa.experience) %] xp">
                             [% END %]
                             [% nxp %]</span>
                         [% ELSE %]
@@ -48,15 +48,15 @@
             </tr>
             <tr><td>
                 <span class="label small">Net Credits</span>
-                [% ncr = replay.statistics.credits - replay.statistics.repair - replay.statistics.creditsContributionOut - replay.statistics.autoLoadCost.0 - replay.statistics.autoEquipCost.0 %]
+                [% ncr = replay.stats.credits - replay.stats.repair - replay.stats.creditsContributionOut - replay.stats.autoLoadCost.0 - replay.stats.autoEquipCost.0 %]
             </td>
             <td>
                 [% IF ncr > 0 %]
-                    [% IF wpa && wpa.data %]
+                    [% IF replay.wpa && replay.wpa.creditsn %]
                         [% IF ncr >= wpa.data.creditsn %]
-                            <span class="green tooltip" title="Earned more than the global average of [% h.sprintf('%.0f', wpa.data.creditsn) %] credits">
+                            <span class="green tooltip" title="Earned more than the global average of [% h.sprintf('%.0f', replay.wpa.creditsn) %] credits">
                         [% ELSE %]
-                            <span class="tooltip" title="Earned less than the global average of [% h.sprintf('%.0f', wpa.data.creditsn) %] credits">
+                            <span class="tooltip" title="Earned less than the global average of [% h.sprintf('%.0f', replay.wpa.creditsn) %] credits">
                         [% END %]
                         [% ncr %]</span>
                     [% ELSE %]

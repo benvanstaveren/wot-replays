@@ -27,37 +27,23 @@
                         Maps
                     </a>
                 </li>
-                <li class="nav-item events [% IF pageid == 'event' %]active[% END %]">
-                    <a class="js-hover" href="/events">
-                        Events
-                    </a>
-                </li>
-                <!--
-                <li class="nav-item hof [% IF pageid == 'fame' %]active[% END %]">
-                    <a class="js-hover" href="/fame">
-                        Hall Of Fame
-                    </a>
-                </li>
-                -->
             </ul>
             <ul class="nav js-global-actions" id="global-pages" style="float: right">
+                <li class="nav-item issues [% IF pageid == 'issues' %]active[% END %]">
+                    <a class="js-hover" href="https://bitbucket.org/wotreplays/wot-replays/issues">
+                        Issue Tracker
+                    </a>
+                </li>
                 <li class="nav-item wiki [% IF pageid == 'wiki' %]active[% END %]">
-                    <a class="js-hover" href="http://wiki.wot-replays.org/pages/WoT_Developer_Wiki">
+                    <a class="js-hover" href="http://wiki.vbaddict.net/pages/WoT_Developer_Wiki">
                         Wiki
                     </a>
                 </li>
                 <li class="nav-item blog [% IF pageid == 'blog' %]active[% END %]">
-                    <a class="js-hover" href="http://blog.wot-replays.org/">
+                    <a class="js-hover" href="http://blog.wt-replays.org/">
                         Blog
                     </a>
                 </li>
-                <!--
-                <li class="nav-item wiki [% IF pageid == 'tools' %]active[% END %]">
-                    <a class="js-hover" href="/tools">
-                        Tools
-                    </a>
-                </li>
-                -->
                 <li class="nav-item about [% IF pageid == 'about' %]active[% END %]">
                     <a class="js-hover" href="/about">
                         About/FAQ

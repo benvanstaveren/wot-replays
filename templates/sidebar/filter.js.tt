@@ -73,7 +73,6 @@
         $('select[name="vehicle"] option').show();
 
         $('form#frm-browse-filter input[name="complete"]').prop('checked', false);
-        $('form#frm-browse-filter input[name="compatible"]').prop('checked', false);
         WR.loadBrowseFilter();
         return false;
     });

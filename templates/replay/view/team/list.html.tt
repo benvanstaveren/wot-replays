@@ -5,54 +5,13 @@
     <td><b>Tank</b></td>
     <td><b>Player</b></td>
     <td><b>Awards</b></td>
+    <td><b>Dmg</b></td>
     <td><b>XP</b></td>
     <td title="Kills"><b>K#</b></td>
 </tr>
-[% FOREACH playerid IN players %]
-    [% player = replay.vehicles.$playerid %]
+[% FOREACH vid IN players %]
+    [% player = h.get_roster_by_vid(replay, vid) %]
     [% INCLUDE replay/view/team/row.html.tt %]
 [% END %]
 </tbody>
 </table>
-<script type="text/javascript">
-    $('div.equipmentDialog').dialog({
-        autoOpen: false,
-        width: 800,
-        height: 550,
-        open: function() {
-            var dialog = $(this).parent();
-            $(dialog).find('.ui-dialog-titlebar').css({
-                padding: '0px',
-                margin: '0px',
-            });
-            var dlgcontent = $(this);
-            $(dialog).find('a').each(function(i, e) {
-                if($(e).hasClass('ui-dialog-titlebar-close')) {
-                    // close button
-                } else {
-                    $(e).click(function() {
-                        var href = $(this).attr('href');
-                        $(dialog).find('a').removeClass('active');
-                        $(this).addClass('active');
-                        $(dialog).find('div.viewcontent').hide();
-                        $(dialog).find('div' + href).show();
-                        return false;
-                    });
-                }
-            });
-        },
-        buttons: {
-            'Close': function() {
-                $(this).dialog('close');
-            },
-        },
-        modal: true,
-        draggable: false,
-        resizable: false,
-    });
-    $('tr.playerRow').click(function() {
-        var href = $(this).attr('href');
-        if(href) $(href).dialog('open');
-        return false;
-    });
-</script>

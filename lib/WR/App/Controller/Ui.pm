@@ -8,13 +8,6 @@ use URI::Escape;
 use LWPx::ParanoidAgent;
 use Time::HiRes qw/gettimeofday tv_interval/;
 
-sub xd {
-    my $self = shift;
-
-    $self->res->headers->header('Access-Control-Allow-Origin' => $self->req->headers->header('Origin'));
-    $self->render(text => q|var WR_CORS = true;|, status => 200);
-}
-
 sub faq {
     shift->respond(template => 'faq', stash => { page => { title => 'Frequently Asked Questions' } });
 }
@@ -64,51 +57,49 @@ sub generate_replay_count {
 }
 
 sub index {
-    my $self = shift;
-    my $q = {
-        'site.visible' => true,
-    };
+    my $self    = shift;
+    my $start   = [ gettimeofday ];
+    my $newest  = [];
+    my $replays = [];
 
-    $q->{'player.server'} = $self->stash('req_host') if($self->stash('req_host') ne 'www');
+    # here we generate a bunch of hoohah 
+    $self->render_later;
 
-    my $start = [ gettimeofday ];
-    my $cursor = $self->db('wot-replays')->get_collection('replays')->find($q);
+    # get a total count first
+    my $count_cursor = $self->model('wot-replays.replays')->find();
+    $count_cursor->count(sub {
+        my ($c, $e, $count) = (@_);
 
-    my $explain = $cursor->explain();
+        my $replay_count = $count;
 
-    my $total = $cursor->count;
+        my $q = {
+            'site.visible' => Mango::BSON::bson_true
+        };
+        $q->{'game.server'} = $self->stash('req_host') if($self->stash('req_host') ne 'www');
 
-    my $replays = [ 
-        map { { %{$_}, id => $_->{_id} } } $cursor->sort({ 'site.uploaded_at' => -1 })->limit(15)->all()
-    ];
+        my $new_cursor = $self->model('wot-replays.replays')->find($q)->sort({ 'site.uploaded_at' => -1 })->limit(15);
+        $new_cursor->all(sub {
+            my ($c, $e, $docs) = (@_);
 
-    $q->{'site.download_disabled'} = true;
-    my $another_cursor = $self->db('wot-replays')->get_collection('replays')->find($q);
-    my $archived = $another_cursor->count;
-
-    if($self->req->is_xhr) {
-        $self->respond(template => 'index/ajax', stash => {
-            replays         => $replays,
-            replay_count    => $total + 0,
-            archived_count  => $archived + 0,
-            timing_query    => tv_interval($start),
+            my $replays = [ map { WR::Query->fuck_tt($_) } (@$docs) ];
+            
+            if($self->req->is_xhr) {
+                $self->respond(template => 'index/ajax', stash => {
+                    replays         => $replays,
+                    replay_count    => $replay_count,
+                    timing_query    => tv_interval($start),
+                });
+            } else {
+                $self->respond(template => 'index', stash => {
+                    replays         => $replays,
+                    replay_count    => $replay_count,
+                    page            => { title => 'Home' },
+                    timing_query    => tv_interval($start),
+                });
+            }
         });
-    } else {
-        $self->respond(template => 'index', stash => {
-            page            => { title => 'Home' },
-            replays         => $replays,
-            replay_count    => $total + 0,
-            archived_count  => $archived + 0,
-            timing_query    => tv_interval($start),
-            query           => {
-                query       => $q,
-                explain     => $explain,
-            },
-        });
-    }
+    });
 }
-
-sub register { shift->respond(template => 'register/form', stash => { page => { title => 'Registration No Longer Required' } }) }
 
 sub do_logout {
     my $self = shift;
@@ -124,8 +115,12 @@ sub do_logout {
 sub do_login {
     my $self = shift;
     my $s    = $self->req->param('s');
+    my $f    = $self->req->param('f');
 
     if(defined($s)) {
+        # fix for the sea -> asia move
+        $s = 'asia' if($s eq 'sea');
+        $self->session('after_openid' => $f);
         my %params = @{ $self->req->params->params };
         my $my_url = $self->req->url->base;
         my $cache = Cache::File->new(cache_root => sprintf('%s/openid', $self->app->home->rel_dir('tmp/cache')));
@@ -212,7 +207,12 @@ sub openid_return {
                 'openid' => $vident->url,
                 'notify' => { type => 'info', text => 'Login successful', close => 1 },
             );
-            $self->redirect_to('/');
+
+            if(my $f = $self->session('after_openid')) {
+                $self->redirect_to(sprintf('/%s', $f));
+            } else {
+                $self->redirect_to('/');
+            }
         },
         error => sub {
             my $err = shift;

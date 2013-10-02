@@ -11,6 +11,7 @@
         <td>spotted</td>
         <td>xp</td>
         <td>credits</td>
+        <td>version</td>
         <td>links</td>
         <td colspan="2">
             <select name="type" style="width: 100%">
@@ -24,22 +25,23 @@
 <tbody>
     [% FOREACH replay IN replays %]
         <tr>
-            <td>[% h.map_name(replay.map.id) %]</td>
-            <td>[% h.vehicle_name(replay.player.vehicle.full) %]</td>
+            <td>[% h.map_name(replay.game.map) %]</td>
+            <td>[% h.get_recorder_vehicle(replay).vehicle.label %]</td>
             <td>
-                [% IF replay.game.isWin %]won
-                [% ELSIF !replay.game.isWin && replay.game.isDraw %]draw
-                [% ELSIF !replay.game.isWin && !replay.game.isDraw %]lost[% END %]
+                [% IF h.is_victory(replay) %]won
+                [% ELSIF h.is_defeat(replay) %]lost
+                [% ELSE %]draw[% END %]
             </td>
             <td>
-                [% IF replay.player.survived > 0 %]yes[% ELSE %]no[% END %]
+                [% IF h.get_recorder_vehicle(replay).player.survived %]yes[% ELSE %]no[% END %]
             </td>
-            <td>[% replay.statistics.kills + 0 %]</td>
-            <td>[% replay.statistics.damaged + 0 %]</td>
-            <td>[% replay.statistics.spotted + 0 %]</td>
-            <td>[% replay.statistics.xp + 0 %]</td>
-            <td>[% replay.statistics.credits + 0 %]</td>
-            <td><a href="/replay/[% replay.id %].html">view</a></td>
+            <td>[% replay.stats.kills + 0 %]</td>
+            <td>[% replay.stats.damaged + 0 %]</td>
+            <td>[% replay.stats.spotted + 0 %]</td>
+            <td>[% replay.stats.xp + 0 %]</td>
+            <td>[% replay.stats.credits + 0 %]</td>
+            <td>[% h.wot_version(replay) %]</td>
+            <td><a href="/replay/[% h.get_id(replay) %].html">view</a></td>
             <td>[% IF replay.site.visible %]visible[% ELSE %]hidden[% END %]</td>
             <td>
                 [% IF replay.site.visible %]<a href="#" class="hide-replay" rid="[% replay.id %]">hide</a>

@@ -1,6 +1,6 @@
 [% WRAPPER wrapper.html.tt %]
     <script type="text/javascript">
-        WR.g_currentReplayId = '[% replay.id %]';
+        WR.g_currentReplayId = '[% h.get_id(replay) %]';
     </script>
     <div class="content nosidebar">
         <div class="box ui-corner-all" style="padding: 5px; background: rgba(0,0,0,0.2) none repeat scroll 0 0; margin: 0px 0px 10px 0px">
@@ -10,18 +10,21 @@
                 </div>
                 <div style="float: left">
                     <h2 style="margin: 0px 0px 0px 0px">
-                        <a href="/player/[% replay.player.server |uri %]/[% replay.player.name |uri %]/">[% replay.player.name |html %]</a> - <a href="/vehicle/[% replay.player.vehicle.country  |uri %]/[% replay.player.vehicle.name |uri %]/">[% replay.player.vehicle.label |html %]</a> - <a href="/map/[% h.map_slug(replay.map.name) |uri %]/">[% replay.map.name |html %]</a> ([% h.bonus_type_name(replay.game.bonus_type) %] [% h.game_type_name(replay.game.type) %])
+<a class="[% IF h.get_replay_stats(replay, 'isPremium') %]premium" style="background-position: center left;"[% END %] href="/player/[% replay.game.server %]/[% replay.game.recorder.name |uri %]/" title="[% replay.game.recorder.name |html %] [% IF h.get_replay_stats(replay, 'isPremium') %](Premium)[% END %]">[% replay.game.recorder.name |truncate(15) |html %]</a> - <a href="/vehicle/[% h.vehicle_link(h.get_recorder_vehicle(replay).vehicle.ident) %]/" title="[% h.get_recorder_vehicle(replay).vehicle.label |html %]">[% h.get_recorder_vehicle(replay).vehicle.label_short |html %]</a> - <a href="/map/[% h.map_slug(replay.game.map) |uri %]/">[% h.map_name(replay.game.map) |html %]</a> ([% h.bonus_type_name(replay.game.bonus_type) %] [% h.game_type_name(replay.game.type) %])</a>
                     </h2>
                     <h3 style="margin: 0px 0px 5px 0px">
                         <span style="font-weight: normal">Result:</span><span>[% INCLUDE replay/view/matchresult.html.tt %]</span> <span style="margin: 0px 0px 0px 10px; font-weight: normal">Survived:</span><span> [% INCLUDE replay/view/vehicle_stats/survived.html.tt %]</span>
                     </h3>
                     <div>
-                        <button class="rateUp" rid="[% replay.id %]" title="Like this replay"><span>Like</span> (<span class="rateUpCount">[% replay.site.likes || '0' %]</span>)</button></a>
-                        <button class="panelButton" style="width: 150px" id="btn-embed">Embed Replay</button>
+                        <button class="rateUp" rid="[% h.get_id(replay) %]" title="Like this replay"><span>Like</span> (<span class="rateUpCount">[% replay.site.like || '0' %]</span>)</button></a>
+                        <button class="panelButton" style="width: 75px" id="btn-embed">Embed</button>
                         [% IF !replay.site.download_disabled %]
-                        <button href="/download/[% replay.id %]" class="panelButton downloadButton [% IF replay.version != config.wot.version %]incompatible[% END %]" style="width: 150px" id="btn-download">Download Replay (<span class="count">[% replay.site.downloads || '0' %]</span>)</button>
+                        <button href="/replay/[% h.get_id(replay) %]/download" class="panelButton downloadButton [% IF h.is_old_version(replay) %]incompatible[% END %]" style="width: 125px" id="btn-download">Download (<span class="count">[% replay.site.downloads || '0' %]</span>)</button>
                         [% END %]
-                        <button href="/csv/[% replay.id %].csv" class="panelButton downloadButton" style="width: 75px" id="btn-csv">As CSV</button>
+                        <button class="panelButton replayViewerButton" style="width: 100px;" id="btn-battleviewer">Battle Viewer</button>
+                        [% IF 1 == 0 %]
+                        <button href="/replay/[% h.get_id(replay) %]/csv.csv" class="panelButton downloadButton" style="width: 75px" id="btn-csv">As CSV</button>
+                        [% END %]
                     </div>
                 </div>
                 <div class="clear"></div>
@@ -42,7 +45,7 @@
                                                 <li class="nav-item tab"><a href="#battle-chat">Chat</a></li>
                                             [% END %]
                                             <li class="nav-item tab"><a href="#comparison">Compare</a></li>
-                                            [% IF related.count > 0 %]
+                                            [% IF related && related.count > 0 %]
                                                 <li class="nav-item tab"><a href="#replay-related">Related Replays ([% related.count %])</a></li>
                                             [% END %]
                                         </ul>
@@ -66,13 +69,8 @@
                             </div>
                             <div id="comparison" class="tab-panel" style="display: none">
                                 <div id="comparison-display">Loading...</div>
-                                <script type="text/javascript">
-                                    $(document).ready(function() {
-                                        $('#comparison-display').load('/replay/[% replay.id %]/comparison', {}, function() {});
-                                    });
-                                </script>
                             </div>
-                            [% IF related.count > 0 %]
+                            [% IF related.count && related.count > 0 %]
                             <div id="replay-related" class="tab-panel" style="display: none">
                                 under construction
                             </div>
@@ -80,12 +78,8 @@
                             [% IF replay.chat.size > 0 %]
                             <div id="battle-chat" class="tab-panel" style="display: none">
                                 [% FOREACH message IN replay.chat %]
-                                    <div class="chatmessage">
-                                        [% IF message.channel != 'platoon' %]
-                                            <div class="from [% message.channel || 'global' %]" title="[% message.from |html %]">[% message.from |truncate(18) |html %]</div>
-                                            <div class="message [% message.channel || 'global' %]">[% message.text %]</div>
-                                            <div class="clear"></div>
-                                        [% END %]
+                                    <div style="padding: 2px;">
+                                        [% message %]
                                     </div>
                                 [% END %]
                             </div>
@@ -96,51 +90,7 @@
             </tbody>
             </table>
         </div>
-        <script type="text/javascript">
-            $(document).ready(function() {
-                $('li.nav-item.tab a').click(function() {
-                    $('li.nav-item.tab').removeClass('active');
-                    $(this).parent().addClass('active');
-                    var href = $(this).attr('href');
-                    $('div.tab-panel').hide();
-                    WR.trackAjaxPageview('/replay/[% replay.id %]/' + href.substr(1));
-                    $(href).show();
-                    return false;
-                });
-                $('div.award').tooltip({ track: true }).css({ 'cursor': 'pointer' });
-                $('td.playerDetails span.tooltip').tooltip({ track: true }).css({ 'cursor': 'pointer' });
-                $('span.tooltip').tooltip({track: true}).css({ 'cursor': 'pointer' });
-                $('button#btn-embed').click(function() {
-                    WR.trackEvent('Replay','Embed', '/replay/[% replay.id %].html');
-                    $('<div>').attr('title', 'Embed Replay').append(
-                        $('<div>').css({ 'font-size': '1.2em', 'padding': '2px'}).html('In order to embed this replay, use the supplied BBCode below'),
-                        $('<img>').attr('src', 'http://dl.wot-replays.org/[% replay.id %].png').css({ 'width': '545px', 'height': '98px', 'margin': '10px 0px 10px 0px' }),
-                        $('<textarea>').css({
-                            width: '540px',
-                            height: '65px',
-                            'font-size': '1.4em',
-                            resize: 'none'
-                        }).html('[url="http://www.wot-replays.org/replay/[% replay.id %].html"]' + "\n" + '[img]http://dl.wot-replays.org/[% replay.id %].png[/img]' + "\n" + '[/url]')
-                    ).dialog({
-                        modal: true,
-                        resizable: false,
-                        draggable: false,
-                        width: 600,
-                        height: 350,
-                        buttons: {
-                            'Close': function() {
-                                $(this).dialog('close');
-                            }
-                        },
-                    });
-                    return false;
-                });
-            });
-        </script>
     </div>
-    <!--
-        debug stuff
-
-        [% h.dumper(related) %]
-    -->
+    [% INCLUDE replay/view/battleviewer/index.html.tt %]
+    [% INCLUDE replay/view/script.js.tt %]
 [% END %]

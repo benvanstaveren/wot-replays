@@ -1,0 +1,95 @@
+<script type="text/javascript">
+    var comparisonLoaded = false;
+    $(document).ready(function() {
+        $('li.nav-item.tab a').click(function() {
+            $('li.nav-item.tab').removeClass('active');
+            $(this).parent().addClass('active');
+            var href = $(this).attr('href');
+            $('div.tab-panel').hide();
+            if(href == '#comparison') {
+                if(!comparisonLoaded) {
+                    $('form#comparisonform input[name="p"]').val(1);
+                    var s = $('form#comparisonform').serialize();
+                    WR.waitElement();
+                    $('#comparison-display').load('/replay/' + WR.g_currentReplayId + '/comparison', s, function() {
+                        $.unblockUI();
+                        comparisonLoaded = true;
+                    });
+                }
+            }
+            $(href).show();
+            return false;
+        });
+        $('button#btn-embed').click(function() {
+            $('<div>').attr('title', 'Embed Replay').append(
+                $('<div>').css({ 'font-size': '1.2em', 'padding': '2px'}).html('In order to embed this replay, use the supplied BBCode below'),
+                $('<img>').attr('src', 'http://banners.wt-replays.org/[% replay.site.banner.url_path %]').css({ 'width': '545px', 'height': '98px', 'margin': '10px 0px 10px 0px' }),
+                $('<textarea>').css({
+                    width: '540px',
+                    height: '65px',
+                    'font-size': '1.4em',
+                    resize: 'none'
+                }).html('[url=http://www.wt-replays.org/replay/[% h.get_id(replay) %].html]' + "\n" + '[img]http://banners.wt-replays.org/[% replay.site.banner.url_path %][/img]' + "\n" + '[/url]')
+            ).dialog({
+                modal: true,
+                resizable: false,
+                draggable: false,
+                width: 600,
+                height: 350,
+                buttons: {
+                    'Close': function() {
+                        $(this).dialog('close');
+                    }
+                },
+            });
+            return false;
+        });
+        $('div.award').tooltip({ track: true }).css({ 'cursor': 'pointer' });
+        $('td.playerDetails span.tooltip').tooltip({ track: true }).css({ 'cursor': 'pointer' });
+        $('span.tooltip').tooltip({track: true}).css({ 'cursor': 'pointer' });
+
+        $('#battleviewer-dlg').dialog({
+            autoOpen: false,
+            width: 575,
+            height: 650,
+            open: function() {
+                WR.battleViewer.start();
+            },
+            beforeClose: function() {
+                WR.battleViewer.stop();
+                return true;
+            },
+            buttons: {
+                'Really Slow': function() {
+                    WR.battleViewer.setSpeed(400);
+                },
+                'Slow': function() {
+                    WR.battleViewer.setSpeed(200);
+                },
+                'Realtime': function() {
+                    WR.battleViewer.setSpeed(100);
+                },
+                'Fast': function() {
+                    WR.battleViewer.setSpeed(50);
+                },
+                'Really Fast': function() {
+                    WR.battleViewer.setSpeed(25);
+                },
+                'Ludicrous Speed': function() {
+                    WR.battleViewer.setSpeed(12);
+                },
+                'Close': function() {
+                    WR.battleViewer.stop();
+                    $(this).dialog('close');
+                },
+            },
+            modal: true,
+            resizable: false,
+        });
+
+        $('#btn-battleviewer').click(function() {
+            $('#battleviewer-dlg').dialog('open');
+            return false;
+        });
+    });
+</script>

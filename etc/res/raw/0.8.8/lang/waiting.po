@@ -1,0 +1,339 @@
+msgid "Flash"
+msgstr "Updating..."
+
+msgid "__updateCaptureDevices"
+msgstr "Updating input devices..."
+
+msgid "applyModule"
+msgstr "Installing the module..."
+
+msgid "buttons/cease"
+msgstr "Cease"
+
+msgid "buttons/exit"
+msgstr "Cancel"
+
+msgid "buttons/exitQueue"
+msgstr "Leave the Queue"
+
+msgid "buyBerths"
+msgstr "Purchasing the bunks..."
+
+msgid "buyItem"
+msgstr "Purchasing..."
+
+msgid "buySlot"
+msgstr "Purchasing the slot..."
+
+msgid "customizationApply"
+msgstr "Customizing..."
+
+msgid "customizationDrop"
+msgstr "Deleting..."
+
+msgid "deleting"
+msgstr "Deleting..."
+
+msgid "download/dossier"
+msgstr "Synchronizing Personal file..."
+
+msgid "download/inventory"
+msgstr "Synchronizing equipment and consumables..."
+
+msgid "download/shop"
+msgstr "Synchronizing Store..."
+
+msgid "draw_research_items"
+msgstr "Loading..."
+
+msgid "ebankBuyGold"
+msgstr "Convert Vcoin to Gold"
+
+msgid "enter"
+msgstr "Logging in..."
+
+msgid "equipping"
+msgstr "Transferring..."
+
+msgid "exchangeVehiclesXP"
+msgstr "Convert Experience"
+
+msgid "exit_battle"
+msgstr "Exiting to the Garage..."
+
+msgid "in_battle"
+msgstr "Searching for room..."
+
+msgid "installEquipment"
+msgstr "Installing equipment..."
+
+msgid "loadHangarSpace"
+msgstr "Updating the Garage..."
+
+msgid "loadHangarSpaceVehicle"
+msgstr "Updating the Garage..."
+
+msgid "loadPage"
+msgstr "Loading interface..."
+
+msgid "loadStats"
+msgstr "Gathering information..."
+
+msgid "login"
+msgstr "Connecting..."
+
+msgid "message/another_periphery"
+msgstr ""
+"<font color='#ff0000'>Server \"%s\" error , session on another server is "
+"incomplete.</font>\n"
+"\n"
+"Wait until the client connects to the game automatically."
+
+msgid "message/autoLogin"
+msgstr ""
+"<font color='#ff0000'>Sorry, server \"%s\" is busy.</font>\n"
+"\n"
+"You are in a queue to enter the game.\n"
+"\n"
+"Wait until the client connects to the game automatically."
+
+msgid "message/auto_login_activating"
+msgstr ""
+"<font color='#ff0000'>Your account is being registered.</font>\n"
+"\n"
+"Wait until the client connects to the game automatically."
+
+msgid "message/auto_login_query_failed"
+msgstr ""
+"<font color='#ff0000'>Server \"%(server)s\" unavailable.\n"
+"%(reason)s</font>\n"
+"\n"
+"Wait until the client connects to the game automatically."
+
+msgid "message/checkout_error"
+msgstr ""
+"<font color='#ff0000'>Server \"%s\" error receiving information about the "
+"player.</font>\n"
+"\n"
+"Wait until the client connects to the game automatically."
+
+msgid "message/queue"
+msgstr ""
+"<font color='#ff0000'>Sorry, server \"%s\" is busy.</font>\n"
+"\n"
+"Your number in a queue is: %s.\n"
+"\n"
+"Wait until the client connects to the game automatically."
+
+msgid "prebattle/assign"
+msgstr "Distributing players..."
+
+msgid "prebattle/change_arena_voip"
+msgstr "Changing VOIP..."
+
+msgid "prebattle/change_settings"
+msgstr "Changing settings..."
+
+msgid "prebattle/create"
+msgstr "Creating..."
+
+msgid "prebattle/join"
+msgstr "Joining..."
+
+msgid "prebattle/kick"
+msgstr "Disconnecting..."
+
+msgid "prebattle/leave"
+msgstr "Exit..."
+
+msgid "prebattle/player_not_ready"
+msgstr "Not ready..."
+
+msgid "prebattle/player_ready"
+msgstr "Ready..."
+
+msgid "prebattle/swap"
+msgstr "Changing teams..."
+
+msgid "prebattle/team_not_ready"
+msgstr "Team not ready..."
+
+msgid "prebattle/team_ready"
+msgstr "Team ready..."
+
+msgid "recruting"
+msgstr "Recruiting..."
+
+msgid "reloadCaptcha"
+msgstr "Reloading image..."
+
+msgid "replacePassport"
+msgstr "Replacing Personal Data..."
+
+msgid "requestCaptcha"
+msgstr "Receiving image..."
+
+msgid "requestCaptureDevices"
+msgstr "Receiving information about the devices..."
+
+msgid "research"
+msgstr "Researching..."
+
+msgid "retraining"
+msgstr "Retraining..."
+
+msgid "sellItem"
+msgstr "Selling..."
+
+msgid "sellVehicle"
+msgstr "Selling vehicle..."
+
+msgid "sinhronize"
+msgstr "Synchronization..."
+
+msgid "start_battle"
+msgstr "Battle starts..."
+
+msgid "stats"
+msgstr "Gathering information..."
+
+msgid "studying"
+msgstr "Researching..."
+
+msgid "techMaintenance"
+msgstr "Updating maintenance..."
+
+msgid "techMaintenanceEquipments"
+msgstr "Updating consumables..."
+
+msgid "titles/another_periphery"
+msgstr "You are still logged in on another server."
+
+msgid "titles/auto_login_query_failed"
+msgstr "Selecting server automatically"
+
+msgid "titles/checkout_error"
+msgstr "Identification error"
+
+msgid "titles/queue"
+msgstr "Queue to enter the game"
+
+msgid "titles/registering"
+msgstr "Registration"
+
+msgid "trainingCreate"
+msgstr "Creating a room..."
+
+msgid "trainingDestroy"
+msgstr "Deleting the room..."
+
+msgid "trainingJoin"
+msgstr "Entering the room..."
+
+msgid "trainingLeave"
+msgstr "Exit..."
+
+msgid "trainingStart"
+msgstr "Training starts..."
+
+msgid "trainingUpdate"
+msgstr "Modifying the room..."
+
+msgid "transferMoney"
+msgstr "Transfer Gold"
+
+msgid "tutorial-chapter-loading"
+msgstr "Loading tutorial..."
+
+msgid "tutorial-queue"
+msgstr "Loading tutorial..."
+
+msgid "tutorial-request-battle-count"
+msgstr "Gathering data..."
+
+msgid "tutorial-request-bonus"
+msgstr "Receiving bonus..."
+
+msgid "tutorial-request-credits"
+msgstr "Gathering data..."
+
+msgid "tutorial-request-elite-vehicles"
+msgstr "Receiving a list of Elite vehicles..."
+
+msgid "tutorial-request-inventory-items"
+msgstr "Gathering data from the Depot..."
+
+msgid "tutorial-request-item-params"
+msgstr "Gathering data on a module..."
+
+msgid "tutorial-request-shop"
+msgstr "Gathering data from the Store..."
+
+msgid "tutorial-request-slots"
+msgstr "Gathering data on slots..."
+
+msgid "tutorial-request-tankman"
+msgstr "Gathering data on tankists..."
+
+msgid "tutorial-request-tankman-info"
+msgstr "Gathering data on a tanker..."
+
+msgid "tutorial-request-unlocks"
+msgstr "Receiving a list of researched modules..."
+
+msgid "tutorial-request-vehicle-equipments"
+msgstr "Gathering data..."
+
+msgid "tutorial-request-vehicle-settings"
+msgstr "Receiving vehicle's settings..."
+
+msgid "tutorial-request-xp"
+msgstr "Gathering data..."
+
+msgid "tutorial-start-training"
+msgstr "Starting training..."
+
+msgid "tutorial-update-scene"
+msgstr "Updating interface..."
+
+msgid "unloading"
+msgstr "Transferring..."
+
+msgid "updateAmmo"
+msgstr "Updating ammunition..."
+
+msgid "updateCurrentVehicle"
+msgstr "Updating vehicles..."
+
+msgid "updateFitting"
+msgstr "Updating modules..."
+
+msgid "updateInventory"
+msgstr "Updating Depot..."
+
+msgid "updateMyVehicles"
+msgstr "Updating vehicles..."
+
+msgid "updateShop"
+msgstr "Updating Store..."
+
+msgid "updateTankmen"
+msgstr "Updating tankers..."
+
+msgid "updateVehicle"
+msgstr "Updating vehicles..."
+
+msgid "updating"
+msgstr "Updating..."
+
+msgid "updatingSkillWindow"
+msgstr "Updating data..."
+
+msgid "verifyCaptcha"
+msgstr "Verifying text..."
+
+msgid "voiceChat"
+msgstr "Initializing Voice Chat"
+
+msgid "waiting_ebank_response"
+msgstr "Connecting to Ebank..."

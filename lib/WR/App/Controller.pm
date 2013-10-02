@@ -13,6 +13,7 @@ sub respond {
     }
     $self->render(%args);
 
+    # are we still doing this? 20130920 -S
     if(defined($self->stash('cachereplay')) && $self->stash('cachereplay') == 1) {
         my $parts = $self->req->url->path->parts;
         my $fragment = $parts->[1];

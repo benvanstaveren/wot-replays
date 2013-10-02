@@ -1,9 +1,9 @@
-[% IF replay.game.isWin == 1 %]
+[% IF replay.game.recorder.team == replay.game.winner %]
     <span class="green">
         [% mr_inc = 'replay/view/matchresult/' _ replay.game.type _ '/victory.html.tt' %]
         [% INCLUDE $mr_inc %]
     </span>
-[% ELSIF replay.game.isDraw == 1 %]
+[% ELSIF replay.game.winner == 0 %]
     <span>Draw</span>
 [% ELSE %]
     <span class="red">

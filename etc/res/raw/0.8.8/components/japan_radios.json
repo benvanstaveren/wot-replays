@@ -1,0 +1,19 @@
+{
+   "shared" : {
+      "_Type94_Hei_1" : {
+         "distance" : 400,
+         "tags" : {},
+         "maxRegenHealth" : 60,
+         "userString" : "#japan_vehicles:_Type94_Hei_1",
+         "maxHealth" : 100,
+         "repairCost" : "0.5",
+         "level" : 4,
+         "weight" : 90,
+         "price" : 8160,
+         "notInShop" : true
+      }
+   },
+   "ids" : {
+      "_Type94_Hei_1" : ""
+   }
+}

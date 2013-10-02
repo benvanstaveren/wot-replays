@@ -1,8 +1,7 @@
 package WR::App::Controller::Profile;
 use Mojo::Base 'WR::App::Controller';
 use WR::Query;
-use boolean;
-use WR::PlayerProfileData;
+use Mango::BSON;
 
 sub check {
     my $self = shift;
@@ -24,30 +23,42 @@ sub setting {
     $self->render(json => { ok => 1 });
 }
 
-sub sr {
-    my $self = shift;
-    my $id = bless({ value => $self->req->param('id') }, 'MongoDB::OID');
-
-    if(my $replay = $self->db('wot-replays')->get_collection('replays')->find_one({ _id => $id, 'player.name' => $self->current_user->{player_name}, 'player.server' => $self->current_user->{player_server} })) {
-        $self->db('wot-replays')->get_collection('replays')->update({ _id => $id }, { '$set' => { 'site.visible' => true } });
-        $self->clear_replay_page($self->req->param('id'));
-        $self->render(json => { ok => 1 });
-    } else {
-        $self->render(json => { ok => 0, error => 'Replay does not exist, or it is not yours' });
-    }
-}
-
 sub hr {
     my $self = shift;
-    my $id = bless({ value => $self->req->param('id') }, 'MongoDB::OID');
+    my $id = Mango::BSON::bson_oid($self->req->param('id'));
 
-    if(my $replay = $self->db('wot-replays')->get_collection('replays')->find_one({ _id => $id, 'player.name' => $self->current_user->{player_name}, 'player.server' => $self->current_user->{player_server} })) {
-        $self->db('wot-replays')->get_collection('replays')->update({ _id => $id }, { '$set' => { 'site.visible' => false } });
-        $self->clear_replay_page($self->req->param('id'));
-        $self->render(json => { ok => 1 });
-    } else {
-        $self->render(json => { ok => 0, error => 'Replay does not exist, or it is not yours' });
-    }
+    $self->render_later;
+    $self->model('wot-replays.replays')->find_one({ _id => $id, 'game.recorder.name' => $self->current_user->{player_name}, 'game.server' => $self->current_user->{player_server} } => sub {
+        my ($c, $e, $d) = (@_);
+
+        if($d) {
+            $self->model('wot-replays.replays')->update({ _id => $id }, { '$set' => { 'site.visible' => Mango::BSON::bson_false }} => sub {
+                my ($c, $e, $d) = (@_);
+                $self->render(json => { ok => 1 });
+            });
+        } else {
+            $self->render(json => { ok => 0, error => 'Replay does not exist, or it is not yours' });
+        }
+    });
+}
+
+sub sr {
+    my $self = shift;
+    my $id = Mango::BSON::bson_oid($self->req->param('id'));
+
+    $self->render_later;
+    $self->model('wot-replays.replays')->find_one({ _id => $id, 'game.recorder.name' => $self->current_user->{player_name}, 'game.server' => $self->current_user->{player_server} } => sub {
+        my ($c, $e, $d) = (@_);
+
+        if($d) {
+            $self->model('wot-replays.replays')->update({ _id => $id }, { '$set' => { 'site.visible' => Mango::BSON::bson_true }} => sub {
+                my ($c, $e, $d) = (@_);
+                $self->render(json => { ok => 1 });
+            });
+        } else {
+            $self->render(json => { ok => 0, error => 'Replay does not exist, or it is not yours' });
+        }
+    });
 }
 
 sub index {
@@ -62,87 +73,50 @@ sub index {
     );
 }
 
-sub reclaim {
-    my $self = shift;
-    my $a    = $self->req->param('a');
-    my $error;
-      
-    if(defined($a) && $a eq 'login') {
-        my $e = $self->req->param('email');
-        my $p = $self->req->param('password');
-        if($e && $p) {
-            if(my $user = $self->model('wot-replays.accounts')->find_one({ email => $e })) {
-                my $salt = substr($user->{password}, 0, 2);
-                my $npass = crypt($p, $salt);
-
-                if($user->{password} eq $npass) {
-                    $self->model('wot-replays.accounts')->remove({ openid => $self->session('openid') });
-                    $self->model('wot-replays.accounts')->update({ _id => $user->{_id} }, {
-                        '$set' => {
-                            openid => $self->session('openid'),
-                            reclaimed => true,
-                        }
-                    });
-                    $self->session('notify' => { type => 'info', text => 'Account reclaimed successfully!', close => 1 });
-                    $self->redirect_to('/profile');
-                } else {
-                    $self->respond(template => 'profile/reclaim', stash => {
-                        page => { title => 'Reclaim Account' },
-                        notify => { type => 'error', text => 'Invalid credentials', sticky => 1 },
-                    });
-                }
-            } else {
-                $self->respond(template => 'profile/reclaim', stash => {
-                    page => { title => 'Reclaim Account' },
-                    notify => { type => 'error', text => 'No such user', sticky => 1 },
-                });
-            }
-        } else {
-            $self->respond(template => 'profile/reclaim', stash => {
-                page => { title => 'Login' },
-                notify => { type => 'error', text => 'You do know both fields are required, right?', sticky => 1 },
-            });
-        }
-    } else {
-       $self->respond(template => 'profile/reclaim', stash => { page => { title => 'Reclaim Account' } });
-    }
-}
-
 sub replays {
     my $self = shift;
     my $type = $self->req->param('type');
     my $query = {
-        'player.name'      => $self->stash('current_player_name'),
-        'player.server'    => lc($self->stash('current_player_server')),
+        'game.recorder.name' => $self->stash('current_player_name'),
+        'game.server' => lc($self->stash('current_player_server')),
         };
-        # 'site.uploaded_by' => $self->current_user->{_id},
 
-    my $coll = $self->db('wot-replays')->get_collection('replays');
+
     my $p = $self->req->param('p') || 1;
 
     $self->session('profile_replay_type' => $type);
 
     if($type eq 'p') {  
-        $query->{'site.visible'} = true;
+        $query->{'site.visible'} = Mango::BSON::bson_true;
     } elsif($type eq 'h') {
-        $query->{'site.visible'} = false;
+        $query->{'site.visible'} = Mango::BSON::bson_false;
     }
 
-    my $cursor = $coll->find($query);
-    my $count = $cursor->count();
-    my $maxp = int($count/25);
-    $maxp++ if($maxp * 25 < $count);
+    $self->render_later;
 
-    $cursor->skip( ($p - 1) * 25 );
-    $cursor->limit(25);
-    $cursor->sort({ 'site.uploaded_at' => -1 });
+    my $cursor = $self->model('wot-replays.replays')->find($query);
+    $cursor->count(sub {
+        my ($cursor, $e, $count) = (@_);
+        my $maxp   = int($count/25);
+        $maxp++ if($maxp * 25 < $count);
+
+        $cursor->skip( ($p - 1) * 25 );
+        $cursor->limit(25);
+        $cursor->sort({ 'site.uploaded_at' => -1 });
+
+        $cursor->all(sub {
+            my ($c, $e, $docs) = (@_);
+
+            my $replays = [ map { WR::Query->fuck_tt($_) } @$docs ];
     
-    $self->respond(template => 'profile/replays', stash => {
-        maxp => $maxp,
-        type => $type,
-        p    => $p,
-        replays => [ map { { %$_, id => $_->{_id} } } $cursor->all() ],
-        total_replays => $count,
+            $self->respond(template => 'profile/replays', stash => {
+                maxp => $maxp,
+                type => $type,
+                p    => $p,
+                replays => $replays,
+                total_replays => $count,
+            });
+        });
     });
 }
 
@@ -155,9 +129,6 @@ sub settings {
             page => { title => 'Your Profile - Settings' },
         },
     );
-}
-
-sub overview {
 }
 
 1;

@@ -1,10 +1,5 @@
-                [% IF replay.complete %]
-                    [% IF replay.player.survived == 1 %]<span class="green">Yes</span>
+                    [% IF replay.game.recorder.survived %]<span class="green">Yes</span>
                     [% ELSE %]
-                        [% pkid = replay.player.killed_by %]
-                        [% pkr  = replay.vehicles.$pkid %]
-                        <span class="red">No</span> - killed by <a href="/player/[% replay.player.server %]/[% pkr.name |uri %]">[% pkr.name %]</a>.
+                        [% roster = h.get_roster_by_vid(replay, h.get_recorder_vehicle(replay).stats.killerID) %]
+                        <span class="red">No</span> - killed by <a href="/player/[% replay.game.server %]/[% roster.player.name |uri %]">[% roster.player.name %]</a>
                     [% END %]
-                [% ELSE %]
-                    <span>unknown</span>
-                [% END %]

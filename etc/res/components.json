@@ -1,0 +1,10 @@
+{
+    "engine": "Engine",
+    "ammoBay": "Ammo Rack",
+    "fuelTank": "Fuel Tank",
+    "radio": "Radio",
+    "track": "Track",
+    "gun": "Gun",
+    "turretRotator": "Turret",
+    "surveyingDevice": "Observation Device"
+}

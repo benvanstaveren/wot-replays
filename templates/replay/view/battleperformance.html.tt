@@ -1,22 +1,5 @@
 <div>
-    [% IF h.show_efficiency == 1 %]
-    <span class="label">Efficiency</span>
-    <div>
-        <table style="width: 100%" cellspacing="0" cellpadding="0"><tbody><tr>
-            [% pname = replay.player.name %]
-            [% eff = replay.efficiency.$pname %]
-            <td class="tooltip" title="Player XVM Efficiency">
-                <span class="label small">XVM</span>
-                [% h.eff_color(h.sprintf('%.0f', eff.xvm)) %]
-            </td>
-            <td class="tooltip" title="Player WN6 Rating">
-                <span class="label small">WN6</span>
-                [% h.eff_color(h.sprintf('%.0f', eff.wn6)) %]
-            </td>
-        </tr></tbody></table>
-    </div>
-    [% END %]
-    <span [% IF h.show_efficiency == 1 %]style="margin-top: 15px"[% END %] class="label">Performance</span>
+    <span class="label">Performance</span>
     <div class="replayTeamList" id="battlePerformance">
         <table style="width: 100%" class="battleperformance" cellspacing="0">
         <tbody>
@@ -24,23 +7,70 @@
         </tbody>
         </table>
     </div>
+    [% FOREACH pid IN replay.stats.details.keys %]
+        [% details = replay.stats.details.$pid %]
+        [% cd = h.get_crit_details(details.crits) %]
+        [% IF cd.count > 0 %]
+            <div id="crit-details-[% pid %]" class="crit-details-dlg" style="display: none" title="Critical Hit Details">
+                <div style="padding: 4px">
+                    <table style="width: 100%" cellspacing="0" cellpadding="0"><tbody>
+                    <tr>
+                        <td style="width: 33%; vertical-align: top">
+                            <h2>Damaged Modules</h2>
+                            [% FOREACH id IN cd.critical_devices %]
+                                <div style="font-size: 1.4em">
+                                    <span><img src="//images.wt-replays.org/icon/crit/[% id %]CriticalSmall.png" style="width: 16px; height: 16px"></span>
+                                    <span>[% h.crit_component_name(id) %]</span>
+                                </div>
+                            [% END %]
+                        </td>
+                        <td style="width: 33%; vertical-align: top">
+                            <h2>Destroyed Modules</h2>
+                            [% FOREACH id IN cd.destroyed_devices %]
+                                <div style="font-size: 1.4em">
+                                    <span><img src="//images.wt-replays.org/icon/crit/[% id %]DestroyedSmall.png" style="width: 16px; height: 16px"></span>
+                                    <span>[% h.crit_component_name(id) %]</span>
+                                </div>
+                            [% END %]
+                        </td>
+                        <td style="width: 33%; vertical-align: top">
+                            <h2>Injured Crew</h2>
+                            [% FOREACH id IN cd.destroyed_tankmen %]
+                                <div style="font-size: 1.4em">
+                                    <span><img src="//images.wt-replays.org/icon/crit/[% id %]DestroyedSmall.png" style="width: 16px; height: 16px"></span>
+                                    <span>[% h.crit_tankman_name(id) %]</span>
+                                </div>
+                            [% END %]
+                        </td>
+                    </tr>
+                    </tbody></table>
+                </div>
+            </div>
+        [% END %]
+    [% END %]
     <div class="clear"></div>
-    <span style="margin-top: 15px" class="label">Base Capture</span>
-    <div>
-        <table style="width: 100%" cellspacing="0" cellpadding="0"><tbody><tr>
-            <td>
-                <span class="label small">Invaded Points</span>
-                <span class="[% IF replay.statistics.capturePoints > 0 %]green[% END %]">[% replay.statistics.capturePoints || '0' %]</span>
-            </td><td>
-                <span class="label small">Defended Points</span>
-                <span class="[% IF replay.statistics.droppedCapturePoints > 0 %]green[% END %]">[% replay.statistics.droppedCapturePoints || '0' %]</span>
-            </td>
-        </tr>
-        </tbody></table>
-    </div>
 </div>
 <script type="text/javascript">
     $(document).ready(function() {
         $('td.tooltip').tooltip({ track: true });
+        $('div.crit-details-dlg').dialog({
+            autoOpen: false,
+            modal: true,
+            resizable: false,
+            closeOnEscape: true,
+            buttons: {
+                'Ok': function() {
+                    $(this).dialog('close');
+                }
+            },
+            width: 550,
+            height: 300,
+        });
+        $('span.crits.hasdetails').css({ 'pointer': 'cursor' }).click(function() {
+            var pid = $(this).attr('player');
+            var dlg = $('#crit-details-' + pid);
+            $(dlg).dialog('open');
+            return false;
+        });
     });
 </script>

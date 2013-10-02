@@ -1,0 +1,21 @@
+{
+   "shared" : {
+      "_Type100_A_1" : {
+         "fireStartingChance" : "0.15",
+         "tags" : "diesel",
+         "maxRegenHealth" : 52,
+         "maxHealth" : 104,
+         "userString" : "#japan_vehicles:_Type100_A_1",
+         "repairCost" : 3,
+         "level" : 4,
+         "power" : 240,
+         "weight" : 750,
+         "price" : 10500,
+         "notInShop" : true,
+         "sound" : "/vehicles/tanks/light/PzIII"
+      }
+   },
+   "ids" : {
+      "_Type100_A_1" : ""
+   }
+}

@@ -1,0 +1,22 @@
+{
+    mongodb  => {
+        host => 'mongodb://your-mongo-host:27017',                      
+        database => 'wt-replays',
+    },
+    wot => {
+        bf_key  => 'DE 72 BE A0 DE 04 BE B1 DE FE BE EF DE AD BE EF',
+        version => '0.8.8',
+    },
+    paths    => {
+        replays        => '/home/wotreplay/wot-replays/data/replays',
+    },
+    hypnotoad => {
+        listen => [ 'http://127.0.0.1:8090' ],
+	    pid_file => '/home/wotreplay/wot-replays/script/wrapi.pid',
+        proxy  => 1,
+        accepts => 10,
+        clients => 1,
+        inactivity_timeout => 30,
+        workers => 8,
+    }
+}

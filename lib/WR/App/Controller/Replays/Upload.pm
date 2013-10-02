@@ -1,12 +1,8 @@
 package WR::App::Controller::Replays::Upload;
 use Mojo::Base 'WR::App::Controller';
-use boolean;
 use WR::Process;
-use DateTime;
+use Mango::BSON;
 use File::Path qw/make_path/;
-
-use FileHandle;
-use POSIX();
 use Try::Tiny qw/try catch/;
 
 sub r_error {
@@ -38,110 +34,116 @@ sub nv {
     return $v;
 }
 
-sub stringify_awards {
+sub process_replay {
     my $self = shift;
-    my $m_data = shift;
-    my $a    = $self->app->wr_res->achievements;
-    my $t    = [];
+    my $k    = $self->req->param('jid');
+    my $oid  = Mango::BSON::bson_oid($k);
 
-    foreach my $item (@{$m_data->{statistics}->{dossierPopUps}}) {
-        next unless($a->is_award($item->[0]));
-        my $str = $a->index_to_idstr($item->[0]);
-        $str .= $item->[1] if($a->is_class($item->[0]));
-        push(@$t, $a->index_to_idstr($item->[0]));
+    # no render_later because the process module doesn't use non-blocking, 
+    # so that may cause errors if you use blocking operations inside a non-blocking
+    # operation
+
+    Mojo::IOLoop->stream($self->tx->connection)->timeout(300);
+
+    if(my $job = $self->model('wot-replays.jobs')->find_one({ _id => $oid })) {
+        my $file = $job->{data}->{file};
+        my $replay;
+        try {
+            my $process = WR::Process->new(
+                bf_key      => $self->stash('config')->{wot}->{bf_key},
+                file        => $file,
+                mango       => $self->app->mango,
+                banner_path => $self->stash('config')->{paths}->{banners},
+            );
+            $replay = $process->process;
+        } catch {
+            unlink($file);
+            $self->render(json => { ok => 0, error => 'Could not parse replay: ' . $_ });
+        };
+        if(defined($replay)) {
+            # figure out if we have a replay like this already
+            if(my $d = $self->model('wot-replays.replays')->find_one({ digest => $replay->{digest} })) {
+                unlink($file); # and yes, it's possible to rename your uploads and clobber an existing file this way
+                $self->render(json => { ok => 0, error => 'That replay has already been uploaded' }) and return;
+            }
+
+            if(!defined($replay->{game}->{version_numeric}) || (defined($replay->{game}->{version_numeric}) && $replay->{game}->{version_numeric} < $self->stash('config')->{wot}->{min_version})) {
+                unlink($file);
+                $self->render(json => { ok => 0, error => 'That replay is from an older version of World of Tanks which we cannot process' }) and return;
+            }
+
+            $replay->{site}->{visible} = Mango::BSON::bson_false if($job->{data}->{visible} < 1);
+            $replay->{site}->{description} = (defined($job->{data}->{desc}) && length($job->{data}->{desc}) > 0) ? $job->{data}->{desc} : undef;
+            $replay->{file} = $job->{data}->{file_base}; # kind of essential to have that, yeah...
+
+            # get the packets out
+            my $packets = delete($replay->{__packets__});
+            # store the packets locally, currently uncompressed, we'll use some nginx trickery to make that happen
+            my $path = sprintf('%s/%s', $self->stash('config')->{paths}->{packets}, $self->hashbucket($replay->{_id} . ''));
+            make_path($path) unless(-e $path);
+            my $packet_base = sprintf('%s/%s.json', $self->hashbucket($replay->{_id} . ''), $replay->{_id} . '');
+            my $packet_file = sprintf('%s/%s.json', $path, $replay->{_id} . '');
+            $replay->{site}->{packets} = $packet_base;
+            try {
+                if(my $fh = IO::File->new('>' . $packet_file)) {
+                    $fh->print(Mojo::JSON->new->encode($packets));
+                    $fh->close;
+                } else {
+                    delete($replay->{site}->{packets});
+                }
+                $self->model('wot-replays.replays')->insert($replay);
+                $self->render(json => { ok => 1, result => { oid => $replay->{_id} . '', banner => $replay->{site}->{banner}, base => $job->{data}->{file_base} }});
+            } catch {
+                $self->render(json => { ok => 0, error => $_ });
+            };
+        }
+    } else {
+        $self->render(json => { ok => 0, error => 'No job key supplied' });
     }
-    return $t;
 }
 
 sub upload {
     my $self = shift;
 
-    $self->respond(stash => { page => { title => 'Uploads Disabled' } }, template => 'upload/disabled') and return 0 if($self->stash('config')->{features}->{upload} == 0);
-
     if($self->req->param('a')) {
         if(my $upload = $self->req->upload('replay')) {
             return $self->r_error(q|That does not look like a replay|) unless($upload->filename =~ /\.wotreplay$/);
-
-            # convert the asset to a file asset
-            my $asset = $upload->asset;
-            if(ref($asset) eq 'Mojo::File::Memory') {
-                my $fileasset = Mojo::Asset::File->new();
-                $fileasset->add_chunk($asset->slurp);
-                $asset = $fileasset; # heh
-            }
-            my $pe;
-            my $m_data;
-
             my $filename = $upload->filename;
             $filename =~ s/.*\\//g if($filename =~ /\\/);
 
-            my $dt = DateTime->now();
-            my $replay_filename = sprintf('%s/%s', $dt->strftime('%Y/%m/%d'), $filename);
-            my $replay_path = sprintf('%s/%s', $self->stash('config')->{paths}->{replays}, $dt->strftime('%Y/%m/%d'));
+            my $replay_filename = $filename;
+            my $replay_path = sprintf('%s/%s', $self->stash('config')->{paths}->{replays}, $self->hashbucket($filename));
             my $replay_file = sprintf('%s/%s', $replay_path, $filename);
-            my $replay_file_base = sprintf('%s/%s', $dt->strftime('%Y/%m/%d'), $filename);
+            my $replay_file_base = sprintf('%s/%s', $self->hashbucket($filename), $filename);
 
             make_path($replay_path);
 
-            $asset->move_to($replay_file);
-
-            my $incomplete = 0;
-            my $br;
-
-            try {
-                my $p = WR::Process->new(
-                    file    => $replay_file,
-                    db      => $self->db('wot-replays'),
-                    bf_key  => $self->stash('config')->{wot}->{bf_key},
-                    app     => $self->app,
-                );
-                $m_data = $p->process();
-                $br     = $p->pickledata;
-            } catch {
-                $pe = $_;
-                if($pe =~ /incomplete/) {
-                    $incomplete = 1;
-                } else {
-                    unlink($replay_file);
-                }
-            };
-
-            return $self->r_error(sprintf('Error parsing replay: %s', $pe), $replay_file) if($pe && $incomplete == 0);
-
-            if($incomplete == 0) {
-                if(my $or = $self->db('wot-replays')->get_collection('replays')->find_one({ replay_digest => $m_data->{replay_digest} })) {
-                    if($or->{site}->{visible}) {
-                        return $self->r_error_redirect(sprintf('/replay/%s.html', $or->{_id}->to_string()), $replay_file); 
-                    } else {
-                        return $self->r_error('That replay exists already', $replay_file);
-                    }
-                }
-                return $self->r_error('That replay seems to be coming from the public test server, we can\'t store those at the moment', $replay_file) if($m_data->{player}->{name} =~ /.*_(EU|NA|RU|SEA|US)$/);
-                return $self->r_error(q|Courtesy of WG, this replay can't be stored, it's missing your player ID, and we use that to uniquely identify each player|, $replay_file) if($m_data->{player}->{id} == 0);
-
-                my $rv = $self->nv($m_data->{version});
-
-                return $self->r_error(q|Sorry, but this replay is from an World of Tanks version that is no longer supported|, $replay_file) if($rv < $self->nv('0.8.2'));
-
-                $m_data->{file} = $replay_file_base;
-                $m_data->{site} = {
-                    description => $self->req->param('description') || undef,
-                    uploaded_at => time(),
-                    uploaded_by => ($self->is_user_authenticated) ? $self->current_user->{_id} : undef,
-                    visible     => ($self->req->param('hide') == 1) ? false : true,
-                };
-                $self->model('wot-replays.replays')->save($m_data, { safe => 1 });
-                $self->model('wot-replays.battleresults')->save({
-                    replay_id       => $m_data->{_id},
-                    battle_result   => $br,
-                }, { safe => 1 }) if(defined($br));
+            if(-e $replay_file) {
+                $self->render(json => { ok => 0, error => 'You might want to rename the replay file first, we already seem to have one with the same name...' }) and return;
             }
-            $self->render(json => { 
-                ok        => 1,
-                replay_id => ($incomplete == 0) ? $m_data->{_id}->to_string : undef,
-                incomplete => $incomplete,
-                ldl        => sprintf('http://dl.wot-replays.org/%s', $filename),
-                published => ($self->req->param('hide') == 1) ? 0 : 1,
+
+            $upload->asset->move_to($replay_file);
+
+            $self->render_later;
+
+            my $hide = (defined($self->req->param('hide'))) ? $self->req->param('hide') : 0;
+            my $desc = $self->req->param('description');
+
+            my $data = {
+                file => $replay_file,
+                file_base => $replay_file_base,
+                desc => (defined($desc)) ? $desc : '',
+                visible => ($hide == 1) ? 0 : 1,
+                };
+
+            # store a quick key and return for processing 
+            $self->model('wot-replays.jobs')->insert({ type => 'process', data => $data  } => sub {
+                my ($c, $e, $oid) = (@_);
+                if($e) {
+                    $self->render(json => { ok => 0, error => $_ });
+                } else {
+                    $self->render(json => { ok => 1, jid => $oid });
+                }
             });
         } else {
             $self->render(json => {

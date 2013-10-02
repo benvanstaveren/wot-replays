@@ -1,16 +1,21 @@
 package WR::Res::Achievements;
-use Moose;
-use namespace::autoclean;
+use Mojo::Base '-base';
 use WR::Localize;
 
-has 'record_names' => (is => 'ro', isa => 'ArrayRef', required => 1, builder => '_build_record_names');
-has 'achievements' => (is => 'ro', isa => 'HashRef', builder => '_build_achievements', lazy => 1);
-has 'achievements_by_single' => (is => 'ro', isa => 'HashRef', builder => '_build_achievements_by_single', lazy => 1);
-has 'achievements_by_class' => (is => 'ro', isa => 'HashRef', builder => '_build_achievements_by_class', lazy => 1);
-has 'achievements_by_battle' => (is => 'ro', isa => 'HashRef', builder => '_build_achievements_by_battle', lazy => 1);
-has 'achievements_by_repeatable' => (is => 'ro', isa => 'HashRef', builder => '_build_achievements_by_repeatable', lazy => 1);
+has 'record_names'                  => sub { return shift->_build_record_names };
+has 'achievements'                  => sub { return shift->_build_achievements };
+has 'achievements_by_single'        => sub { return shift->_build_achievements_by_single };
+has 'achievements_by_class'         => sub { return shift->_build_achievements_by_class };
+has 'achievements_by_battle'        => sub { return shift->_build_achievements_by_battle };
+has 'achievements_by_repeatable'    => sub { return shift->_build_achievements_by_repeatable };
+has '_l'                            => sub { return WR::Localize->new(type => 'achievements') };
 
-has '_l' => (is => 'ro', isa => 'WR::Localize', required => 1, default => sub { return WR::Localize->new(type => 'achievements') }, handles => [qw/i18n/]);
+sub i18n { 
+    my $self = shift;
+    my $l = $self->_l();
+
+    return $l->i18n(@_);
+}
 
 sub _build_achievements {
     my $self = shift;
@@ -123,4 +128,4 @@ sub index_to_idstr {
     return (defined($self->achievements->{$idx})) ? $self->achievements->{$idx} : $idx;
 }
 
-__PACKAGE__->meta->make_immutable;
+1;

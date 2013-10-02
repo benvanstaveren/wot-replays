@@ -9,6 +9,7 @@
                             <li class="nav-item tab active"><a href="#vehicle-china">China</a></li>
                             <li class="nav-item tab"><a href="#vehicle-germany">Germany</a></li>
                             <li class="nav-item tab"><a href="#vehicle-france">France</a></li>
+                            <li class="nav-item tab"><a href="#vehicle-japan">Japan</a></li>
                             <li class="nav-item tab"><a href="#vehicle-uk">UK</a></li>
                             <li class="nav-item tab"><a href="#vehicle-usa">USA</a></li>
                             <li class="nav-item tab"><a href="#vehicle-ussr">USSR</a></li>
@@ -26,6 +27,10 @@
             </div>
             <div class="tab-panel" id="vehicle-france" style="display: none">
                 [% country = 'france' %]
+                [% INCLUDE vehicle/list.html.tt vehicles=vehicles_all.$country country=country %]
+            </div>
+            <div class="tab-panel" id="vehicle-japan" style="display: none">
+                [% country = 'japan' %]
                 [% INCLUDE vehicle/list.html.tt vehicles=vehicles_all.$country country=country %]
             </div>
             <div class="tab-panel" id="vehicle-uk" style="display: none">

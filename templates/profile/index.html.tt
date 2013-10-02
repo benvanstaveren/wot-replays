@@ -6,22 +6,26 @@
                 <div class="tablist-inner">
                     <div class="container-tablist">
                         <ul class="nav">
+                            <li class="nav-item tab active"><a href="#profile-replays">Your Replays</a></li>
+                            [% IF 1 == 0 %]
                             <li class="nav-item tab active"><a href="#profile-overview">Overview</a></li>
-                            <li class="nav-item tab"><a href="#profile-replays">Your Replays</a></li>
                             <li class="nav-item tab"><a href="#profile-settings">Settings</a></li>
+                            [% END %]
                         </ul>
                     </div>
                 </div>
             </div>
+            <div class="tab-panel" id="profile-replays">
+                [% INCLUDE profile/replay_list.html.tt %]
+            </div>  
+            [% IF 1 == 0 %]
             <div class="tab-panel" id="profile-overview">
                 [% INCLUDE profile/overview.html.tt %]
             </div>
-            <div class="tab-panel" id="profile-replays" style="display: none">
-                [% INCLUDE profile/replay_list.html.tt %]
-            </div>  
             <div id="profile-settings" class="tab-panel" style="display: none">
                 [% INCLUDE profile/settings.html.tt %]
             </div>
+            [% END %]
         </div>
     </div>
     <script type="text/javascript">

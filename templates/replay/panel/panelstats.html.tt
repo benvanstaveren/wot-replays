@@ -1,37 +1,56 @@
-                    <div>
-                        <span class="label fw">result:</span><span class="value fw">
-                            [% IF replay.complete == 1 %]
-                                [% IF replay.game.isWin == 1 %]
-                                    <span class="green">victory</span>
-                                [% ELSIF replay.game.isDraw == 1 %]
-                                    draw
-                                [% ELSE %]
-                                    <span class="red">defeat</span>
-                                [% END %]
-                            [% ELSE %]
-                                -
-                            [% END %]
-                        </span>
-                        <span class="label fw">xp:</span><span title="Earned [% replay.statistics.xp || '0' %] xp including premium and multiplier bonuses" class="value fw">[% replay.statistics.xp || '0' |truncate(5) %] [% IF replay.statistics.dailyXPFactor10 > 10 %](x[% replay.statistics.dailyXPFactor10 / 10 %])[% END %]</span>
-                        <span class="label fw">credits:</span><span class="value fw" title="Earned [% replay.statistics.credits %] credits including premium and other bonuses" >[% replay.statistics.credits || '0' |truncate(5)%]</span>
-                    </div>
-                    <div>
-                        <span class="label fw">spotted:</span><span class="value fw">[% replay.statistics.spotted || '0' %]</span>
-                        <span class="label fw">damaged:</span><span class="value fw">[% replay.statistics.damaged || '0' %]</span>
-                        <span class="label fw">killed:</span><span class="value fw">[% replay.statistics.kills || '0' %]</span>
-                    </div>
-                    <div>
-                        <span class="label fw">survived:</span><span class="value fw">
-                            [% IF replay.complete == 1 %]
-                                [% IF replay.player.survived == 1 %]
-                                    <span class="green">yes</span>
-                                [% ELSE %]
-                                    <span class="red">no</span>
-                                [% END %]
-                            [% ELSE %]
-                                -
-                            [% END %]
-                        </span>
-                        <span class="label fw">server:</span><span class="value fw">[% replay.player.server |upper %]</span>
-                        <span class="label fw">version:</span><span class="value fw" title="[% IF replay.version == config.wot.version %]Current version[% ELSE %]Incompatible version[% END %]" style="color: #6[% IF replay.version == config.wot.version %]66[% ELSE %]00[% END %]">[% replay.version %]</span>
-                    </div>
+<div>
+    <table style="width: 100%;" cellspacing="0" cellpadding="0">
+    <tbody>
+        <tr>
+            <td style="width: 33%;">
+                <span class="label fw">result:</span><span class="value fw">
+                    [% IF replay.game.winner == 0 %]
+                        draw
+                    [% ELSIF replay.game.recorder.team == replay.game.winner %]
+                        <span class="green">victory</span>
+                    [% ELSE %]
+                        <span class="red">defeat</span>
+                    [% END %]
+                </span>
+            </td>
+            <td style="width: 33%">
+                <span class="label fw">xp:</span><span title="Earned [% replay.stats.xp || '0' %] xp including premium and multiplier bonuses" class="value fw">[% replay.stats.xp || '0' |truncate(5) %] [% IF replay.stats.dailyXPFactor10 > 10 %](x[% replay.stats.dailyXPFactor10 / 10 %])[% END %]</span>
+            </td>
+            <td style="width: 33%">
+                <span class="label fw">credits:</span><span class="value fw" title="Earned [% replay.stats.credits %] credits including premium and other bonuses" >[% replay.stats.credits || '0' |truncate(5)%]</span>
+            </td>
+        </tr>
+        <tr>
+            <td> 
+                <span class="label fw">spotted:</span><span class="value fw">[% replay.stats.spotted || '0' %] /
+                    <span class="green value fw">[% replay.stats.damageAssistedRadio + replay.stats.damageAssistedTrack || '0' %]</span>
+            </td>
+            <td>
+                <span class="label fw">damaged:</span><span class="value fw">[% replay.stats.damaged || '0' %] /
+                    <span class="green value fw">[% replay.stats.damageDealt || '0' %]</span>
+
+            </td>
+            <td>
+                <span class="label fw">killed:</span><span class="value fw">[% replay.stats.kills || '0' %]</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span class="label fw">survived:</span><span class="value fw">
+                    [% IF replay.game.recorder.survived %]
+                        <span class="green">yes</span>
+                    [% ELSE %]
+                        <span class="red">no</span>
+                    [% END %]
+                </span>
+            </td>
+            <td>
+                <span class="label fw">server:</span><span class="value fw">[% h.resolve_server_by_playerid(h.get_recorder_vehicle(replay).player.dbid) |upper %]</span>
+            </td>
+            <td>
+                <span class="label fw">version:</span><span class="value fw" title="[% IF !h.is_old_version(replay) %]Current version[% ELSE %]Incompatible version[% END %]" style="color: #6[% IF !h.is_old_version(replay) %]66[% ELSE %]00[% END %]">[% h.wot_version(replay) %]</span>
+            </td>
+        </tr>
+    </tbody>
+    </table>
+</div>

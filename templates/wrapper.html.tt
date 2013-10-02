@@ -16,13 +16,15 @@
         <script type="text/javascript" src="[% config.urls.static %]/js/wr.js"></script>
         <script type="text/javascript" src="[% config.urls.static %]/js/wr/ui.js"></script>
         <script type="text/javascript" src="[% config.urls.static %]/js/wr/init.js"></script>
+        [% IF include_battleviewer %]
+            <script type="text/javascript" src="[% config.urls.static %]/js/wr/battleviewer.js"></script>
+        [% END %]
         <link rel="stylesheet" href="[% config.urls.static %]/css/style.css" type="text/css">
         <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
         <meta name="keywords" content="[% IF page.keywords %][% page.keywords %], [% END %]world of tanks replays, wot replays, replays"/>
         [% IF page.description %]
             <meta name="description" content="[% page.description |html %]"/>
         [% END %]
-        [% INCLUDE bricks/ga.js.tt %]
         [% IF notify %]
             <script type="text/javascript">
                 $(document).ready(function() {
@@ -35,10 +37,11 @@
                 $('.top-bar-content select[name="server-selector"]').change(function() {
                     WR.waitElement();
                     var v = $(this).val();
-                    document.location = 'http://' + v + '.wot-replays.org/';
+                    document.location = 'http://' + v + '.wt-replays.org/';
                 });
             });
         </script>
+        [% INCLUDE bricks/ga.js.tt %]
     </head>
     <body class="ui">
         <div style="padding: 25px 0px 25px 0px">

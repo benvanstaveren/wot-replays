@@ -1,13 +1,13 @@
-<h3 class="frontlistheader">Newest 15 out of [% replay_count %] Replays ([% archived_count %] Archived)</span></h3> 
+<h3 class="frontlistheader">Newest [% replays.size %] out of [% replay_count %] Replays</span></h3> 
 <div id="front-panel-list">
 [% INCLUDE replay/panel_list.html.tt %]
 </div>
 <div style="text-align: right"><a href="/browse/">see all &raquo;</a></div>
 <script type="text/javascript">
     $(document).ready(function() {
-        $('div.content').everyTime(30 * 1000, function() {
+        $('div.content').everyTime(60 * 1000, function() {
             $('h3.frontlistheader').html('Refreshing...');
-            $('#front-panel-list').load('/', function() {
+                $('#front-panel-list').load('/', function() {
             });
         });
     });

@@ -175,7 +175,9 @@ sub parse {
                     }
                 }
 
-                $self->model('wot-replays.replays')->save({
+                my $mdl = ($m_data->{version} eq $self->stash('config')->{wot}->{version}) ? 'replays' : sprintf('replays.%s', $m_data->{version});
+
+                $self->model($mdl)->save({
                     %$m_data,
                     file => $replay_filename,
                     site => {
@@ -186,10 +188,34 @@ sub parse {
                         visible     => $visible,
                     }
                 });
-                $self->model('wot-replays.battleresults')->save({
-                    replay_id     => $m_data->{_id},
-                    battle_result => $br,
+
+                if($visible && $m_data->{version} eq $self->stash('config')->{wot}->{version}) {
+                    $self->model('wot-replays.newest.www')->insert({ 
+                        replay => $m_data->{_id}
+                    });
+                    $self->model(sprintf('wot-replays.newest.%s', $m_data->{player}->{server}))->insert({
+                        replay => $m_data->{_id}
+                    });
+                }
+
+                $self->model('wot-replays.replays.players')->insert({
+                    _id    => $m_data->{_id},
+                    server => $m_data->{player}->{server},
+                    player => $m_data->{player}->{name},
+                    uploaded_at => $m_data->{site}->{uploaded_at},
+                    version => $m_data->{version},
+                    visible     => $visible,
                 });
+                if(defined($m_data->{player}->{clan})) {
+                    $self->model('wot-replays.replays.clans')->insert({
+                        _id    => $m_data->{_id},
+                        server => $m_data->{player}->{server},
+                        clan   => $m_data->{player}->{clan},
+                        uploaded_at => $m_data->{site}->{uploaded_at},
+                        version => $m_data->{version},
+                        visible     => $visible,
+                    });
+                }
                 $url = sprintf('http://www.wot-replays.org/replay/%s.html', $m_data->{_id}->to_string);
             } else {
                 # still return it

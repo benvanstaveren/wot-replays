@@ -11,3 +11,7 @@ tmp/*
 _Inline/*
 data/*
 *.ttc
+wr.conf
+wr.development.conf
+wrapi.conf
+bin/*.txt

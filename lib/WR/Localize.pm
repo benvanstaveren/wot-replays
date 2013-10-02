@@ -1,6 +1,4 @@
 package WR::Localize;
-use Moose;
+use Mojo::Base 'WR::Base::CatalogPo';
 
-with 'WR::Role::CatalogPo';
-
-__PACKAGE__->meta->make_immutable;
+1;

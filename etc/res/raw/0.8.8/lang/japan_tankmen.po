@@ -1,0 +1,233 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: World Of Tanks\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-06-01 10:00+0300\n"
+"PO-Revision-Date: 2010-06-01 10:00+0300\n"
+"Last-Translator: WoT Translator <noreply@wargaming.net>\n"
+"Language-Team: WoT Team <noreply@wargaming.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "names/ger1"
+msgstr "Aachen"
+
+msgid "names/ger10"
+msgstr "Albrecht"
+
+msgid "names/ger11"
+msgstr "Aldinger"
+
+msgid "names/ger12"
+msgstr "Allmendinger"
+
+msgid "names/ger13"
+msgstr "Altfuldisch"
+
+msgid "names/ger14"
+msgstr "Alvensleben"
+
+msgid "names/ger15"
+msgstr "Ameln"
+
+msgid "names/ger16"
+msgstr "Amsel"
+
+msgid "names/ger17"
+msgstr "Andersen"
+
+msgid "names/ger18"
+msgstr "Angern"
+
+msgid "names/ger19"
+msgstr "Beier"
+
+msgid "names/ger2"
+msgstr "Abend"
+
+msgid "names/ger20"
+msgstr "Arndt"
+
+msgid "names/ger21"
+msgstr "Arnim"
+
+msgid "names/ger22"
+msgstr "Arps"
+
+msgid "names/ger23"
+msgstr "Assmann"
+
+msgid "names/ger24"
+msgstr "Aulock"
+
+msgid "names/ger25"
+msgstr "Austerlitz"
+
+msgid "names/ger26"
+msgstr "Babor"
+
+msgid "names/ger27"
+msgstr "Bach"
+
+msgid "names/ger28"
+msgstr "Bachmeier"
+
+msgid "names/ger29"
+msgstr "Backenköhler"
+
+msgid "names/ger3"
+msgstr "Abesser"
+
+msgid "names/ger30"
+msgstr "Bader"
+
+msgid "names/ger4"
+msgstr "Abt"
+
+msgid "names/ger5"
+msgstr "Ackerman"
+
+msgid "names/ger6"
+msgstr "Ademeit"
+
+msgid "names/ger7"
+msgstr "Delbert"
+
+msgid "names/ger8"
+msgstr "Ahlemann"
+
+msgid "names/ger9"
+msgstr "Backer"
+
+msgid "names/gern1"
+msgstr "Abbo"
+
+msgid "names/gern10"
+msgstr "Albrecht"
+
+msgid "names/gern11"
+msgstr "Adelbert"
+
+msgid "names/gern12"
+msgstr "Albert"
+
+msgid "names/gern13"
+msgstr "Alexander"
+
+msgid "names/gern14"
+msgstr "Alois"
+
+msgid "names/gern15"
+msgstr "Alfons"
+
+msgid "names/gern16"
+msgstr "Alwin"
+
+msgid "names/gern17"
+msgstr "Ebelbert"
+
+msgid "names/gern18"
+msgstr "Albin"
+
+msgid "names/gern19"
+msgstr "Andreas"
+
+msgid "names/gern2"
+msgstr "Achim"
+
+msgid "names/gern20"
+msgstr "Anselm"
+
+msgid "names/gern21"
+msgstr "Anton"
+
+msgid "names/gern22"
+msgstr "Armin"
+
+msgid "names/gern23"
+msgstr "Arnd"
+
+msgid "names/gern24"
+msgstr "Arno"
+
+msgid "names/gern25"
+msgstr "Arnold"
+
+msgid "names/gern26"
+msgstr "Arnulf"
+
+msgid "names/gern27"
+msgstr "August"
+
+msgid "names/gern28"
+msgstr "Axel"
+
+msgid "names/gern29"
+msgstr "Augustin"
+
+msgid "names/gern3"
+msgstr "Adelfried"
+
+msgid "names/gern30"
+msgstr "Arnbert"
+
+msgid "names/gern4"
+msgstr "Adelino"
+
+msgid "names/gern5"
+msgstr "Adler"
+
+msgid "names/gern6"
+msgstr "Adolf"
+
+msgid "names/gern7"
+msgstr "Adolph"
+
+msgid "names/gern8"
+msgstr "Adrian"
+
+msgid "names/gern9"
+msgstr "Alarich"
+
+msgid "ranksGER/feldwebel"
+msgstr "Feldwebel"
+
+msgid "ranksGER/gefreiter"
+msgstr "Gefreiter"
+
+msgid "ranksGER/hauptmann"
+msgstr "Hauptmann"
+
+msgid "ranksGER/leutnant"
+msgstr "Leutnant"
+
+msgid "ranksGER/major"
+msgstr "Major"
+
+msgid "ranksGER/oberfeldwebel"
+msgstr "Oberfeldwebel"
+
+msgid "ranksGER/obergefreiter"
+msgstr "Obergefreiter"
+
+msgid "ranksGER/oberleutnant"
+msgstr "Oberleutnant"
+
+msgid "ranksGER/panzeroberschutze"
+msgstr "Panzeroberschütze"
+
+msgid "ranksGER/panzerschutze"
+msgstr "Panzerschütze"
+
+msgid "ranksGER/stabsfeldwebel"
+msgstr "Stabsfeldwebel"
+
+msgid "ranksGER/stabsgefreiter"
+msgstr "Stabsgefreiter"
+
+msgid "ranksGER/unterfeldwebel"
+msgstr "Unterfeldwebel"
+
+msgid "ranksGER/unteroffizier"
+msgstr "Unteroffizier"

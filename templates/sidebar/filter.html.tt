@@ -7,15 +7,14 @@
             <input type="hidden" name="vehicleinv" value="0"/>
             <input type="hidden" name="tier_min" value="1"/>
             <input type="hidden" name="tier_max" value="10"/>
+            <input type="hidden" name="version" value=""/>
             [% IF req_host != 'www' %]
                 <input type="hidden" name="server" value="[% req_host %]"/>
             [% END %]
             [% IF pageid == 'map' %]
-                <input type="hidden" name="map" value="[% map_id %]"/>
+                <input type="hidden" name="map" value="[% h.map_numericid(map_id) %]"/>
             [% ELSIF pageid == 'vehicle' %]
                 <input type="hidden" name="vehicle" value="[% vehicle_full %]"/>
-            [% ELSIF pageid == 'tournament' %]
-                <input type="hidden" name="matchtype" value="4"/>
             [% END %]
             [% IF pageid != 'vehicle' %]
             <span class="label">Vehicle</span>
@@ -83,11 +82,6 @@
                 <option value="5">Clan Battle</option>
             </select>
             [% END %]
-            <span class="label">Version</span>
-            <select name="compatible">
-                <option value="0">-- All versions</option>
-                <option value="1">[% config.wot.version %] only</option>
-            </select>
             <span class="label">Sorting</span>
             <select name="sort">
                 <option value="upload">Upload Date</option>

@@ -5,18 +5,30 @@ use FindBin;
 use lib "$FindBin::Bin/../lib";
 use WR;
 use WR::Process;
-use boolean;
-use MongoDB;
-use Try::Tiny;
+use Mango;
+use Time::HiRes qw/time gettimeofday tv_interval/;
 use Data::Dumper;
+use Try::Tiny;
 
 $| = 1;
 
 use constant WOT_BF_KEY_STR => 'DE 72 BE A0 DE 04 BE B1 DE FE BE EF DE AD BE EF';
 use constant WOT_BF_KEY     => join('', map { chr(hex($_)) } (split(/\s/, WOT_BF_KEY_STR)));
 
-my $mongo  = MongoDB::Connection->new(host => $ENV{MONGO} || 'localhost');
-my $db     = $mongo->get_database('wot-replays');
+my $mango = Mango->new('mongodb://localhost:27017/');
 
-my $process = WR::Process->new(file => $ARGV[0], db => $db, bf_key => WOT_BF_KEY);
-print Dumper($process->process());
+my $start = [ gettimeofday ];
+my $process = WR::Process->new(bf_key => WOT_BF_KEY, file => $ARGV[0], mango => $mango, banner_path => sprintf('%s/../tmp/banner', $FindBin::Bin));
+
+my $d;
+
+try {
+    $d = $process->process();
+} catch {
+    die $_, "\n";
+    #print 'EXCEPT: ', $_, "\n";
+};
+
+my $end = tv_interval($start);
+
+print Dumper($d);
