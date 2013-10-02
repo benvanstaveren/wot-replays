@@ -5,8 +5,8 @@ use warnings;
 BEGIN {
 
     my $libdir = (-e "/home/ben/projects/wt-replays/")
-        ? [ '/home/ben/projects/wot-replays/site/extlib/wot-replay-parser', '/home/ben/projects/wot-replays/site/extlib/wot-xml-reader' ]
-        : [ '/home/wotreplay/wot-replays/extlib/wot-replay-parser', '/home/wotreplay/wot-replays/extlib/wot-xml-reader' ]
+        ? [ '/home/ben/projects/wot-replays/wot-replay-parser', '/home/ben/projects/wot-replays/wot-xml-reader' ]
+        : [ '/home/wotreplay/wot-replay-parser', '/home/wotreplay/wot-xml-reader' ]
         ;
 
     foreach my $dir (@$libdir) {
