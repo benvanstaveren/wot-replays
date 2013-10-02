@@ -3,6 +3,7 @@
     <head>
         <title>[% page.title %] - World of Tanks Replays</title>
         <link rel="shortcut icon" href="[% config.urls.static %]/img/favicon.ico"/>
+
         <script type="text/javascript" src="[% config.urls.static %]/js/jquery-1.8.3.min.js"></script>
         <script type="text/javascript" src="[% config.urls.static %]/js/jquery-ui-1.9.2.custom.min.js"></script>
         <script type="text/javascript" src="[% config.urls.static %]/js/jquery.form.js"></script>
@@ -13,13 +14,14 @@
         <script type="text/javascript" src="[% config.urls.static %]/js/flot/jquery.flot.pie.js"></script>
         <script type="text/javascript" src="[% config.urls.static %]/js/underscore-min.js"></script>
         <script type="text/javascript" src="[% config.urls.static %]/js/backbone-min.js"></script>
+
         <script type="text/javascript" src="[% config.urls.static %]/js/wr.js"></script>
         <script type="text/javascript" src="[% config.urls.static %]/js/wr/ui.js"></script>
         <script type="text/javascript" src="[% config.urls.static %]/js/wr/init.js"></script>
         [% IF include_battleviewer %]
             <script type="text/javascript" src="[% config.urls.static %]/js/wr/battleviewer.js"></script>
         [% END %]
-        <link rel="stylesheet" href="[% config.urls.static %]/css/style.css" type="text/css">
+        <link rel="stylesheet" href="[% config.urls.static %]/css/wtr.css" type="text/css">
         <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
         <meta name="keywords" content="[% IF page.keywords %][% page.keywords %], [% END %]world of tanks replays, wot replays, replays"/>
         [% IF page.description %]

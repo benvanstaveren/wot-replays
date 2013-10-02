@@ -97,7 +97,18 @@ sub packet_parse_using_format {
 
 sub process {
     my $self = shift;
-    my $skip_packets = shift || 0;
+    my $cb = shift;
+
+    try {
+        $self->_process($cb);
+    } catch {
+        $cb->($self, undef); # assume that $self->error is set
+    };
+}
+
+
+sub _process {
+    my $self = shift;
     my $replay_packets = [];
 
     my %args = (
@@ -126,11 +137,23 @@ sub process {
             likes       => 0,
             last_viewed => Mango::BSON::bson_time(0),
         },
-        game    => $self->_game($battle_result),
-        %{$self->_players($battle_result)},                 # combines the data from vehicles and players, partially decodes vehicleID for easier lookups later
         stats   => $battle_result->{personal},
         chat    => [],
     };
+
+    # these should in essence be non-blocking operations
+    $self->_game($battle_result => sub {
+        my $res = shift;
+        $replay->{game} = $res;
+    });
+
+    $self->_players($battle_result => sub {
+        my $res = shift;
+        
+        foreach my $k (keys(%$res)) {
+            $replay->{$k} = $res->{$k};
+        }
+    });
 
     if(my $stream = $self->_parser->stream) {
         $stream->on('game.version' => sub {
@@ -172,7 +195,7 @@ sub process {
         $self->error('unable to stream replay');
     }
 
-    $replay->{__packets__} = $replay_packets unless($skip_packets); # this is quite ghetto but..
+    $replay->{__packets__} = $replay_packets;
 
     my $d = Digest::SHA1->new();
     $d->add($replay->{game}->{recorder}->{name});
@@ -181,6 +204,8 @@ sub process {
     $d->add($_->{vehicle}->{id}) for(@{$replay->{roster}});
 
     $replay->{digest} = $d->hexdigest;
+    # banner generation will be moved to a separate app that does it on the fly using
+    # some nifty try_files magic 
     $replay->{site}->{banner} = $self->generate_banner($replay) if(defined($self->banner_path));
 
     # do a little fixup of things that we needed previous data for
@@ -201,14 +226,25 @@ sub process {
     };
 
     my $tc = {};
-    my $wotlabs = WR::Wotlabs::Cached->new(ua => $self->ua, cache => $self->model('wot-replays.cache.wotlabs'));
     foreach my $entry (@{$replay->{roster}}) {
         next unless(length($entry->{player}->{clan}) > 0);
         $tc->{$entry->{player}->{clan}}++;
     }
 
     $replay->{involved}->{clans} = [ keys(%$tc) ];
-    return $replay;
+
+    my $wotlabs = WR::Wotlabs::Cached->new(ua => $self->ua, cache => $self->model('wot-replays.cache.wotlabs'));
+    $wotlabs->fetch($replay->{game}->{server} => $replay->{involved}->{players}, sub {
+        my $results = shift;
+
+        foreach my $k (keys(%$results)) {
+            my $idx = $replay->{players}->{$k};
+            $replay->{roster}->[$idx]->{wn7} = $results->{$k};
+            $replay->{wn7} = $results->{$k} if($k eq $replay->{game}->{recorder}->{name});
+        }
+
+        $cb->($self, $replay);
+    });
 }
 
 sub stringify_awards {
@@ -292,6 +328,7 @@ sub generate_banner {
 sub _game {
     my $self    = shift;
     my $b       = shift;
+    my $cb      = shift;
 
     # extract:
     # - game type
@@ -317,28 +354,29 @@ sub _game {
 
     $game->{type} = $decoded_arena_type_id->{gameplay_type};
     $game->{map} = $decoded_arena_type_id->{map_id};
-
-    return $game;
+    $cb->($game);
 }
 
 sub get_vehicle_from_typecomp {
     my $self = shift;
     my $typecomp = shift;
+    my $cb = shift;
 
     my $t = parse_int_compact_descr($typecomp);
     my $country = nation_id_to_name($t->{country});
     my $wot_id  = $t->{id};
 
-    if(my $v = $self->model('wot-replays.data.vehicles')->find_one({ country => $country, wot_id => $wot_id })) {
-        return $v;
-    } else {
-        return undef;
-    }
+
+    $self->model('wot-replays.data.vehicles')->find_one({ country => $country, wot_id => $wot_id } => sub {
+        my ($c, $e, $v) = (@_);
+        $cb->($v);
+    });
 }
 
 sub _players {
     my $self = shift;
     my $br   = shift;
+    my $cb   = shift;
     my $players = {};
     my $t_p  = {};
     my $plat = {};
@@ -359,7 +397,38 @@ sub _players {
         $plat->{$dbid} = $player->{prebattleID} if($player->{prebattleID} > 0);
     }
 
+    my $delay = Mojo::IOLoop->delay(sub {
+        my ($delay, @results) = (@_);
+        # sort the roster and teams by xp earned, damage dealt, and kills made, stores indexes into the roster
+        my $teams_sorted = {};
+        my $roster_sorted = {};
+        my $sort_key = { 
+            damageDealt => 'damage',
+            xp          => 'xp',
+            kills       => 'kills',
+        };
+
+        foreach my $key (keys(%$sort_key)) {
+            my $sk = $sort_key->{$key};
+
+            $teams_sorted->{$sk} = [ [], [] ];
+
+            foreach my $entry (sort { $b->{stats}->{$key} <=> $a->{stats}->{$key} } (@$roster)) {
+                push(@{$roster_sorted->{$sk}}, $vid_to_vidx->{$entry->{vehicle}->{id}});
+                push(@{$teams_sorted->{$sk}->[$entry->{player}->{team} - 1]}, $entry->{vehicle}->{id});
+            }
+        }
+        $cb->({ 
+            roster => $roster, 
+            vehicles => $vid_to_vidx, 
+            players => $name_to_vidx,
+            teams => $teams, 
+            roster_sorted => $roster_sorted,
+            teams_sorted => $teams_sorted,
+        });
+    });
     foreach my $vid (keys(%{$br->{vehicles}})) {
+        my $end = $delay->begin;
         my $rawv = $br->{vehicles}->{$vid};
         my $entry = {
             health  =>  {
@@ -373,50 +442,21 @@ sub _players {
         };
         $entry->{stats}->{isTeamKiller} = ($rawv->{isTeamKiller}) ? Mango::BSON::bson_true : Mango::BSON::bson_false;
 
-        # get the vehicle from db
-        if(my $v = $self->get_vehicle_from_typecomp($rawv->{typeCompDescr})) {
+
+        $self->get_vehicle_from_typecomp($rawv->{typeCompDescr} => sub {
+            my $v = shift;
             $entry->{vehicle} = { id => $vid, ident => $v->{_id} };
             $entry->{vehicle}->{$_} = $v->{$_} for(qw/label label_short level/);
             $entry->{vehicle}->{icon} = sprintf('%s-%s.png', $v->{country}, $v->{name_lc});
-        }
 
-        push(@$roster, $entry);
-        my $idx = scalar(@$roster) - 1;
-
-        $name_to_vidx->{$entry->{player}->{name}} = $idx;
-        $vid_to_vidx->{$vid} = $idx;
-
-        push(@{$teams->[$entry->{player}->{team} - 1]}, $idx);
+            push(@$roster, $entry);
+            my $idx = scalar(@$roster) - 1;
+            $name_to_vidx->{$entry->{player}->{name}} = $idx;
+            $vid_to_vidx->{$vid} = $idx;
+            push(@{$teams->[$entry->{player}->{team} - 1]}, $idx);
+            $end->();
+        });
     }
-
-    # sort the roster and teams by xp earned, damage dealt, and kills made, stores indexes into the roster
-    my $teams_sorted = {};
-    my $roster_sorted = {};
-    my $sort_key = { 
-        damageDealt => 'damage',
-        xp          => 'xp',
-        kills       => 'kills',
-    };
-
-    foreach my $key (keys(%$sort_key)) {
-        my $sk = $sort_key->{$key};
-
-        $teams_sorted->{$sk} = [ [], [] ];
-
-        foreach my $entry (sort { $b->{stats}->{$key} <=> $a->{stats}->{$key} } (@$roster)) {
-            push(@{$roster_sorted->{$sk}}, $vid_to_vidx->{$entry->{vehicle}->{id}});
-            push(@{$teams_sorted->{$sk}->[$entry->{player}->{team} - 1]}, $entry->{vehicle}->{id});
-        }
-    }
-
-    return { 
-        roster => $roster, 
-        vehicles => $vid_to_vidx, 
-        players => $name_to_vidx,
-        teams => $teams, 
-        roster_sorted => $roster_sorted,
-        teams_sorted => $teams_sorted,
-        };
 }
 
 1;
