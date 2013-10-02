@@ -16,9 +16,13 @@ sub _fetch_one {
             if($doc->{ctime} + (86400 * 1000) < Mango::BSON::bson_time) {
                 $self->SUPER::_fetch_one($server, $player, sub {
                     my ($p, $w) = (@_);
-                    $self->cache->save({ _id => $url, ctime => Mango::BSON::bson_time, player => $p, wn7 => $w } => sub {
+                    if($w->{available}) {
+                        $self->cache->save({ _id => $url, ctime => Mango::BSON::bson_time, player => $p, wn7 => $w } => sub {
+                            $cb->($p => $w);
+                        });
+                    } else {
                         $cb->($p => $w);
-                    });
+                    }
                 });
             } else {
                 $cb->($doc->{player} => $doc->{wn7});
@@ -26,10 +30,15 @@ sub _fetch_one {
         } else {
             $self->SUPER::_fetch_one($server, $player, sub {
                 my ($p, $w) = (@_);
-                $self->cache->save({ _id => $url, ctime => Mango::BSON::bson_time, player => $p, wn7 => $w } => sub {
-                    my ($coll, $err, $oid) = (@_);
+
+                if($w->{available}) {
+                    $self->cache->save({ _id => $url, ctime => Mango::BSON::bson_time, player => $p, wn7 => $w } => sub {
+                        my ($coll, $err, $oid) = (@_);
+                        $cb->($p => $w);
+                    });
+                } else {
                     $cb->($p => $w);
-                });
+                }
             });
         }
     });

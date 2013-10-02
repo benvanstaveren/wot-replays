@@ -21,6 +21,7 @@
         [% IF include_battleviewer %]
             <script type="text/javascript" src="[% config.urls.static %]/js/wr/battleviewer.js"></script>
         [% END %]
+        <link rel="stylesheet" href="[% config.urls.static %]/css/style.css" type="text/css">
         <link rel="stylesheet" href="[% config.urls.static %]/css/wtr.css" type="text/css">
         <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
         <meta name="keywords" content="[% IF page.keywords %][% page.keywords %], [% END %]world of tanks replays, wot replays, replays"/>

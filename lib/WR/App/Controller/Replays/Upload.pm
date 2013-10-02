@@ -61,6 +61,7 @@ sub process_replay {
             file        => $file,
             mango       => $self->app->mango,
             banner_path => $self->stash('config')->{paths}->{banners},
+            ua          => $self->ua,
         );
         $process->process(sub {
             my ($process, $replay) = (@_);
