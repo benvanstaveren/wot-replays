@@ -76,11 +76,11 @@
                                     d = d.result;
 
                                     // downloads need to be tracked so
-                                    var l_dl = 'http://www.wt-replays.org/replay/' + d.oid + '/download';
-                                    var l_v  = 'http://www.wt-replays.org/replay/' + d.oid + '.html';
+                                    var l_dl = 'http://www.wotreplays.org/replay/' + d.oid + '/download';
+                                    var l_v  = 'http://www.wotreplays.org/replay/' + d.oid + '.html';
                                 
-                                    $('#embed-image').attr('src', '//banners.wt-replays.org/' + d.banner.url_path);
-                                    $('#embed-text').text('[url=' + l_v + ']' + "\n" + '[img]http://banners.wt-replays.org/' + d.banner.url_path + '[/img]' + "\n" + '[/url]');
+                                    $('#embed-image').attr('src', '//banners.wotreplays.org/' + d.banner.url_path);
+                                    $('#embed-text').text('[url=' + l_v + ']' + "\n" + '[img]http://banners.wotreplays.org/' + d.banner.url_path + '[/img]' + "\n" + '[/url]');
                                     $('#process-completed #download-link').attr('href', l_dl).html(l_dl);
                                     $('#process-completed #view-link').attr('href', l_v).html(l_v);
 

@@ -23,13 +23,13 @@
         $('button#btn-embed').click(function() {
             $('<div>').attr('title', 'Embed Replay').append(
                 $('<div>').css({ 'font-size': '1.2em', 'padding': '2px'}).html('In order to embed this replay, use the supplied BBCode below'),
-                $('<img>').attr('src', 'http://banners.wt-replays.org/[% replay.site.banner.url_path %]').css({ 'width': '545px', 'height': '98px', 'margin': '10px 0px 10px 0px' }),
+                $('<img>').attr('src', 'http://banners.wotreplays.org/[% replay.site.banner.url_path %]').css({ 'width': '545px', 'height': '98px', 'margin': '10px 0px 10px 0px' }),
                 $('<textarea>').css({
                     width: '540px',
                     height: '65px',
                     'font-size': '1.4em',
                     resize: 'none'
-                }).html('[url=http://www.wt-replays.org/replay/[% h.get_id(replay) %].html]' + "\n" + '[img]http://banners.wt-replays.org/[% replay.site.banner.url_path %][/img]' + "\n" + '[/url]')
+                }).html('[url=http://www.wotreplays.org/replay/[% h.get_id(replay) %].html]' + "\n" + '[img]http://banners.wotreplays.org/[% replay.site.banner.url_path %][/img]' + "\n" + '[/url]')
             ).dialog({
                 modal: true,
                 resizable: false,

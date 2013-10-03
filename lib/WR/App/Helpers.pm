@@ -196,7 +196,7 @@ sub add_helpers {
         if($a) {
             my $i = (ref($a) eq 'HASH') ? $a->{id} : $a;
             if(my $c = $self->model('wot-replays.data.consumables')->find_one({ wot_id => $i + 0 })) {
-                return sprintf('style="background: transparent url(http://images.wt-replays.org/consumables/24x24/%s) no-repeat scroll 0 0"', $c->{icon});
+                return sprintf('style="background: transparent url(http://images.wotreplays.org/consumables/24x24/%s) no-repeat scroll 0 0"', $c->{icon});
             } else {
                 return undef;
             }
@@ -212,7 +212,7 @@ sub add_helpers {
             my $i = (ref($a) eq 'HASH') ? $a->{id} : $a;
             if(my $c = $self->model('wot-replays.data.components')->find_one({ component => 'shells', _id => $i + 0 })) {
                 my $n = ($a->{count} > 0) ? $c->{kind} : sprintf('NO_%s', $c->{kind});
-                return sprintf('style="background: transparent url(http://images.wt-replays.org/ammo/24x24/%s.png) no-repeat scroll 0 0"', $n);
+                return sprintf('style="background: transparent url(http://images.wotreplays.org/ammo/24x24/%s.png) no-repeat scroll 0 0"', $n);
             } else {
                 return undef;
             }
@@ -438,14 +438,14 @@ sub add_helpers {
         my $s    = shift || 32;
         my ($c, $n) = split(/:/, $v, 2);
 
-        return lc(sprintf('//images.wt-replays.org/vehicles/%d/%s-%s.png', $s, $c, $n));
+        return lc(sprintf('//images.wotreplays.org/vehicles/%d/%s-%s.png', $s, $c, $n));
     });
 
     $self->helper(vehicle_tier => sub {
         my $self = shift;
         my $v = shift;
         if(my $obj = $self->model('wot-replays.data.vehicles')->find_one({ _id => $v })) {
-            return sprintf('//images.wt-replays.org/icon/tier/%02d.png', $obj->{level});
+            return sprintf('//images.wotreplays.org/icon/tier/%02d.png', $obj->{level});
         } else {
             return '-';
         }
@@ -622,7 +622,7 @@ sub add_helpers {
         my $size = shift;
         my $id   = shift;
         if(my $map = $self->db('wot-replays.data.maps')->find_one({ _id => $id })) {
-            return lc(sprintf('//images.wt-replays.org/maps/%d/%s.png', $size, $id));
+            return lc(sprintf('//images.wotreplays.org/maps/%d/%s.png', $size, $id));
         } else {
             return '404:' . $id;
         }

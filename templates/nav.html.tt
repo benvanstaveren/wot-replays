@@ -40,7 +40,7 @@
                     </a>
                 </li>
                 <li class="nav-item blog [% IF pageid == 'blog' %]active[% END %]">
-                    <a class="js-hover" href="http://blog.wt-replays.org/">
+                    <a class="js-hover" href="http://blog.wotreplays.org/">
                         Blog
                     </a>
                 </li>

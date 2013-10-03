@@ -1,7 +1,7 @@
 <div>
     [% IF !h.current_user.reclaimed %]
         <form action="/profile/reclaim" method="get">
-        <button title="If you used to have an account registered on wt-replays.org, you need to reclaim it in order to link your Wargaming.net ID to your old account. Please click this button to start the process." style="width: 99%" id="btn-reclaim" class="uploadButton">RECLAIM ACCOUNT</button>
+        <button title="If you used to have an account registered on wotreplays.org, you need to reclaim it in order to link your Wargaming.net ID to your old account. Please click this button to start the process." style="width: 99%" id="btn-reclaim" class="uploadButton">RECLAIM ACCOUNT</button>
         </form>
         <script type="text/javascript">
             $(document).ready(function() {

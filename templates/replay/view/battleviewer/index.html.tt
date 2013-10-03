@@ -2,17 +2,17 @@
     <div id="battleviewer-container">
         <div 
             id="battleviewer-player" 
-            style="overflow: hidden; background: #000 url(//images.wt-replays.org/battleviewer/maps/[% h.map_ident(replay.game.map) %]_[% h.short_game_type(replay.game.type) %]_[% h.get_recorder_vehicle(replay).player.team - 1 %].png) no-repeat scroll 0 0">
+            style="overflow: hidden; background: #000 url(//images.wotreplays.org/battleviewer/maps/[% h.map_ident(replay.game.map) %]_[% h.short_game_type(replay.game.type) %]_[% h.get_recorder_vehicle(replay).player.team - 1 %].png) no-repeat scroll 0 0">
             <div id="battleviewer-clock">15:00</div>
             [% FOREACH roster IN replay.roster %]
                 [% IF roster.player.name == replay.game.recorder.name %]
                     <div id="player-[% roster.vehicle.id %]" class="player recorder" style="background: transparent none repeat scroll 0 0">
-                        <div id="recorder-icon" class="player-icon" style="background: transparent url(//images.wt-replays.org/battleviewer/vehicle/recorder.png) no-repeat scroll center center"></div>
+                        <div id="recorder-icon" class="player-icon" style="background: transparent url(//images.wotreplays.org/battleviewer/vehicle/recorder.png) no-repeat scroll center center"></div>
                         <div class="player-healthbar"><div id="player-health-[% roster.vehicle.id %]" class="playerhealth"></div></div>
                     </div>
                 [% ELSE %]
                     <div id="player-[% roster.vehicle.id %]" class="player" style="background: transparent none repeat scroll 0 0">
-                        <div class="player-icon" style="background: transparent url(//images.wt-replays.org/battleviewer/vehicle/[% h.get_battleviewer_icon(replay, roster.vehicle.id) %]) no-repeat scroll center center"></div>
+                        <div class="player-icon" style="background: transparent url(//images.wotreplays.org/battleviewer/vehicle/[% h.get_battleviewer_icon(replay, roster.vehicle.id) %]) no-repeat scroll center center"></div>
                         <div class="player-healthbar"><div id="player-health-[% roster.vehicle.id %]" class="playerhealth"></div></div>
                     </div>
                 [% END %]

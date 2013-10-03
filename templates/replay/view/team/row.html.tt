@@ -13,7 +13,7 @@
             <span class="platoon"><span class="tooltip number" title="Platoon #[% platoon %]">[% platoon %]</span></span>
         [% END %]
     </span></td>
-    <td class="tooltip playerVehicle" style="background: transparent url(//images.wt-replays.org/vehicles/48/[% player.vehicle.icon %]) no-repeat scroll 0 0" title="[% player.vehicle.label |html %]">
+    <td class="tooltip playerVehicle" style="background: transparent url(//images.wotreplays.org/vehicles/48/[% player.vehicle.icon %]) no-repeat scroll 0 0" title="[% player.vehicle.label |html %]">
         <div class="playerHealth">
             [% totalhealth = player.health.total %]
             [% hp = h.percentage_of(totalhealth, player.health.remaining) %]
@@ -33,7 +33,7 @@
     <td class="playerDetails">
         [% FOREACH award IN player.stats.achievements.nsort %]
             [% IF h.get_achievements.is_battle(award) || h.get_achievements.is_repeatable(award) %]
-                <img src="//images.wt-replays.org/icon/awards/24/[% h.get_achievements.index_to_idstr(award) %].png" style="margin-top: 8px; height: 24px;" alt="[% h.get_achievements.i18n(h.res.achievements.index_to_idstr(award)) |html %]" title="[% h.get_achievements.i18n(h.get_achievements.index_to_idstr(award)) |html %]"/>
+                <img src="//images.wotreplays.org/icon/awards/24/[% h.get_achievements.index_to_idstr(award) %].png" style="margin-top: 8px; height: 24px;" alt="[% h.get_achievements.i18n(h.res.achievements.index_to_idstr(award)) |html %]" title="[% h.get_achievements.i18n(h.get_achievements.index_to_idstr(award)) |html %]"/>
             [% END %]
         [% END %]
     </td>

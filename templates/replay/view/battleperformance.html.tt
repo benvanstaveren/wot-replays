@@ -19,7 +19,7 @@
                             <h2>Damaged Modules</h2>
                             [% FOREACH id IN cd.critical_devices %]
                                 <div style="font-size: 1.4em">
-                                    <span><img src="//images.wt-replays.org/icon/crit/[% id %]CriticalSmall.png" style="width: 16px; height: 16px"></span>
+                                    <span><img src="//images.wotreplays.org/icon/crit/[% id %]CriticalSmall.png" style="width: 16px; height: 16px"></span>
                                     <span>[% h.crit_component_name(id) %]</span>
                                 </div>
                             [% END %]
@@ -28,7 +28,7 @@
                             <h2>Destroyed Modules</h2>
                             [% FOREACH id IN cd.destroyed_devices %]
                                 <div style="font-size: 1.4em">
-                                    <span><img src="//images.wt-replays.org/icon/crit/[% id %]DestroyedSmall.png" style="width: 16px; height: 16px"></span>
+                                    <span><img src="//images.wotreplays.org/icon/crit/[% id %]DestroyedSmall.png" style="width: 16px; height: 16px"></span>
                                     <span>[% h.crit_component_name(id) %]</span>
                                 </div>
                             [% END %]
@@ -37,7 +37,7 @@
                             <h2>Injured Crew</h2>
                             [% FOREACH id IN cd.destroyed_tankmen %]
                                 <div style="font-size: 1.4em">
-                                    <span><img src="//images.wt-replays.org/icon/crit/[% id %]DestroyedSmall.png" style="width: 16px; height: 16px"></span>
+                                    <span><img src="//images.wotreplays.org/icon/crit/[% id %]DestroyedSmall.png" style="width: 16px; height: 16px"></span>
                                     <span>[% h.crit_tankman_name(id) %]</span>
                                 </div>
                             [% END %]
