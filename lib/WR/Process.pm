@@ -20,6 +20,7 @@ has 'banner_path' => undef;
 has '_error'    => undef;
 has '_parser'   => undef;
 has 'banner'    => 1;
+has 'ioloop'    => undef;       # if given, must be a running Mojo::IOLoop
 has 'ua'        => undef;
 
 sub model {
@@ -45,8 +46,10 @@ sub packet_is_local {
     my $players = shift; # our internal list of players 
     my $p       = shift; # the packet object
 
-    # if a packet has no player_id (or an invalid one since we use the assert-bypass mode to get it) 
-    # then it's related to the current vehicle, e.g. the one the recorder is controlling or viewing.
+    # if a packet has no player_id then it's related to the current vehicle, 
+    # e.g. the one the recorder is controlling or viewing. 
+    #
+    # An invalid player_id usually indicates a destructible element being, well, destructibled...
     #
     # local packets can be things like camera view direction and zoom level, as well as module repair
     # timers and shell activation 
@@ -55,46 +58,10 @@ sub packet_is_local {
         return 0 if(defined($players->{$id . ''}));
         if(my $id = $p->to_hash(1)->{__props__}->{player_id}) {
             return 0 if(defined($players->{$id . ''}));
-        }
+            return 0 if($id =~ /^\d+$/); # invalid ID, destructible being destructibled, not a local packet
+        } 
     }
     return 1;
-}
-
-sub packet_parse_using_format {
-    my $self = shift;
-    my $po   = shift; # packet object
-    my $list = shift;
-    my $size = {
-        'i' => 4,
-        'I' => 4,
-        'f' => 4,
-        'l' => 4,
-        'L' => 4,
-        's' => 2,
-        'S' => 2,
-        'c' => 1,
-        'C' => 1,
-        'd' => 8,
-    };
-    my $o = 0;
-    my $pd = [];
-    my $name;
-
-    foreach my $item (@$list) {
-        my $f = substr($item, 0, 1);
-        my $s = $size->{$f}; 
-
-        my $data = substr($po->raw_data, $o, $s);
-        $o += $s;
-
-        push(@$pd, {
-            tmpl => $item,
-            unpacked => unpack($item, $data),
-            raw => sprintf('%02x ' x $s, map { ord($_) } (split(//, $data))),
-        });
-    }
-
-    return $pd;
 }
 
 sub process {
@@ -118,6 +85,8 @@ sub _process {
         bf_key  => $self->bf_key,
         file    => $self->file,
     );
+
+    $args{ioloop} = $self->ioloop if(defined($self->ioloop));
 
     $self->_parser(try {
         return WR::Parser->new(%args);
@@ -162,7 +131,11 @@ sub _process {
                 $replay->{$k} = $res->{$k};
             }
 
-            if(my $stream = $self->_parser->stream) {
+            $self->_parser->stream(sub {
+                my $stream = shift;
+
+                $self->error('unable to stream replay') and return unless(defined($stream));
+
                 $stream->on('game.version' => sub {
                     my ($s, $v) = (@_);
                     $replay->{game}->{version} = $v;
@@ -197,68 +170,69 @@ sub _process {
                         push(@$replay_packets, $p);
                     }
                 });
+
+                $stream->on('finished' => sub {
+                    my $err = shift;
+
+                    # do we care about the packets? meh
+                    $replay->{__packets__} = ($err) ? undef : $replay_packets;
+
+                    my $d = Digest::SHA1->new();
+                    $d->add($replay->{game}->{recorder}->{name});
+                    $d->add($replay->{game}->{map});
+                    $d->add($replay->{game}->{arena_id});
+                    $d->add($_->{vehicle}->{id}) for(@{$replay->{roster}});
+                    $replay->{digest} = $d->hexdigest;
+
+                    warn 'got digest', "\n";
+
+                    # banner generation will be moved to a separate app that does it on the fly using
+                    # some nifty try_files magic 
+                    #$replay->{site}->{banner} = $self->generate_banner($replay) if(defined($self->banner_path));
+
+                    # do a little fixup of things that we needed previous data for
+                    $replay->{game}->{server} = WR::ServerFinder->new->get_server_by_id($replay->{roster}->[ $replay->{players}->{$replay->{game}->{recorder}->{name}} ]->{player}->{dbid} + 0);
+                    $replay->{game}->{recorder}->{index} = $replay->{players}->{$replay->{game}->{recorder}->{name}};
+
+                    # here goes
+                    $replay->{game}->{recorder}->{vehicle} = {
+                        id      => $replay->{roster}->[ $replay->{players}->{$replay->{game}->{recorder}->{name}} ]->{vehicle}->{id},
+                        tier    => $replay->{roster}->[ $replay->{players}->{$replay->{game}->{recorder}->{name}} ]->{vehicle}->{level},
+                        ident   => $replay->{roster}->[ $replay->{players}->{$replay->{game}->{recorder}->{name}} ]->{vehicle}->{ident},
+                    };
+
+                    $replay->{involved} = {
+                        players => [ keys(%{$replay->{players}}) ],
+                        clans   => [],
+                        vehicles => [ map { $_->{vehicle}->{ident} } @{$replay->{roster}} ],
+                    };
+
+                    my $tc = {};
+                    foreach my $entry (@{$replay->{roster}}) {
+                        next unless(length($entry->{player}->{clan}) > 0);
+                        $tc->{$entry->{player}->{clan}}++;
+                    }
+
+                    $replay->{involved}->{clans} = [ keys(%$tc) ];
+
+                    warn 'preparing to get wn7', "\n";
+                    my $wotlabs = WR::Wotlabs::Cached->new(ua => $self->ua, cache => $self->model('wot-replays.cache.wotlabs'));
+                    $wotlabs->fetch($replay->{game}->{server} => $replay->{involved}->{players}, sub {
+                        my $results = shift;
+
+                        warn 'wn7 callback', "\n";
+
+                        foreach my $k (keys(%$results)) {
+                            my $idx = $replay->{players}->{$k};
+                            $replay->{roster}->[$idx]->{wn7} = $results->{$k};
+                            $replay->{wn7} = $results->{$k} if($k eq $replay->{game}->{recorder}->{name});
+                        }
+                        
+                        warn 'calling $cb', "\n";
+                        $cb->($self, $replay);
+                    });
+                });
                 $stream->start;
-            } else {
-                $self->error('unable to stream replay');
-            }
-
-            $replay->{__packets__} = $replay_packets;
-
-            warn 'got packets', "\n";
-
-            my $d = Digest::SHA1->new();
-            $d->add($replay->{game}->{recorder}->{name});
-            $d->add($replay->{game}->{map});
-            $d->add($replay->{game}->{arena_id});
-            $d->add($_->{vehicle}->{id}) for(@{$replay->{roster}});
-            $replay->{digest} = $d->hexdigest;
-
-            warn 'got digest', "\n";
-
-            # banner generation will be moved to a separate app that does it on the fly using
-            # some nifty try_files magic 
-            #$replay->{site}->{banner} = $self->generate_banner($replay) if(defined($self->banner_path));
-
-            # do a little fixup of things that we needed previous data for
-            $replay->{game}->{server} = WR::ServerFinder->new->get_server_by_id($replay->{roster}->[ $replay->{players}->{$replay->{game}->{recorder}->{name}} ]->{player}->{dbid} + 0);
-            $replay->{game}->{recorder}->{index} = $replay->{players}->{$replay->{game}->{recorder}->{name}};
-
-            # here goes
-            $replay->{game}->{recorder}->{vehicle} = {
-                id      => $replay->{roster}->[ $replay->{players}->{$replay->{game}->{recorder}->{name}} ]->{vehicle}->{id},
-                tier    => $replay->{roster}->[ $replay->{players}->{$replay->{game}->{recorder}->{name}} ]->{vehicle}->{level},
-                ident   => $replay->{roster}->[ $replay->{players}->{$replay->{game}->{recorder}->{name}} ]->{vehicle}->{ident},
-            };
-
-            $replay->{involved} = {
-                players => [ keys(%{$replay->{players}}) ],
-                clans   => [],
-                vehicles => [ map { $_->{vehicle}->{ident} } @{$replay->{roster}} ],
-            };
-
-            my $tc = {};
-            foreach my $entry (@{$replay->{roster}}) {
-                next unless(length($entry->{player}->{clan}) > 0);
-                $tc->{$entry->{player}->{clan}}++;
-            }
-
-            $replay->{involved}->{clans} = [ keys(%$tc) ];
-
-            warn 'preparing to get wn7', "\n";
-            my $wotlabs = WR::Wotlabs::Cached->new(ua => $self->ua, cache => $self->model('wot-replays.cache.wotlabs'));
-            $wotlabs->fetch($replay->{game}->{server} => $replay->{involved}->{players}, sub {
-                my $results = shift;
-
-                warn 'wn7 callback', "\n";
-
-                foreach my $k (keys(%$results)) {
-                    my $idx = $replay->{players}->{$k};
-                    $replay->{roster}->[$idx]->{wn7} = $results->{$k};
-                    $replay->{wn7} = $results->{$k} if($k eq $replay->{game}->{recorder}->{name});
-                }
-                
-                warn 'calling $cb', "\n";
-                $cb->($self, $replay);
             });
         });
     }); 
