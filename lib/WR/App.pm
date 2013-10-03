@@ -100,7 +100,7 @@ sub startup {
 
     $self->sessions->default_expiration(86400 * 365); 
     $self->sessions->cookie_name('wrsession');
-    $self->sessions->cookie_domain('.wt-replays.org') if(!defined($config->{mode}) || $config->{mode} ne 'dev');
+    $self->sessions->cookie_domain('.wotreplays.org') if(!defined($config->{mode}) || $config->{mode} ne 'dev');
 
     has 'wr_res' => sub { return WR::Res->new() };
 
