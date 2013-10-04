@@ -45,62 +45,71 @@ sub process_replay {
 
     Mojo::IOLoop->stream($self->tx->connection)->timeout(300);
 
-    if(my $job = $self->model('wot-replays.jobs')->find_one({ _id => $oid })) {
-        my $file = $job->{data}->{file};
-        my $replay;
-        try {
-            my $process = WR::Process->new(
-                bf_key      => $self->stash('config')->{wot}->{bf_key},
-                file        => $file,
-                mango       => $self->app->mango,
-                banner_path => $self->stash('config')->{paths}->{banners},
-   		ua	    => $self->ua,
-            );
-            $replay = $process->process;
-        } catch {
-            unlink($file);
-            $self->render(json => { ok => 0, error => 'Could not parse replay: ' . $_ });
-        };
-        if(defined($replay)) {
-            # figure out if we have a replay like this already
-            if(my $d = $self->model('wot-replays.replays')->find_one({ digest => $replay->{digest} })) {
-                unlink($file); # and yes, it's possible to rename your uploads and clobber an existing file this way
-                $self->render(json => { ok => 0, error => 'That replay has already been uploaded' }) and return;
-            }
+    $self->render_later;
 
-            if(!defined($replay->{game}->{version_numeric}) || (defined($replay->{game}->{version_numeric}) && $replay->{game}->{version_numeric} < $self->stash('config')->{wot}->{min_version})) {
-                unlink($file);
-                $self->render(json => { ok => 0, error => 'That replay is from an older version of World of Tanks which we cannot process' }) and return;
-            }
+    $self->model('wot-replays.jobs')->find_one({ _id => $oid } => sub {
+        my ($c, $e, $job) = (@_);
 
-            $replay->{site}->{visible} = Mango::BSON::bson_false if($job->{data}->{visible} < 1);
-            $replay->{site}->{description} = (defined($job->{data}->{desc}) && length($job->{data}->{desc}) > 0) ? $job->{data}->{desc} : undef;
-            $replay->{file} = $job->{data}->{file_base}; # kind of essential to have that, yeah...
-
-            # get the packets out
-            my $packets = delete($replay->{__packets__});
-            # store the packets locally, currently uncompressed, we'll use some nginx trickery to make that happen
-            my $path = sprintf('%s/%s', $self->stash('config')->{paths}->{packets}, $self->hashbucket($replay->{_id} . ''));
-            make_path($path) unless(-e $path);
-            my $packet_base = sprintf('%s/%s.json', $self->hashbucket($replay->{_id} . ''), $replay->{_id} . '');
-            my $packet_file = sprintf('%s/%s.json', $path, $replay->{_id} . '');
-            $replay->{site}->{packets} = $packet_base;
-            try {
-                if(my $fh = IO::File->new('>' . $packet_file)) {
-                    $fh->print(Mojo::JSON->new->encode($packets));
-                    $fh->close;
-                } else {
-                    delete($replay->{site}->{packets});
-                }
-                $self->model('wot-replays.replays')->insert($replay);
-                $self->render(json => { ok => 1, result => { oid => $replay->{_id} . '', banner => $replay->{site}->{banner}, base => $job->{data}->{file_base} }});
-            } catch {
-                $self->render(json => { ok => 0, error => $_ });
-            };
+        if(!defined($job) || (defined($e))) {
+            $self->render(json => { ok => 0, error => 'No job key supplied, or error occurred' });
+            return;
         }
-    } else {
-        $self->render(json => { ok => 0, error => 'No job key supplied' });
-    }
+
+        my $file = $job->{data}->{file};
+        my $process = WR::Process->new(
+            bf_key      => $self->stash('config')->{wot}->{bf_key},
+            file        => $file,
+            mango       => $self->app->mango,
+            banner_path => $self->stash('config')->{paths}->{banners},
+            ua          => $self->ua,
+            ioloop      => Mojo::IOLoop->singleton,
+        );
+        $process->process(sub {
+            my ($process, $replay) = (@_);
+            if(defined($replay)) {
+                $self->model('wot-replays.replays')->find_one({ digest => $replay->{digest} } => sub {
+                    my ($c, $e, $d) = (@_);
+
+                    if(defined($d)) {
+                        unlink($file); # and yes, it's possible to rename your uploads and clobber an existing file this way
+                        $self->render(json => { ok => 0, error => 'That replay has already been uploaded' }) and return;
+                    }
+
+                    if(!defined($replay->{game}->{version_numeric}) || (defined($replay->{game}->{version_numeric}) && $replay->{game}->{version_numeric} < $self->stash('config')->{wot}->{min_version})) {
+                        unlink($file);
+                        $self->render(json => { ok => 0, error => 'That replay is from an older version of World of Tanks which we cannot process' }) and return;
+                    }
+
+                    $replay->{site}->{visible} = Mango::BSON::bson_false if($job->{data}->{visible} < 1);
+                    $replay->{site}->{description} = (defined($job->{data}->{desc}) && length($job->{data}->{desc}) > 0) ? $job->{data}->{desc} : undef;
+                    $replay->{file} = $job->{data}->{file_base}; # kind of essential to have that, yeah...
+
+                    my $packets = delete($replay->{__packets__});
+                    my $path = sprintf('%s/%s', $self->stash('config')->{paths}->{packets}, $self->hashbucket($replay->{_id} . ''));
+                    make_path($path) unless(-e $path);
+                    my $packet_base = sprintf('%s/%s.json', $self->hashbucket($replay->{_id} . ''), $replay->{_id} . '');
+                    my $packet_file = sprintf('%s/%s.json', $path, $replay->{_id} . '');
+                    $replay->{site}->{packets} = $packet_base;
+                    try {
+                        if(my $fh = IO::File->new('>' . $packet_file)) {
+                            $fh->print(Mojo::JSON->new->encode($packets));
+                            $fh->close;
+                        } else {
+                            delete($replay->{site}->{packets});
+                        }
+                    } catch {
+                    }; # no-op
+
+                    $self->model('wot-replays.replays')->insert($replay => sub {
+                        $self->render(json => { ok => 1, result => { oid => $replay->{_id} . '', banner => $replay->{site}->{banner}, base => $job->{data}->{file_base} }});
+                    });
+                });
+            } else {
+                unlink($file); 
+                $self->render(json => { ok => 0, error => $process->error });
+            }
+        });
+    });
 }
 
 sub upload {

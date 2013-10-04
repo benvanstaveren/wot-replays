@@ -47,22 +47,26 @@ sub _fetch_one {
         };
 
         if(my $res = $tx->success) {
-            if(my $row = $res->dom->at('table.generalStats')->find('tr')->[15]) {
-                try {
-                    $wn7->{data}->{last_24h} = $row->find('td')->[2]->text + 0;
-                    $wn7->{data}->{last_60d} = $row->find('td')->[5]->text + 0;
-                    $wn7->{data}->{overall} = $row->find('td')->[1]->text + 0;
-                    $wn7->{class} = $self->get_class_from_rating($wn7->{data}->{overall});
-                    $wn7->{available} = Mango::BSON::bson_true;
-                } catch {
+            if(my $table = $res->dom->at('table.generalStats')) {
+                if(my $row = $table->find('tr')->[15]) {
+                    try {
+                        $wn7->{data}->{last_24h} = $row->find('td')->[2]->text + 0;
+                        $wn7->{data}->{last_60d} = $row->find('td')->[5]->text + 0;
+                        $wn7->{data}->{overall} = $row->find('td')->[1]->text + 0;
+                        $wn7->{class} = $self->get_class_from_rating($wn7->{data}->{overall});
+                        $wn7->{available} = Mango::BSON::bson_true;
+                    } catch {
+                        $wn7->{available} = Mango::BSON::bson_false;
+                        $wn7->{error} = $_;
+                    };
+                } else {
                     $wn7->{available} = Mango::BSON::bson_false;
-                    $wn7->{error} = $_;
-                };
+                }
             } else {
                 $wn7->{available} = Mango::BSON::bson_false;
             }
         } else {
-            $wn7->{available} = Mango::BSON::bson_false,
+            $wn7->{available} = Mango::BSON::bson_false;
         }
         $cb->($player => $wn7);
     });
