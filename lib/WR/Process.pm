@@ -1,6 +1,7 @@
 package WR::Process;
 use Mojo::Base '-base';
 use WR::Parser;
+use WR::Wotlabs::Cached;
 use File::Path qw/make_path/;
 use Data::Dumper;
 use Mango::BSON;
@@ -19,6 +20,7 @@ has 'banner_path' => undef;
 has '_error'    => undef;
 has '_parser'   => undef;
 has 'banner'    => 1;
+has 'ua'	=> undef; 
 
 sub model {
     my $self = shift;

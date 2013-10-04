@@ -54,6 +54,7 @@ sub process_replay {
                 file        => $file,
                 mango       => $self->app->mango,
                 banner_path => $self->stash('config')->{paths}->{banners},
+   		ua	    => $self->ua,
             );
             $replay = $process->process;
         } catch {

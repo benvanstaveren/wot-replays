@@ -2,7 +2,7 @@
     <div><div class="content nosidebar aboutText">
         <h3>Tools Used</h3>
         <div>
-            wt-replays.org is made possible using the following bits and pieces:
+            wotreplays.org is made possible using the following bits and pieces:
             <ul>
                 <li><a href="http://www.perl.org/">Perl</a>, the swiss army chainsaw programming language of the internet</li>
                 <li><a href="http://mojolicio.us">Mojolicious</a>, a next generation web framework</li>
