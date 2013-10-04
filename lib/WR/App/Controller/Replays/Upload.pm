@@ -62,6 +62,7 @@ sub process_replay {
             mango       => $self->app->mango,
             banner_path => $self->stash('config')->{paths}->{banners},
             ua          => $self->ua,
+            ioloop      => Mojo::IOLoop->singleton,
         );
         $process->process(sub {
             my ($process, $replay) = (@_);

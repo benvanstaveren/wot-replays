@@ -34,10 +34,14 @@ sub model {
 
 sub error {
     my $self = shift;
-    my $message = join(' ', @_);
-
-    $self->_error($message);
-    die '[process]: ', $message, "\n";
+    
+    if(scalar(@_) > 0) {
+        my $message = join(' ', @_);
+        warn 'error: ', $message, ': caller: ', join(', ', (caller(1))), "\n";
+        $self->_error($message);
+    } else {
+        return $self->_error;
+    }
 }
 
 # some helpers for stream processing
@@ -74,7 +78,6 @@ sub process {
         $cb->($self, undef); # assume that $self->error is set
     };
 }
-
 
 sub _process {
     my $self = shift;
@@ -134,23 +137,29 @@ sub _process {
             $self->_parser->stream(sub {
                 my $stream = shift;
 
+                warn 'stream create cb', "\n";
+
                 $self->error('unable to stream replay') and return unless(defined($stream));
 
                 $stream->on('game.version' => sub {
                     my ($s, $v) = (@_);
                     $replay->{game}->{version} = $v;
+                    warn 'stream game.version', "\n";
                 });
                 $stream->on('game.version.numeric' => sub {
                     my ($s, $v) = (@_);
                     $replay->{game}->{version_numeric} = $v;
+                    warn 'stream game.version.numeric', "\n";
                 });
                 $stream->on('game.recorder' => sub {
                     my ($s, $v) = (@_);
                     $replay->{game}->{recorder}->{name} = $v;
+                    warn 'stream game.recorder', "\n";
                 });
                 $stream->on('setup.battle_level' => sub {
                     my ($s, $v) = (@_);
                     $replay->{game}->{battle_level} = $v + 0;
+                    warn 'stream setup.battle_level', "\n";
                 });
                 $stream->on('setup.fitting' => sub {
                     my ($s, $f) = (@_);
@@ -159,20 +168,20 @@ sub _process {
                     my $idx = $replay->{vehicles}->{$id};
 
                     $replay->{roster}->[$idx]->{vehicle}->{fitting} = $f->{fitting};
+                    warn 'stream setup.fitting', "\n";
                 });
                 $stream->on('packet' => sub {
                     my ($s, $po) = (@_);
                     my $p = $po->to_hash;
 
-                    if($p->{type} == 0x1f) {
-                        push(@{$replay->{chat}}, $p->{message});
-                    } else {
-                        push(@$replay_packets, $p);
-                    }
+                    push(@{$replay->{chat}}, $p->{message}) if($p->{type} == 0x1f);
+                    push(@$replay_packets, $p);
                 });
 
                 $stream->on('finished' => sub {
                     my $err = shift;
+
+                    warn 'stream finished cb, err: ', $err, "\n";
 
                     # do we care about the packets? meh
                     $replay->{__packets__} = ($err) ? undef : $replay_packets;
