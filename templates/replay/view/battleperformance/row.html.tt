@@ -1,7 +1,7 @@
 [% roster = h.get_roster_by_vid(replay, pid) %]
 [% cd = h.get_crit_details(details.crits) %]
 <tr class="battleperformance">
-    <td class="playerVehicle" style="background: transparent url(//images.wotreplays.org/vehicles/48/[% roster.vehicle.icon %]) no-repeat scroll 0 0" title="[% roster.vehicle.label |html %]">
+    <td class="playerVehicle" style="background: transparent url([% config.urls.assets %]/vehicles/48/[% roster.vehicle.icon %]) no-repeat scroll 0 0" title="[% roster.vehicle.label |html %]">
         <div class="playerHealth">
             [% ph = roster.health.total %]
             [% hp = h.percentage_of(ph, roster.health.remaining) %]

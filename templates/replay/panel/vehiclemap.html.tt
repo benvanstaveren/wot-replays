@@ -1,6 +1,6 @@
-<div title="[% h.get_recorder_vehicle(replay).vehicle.label |html %] on [% h.map_name(replay.game.map) |html%]" class="tooltip vehicleMap ui-corner-left" style="background: transparent url(//images.wotreplays.org/mapscreen/[% h.map_icon(replay.game.map) %]) no-repeat scroll 0 0">
-    <div style="width: 231px; height: 97px; background: transparent url(//images.wotreplays.org/mapscreen/overlay.png) no-repeat scroll 0 0">
-        <img src="//images.wotreplays.org/vehicles/100/[% h.get_recorder_vehicle(replay).vehicle.icon %]" style="width: 160px; height: 100px"/>
+<div title="[% h.get_recorder_vehicle(replay).vehicle.label |html %] on [% h.map_name(replay.game.map) |html%]" class="tooltip vehicleMap ui-corner-left" style="background: transparent url([% config.urls.assets %]/mapscreen/[% h.map_icon(replay.game.map) %]) no-repeat scroll 0 0">
+    <div style="width: 231px; height: 97px; background: transparent url([% config.urls.assets %]/mapscreen/overlay.png) no-repeat scroll 0 0">
+        <img src="[% config.urls.assets %]/vehicles/100/[% h.get_recorder_vehicle(replay).vehicle.icon %]" style="width: 160px; height: 100px"/>
         <span title="This replay has been viewed [% replay.site.views || '0' %] times" class="replayviewcount panelviewcount ui-corner-all">[% replay.site.views || '0' %]</span>
     </div>
 </div>
