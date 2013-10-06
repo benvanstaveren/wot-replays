@@ -100,8 +100,11 @@ sub process_replay {
                     } catch {
                     }; # no-op
 
-                    $self->model('wot-replays.replays')->insert($replay => sub {
-                        $self->render(json => { ok => 1, result => { oid => $replay->{_id} . '', banner => $replay->{site}->{banner}, base => $job->{data}->{file_base} }});
+                    $self->make_panel($replay => sub {
+                        my $replay = shift;
+                        $self->model('wot-replays.replays')->insert($replay => sub {
+                            $self->render(json => { ok => 1, result => { oid => $replay->{_id} . '', banner => $replay->{site}->{banner}, base => $job->{data}->{file_base} }});
+                        });
                     });
                 });
             } else {
@@ -110,6 +113,20 @@ sub process_replay {
             }
         });
     });
+}
+
+sub make_panel {
+    my $self = shift;
+    my $replay = shift;
+    my $cb = shift;
+
+    my $panel = {
+        player      => $replay->{game}->{recorder}->{name},
+        server      => $replay->{game}->{server},
+    };
+
+    $replay->{site}->{panel} = $panel;
+    $cb->($replay);
 }
 
 sub upload {
