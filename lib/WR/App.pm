@@ -24,8 +24,8 @@ sub startup {
     $self->attr(json => sub { return Mojo::JSON->new() });
 
     my $config = $self->plugin('Config', { file => 'wr.conf' });
-    $self->secret($config->{secrets}->{app});
 
+    $self->secret($config->{secrets}->{app});
     $config->{wot}->{bf_key} = join('', map { chr(hex($_)) } (split(/\s/, $config->{wot}->{bf_key})));
 
     # set up the mango stuff here
@@ -98,12 +98,11 @@ sub startup {
         $pb->route('/replays')->to('profile#replays', pageid => 'profile');
         $pb->route('/sr')->to('profile#sr', pageid => 'profile');
         $pb->route('/hr')->to('profile#hr', pageid => 'profile');
-        $pb->route('/reclaim')->to('profile#reclaim', pageid => 'profile');
         $pb->route('/j/setting')->to('profile#setting');
 
     $self->sessions->default_expiration(86400 * 365); 
     $self->sessions->cookie_name('wrsession');
-    $self->sessions->cookie_domain('.wotreplays.org') if(!defined($config->{mode}) || $config->{mode} ne 'dev');
+    $self->sessions->cookie_domain($config->{urls}->{app_c}) if(!defined($config->{mode}) || $config->{mode} ne 'dev');
 
     has 'wr_res' => sub { return WR::Res->new() };
 

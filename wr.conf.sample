@@ -17,6 +17,7 @@
         database => 'wt-replays',
     },
     urls => {
+        app_c   =>  '.wotreplays.org',                      # the cookie domain for the app
         app     =>  'http://www.wot-replays.org',           # base url to site
         static  =>  'http://static.wot-replays.org',        # base url to static
         assets  =>  'http://images.wot-replays.org',        # base url to images
