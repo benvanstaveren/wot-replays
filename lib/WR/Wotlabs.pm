@@ -89,7 +89,6 @@ sub fetch {
         my $delay = Mojo::IOLoop->delay(sub {
             my ($delay, @results) = (@_);
             my $res = {};
-
             foreach my $r (@results) {
                 $res->{$r->{p}} = $r->{w};
             }
