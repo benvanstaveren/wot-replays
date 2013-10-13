@@ -1,0 +1,124 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+use FindBin;
+use lib "$FindBin::Bin/../lib";
+use Getopt::Long;
+use Mojo::IOLoop;
+use Mojo::Log;
+use Mango;
+use WR;
+use WR::Process::Offline;
+
+my $config  = {};
+my $cfile   = undef;
+
+GetOptions(
+    'config=s'      => \$cfile,
+);
+
+die 'Usage: ', $0, ' --config <path to config file>', "\n" unless(defined($cfile));
+
+my $craw = '';
+if(my $fh = IO::File->new($cfile)) {
+    $craw .= $_ while(<$fh>);
+    $fh->close;
+
+    $config = eval($craw);
+
+    die 'Error parsing configuration: ', $@, "\n" if($@);
+} else {
+    die 'Could not open configuration file "', $cfile, '": ', $!, "\n";
+}
+
+my $log;
+if(my $lf = $config->{publishd}->{logfile}) {
+    $lf = sprintf('%s/../%s', $FindBin::Bin, $config->{processd}->{logfile}) if($lf !~ /^\//);
+    $log = Mojo::Log->new(path => $lf, level => $config->{processd}->{loglevel} || 'warn');
+} else {
+    $log = Mojo::Log->new();
+    # level => $config->{publishd}->{loglevel} || 'warn');
+}
+
+$log->info('processd starting, pid ' . $$);
+
+# create a pidfile
+my $pidfile = $config->{publishd}->{pidfile};
+
+my $mango = Mango->new($config->{mongodb}->{host});
+my $db    = $mango->db($config->{mongodb}->{database});
+
+my $timersub;
+my $timer;
+
+sub process_job {
+    my $job = shift;
+    my $cb  = shift;
+    my $o = WR::Process::Offline->new(
+        bf_key          => join('', map { chr(hex($_)) } (split(/\s/, $config->{wot}->{bf_key}))),
+        banner_path     => $config->{paths}->{banners},
+        mango           => $mango,
+        file            => $job->{file},
+        ua              => Mojo::UserAgent->new(ioloop => Mojo::IOLoop->singleton),
+        );
+
+    $o->process(sub {
+        my ($o, $err, $replay) = (@_);
+
+        if(defined($err)) {
+            $db->collection('jobs')->update({ _id => $job->{_id} }, {
+                '$set' => {
+                    complete => Mango::BSON::True,
+                    status   => -1,
+                    error    => $_,
+                }
+            } => sub {
+                $cb->(0);
+            });
+        } else {
+            # save the packets to a file  
+            $db->collection('jobs')->update({ _id => $job->{_id} }, {
+                '$set' => {
+                    complete => Mango::BSON::True,
+                    status   => 1,
+                }
+            } => sub {
+                $cb->(1);
+            });
+        }
+    }
+}
+
+sub get_new_job {
+    my $cb = shift;
+
+    $db->collection('jobs')->find({
+        ready       => Mango::BSON::true,
+        complete    => Mango::BSON::false,
+    })->sort({ ctime => 1 })->next(sub {
+        my ($coll, $err, $doc) = (@_);
+        $cb->($doc);
+    });
+}
+
+$timersub = sub {
+    get_new_job(sub {
+        my $job = shift;
+
+        if($job) {
+            $log->debug('received job, dump follows: ', Dumper($job));
+            Mojo::IOLoop->singleton->remove($timer);
+            process_job($job => sub {
+                my $rv = shift;
+
+                # if rv indicates failure, set the timer to go off a bit later
+                Mojo::IOLoop->singleton->timer(($rv == 0) ? 30 : 1 => $timersub);
+            });
+        } else {
+            Mojo::IOLoop->singleton->remove($timer);
+            Mojo::IOLoop->singleton->timer(60 => $timersub);
+        }
+    });
+};
+$timer = Mojo::IOLoop->singleton->timer(1 => $timersub);
+Mojo::IOLoop->start unless(Mojo::IOLoop->is_running);
