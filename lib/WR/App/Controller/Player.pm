@@ -101,7 +101,7 @@ sub latest {
             my $replay = $d->[0];
             if(defined($self->stash('format')) && $self->stash('format') =~ /png|jpg/) {
                 # hashify the string
-                $self->redirect_to(sprintf('%s/%s.jpg', $self->stash('config')->{urls}->{banners}, $self->hashbucket($replay->{_id} . '')));
+                $self->redirect_to(sprintf('%s/%s', $self->stash('config')->{urls}->{banners}, $d->{site}->{banner}->{url_path}));
             } else {
                 $self->redirect_to(sprintf('/replay/%s.html', $replay->{_id}->to_string));
             }
