@@ -17,7 +17,9 @@
                     </h3>
                     <div>
                         <button class="rateUp" rid="[% h.get_id(replay) %]" title="Like this replay"><span>Like</span> (<span class="rateUpCount">[% replay.site.like || '0' %]</span>)</button></a>
-                        <button class="panelButton" style="width: 75px" id="btn-embed">Embed</button>
+                        [% IF replay.site.banner.available %]
+                            <button class="panelButton" style="width: 75px" id="btn-embed">Embed</button>
+                        [% END %]
                         [% IF !replay.site.download_disabled %]
                         <button href="/replay/[% h.get_id(replay) %]/download" class="panelButton downloadButton [% IF h.is_old_version(replay) %]incompatible[% END %]" style="width: 125px" id="btn-download">Download (<span class="count">[% replay.site.downloads || '0' %]</span>)</button>
                         [% END %]
