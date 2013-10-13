@@ -29,66 +29,58 @@
                 </div>
                 <div class="clear"></div>
             </div>
-            <table style="width: 100%" cellspacing="0" cellpadding="0">
-            <tbody>
-                <tr>
-                    <td style="vertical-align: top">
-                        <div id="replay-view-content" class="ui-corner-all">
-                            <div class="tablist">
-                                <div class="tablist-inner">
-                                    <div class="container-tablist">
-                                        <ul class="nav">
-                                            <li class="nav-item tab active"><a href="#vehicle-stats">Statistics</a></li>
-                                            <li class="nav-item tab"><a href="#vehicle-loadout">Loadout</a></li>
-                                            <li class="nav-item tab"><a href="#teams">Teams</a></li>
-                                            [% IF replay.chat.size > 0 %]
-                                                <li class="nav-item tab"><a href="#battle-chat">Chat</a></li>
-                                            [% END %]
-                                            <li class="nav-item tab"><a href="#comparison">Compare</a></li>
-                                            [% IF related && related.count > 0 %]
-                                                <li class="nav-item tab"><a href="#replay-related">Related Replays ([% related.count %])</a></li>
-                                            [% END %]
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="vehicle-stats" class="tab-panel">
-                                <div style="width: 390px; float: left">
-                                    [% INCLUDE replay/view/battleperformance.html.tt %]
-                                </div>
-                                <div style="margin: 0px 3px 0px 0px; float: left; width: 520px">
-                                    [% INCLUDE replay/view/vehicle_stats.html.tt %]
-                                </div>
-                                <div class="clear"></div>
-                            </div>
-                            <div id="vehicle-loadout" class="tab-panel" style="display: none">
-                                [% INCLUDE replay/view/vehicle_loadout.html.tt %]
-                            </div>
-                            <div id="teams" class="tab-panel" style="display: none">
-                                [% INCLUDE replay/view/teams.html.tt %]
-                            </div>
-                            <div id="comparison" class="tab-panel" style="display: none">
-                                <div id="comparison-display">Loading...</div>
-                            </div>
-                            [% IF related.count && related.count > 0 %]
-                            <div id="replay-related" class="tab-panel" style="display: none">
-                                under construction
-                            </div>
-                            [% END %]
-                            [% IF replay.chat.size > 0 %]
-                            <div id="battle-chat" class="tab-panel" style="display: none">
-                                [% FOREACH message IN replay.chat %]
-                                    <div style="padding: 2px;">
-                                        [% message %]
-                                    </div>
+            <div id="replay-view-content" class="ui-corner-all">
+                <div class="tablist">
+                    <div class="tablist-inner">
+                        <div class="container-tablist">
+                            <ul class="nav">
+                                <li class="nav-item tab active"><a href="#vehicle-stats">Statistics</a></li>
+                                <li class="nav-item tab"><a href="#vehicle-loadout">Loadout</a></li>
+                                <li class="nav-item tab"><a href="#teams">Teams</a></li>
+                                [% IF replay.chat.size > 0 %]
+                                    <li class="nav-item tab"><a href="#battle-chat">Chat</a></li>
                                 [% END %]
-                            </div>
-                            [% END %]
+                                <li class="nav-item tab"><a href="#comparison">Compare</a></li>
+                                [% IF related && related.count > 0 %]
+                                    <li class="nav-item tab"><a href="#replay-related">Related Replays ([% related.count %])</a></li>
+                                [% END %]
+                            </ul>
                         </div>
-                    </td>
-                </tr>
-            </tbody>
-            </table>
+                    </div>
+                </div>
+                <div id="vehicle-stats" class="tab-panel">
+                    <div style="width: 390px; float: left">
+                        [% INCLUDE replay/view/battleperformance.html.tt %]
+                    </div>
+                    <div style="margin: 0px 3px 0px 0px; float: left; width: 520px">
+                        [% INCLUDE replay/view/vehicle_stats.html.tt %]
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div id="vehicle-loadout" class="tab-panel" style="display: none">
+                    [% INCLUDE replay/view/vehicle_loadout.html.tt %]
+                </div>
+                <div id="teams" class="tab-panel" style="display: none">
+                    [% INCLUDE replay/view/teams.html.tt %]
+                </div>
+                <div id="comparison" class="tab-panel" style="display: none">
+                    <div id="comparison-display">Loading...</div>
+                </div>
+                [% IF related.count && related.count > 0 %]
+                <div id="replay-related" class="tab-panel" style="display: none">
+                    under construction
+                </div>
+                [% END %]
+                [% IF replay.chat.size > 0 %]
+                <div id="battle-chat" class="tab-panel" style="display: none">
+                    [% FOREACH message IN replay.chat %]
+                        <div style="padding: 2px;">
+                            [% message %]
+                        </div>
+                    [% END %]
+                </div>
+                [% END %]
+            </div>
         </div>
     </div>
     [% INCLUDE replay/view/battleviewer/index.html.tt %]

@@ -358,23 +358,26 @@ sub generate_banner {
 
         my $i = WR::Imager->new();
         my $imagefile;
+
+        my %imager_args = (
+            map     => $map->{_id} . '',
+            vehicle => lc($pv),
+            result  => $match_result,
+            map_name => $map->{label},
+            vehicle_name => $res->{roster}->[ $recorder ]->{vehicle}->{label},
+            credits => $res->{stats}->{credits},
+            xp      => $xp,
+            kills   => $res->{stats}->{kills},
+            spotted => $res->{stats}->{spotted},
+            damaged => $res->{stats}->{damaged},
+            player  => $res->{roster}->[ $recorder ]->{player}->{name},
+            clan    => $res->{roster}->[ $recorder ]->{player}->{clan},
+            destination => sprintf('%s/%s.jpg', $base_path, $res->{_id} . ''),
+            awards  => $self->stringify_awards($res),
+        );
+
         try {
-            $imagefile = $i->create(
-                map     => $map->{_id} . '',
-                vehicle => lc($pv),
-                result  => $match_result,
-                map_name => $map->{label},
-                vehicle_name => $res->{roster}->[ $recorder ]->{vehicle}->{label},
-                credits => $res->{stats}->{credits},
-                xp      => $xp,
-                kills   => $res->{stats}->{kills},
-                spotted => $res->{stats}->{spotted},
-                damaged => $res->{stats}->{damaged},
-                player  => $res->{roster}->[ $recorder ]->{player}->{name},
-                clan    => $res->{roster}->[ $recorder ]->{player}->{clan},
-                destination => sprintf('%s/%s.jpg', $base_path, $res->{_id} . ''),
-                awards  => $self->stringify_awards($res),
-            );
+            $imagefile = $i->create(%imager_args)
             $image = {
                 available => Mango::BSON::bson_true,
                 file => $imagefile,
@@ -384,6 +387,7 @@ sub generate_banner {
             $image = {
                 available => Mango::BSON::bson_false,
                 error => $_,
+                args  => { %imager_args }
             };
         };
         $cb->($image);
