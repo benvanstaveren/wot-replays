@@ -194,7 +194,7 @@ sub add_helpers {
         my $self = shift;
         my $a = shift;
 
-        return undef unless(defined($a) && ref($a) eq 'HASH');
+        return undef unless(defined($a));
         my $tc = parse_int_compact_descr($a);
         my $i = $tc->{id};
         if(my $c = $self->model('wot-replays.data.consumables')->find_one({ wot_id => $i + 0 })) {
@@ -262,11 +262,8 @@ sub add_helpers {
         my $self = shift;
         my $a = shift;
 
-        return undef unless(defined($a) && ref($a) eq 'HASH');
-
-        # consumables come in as a typecomp,
+        return undef unless(defined($a));
         my $tc = parse_int_compact_descr($a);
-        
         if(my $c = $self->model('wot-replays.data.consumables')->find_one({ wot_id => $tc->{id} + 0 })) {
             return $c->{label} || $c->{name};
         } else {
