@@ -6,7 +6,7 @@
 [% ELSE %]
     [% class = 'died' %]
 [% END %]
-<tr class="playerRow [% class %]" style="cursor: default">
+<tr class="playerRow [% IF player.wn7.available %]wn7 [% player.wn7.class %] hover[% END %] [% class %]" style="cursor: default">
     <td class="playerSurvived">
     <span>
         [% IF replay.game.bonus_type == 1 && (platoon && platoon > 0) %]

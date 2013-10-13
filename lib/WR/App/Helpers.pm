@@ -6,6 +6,7 @@ use WR::Res;
 use WR::Util::CritDetails;
 use WR::ServerFinder;
 use WR::Constants qw/nation_id_to_name/;
+use WR::Util::TypeComp qw/parse_int_compact_descr/;
 use Data::Dumper;
 
 use constant ROMAN_NUMERALS => [qw(0 I II III IV V VI VII VIII IX X)];
@@ -193,13 +194,13 @@ sub add_helpers {
         my $self = shift;
         my $a = shift;
 
-        if($a) {
-            my $i = (ref($a) eq 'HASH') ? $a->{id} : $a;
-            if(my $c = $self->model('wot-replays.data.consumables')->find_one({ wot_id => $i + 0 })) {
-                return sprintf('style="background: transparent url(http://images.wotreplays.org/consumables/24x24/%s) no-repeat scroll 0 0"', $c->{icon});
-            } else {
-                return undef;
-            }
+        return undef unless(defined($a));
+
+        my $tc = parse_int_compact_descr($a);
+
+        my $i = $tc->{id};
+        if(my $c = $self->model('wot-replays.data.consumables')->find_one({ wot_id => $i + 0 })) {
+            return sprintf('style="background: transparent url(http://images.wotreplays.org/consumables/24x24/%s) no-repeat scroll 0 0"', $c->{icon});
         } else {
             return undef;
         }
@@ -208,14 +209,12 @@ sub add_helpers {
     $self->helper(ammo_icon_style => sub {
         my $self = shift;
         my $a = shift;
-        if($a) {
-            my $i = (ref($a) eq 'HASH') ? $a->{id} : $a;
-            if(my $c = $self->model('wot-replays.data.components')->find_one({ component => 'shells', _id => $i + 0 })) {
-                my $n = ($a->{count} > 0) ? $c->{kind} : sprintf('NO_%s', $c->{kind});
-                return sprintf('style="background: transparent url(http://images.wotreplays.org/ammo/24x24/%s.png) no-repeat scroll 0 0"', $n);
-            } else {
-                return undef;
-            }
+
+        return undef unless(defined($a));
+        my $i = $a->{id};
+        if(my $c = $self->model('wot-replays.data.components')->find_one({ component => 'shells', _id => $i + 0 })) {
+            my $n = ($a->{count} > 0) ? $c->{kind} : sprintf('NO_%s', $c->{kind});
+            return sprintf('style="background: transparent url(http://images.wotreplays.org/ammo/24x24/%s.png) no-repeat scroll 0 0"', $n);
         } else {
             return undef;
         }
@@ -232,18 +231,15 @@ sub add_helpers {
             'HOLLOW_CHARGE' => 'High-Explosive Anti-Tank',
         };
 
-        if($a) {
-            my $i = (ref($a) eq 'HASH') ? $a->{id} : $a;
-            if(my $c = $self->model('wot-replays.data.components')->find_one({ component => 'shells', _id => $i + 0 })) {
-                return sprintf('%s %dmm %s %s', 
-                    ($a->{count} > 0) ? sprintf('%d x', $a->{count}) : '',
-                    $c->{caliber}, 
-                    $kind_map->{$c->{kind}},
-                    $c->{label}
-                    );
-            } else {
-                return undef;
-            }
+        return undef unless(defined($a));
+        my $i = $a->{id};
+        if(my $c = $self->model('wot-replays.data.components')->find_one({ component => 'shells', _id => $i + 0 })) {
+            return sprintf('%s %dmm %s %s', 
+                ($a->{count} > 0) ? sprintf('%d x', $a->{count}) : '',
+                $c->{caliber}, 
+                $kind_map->{$c->{kind}},
+                $c->{label}
+                );
         } else {
             return undef;
         }
@@ -267,16 +263,16 @@ sub add_helpers {
     $self->helper(consumable_name => sub {
         my $self = shift;
         my $a = shift;
+
+        return undef unless(defined($a));
+
+        # consumables come in as a typecomp,
+        my $tc = parse_int_compact_descr($a);
         
-        if($a) {
-            my $i = (ref($a) eq 'HASH') ? $a->{id} : $a;
-            if(my $c = $self->model('wot-replays.data.consumables')->find_one({ wot_id => $i + 0 })) {
-                return $c->{label} || $c->{name};
-            } else {
-                return sprintf('404:%d', $i);
-            }
+        if(my $c = $self->model('wot-replays.data.consumables')->find_one({ wot_id => $tc->{id} + 0 })) {
+            return $c->{label} || $c->{name};
         } else {
-            return undef;
+            return sprintf('404:%d', $a);
         }
     });
 

@@ -2,6 +2,7 @@ package WR::Wotlabs;
 use Mojo::Base '-base';
 use Mango::BSON;
 use Try::Tiny qw/try catch/;
+use Data::Dumper;
 
 has 'ua' => undef;
 
@@ -33,8 +34,12 @@ sub _fetch_one {
     my $url  = sprintf('http://wotlabs.net/%s/player/%s', $server, $player);
     my $cb   = shift;
 
+    warn 'fetch_one for ', $server, ' - ', $player, ' from ', $url, "\n";
+
     $self->ua->get($url => sub {
         my ($ua, $tx) = (@_);
+
+        warn 'ua get cb', "\n";
 
         my $wn7 = {
             available => undef,
@@ -47,6 +52,7 @@ sub _fetch_one {
         };
 
         if(my $res = $tx->success) {
+            warn 'success', "\n";
             if(my $table = $res->dom->at('table.generalStats')) {
                 if(my $row = $table->find('tr')->[15]) {
                     try {
@@ -56,16 +62,20 @@ sub _fetch_one {
                         $wn7->{class} = $self->get_class_from_rating($wn7->{data}->{overall});
                         $wn7->{available} = Mango::BSON::bson_true;
                     } catch {
+                        warn 'error in table scan', "\n";
                         $wn7->{available} = Mango::BSON::bson_false;
                         $wn7->{error} = $_;
                     };
                 } else {
+                    warn 'error in row scan', "\n";
                     $wn7->{available} = Mango::BSON::bson_false;
                 }
             } else {
+                warn 'error in document scan', "\n";
                 $wn7->{available} = Mango::BSON::bson_false;
             }
         } else {
+            warn 'tx failed', "\n";
             $wn7->{available} = Mango::BSON::bson_false;
         }
         $cb->($player => $wn7);
@@ -80,30 +90,31 @@ sub fetch {
 
     $player = [ $player ] unless(ref($player) eq 'ARRAY');
 
-    if(scalar(@$player) == 1) {
-        $self->_fetch_one($server => shift(@$player), sub {
-            my ($p, $w) = (@_);
-            $cb->({ $p => $w });
-        });
-    } else {
-        my $delay = Mojo::IOLoop->delay(sub {
-            my ($delay, @results) = (@_);
-            my $res = {};
+    use Data::Dumper;
+    warn 'player: ', Dumper($player);
 
-            foreach my $r (@results) {
-                $res->{$r->{p}} = $r->{w};
-            }
-            $cb->($res);
-        });
-        while(my $p = shift(@$player)) {
-            my $end = $delay->begin(0);
-            $self->_fetch_one($server => $p, sub {
-                my ($p, $w) = (@_);
-                $end->({ p => $p, w => $w });
-            });
+    warn 'set delay', "\n";
+    my $delay = Mojo::IOLoop->delay(sub {
+        my ($delay, @results) = (@_);
+        my $res = {};
+        foreach my $r (@results) {
+            next unless(defined($r->{p}));
+            $res->{$r->{p}} = $r->{w};
         }
-        $delay->wait unless(Mojo::IOLoop->is_running);
+        $cb->($res);
+    });
+    while(my $p = shift(@$player)) {
+        warn 'fetching player ', $p, "\n";
+        my $end = $delay->begin(0);
+        $self->_fetch_one($server => $p, sub {
+            my ($p, $w) = (@_);
+            my $res = { p => $p, w => $w };
+            warn 'WR::Wotlabs::_fetch_one returned with: ', Dumper($res), "\n";
+            $end->($res);
+        });
     }
+    warn 'waiting delay?', "\n";
+    $delay->wait unless(Mojo::IOLoop->is_running);
 }
 
 1;
