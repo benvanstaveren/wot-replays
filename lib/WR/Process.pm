@@ -377,7 +377,7 @@ sub generate_banner {
         );
 
         try {
-            $imagefile = $i->create(%imager_args)
+            $imagefile = $i->create(%imager_args);
             $image = {
                 available => Mango::BSON::bson_true,
                 file => $imagefile,
