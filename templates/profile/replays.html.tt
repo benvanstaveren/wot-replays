@@ -33,7 +33,11 @@
                 [% ELSE %]draw[% END %]
             </td>
             <td>
-                [% IF h.get_recorder_vehicle(replay).player.survived %]yes[% ELSE %]no[% END %]
+                [% IF recv.player.survived.defined %]
+                    [% IF recv.player.survived %]yes[% ELSE %]no[% END %]
+                [% ELSE %]
+                    [% IF replay.game.recorder.survived %]yes[% ELSE %]no[% END %]
+                [% END %]
             </td>
             <td>[% replay.stats.kills + 0 %]</td>
             <td>[% replay.stats.damaged + 0 %]</td>
