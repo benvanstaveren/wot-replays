@@ -254,12 +254,15 @@ Do we really need involved? It's a quick index but maybe better off doing the se
                 foreach my $typecomp (keys(%$result)) {
                     foreach my $vid (@{$t_resolve->{$typecomp}}) {
                         my $idx = $vid_to_vidx->{$vid . ''};
-                        # swap some shit
+                        my $newvehicle = {};
                         my $vehicle = $result->{$typecomp . ''};
-                        $vehicle->{ident} = delete($vehicle->{_id});
-                        $vehicle->{id} = $vid + 0;
-                        $vehicle->{icon} = sprintf('%s-%s.png', $vehicle->{country}, $vehicle->{name_lc});
-                        $newroster->[$idx]->{vehicle} = $vehicle;
+                        foreach my $key (keys(%$vehicle)) {
+                            $newvehicle->{$key} = $vehicle->{$key};
+                        }
+                        $newvehicle->{ident} = delete($newvehicle->{_id});
+                        $newvehicle->{id} = $vid + 0;
+                        $newvehicle->{icon} = sprintf('%s-%s.png', $vehicle->{country}, $vehicle->{name_lc});
+                        $newroster->[$idx]->{vehicle} = $newvehicle;
                     }
                 }
 
