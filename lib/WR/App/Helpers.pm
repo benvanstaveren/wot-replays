@@ -194,10 +194,8 @@ sub add_helpers {
         my $self = shift;
         my $a = shift;
 
-        return undef unless(defined($a));
-
+        return undef unless(defined($a) && ref($a) eq 'HASH');
         my $tc = parse_int_compact_descr($a);
-
         my $i = $tc->{id};
         if(my $c = $self->model('wot-replays.data.consumables')->find_one({ wot_id => $i + 0 })) {
             return sprintf('style="background: transparent url(http://images.wotreplays.org/consumables/24x24/%s) no-repeat scroll 0 0"', $c->{icon});
@@ -210,7 +208,7 @@ sub add_helpers {
         my $self = shift;
         my $a = shift;
 
-        return undef unless(defined($a));
+        return undef unless(defined($a) && ref($a) eq 'HASH');
         my $i = $a->{id};
         if(my $c = $self->model('wot-replays.data.components')->find_one({ component => 'shells', _id => $i + 0 })) {
             my $n = ($a->{count} > 0) ? $c->{kind} : sprintf('NO_%s', $c->{kind});
@@ -231,7 +229,7 @@ sub add_helpers {
             'HOLLOW_CHARGE' => 'High-Explosive Anti-Tank',
         };
 
-        return undef unless(defined($a));
+        return undef unless(defined($a) && ref($a) eq 'HASH');
         my $i = $a->{id};
         if(my $c = $self->model('wot-replays.data.components')->find_one({ component => 'shells', _id => $i + 0 })) {
             return sprintf('%s %dmm %s %s', 
@@ -264,7 +262,7 @@ sub add_helpers {
         my $self = shift;
         my $a = shift;
 
-        return undef unless(defined($a));
+        return undef unless(defined($a) && ref($a) eq 'HASH');
 
         # consumables come in as a typecomp,
         my $tc = parse_int_compact_descr($a);
