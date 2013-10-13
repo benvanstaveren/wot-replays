@@ -1,4 +1,4 @@
-<div class="replayPanel [% IF h.is_old_version(replay) %]incompatibleVersion[% END %] box noborder [% IF replay.wn7.available %]wn7 hover [% replay.wn7.class %][% END %]" rid="[% h.get_id(replay) %]" title="[% IF replay.site.description %][% replay.site.description |html %] - [% END %]Click to view" style="cursor: pointer">
+<div class="replayPanel box noborder [% IF replay.wn7.available %]wn7 [% replay.wn7.class %] hover[% END %]" rid="[% h.get_id(replay) %]" title="[% IF replay.site.description %][% replay.site.description |html %] - [% END %]Click to view" style="cursor: pointer">
     <div class="columncontainer sw">
         <div class="column col1">
             [% INCLUDE replay/panel/vehiclemap.html.tt %]

@@ -47,7 +47,6 @@ sub process_replay {
     if(my $job = $self->model('wot-replays.jobs')->find_one({ _id => $k })) {
         my $file = $job->{data}->{file};
         my $replay;
-        my $process;
         my $process = try {
             return WR::Process->new(
                 bf_key      => $self->stash('config')->{wot}->{bf_key},

@@ -4,6 +4,7 @@ use Mango::BSON;
 use Try::Tiny qw/try catch/;
 use WR::Constants qw/nation_id_to_name decode_arena_type_id/;
 use WR::Util::TypeComp qw/parse_int_compact_descr/;
+use Data::Dumper;
 
 has 'coll'  => undef;
 has 'cache' => sub { {} };
@@ -14,7 +15,7 @@ sub _fetch_one {
     my $cb       = shift;   
 
     if(defined($self->cache->{$typecomp})) {
-        $cb->($self->cache->{$typecomp});
+        $cb->($self->cache->{$typecomp}, 1);
     } else {
         my $t = parse_int_compact_descr($typecomp);
         my $country = nation_id_to_name($t->{country});
@@ -44,6 +45,7 @@ sub fetch {
 
     my $delay = Mojo::IOLoop->delay(sub {
         my ($delay, @results) = (@_);
+        warn 'TCR fetch done, resultset: ', Dumper([@results]), "\n";
         my $res = {};
         foreach my $r (@results) {
             $res->{$r->{t}} = $r->{v};
@@ -53,8 +55,10 @@ sub fetch {
     while(my $t = shift(@$types)) {
         my $end = $delay->begin(0);
         $self->_fetch_one($t => sub {
-            my $r = (@_);
-            $end->({ t => $t, v => $r });
+            my ($r, $c) = (@_);
+            my $res = { t => $t, v => $r };
+            warn 'TCR fetch_one returned ', ($c) ? 'cached' : 'fresh', ': ', Dumper($res), "\n";
+            $end->($res);
         });
     }
     $delay->wait unless(Mojo::IOLoop->is_running);

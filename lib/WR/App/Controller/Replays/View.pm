@@ -149,7 +149,12 @@ sub view {
 
     $self->load_replay(sub {
         my ($c, $e, $replay) = (@_);
-        $self->actual_view_replay($replay, $start);
+
+        if(defined($replay)) {
+            $self->actual_view_replay($replay, $start);
+        } else {
+            $self->redirect_to('/');
+        }
     });
 }
 

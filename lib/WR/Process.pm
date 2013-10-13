@@ -20,12 +20,9 @@ has 'bf_key'        => undef;
 has 'banner_path'   => undef;
 has 'banner'        => 1;
 has 'ua'	        => undef; 
-
 has '_error'        => undef;
 has '_parser'       => undef;
-
 has 'tcr'           => sub { my $self = shift; return WR::TypeCompResolver->new(coll => $self->model('wot-replays.data.vehicles')) };
-
 
 sub model {
     my $self = shift;
@@ -102,33 +99,55 @@ sub _real_process {
     # to make sure everything goes as planned
     if(my $game = $self->_parser->game(Mojo::IOLoop->new)) {
         my $delay = Mojo::IOLoop->delay(sub {
+            $replay->{game}->{recorder}->{consumables} = [ map { $_ + 0 } (keys(%{$game->vcons_initial})) ];
+            $replay->{game}->{recorder}->{ammo} = [];
+
+            # ammo is a bit different since the array needs to be hashes of { id => typeid, count => count }
+            foreach my $id (keys(%{$game->vshells_initial})) {
+                push(@{$replay->{game}->{recorder}->{ammo}}, {
+                    id => $id,
+                    count => $game->vshells_initial->{$id}->{count},
+                });
+            }
+
             $self->generate_banner($replay => sub {
                 my $image = shift;
                     
                 $replay->{site}->{banner} = $image;
                 $replay->{game}->{server} = WR::ServerFinder->new->get_server_by_id($replay->{roster}->[ $replay->{players}->{$replay->{game}->{recorder}->{name}} ]->{player}->{accountDBID} + 0);
                 $replay->{game}->{recorder}->{index} = $replay->{players}->{$replay->{game}->{recorder}->{name}};
+
+=pod
+
+Do we really need involved? It's a quick index but maybe better off doing the separate index collection thing?
+
+
                 my $tc = {};
                 foreach my $entry (@{$replay->{roster}}) {
                     next unless(length($entry->{player}->{clanAbbrev}) > 0);
                     $tc->{$entry->{player}->{clanAbbrev}}++;
                 }
+
                 $replay->{involved} = {
                     players     => [ keys(%{$replay->{players}}) ],
                     clans       => [ keys(%$tc) ],
                     vehicles    => [ map { $_->{vehicle}->{ident} } @{$replay->{roster}} ],
                 };
 
+=cut
+                warn 'preparing wotlabs fetch', "\n";
                 my $wotlabs = WR::Wotlabs::Cached->new(ua => $self->ua, cache => $self->model('wot-replays.cache.wotlabs'));
-                $wotlabs->fetch($replay->{game}->{server} => $replay->{involved}->{players}, sub {
+                warn 'wotlabs instantiated', "\n";
+                $wotlabs->fetch($replay->{game}->{server} => [ keys(%{$replay->{players}}) ], sub {
                     my $result = shift;
+                    warn 'wotlabs fetch result: ', Dumper($result), "\n";
                     foreach my $player (keys(%$result)) {
                         my $i = $replay->{players}->{$player}; # hope this works
                         $replay->{roster}->[$i]->{wn7} = $result->{$player};
                         $replay->{wn7} = $result->{$player} if($player eq $replay->{game}->{recorder}->{name});
                     }
+                    $cb->($replay);
                 });
-                $cb->($replay);
             });
         });
 
@@ -198,6 +217,7 @@ sub _real_process {
                 $newentry->{stats}->{isTeamKiller} = ($rawv->{isTeamKiller}) ? Mango::BSON::bson_true : Mango::BSON::bson_false;
                 $typecomps->{$entry->{vehicleID}} = $rawv->{typeCompDescr};
                 push(@$newroster, $newentry);
+                $i++;
             }
 
             my $teams_sorted = {};
@@ -222,10 +242,10 @@ sub _real_process {
             my $t_resolve = {};
             foreach my $key (keys(%$typecomps)) {
                 my $tc = $typecomps->{$key};
-                if(defined($t_resolve->{$tc})) {
-                    push(@{$t_resolve->{$tc}}, $key);
+                if(defined($t_resolve->{$tc . ''})) {
+                    push(@{$t_resolve->{$tc . ''}}, $key);
                 } else {
-                    $t_resolve->{$tc} = [ $key ];
+                    $t_resolve->{$tc . ''} = [ $key ];
                 }
             }
             $self->tcr->fetch([ map { $_ + 0 } (keys(%$t_resolve)) ] => sub {
@@ -233,10 +253,16 @@ sub _real_process {
 
                 foreach my $typecomp (keys(%$result)) {
                     foreach my $vid (@{$t_resolve->{$typecomp}}) {
-                        my $idx = $vid_to_vidx->{$vid};
-                        $roster->[$idx]->{vehicle} = $result->{$typecomp};
+                        my $idx = $vid_to_vidx->{$vid . ''};
+                        # swap some shit
+                        my $vehicle = $result->{$typecomp . ''};
+                        $vehicle->{ident} = delete($vehicle->{_id});
+                        $vehicle->{id} = $vid + 0;
+                        $vehicle->{icon} = sprintf('%s-%s.png', $vehicle->{country}, $vehicle->{name_lc});
+                        $newroster->[$idx]->{vehicle} = $vehicle;
                     }
                 }
+
                 $replay->{roster}        = $newroster;
                 $replay->{vehicles}      = $vid_to_vidx;
                 $replay->{players}       = $name_to_vidx;
