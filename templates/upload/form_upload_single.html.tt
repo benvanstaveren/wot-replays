@@ -79,8 +79,8 @@
                                     var l_dl = 'http://www.wotreplays.org/replay/' + d.oid + '/download';
                                     var l_v  = 'http://www.wotreplays.org/replay/' + d.oid + '.html';
                                 
-                                    $('#embed-image').attr('src', '//banners.wotreplays.org/' + d.banner.url_path);
-                                    $('#embed-text').text('[url=' + l_v + ']' + "\n" + '[img]http://banners.wotreplays.org/' + d.banner.url_path + '[/img]' + "\n" + '[/url]');
+                                    $('#embed-image').attr('src', '[% config.urls.banners %]/' + d.banner.url_path);
+                                    $('#embed-text').text('[url=' + l_v + ']' + "\n" + '[img][% config.urls.banners %]/' + d.banner.url_path + '[/img]' + "\n" + '[/url]');
                                     $('#process-completed #download-link').attr('href', l_dl).html(l_dl);
                                     $('#process-completed #view-link').attr('href', l_v).html(l_v);
 
