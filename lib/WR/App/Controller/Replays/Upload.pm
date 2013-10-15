@@ -102,9 +102,11 @@ sub upload {
             my $filename = $upload->filename;
             $filename =~ s/.*\\//g if($filename =~ /\\/);
 
-            my $hashbucket_size = length($filename);
-            $hashbucket_size = 7 if($hashbucket_size >= 7);
+            my $filename_clean = $filename;
+            $filename_clean =~ s/\.wotreplay//g;
 
+            my $hashbucket_size = length($filename_clean);
+            $hashbucket_size = 7 if($hashbucket_size >= 7);
 
             my $replay_filename = $filename;
             my $replay_path = sprintf('%s/%s', $self->stash('config')->{paths}->{replays}, $self->hashbucket($filename, $hashbucket_size));
