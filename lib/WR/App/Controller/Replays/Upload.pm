@@ -4,6 +4,7 @@ use WR::Process;
 use Mango::BSON;
 use File::Path qw/make_path/;
 use Try::Tiny qw/try catch/;
+use Data::Dumper;
 
 sub r_error {
     my $self = shift;
@@ -122,7 +123,8 @@ sub upload {
             $self->model('wot-replays.jobs')->find_one({ _id=> $digest } => sub {
                 my ($coll, $err, $doc) = (@_);
 
-                if(defined($doc)) {
+                if(defined($doc) && !defined($err)) {
+                    $self->app->log->info('Existing replayfor digest: ', $digest, ' and doc dump: ', Dumper($doc));
                     $self->render(json => { ok => 0, error => 'It appears that replay has been uploaded already...' }) and return;
                 } else {
                     $self->model('wot-replays.jobs')->save({
