@@ -101,10 +101,13 @@ sub upload {
             my $filename = $upload->filename;
             $filename =~ s/.*\\//g if($filename =~ /\\/);
 
+            my $hashbucket_size = length($filename);
+            $hashbucket_size = 7 if($hashbucket_size > 7);
+
             my $replay_filename = $filename;
-            my $replay_path = sprintf('%s/%s', $self->stash('config')->{paths}->{replays}, $self->hashbucket($filename));
+            my $replay_path = sprintf('%s/%s', $self->stash('config')->{paths}->{replays}, $self->hashbucket($filename, $hashbucket_size));
             my $replay_file = sprintf('%s/%s', $replay_path, $filename);
-            my $replay_file_base = sprintf('%s/%s', $self->hashbucket($filename), $filename);
+            my $replay_file_base = sprintf('%s/%s', $self->hashbucket($filename, $hashbucket_size), $filename);
 
             make_path($replay_path);
 
@@ -118,8 +121,7 @@ sub upload {
             $self->model('wot-replays.jobs')->find_one({ _id=> $digest } => sub {
                 my ($coll, $err, $doc) = (@_);
 
-                if(defined($doc)) {
-                    $self->app->log->debug('existing doc found for digest ', $digest, ': ', Dumper($doc));
+                if(defined($doc) && !defined($err)) {
                     $self->render(json => { ok => 0, error => 'It appears that replay has been uploaded already...' }) and return;
                 } else {
                     $self->model('wot-replays.jobs')->save({
