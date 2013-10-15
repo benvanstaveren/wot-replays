@@ -119,6 +119,7 @@ sub upload {
                 my ($coll, $err, $doc) = (@_);
 
                 if(defined($doc)) {
+                    warn 'existing doc found for digest ', $digest, ': ', Dumper($doc), "\n";
                     $self->render(json => { ok => 0, error => 'It appears that replay has been uploaded already...' }) and return;
                 } else {
                     $self->model('wot-replays.jobs')->save({
