@@ -109,9 +109,9 @@ sub upload {
             $hashbucket_size = 7 if($hashbucket_size >= 7);
 
             my $replay_filename = $filename;
-            my $replay_path = sprintf('%s/%s', $self->stash('config')->{paths}->{replays}, $self->hashbucket($filename, $hashbucket_size));
+            my $replay_path = sprintf('%s/%s', $self->stash('config')->{paths}->{replays}, $self->hashbucket($filename_clean, $hashbucket_size));
             my $replay_file = sprintf('%s/%s', $replay_path, $filename);
-            my $replay_file_base = sprintf('%s/%s', $self->hashbucket($filename, $hashbucket_size), $filename);
+            my $replay_file_base = sprintf('%s/%s', $self->hashbucket($filename_clean, $hashbucket_size), $filename);
 
             make_path($replay_path);
 
