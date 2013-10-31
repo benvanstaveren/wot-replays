@@ -1,0 +1,411 @@
+{
+   "GB31_Conqueror_Gun" : {
+      "userString" : "#gb_vehicles:GB31_Conqueror_Gun",
+      "level" : 10,
+      "shortUserString" : "#gb_vehicles:GB31_Conqueror_Gun_short",
+      "price" : 6100000,
+      "id" : 48,
+      "description" : "#gb_vehicles:GB31_Conqueror_Gun_descr",
+      "tags" : "SPG heavySPG largeCaliberHowitzerRammer_user improvedVentilation_class3_user wetCombatPack_class2_user enhancedHorizontal_springs_class3_user"
+   },
+   "GB08_Churchill_I" : {
+      "userString" : "#gb_vehicles:GB08_Churchill_I",
+      "level" : 5,
+      "shortUserString" : "#gb_vehicles:GB08_Churchill_I_short",
+      "price" : 340000,
+      "id" : 11,
+      "description" : "#gb_vehicles:GB08_Churchill_I_descr",
+      "tags" : "heavyTank mediumCaliberTankRammer_user wetCombatPack_class1_user enhancedVertical_springs_class3_user"
+   },
+   "GB60_Covenanter" : {
+      "userString" : "#gb_vehicles:GB60_Covenanter",
+      "level" : 4,
+      "shortUserString" : "#gb_vehicles:GB60_Covenanter_short",
+      "price" : 110000,
+      "id" : 25,
+      "description" : "#gb_vehicles:GB60_Covenanter_descr",
+      "tags" : "lightTank wetCombatPack_class1_user enhancedSuspension_Christie_user"
+   },
+   "GB59_Cruiser_Mk_IV" : {
+      "userString" : "#gb_vehicles:GB59_Cruiser_Mk_IV",
+      "level" : 3,
+      "shortUserString" : "#gb_vehicles:GB59_Cruiser_Mk_IV_short",
+      "price" : 41000,
+      "id" : 29,
+      "description" : "#gb_vehicles:GB59_Cruiser_Mk_IV_descr",
+      "tags" : "lightTank wetCombatPack_class1_user enhancedSuspension_Christie_user"
+   },
+   "GB03_Cruiser_Mk_I" : {
+      "userString" : "#gb_vehicles:GB03_Cruiser_Mk_I",
+      "level" : 2,
+      "shortUserString" : "#gb_vehicles:GB03_Cruiser_Mk_I_short",
+      "price" : 3000,
+      "id" : 20,
+      "description" : "#gb_vehicles:GB03_Cruiser_Mk_I_descr",
+      "tags" : "lightTank enhancedVertical_springs_user"
+   },
+   "GB51_Excelsior" : {
+      "userString" : "#gb_vehicles:GB51_Excelsior",
+      "level" : 5,
+      "price" : 1500,
+      "id" : 212,
+      "description" : "#gb_vehicles:GB51_Excelsior_descr",
+      "tags" : "heavyTank mediumCaliberTankRammer_user wetCombatPack_class1_user enhancedVertical_springs_class3_user"
+   },
+   "GB57_Alecto" : {
+      "userString" : "#gb_vehicles:GB57_Alecto",
+      "level" : 4,
+      "price" : 130000,
+      "id" : 35,
+      "description" : "#gb_vehicles:GB57_Alecto_descr",
+      "tags" : "AT-SPG lightAT-SPG mediumCaliberTankRammer_user wetCombatPack_class1_user"
+   },
+   "GB71_AT_15A" : {
+      "userString" : "#gb_vehicles:GB71_AT_15A",
+      "level" : 7,
+      "price" : 6500,
+      "id" : 211,
+      "description" : "#gb_vehicles:GB71_AT_15A_descr",
+      "tags" : "AT-SPG heavyAT-SPG mediumCaliberTankRammer_user wetCombatPack_class1_user enhancedHorizontal_springs_class3_user"
+   },
+   "GB09_Churchill_VII" : {
+      "userString" : "#gb_vehicles:GB09_Churchill_VII",
+      "level" : 6,
+      "price" : 900000,
+      "id" : 18,
+      "description" : "#gb_vehicles:GB09_Churchill_VII_descr",
+      "tags" : "heavyTank mediumCaliberTankRammer_user wetCombatPack_class1_user enhancedVertical_springs_class3_user"
+   },
+   "GB01_Medium_Mark_I" : {
+      "userString" : "#gb_vehicles:GB01_Medium_Mark_I",
+      "level" : 1,
+      "shortUserString" : "#gb_vehicles:GB01_Medium_Mark_I_short",
+      "price" : "",
+      "id" : "",
+      "description" : "#gb_vehicles:GB01_Medium_Mark_I_descr",
+      "tags" : "mediumTank lightTankArtefacts_User improvedVentilation_class1_user enhancedVertical_elastic_elements_user"
+   },
+   "GB27_Sexton" : {
+      "userString" : "#gb_vehicles:GB27_Sexton",
+      "level" : 3,
+      "price" : 49000,
+      "id" : 13,
+      "description" : "#gb_vehicles:GB27_Sexton_descr",
+      "tags" : "SPG mediumSPG mediumCaliberHowitzerRammer_user wetCombatPack_class1_user enhancedVertical_springs_class2_user"
+   },
+   "GB78_Sexton_I" : {
+      "userString" : "#gb_vehicles:GB78_Sexton_I",
+      "level" : 3,
+      "price" : 1250,
+      "id" : 213,
+      "description" : "#gb_vehicles:GB78_Sexton_I_descr",
+      "tags" : "SPG mediumSPG mediumCaliberHowitzerRammer_user wetCombatPack_class1_user enhancedVertical_springs_class2_user"
+   },
+   "GB69_Cruiser_Mk_II" : {
+      "userString" : "#gb_vehicles:GB69_Cruiser_Mk_II",
+      "level" : 3,
+      "shortUserString" : "#gb_vehicles:GB69_Cruiser_Mk_II_short",
+      "price" : 31000,
+      "id" : 27,
+      "description" : "#gb_vehicles:GB69_Cruiser_Mk_III_descr",
+      "tags" : "lightTank wetCombatPack_class1_user enhancedVertical_springs_user"
+   },
+   "GB40_Gun_Carrier_Churchill" : {
+      "userString" : "#gb_vehicles:GB40_Gun_Carrier_Churchill",
+      "level" : 6,
+      "shortUserString" : "#gb_vehicles:GB40_Gun_Carrier_Churchill_short",
+      "price" : 965000,
+      "id" : 38,
+      "description" : "#gb_vehicles:GB40_Gun_Carrier_Churchill_descr",
+      "tags" : "AT-SPG heavyAT-SPG mediumCaliberTankRammer_user wetCombatPack_class1_user"
+   },
+   "GB42_Valentine_AT" : {
+      "userString" : "#gb_vehicles:GB42_Valentine_AT",
+      "level" : 3,
+      "price" : 34000,
+      "id" : 31,
+      "description" : "#gb_vehicles:GB42_Valentine_AT_descr",
+      "tags" : "AT-SPG lightAT-SPG wetCombatPack_class1_user enhancedVertical_springs_user"
+   },
+   "GB10_Black_Prince" : {
+      "userString" : "#gb_vehicles:GB10_Black_Prince",
+      "level" : 7,
+      "shortUserString" : "#gb_vehicles:GB10_Black_Prince_short",
+      "price" : 1400000,
+      "id" : 12,
+      "description" : "#gb_vehicles:GB10_Black_Prince_descr",
+      "tags" : "heavyTank aimingStabilizer_Mk2_user largeCaliberTankRammer_user wetCombatPack_class2_user enhancedVertical_springs_class3_user"
+   },
+   "GB32_Tortoise" : {
+      "userString" : "#gb_vehicles:GB32_Tortoise",
+      "level" : 9,
+      "price" : 3500000,
+      "id" : 205,
+      "description" : "#gb_vehicles:GB32_Tortoise_descr",
+      "tags" : "AT-SPG heavyAT-SPG antifragmentationLining_superheavy_user largeCaliberTankRammer_user wetCombatPack_class2_user enhancedHorizontal_springs_class3_user"
+   },
+   "GB25_Loyd_Carrier" : {
+      "userString" : "#gb_vehicles:GB25_Loyd_Carrier",
+      "level" : 2,
+      "shortUserString" : "#gb_vehicles:GB25_Loyd_Carrier_short",
+      "price" : 3900,
+      "id" : 41,
+      "description" : "#gb_vehicles:GB25_Loyd_Carrier_descr",
+      "tags" : "SPG lightSPG mediumCaliberHowitzerRammer_user wetCombatPack_class1_user enhancedVertical_springs_user"
+   },
+   "GB68_Matilda_Black_Prince" : {
+      "userString" : "#gb_vehicles:GB68_Matilda_Black_Prince",
+      "level" : 5,
+      "shortUserString" : "#gb_vehicles:GB68_Matilda_Black_Prince_short",
+      "price" : 1750,
+      "id" : 209,
+      "description" : "#gb_vehicles:GB68_Matilda_Black_Prince_descr",
+      "tags" : "mediumTank mediumCaliberTankRammer_user wetCombatPack_class1_user enhancedHorizontal_elastic_elements_user"
+   },
+   "GB48_FV215b_183" : {
+      "userString" : "#gb_vehicles:GB48_FV215b_183",
+      "level" : 10,
+      "shortUserString" : "#gb_vehicles:GB48_FV215b_183_short",
+      "price" : 6100000,
+      "id" : 36,
+      "description" : "#gb_vehicles:GB48_FV215b_183_descr",
+      "tags" : "AT-SPG heavyAT-SPG largeCaliberTankRammer_user wetCombatPack_class2_user enhancedHorizontal_springs_class3_user"
+   },
+   "GB07_Matilda" : {
+      "userString" : "#gb_vehicles:GB07_Matilda",
+      "level" : 4,
+      "shortUserString" : "#gb_vehicles:GB07_Matilda_short",
+      "price" : 140000,
+      "id" : 3,
+      "description" : "#gb_vehicles:GB07_Matilda_descr",
+      "tags" : "mediumTank mediumCaliberTankRammer_user wetCombatPack_class1_user enhancedHorizontal_elastic_elements_user"
+   },
+   "GB58_Cruiser_Mk_III" : {
+      "userString" : "#gb_vehicles:GB58_Cruiser_Mk_III",
+      "level" : 2,
+      "shortUserString" : "#gb_vehicles:GB58_Cruiser_Mk_III_short",
+      "price" : 3800,
+      "id" : 30,
+      "description" : "#gb_vehicles:GB58_Cruiser_Mk_III_descr",
+      "tags" : "lightTank enhancedSuspension_Christie_user"
+   },
+   "GB74_AT8" : {
+      "userString" : "#gb_vehicles:GB74_AT8",
+      "level" : 6,
+      "price" : 940000,
+      "id" : 37,
+      "description" : "#gb_vehicles:GB74_AT8_descr",
+      "tags" : "AT-SPG heavyAT-SPG mediumCaliberTankRammer_user wetCombatPack_class1_user"
+   },
+   "GB76_Mk_VIC" : {
+      "description" : "#gb_vehicles:GB76_Mk_VIC_descr",
+      "tags" : "lightTank secret",
+      "userString" : "#gb_vehicles:GB76_Mk_VIC",
+      "level" : 2,
+      "shortUserString" : "#gb_vehicles:GB76_Mk_VIC_short",
+      "id" : 214,
+      "price" : 750,
+      "notInShop" : true
+   },
+   "GB26_Birch_Gun" : {
+      "userString" : "#gb_vehicles:GB26_Birch_Gun",
+      "level" : 4,
+      "shortUserString" : "#gb_vehicles:GB26_Birch_Gun_short",
+      "price" : 152000,
+      "id" : 42,
+      "description" : "#gb_vehicles:GB26_Birch_Gun_descr",
+      "tags" : "SPG mediumSPG mediumCaliberHowitzerRammer_user wetCombatPack_class1_user enhancedVertical_elastic_elements_user"
+   },
+   "GB23_Centurion" : {
+      "userString" : "#gb_vehicles:GB23_Centurion",
+      "level" : 8,
+      "shortUserString" : "#gb_vehicles:GB23_Centurion_short",
+      "price" : 2350000,
+      "id" : 23,
+      "description" : "#gb_vehicles:GB23_Centurion_descr",
+      "tags" : "mediumTank aimingStabilizer_Mk1_user mediumCaliberTankRammer_user wetCombatPack_class1_user enhancedHorizontal_springs_class2_user"
+   },
+   "GB72_AT15" : {
+      "userString" : "#gb_vehicles:GB72_AT15",
+      "level" : 8,
+      "price" : 2650000,
+      "id" : 33,
+      "description" : "#gb_vehicles:GB72_AT15_descr",
+      "tags" : "AT-SPG heavyAT-SPG mediumCaliberTankRammer_user wetCombatPack_class1_user enhancedHorizontal_springs_class3_user"
+   },
+   "GB11_Caernarvon" : {
+      "userString" : "#gb_vehicles:GB11_Caernarvon",
+      "level" : 8,
+      "shortUserString" : "#gb_vehicles:GB11_Caernarvon_short",
+      "price" : 2520000,
+      "id" : 15,
+      "description" : "#gb_vehicles:GB11_Caernarvon_descr",
+      "tags" : "heavyTank aimingStabilizer_Mk2_user largeCaliberTankRammer_user wetCombatPack_class2_user enhancedHorizontal_springs_class3_user"
+   },
+   "GB75_AT7" : {
+      "userString" : "#gb_vehicles:GB75_AT7",
+      "level" : 7,
+      "price" : 1400000,
+      "id" : 39,
+      "description" : "#gb_vehicles:GB75_AT7_descr",
+      "tags" : "AT-SPG heavyAT-SPG mediumCaliberTankRammer_user wetCombatPack_class1_user"
+   },
+   "GB13_FV215b" : {
+      "userString" : "#gb_vehicles:GB13_FV215b",
+      "level" : 10,
+      "price" : 6100000,
+      "id" : 24,
+      "description" : "#gb_vehicles:GB13_FV215b_descr",
+      "tags" : "heavyTank antifragmentationLining_superheavy_user aimingStabilizer_Mk2_user largeCaliberTankRammer_user wetCombatPack_class2_user enhancedHorizontal_springs_class3_user"
+   },
+   "GB24_Centurion_Mk3" : {
+      "userString" : "#gb_vehicles:GB24_Centurion_Mk3",
+      "level" : 9,
+      "shortUserString" : "#gb_vehicles:GB24_Centurion_Mk3_short",
+      "price" : 3515000,
+      "id" : 22,
+      "description" : "#gb_vehicles:GB24_Centurion_Mk3_descr",
+      "tags" : "mediumTank aimingStabilizer_Mk1_user mediumCaliberTankRammer_user wetCombatPack_class1_user enhancedHorizontal_springs_class2_user"
+   },
+   "GB04_Valentine" : {
+      "userString" : "#gb_vehicles:GB04_Valentine",
+      "level" : 4,
+      "shortUserString" : "#gb_vehicles:GB04_Valentine_short",
+      "price" : 120000,
+      "id" : 19,
+      "description" : "#gb_vehicles:GB04_Valentine_descr",
+      "tags" : "lightTank wetCombatPack_class1_user enhancedVertical_springs_user"
+   },
+   "GB28_Bishop" : {
+      "userString" : "#gb_vehicles:GB28_Bishop",
+      "level" : 5,
+      "shortUserString" : "#gb_vehicles:GB28_Bishop_short",
+      "price" : 405000,
+      "id" : 43,
+      "description" : "#gb_vehicles:GB28_Bishop_descr",
+      "tags" : "SPG lightSPG mediumCaliberHowitzerRammer_user improvedVentilation_class1_user wetCombatPack_class1_user enhancedVertical_springs_user"
+   },
+   "GB39_Universal_CarrierQF2" : {
+      "userString" : "#gb_vehicles:GB39_Universal_CarrierQF2",
+      "level" : 2,
+      "shortUserString" : "#gb_vehicles:GB39_Universal_CarrierQF2_short",
+      "price" : 3900,
+      "id" : 32,
+      "description" : "#gb_vehicles:GB39_Universal_CarrierQF2_descr",
+      "tags" : "AT-SPG lightAT-SPG wetCombatPack_class1_user"
+   },
+   "GB77_FV304" : {
+      "userString" : "#gb_vehicles:GB77_FV304",
+      "level" : 6,
+      "shortUserString" : "#gb_vehicles:GB77_FV304_short",
+      "price" : 930000,
+      "id" : 46,
+      "description" : "#gb_vehicles:GB77_FV304_descr",
+      "tags" : "SPG lightSPG mediumCaliberHowitzerRammer_user improvedVentilation_class1_user wetCombatPack_class1_user"
+   },
+   "GB79_FV206" : {
+      "userString" : "#gb_vehicles:GB79_FV206",
+      "level" : 8,
+      "shortUserString" : "#gb_vehicles:GB79_FV206_short",
+      "price" : 2730000,
+      "id" : 47,
+      "description" : "#gb_vehicles:GB79_FV206_descr",
+      "tags" : "SPG heavySPG mediumCaliberHowitzerRammer_user improvedVentilation_class3_user wetCombatPack_class2_user enhancedHorizontal_springs_class3_user"
+   },
+   "GB22_Comet" : {
+      "userString" : "#gb_vehicles:GB22_Comet",
+      "level" : 7,
+      "shortUserString" : "#gb_vehicles:GB22_Comet_short",
+      "price" : 1350500,
+      "id" : 21,
+      "description" : "#gb_vehicles:GB22_Comet_descr",
+      "tags" : "mediumTank aimingStabilizer_Mk1_user mediumCaliberTankRammer_user wetCombatPack_class1_user enhancedSuspension_Christie_user"
+   },
+   "GB20_Crusader" : {
+      "userString" : "#gb_vehicles:GB20_Crusader",
+      "level" : 5,
+      "shortUserString" : "#gb_vehicles:GB20_Crusader_short",
+      "price" : 380000,
+      "id" : 8,
+      "description" : "#gb_vehicles:GB20_Crusader_descr",
+      "tags" : "lightTank wetCombatPack_class1_user mediumCaliberTankRammer_user enhancedSuspension_Christie_user"
+   },
+   "GB12_Conqueror" : {
+      "userString" : "#gb_vehicles:GB12_Conqueror",
+      "level" : 9,
+      "price" : 3600000,
+      "id" : 17,
+      "description" : "#gb_vehicles:GB12_Conqueror_descr",
+      "tags" : "heavyTank aimingStabilizer_Mk2_user largeCaliberTankRammer_user wetCombatPack_class2_user enhancedHorizontal_springs_class3_user"
+   },
+   "GB63_TOG_II" : {
+      "userString" : "#gb_vehicles:GB63_TOG_II",
+      "level" : 6,
+      "price" : 3500,
+      "id" : 210,
+      "description" : "#gb_vehicles:GB63_TOG_II_descr",
+      "tags" : "heavyTank antifragmentationLining_superheavy_user mediumCaliberTankRammer_user wetCombatPack_class1_user enhancedVertical_springs_class3_user"
+   },
+   "GB29_Crusader_5inch" : {
+      "userString" : "#gb_vehicles:GB29_Crusader_5inch",
+      "level" : 7,
+      "shortUserString" : "#gb_vehicles:GB29_Crusader_5inch_short",
+      "price" : 1440000,
+      "id" : 44,
+      "description" : "#gb_vehicles:GB29_Crusader_5inch_descr",
+      "tags" : "SPG mediumSPG mediumCaliberHowitzerRammer_user wetCombatPack_class1_user enhancedSuspension_Christie_user"
+   },
+   "GB05_Vickers_Medium_Mk_II" : {
+      "userString" : "#gb_vehicles:GB05_Vickers_Medium_Mk_II",
+      "level" : 2,
+      "shortUserString" : "#gb_vehicles:GB05_Vickers_Medium_Mk_II_short",
+      "price" : 3500,
+      "id" : 1,
+      "description" : "#gb_vehicles:GB05_Vickers_Medium_Mk_II_descr",
+      "tags" : "mediumTank enhancedVertical_elastic_elements_user"
+   },
+   "GB06_Vickers_Medium_Mk_III" : {
+      "userString" : "#gb_vehicles:GB06_Vickers_Medium_Mk_III",
+      "level" : 3,
+      "shortUserString" : "#gb_vehicles:GB06_Vickers_Medium_Mk_III_short",
+      "price" : 40000,
+      "id" : 9,
+      "description" : "#gb_vehicles:GB06_Vickers_Medium_Mk_III_descr",
+      "tags" : "mediumTank mediumCaliberTankRammer_user wetCombatPack_class1_user enhancedHorizontal_elastic_elements_user"
+   },
+   "GB30_FV3805" : {
+      "userString" : "#gb_vehicles:GB30_FV3805",
+      "level" : 9,
+      "shortUserString" : "#gb_vehicles:GB30_FV3805_short",
+      "price" : 3560000,
+      "id" : 45,
+      "description" : "#gb_vehicles:GB30_FV3805_descr",
+      "tags" : "SPG mediumSPG largeCaliberHowitzerRammer_user improvedVentilation_class2_user wetCombatPack_class2_user enhancedHorizontal_springs_class2_user"
+   },
+   "GB21_Cromwell" : {
+      "userString" : "#gb_vehicles:GB21_Cromwell",
+      "level" : 6,
+      "shortUserString" : "#gb_vehicles:GB21_Cromwell_short",
+      "price" : 900000,
+      "id" : 4,
+      "description" : "#gb_vehicles:GB21_Cromwell_descr",
+      "tags" : "mediumTank mediumCaliberTankRammer_user wetCombatPack_class1_user enhancedSuspension_Christie_user"
+   },
+   "GB70_FV4202_105" : {
+      "userString" : "#gb_vehicles:GB70_FV4202_105",
+      "level" : 10,
+      "shortUserString" : "#gb_vehicles:GB70_FV4202_105_short",
+      "price" : 6100000,
+      "id" : 28,
+      "description" : "#gb_vehicles:GB70_FV4202_105_descr",
+      "tags" : "mediumTank aimingStabilizer_Mk1_user mediumCaliberTankRammer_user wetCombatPack_class1_user enhancedHorizontal_springs_class2_user"
+   },
+   "GB73_AT2" : {
+      "userString" : "#gb_vehicles:GB73_AT2",
+      "level" : 5,
+      "price" : 425000,
+      "id" : 34,
+      "description" : "#gb_vehicles:GB73_AT2_descr",
+      "tags" : "AT-SPG heavyAT-SPG mediumCaliberTankRammer_user wetCombatPack_class1_user"
+   }
+}
