@@ -36,7 +36,9 @@ while(my $doc = $cursor->next) {
         my $re = $doc->{roster}->[$doc->{players}->{$pname} + 0];
         my $pl = $re->{player};
         my $id = $pl->{dbid} || $pl->{accountDBID};
-        $fetch->{$id}++;
+        if(my $stat = get_stat_server($id)) {
+            $fetch->{$id} = $stat;
+        }
     }
 }
 
