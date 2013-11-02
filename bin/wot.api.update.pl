@@ -38,8 +38,11 @@ $cursor->all(sub {
     my $fetch = {};
 
     foreach my $doc (@$docs) {
-        foreach my $pname (keys(%{$doc->{players}})) {
-            $fetch->{$doc->{roster}->[$doc->{players}->{$pname}]->{player}->{accountDBID}}++;
+        foreach my $pname (keys(%{$doc->{players}})) {  
+            my $re = $doc->{roster}->[$doc->{players}->{$pname} + 0];
+            my $pl = $re->{player};
+            my $id = $pl->{dbid} || $pl->{accountDBID};
+            $fetch->{$id}++;
         }
     }
 
@@ -74,16 +77,20 @@ sub fetch_api {
                     };
                     $mango->db('wot-replays')->collection('player.stats')->save($data => sub { 
                         my ($coll, $err, $oid) = (@_);
+                        warn 'saved for ', $id, ' -> ', $url, "\n";
                         $cb->(($err) ? undef : 1);
                     });
                 } else {
+                    warn 'STATUS ERROR', "\n";
                     $cb->(undef);
                 }
             } else {
+                warn 'HTTP STATUS ERROR', "\n";
                 $cb->(undef);
             }
         });
     } else {
+        warn 'NO STAT SERVER', "\n";
         $cb->(undef);
     }
 }
