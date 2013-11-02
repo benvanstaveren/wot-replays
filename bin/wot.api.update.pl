@@ -68,7 +68,13 @@ sub fetch_api {
                         ctime   => Mango::BSON::bson_time,
                         stats   => $jres,
                     };
-                    $mango->db('wot-replays')->collection('player.stats')->save($data);
+                    if(my $doc = $mango->db('wot-replays')->collection('player.stats')->find_one({ _id => $id + 0 })) {
+                        if($doc->{ctime} + 86400000 < Mango::BSON::bson_time) {
+                            $mango->db('wot-replays')->collection('player.stats')->save($data);
+                        }
+                    } else {
+                        $mango->db('wot-replays')->collection('player.stats')->save($data);
+                    }
                     return undef;
                 } else {
                     return 'STATUS ERROR';
