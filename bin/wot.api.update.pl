@@ -28,44 +28,35 @@ if(my $fh = IO::File->new($cfile)) {
 }
 my $mango = Mango->new($config->{mongodb}->{host});
 my $ua    = Mojo::UserAgent->new;
+my $fetch = {};
 
 my $cursor = $mango->db('wot-replays')->collection('replays')->find()->fields({ 'players' => 1, 'roster' => 1 });
-my $delay  = Mojo::IOLoop->delay(sub {
-    exit(0);
-});
-$cursor->all(sub {
-    my ($coll, $err, $docs) = (@_);
-    my $fetch = {};
-
-    foreach my $doc (@$docs) {
-        foreach my $pname (keys(%{$doc->{players}})) {  
-            my $re = $doc->{roster}->[$doc->{players}->{$pname} + 0];
-            my $pl = $re->{player};
-            my $id = $pl->{dbid} || $pl->{accountDBID};
-            $fetch->{$id}++;
-        }
+while(my $doc = $cursor->next) {
+    foreach my $pname (keys(%{$doc->{players}})) {  
+        my $re = $doc->{roster}->[$doc->{players}->{$pname} + 0];
+        my $pl = $re->{player};
+        my $id = $pl->{dbid} || $pl->{accountDBID};
+        $fetch->{$id}++;
     }
+}
 
-    $fetch = [ keys(%$fetch) ];
-    my $num = scalar(@$fetch);
-
-    for(1..$num) {
-        my $end = $delay->begin;
-        fetch_api(shift(@$fetch) => sub {
-            $end->();
-        });
+$fetch = [ keys(%$fetch) ];
+warn 'have ', scalar(@$fetch), ' ids to fetch', "\n";
+foreach my $id (@$fetch) {
+    print $id, ': ';
+    if(my $err = fetch_api($id)) {
+        print 'ERR: ', $err,  "\n";
+    } else {
+        print 'OK', "\n";
     }
-});
-$delay->wait unless(Mojo::IOLoop->is_running);
+};
 
 sub fetch_api {
     my $id   = shift;
-    my $cb   = shift;
 
     if(my $url_host = get_stat_server($id)) {
         my $url = sprintf('http://%s/uc/accounts/%d/api/%s/?source_token=%s', $url_host, $id, $config->{apistats}->{version}, $config->{apistats}->{token});
-        $ua->get($url => sub {
-            my ($ua, $tx) = (@_);
+        if(my $tx = $ua->get($url)) {
             if(my $res = $tx->success) {
                 my $j = Mojo::JSON->new();
                 my $jres = $j->decode($res->body);
@@ -75,23 +66,17 @@ sub fetch_api {
                         ctime   => Mango::BSON::bson_time,
                         stats   => $jres,
                     };
-                    $mango->db('wot-replays')->collection('player.stats')->save($data => sub { 
-                        my ($coll, $err, $oid) = (@_);
-                        warn 'saved for ', $id, ' -> ', $url, "\n";
-                        $cb->(($err) ? undef : 1);
-                    });
+                    $mango->db('wot-replays')->collection('player.stats')->save($data);
+                    return undef;
                 } else {
-                    warn 'STATUS ERROR', "\n";
-                    $cb->(undef);
+                    return 'STATUS ERROR';
                 }
             } else {
-                warn 'HTTP STATUS ERROR', "\n";
-                $cb->(undef);
+                return 'HTTP STATUS ERROR';
             }
-        });
+        }
     } else {
-        warn 'NO STAT SERVER', "\n";
-        $cb->(undef);
+        return 'NO STAT SERVER';
     }
 }
 
