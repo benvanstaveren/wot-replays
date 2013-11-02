@@ -151,6 +151,11 @@ sub _build_query {
     $query->{'game.type'} = $args{'matchmode'} if($args{'matchmode'} && $args{'matchmode'} ne '');
     $query->{'game.bonus_type'} = $args{'matchtype'} + 0 if($args{'matchtype'} && $args{'matchtype'} ne '');
 
+    # if the wn7 flag is set we need to use min and max to obtain it
+    if(defined($args{'wn7'})) {
+        $query->{'wn7.data.overall'} = { '$gte' => $args{wn7} };
+    }
+
     # finalize the query
     if(scalar(@$ors) > 1) {
         foreach my $or (@$ors) {
@@ -159,8 +164,6 @@ sub _build_query {
     } elsif(scalar(@$ors) > 0) {
         $query->{'$or'} = shift(@$ors);
     }
-
-    warn 'WR::Query->build_query:', "\n", Dumper($query), "\n";
 
     return $query;
 }
