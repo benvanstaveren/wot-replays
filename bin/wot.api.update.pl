@@ -6,6 +6,8 @@ use Mojo::IOLoop;
 use Mojo::UserAgent;
 use Getopt::Long;
 
+$| = 1;
+
 my $config  = {};
 my $cfile   = undef;
 
@@ -42,22 +44,26 @@ while(my $doc = $cursor->next) {
     }
 }
 
+
 $fetch = [ keys(%$fetch) ];
 warn 'have ', scalar(@$fetch), ' ids to fetch', "\n";
 foreach my $id (@$fetch) {
     print $id, ': ';
-    if(my $err = fetch_api($id)) {
-        print 'ERR: ', $err,  "\n";
-    } else {
-        print 'OK', "\n";
+    if(my $status = fetch_api($id)) {
+        print $status, "\n";
     }
 };
 
 sub fetch_api {
     my $id   = shift;
+    my $u    = 0;
 
     if(my $url_host = get_stat_server($id)) {
         my $url = sprintf('http://%s/uc/accounts/%d/api/%s/?source_token=%s', $url_host, $id, $config->{apistats}->{version}, $config->{apistats}->{token});
+        if(my $doc = $mango->db('wot-replays')->collection('player.stats')->find_one({ _id => $id + 0 })) {
+            return 'OK, CACHED' if($doc->{ctime} + 86400000 > Mango::BSON::bson_time);
+        }
+
         if(my $tx = $ua->get($url)) {
             if(my $res = $tx->success) {
                 my $j = Mojo::JSON->new();
@@ -68,14 +74,8 @@ sub fetch_api {
                         ctime   => Mango::BSON::bson_time,
                         stats   => $jres,
                     };
-                    if(my $doc = $mango->db('wot-replays')->collection('player.stats')->find_one({ _id => $id + 0 })) {
-                        if($doc->{ctime} + 86400000 < Mango::BSON::bson_time) {
-                            $mango->db('wot-replays')->collection('player.stats')->save($data);
-                        }
-                    } else {
-                        $mango->db('wot-replays')->collection('player.stats')->save($data);
-                    }
-                    return undef;
+                    $mango->db('wot-replays')->collection('player.stats')->save($data);
+                    return 'OK';
                 } else {
                     return 'STATUS ERROR';
                 }
