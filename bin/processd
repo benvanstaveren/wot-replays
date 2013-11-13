@@ -33,18 +33,18 @@ if(my $fh = IO::File->new($cfile)) {
 }
 
 my $log;
-if(my $lf = $config->{publishd}->{logfile}) {
+if(my $lf = $config->{processd}->{logfile}) {
     $lf = sprintf('%s/../%s', $FindBin::Bin, $config->{processd}->{logfile}) if($lf !~ /^\//);
     $log = Mojo::Log->new(path => $lf, level => $config->{processd}->{loglevel} || 'warn');
 } else {
     $log = Mojo::Log->new();
-    # level => $config->{publishd}->{loglevel} || 'warn');
+    # level => $config->{processd}->{loglevel} || 'warn');
 }
 
 $log->info('processd starting, pid ' . $$);
 
 # create a pidfile
-my $pidfile = $config->{publishd}->{pidfile};
+my $pidfile = $config->{processd}->{pidfile};
 
 my $mango = Mango->new($config->{mongodb}->{host});
 my $db    = $mango->db($config->{mongodb}->{database});
