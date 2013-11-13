@@ -1,4 +1,4 @@
-package WR::Imager;
+package WR::Provider::Imager;
 use Mojo::Base '-base';
 use Imager;
 

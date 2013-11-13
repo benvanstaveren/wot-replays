@@ -1,0 +1,12 @@
+{
+   "Chi_Nu_Kai" : {
+      "description" : "#japan_vehicles:Chi_Nu_Kai_descr",
+      "tags" : "mediumTank mediumCaliberTankRammer_user wetCombatPack_class1_user",
+      "userString" : "#japan_vehicles:Chi_Nu_Kai",
+      "level" : 5,
+      "shortUserString" : "#japan_vehicles:Chi_Nu_Kai_short",
+      "id" : 201,
+      "price" : 1500,
+      "notInShop" : true
+   }
+}

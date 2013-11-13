@@ -1,4 +1,4 @@
-package WR::TypeCompResolver;
+package WR::Provider::TypeCompResolver;
 use Mojo::Base '-base';
 use Mango::BSON;
 use Try::Tiny qw/try catch/;

@@ -1,0 +1,247 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: World Of Tanks\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-06-01 10:00+0300\n"
+"PO-Revision-Date: 2010-06-01 10:00+0300\n"
+"Last-Translator: WoT Translator <noreply@wargaming.net>\n"
+"Language-Team: WoT Team <noreply@wargaming.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "bonuses/item/berths"
+msgstr "bunks in Barracks"
+
+msgid "bonuses/item/creditsFactor"
+msgstr "credits coefficient"
+
+msgid "bonuses/item/freeXPFactor"
+msgstr "Free Experience coefficient"
+
+msgid "bonuses/item/premium"
+msgstr "Premium days"
+
+msgid "bonuses/item/slots"
+msgstr "slots in Garage"
+
+msgid "bonuses/item/tankmenXP"
+msgstr "crew experience"
+
+msgid "bonuses/item/tankmenXPFactor"
+msgstr "crew experience coefficient"
+
+msgid "bonuses/item/xpFactor"
+msgstr "experience coefficient"
+
+msgid "bonuses/items/name"
+msgstr "%(name)s (x%(count)s)"
+
+msgid "bonuses/vehicles/crewLvl"
+msgstr "%d%% crew"
+
+msgid "bonuses/vehicles/name"
+msgstr "%(name)s (%(crew)s)"
+
+msgid "details/conditions/title"
+msgstr "Condition"
+
+msgid "details/conditions/vehicleDescr"
+msgstr "Vehicles required:"
+
+msgid "details/conditions/vehicleKills"
+msgstr "Destroy:"
+
+msgid "details/conditions/vehiclesOwned"
+msgstr "Vehicles in Garage:"
+
+msgid "details/conditions/vehiclesUnlocked"
+msgstr "Vehicles researched:"
+
+msgid "details/header/activeDuration"
+msgstr "From %(startTime)s to %(finishTime)s"
+
+msgid "details/header/completion/daily"
+msgstr "Missions available for completion per 24 hours: %(count)d."
+
+msgid "details/header/completion/daily/groupByClass"
+msgstr ""
+"Missions available for completion per 24 hours: %(count)d in vehicles of "
+"certain types."
+
+msgid "details/header/completion/daily/groupByLevel"
+msgstr ""
+"Missions available for completion per 24 hours: %(count)d in vehicles of "
+"certain tiers."
+
+msgid "details/header/completion/daily/groupByNation"
+msgstr ""
+"Missions available for completion per 24 hours: %(count)d in vehicles of "
+"certain nationalities."
+
+msgid "details/header/completion/daily/groupByVehicle"
+msgstr ""
+"Missions available for completion per 24 hours: %(count)d in certain "
+"vehicles."
+
+msgid "details/header/completion/single"
+msgstr "Missions available for completion: %(count)d."
+
+msgid "details/header/completion/single/groupByClass"
+msgstr ""
+"Missions available for completion per 24 hours: %(count)d in vehicles of "
+"certain types."
+
+msgid "details/header/completion/single/groupByLevel"
+msgstr ""
+"Missions available for completion per 24 hours: %(count)d in vehicles of "
+"certain tiers."
+
+msgid "details/header/completion/single/groupByNation"
+msgstr ""
+"Missions available for completion per 24 hours: %(count)d in vehicles of "
+"certain nationalities."
+
+msgid "details/header/completion/single/groupByVehicle"
+msgstr ""
+"Missions available for completion per 24 hours: %(count)d in certain "
+"vehicles."
+
+msgid "details/header/completion/unlimited"
+msgstr "Missions available for completion: unlimited."
+
+msgid "details/header/hasNoVehicles"
+msgstr "Mission unavailable: no vehicles of correct type."
+
+msgid "details/header/info/descr_parallel"
+msgstr ""
+"To complete the strategic mission, complete the following missions in any "
+"order."
+
+msgid "details/header/info/descr_serial"
+msgstr ""
+"To complete the strategic mission, complete the following missions "
+"sequentially."
+
+msgid "details/header/info/title"
+msgstr "Condition"
+
+msgid "details/header/tillDate"
+msgstr "Until %(finishTime)s"
+
+msgid "details/tasks/nextTask"
+msgstr "Mission coming soon"
+
+msgid "details/tasks/strategic"
+msgstr "Part of strategic mission"
+
+msgid "details/tasks/subTask"
+msgstr "Mission"
+
+msgid "igr/tooltip/battlesLabel"
+msgstr "Battles"
+
+msgid "igr/tooltip/winsLabel"
+msgstr "Victories"
+
+msgid "item/timer/tillFinish"
+msgstr "Finish time"
+
+msgid "item/timer/tillFinish/days"
+msgstr "Finish time"
+
+msgid "item/timer/tillFinish/hours"
+msgstr "Finish time"
+
+msgid "item/timer/tillFinish/longFormat"
+msgstr "%H h %M min"
+
+msgid "item/timer/tillFinish/shortFormat"
+msgstr "%M min"
+
+msgid "item/timer/tillStart"
+msgstr "Will be available"
+
+msgid "item/timer/tillStart/days"
+msgstr "in %d days"
+
+msgid "item/timer/tillStart/hours"
+msgstr "in %H h %M min"
+
+msgid "item/timer/tillStart/min"
+msgstr "in %M min"
+
+msgid "item/type/action"
+msgstr "Event"
+
+msgid "item/type/quest"
+msgstr "Mission"
+
+msgid "item/type/questDaily"
+msgstr "Mission"
+
+msgid "item/type/questStrategic"
+msgstr "Strategic mission"
+
+msgid "quests/current/nodata"
+msgstr "No current missions."
+
+msgid "quests/currentTab/header/checkBox/text"
+msgstr "Hide completed"
+
+msgid "quests/currentTab/header/dropdown/date"
+msgstr "By date"
+
+msgid "quests/currentTab/header/dropdown/time"
+msgstr "By finish time"
+
+msgid "quests/currentTab/header/sort"
+msgstr "Sort:"
+
+msgid "quests/future/nodata"
+msgstr "No missions coming soon"
+
+msgid "quests/list/clickCheckbox"
+msgstr "To view missions, click “Hide completed” checkbox."
+
+msgid "quests/list/complete"
+msgstr "All missions completed"
+
+msgid "quests/status/done"
+msgstr "Complete!"
+
+msgid "quests/status/notAvailable"
+msgstr "Unavailable"
+
+msgid "quests/tabs/award/text"
+msgstr "Reward:"
+
+msgid "quests/tabs/current"
+msgstr "Current"
+
+msgid "quests/tabs/future"
+msgstr "Coming Soon"
+
+msgid "quests/tabs/noselected/text"
+msgstr ""
+"Choose a mission\n"
+"from the list on the left to see\n"
+"a full description."
+
+msgid "quests/title"
+msgstr "Missions"
+
+msgid "questsControl/title"
+msgstr "Missions"
+
+msgid "tooltip/progress/groupBy/body"
+msgstr "Maximum result"
+
+msgid "tooltip/progress/groupBy/header"
+msgstr "Progress in mission completion"
+
+msgid "tooltip/progress/groupBy/note"
+msgstr "Subsequent results"
+
+msgid "tooltip/progress/groupBy/note/level"
+msgstr "tier %s"

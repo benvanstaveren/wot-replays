@@ -4,7 +4,7 @@ use warnings;
 use FindBin;
 use lib "$FindBin::Bin/../lib";
 use WR;
-use WR::Imager;
+use WR::Provider::Imager;
 use WR::Res::Achievements;
 use MongoDB;
 
@@ -37,7 +37,7 @@ while(my $m_data = $rc->next()) {
         push(@$t, $str);
     }
 
-    my $i = WR::Imager->new();
+    my $i = WR::Provider::Imager->new();
     $i->create(
         awards  => $t,
         map     => $m_data->{map}->{id},

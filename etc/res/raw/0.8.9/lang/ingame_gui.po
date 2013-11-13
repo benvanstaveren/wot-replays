@@ -1,0 +1,1000 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: World Of Tanks\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-06-01 10:00+0300\n"
+"PO-Revision-Date: 2010-07-06 18:34+0200\n"
+"Last-Translator: i_maliavko <i_maliavko@wargaming.net>\n"
+"Language-Team: WoT Team <noreply@wargaming.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "chat_shortcuts/attack"
+msgstr "Attack!"
+
+msgid "chat_shortcuts/attack_enemy"
+msgstr "Attacking %s!"
+
+msgid "chat_shortcuts/attention_to_cell"
+msgstr "Attention to sector %s!"
+
+msgid "chat_shortcuts/back_to_base"
+msgstr "Defend the base!"
+
+msgid "chat_shortcuts/follow_me"
+msgstr "%s, follow me!"
+
+msgid "chat_shortcuts/help_me"
+msgstr "Help!"
+
+msgid "chat_shortcuts/help_me_ex"
+msgstr "%s, help!"
+
+msgid "chat_shortcuts/negative"
+msgstr "Negative!"
+
+msgid "chat_shortcuts/positive"
+msgstr "Affirmative!"
+
+msgid "chat_shortcuts/reloading_gun"
+msgstr "Reloading!"
+
+msgid "chat_shortcuts/stop"
+msgstr "%s, halt!"
+
+msgid "chat_shortcuts/support_me_with_fire"
+msgstr "Requesting fire at %s"
+
+msgid "chat_shortcuts/turn_back"
+msgstr "%s, fall back!"
+
+msgid "consumables_panel/equipment/tooltip/empty"
+msgstr "A consumable slot"
+
+msgid "cruise_ctrl/speedMetric"
+msgstr "km/h"
+
+msgid "damage_panel/crew/commander/destroyed"
+msgstr "Commander injured."
+
+msgid "damage_panel/crew/commander/normal"
+msgstr "Commander"
+
+msgid "damage_panel/crew/driver/destroyed"
+msgstr "Driver injured."
+
+msgid "damage_panel/crew/driver/normal"
+msgstr "Driver"
+
+msgid "damage_panel/crew/gunner1/destroyed"
+msgstr "Gunner injured."
+
+msgid "damage_panel/crew/gunner1/normal"
+msgstr "Gunner"
+
+msgid "damage_panel/crew/gunner2/destroyed"
+msgstr "Gunner 2 injured."
+
+msgid "damage_panel/crew/gunner2/normal"
+msgstr "Gunner 2"
+
+msgid "damage_panel/crew/loader1/destroyed"
+msgstr "Loader injured."
+
+msgid "damage_panel/crew/loader1/normal"
+msgstr "Loader"
+
+msgid "damage_panel/crew/loader2/destroyed"
+msgstr "Loader 2 injured."
+
+msgid "damage_panel/crew/loader2/normal"
+msgstr "Loader 2"
+
+msgid "damage_panel/crew/radioman1/destroyed"
+msgstr "Radio operator injured."
+
+msgid "damage_panel/crew/radioman1/normal"
+msgstr "Radio Operator"
+
+msgid "damage_panel/crew/radioman2/destroyed"
+msgstr "Radio operator 2 injured."
+
+msgid "damage_panel/crew/radioman2/normal"
+msgstr "Radio Operator 2"
+
+msgid "damage_panel/devices/ammoBay/critical"
+msgstr "Ammo rack damaged."
+
+msgid "damage_panel/devices/ammoBay/destroyed"
+msgstr "Ammo rack exploded."
+
+msgid "damage_panel/devices/ammoBay/normal"
+msgstr "Ammo rack is intact."
+
+msgid "damage_panel/devices/engine/critical"
+msgstr "Engine damaged. Power decreased."
+
+msgid "damage_panel/devices/engine/destroyed"
+msgstr "Immobilized: engine destroyed."
+
+msgid "damage_panel/devices/engine/normal"
+msgstr "Engine is intact."
+
+msgid "damage_panel/devices/fuelTank/critical"
+msgstr "Fuel tank damaged."
+
+msgid "damage_panel/devices/fuelTank/destroyed"
+msgstr "Fuel tank destroyed."
+
+msgid "damage_panel/devices/fuelTank/normal"
+msgstr "Fuel tank is intact."
+
+msgid "damage_panel/devices/gun/critical"
+msgstr "Gun damaged. Accuracy decreased."
+
+msgid "damage_panel/devices/gun/destroyed"
+msgstr "Gun destroyed. Unable to fire."
+
+msgid "damage_panel/devices/gun/normal"
+msgstr "Gun is intact."
+
+msgid "damage_panel/devices/radio/critical"
+msgstr "Radio damaged."
+
+msgid "damage_panel/devices/radio/destroyed"
+msgstr "Radio destroyed."
+
+msgid "damage_panel/devices/radio/normal"
+msgstr "Radio is intact."
+
+msgid "damage_panel/devices/surveyingDevice/critical"
+msgstr "Observation device damaged."
+
+msgid "damage_panel/devices/surveyingDevice/destroyed"
+msgstr "Observation device destroyed."
+
+msgid "damage_panel/devices/surveyingDevice/normal"
+msgstr "Observation Device is intact."
+
+msgid "damage_panel/devices/track/critical"
+msgstr "Suspension damaged."
+
+msgid "damage_panel/devices/track/destroyed"
+msgstr "Immobilized: suspension destroyed."
+
+msgid "damage_panel/devices/track/normal"
+msgstr "Suspension is intact."
+
+msgid "damage_panel/devices/turretRotator/critical"
+msgstr "Turret damaged. Traverse speed decreased."
+
+msgid "damage_panel/devices/turretRotator/destroyed"
+msgstr "Unable to rotate: turret destroyed."
+
+msgid "damage_panel/devices/turretRotator/normal"
+msgstr "Turret is intact."
+
+msgid "devices/ammo_bay"
+msgstr "Ammo Rack"
+
+msgid "devices/chassis"
+msgstr "Suspension"
+
+msgid "devices/engine"
+msgstr "Engine"
+
+msgid "devices/fuel_tank"
+msgstr "Fuel Tank"
+
+msgid "devices/gun"
+msgstr "Gun"
+
+msgid "devices/left_track"
+msgstr "Left Track"
+
+msgid "devices/radio"
+msgstr "Radio"
+
+msgid "devices/right_track"
+msgstr "Right Track"
+
+msgid "devices/surveing_device"
+msgstr "Observation Device"
+
+msgid "devices/turret_rotator"
+msgstr "Turret Traverse"
+
+msgid "player_errors/cant_move/chassis_damaged"
+msgstr "Immobilized: suspension damaged."
+
+msgid "player_errors/cant_move/crew_inactive"
+msgstr "Immobilized: crew destroyed."
+
+msgid "player_errors/cant_move/engine_damaged"
+msgstr "Immobilized: engine damaged."
+
+msgid "player_errors/cant_move/vehicle_destroyed"
+msgstr "Immobilized: vehicle destroyed."
+
+msgid "player_errors/cant_shoot/crew_inactive"
+msgstr "Unable to fire: crew destroyed."
+
+msgid "player_errors/cant_shoot/gun_damaged"
+msgstr "Unable to fire: gun damaged."
+
+msgid "player_errors/cant_shoot/gun_locked"
+msgstr "Unable to fire"
+
+msgid "player_errors/cant_shoot/gun_reload"
+msgstr "Loading gun"
+
+msgid "player_errors/cant_shoot/no_ammo"
+msgstr "Unable to fire: out of shells."
+
+msgid "player_errors/cant_shoot/vehicle_destroyed"
+msgstr "Unable to fire: vehicle destroyed."
+
+msgid "player_errors/equipment/alreadyActivated"
+msgstr "Consumable [%(name)s] is already active."
+
+msgid "player_errors/equipment/extinguisher/doesNotActivated"
+msgstr "Consumable [%(name)s] is inactive: no fire."
+
+msgid "player_errors/equipment/medkit/allTankmenAreSafe"
+msgstr "Medical assistance not required: no injured tankers."
+
+msgid "player_errors/equipment/medkit/tankmanIsSafe"
+msgstr "[%(entity)s] does not need medical aid."
+
+msgid "player_errors/equipment/repairkit/allDevicesAreNotDamaged"
+msgstr "Repairs not required: all devices are intact."
+
+msgid "player_errors/equipment/repairkit/deviceIsNotDamaged"
+msgstr "[%(entity)s] is fully operational, no repairs required."
+
+msgid "player_messages/ALLY_HIT"
+msgstr "You've hit an ally %(entity)s!"
+
+msgid "player_messages/DEATH_FROM_DEATH_ZONE_ALLY_ALLY"
+msgstr "Ally %(target)s was destroyed by ally %(attacker)s."
+
+msgid "player_messages/DEATH_FROM_DEATH_ZONE_ALLY_ENEMY"
+msgstr "%(attacker)s destroyed %(target)s."
+
+msgid "player_messages/DEATH_FROM_DEATH_ZONE_ALLY_SELF"
+msgstr "Vehicle was destroyed by ally %(attacker)s."
+
+msgid "player_messages/DEATH_FROM_DEATH_ZONE_ALLY_SUICIDE"
+msgstr "Ally %(target)s was lost in battle."
+
+msgid "player_messages/DEATH_FROM_DEATH_ZONE_ENEMY_ALLY"
+msgstr "%(attacker)s destroyed %(target)s."
+
+msgid "player_messages/DEATH_FROM_DEATH_ZONE_ENEMY_ENEMY"
+msgstr "Enemy %(attacker)s destroyed enemy %(target)s."
+
+msgid "player_messages/DEATH_FROM_DEATH_ZONE_ENEMY_SELF"
+msgstr "Vehicle was destroyed by %(attacker)s."
+
+msgid "player_messages/DEATH_FROM_DEATH_ZONE_ENEMY_SUICIDE"
+msgstr "%(target)s was lost in battle."
+
+msgid "player_messages/DEATH_FROM_DEATH_ZONE_SELF_ALLY"
+msgstr "Ally %(target)s destroyed."
+
+msgid "player_messages/DEATH_FROM_DEATH_ZONE_SELF_ENEMY"
+msgstr "%(target)s destroyed."
+
+msgid "player_messages/DEATH_FROM_DEATH_ZONE_SELF_SUICIDE"
+msgstr "Vehicle destroyed."
+
+msgid "player_messages/DEATH_FROM_DEVICE_EXPLOSION_AT_FIRE"
+msgstr "Device [%(device)s] exploded in the fire."
+
+msgid "player_messages/DEATH_FROM_DEVICE_EXPLOSION_AT_SHOT"
+msgstr "Device [%(device)s] was destroyed by a shot from %(entity)s."
+
+msgid "player_messages/DEATH_FROM_DROWNING_ALLY_ALLY"
+msgstr "Ally %(attacker)s drowned ally %(target)s."
+
+msgid "player_messages/DEATH_FROM_DROWNING_ALLY_ENEMY"
+msgstr "%(attacker)s drowned %(target)s."
+
+msgid "player_messages/DEATH_FROM_DROWNING_ALLY_SELF"
+msgstr "Vehicle was drowned by ally %(attacker)s."
+
+msgid "player_messages/DEATH_FROM_DROWNING_ALLY_SUICIDE"
+msgstr "Ally %(target)s drowned."
+
+msgid "player_messages/DEATH_FROM_DROWNING_ENEMY_ALLY"
+msgstr "%(attacker)s drowned %(target)s."
+
+msgid "player_messages/DEATH_FROM_DROWNING_ENEMY_ENEMY"
+msgstr "Enemy %(attacker)s drowned enemy %(target)s."
+
+msgid "player_messages/DEATH_FROM_DROWNING_ENEMY_SELF"
+msgstr "Vehicle was drowned by %(attacker)s."
+
+msgid "player_messages/DEATH_FROM_DROWNING_ENEMY_SUICIDE"
+msgstr "Enemy %(target)s drowned."
+
+msgid "player_messages/DEATH_FROM_DROWNING_SELF_ALLY"
+msgstr "Ally %(target)s was drowned."
+
+msgid "player_messages/DEATH_FROM_DROWNING_SELF_ENEMY"
+msgstr "%(target)s was drowned."
+
+msgid "player_messages/DEATH_FROM_DROWNING_SELF_SUICIDE"
+msgstr "Vehicle drowned."
+
+msgid "player_messages/DEATH_FROM_INACTIVE_CREW"
+msgstr "Crew destroyed."
+
+msgid "player_messages/DEATH_FROM_INACTIVE_CREW_AT_SHOT"
+msgstr "Crew was destroyed by a shot from %(entity)s."
+
+msgid "player_messages/DEATH_FROM_INACTIVE_CREW_AT_WORLD_COLLISION_ALLY_ALLY"
+msgstr "Ally %(target)s crew was destroyed by ally %(attacker)s."
+
+msgid "player_messages/DEATH_FROM_INACTIVE_CREW_AT_WORLD_COLLISION_ALLY_ENEMY"
+msgstr "%(target)s crew was destroyed by %(attacker)s."
+
+msgid "player_messages/DEATH_FROM_INACTIVE_CREW_AT_WORLD_COLLISION_ALLY_SELF"
+msgstr "Crew was destroyed by ally %(attacker)s."
+
+msgid ""
+"player_messages/DEATH_FROM_INACTIVE_CREW_AT_WORLD_COLLISION_ALLY_SUICIDE"
+msgstr "Ally %(target)s destroyed his crew."
+
+msgid "player_messages/DEATH_FROM_INACTIVE_CREW_AT_WORLD_COLLISION_ENEMY_ALLY"
+msgstr "%(target)s crew was destroyed by %(attacker)s."
+
+msgid "player_messages/DEATH_FROM_INACTIVE_CREW_AT_WORLD_COLLISION_ENEMY_ENEMY"
+msgstr "Enemy %(target)s crew was destroyed by enemy %(attacker)s."
+
+msgid "player_messages/DEATH_FROM_INACTIVE_CREW_AT_WORLD_COLLISION_ENEMY_SELF"
+msgstr "Crew was destroyed by %(attacker)s."
+
+msgid ""
+"player_messages/DEATH_FROM_INACTIVE_CREW_AT_WORLD_COLLISION_ENEMY_SUICIDE"
+msgstr "Enemy %(target)s destroyed his crew."
+
+msgid "player_messages/DEATH_FROM_INACTIVE_CREW_AT_WORLD_COLLISION_SELF_ALLY"
+msgstr "Ally %(target)s crew destroyed."
+
+msgid "player_messages/DEATH_FROM_INACTIVE_CREW_AT_WORLD_COLLISION_SELF_ENEMY"
+msgstr "Crew %(target)s destroyed."
+
+msgid ""
+"player_messages/DEATH_FROM_INACTIVE_CREW_AT_WORLD_COLLISION_SELF_SUICIDE"
+msgstr "Crew destroyed."
+
+msgid "player_messages/DEATH_FROM_RAMMING_ALLY_ALLY"
+msgstr "Ally %(attacker)s destroyed ally %(target)s."
+
+msgid "player_messages/DEATH_FROM_RAMMING_ALLY_ENEMY"
+msgstr "%(attacker)s destroyed %(target)s."
+
+msgid "player_messages/DEATH_FROM_RAMMING_ALLY_SELF"
+msgstr "Vehicle was destroyed by ally %(attacker)s."
+
+msgid "player_messages/DEATH_FROM_RAMMING_ALLY_SUICIDE"
+msgstr "Ally %(target)s crashed."
+
+msgid "player_messages/DEATH_FROM_RAMMING_ENEMY_ALLY"
+msgstr "%(attacker)s destroyed %(target)s."
+
+msgid "player_messages/DEATH_FROM_RAMMING_ENEMY_ENEMY"
+msgstr "Enemy %(attacker)s destroyed enemy %(target)s."
+
+msgid "player_messages/DEATH_FROM_RAMMING_ENEMY_SELF"
+msgstr "Vehicle was destroyed by %(attacker)s."
+
+msgid "player_messages/DEATH_FROM_RAMMING_ENEMY_SUICIDE"
+msgstr "Enemy %(target)s crashed."
+
+msgid "player_messages/DEATH_FROM_RAMMING_SELF_ALLY"
+msgstr "Ally %(target)s destroyed."
+
+msgid "player_messages/DEATH_FROM_RAMMING_SELF_ENEMY"
+msgstr "%(target)s destroyed."
+
+msgid "player_messages/DEATH_FROM_RAMMING_SELF_SUICIDE"
+msgstr "Vehicle destroyed."
+
+msgid "player_messages/DEATH_FROM_SHOT_ALLY_ALLY"
+msgstr "Ally %(attacker)s destroyed ally %(target)s."
+
+msgid "player_messages/DEATH_FROM_SHOT_ALLY_ENEMY"
+msgstr "%(attacker)s destroyed %(target)s."
+
+msgid "player_messages/DEATH_FROM_SHOT_ALLY_SUICIDE"
+msgstr "Ally %(target)s was lost in battle."
+
+msgid "player_messages/DEATH_FROM_SHOT_ENEMY_ALLY"
+msgstr "%(attacker)s destroyed %(target)s."
+
+msgid "player_messages/DEATH_FROM_SHOT_ENEMY_ENEMY"
+msgstr "Enemy %(attacker)s destroyed enemy %(target)s."
+
+msgid "player_messages/DEATH_FROM_SHOT_ENEMY_SUICIDE"
+msgstr "Enemy %(target)s was lost in battle."
+
+msgid "player_messages/DEATH_FROM_SHOT_SELF_ALLY"
+msgstr "Ally %(target)s destroyed."
+
+msgid "player_messages/DEATH_FROM_SHOT_SELF_ENEMY"
+msgstr "%(target)s destroyed."
+
+msgid "player_messages/DEATH_FROM_WORLD_COLLISION_ALLY_ALLY"
+msgstr "Ally %(attacker)s crashed ally %(target)s."
+
+msgid "player_messages/DEATH_FROM_WORLD_COLLISION_ALLY_ENEMY"
+msgstr "%(attacker)s crashed %(target)s."
+
+msgid "player_messages/DEATH_FROM_WORLD_COLLISION_ALLY_SELF"
+msgstr "Vehicle was crashed by ally %(attacker)s."
+
+msgid "player_messages/DEATH_FROM_WORLD_COLLISION_ALLY_SUICIDE"
+msgstr "Ally %(target)s crashed."
+
+msgid "player_messages/DEATH_FROM_WORLD_COLLISION_ENEMY_ALLY"
+msgstr "%(attacker)s crashed %(target)s."
+
+msgid "player_messages/DEATH_FROM_WORLD_COLLISION_ENEMY_ENEMY"
+msgstr "Enemy %(attacker)s crashed enemy %(target)s."
+
+msgid "player_messages/DEATH_FROM_WORLD_COLLISION_ENEMY_SELF"
+msgstr "Vehicle was crashed by %(attacker)s."
+
+msgid "player_messages/DEATH_FROM_WORLD_COLLISION_ENEMY_SUICIDE"
+msgstr "Enemy %(target)s crashed."
+
+msgid "player_messages/DEATH_FROM_WORLD_COLLISION_SELF_ALLY"
+msgstr "Ally %(target)s was crashed."
+
+msgid "player_messages/DEATH_FROM_WORLD_COLLISION_SELF_ENEMY"
+msgstr "%(target)s was crashed."
+
+msgid "player_messages/DEATH_FROM_WORLD_COLLISION_SELF_SUICIDE"
+msgstr "Vehicle crashed."
+
+msgid "player_messages/DEVICE_CRITICAL_AT_FIRE"
+msgstr "Device [%(device)s] is damaged by fire."
+
+msgid "player_messages/DEVICE_CRITICAL_AT_SHOT"
+msgstr "Shot %(entity)s damaged [%(device)s]."
+
+msgid "player_messages/DEVICE_DESTROYED_AT_FIRE"
+msgstr "Device [%(device)s] was destroyed by fire."
+
+msgid "player_messages/DEVICE_DESTROYED_AT_SHOT"
+msgstr "Device [%(device)s] was destroyed by %(entity)s."
+
+msgid "player_messages/DEVICE_REPAIRED"
+msgstr "Device [%(device)s] repaired."
+
+msgid "player_messages/DEVICE_REPAIRED_TO_CRITICAL"
+msgstr "Device [%(device)s] is operational."
+
+msgid "player_messages/DEVICE_STARTED_FIRE_AT_SHOT"
+msgstr "Device [%(device)s] was set on fire by a shot from %(entity)s."
+
+msgid "player_messages/ENEMY_SPOTTED"
+msgstr "Enemy %(entity)s is located."
+
+msgid "player_messages/ENEMY_SPOTTED_HIT"
+msgstr "Disclosed enemy %(entity)s is damaged."
+
+msgid "player_messages/ENEMY_SPOTTED_HIT_PLURAL"
+msgstr "Disclosed enemies are damaged."
+
+msgid "player_messages/ENEMY_SPOTTED_KILLED"
+msgstr "Disclosed enemy %(entity)s destroyed."
+
+msgid "player_messages/ENEMY_SPOTTED_KILLED_PLURAL"
+msgstr "Disclosed enemies destroyed."
+
+msgid "player_messages/ENEMY_SPOTTED_PLURAL"
+msgstr "Enemies are located."
+
+msgid "player_messages/ENGINE_CRITICAL_AT_UNLIMITED_RPM"
+msgstr "Device [%(device)s] was damaged by the removal of the speed governor."
+
+msgid "player_messages/ENGINE_DESTROYED_AT_UNLIMITED_RPM"
+msgstr ""
+"Device [%(device)s] was destroyed by the removal of the speed governor."
+
+msgid "player_messages/FIRE_STOPPED"
+msgstr "Fire is out."
+
+msgid "player_messages/TANKMAN_HIT_AT_SHOT"
+msgstr "A shot from %(entity)s injured [%(device)s]."
+
+msgid "player_messages/TANKMAN_RESTORED"
+msgstr "[%(device)s] is back in action."
+
+msgid "player_messages/allied_team_name"
+msgstr "Our Team"
+
+msgid "player_messages/ally_base_captured_by_notification"
+msgstr "Friendly base%s capture:"
+
+msgid "player_messages/ally_base_captured_notification"
+msgstr "Friendly base%s captured!"
+
+msgid "player_messages/base_captured_by_notification"
+msgstr "Base%s capture:"
+
+msgid "player_messages/base_captured_notification"
+msgstr "Base%s captured!"
+
+msgid "player_messages/enemy_base_captured_by_notification"
+msgstr "Enemy base%s capture:"
+
+msgid "player_messages/enemy_base_captured_notification"
+msgstr "Enemy base%s captured!"
+
+msgid "player_messages/enemy_team_name"
+msgstr "Enemy Team"
+
+msgid "player_messages/horn_is_blocked"
+msgstr "Horn is locked; available in %d s"
+
+msgid "player_messages/loader_intuition_was_used"
+msgstr "The perk \"Intuition\" is applied."
+
+msgid "player_messages/postmortem_caption"
+msgstr "Player %(name)s (%(type)s); HP: %(health)d%%"
+
+msgid "player_messages/postmortem_userNoHasAmmo"
+msgstr "no shells"
+
+msgid "player_messages/replayControlsHelp1"
+msgstr "Replay controls:"
+
+msgid "player_messages/replayControlsHelp2"
+msgstr ""
+"LMB: switch between camera modes\n"
+"Space: pause"
+
+msgid "player_messages/replayControlsHelp3"
+msgstr ""
+"Left arrow: rewind 20 seconds (with Ctrl: 40 seconds)\n"
+"Right arrow: fast forward 20 seconds (with Ctrl: 40 seconds)\n"
+"Home/End: jump to the beginning/to the end\n"
+"Up arrow/Down arrow: +/- replay speed"
+
+msgid "player_messages/replayFreeCameraActivated"
+msgstr "Free camera activated"
+
+msgid "player_messages/replayPaused"
+msgstr "Pause"
+
+msgid "player_messages/replaySavedCameraActivated"
+msgstr "Fixed camera activated"
+
+msgid "player_messages/replaySpeedChange"
+msgstr "Replay speed: %(speed)sx"
+
+msgid "player_messages/tank_in_fire"
+msgstr "Vehicle on fire!"
+
+msgid "players_panel/state/large/body"
+msgstr "Show players' names, destroyed targets, and vehicles' names and icons"
+
+msgid "players_panel/state/large/header"
+msgstr "Full Panel"
+
+msgid "players_panel/state/large/note"
+msgstr "(Press Ctrl + Tab to switch between the modes)"
+
+msgid "players_panel/state/medium/body"
+msgstr "Show players' names, destroyed targets, and vehicle icons"
+
+msgid "players_panel/state/medium/header"
+msgstr "Medium Panel"
+
+msgid "players_panel/state/medium/note"
+msgstr "(Press Ctrl + Tab to switch between the modes)"
+
+msgid "players_panel/state/medium2/body"
+msgstr ""
+"Show the vehicles destroyed by a player, name and icon of a player's vehicle."
+
+msgid "players_panel/state/medium2/header"
+msgstr "Medium Panel 2"
+
+msgid "players_panel/state/medium2/note"
+msgstr "(Press Ctrl + Tab to switch between the modes)"
+
+msgid "players_panel/state/none/body"
+msgstr "Hide team panels"
+
+msgid "players_panel/state/none/header"
+msgstr "No Panel"
+
+msgid "players_panel/state/none/note"
+msgstr "(Press Ctrl + Tab to switch between the modes)"
+
+msgid "players_panel/state/short/body"
+msgstr "Show destroyed targets and vehicle icons"
+
+msgid "players_panel/state/short/header"
+msgstr "Short Panel"
+
+msgid "players_panel/state/short/note"
+msgstr "(Press Ctrl + Tab to switch between the modes)"
+
+msgid "players_panel/unknown_clan"
+msgstr "?empty?"
+
+msgid "players_panel/unknown_frags"
+msgstr "--"
+
+msgid "players_panel/unknown_name"
+msgstr "Enemy"
+
+msgid "players_panel/unknown_vehicle"
+msgstr "..."
+
+msgid "players_panel/unknown_vehicleState"
+msgstr "------"
+
+msgid "postmortem/tips/exitHangar/label"
+msgstr "Back to Garage"
+
+msgid "postmortem/tips/exitHangar/text"
+msgstr ""
+"Esc > Back to Garage.\n"
+"Enter the battle on another vehicle."
+
+msgid "postmortem/tips/observerMode/label"
+msgstr "Spectator's Mode"
+
+msgid "postmortem/tips/observerMode/text"
+msgstr "Switch between allied vehicles."
+
+msgid "shells_kinds/ARMOR_PIERCING"
+msgstr ""
+"%(caliber)s mm Armor-Piercing %(userString)s\n"
+"Damage %(damage)s\n"
+"Penetration %(piercingPower)s"
+
+msgid "shells_kinds/ARMOR_PIERCING_CR"
+msgstr ""
+"%(caliber)s mm Armor-Piercing Composite Rigid %(userString)s\n"
+"Damage %(damage)s\n"
+"Penetration %(piercingPower)s"
+
+msgid "shells_kinds/ARMOR_PIERCING_HE"
+msgstr ""
+"%(caliber)s mm Armor-Piercing High-Explosive %(userString)s\n"
+"Damage %(damage)s\n"
+"Penetration %(piercingPower)s"
+
+msgid "shells_kinds/HIGH_EXPLOSIVE"
+msgstr ""
+"%(caliber)s mm High-Explosive %(userString)s\n"
+"Damage %(damage)s\n"
+"Penetration %(piercingPower)s"
+
+msgid "shells_kinds/HOLLOW_CHARGE"
+msgstr ""
+"%(caliber)s mm High-Explosive Anti-Tank %(userString)s\n"
+"Damage %(damage)s\n"
+"Penetration %(piercingPower)s"
+
+msgid "statistics/exit"
+msgstr "Press Esc to return to Garage..."
+
+msgid "statistics/final/heroes"
+msgstr "?empty?"
+
+msgid "statistics/final/lifeInfo/alive"
+msgstr "?empty?"
+
+msgid "statistics/final/lifeInfo/dead"
+msgstr "Destroyed by: %s"
+
+msgid "statistics/final/personal/capturePoints"
+msgstr "Base captured: %d%%"
+
+msgid "statistics/final/personal/damaged"
+msgstr "Damaged:"
+
+msgid "statistics/final/personal/droppedCapturePoints"
+msgstr "Base defense: %d%%"
+
+msgid "statistics/final/personal/hits"
+msgstr "Hit the target: %d"
+
+msgid "statistics/final/personal/killed"
+msgstr "Destroyed:"
+
+msgid "statistics/final/personal/postmortem"
+msgstr "(posthumously)"
+
+msgid "statistics/final/personal/shots"
+msgstr "Shots: %d"
+
+msgid "statistics/final/personal/shotsReceived"
+msgstr "Hits received: %d"
+
+msgid "statistics/final/personal/spotted"
+msgstr "Spotted:"
+
+msgid "statistics/final/reasons/reason0"
+msgstr "?empty?"
+
+msgid "statistics/final/reasons/reason1lose"
+msgstr "All ally vehicles destroyed."
+
+msgid "statistics/final/reasons/reason1tie"
+msgstr "All vehicles destroyed!"
+
+msgid "statistics/final/reasons/reason1win"
+msgstr "All enemy vehicles destroyed."
+
+msgid "statistics/final/reasons/reason2"
+msgstr "Base captured!"
+
+msgid "statistics/final/reasons/reason3"
+msgstr "Battle time expired!"
+
+msgid "statistics/final/stats/credits"
+msgstr "Credits:"
+
+msgid "statistics/final/stats/experience"
+msgstr "Experience:"
+
+msgid "statistics/final/stats/multipliedExp"
+msgstr "Experience (x%d):"
+
+msgid "statistics/final/stats/repair"
+msgstr "Repairs:"
+
+msgid "statistics/final/status/lose"
+msgstr "Defeat! %s"
+
+msgid "statistics/final/status/tie"
+msgstr "Draw! %s"
+
+msgid "statistics/final/status/win"
+msgstr "Victory! %s"
+
+msgid "statistics/header"
+msgstr "Battle Statistics"
+
+msgid "statistics/headers/header0"
+msgstr "#"
+
+msgid "statistics/headers/header1"
+msgstr "Player"
+
+msgid "statistics/headers/header2"
+msgstr "Vehicle"
+
+msgid "statistics/headers/header3"
+msgstr "Condition"
+
+msgid "statistics/headers/header4"
+msgstr "Destroyed"
+
+msgid "statistics/playerState/0"
+msgstr "Destroyed"
+
+msgid "statistics/playerState/1"
+msgstr "Out of battle"
+
+msgid "statistics/playerState/2"
+msgstr "Destroyed"
+
+msgid "statistics/playerState/3"
+msgstr "In battle"
+
+msgid "statistics/playerState/4"
+msgstr "----"
+
+msgid "statistics/tabs/group"
+msgstr "Team Achievements"
+
+msgid "statistics/tabs/heroes"
+msgstr "Battle Heroes"
+
+msgid "statistics/tabs/personal"
+msgstr "Personal Achievements"
+
+msgid "statistics/team1title"
+msgstr "Our Team"
+
+msgid "statistics/team2title"
+msgstr "Enemy Team"
+
+msgid "tankmen/commander"
+msgstr "Commander"
+
+msgid "tankmen/driver"
+msgstr "Driver"
+
+msgid "tankmen/gunner"
+msgstr "Gunner"
+
+msgid "tankmen/loader"
+msgstr "Loader"
+
+msgid "tankmen/radioman"
+msgstr "Radio Operator"
+
+msgid "timer/battlePeriod"
+msgstr "Battle ends in"
+
+msgid "timer/started"
+msgstr "Battle starts!"
+
+msgid "timer/starting"
+msgstr "Battle starts in"
+
+msgid "timer/waiting"
+msgstr "Awaiting players..."
+
+msgid "vehicle_messages/DEATH_FROM_DEATH_ZONE_ALLY_SELF"
+msgstr "Vehicle was destroyed by ally %(entity)s in a death zone."
+
+msgid "vehicle_messages/DEATH_FROM_DEATH_ZONE_ENEMY_SELF"
+msgstr "Vehicle was destroyed by %(entity)s in a death zone."
+
+msgid "vehicle_messages/DEATH_FROM_DEATH_ZONE_SELF_SUICIDE"
+msgstr "Vehicle was destroyed by a death zone."
+
+msgid "vehicle_messages/DEATH_FROM_DROWNING_ALLY_SELF"
+msgstr "Vehicle was drowned by ally %(entity)s."
+
+msgid "vehicle_messages/DEATH_FROM_DROWNING_ENEMY_SELF"
+msgstr "Vehicle was drowned by %(entity)s."
+
+msgid "vehicle_messages/DEATH_FROM_DROWNING_SELF_SUICIDE"
+msgstr "Vehicle drowned."
+
+msgid "vehicle_messages/DEATH_FROM_FIRE"
+msgstr "Vehicle was destroyed by fire."
+
+msgid "vehicle_messages/DEATH_FROM_INACTIVE_CREW_AT_WORLD_COLLISION_ALLY_SELF"
+msgstr "Crew was destroyed due to ally %(entity)s impact."
+
+msgid "vehicle_messages/DEATH_FROM_INACTIVE_CREW_AT_WORLD_COLLISION_ENEMY_SELF"
+msgstr "Crew was destroyed due to %(entity)s impact."
+
+msgid ""
+"vehicle_messages/DEATH_FROM_INACTIVE_CREW_AT_WORLD_COLLISION_SELF_SUICIDE"
+msgstr "Crew was destroyed due to impact."
+
+msgid "vehicle_messages/DEATH_FROM_RAMMING_ALLY_SELF"
+msgstr "Ally %(entity)s destroyed vehicle by ramming."
+
+msgid "vehicle_messages/DEATH_FROM_RAMMING_ENEMY_SELF"
+msgstr "%(entity)s destroyed vehicle by ramming."
+
+msgid "vehicle_messages/DEATH_FROM_RAMMING_SELF_SUICIDE"
+msgstr "Vehicle was destroyed by ramming."
+
+msgid "vehicle_messages/DEATH_FROM_SHOT"
+msgstr "Vehicle was destroyed by a shot from %(entity)s."
+
+msgid "vehicle_messages/DEATH_FROM_WORLD_COLLISION_ALLY_SELF"
+msgstr "Vehicle was crashed by ally %(entity)s."
+
+msgid "vehicle_messages/DEATH_FROM_WORLD_COLLISION_ENEMY_SELF"
+msgstr "Vehicle was crashed by enemy %(entity)s."
+
+msgid "vehicle_messages/DEATH_FROM_WORLD_COLLISION_SELF_SUICIDE"
+msgstr "Vehicle crashed."
+
+msgid "vehicle_messages/DEVICE_CRITICAL_AT_RAMMING_ALLY_ALLY"
+msgstr "Ally %(entity)s damaged device [%(device)s] by ramming."
+
+msgid "vehicle_messages/DEVICE_CRITICAL_AT_RAMMING_ALLY_SELF"
+msgstr "Ally %(entity)s damaged device [%(device)s] by ramming."
+
+msgid "vehicle_messages/DEVICE_CRITICAL_AT_RAMMING_ALLY_SUICIDE"
+msgstr "Device [%(device)s] damaged by ramming."
+
+msgid "vehicle_messages/DEVICE_CRITICAL_AT_RAMMING_ENEMY_ALLY"
+msgstr "Enemy %(entity)s damaged device [%(device)s] by ramming."
+
+msgid "vehicle_messages/DEVICE_CRITICAL_AT_RAMMING_ENEMY_SELF"
+msgstr "Enemy %(entity)s damaged device [%(device)s] by ramming."
+
+msgid "vehicle_messages/DEVICE_CRITICAL_AT_RAMMING_SELF_SUICIDE"
+msgstr "Device [%(device)s] damaged by ramming."
+
+msgid "vehicle_messages/DEVICE_CRITICAL_AT_WORLD_COLLISION_ALLY_ALLY"
+msgstr "Ally %(entity)s impact damaged device [%(device)s]."
+
+msgid "vehicle_messages/DEVICE_CRITICAL_AT_WORLD_COLLISION_ALLY_SELF"
+msgstr "Ally %(entity)s impact damaged device [%(device)s]."
+
+msgid "vehicle_messages/DEVICE_CRITICAL_AT_WORLD_COLLISION_ALLY_SUICIDE"
+msgstr "Device [%(device)s] is damaged by impact."
+
+msgid "vehicle_messages/DEVICE_CRITICAL_AT_WORLD_COLLISION_ENEMY_ALLY"
+msgstr "Enemy %(entity)s impact damaged device [%(device)s]."
+
+msgid "vehicle_messages/DEVICE_CRITICAL_AT_WORLD_COLLISION_ENEMY_SELF"
+msgstr "Enemy %(entity)s impact damaged device [%(device)s]."
+
+msgid "vehicle_messages/DEVICE_CRITICAL_AT_WORLD_COLLISION_SELF_SUICIDE"
+msgstr "Device [%(device)s] is damaged by impact."
+
+msgid "vehicle_messages/DEVICE_DESTROYED_AT_RAMMING_ALLY_ALLY"
+msgstr "Ally %(entity)s destroyed device [%(device)s] by ramming."
+
+msgid "vehicle_messages/DEVICE_DESTROYED_AT_RAMMING_ALLY_SELF"
+msgstr "Ally %(entity)s destroyed device [%(device)s] by ramming."
+
+msgid "vehicle_messages/DEVICE_DESTROYED_AT_RAMMING_ALLY_SUICIDE"
+msgstr "Device [%(device)s] was destroyed by ramming."
+
+msgid "vehicle_messages/DEVICE_DESTROYED_AT_RAMMING_ENEMY_ALLY"
+msgstr "Enemy %(entity)s destroyed device [%(device)s] by ramming."
+
+msgid "vehicle_messages/DEVICE_DESTROYED_AT_RAMMING_ENEMY_SELF"
+msgstr "Enemy %(entity)s destroyed device [%(device)s] by ramming."
+
+msgid "vehicle_messages/DEVICE_DESTROYED_AT_RAMMING_SELF_SUICIDE"
+msgstr "Device [%(device)s] was destroyed by ramming."
+
+msgid "vehicle_messages/DEVICE_DESTROYED_AT_WORLD_COLLISION_ALLY_ALLY"
+msgstr "Ally %(entity)s impact destroyed device [%(device)s]."
+
+msgid "vehicle_messages/DEVICE_DESTROYED_AT_WORLD_COLLISION_ALLY_SELF"
+msgstr "Ally %(entity)s impact destroyed device [%(device)s]."
+
+msgid "vehicle_messages/DEVICE_DESTROYED_AT_WORLD_COLLISION_ALLY_SUICIDE"
+msgstr "Device [%(device)s] was destroyed by impact."
+
+msgid "vehicle_messages/DEVICE_DESTROYED_AT_WORLD_COLLISION_ENEMY_ALLY"
+msgstr "Enemy %(entity)s impact destroyed device [%(device)s]."
+
+msgid "vehicle_messages/DEVICE_DESTROYED_AT_WORLD_COLLISION_ENEMY_SELF"
+msgstr "Enemy %(entity)s impact destroyed device [%(device)s]."
+
+msgid "vehicle_messages/DEVICE_DESTROYED_AT_WORLD_COLLISION_SELF_SUICIDE"
+msgstr "Device [%(device)s] was destroyed by impact."
+
+msgid "vehicle_messages/DEVICE_STARTED_FIRE_AT_RAMMING_ALLY_ALLY"
+msgstr "Device [%(device)s] caught fire due to ramming by ally %(entity)s."
+
+msgid "vehicle_messages/DEVICE_STARTED_FIRE_AT_RAMMING_ALLY_SELF"
+msgstr "Device [%(device)s] caught fire due to ramming by ally %(entity)s."
+
+msgid "vehicle_messages/DEVICE_STARTED_FIRE_AT_RAMMING_ALLY_SUICIDE"
+msgstr "Device [%(device)s] caught fire due to ramming."
+
+msgid "vehicle_messages/DEVICE_STARTED_FIRE_AT_RAMMING_ENEMY_ALLY"
+msgstr "Device [%(device)s] caught fire due to ramming by enemy %(entity)s."
+
+msgid "vehicle_messages/DEVICE_STARTED_FIRE_AT_RAMMING_ENEMY_SELF"
+msgstr "Device [%(device)s] caught fire due to ramming by enemy %(entity)s."
+
+msgid "vehicle_messages/DEVICE_STARTED_FIRE_AT_RAMMING_SELF_SUICIDE"
+msgstr "Device [%(device)s] caught fire due to ramming."
+
+msgid "vehicle_messages/TANKMAN_HIT_AT_WORLD_COLLISION_ALLY_ALLY"
+msgstr "[%(device)s] injured due to ally %(entity)s impact."
+
+msgid "vehicle_messages/TANKMAN_HIT_AT_WORLD_COLLISION_ALLY_SELF"
+msgstr "[%(device)s] injured due to ally %(entity)s impact."
+
+msgid "vehicle_messages/TANKMAN_HIT_AT_WORLD_COLLISION_ALLY_SUICIDE"
+msgstr "[%(device)s] injured due to impact."
+
+msgid "vehicle_messages/TANKMAN_HIT_AT_WORLD_COLLISION_ENEMY_ALLY"
+msgstr "[%(device)s] injured due to enemy %(entity)s impact."
+
+msgid "vehicle_messages/TANKMAN_HIT_AT_WORLD_COLLISION_ENEMY_SELF"
+msgstr "[%(device)s] injured due to enemy %(entity)s impact."
+
+msgid "vehicle_messages/TANKMAN_HIT_AT_WORLD_COLLISION_SELF_SUICIDE"
+msgstr "[%(device)s] injured due to impact."

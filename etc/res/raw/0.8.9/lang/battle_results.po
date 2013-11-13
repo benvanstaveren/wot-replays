@@ -1,0 +1,387 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: World Of Tanks\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-07-30 12:00+0300\n"
+"PO-Revision-Date: 2010-07-30 12:00+0300\n"
+"Last-Translator: WoT Translator <noreply@wargaming.net>\n"
+"Language-Team: WoT Team <noreply@wargaming.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "common/battleEfficiency/allies"
+msgstr "Allies:"
+
+msgid "common/battleEfficiency/none"
+msgstr "No vehicles destroyed or spotted."
+
+msgid "common/battleEfficiency/title"
+msgstr "Battle Efficiency"
+
+msgid "common/details/buyPremiumBtn"
+msgstr "Purchase Premium"
+
+msgid "common/details/creditsTitle"
+msgstr "Credits"
+
+msgid "common/details/detailedReportBtn"
+msgstr "Detailed Report"
+
+msgid "common/details/noPremTitle"
+msgstr "Without Premium"
+
+msgid "common/details/premTitle"
+msgstr "With Premium"
+
+msgid "common/details/progress"
+msgstr "Progress in missions completion"
+
+msgid "common/details/xpTitle"
+msgstr "Experience"
+
+msgid "common/details/xpTitleFirstVictory"
+msgstr " (x%d for first victory each day)"
+
+msgid "common/quests/noprogress"
+msgstr "There were no events in missions"
+
+msgid "common/tooltip/assist/description"
+msgstr "Damage due to your assistance"
+
+msgid "common/tooltip/assist/header"
+msgstr "Assistance in destroying"
+
+msgid "common/tooltip/assist/part1"
+msgstr "Damage upon your spotting (HP)"
+
+msgid "common/tooltip/assist/part2"
+msgstr "Damage upon your shooting the track (HP)"
+
+msgid "common/tooltip/assist/total"
+msgstr "Total damage caused by allies to enemy vehicle (HP):"
+
+msgid "common/tooltip/crits/critDamage"
+msgstr "Knocked out:"
+
+msgid "common/tooltip/crits/critDestruction"
+msgstr "Destroyed:"
+
+msgid "common/tooltip/crits/critWound"
+msgstr "Injured:"
+
+msgid "common/tooltip/crits/description"
+msgstr ""
+"Enemy vehicle modules damaged and destroyed,\n"
+"enemy crew members injured"
+
+msgid "common/tooltip/crits/header"
+msgstr "Vehicle modules damaged and crew members injured"
+
+msgid "common/tooltip/crits/total"
+msgstr "Total:"
+
+msgid "common/tooltip/damage/description"
+msgstr "Damage caused by you to enemy vehicle"
+
+msgid "common/tooltip/damage/header"
+msgstr "Damage"
+
+msgid "common/tooltip/damage/part1"
+msgstr "Total damage (HP)"
+
+msgid "common/tooltip/damage/part2"
+msgstr "Total number of penetrations"
+
+msgid "common/tooltip/kill-1/description"
+msgstr "Enemy vehicle destroyed"
+
+msgid "common/tooltip/kill/header"
+msgstr "Enemy destroyed"
+
+msgid "common/tooltip/kill0/description"
+msgstr "Enemy vehicle destroyed by a shot"
+
+msgid "common/tooltip/kill1/description"
+msgstr "Enemy vehicle destroyed by fire"
+
+msgid "common/tooltip/kill2/description"
+msgstr "Enemy vehicle destroyed by ramming"
+
+msgid "common/tooltip/kill3/description"
+msgstr "Enemy vehicle crashed"
+
+msgid "common/tooltip/kill4/description"
+msgstr "Enemy vehicle destroyed by a death zone"
+
+msgid "common/tooltip/kill5/description"
+msgstr "Enemy vehicle was drowned"
+
+msgid "common/tooltip/spotted/description"
+msgstr ""
+"Reporting enemy positions \n"
+"to allies"
+
+msgid "common/tooltip/spotted/header"
+msgstr "Spotting"
+
+msgid "common/tooltip/teamKill-1/description"
+msgstr "Ally vehicle destroyed"
+
+msgid "common/tooltip/teamKill/header"
+msgstr "Team Kill"
+
+msgid "common/tooltip/teamKill0/description"
+msgstr "Ally vehicle destroyed by a shot"
+
+msgid "common/tooltip/teamKill1/description"
+msgstr "Ally vehicle destroyed by fire"
+
+msgid "common/tooltip/teamKill2/description"
+msgstr "Ally vehicle destroyed by ramming"
+
+msgid "common/tooltip/teamKill3/description"
+msgstr "Ally vehicle crashed"
+
+msgid "common/tooltip/teamKill4/description"
+msgstr "Ally vehicle destroyed by a death zone"
+
+msgid "common/tooltip/teamKill5/description"
+msgstr "Ally vehicle was drowned"
+
+msgid "common/vehicleState/alive"
+msgstr "Survived"
+
+msgid "common/vehicleState/dead0"
+msgstr "Destroyed by a shot"
+
+msgid "common/vehicleState/dead1"
+msgstr "Destroyed by fire"
+
+msgid "common/vehicleState/dead2"
+msgstr "Destroyed by ramming"
+
+msgid "common/vehicleState/dead3"
+msgstr "Crashed"
+
+msgid "common/vehicleState/dead4"
+msgstr "Destroyed by a death zone"
+
+msgid "common/vehicleState/dead5"
+msgstr "Vehicle drowned"
+
+msgid "common/xpMultiplierSign"
+msgstr "x"
+
+msgid "details/calculations/aogas"
+msgstr "Reduction coefficient (AOGAS)"
+
+msgid "details/calculations/autoEquip"
+msgstr "Auto-resupply consumables"
+
+msgid "details/calculations/autoLoad"
+msgstr "Auto-resupply ammunition"
+
+msgid "details/calculations/autoRepair"
+msgstr "Auto-repair vehicle"
+
+msgid "details/calculations/base"
+msgstr "Received"
+
+msgid "details/calculations/event"
+msgstr "Reward for mission completed"
+
+msgid "details/calculations/firstWin"
+msgstr "Award for the first victory each day"
+
+msgid "details/calculations/friendlyFireCompensation"
+msgstr "Compensation for damage caused by allies"
+
+msgid "details/calculations/friendlyFirePenalty"
+msgstr "Fine for causing damage to allies"
+
+msgid "details/calculations/igrBonus"
+msgstr "Award for playing at %(igrIcon)s"
+
+msgid "details/calculations/noPenalty"
+msgstr "(%(color_tag_open)sincluding courageous resistance%(color_tag_close)s)"
+
+msgid "details/calculations/total"
+msgstr "Total:"
+
+msgid "details/calculations/xpRecord"
+msgstr "Received (%(color_tag_open)s maximum %(color_tag_close)s)"
+
+msgid "details/credits"
+msgstr "Credits"
+
+msgid "details/prem"
+msgstr "With Premium"
+
+msgid "details/stats"
+msgstr "Statistics"
+
+msgid "details/time"
+msgstr "Time"
+
+msgid "details/time/lbl_arenaCreateTimeOnlyStr"
+msgstr "Starting time"
+
+msgid "details/time/lbl_duration"
+msgstr "Battle duration"
+
+msgid "details/time/lbl_playerKilled"
+msgstr "Time of destruction"
+
+msgid "details/time/value"
+msgstr "%d min %d s"
+
+msgid "details/xp"
+msgstr "Experience"
+
+msgid "finish/reason/0"
+msgstr "Reason unknown"
+
+msgid "finish/reason/1lose"
+msgstr "All allied vehicles destroyed"
+
+msgid "finish/reason/1tie"
+msgstr "All vehicles destroyed!"
+
+msgid "finish/reason/1win"
+msgstr "All enemy vehicles destroyed"
+
+msgid "finish/reason/2"
+msgstr "Base Captured"
+
+msgid "finish/reason/3"
+msgstr "Battle time expired"
+
+msgid "finish/reason/4"
+msgstr "Battle ended due to system failure"
+
+msgid "finish/reason/5"
+msgstr "Technical Defeat"
+
+msgid "noData"
+msgstr "Sorry, detailed battle results unavailable."
+
+msgid "tankSelector/next"
+msgstr "Next vehicle with"
+
+msgid "team/damageHeader/body"
+msgstr "Sort by damage caused to enemy vehicles."
+
+msgid "team/damageHeader/header"
+msgstr "Damage caused to enemy vehicles"
+
+msgid "team/fragHeader/body"
+msgstr "Sort by number of enemy vehicles destroyed."
+
+msgid "team/fragHeader/header"
+msgstr "Enemy Vehicles Destroyed"
+
+msgid "team/healthHeader/body"
+msgstr "Sort by HP remained."
+
+msgid "team/healthHeader/header"
+msgstr "Hit Points"
+
+msgid "team/medalHeader/body"
+msgstr "Sort by number of awards received."
+
+msgid "team/medalHeader/header"
+msgstr "Awards"
+
+msgid "team/playerHeader/body"
+msgstr "Sort by player's name."
+
+msgid "team/playerHeader/header"
+msgstr "Player Name"
+
+msgid "team/squadHeader/body"
+msgstr "Sort by Platoon."
+
+msgid "team/squadHeader/header"
+msgstr "Platoon"
+
+msgid "team/stats/close"
+msgstr "Close"
+
+msgid "team/stats/enemyTeam"
+msgstr "Enemy Team"
+
+msgid "team/stats/labels_capturePoints"
+msgstr "Base capture points"
+
+msgid "team/stats/labels_damageAssisted"
+msgstr "Damage due to your assistance"
+
+msgid "team/stats/labels_damageAssistedSelf"
+msgstr "Damage due to your assistance"
+
+msgid "team/stats/labels_damageDealt"
+msgstr "Damage"
+
+msgid "team/stats/labels_damaged"
+msgstr "Enemies damaged"
+
+msgid "team/stats/labels_droppedCapturePoints"
+msgstr "Base defense points"
+
+msgid "team/stats/labels_heHitsReceived"
+msgstr "\tsplash damage"
+
+msgid "team/stats/labels_he_hits"
+msgstr "\tsplash damage"
+
+msgid "team/stats/labels_hits"
+msgstr "\tdirect hits"
+
+msgid "team/stats/labels_kills"
+msgstr "Enemies destroyed"
+
+msgid "team/stats/labels_mileage"
+msgstr "Traveled"
+
+msgid "team/stats/labels_noDamageShotsReceived"
+msgstr "\tnon-penetration"
+
+msgid "team/stats/labels_pierced"
+msgstr "\tpenetrations"
+
+msgid "team/stats/labels_piercedReceived"
+msgstr "\tpenetrations"
+
+msgid "team/stats/labels_potentialDamageReceived"
+msgstr "Potential damage received"
+
+msgid "team/stats/labels_shots"
+msgstr "Shots fired"
+
+msgid "team/stats/labels_shotsReceived"
+msgstr "Hits received"
+
+msgid "team/stats/labels_spotted"
+msgstr "Enemies spotted"
+
+msgid "team/stats/labels_teamHitsDamage"
+msgstr "Damage caused to allies (destroyed/HP)"
+
+msgid "team/stats/mileage"
+msgstr " km"
+
+msgid "team/stats/ownTeam"
+msgstr "Our Team"
+
+msgid "team/tankHeader/body"
+msgstr "Sort by position in a team panel."
+
+msgid "team/tankHeader/header"
+msgstr "Vehicles"
+
+msgid "team/xpHeader/body"
+msgstr "Sort by XP received."
+
+msgid "team/xpHeader/header"
+msgstr "Experience"

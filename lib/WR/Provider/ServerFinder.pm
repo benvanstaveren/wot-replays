@@ -1,4 +1,4 @@
-package WR::ServerFinder;
+package WR::Provider::ServerFinder;
 use Mojo::Base '-base';
 
 use constant SERVERS => {

@@ -4,6 +4,7 @@ use WR::Process;
 use Mango::BSON;
 use File::Path qw/make_path/;
 use Try::Tiny qw/try catch/;
+use Data::Dumper;
 
 sub r_error {
     my $self = shift;
@@ -103,7 +104,6 @@ sub upload {
 
             my $hashbucket_size = length($filename);
             $hashbucket_size = 7 if($hashbucket_size > 7);
-
             my $replay_filename = $filename;
             my $replay_path = sprintf('%s/%s', $self->stash('config')->{paths}->{replays}, $self->hashbucket($filename, $hashbucket_size));
             my $replay_file = sprintf('%s/%s', $replay_path, $filename);
