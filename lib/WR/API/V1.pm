@@ -3,7 +3,7 @@ use Mojo::Base 'Mojolicious::Controller';
 use WR::Parser;
 use WR::Util::PyPickle;
 use WR::Process;
-use WR::ServerFinder;
+use WR::Provider::ServerFinder;
 use WR::Res::Achievements;
 use DateTime;
 use File::Path qw/make_path/;

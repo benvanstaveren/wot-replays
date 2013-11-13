@@ -1,18 +1,18 @@
 package WR::Process;
 use Mojo::Base '-base';
 use WR::Parser;
-use WR::Wotlabs::Cached;
+use WR::Provider::Wotlabs::Cached;
 use File::Path qw/make_path/;
 use Data::Dumper;
 use Mango::BSON;
 use Try::Tiny qw/try catch/;
 
 use WR::Res::Achievements;
-use WR::ServerFinder;
-use WR::Imager;
+use WR::Provider::ServerFinder;
+use WR::Provider::Imager;
 use WR::Constants qw/nation_id_to_name decode_arena_type_id/;
 use WR::Util::TypeComp qw/parse_int_compact_descr/;
-use WR::TypeCompResolver;
+use WR::Provider::TypeCompResolver;
 
 has 'file'          => undef;
 has 'mango'         => undef;
@@ -22,7 +22,7 @@ has 'banner'        => 1;
 has 'ua'	        => undef; 
 has '_error'        => undef;
 has '_parser'       => undef;
-has 'tcr'           => sub { my $self = shift; return WR::TypeCompResolver->new(coll => $self->model('wot-replays.data.vehicles')) };
+has 'tcr'           => sub { my $self = shift; return WR::Provider::TypeCompResolver->new(coll => $self->model('wot-replays.data.vehicles')) };
 
 sub model {
     my $self = shift;
@@ -114,7 +114,7 @@ sub _real_process {
                 my $image = shift;
                     
                 $replay->{site}->{banner} = $image;
-                $replay->{game}->{server} = WR::ServerFinder->new->get_server_by_id($replay->{roster}->[ $replay->{players}->{$replay->{game}->{recorder}->{name}} ]->{player}->{accountDBID} + 0);
+                $replay->{game}->{server} = WR::Provider::ServerFinder->new->get_server_by_id($replay->{roster}->[ $replay->{players}->{$replay->{game}->{recorder}->{name}} ]->{player}->{accountDBID} + 0);
                 $replay->{game}->{recorder}->{index} = $replay->{players}->{$replay->{game}->{recorder}->{name}};
 
 =pod
@@ -136,7 +136,7 @@ Do we really need involved? It's a quick index but maybe better off doing the se
 
 =cut
                 warn 'preparing wotlabs fetch', "\n";
-                my $wotlabs = WR::Wotlabs::Cached->new(ua => $self->ua, cache => $self->model('wot-replays.cache.wotlabs'));
+                my $wotlabs = WR::Provider::Wotlabs::Cached->new(ua => $self->ua, cache => $self->model('wot-replays.cache.wotlabs'));
                 warn 'wotlabs instantiated', "\n";
                 $wotlabs->fetch($replay->{game}->{server} => [ keys(%{$replay->{players}}) ], sub {
                     my $result = shift;
@@ -359,7 +359,7 @@ sub generate_banner {
         my $base_path = sprintf('%s/%s', $self->banner_path, $self->hashbucket($res->{_id} . ''));
         make_path($base_path) unless(-e $base_path);
 
-        my $i = WR::Imager->new();
+        my $i = WR::Provider::Imager->new();
         my $imagefile;
 
         my %imager_args = (

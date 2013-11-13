@@ -1,5 +1,5 @@
-package WR::Wotlabs::Cached;
-use Mojo::Base 'WR::Wotlabs';
+package WR::Provider::Wotlabs::Cached;
+use Mojo::Base 'WR::Provider::Wotlabs';
 
 has 'cache' => undef; # should be a Mango::Collection
 

@@ -1,4 +1,4 @@
-package WR::Wotlabs;
+package WR::Provider::Wotlabs;
 use Mojo::Base '-base';
 use Mango::BSON;
 use Try::Tiny qw/try catch/;

@@ -4,7 +4,7 @@ use warnings;
 use WR::Query;
 use WR::Res;
 use WR::Util::CritDetails;
-use WR::ServerFinder;
+use WR::Provider::ServerFinder;
 use WR::Constants qw/nation_id_to_name/;
 use WR::Util::TypeComp qw/parse_int_compact_descr/;
 use Data::Dumper;
@@ -43,7 +43,7 @@ sub add_helpers {
     my $class = shift;
     my $self  = shift; # not really self but the Mojo app
 
-    $self->attr(_sf => sub { WR::ServerFinder->new });
+    $self->attr(_sf => sub { WR::Provider::ServerFinder->new });
 
     $self->helper(resolve_server_by_playerid => sub {
         my $self = shift;

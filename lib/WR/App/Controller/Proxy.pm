@@ -1,6 +1,6 @@
 package WR::App::Controller::Proxy;
 use Mojo::Base 'WR::App::Controller';
-use WR::Wotlabs::Cached;
+use WR::Provider::Wotlabs::Cached;
 
 sub wotlabs {
     my $self    = shift;
