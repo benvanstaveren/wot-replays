@@ -1,42 +1,53 @@
 {
-    mode => 'prod',     # unused flag
     secrets => {
-        app     =>  'some phrase',          # used to encrypt cookies
-        openid  =>  'another phrase',       # used as an OpenID secret
+        app     =>  'secret for app cookie',
+        openid  =>  'secret for openid',
+    },
+    apistats => {
+        version => '1.8',                       # API version
+	    token   => 'WG-WoT_Assistant-1.3.2',    # API token
     },
     versions => {
-        app     => '1.5',                   # display only
+        app     => '2.0',                   # display only
         static  => '1.0',                   # display only
-        images  => '0.8.5',                 # display only
+        images  => '0.8.9',                 # display only
     },
     paths    => {
-        replays        => '/home/wotreplay/wot-replays/data/replays',   # where to store replay files
+        replays     => '/home/wotreplay/wot-replays/data/replays',      # where to store replay files
+        banners     => '/home/wotreplay/wot-replays/data/banners',      # banner storage
+        packets     => '/home/wotreplay/wot-replays/data/packets',      # json packet dump     
+        pages       => '/home/wotreplay/wot-replays/data/pages/replay', # complete pages written out
     },
     mongodb  => {
-        host => 'mongodb://your-mongo-host:27017',
-        database => 'wt-replays',
+        host     => 'mongodb://localhost:27017', # mongodb connect string
+        database => 'wot-replays',               # default database
+    },
+    features => { 
+        upload          => 1,                           # enable uploads
     },
     urls => {
-        app_c   =>  '.wotreplays.org',                      # the cookie domain for the app
-        app     =>  'http://www.wot-replays.org',           # base url to site
-        static  =>  'http://static.wot-replays.org',        # base url to static
-        assets  =>  'http://images.wot-replays.org',        # base url to images
-        packets =>  'http://images.wot-replays.org',        # base url to banners
-        banners =>  'http://images.wot-replays.org',        # base url to packet files
+        app_c   =>  '.wotreplays.org',                     # cookie domain
+        app     =>  'http://www.wotreplays.org',           # base url to site
+        static  =>  'http://static.wotreplays.org',        # base url to static
+        assets  =>  'http://images.wotreplays.org',        # base url to images
+        banners =>  'http://previews.wotreplays.org',      # base url to banners
+        packets =>  'http://packets.wotreplays.org',       # base url to packet files
+        replays =>  'http://dl.wotreplays.org',            # base url to repay downloads
     },
     wot => {
-        version => '0.8.8',                                 # the current WoT version
+        version => '0.8.9',                                 # the current WoT version
+        version_numeric => 890,                             # current numerical version    
+        min_version => 880,                                 # minimum version we'll accept for upload
         bf_key  => 'DE 72 BE A0 DE 04 BE B1 DE FE BE EF DE AD BE EF',   # the blowfish encryption key for replay files
-        min_version => 088,                                 # the minimum version we'll accept for upload
     },
     hypnotoad => {
         listen => [ 'http://127.0.0.1:8080' ],
-	    pid_file => '/home/wotreplay/wot-replays/script/wr.pid',
+   	    pid_file => '/home/wotreplay/wot-replays/script/wr.pid',
         proxy  => 1,
         accepts => 50,
         clients => 100,
-        inactivity_timeout => 30,
+        inactivity_timeout => 60,
         workers => 6,
-        heartbeat_timeout => 120,
+        heartbeat_timeout => 240,
     }
 }
