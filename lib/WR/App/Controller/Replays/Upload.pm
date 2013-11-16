@@ -102,16 +102,12 @@ sub upload {
             my $filename = $upload->filename;
             $filename =~ s/.*\\//g if($filename =~ /\\/);
 
-            my $filename_clean = $filename;
-            $filename_clean =~ s/\.wotreplay//g;
-
-            my $hashbucket_size = length($filename_clean);
-            $hashbucket_size = 7 if($hashbucket_size >= 7);
-
+            my $hashbucket_size = length($filename);
+            $hashbucket_size = 7 if($hashbucket_size > 7);
             my $replay_filename = $filename;
-            my $replay_path = sprintf('%s/%s', $self->stash('config')->{paths}->{replays}, $self->hashbucket($filename_clean, $hashbucket_size));
+            my $replay_path = sprintf('%s/%s', $self->stash('config')->{paths}->{replays}, $self->hashbucket($filename, $hashbucket_size));
             my $replay_file = sprintf('%s/%s', $replay_path, $filename);
-            my $replay_file_base = sprintf('%s/%s', $self->hashbucket($filename_clean, $hashbucket_size), $filename);
+            my $replay_file_base = sprintf('%s/%s', $self->hashbucket($filename, $hashbucket_size), $filename);
 
             make_path($replay_path);
 
@@ -126,7 +122,6 @@ sub upload {
                 my ($coll, $err, $doc) = (@_);
 
                 if(defined($doc) && !defined($err)) {
-                    $self->app->log->info('Existing replayfor digest: ', $digest, ' and doc dump: ', Dumper($doc));
                     $self->render(json => { ok => 0, error => 'It appears that replay has been uploaded already...' }) and return;
                 } else {
                     $self->model('wot-replays.jobs')->save({

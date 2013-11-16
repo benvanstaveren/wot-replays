@@ -1,0 +1,185 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+use FindBin;
+use lib "$FindBin::Bin/../lib";
+use Getopt::Long;
+use Mojo::IOLoop;
+use Mojo::Log;
+use Mango;
+use Mango::BSON;
+use WR;
+use WR::Process::Offline;
+
+my $config  = {};
+my $cfile   = undef;
+
+GetOptions(
+    'config=s'      => \$cfile,
+);
+
+die 'Usage: ', $0, ' --config <path to config file>', "\n" unless(defined($cfile));
+
+my $craw = '';
+if(my $fh = IO::File->new($cfile)) {
+    $craw .= $_ while(<$fh>);
+    $fh->close;
+
+    $config = eval($craw);
+
+    die 'Error parsing configuration: ', $@, "\n" if($@);
+} else {
+    die 'Could not open configuration file "', $cfile, '": ', $!, "\n";
+}
+
+my $log;
+if(my $lf = $config->{processd}->{logfile}) {
+    $lf = sprintf('%s/../%s', $FindBin::Bin, $config->{processd}->{logfile}) if($lf !~ /^\//);
+    $log = Mojo::Log->new(path => $lf, level => $config->{processd}->{loglevel} || 'warn');
+} else {
+    $log = Mojo::Log->new();
+    # level => $config->{processd}->{loglevel} || 'warn');
+}
+
+$log->info('processd starting, pid ' . $$);
+
+# create a pidfile
+my $pidfile = $config->{processd}->{pidfile};
+
+my $mango = Mango->new($config->{mongodb}->{host});
+my $db    = $mango->db($config->{mongodb}->{database});
+
+my $timersub;
+my $timer;
+
+sub job_error {
+    my $job = shift;
+    my $error = shift;
+    my $cb = shift;
+
+    $db->collection('jobs')->update({ _id => $job->{_id} }, {
+        '$set' => {
+            complete => Mango::BSON::bson_true,
+            status   => -1,
+            error    => $error,
+        }
+    } => sub {
+        $cb->();
+    });
+}
+
+sub job_status {
+    my $self = shift;
+    my $job  = shift;
+    my $status = shift;
+
+    $db->collection('jobs')->update({ _id => $job->{_id} }, {
+        '$push' => {
+            status   => $status,
+        }
+    } => sub {}); # force it to non-block
+}
+
+sub process_job {
+    my $job = shift;
+    my $cb  = shift;
+    my $o = WR::Process::Offline->new(
+        bf_key          => join('', map { chr(hex($_)) } (split(/\s/, $config->{wot}->{bf_key}))),
+        banner_path     => $config->{paths}->{banners},
+        mango           => $mango,
+        file            => $job->{file},
+        ua              => Mojo::UserAgent->new(ioloop => Mojo::IOLoop->singleton),
+        );
+
+    $o->on('state.prepare' => sub {
+        job_status($job, 'Preparing replay');
+    });
+    $o->on('state.finish' => sub {
+        job_status($job, 'Finished streaming packets');
+    });
+    $o->on('state.generatebanner' => sub {
+        job_status($job, 'Generating preview banner');
+    });
+    $o->on('state.wotlabsfetch' => sub {
+        job_status($job, 'Fetching WN7 for players');
+    });
+    $o->on('state.done' => sub {
+        job_status($job, 'Done procesing replay');
+    });
+    $o->on('state.streaming' => sub {
+        job_status($job, 'Streaming replay packets');
+    });
+
+    $o->process(sub {
+        my ($o, $err, $replay) = (@_);
+
+        if(defined($err)) {
+            job_error($job, $_, sub {
+                $cb->(0);
+            });
+        } else {
+            if(!defined($replay->{game}->{version_numeric}) || (defined($replay->{game}->{version_numeric}) && $replay->{game}->{version_numeric} < $config->{wot}->{min_version})) {
+                unlink($job->{file});
+                job_error($job, 'That replay is from an older version of World of Tanks which we cannot process', sub {
+                    $cb->(0);
+                });
+            } else {
+                $replay->{digest} = $job->{_id};
+                $replay->{site}->{visible} = Mango::BSON::bson_false if($job->{data}->{visible} < 1);
+                $replay->{site}->{description} = (defined($job->{data}->{desc}) && length($job->{data}->{desc}) > 0) ? $job->{data}->{desc} : undef;
+                $replay->{file} = $job->{data}->{file_base}; 
+
+                # don't bother with the packets, we'll send them out as an event stream later after we store them in the database(?)
+                $mango->db('wot-replays')->collection('replays')->save($replay => sub {
+                    my ($coll, $err, $oid) = (@_);
+                    if($err) {
+                        job_error($job, $err, sub {
+                            $cb->(0);
+                        });
+                    } else {
+                        $db->collection('jobs')->update({ _id => $job->{_id} }, {
+                            '$set' => {
+                                complete => Mango::BSON::bson_true,
+                                status   => 1,
+                            }
+                        } => sub {
+                            $cb->(1);
+                        });
+                    }
+                });
+            }
+        }
+    });
+}
+
+sub get_new_job {
+    my $cb = shift;
+
+    $db->collection('jobs')->find({
+        ready       => Mango::BSON::bson_true,
+        complete    => Mango::BSON::bson_false,
+    })->sort({ ctime => 1 })->next(sub {
+        my ($coll, $err, $doc) = (@_);
+        $cb->($doc);
+    });
+}
+
+$timersub = sub {
+    get_new_job(sub {
+        my $job = shift;
+
+        if($job) {
+            $log->debug('received job, dump follows: ', Dumper($job));
+            Mojo::IOLoop->singleton->remove($timer);
+            process_job($job => sub {
+                my $rv = shift;
+                Mojo::IOLoop->singleton->timer(($rv == 0) ? 30 : 1 => $timersub);
+            });
+        } else {
+            Mojo::IOLoop->singleton->remove($timer);
+            Mojo::IOLoop->singleton->timer(60 => $timersub);
+        }
+    });
+};
+$timer = Mojo::IOLoop->singleton->timer(1 => $timersub);
+Mojo::IOLoop->start unless(Mojo::IOLoop->is_running);
