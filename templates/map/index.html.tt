@@ -1,14 +1,13 @@
 [% WRAPPER wrapper.html.tt %]
     <h3>Maps</h3>
-    <div>
+    <div class="clearfix">
         [% FOREACH map IN map_list %]
             <a href="/map/[% map.slug |uri %]/">
-            <div title="[% map.label |html %]" style="width: 84px; float: left; height: 120px; margin: 0px 10px 10px 0px">
-                <img src="[% config.urls.assets %]/maps/84/[% map.icon %]" style="width: 84px; height: 84px"/>
-                <div style="font-size: 80%; font-family: monospace; text-align: center;">[% map.label |html %]</div>
-            </div>
+                <div title="[% map.label |html %]" style="width: 150px; display: inline-block; height: 150px; margin: 0px 10px 10px 0px">
+                    <img src="[% config.urls.assets %]/maps/150/[% map.icon %]" style="width: 150px; height: 150px"/>
+                    <div style="position: relative; top: -15px; font-size: 80%; font-family: monospace; text-align: center; background: rgba(0,0,0,0.75) none repeat scroll 0 0">[% map.label |html %]</div>
+                </div>
             </a>
         [% END %]
-        <div class="clear"></div>
     </div>
 [% END %]

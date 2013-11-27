@@ -1,62 +1,8 @@
 [% WRAPPER wrapper.html.tt %]
-    <div class="content nosidebar">
-        <h3>Vehicles</h3>
-        <div class="box ui-corner-all" style="padding: 5px; background: rgba(0,0,0,0.2) none repeat scroll 0 0; margin: 0px 0px 10px 0px">
-            <div class="tablist">
-                <div class="tablist-inner">
-                    <div class="container-tablist">
-                        <ul class="nav">
-                            <li class="nav-item tab active"><a href="#vehicle-china">China</a></li>
-                            <li class="nav-item tab"><a href="#vehicle-germany">Germany</a></li>
-                            <li class="nav-item tab"><a href="#vehicle-france">France</a></li>
-                            <li class="nav-item tab"><a href="#vehicle-japan">Japan</a></li>
-                            <li class="nav-item tab"><a href="#vehicle-uk">UK</a></li>
-                            <li class="nav-item tab"><a href="#vehicle-usa">USA</a></li>
-                            <li class="nav-item tab"><a href="#vehicle-ussr">USSR</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="tab-panel" id="vehicle-china">
-                [% country = 'china' %]
-                [% INCLUDE vehicle/list.html.tt vehicles=vehicles_all.$country country=country %]
-            </div>  
-            <div class="tab-panel" id="vehicle-germany" style="display: none">
-                [% country = 'germany' %]
-                [% INCLUDE vehicle/list.html.tt vehicles=vehicles_all.$country country=country %]
-            </div>
-            <div class="tab-panel" id="vehicle-france" style="display: none">
-                [% country = 'france' %]
-                [% INCLUDE vehicle/list.html.tt vehicles=vehicles_all.$country country=country %]
-            </div>
-            <div class="tab-panel" id="vehicle-japan" style="display: none">
-                [% country = 'japan' %]
-                [% INCLUDE vehicle/list.html.tt vehicles=vehicles_all.$country country=country %]
-            </div>
-            <div class="tab-panel" id="vehicle-uk" style="display: none">
-                [% country = 'uk' %]
-                [% INCLUDE vehicle/list.html.tt vehicles=vehicles_all.$country country=country %]
-            </div>
-            <div class="tab-panel" id="vehicle-usa" style="display: none">
-                [% country = 'usa' %]
-                [% INCLUDE vehicle/list.html.tt vehicles=vehicles_all.$country country=country %]
-            </div>
-            <div class="tab-panel" id="vehicle-ussr" style="display: none">
-                [% country = 'ussr' %]
-                [% INCLUDE vehicle/list.html.tt vehicles=vehicles_all.$country country=country %]
-            </div>
-        </div>
-    </div>
+    <h3>Vehicles</h3>
+    [% INCLUDE vehicle/list.html.tt %]
     <script type="text/javascript">
         $(document).ready(function() {
-            $('li.nav-item.tab a').click(function() {
-                $('li.nav-item.tab').removeClass('active');
-                $(this).parent().addClass('active');
-                var href = $(this).attr('href');
-                $('div.tab-panel').hide();
-                $(href).show();
-                return false;
-            });
             $('img.tooltip').tooltip({ track: true });
         });
     </script>

@@ -1,30 +1,44 @@
 package WR::Process::Offline;
 use Mojo::Base 'Mojo::EventEmitter';
-use WR::Parser;
-use WR::Wotlabs::Cached;
 use File::Path qw/make_path/;
 use Data::Dumper;
 use Mango::BSON;
 use Try::Tiny qw/try catch/;
 
+use WR::Parser;
 use WR::Res::Achievements;
-use WR::ServerFinder;
-use WR::Imager;
+use WR::Provider::ServerFinder;
+use WR::Provider::Imager;
 use WR::Constants qw/nation_id_to_name decode_arena_type_id/;
 use WR::Util::TypeComp qw/parse_int_compact_descr/;
-use WR::TypeCompResolver;
+use WR::Provider::TypeCompResolver;
+
 use Scalar::Util qw/blessed/;
 
 has 'file'          => undef;
 has 'mango'         => undef;
 has 'bf_key'        => undef;
 has 'banner_path'   => undef;
+has 'packet_path'   => undef;
 has 'banner'        => 1;
-has 'ua'	        => undef; 
 has '_error'        => undef;
 has '_parser'       => undef;
-has 'tcr'           => sub { my $self = shift; return WR::TypeCompResolver->new(coll => $self->model('wot-replays.data.vehicles')) };
+has 'tcr'           => sub { my $self = shift; return WR::Provider::TypeCompResolver->new(coll => $self->model('wot-replays.data.vehicles')) };
 has 'packets'       => sub { [] };
+has 'log'           => undef;
+
+sub _log {
+    my $self = shift;
+    my $level = shift;
+    my $msg  = join(' ', @_);
+
+    $self->log->$level($msg);
+}
+
+sub warning { shift->_log('warn', @_) }
+sub log_error { shift->_log('error', @_) }
+sub info { shift->_log('info', @_) }
+sub debug { shift->_log('debug', @_) }
 
 sub add_packet {
     my $self    = shift;
@@ -48,7 +62,7 @@ sub error {
 
     if(scalar(@_) > 0) {
         $self->_error($message);
-        die $message, "\n";
+        $self->log_error($message);
     } else {
         return $self->_error;
     }
@@ -60,8 +74,7 @@ sub process {
 
     try {
         $self->_real_process(sub {
-            my $replay = shift;
-            
+            my ($p, $replay) = (@_);
             if(defined($replay)) {
                 $cb->($self, undef, $replay);
             } else {
@@ -69,8 +82,10 @@ sub process {
             }
         });
     } catch {
-        $self->error($_);
-        $cb->($self, $_, undef);
+        my $e = $_;
+        $self->log_error($e);
+        $self->debug('caught error during processing, error: ', $e, ' calling cb->(self, error, undef)');
+        $cb->($self, $e, undef);
     };
 }
 
@@ -85,17 +100,21 @@ sub _real_process {
     
     $self->emit('state.prepare');
 
+    $self->debug('instantiating parser');
+
     $self->_parser(try {
         return WR::Parser->new(%args);
     } catch {
-        $self->error('unable to parse replay: ', $_) and $cb->(0, $_);
+        $self->error('unable to parse replay: ', $_) and $cb->($self, undef);
     });
+    $self->debug('parser instantiated');
 
     # do we need a battle result? well, yeah, I guess we do after all
-    $self->error('Replay has no battle result') unless($self->_parser->has_battle_result);
+    $self->error('Replay has no battle result') and $cb->($self, undef) unless($self->_parser->has_battle_result);
 
     my $battle_result = $self->_parser->get_battle_result;
 
+    $self->debug('setting up temporary result');
     # set up the temporary result 
     my $replay = {
         _id     => Mango::BSON::bson_oid,
@@ -115,8 +134,12 @@ sub _real_process {
     # do the game stream, we use a delay as a safeguard to synchronise certain things
     # to make sure everything goes as planned
     if(my $game = $self->_parser->game(Mojo::IOLoop->new)) {
+        $self->debug('setting up state.finish delay handler');
         my $delay = Mojo::IOLoop->delay(sub {
             $self->emit('state.finish');
+
+            $self->debug('emitted state.finish');
+
             $replay->{game}->{recorder}->{consumables} = [ map { $_ + 0 } (keys(%{$game->vcons_initial})) ];
             $replay->{game}->{recorder}->{ammo} = [];
 
@@ -129,17 +152,13 @@ sub _real_process {
             }
 
             $self->emit('state.generatebanner');
+            $self->debug('preparing banner');
             $self->generate_banner($replay => sub {
                 my $image = shift;
                     
                 $replay->{site}->{banner} = $image;
-                $replay->{game}->{server} = WR::ServerFinder->new->get_server_by_id($replay->{roster}->[ $replay->{players}->{$replay->{game}->{recorder}->{name}} ]->{player}->{accountDBID} + 0);
+                $replay->{game}->{server} = WR::Provider::ServerFinder->new->get_server_by_id($replay->{roster}->[ $replay->{players}->{$replay->{game}->{recorder}->{name}} ]->{player}->{accountDBID} + 0);
                 $replay->{game}->{recorder}->{index} = $replay->{players}->{$replay->{game}->{recorder}->{name}};
-
-=pod
-
-Do we really need involved? It's a quick index but maybe better off doing the separate index collection thing?
-
 
                 my $tc = {};
                 foreach my $entry (@{$replay->{roster}}) {
@@ -153,19 +172,75 @@ Do we really need involved? It's a quick index but maybe better off doing the se
                     vehicles    => [ map { $_->{vehicle}->{ident} } @{$replay->{roster}} ],
                 };
 
-=cut
-                my $wotlabs = WR::Wotlabs::Cached->new(ua => $self->ua, cache => $self->model('wot-replays.cache.wotlabs'));
-                $self->emit('state.wotlabsfetch');
-                $wotlabs->fetch($replay->{game}->{server} => [ keys(%{$replay->{players}}) ], sub {
-                    my $result = shift;
-                    foreach my $player (keys(%$result)) {
-                        my $i = $replay->{players}->{$player}; # hope this works
-                        $replay->{roster}->[$i]->{wn7} = $result->{$player};
-                        $replay->{wn7} = $result->{$player} if($player eq $replay->{game}->{recorder}->{name});
+                # we want to store the packets in the database because we'll be streaming them out to the 
+                # battle viewer as an event stream, so we can also do a funky progress bar for the loading
+                # and other such happy things
+                $self->debug('setting up packet store delay');
+                my $packet_store_delay = Mojo::IOLoop->delay(sub {
+                    # get the WN7 data from Statterbox, since it's on the same machine
+                    # we can cheat like hell ;) 
+                    
+                    $self->debug('setting up wn7 delay');
+                    my $wn7_delay = Mojo::IOLoop->delay(sub {
+                        $self->debug('emitting state.done, replay process finished');
+                        $self->emit('state.done');
+                        $cb->($self, $replay);
+                    });
+
+                    foreach my $player (keys(%{$replay->{players}})) {
+                        my $roster = $replay->{roster}->[ $replay->{players}->{$player} ];
+                        my $id     = $roster->{player}->{accountDBID};
+                        my $end    = $wn7_delay->begin(0);
+                        $self->model('statterbox.summary')->find_one({ _id => $id + 0 } => sub {
+                            my ($coll, $err, $summary) = (@_);
+
+                            my $roster = $replay->{roster}->[ $replay->{players}->{$player} ];
+                            if(defined($summary)) {
+                                $roster->{wn7} = { 
+                                    available => Mango::BSON::bson_true,
+                                    data => { overall => $summary->{wn7} }
+                                };
+                                $replay->{wn7} = $roster->{wn7} if($player eq $replay->{game}->{recorder}->{name});
+                                $end->();
+                            } else {
+                                $roster->{wn7} = { 
+                                    available => Mango::BSON::bson_false,
+                                    data =>{ overall => 0 }
+                                };
+                                $replay->{wn7} = $roster->{wn7} if($player eq $replay->{game}->{recorder}->{name});
+                                $self->model('statterbox.external')->save({
+                                    created => Mango::BSON::bson_time,
+                                    server  => $replay->{game}->{server},
+                                    player  => $player
+                                } => sub {
+                                    $end->();
+                                });
+                            }
+                        });
                     }
-                    $self->emit('state.done');
-                    $cb->($replay);
                 });
+           
+                $self->debug('storing packets for replay');
+
+                $self->emit('state.packet.save.start');
+
+                my $packet_end = $packet_store_delay->begin;
+
+                my $base_path = sprintf('%s/%s', $self->packet_path, $self->hashbucket($replay->{_id} . '', 7));
+                make_path($base_path) unless(-e $base_path);
+                my $packet_file = sprintf('%s/%s.json', $base_path, $replay->{_id} . '');
+                if(my $fh = IO::File->new(sprintf('>%s', $packet_file))) {
+                    my $json = JSON::XS->new();
+                    $fh->print($json->encode($self->packets));
+                    $fh->close;
+                    $self->debug('wrote packets to file');
+                    $self->emit('state.packet.save.done');
+                    $packet_end->();
+                } else {
+                    $self->debug('could not write packets to file');
+                    $self->emit('state.packet.save.done');
+                    $packet_end->();
+                }
             });
         });
 
@@ -179,6 +254,8 @@ Do we really need involved? It's a quick index but maybe better off doing the se
             setup_roster        => $delay->begin,
             finish              => $delay->begin,
         };
+
+        $self->debug('setting up event handlers');
 
         $game->on('game.version' => sub {
             my ($s, $v) = (@_);
@@ -280,6 +357,8 @@ Do we really need involved? It's a quick index but maybe better off doing the se
                     $t_resolve->{$tc . ''} = [ $key ];
                 }
             }
+
+            $self->debug('starting typecomp resolve for roster');
             $self->tcr->fetch([ map { $_ + 0 } (keys(%$t_resolve)) ] => sub {
                 my $result = shift;
 
@@ -320,8 +399,9 @@ Do we really need involved? It's a quick index but maybe better off doing the se
         $game->on(finish => sub {
             my ($game, $reason) = (@_);
             if($reason->{ok} == 0) {
-                die Dumper($reason), "\n";
+                $self->error(Dumper($reason)) and $cb->($self, undef);
             } else {
+                $self->debug('received finish');
                 $delay_cb->{finish}->();
             }
         });
@@ -332,7 +412,7 @@ Do we really need involved? It's a quick index but maybe better off doing the se
         # game->start will exit, so wait for the delay here
         $delay->wait unless(Mojo::IOLoop->is_running);
     } else {
-        $self->error('unable to stream replay');
+        $self->error('unable to stream replay') and $cb->($self, undef);
     }
 }
 
@@ -392,7 +472,7 @@ sub generate_banner {
         my $base_path = sprintf('%s/%s', $self->banner_path, $self->hashbucket($res->{_id} . ''));
         make_path($base_path) unless(-e $base_path);
 
-        my $i = WR::Imager->new();
+        my $i = WR::Provider::Imager->new();
         my $imagefile;
 
         my %imager_args = (

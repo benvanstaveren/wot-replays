@@ -1,40 +1,32 @@
 [% WRAPPER wrapper.html.tt %]    
-    <div><div class="content nosidebar aboutText">
-        <h3>About The Site</h3>
-        <div>
-            wotreplays.org is a World of Tanks replay hosting site. Besides hosting your replay files, we also extract information from them and use this information to allow you to browse replays in various ways. Besides this, we also data-mine the available replays to generate statistics and player ratings. After shutting down in September, it got itself revived as a way to combat Scrambled's boredom.
-        </div>
-        <div>
-            I used to have a small plea for donations here given that running this thing turned expensive quick; however, a single $5 donation in 6 months of running the site has shown me that the WoT community at large either doesn't care, or takes things for granted. As such, if you want to donate, feel free to use the button below, but keep in mind that I no longer run this site "for the community", but purely for my own enjoyment. As such, if you want a certain feature implemented, a donation will go a long way towards getting it done, otherwise it'll go on my "whenever I feel like it" list. 
-        </div>
-        <div>
+    <h3>About The Site</h3>
+    <div class="well well-lg">
+        <p class="lead">
+            wotreplays.org is a World of Tanks replay hosting site. 
+        </p>
+        <p>
+            Besides hosting your replay files, we also extract information from them and use this information to allow you to browse replays in various ways. Besides this, we also data-mine the available replays to generate statistics and player ratings. After shutting down in September, it got itself revived as a way to combat Scrambled's boredom.
+        </p>
+        <p>
+            I used to have a small plea for donations here given that running this thing turned expensive quick; however, a single $5 donation in 6 months of running the site has shown me that the WoT community at large either doesn't care, or takes things for granted.
+        </p>
+        <p>
+            As such, if you want to donate, feel free to use the button below, but keep in mind that I no longer run this site "for the community", but purely for my own enjoyment.
+        </p>
+        <p>
+            However, if you want a certain feature implemented, a donation will go a long way towards getting it done, otherwise it'll go on my "whenever I feel like it" list. 
+        </p>
+        <p class="text-center">
             [% INCLUDE donatebutton.html.tt %]
-        </div>
-        <h3>Frequently Asked Questions</h3>
-        <div>
-            <strong>Q: Why are some tank names in a weird format, and why do some icons not load?</strong>
-            <div>
-                A: Because a replay only contains the information in a "short" format (e.g. the Tiger II is actually referred to as 'germany:PzVIB_Tiger_II'), we have a mapping table that takes the ID and turns it into a name, however, some are missing. Similarly for the icons, they're not always named right since I had to download them by hand from the WoT Wiki, and they named them differently. If you spot one, let me know on the WoT forums and I'll fix it.
-            </div>
-        </div>
-        <div>
-            <strong>Q: What is a complete replay?</strong>
-            <div>
-                A: One where you've seen the match result screen. If you exit a match before it is finished, the match results are never attached to the replay (which, in my opinion, is pretty damn dumb), so there's a lot of data missing that is used to generate the pretty display. Incomplete replays can only be downloaded and do not get the pretty stats page.
-            </div>
-        </div>
-        <div>
-            <strong>Q: What are related replays?</strong>
-            <div>
-                A: A related replay is a replay of the same match, but uploaded by a different player. 
-            </div>
-        </div>
-        <h3>Copyright Notices</h3>
-        <div>
-            This site is copyright 2012, 2013 by yours truly, <a href="http://worldoftanks.eu/community/accounts/500120062-Scrambled/">Scrambled</a>.
-        </div>
-        <div>
+        </p>
+    </div>
+    <h3>Copyright Notices</h3>
+    <div class="well well-lg">
+        <p>
+            This site is copyright 2012, 2013 by yours truly, <a href="http://worldoftanks.asia/community/accounts/2000036302-Scrambled/">Scrambled</a>.
+        </p>
+        <p>
             All game related images, logo's, names, descriptions are copyright by Wargaming, and used here to entertain and possibly educate.
-        </div>
-    </div></div>
+        </p>
+    </div>
 [% END %]

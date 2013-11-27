@@ -24,15 +24,6 @@ sub credits {
     shift->respond(template => 'credits', stash => { page => { title => 'Credits' } });
 }
 
-sub hint {
-    my $self = shift;
-    my $id   = $self->stash('hintid');
-    my $v    = $self->req->param('set');
-
-    $self->session($id => $v);
-    $self->render(json => { ok => 1 });
-}
-
 sub index {
     my $self    = shift;
     my $start   = [ gettimeofday ];
@@ -43,29 +34,23 @@ sub index {
     $self->render_later;
 
     # get a total count first
-    my $count_cursor = $self->model('wot-replays.replays')->find();
+    my $count_cursor = $self->model('wot-replays.replays')->find({ 'site.visible' => Mango::BSON::bson_true });
     $count_cursor->count(sub {
         my ($c, $e, $count) = (@_);
 
-        my $replay_count = $count;
-        my $q = {
-            'site.visible' => Mango::BSON::bson_true
-        };
-        $q->{'game.server'} = $self->stash('req_host') if($self->stash('req_host') ne 'www');
-
-        my $new_cursor = $self->model('wot-replays.replays')->find($q)->sort({ 'site.uploaded_at' => -1 })->limit(15);
-        $new_cursor->all(sub {
+        $c->sort({ 'site.uploaded_at' => -1 })->limit(15);
+        $c->all(sub {
             my ($c, $e, $replays) = (@_);
             if($self->req->is_xhr) {
                 $self->respond(template => 'index/ajax', stash => {
                     replays         => $replays,
-                    replay_count    => $replay_count,
+                    replay_count    => $count,
                     timing_query    => tv_interval($start),
                 });
             } else {
                 $self->respond(template => 'index', stash => {
                     replays         => $replays,
-                    replay_count    => $replay_count,
+                    replay_count    => $count,
                     page            => { title => 'Home' },
                     timing_query    => tv_interval($start),
                 });

@@ -1,5 +1,5 @@
 <div>
     <form action="/upload" method="get">
-    <button style="width: 99%" id="btn-upload" class="uploadButton">UPLOAD</button>
+    <button class="btn btn-primary" style="width: 99%" id="btn-upload">UPLOAD</button>
     </form>
 </div>

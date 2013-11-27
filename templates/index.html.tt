@@ -1,11 +1,7 @@
 [% WRAPPER wrapper.html.tt %]
-<div>
-    <div class="content">
-        [% INCLUDE index/frontlist.html.tt %]
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            [% INCLUDE index/frontlist.html.tt %]
+        </div>
     </div>
-    <div class="sidebar">
-        [% INCLUDE sidebar/home.html.tt %]
-    </div>
-    <div class="clear"></div>
-</div>
 [% END %]

@@ -1,40 +1,39 @@
-        <div id="frm-login-container" style="width: 600px; margin: 0px auto; padding: 25px" class="box" style="background: #e0e0e0 none repeat scroll 0 0">
-            <span class="label">Please select your server</span>
-            <div id="locationselect">
-                <table style="width: 100%" cellpadding="0" cellspacing="0">
-                <tbody><tr>
-                    <td style="width: 33%; padding: 2px">
-                        <button style="width: 100%" id="eu" class="uploadButton">Europe</button>
-                    </td>
-                    <td style="width: 33%; padding: 2px">
-                        <button style="width: 100%" id="sea" class="uploadButton">South-East Asia</button>
-                    </td>
-                    <td style="width: 33%; padding: 2px">
-                        <button style="width: 100%" id="na" class="uploadButton">North America</button>
-                    </td>
-                </tr><tr>
-                    <td style="width: 33%; padding: 2px">
-                        <button style="width: 100%" id="ru" class="uploadButton">Russia</button>
-                    </td>
-                    <td style="width: 33%; padding: 2px">
-                        <button style="width: 100%; opacity: 0.30" id="vn" class="uploadButton">Vietnam</button>
-                    </td>
-                    <td style="width: 33%; padding: 2px">
-                        <button style="width: 100%; opacity: 0.30" id="kr" class="uploadButton">Korea</button>
-                    </td>
-                </tr></tbody>
-                </table>
-            </div>
-            <script type="text/javascript">
-                $('#locationselect button').click(function() {
-                    var id = $(this).attr('id');
-                    if(id == "vn" || id == "kr") {
-                        WR.ui.notify({ type: 'error', text: 'Sorry, but the Wargaming.net OpenID service is not available here yet...', close: true, sticky: false });
-                    } else {
-                        WR.waitElement();
-                        document.location.href = '/login?s=' + id + '&f=[% from |uri %]';
-                    }
-                    return false;
-                });
-            </script>
-        </div>
+<p class="lead">Please select the server you play on; if it is not listed, you can't log in, sorry!</p>
+<div class="row locationselect">
+    <div class="col-lg-4 col-md-4">
+        <button id="eu" type="button" class="btn btn-primary btn-lg btn-block">Europe</button>
+    </div>
+    <div class="col-lg-4 col-md-4">
+        <button id="sea" type="button" class="btn btn-primary btn-lg btn-block">Asia</button>
+    </div>
+    <div class="col-lg-4 col-md-4">
+        <button id="na" type="button" class="btn btn-primary btn-lg btn-block">North America</button>
+    </div>
+</div>
+<div class="row locationselect" style="margin-top: 20px">
+    <div class="col-lg-4 col-md-4">
+        <button id="ru" type="button" class="btn btn-primary btn-lg btn-block">Russia</button>
+    </div>
+    <div class="col-lg-4 col-md-4">
+        <button id="vn" type="button" class="btn btn-default btn-lg btn-block">Vietnam</button>
+    </div>
+    <div class="col-lg-4 col-md-4">
+        <button id="kr" type="button" class="btn btn-default btn-lg btn-block">Korea</button>
+    </div>
+</div>
+<script type="text/javascript">
+    $('div.row.locationselect button').click(function() {
+        var id = $(this).attr('id');
+        if($(this).hasClass('btn-default')) {
+            $.bootstrapGrowl('Sorry, but the Wargaming.net OpenID service is not available here yet...', {
+                type: 'danger',
+                align: 'center',
+                width: 'auto',
+                allow_dismiss: true,
+            });
+        } else {
+            document.location.href = '/login?s=' + id + '&f=[% from |uri %]';
+        }
+        return false;
+    });
+</script>

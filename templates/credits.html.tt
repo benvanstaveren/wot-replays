@@ -1,24 +1,34 @@
-[% WRAPPER wrapper.html.tt %]    
-    <div><div class="content nosidebar aboutText">
-        <h3>Tools Used</h3>
-        <div>
+[% WRAPPER wrapper.html.tt %] 
+    <h3>Tools Used</h3>
+    <div class="well well-lg">
+        <p class="lead">
             wotreplays.org is made possible using the following bits and pieces:
+        </p>
+        <p>
             <ul>
-                <li><a href="http://www.perl.org/">Perl</a>, the swiss army chainsaw programming language of the internet</li>
-                <li><a href="http://mojolicio.us">Mojolicious</a>, a next generation web framework</li>
+                <li><a href="http://www.perl.org/">Perl</a>, the swiss army chainsaw programming language of the internet.</li>
+                <li><a href="http://mojolicio.us">Mojolicious</a>, a next generation web framework.</li>
                 <li><a href="http://www.jquery.com">jQuery</a>, because who doesn't?</li>
-                <li><a href="http://www.mongodb.org">MongoDB</a>, to store all your data and do the coolest map/reduce data-mining omgwtfawesomesauce things with</li>
+                <li><a href="http://getbootstrap.com">Bootstrap</a>, because hey, CSS!</li>
+                <li><a href="http://bootswatch.com">BootSwatch</a>, for themes and such things.</li>
+                <li><a href="http://www.mongodb.org">MongoDB</a>, to store all your data and do the coolest map/reduce data-mining omgwtfawesomesauce things with.</li>
             </ul>
-        </div>
-        <h3 style="margin-top: 10px">Thanks To</h3>
-        <div>
+        </p>
+    </div>
+    <h3>Thanks To</h3>
+    <div class="well well-lg">
+        <p>
             These are people that have helped out or contributed in a big way:
+        </p>
+        <p>
             <ul>
-                <li> <b>Phalynx</b> from <a href="http://www.vbaddict.net/">WoT Performance Analyzer</a>; for letting me use his collected data </li>
+                <li> <b>Phalynx</b> from <a href="http://www.vbaddict.net/">vbAddict WoT Performance Analyzer</a>; for letting me use his collected data and contributing a few ideas here and there.</li>
+                <li> <b>Evido</b> for writing the <a href="http://github.com/evido/wotreplay-parser">wotreplay-parser</a> that gave me the basics of decoding the packets from a replay file.</li>
+                <li> <a href="http://forum.wotlabs.net/">Wotlabs Forum</a> for being the place where issues and bugs get raised quickly, and suggestions come in at a great rate. It's also a great community!</li>
             </ul>
-        </div>
-        <div>
+        </p>
+        <p>
             And a big thank you to everyone who's suggested additions or changes to the site; it wouldn't be what it is without you.
-        </div>
-    </div></div>
+        </p>
+    </div>
 [% END %]

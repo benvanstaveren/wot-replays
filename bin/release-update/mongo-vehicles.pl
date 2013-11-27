@@ -8,6 +8,17 @@ use Data::Localize::Gettext;
 use MongoDB;
 use boolean;
 
+use constant NATION_NAMES => [(qw/ussr germany usa china france uk japan/)];
+use constant NATION_INDICES => {
+    ussr => 0,
+    germany => 1,
+    usa => 2,
+    china => 3,
+    france => 4,
+    uk => 5,
+    japan => 6
+};
+
 die 'Usage: mongo-vehicles.pl <version>', "\n" unless($ARGV[0]);
 my $version = $ARGV[0];
 
@@ -41,6 +52,7 @@ for my $country (qw/japan china france germany usa ussr uk/) {
 
     foreach my $vid (keys(%$x)) {
         print "\t", 'ID: ', $vid, "\n";
+
         my $data = {};
         my $v = $x->{$vid}->{'level'};
         $v =~ s/^\s+//g;
@@ -80,6 +92,13 @@ for my $country (qw/japan china france germany usa ussr uk/) {
         $data->{description} = $text->localize_for(lang => $cat, id => fixed_ident(sprintf('%s_descr', $vid)));
         $data->{type} = $type;
         $data->{wot_id} = $x->{$vid}->{id} + 0;
+
+        # generate a typecomp from it
+        my $header = 1 + (NATION_INDICES->{$country} << 4);
+        my $typecomp = ($data->{wot_id} << 8) + $header;
+
+        $data->{typecomp} = $typecomp;
+
         $coll->save($data);
     }
     print "\n";

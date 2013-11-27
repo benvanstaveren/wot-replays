@@ -1,12 +1,3 @@
-<div class="global-nav ui-corner-bottom">
-    <div class="global-nav-inner ui-corner-bottom">
-        <div class="container ui-corner-bottom">
-            <ul class="nav ui-corner-bottom js-global-actions" id="footer-actions">
-                <li class="nav-item ui-corner-bl">
-                    &copy; 2012, 2013 Scrambled | default/[% config.versions.app %]/[% config.wot.version %] | <a style="display: inline; text-decoration: underline; padding: 0px" href="/credits.html">additional credits</a> | t: <span id="timing_elapsed">[% timing_elapsed || '-' %]</span> 
-                </li>
-            </ul>
-        </div>
-    </body>
-</html>
-
+<div style="text-align: center">                    
+    &copy; 2012, 2013 Scrambled | default/[% config.versions.app %]/[% config.wot.version %] | <a style="display: inline; text-decoration: underline; padding: 0px" href="/credits.html">additional credits</a> | t: <span id="timing_elapsed">[% timing_elapsed || '-' %]</span> 
+</div>

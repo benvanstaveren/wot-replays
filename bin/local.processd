@@ -10,6 +10,7 @@ use Mango;
 use Mango::BSON;
 use WR;
 use WR::Process::Offline;
+use Data::Dumper;
 
 my $config  = {};
 my $cfile   = undef;
@@ -41,10 +42,16 @@ if(my $lf = $config->{processd}->{logfile}) {
     # level => $config->{processd}->{loglevel} || 'warn');
 }
 
-$log->info('processd starting, pid ' . $$);
-
 # create a pidfile
 my $pidfile = $config->{processd}->{pidfile};
+if(my $fh = IO::File->new(sprintf('>%s', $pidfile))) {
+    $fh->print($$);
+    $fh->close;
+} else {
+    die 'Could not create pidfile: ', $!, "\n";
+}
+
+$log->info('processd starting, pid ' . $$);
 
 my $mango = Mango->new($config->{mongodb}->{host});
 my $db    = $mango->db($config->{mongodb}->{database});
@@ -69,13 +76,12 @@ sub job_error {
 }
 
 sub job_status {
-    my $self = shift;
     my $job  = shift;
     my $status = shift;
 
     $db->collection('jobs')->update({ _id => $job->{_id} }, {
         '$push' => {
-            status   => $status,
+            status_text => $status,
         }
     } => sub {}); # force it to non-block
 }
@@ -86,9 +92,10 @@ sub process_job {
     my $o = WR::Process::Offline->new(
         bf_key          => join('', map { chr(hex($_)) } (split(/\s/, $config->{wot}->{bf_key}))),
         banner_path     => $config->{paths}->{banners},
+        packet_path     => $config->{paths}->{packets},
         mango           => $mango,
-        file            => $job->{file},
-        ua              => Mojo::UserAgent->new(ioloop => Mojo::IOLoop->singleton),
+        file            => $job->{data}->{file},
+        log             => $log,
         );
 
     $o->on('state.prepare' => sub {
@@ -109,15 +116,23 @@ sub process_job {
     $o->on('state.streaming' => sub {
         job_status($job, 'Streaming replay packets');
     });
+    $o->on('state.packet.save.start' => sub {
+        job_status($job, 'Storing replay packets to disk');
+    });
+    $o->on('state.packet.save.done' => sub {
+        job_status($job, 'Stored replay packets');
+    });
 
     $o->process(sub {
         my ($o, $err, $replay) = (@_);
 
         if(defined($err)) {
-            job_error($job, $_, sub {
+            $log->debug('process returned error: ', $err);
+            job_error($job, $err, sub {
                 $cb->(0);
             });
         } else {
+            $log->debug('no error, yay');
             if(!defined($replay->{game}->{version_numeric}) || (defined($replay->{game}->{version_numeric}) && $replay->{game}->{version_numeric} < $config->{wot}->{min_version})) {
                 unlink($job->{file});
                 job_error($job, 'That replay is from an older version of World of Tanks which we cannot process', sub {
@@ -141,6 +156,7 @@ sub process_job {
                             '$set' => {
                                 complete => Mango::BSON::bson_true,
                                 status   => 1,
+                                replayid => $replay->{_id},
                             }
                         } => sub {
                             $cb->(1);
@@ -173,11 +189,12 @@ $timersub = sub {
             Mojo::IOLoop->singleton->remove($timer);
             process_job($job => sub {
                 my $rv = shift;
-                Mojo::IOLoop->singleton->timer(($rv == 0) ? 30 : 1 => $timersub);
+                Mojo::IOLoop->singleton->timer(($rv == 0) ? 10 : 1 => $timersub);
             });
         } else {
+            $log->debug('no job, waiting 10 seconds');
             Mojo::IOLoop->singleton->remove($timer);
-            Mojo::IOLoop->singleton->timer(60 => $timersub);
+            Mojo::IOLoop->singleton->timer(10 => $timersub);
         }
     });
 };

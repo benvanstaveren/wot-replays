@@ -49,17 +49,12 @@ sub startup {
     $r->route('/')->to('ui#index', pageid => 'home');
 
     $r->route('/browse')->to('replays#browse', pageid => 'browse');
-    $r->route('/faq')->to('ui#faq', pageid => 'faq');
-    $r->route('/donate')->to('ui#donate', pageid => 'donate');
     $r->route('/about')->to('ui#about', pageid => 'about');
     $r->route('/credits')->to('ui#credits', pageid => 'credits');
     $r->route('/upload')->to('replays-upload#upload', pageid => 'upload');
-    $r->route('/process')->to('replays-upload#process_replay', pageid => 'upload');
+    $r->route('/process/:jobid')->to('replays-upload#process_replay', pageid => 'upload');
 
     $r->route('/replay/browse/:page')->to('replays#browse', page => 1);
-
-    my $proxy = $r->under('/proxy');
-        $proxy->route('/wotlabs/:server/:players')->to('proxy#wotlabs');
 
     my $rb = $r->under('/replay/:replay_id');
         $rb->route('/')->to('replays-view#view', pageid => undef)->name('viewreplay');
@@ -78,10 +73,11 @@ sub startup {
         $playerbridge->route('/involved')->to('player#involved', pageid => 'player');
         $playerbridge->route('/latest')->to('player#latest', pageid => 'player');
 
-    $r->route('/vehicles')->to('vehicle#index', pageid => 'vehicle');
-    my $vehicles = $r->under('/vehicle');
-        $vehicles->route('/:country')->to('vehicle#view', pageid => 'vehicle', countryonly => 1);
-        $vehicles->route('/:country/:vehicle')->to('vehicle#view', pageid => 'vehicle');
+    my $vehicles = $r->under('/vehicles');
+        $vehicles->route('/:country')->to('vehicle#index', pageid => 'vehicle');
+
+    my $vehicle = $r->under('/vehicle');
+        $vehicle->route('/:country/:vehicle')->to('vehicle#view', pageid => 'vehicle');
 
     $r->route('/maps')->to('map#index', pageid => 'map');
     my $map = $r->under('/map');

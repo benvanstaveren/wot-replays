@@ -8,45 +8,36 @@ sub index {
 
     $self->render_later;
 
-    # need to grab one for each country, yes?
-    my $delay = Mojo::IOLoop->delay(sub {
+    my $country = $self->stash('country');
+    my $cursor = $self->model('wot-replays.data.vehicles')->find({ country => $country })->sort({ level => 1 });
+    $cursor->all(sub {
+        my ($c, $e, $d) = (@_);
+
+        my $temp = [];
+        my $th   = {
+            'L' => [],
+            'M' => [],
+            'H' => [],
+            'S' => [],
+            'T' => [],
+        };
+        foreach my $obj (@$d) {
+            next if($obj->{name} =~ /training/i);
+            push(@{$th->{$obj->{type}}}, {
+                id => $obj->{_id},
+                sid => $obj->{name},
+            });
+        }
+        foreach (qw/L M H T S/) {
+            push(@$temp, @{$th->{$_}});
+        }
         $self->stash(
             page => { title => 'Vehicles' },
-            vehicles_all => $vehicles,
+            vehicles => $th,
             vehicletypes => [ 'L','M','H','T','S' ],
         );
         $self->respond(template => 'vehicle/index');
     });
-
-    foreach my $country (qw/china france germany japan uk usa ussr/) {
-        my $end = $delay->begin;
-        my $cursor = $self->model('wot-replays.data.vehicles')->find({ country => $country })->sort({ level => 1 });
-        $cursor->all(sub {
-            my ($c, $e, $d) = (@_);
-
-            my $temp = [];
-            my $th   = {
-                'L' => [],
-                'M' => [],
-                'H' => [],
-                'S' => [],
-                'T' => [],
-            };
-            foreach my $obj (@$d) {
-                next if($obj->{name} =~ /training/i);
-                push(@{$th->{$obj->{type}}}, {
-                    id => $obj->{_id},
-                    sid => $obj->{name},
-                });
-            }
-            foreach (qw/L M H T S/) {
-                push(@$temp, @{$th->{$_}});
-            }
-            $vehicles->{$country} = $th;
-            $end->();
-        });
-    }
-    $delay->wait unless(Mojo::IOLoop->is_running);
 }
 
 sub view {
