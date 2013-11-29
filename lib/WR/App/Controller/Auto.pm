@@ -35,8 +35,8 @@ sub index {
             $self->stash('current_player_name' => $pname);
             $self->stash('current_player_server' => uc($server));
             $self->stash('_current_user' => {
-                name   => $pname,
-                server => $server,
+                player_name   => $pname,
+                player_server => $server,
             });
 
             # needs to be updated 
