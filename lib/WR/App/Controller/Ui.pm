@@ -38,7 +38,6 @@ sub index {
         my ($c, $e, $replays) = (@_);
         $self->respond(template => 'index', stash => {
             replays         => $replays || [],
-            replay_count    => $count,
             page            => { title => 'Home' },
             timing_query    => tv_interval($start),
         });
