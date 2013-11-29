@@ -89,6 +89,7 @@ sub job_status {
 sub process_job {
     my $job = shift;
     my $cb  = shift;
+
     my $o = WR::Process::Offline->new(
         bf_key          => join('', map { chr(hex($_)) } (split(/\s/, $config->{wot}->{bf_key}))),
         banner_path     => $config->{paths}->{banners},
@@ -189,9 +190,18 @@ $timersub = sub {
         if($job) {
             $log->debug('received job, dump follows: ', Dumper($job));
             Mojo::IOLoop->singleton->remove($timer);
-            process_job($job => sub {
-                my $rv = shift;
-                Mojo::IOLoop->singleton->timer(($rv == 0) ? 10 : 1 => $timersub);
+            $db->collection('replays')->find({ digest => $job->{_id} })->count(sub {
+                my ($c, $e, $count) = (@_);
+                if($count > 0) {
+                    job_error($job, 'It seems that replay has already been uploaded and processed...', sub {
+                        Mojo::IOLoop->singleton->timer(10 => $timersub);
+                    });
+                } else {
+                    process_job($job => sub {
+                        my $rv = shift;
+                        Mojo::IOLoop->singleton->timer(($rv == 0) ? 10 : 1 => $timersub);
+                    });
+                }
             });
         } else {
             $log->debug('no job, waiting 10 seconds');
