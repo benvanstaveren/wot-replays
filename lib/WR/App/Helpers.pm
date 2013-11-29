@@ -529,6 +529,9 @@ sub add_helpers {
         # nation->text
         my $nation = nation_id_to_name($nid);
 
+        $id = -1 unless(defined($id));
+        $id = -1 if(length($id) == 0);
+
         if(my $obj = $self->model('wot-replays.data.components')->find_one({ country => $nation, component => $type, component_id => $id + 0 })) {
             return $obj->{label} || sprintf('nodblabel: %d', $id);
         } else {
