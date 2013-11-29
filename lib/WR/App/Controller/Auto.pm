@@ -10,20 +10,6 @@ sub index {
         $self->stash(notify => $notify);
     }
 
-    my $req_host;
-    if(my $url = $self->req->url->base) {
-        if($url =~ /.*:\/\/(.*?)\.wot-replays\.org/) {
-            $req_host = $1;
-        }
-    }
-    $self->stash(req_host => $req_host || 'www');
-
-    # this really should be happening nonblocking, is it possible to fire it up, pass it by in the return value,
-    # and stick the data in the stash if needed? 
-    #
-    # perhaps...
-
-    # twiddle peoples' openID username and password
     if($self->is_user_authenticated) {
         my $o = $self->session('openid');
         if($o =~ /https:\/\/(.*?)\..*\/id\/(\d+)-(.*)\//) {

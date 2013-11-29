@@ -1,10 +1,10 @@
 <table class="table" style="margin-bottom: 5px">
     <tbody>
         <tr>
-            <td style="width: 10%">
+            <td style="width: 16%">
                 <h6 style="padding: 0px; margin: 5px 0px 0px 0px">result:</h6>
             </td>
-            <td>
+            <td style="width: 16%">
                 <span class="value fw">
                     [% IF replay.game.winner == 0 %]
                         draw
@@ -15,17 +15,17 @@
                     [% END %]
                 </span>
             </td>
-            <td style="width: 10%">
+            <td style="width: 16%">
                 <h6 style="padding: 0px; margin: 5px 0px 0px 0px">xp:</h6>
             </td>
-            <td >
+            <td  style="width: 16%">
                 <span title="Earned [% replay.stats.xp || '0' %] xp including premium and multiplier bonuses" class="value fw">[% replay.stats.xp || '0' |truncate(5) %] [% IF replay.stats.dailyXPFactor10 > 10 %](x[% replay.stats.dailyXPFactor10 / 10 %])[% END %]</span>
             </td>
-            <td style="width: 10%">
+            <td style="width: 16%">
                 <h6 style="padding: 0px; margin: 5px 0px 0px 0px">credits:</h6>
             </td>
-            <td>
-                <span class="label fw">credits:</span><span class="value fw" title="Earned [% replay.stats.credits %] credits including premium and other bonuses" >[% replay.stats.credits || '0' |truncate(5)%]</span>
+            <td style="width: 16%">
+                <span class="value fw" title="Earned [% replay.stats.credits %] credits including premium and other bonuses" >[% replay.stats.credits || '0' |truncate(5)%]</span>
             </td>
         </tr>
         <tr>
