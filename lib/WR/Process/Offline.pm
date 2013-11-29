@@ -350,11 +350,12 @@ sub _real_process {
 
             my $t_resolve = {};
             foreach my $key (keys(%$typecomps)) {
-                my $tc = $typecomps->{$key};
-                if(defined($t_resolve->{$tc . ''})) {
-                    push(@{$t_resolve->{$tc . ''}}, $key);
-                } else {
-                    $t_resolve->{$tc . ''} = [ $key ];
+                if(my $tc = $typecomps->{$key}) {
+                    if(defined($t_resolve->{$tc . ''})) {
+                        push(@{$t_resolve->{$tc . ''}}, $key);
+                    } else {
+                        $t_resolve->{$tc . ''} = [ $key ];
+                    }
                 }
             }
 
