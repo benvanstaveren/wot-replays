@@ -65,13 +65,9 @@ sub add_helpers {
         my $ctrl = shift;
 
         if(my $openid = $ctrl->session('openid')) {
-            if(my $user = $ctrl->model('wot-replays.accounts')->find_one({ openid => $openid })) {
-                return 1;
-            } else {
-                return 0; # because the verification step will actually create it
-            }
+            return 1;
         } else {
-            return 0;
+            return 0; # because the verification step will actually create it
         }
     });
 
