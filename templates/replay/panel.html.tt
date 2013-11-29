@@ -1,31 +1,32 @@
-<div class="replayPanel box noborder [% IF replay.wn7.available %]wn7 [% replay.wn7.class %] hover[% END %]" rid="[% h.get_id(replay) %]" title="[% IF replay.site.description %][% replay.site.description |html %] - [% END %]Click to view" style="cursor: pointer">
-    <div class="columncontainer sw">
-        <div class="column col1">
-            [% INCLUDE replay/panel/vehiclemap.html.tt %]
+<div class="well well-sm" title="[% IF replay.site.description %][% replay.site.description |html %] - [% END %]">
+    <div class="row">
+        <div class="col-lg-3 col-md-3">
+            <a href="/replay/[% h.get_id(replay) %].html">
+            <div 
+                title="[% h.get_recorder_vehicle(replay).vehicle.label |html %] on [% h.map_name(replay.game.map) |html%]" 
+                style="background: transparent url([% config.urls.assets %]/maps/180/[% h.map_icon(replay.game.map) %]) no-repeat scroll 0 0; width: 180px; height: 180px; margin: 2px auto; position: relative"
+                class="rounded"
+                >
+                    <img src="[% config.urls.assets %]/vehicles/100/[% h.get_recorder_vehicle(replay).vehicle.icon %]" style="width: 160px; height: 100px; position: absolute; top: 50%; left: 50%; margin-top: -50px; margin-left: -80px"/>
+            </div>
+            </a>
+            <div class="wn7 [% IF replay.wn7.available %][% h.wn7_color(replay.wn7.data.overall) %][% ELSE %]notavailable[% END %] rounded" style="margin: 2px; font-weight: bold; text-align: center">[% IF replay.wn7.available %][% replay.wn7.data.overall %][% ELSE %]-[% END %]</div>
         </div>
-        <div class="column col2">
-            <div>
-                <h3>
-                    <a class="[% IF h.get_replay_stats(replay, 'isPremium') %]premium[% END %]" href="/player/[% replay.game.server %]/[% replay.game.recorder.name |uri %]/" title="[% replay.game.recorder.name |html %] [% IF h.get_replay_stats(replay, 'isPremium') %](Premium)[% END %]">[% replay.game.recorder.name |truncate(15) |html %]</a> - <a href="/vehicle/[% h.vehicle_link(h.get_recorder_vehicle(replay).vehicle.ident) %]/" title="[% h.get_recorder_vehicle(replay).vehicle.label |html %]">[% h.get_recorder_vehicle(replay).vehicle.label_short |html %]</a> - <a href="/map/[% h.map_slug(replay.game.map) |uri %]/">[% h.map_name(replay.game.map) |html %]</a> 
-                    [% IF replay.site.from_wpa == 1 %]
-                        <span class="partner vbaddict"></span>
-                    [% ELSIF replay.site.ident %]
-                        <span title="via [% h.partner_name(replay.site.ident) %]" class="tooltip partner [% replay.site.ident %]"></span>
-                    [% END %]
-                </h3>
-                <div>
-                    <div class="panelStats">
-                        [% INCLUDE replay/panel/panelstats.html.tt %]
-                    </div>
-                    <div class="panelButtons">
-                        <button class="rateUp" rid="[% replay.id %]" title="Like this replay" style="width: 75px">Like (<span class="rateUpCount">[% replay.site.like || '0' %]</span>)</button>
-                        [% IF !replay.site.download_disabled %]
-                            <button title="Download this replay" href="/replay/[% h.get_id(replay) %]/download" class="panelButton downloadButton [% IF h.is_old_version(replay) %]incompatible[% END %]">Save (<span class="count">[% replay.site.downloads || '0' %]</span>)</button>
-                        [% END %]
-                    </div>
-                </div>
+        <div class="col-lg-9 col-md-9">
+            <p class="lead">
+                <a class="[% IF h.get_replay_stats(replay, 'isPremium') %]premium[% END %]" href="/player/[% replay.game.server %]/[% replay.game.recorder.name |uri %]/" title="[% replay.game.recorder.name |html %] [% IF h.get_replay_stats(replay, 'isPremium') %](Premium)[% END %]">[% replay.game.recorder.name |truncate(15) |html %]</a> - <a href="/vehicle/[% h.vehicle_link(h.get_recorder_vehicle(replay).vehicle.ident) %]/" title="[% h.get_recorder_vehicle(replay).vehicle.label |html %]">[% h.get_recorder_vehicle(replay).vehicle.label_short |html %]</a> - <a href="/map/[% h.map_slug(replay.game.map) |uri %]/">[% h.map_name(replay.game.map) |html %]</a> 
+                [% IF replay.site.from_wpa == 1 %]
+                    <span class="partner vbaddict"></span>
+                [% ELSIF replay.site.ident %]
+                    <span title="via [% h.partner_name(replay.site.ident) %]" class="tooltip partner [% replay.site.ident %]"></span>
+                [% END %]
+            </p>
+            [% INCLUDE replay/panel/panelstats.html.tt %]
+            <div class="btn-group btn-group-justified">
+                <a class="btn btn-default btn-view-replay" href="/replay/[% h.get_id(replay) %].html" title="View this replay"><span class="badge">[% replay.site.views || '0' %]</span> View</a>
+                <a class="btn btn-default btn-like-replay" href="[% h.get_id(replay) %]" title="Like this replay"><span class="badge">[% replay.site.like || '0' %]</span> Like</a>
+                <a class="btn btn-default btn-save-replay" title="Download this replay" href="/replay/[% h.get_id(replay) %]/download"><span class="badge">[% replay.site.downloads || '0' %]</span> Save</a>
             </div>
         </div>
-        <div class="clear"></div>
     </div>
 </div>

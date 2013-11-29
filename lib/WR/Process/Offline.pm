@@ -446,10 +446,14 @@ sub generate_banner {
     my $image;
     my $recorder = $res->{players}->{$res->{game}->{recorder}->{name}};
 
-    $cb->({
-        available => Mango::BSON::bson_false,
-        error => 'No banner path specified',
-    }) and return unless(defined($self->banner_path));
+    unless(defined($self->banner_path)) {
+        $self->warning('[generate_banner]: no banner path specified');
+        $cb->({
+            available => Mango::BSON::bson_false,
+            error => 'No banner path specified',
+        });
+        return;
+    }
 
     my $pv = $res->{roster}->[ $recorder ]->{vehicle}->{ident};
     $pv =~ s/:/-/;
@@ -459,10 +463,15 @@ sub generate_banner {
 
     $self->model('wot-replays.data.maps')->find_one({ numerical_id => $res->{game}->{map} } => sub {
         my ($coll, $err, $map) = (@_);
-        $cb->({
-            available => Mango::BSON::bson_false,
-            error => $_,
-        }) and return unless(defined($map));
+
+        unless(defined($map)) {
+            $self->log_error('[generate_banner]: could not find map, potential error: ', $err);
+            $cb->({
+                available => Mango::BSON::bson_false,
+                error => $_,
+            });
+            return;
+        }
         my $match_result = ($res->{game}->{winner} < 1) 
             ? 'draw'
             : ($res->{game}->{winner} == $res->{roster}->[ $recorder ]->{player}->{team})
@@ -492,6 +501,8 @@ sub generate_banner {
             awards  => $self->stringify_awards($res),
         );
 
+        $self->debug('[generate_banner]: generating banner using: ', Dumper({%imager_args}));
+
         try {
             $imagefile = $i->create(%imager_args);
             $image = {
@@ -500,11 +511,13 @@ sub generate_banner {
                 url_path => sprintf('%s/%s.jpg', $self->hashbucket($res->{_id} . ''), $res->{_id} . ''),
             };
         } catch {
+            my $e = $_;
             $image = {
                 available => Mango::BSON::bson_false,
-                error => $_,
+                error => $e,
                 args  => { %imager_args }
             };
+            $self->log_error('Creating image failed: ', $e);
         };
         $cb->($image);
     });

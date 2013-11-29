@@ -1,5 +1,7 @@
 [% WRAPPER wrapper.html.tt %]    
-    <h3>About The Site</h3>
+    <div class="page-header">
+            <h2>About the Site</h2>
+    </div>
     <div class="well well-lg">
         <p class="lead">
             wotreplays.org is a World of Tanks replay hosting site. 
@@ -20,7 +22,7 @@
             [% INCLUDE donatebutton.html.tt %]
         </p>
     </div>
-    <h3>Copyright Notices</h3>
+    <h4>Copyright Notices</h4>
     <div class="well well-lg">
         <p>
             This site is copyright 2012, 2013 by yours truly, <a href="http://worldoftanks.asia/community/accounts/2000036302-Scrambled/">Scrambled</a>.

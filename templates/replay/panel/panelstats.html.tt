@@ -1,9 +1,11 @@
-<div>
-    <table style="width: 100%;" cellspacing="0" cellpadding="0">
+<table class="table" style="margin-bottom: 5px">
     <tbody>
         <tr>
-            <td style="width: 33%;">
-                <span class="label fw">result:</span><span class="value fw">
+            <td style="width: 10%">
+                <h6 style="padding: 0px; margin: 5px 0px 0px 0px">result:</h6>
+            </td>
+            <td>
+                <span class="value fw">
                     [% IF replay.game.winner == 0 %]
                         draw
                     [% ELSIF replay.game.recorder.team == replay.game.winner %]
@@ -13,30 +15,45 @@
                     [% END %]
                 </span>
             </td>
-            <td style="width: 33%">
-                <span class="label fw">xp:</span><span title="Earned [% replay.stats.xp || '0' %] xp including premium and multiplier bonuses" class="value fw">[% replay.stats.xp || '0' |truncate(5) %] [% IF replay.stats.dailyXPFactor10 > 10 %](x[% replay.stats.dailyXPFactor10 / 10 %])[% END %]</span>
+            <td style="width: 10%">
+                <h6 style="padding: 0px; margin: 5px 0px 0px 0px">xp:</h6>
             </td>
-            <td style="width: 33%">
+            <td >
+                <span title="Earned [% replay.stats.xp || '0' %] xp including premium and multiplier bonuses" class="value fw">[% replay.stats.xp || '0' |truncate(5) %] [% IF replay.stats.dailyXPFactor10 > 10 %](x[% replay.stats.dailyXPFactor10 / 10 %])[% END %]</span>
+            </td>
+            <td style="width: 10%">
+                <h6 style="padding: 0px; margin: 5px 0px 0px 0px">credits:</h6>
+            </td>
+            <td>
                 <span class="label fw">credits:</span><span class="value fw" title="Earned [% replay.stats.credits %] credits including premium and other bonuses" >[% replay.stats.credits || '0' |truncate(5)%]</span>
             </td>
         </tr>
         <tr>
             <td> 
-                <span class="label fw">spotted:</span><span class="value fw">[% replay.stats.spotted || '0' %] /
-                    <span class="green value fw">[% replay.stats.damageAssistedRadio + replay.stats.damageAssistedTrack || '0' %]</span>
+                <h6 style="padding: 0px; margin: 5px 0px 0px 0px">spotted:</h6>
             </td>
             <td>
-                <span class="label fw">damaged:</span><span class="value fw">[% replay.stats.damaged || '0' %] /
-                    <span class="green value fw">[% replay.stats.damageDealt || '0' %]</span>
-
+                <span class="value fw">[% replay.stats.spotted || '0' %] / <span class="green value fw">[% replay.stats.damageAssistedRadio + replay.stats.damageAssistedTrack || '0' %]</span>
             </td>
             <td>
-                <span class="label fw">killed:</span><span class="value fw">[% replay.stats.kills || '0' %]</span>
+                <h6 style="padding: 0px; margin: 5px 0px 0px 0px">damaged:</h6>
+            </td>
+            <td>
+                <span class="value fw">[% replay.stats.damaged || '0' %] / <span class="green value fw">[% replay.stats.damageDealt || '0' %]</span>
+            </td>
+            <td>
+                <h6 style="padding: 0px; margin: 5px 0px 0px 0px">killed:</h6>
+            </td>
+            <td>
+               <span class="value fw">[% replay.stats.kills || '0' %]</span>
             </td>
         </tr>
         <tr>
             <td>
-                <span class="label fw">survived:</span><span class="value fw">
+                <h6 style="padding: 0px; margin: 5px 0px 0px 0px">survived:</h6>
+            </td>
+            <td>
+                <span class="value fw">
                     [% IF replay.game.recorder.survived %]
                         <span class="green">yes</span>
                     [% ELSE %]
@@ -45,12 +62,17 @@
                 </span>
             </td>
             <td>
-                <span class="label fw">server:</span><span class="value fw">[% replay.game.server |upper %]</span>
+                <h6 style="padding: 0px; margin: 5px 0px 0px 0px">server:</h6>
             </td>
             <td>
-                <span class="label fw">version:</span><span class="value fw" title="[% IF !h.is_old_version(replay) %]Current version[% ELSE %]Incompatible version[% END %]" style="color: #6[% IF !h.is_old_version(replay) %]66[% ELSE %]00[% END %]">[% h.wot_version(replay) %]</span>
+                <span class="value fw">[% replay.game.server |upper %]</span>
+            </td>
+            <td>
+                <h6 style="padding: 0px; margin: 5px 0px 0px 0px">version:</h6>
+            </td>
+            <td>
+               <span class="value fw" title="[% IF !h.is_old_version(replay) %]Current version[% ELSE %]Incompatible version[% END %]" style="color: #6[% IF !h.is_old_version(replay) %]66[% ELSE %]00[% END %]">[% h.wot_version(replay) %]</span>
             </td>
         </tr>
     </tbody>
-    </table>
-</div>
+</table>

@@ -1,25 +1,27 @@
-            <span style="margin-top: 10px" class="label">Shots</span>
-            <table style="width: 100%" cellspacing="0" cellpadding="0"><tbody><tr>
-                <td>
-                    <span class="label small">Fired</span>
-                    <span>[% replay.stats.shots || '0' %]</span>
-                </td>
-                <td>
-                    <span class="label small">Hits</span>
-                    [% penperc = h.percentage_of(replay.stats.hits, replay.stats.pierced) %]
-                    <span class="green">
-                        <span title="Penetrating hits" [% IF penperc > 80 %]class="green"[% ELSIF penperc < 50 %]class="red"[% END %]>[% replay.stats.pierced || '0' %]</span>
-                        /
-                        <span title="Total hits">[% replay.stats.hits || '0' %]</span>
-                    </span>
-                </td>
-                <td>
-                    <span class="label small">Misses</span>
-                    <span class="red">[% replay.stats.shots - replay.stats.hits || '0' %]</span>
-                </td>
-                <td>
-                    <span class="label small">Accuracy</span>
-                    [% accuracy = h.percentage_of(replay.stats.shots, replay.stats.hits) %]
-                    <span [% IF accuracy >= 60 %]class="green"[% ELSIF accuracy <= 30 %]class="red"[% END %]>[% accuracy %]%</span>
-                </td>
-            </tr></tbody></table>
+<h4>Shots</h4>
+<table class="table table-bordered table-striped">
+    <tbody>
+        <tr>
+            <td><h5 style="margin: 0px">Fired</h5></td>
+            <td><span>[% replay.stats.shots || '0' %]</span></td>
+        </tr>
+        <tr>
+            <td><h5 style="margin: 0px;">Hits/Pens</h5></td>
+            <td>
+                [% penperc = h.percentage_of(replay.stats.hits, replay.stats.pierced) %]
+                <span title="Total hits">[% replay.stats.hits || '0' %]</span> / <span title="Penetrating hits" [% IF penperc > 80 %]class="green"[% ELSIF penperc < 50 %]class="red"[% END %]>[% replay.stats.pierced || '0' %]</span>
+            </td>
+        </tr>
+        <tr>
+            <td><h5 style="margin: 0px">Misses</h5></td>
+            <td><span class="red">[% replay.stats.shots - replay.stats.hits || '0' %]</span></td>
+        </tr>
+        <tr>
+            <td><h5 style="margin: 0px">Accuracy</h5></td>
+            <td>
+                [% accuracy = h.percentage_of(replay.stats.shots, replay.stats.hits) %]
+                <span [% IF accuracy >= 60 %]class="green"[% ELSIF accuracy <= 30 %]class="red"[% END %]>[% accuracy %]%</span>
+            </td>
+        </tr>
+    </tbody>
+</table>

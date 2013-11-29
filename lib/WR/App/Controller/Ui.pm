@@ -13,7 +13,7 @@ sub faq {
 }
 
 sub donate {
-    shift->respond(template => 'donate', stash => { page => { title => 'Donations Welcome' } });
+    shift->respond(template => 'donate', stash => { page => { title => 'Why Donate?' } });
 }
 
 sub about {

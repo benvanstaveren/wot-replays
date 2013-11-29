@@ -1,5 +1,7 @@
 [% WRAPPER wrapper.html.tt %]
-    <h3>Vehicles</h3>
+    <div class="page-header">
+        <h1>Vehicles</h1>
+    </div>
     [% INCLUDE vehicle/list.html.tt %]
     <script type="text/javascript">
         $(document).ready(function() {

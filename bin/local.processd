@@ -157,6 +157,8 @@ sub process_job {
                                 complete => Mango::BSON::bson_true,
                                 status   => 1,
                                 replayid => $replay->{_id},
+                                banner   => $replay->{site}->{banner},
+                                file     => $replay->{file},
                             }
                         } => sub {
                             $cb->(1);

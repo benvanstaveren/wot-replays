@@ -1,38 +1,33 @@
 <script type="text/javascript">
-    $('#frm-browse-filter select[name="vehicle"]').val('[% filter.vehicle || '' %]');
-    $('#frm-browse-filter select[name="map"]').val('[% filter.map || ''%]');
-    [% IF req_host != 'www' %]
-        $('#frm-browse-filter input[name="server"]').val('[% req_host %]');
-    [% ELSE %]
-        $('#frm-browse-filter select[name="server"]').val('[% filter.server || ''%]');
-    [% END %]
-    $('#frm-browse-filter select[name="matchmode"]').val('[% filter.matchmode || ''%]');
-    $('#frm-browse-filter select[name="matchtype"]').val('[% filter.matchtype || ''%]');
+    $('#frm-browse-filter select[name="vehicle"]').val('[% filter.vehicle || '*' %]');
+    $('#frm-browse-filter select[name="map"]').val('[% filter.map || '*'%]');
+    $('#frm-browse-filter input[name="server"]').val('[% filter.server %]' || '*');
+    $('#frm-browse-filter select[name="matchmode"]').val('[% filter.matchmode || '*' %]');
+    $('#frm-browse-filter select[name="matchtype"]').val('[% filter.matchtype || '*' %]');
     $('#frm-browse-filter select[name="sort"]').val('[% filter.sort || 'upload'%]');
 
 
     [% IF pageid != "vehicle" && !filter.vehicle %]
-    $('#slider-tier').slider({
-        range: true,
-        min: 1,
-        max: 10,
-        values: [ [% filter.tier_min || '1' %], [% filter.tier_max || '10' %] ],
-        slide: function(event, ui) {
-            $('input[name="tier_min"]').val(ui.values[0]);
-            $('input[name="tier_max"]').val(ui.values[1]);
-            $('span#tier_min').html(ui.values[0]);
-            $('span#tier_max').html(ui.values[1]);
+        $('#tier-slider').slider()
+            .on('slideStop', function(ev) {
+                var v = ev.value;
+                $('input[name="tier_min"]').val(v[0]);
+                $('input[name="tier_max"]').val(v[1]);
 
-            $('select[name="vehicle"] option').each(function(i, e) {
-                var t = $(e).attr('tier');
-                if(t < ui.values[0] || t > ui.values[1]) {
-                    $(e).hide();
-                } else {
-                    $(e).show();
-                }
+                $('select[name="vehicle"] option').each(function(i, e) {
+                    var t = $(e).attr('tier');
+                    if(t < v[0] || t > v[1]) {
+                        $(e).hide();
+                    } else {
+                        $(e).show();
+                    }
+                });
+            })
+            .on('slide', function(ev) {
+                var v = ev.value;
+                $('small#tier-min').text(v[0]);
+                $('small#tier-max').text(v[1]);
             });
-        },
-    });
     [% END %]
 
     $('select[name="vehicle"]').change(function() {
@@ -46,41 +41,40 @@
         }
     });
 
-    $('button#btn-browse-reset').click(function() {
-        if(WR.filterBusy) return;
-
-        $('#vehicle-tier-container').show();
-
+    $('a#btn-browse-reset').click(function() {
         $('form#frm-browse-filter input[name="p"]').val('1');
         $('form#frm-browse-filter input[name="tier_min"]').val('1');
         $('form#frm-browse-filter input[name="tier_max"]').val('10');
 
+        $('#tier-slider').slider('setValue', [1,10]);
+
         $('form#frm-browse-filter select[name="vehicle"]').val('');
-        [% IF req_host != 'www' %]
-            $('form#frm-browse-filter input[name="server"]').val('[% req_host %]');
-        [% ELSE %]
-            $('form#frm-browse-filter select[name="server"]').val('');
-        [% END %]
+        $('form#frm-browse-filter select[name="server"]').val('');
         $('form#frm-browse-filter select[name="map"]').val('');
         $('form#frm-browse-filter select[name="matchmode"]').val('');
         $('form#frm-browse-filter select[name="matchtype"]').val('');
         $('form#frm-browse-filter select[name="sort"]').val('upload');
 
-        $('#slider-tier').slider('values', [ 1, 10 ]);
-        $('span#tier_min').html(1);
-        $('span#tier_max').html(10);
+        $('small#tier-min').html(1);
+        $('small#tier-max').html(10);
 
-        $('select[name="vehicle"] option').show();
+        var s = $('form#frm-browse-filter').serialize();
 
-        $('form#frm-browse-filter input[name="complete"]').prop('checked', false);
-        WR.loadBrowseFilter();
+        // this can be done much easier but lack of internet means i can't look it up so let us ghetto it
+        var first = s.replace(/=/g, '/');
+        var second = first.replace(/\&/g, '/');
+        document.location.href = '/browse/' + second;
         return false;
     });
 
-    $('button#btn-browse-filter').click(function() {
-        if(WR.filterBusy) return;
+    $('a#btn-browse-filter').click(function() {
         $('form#frm-browse-filter input[name="p"]').val('1');
-        WR.loadBrowseFilter();
+        var s = $('form#frm-browse-filter').serialize();
+
+        // this can be done much easier but lack of internet means i can't look it up so let us ghetto it
+        var first = s.replace(/=/g, '/');
+        var second = first.replace(/\&/g, '/');
+        document.location.href = '/browse/' + second;
         return false;
     });
 </script>

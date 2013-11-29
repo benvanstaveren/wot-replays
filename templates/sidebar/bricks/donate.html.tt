@@ -1,6 +1,8 @@
-    <h3>Donate</h3>
-    <div>
-        Running a site like this doesn't come cheap, so please donate if you think it's worth it.
-        <br/><br/>
-        [% INCLUDE donatebutton.html.tt %]
+<div class="row">
+    <div class="col-lg-12 col-md-12">
+        <h4>Donate</h4>
+        <p>
+            As the site gets more popular every day, it also costs me a lot more to run it. Nearly <b>10.000</b> page views every day means the hardware expense is getting bigger and bigger. If you use the site and you think it's worth it, please donate your spare change. Please see the <a href="/donate">why donate</a> page for more info.
+        </p>
     </div>
+</div>

@@ -48,8 +48,10 @@ sub startup {
 
     $r->route('/')->to('ui#index', pageid => 'home');
 
-    $r->route('/browse')->to('replays#browse', pageid => 'browse');
+    $r->route('/browse/*filter')->to('replays#browse', pageid => 'browse');
+    $r->route('/browse')->to('replays#browse', pageid => 'browse', filter => '/p/1/vehiclepov/1/vehicleinv/0/tier_min/1/tier_max/10/sort/upload');
     $r->route('/about')->to('ui#about', pageid => 'about');
+    $r->route('/donate')->to('ui#donate', pageid => 'donate');
     $r->route('/credits')->to('ui#credits', pageid => 'credits');
     $r->route('/upload')->to('replays-upload#upload', pageid => 'upload');
     $r->route('/process/:jobid')->to('replays-upload#process_replay', pageid => 'upload');

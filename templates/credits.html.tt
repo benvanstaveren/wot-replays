@@ -1,4 +1,7 @@
 [% WRAPPER wrapper.html.tt %] 
+    <div class="page-header">
+        <h2>Credits and Thank You's</h2>
+    </div>
     <h3>Tools Used</h3>
     <div class="well well-lg">
         <p class="lead">
@@ -8,16 +11,17 @@
             <ul>
                 <li><a href="http://www.perl.org/">Perl</a>, the swiss army chainsaw programming language of the internet.</li>
                 <li><a href="http://mojolicio.us">Mojolicious</a>, a next generation web framework.</li>
+                <li><a href="https://metacpan.org/release/Mango">Mango</a>, a pure-perl non-blocking MongoDB driver, for great justice!.</li>
+                <li><a href="http://www.mongodb.org">MongoDB</a>, to store all your data and do the coolest map/reduce data-mining omgwtfawesomesauce things with.</li>
                 <li><a href="http://www.jquery.com">jQuery</a>, because who doesn't?</li>
                 <li><a href="http://getbootstrap.com">Bootstrap</a>, because hey, CSS!</li>
                 <li><a href="http://bootswatch.com">BootSwatch</a>, for themes and such things.</li>
-                <li><a href="http://www.mongodb.org">MongoDB</a>, to store all your data and do the coolest map/reduce data-mining omgwtfawesomesauce things with.</li>
             </ul>
         </p>
     </div>
     <h3>Thanks To</h3>
     <div class="well well-lg">
-        <p>
+        <p class="lead">
             These are people that have helped out or contributed in a big way:
         </p>
         <p>
@@ -28,7 +32,7 @@
             </ul>
         </p>
         <p>
-            And a big thank you to everyone who's suggested additions or changes to the site; it wouldn't be what it is without you.
+            Thanks also to everyone who's suggested additions or changes to the site; it wouldn't be what it is without you, and a really <b>big</b> thank you to everyone who has donated some spare change, trust me when I say it helps me stay motivated to work on this project!
         </p>
     </div>
 [% END %]

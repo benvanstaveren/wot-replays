@@ -1,52 +1,50 @@
 [% WRAPPER wrapper.html.tt %]
+    <div class="page-header">
+        <h1>Upload Replay</h1>
+    </div>
     <div class="row">
         <div class="col-lg-12 col-md-12">
-            <h3>Upload Replay</h3>
-            <div class="row">
-                <div class="col-lg-12 col-md-12">
-                    <div id="container-frm-upload" class="well">
-                        <form class="form-horizontal" id="frm-upload" action="/upload" method="post" enctype="multipart/form-data">
-                            <input name="a" type="hidden" value="save"/>
-                            <fieldset>
-                                <legend>Replay File</legend>
-                                <div class="form-group">
-                                    <label class="col-lg-2" for="replayFile">Replay File</label>
-                                    <div class="col-lg-10">
-                                        <input type="file" name="replay" id="replayFile" class="form-control"/>
-                                    </div>
+            <div id="container-frm-upload" class="well">
+                <form class="form-horizontal" id="frm-upload" action="/upload" method="post" enctype="multipart/form-data">
+                    <input name="a" type="hidden" value="save"/>
+                    <fieldset>
+                        <legend>Replay File</legend>
+                        <div class="form-group">
+                            <label class="col-lg-2" for="replayFile">Replay File</label>
+                            <div class="col-lg-10">
+                                <input type="file" name="replay" id="replayFile" class="form-control"/>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Replay Details</legend>
+                        <div class="form-group">
+                            <label class="col-lg-2" for="replayDescription">Description (optional)</label>
+                            <div class="col-lg-10">
+                                <textarea class="form-control" rows="5" id="replayDescription" name="description">[% description %]</textarea>
+                                <span class="help-block">HTML is not allowed, only plain text</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2">Hide replay by default</label>
+                            <div class="col-lg-10">
+                                <div class="radio">
+                                    <label><input type="radio" name="hide" value="0" id="replayHide" checked/> No, do not hide replay</label>
                                 </div>
-                            </fieldset>
-                            <fieldset>
-                                <legend>Replay Details</legend>
-                                <div class="form-group">
-                                    <label class="col-lg-2" for="replayDescription">Description (optional)</label>
-                                    <div class="col-lg-10">
-                                        <textarea class="form-control" rows="5" id="replayDescription" name="description">[% description %]</textarea>
-                                        <span class="help-block">HTML is not allowed, only plain text</span>
-                                    </div>
+                                <div class="radio">
+                                    <label><input type="radio" name="hide" value="0" id="replayHide"/> Yes, hide replay</label>
                                 </div>
-                                <div class="form-group">
-                                    <label class="col-lg-2">Hide replay by default</label>
-                                    <div class="col-lg-10">
-                                        <div class="radio">
-                                            <label><input type="radio" name="hide" value="0" id="replayHide" checked/> No, do not hide replay</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input type="radio" name="hide" value="0" id="replayHide"/> Yes, hide replay</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </fieldset>
-                            <fieldset>
-                                <div class="form-group">
-                                    <div class="col-lg-offset-2 col-lg-10">
-                                        <button class="btn btn-primary" type="submit">Upload Replay</button>
-                                    </div>
-                                </div>
-                            </fieldset>
-                        </form>
-                    </div>
-                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <div class="form-group">
+                            <div class="col-lg-offset-2 col-lg-10">
+                                <button class="btn btn-primary" type="submit">Upload Replay</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
             </div>
         </div>
     </div>
@@ -80,6 +78,45 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="completeModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Processing Complete</h4>
+                </div>
+                <div class="modal-body">
+                    <p class="lead">Links</p>
+                    <div>
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr><td><b>Replay Page</b></td><td id="replay-page-link"></td></tr>
+                                <tr><td><b>Replay File</b></td><td id="replay-file-link"></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="lead">Banner</p>
+                    <div>
+                        <div id="banner-available">
+                            <div style="width: 545px; height: 98px; margin: 0px auto">
+                                <img style="width: 545px; height: 98px;" id="banner-image"/>
+                            </div>
+                            <div style="width: 545px; margin: 0px auto">
+                                <textarea style="resize: none; width: 545px;" rows="5" id="banner-bbcode"/></textarea>
+                            </div>
+                        </div>
+                        <div id="banner-unavailable">
+                            <p>
+                                There was an error generating the banner, we'll get around to re-generating it soon, and you will be able to find it using the 'Embed' button on the replay page.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <script type="text/javascript">
         var handleProcess = null;
         handleProcess = function(jobid) {
@@ -90,6 +127,28 @@
                     $('#processModal').modal('hide');
                     if(d.status == 1) {
 
+                        $('#replay-file-link').html(
+                            $('<a>').attr('href', '[% config.urls.replays %]/' + d.file).html('[% config.urls.replays %]/' + d.file)
+                        );
+                        $('#replay-page-link').html(
+                            $('<a>').attr('href', '[% config.urls.app %]/replay/' + d.replayid + '.html').html('[% config.urls.app %]/replay/' + d.replayid + '.html')
+                        );
+
+                        if(d.banner.available) {
+                            $('#banner-available').show();
+                            $('#banner-unavailable').hide();
+
+                            $('#banner-image').attr('src', '[% config.urls.banners %]/' + d.banner.url_path);
+                            $('#banner-bbcode').text(
+                                '[url=[% config.urls.app %]/replay/' + d.file + '.html]' + "\n" +
+                                '[img][% config.urls.banners %]/' + d.banner.url_path + '[/img]' + "\n" +
+                                '[/url]'
+                            );
+                        } else {
+                            $('#banner-available').hide();
+                            $('#banner-unavailable').show();
+                        }
+                        $('#completeModal').modal('show');
                     } else if(d.status == -1) {
                         if(!d.error) d.error = 'Unknown error occurred during processing';
                         $.bootstrapGrowl(d.error, {
@@ -128,6 +187,8 @@
         }
         $(document).ready(function() {
             $('#frm-upload').ajaxForm({
+                clearForm: true,
+                resetForm: true,
                 beforeSend: function() {
                     $('#uploadModal .progress-bar').attr('aria-valuenow', 0).css({ 'width': '0%' });
                     $('#uploadModal').modal({
@@ -138,6 +199,11 @@
                     $('#processModal').modal({
                         backdrop: 'static',
                         keyboard: false,
+                        show: false,
+                    });
+                    $('#completeModal').modal({
+                        backdrop: true,
+                        keyboard: true,
                         show: false,
                     });
                 },

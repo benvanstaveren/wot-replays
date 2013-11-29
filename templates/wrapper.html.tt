@@ -18,16 +18,14 @@
 
         <script type="text/javascript" src="[% config.urls.static %]/js/jquery.form.js"></script>
         <script type="text/javascript" src="[% config.urls.static %]/js/jquery.timers.js"></script>
-        <script type="text/javascript" src="[% config.urls.static %]/js/jquery.blockUI.js"></script>
+        <script type="text/javascript" src="[% config.urls.static %]/js/bootstrap-slider.js"></script>
 
         <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet"/> 
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet"/>
         <link href="//netdna.bootstrapcdn.com/bootswatch/3.0.1/cyborg/bootstrap.min.css" rel="stylesheet"/>
-        <link href="[% config.urls.static %]/css/wtr20.css" rel="stylesheet"/>
 
-        [% FOREACH jsfile IN additional_javascript %]
-            <script type="text/javascript" src="[% config.urls.static %]/js/[% jsfile %].js"></script>
-        [% END %]
+        <link href="[% config.urls.static %]/css/[% IF config.mode.defined && config.mode == 'dev' %]wtr[% ELSE %]wtr.min[% END %].css" rel="stylesheet"/>
+        <script type="text/javascript" src="[% config.urls.static %]/js/wtr.js"></script>
     </head>
     <body>
         <div class="navbar navbar-default navbar-shadow">
@@ -42,6 +40,7 @@
                 <ul class="nav navbar-nav">
                     <li class="[% IF pageid == 'home' %]active[% END %]"><a  href="/">Home</a></li>
                     <li class=" [% IF pageid == 'browse' %]active[% END %]"><a class="js-hover" href="/browse">Browse</a></li>
+                    [% IF 1 == 0 %]
                     <li class=" vehicles [% IF pageid == 'player' %]active[% END %]"><a class="js-hover" href="/players">Players</a></li>
                     <li class="dropdown [% IF pageid == 'vehicle' %]active[% END %]">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="/vehicles">Vehicles <b class="caret"></b></a>
@@ -55,7 +54,8 @@
                             <li><a href="/vehicles/japan">Japan</a></li>
                         </ul>
                     </li>
-                    <li class=" maps [% IF pageid == 'map' %]active[% END %]"><a class="js-hover" href="/maps">Maps</a></li>
+                    <li class="maps [% IF pageid == 'map' %]active[% END %]"><a class="js-hover" href="/maps">Maps</a></li>
+                    [% END %]
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="[% IF pageid == 'upload' %]active[% END %]"><a href="[% IF h.is_user_authenticated %]/upload/[% ELSE %]/login/[% END %]">Upload Replay</a></li>
@@ -86,7 +86,7 @@
         </div>
         <div class="container rounded shadow clearfix">
             <div id="contentMain">[% content %]</div>
-            <div class="clearfix" style="text-align: center; margin-top: 20px">&copy; 2012, 2013 Scrambled | default/[% config.versions.app %]/[% config.wot.version %] | <a style="display: inline; text-decoration: underline; padding: 0px" href="/about">about & faq</a> / <a style="display: inline; text-decoration: underline; padding: 0px" href="/credits.html">additional credits</a> | t: <span id="timing_elapsed">[% timing_elapsed || '-' %]</span></div>
+            <div class="clearfix" style="text-align: center; margin: 40px 0px 10px 0px">&copy; 2012, 2013 Scrambled | default/[% config.versions.app %]/[% config.wot.version %] | <a style="display: inline; text-decoration: underline; padding: 0px" href="/about">about & faq</a> / <a style="display: inline; text-decoration: underline; padding: 0px" href="/credits.html">additional credits</a> | t: <span id="timing_elapsed">[% timing_elapsed || '-' %]</span></div>
         </div>
     </body>
 </html>
