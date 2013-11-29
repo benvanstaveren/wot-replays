@@ -1,15 +1,11 @@
-            [% awards = 0 %]
-            <span class="label">Battle Awards</span>
-            <div class="heroawardlist">
-                [% FOREACH award IN replay.stats.achievements.nsort %]
-                        <div class="award [% h.get_achievements.index_to_idstr(award) %]" title="[% h.get_achievements.i18n(h.get_achievements.index_to_idstr(award)) |html %] (#[% dossier_popups.$award %])">
-                            [% IF !h.get_achievements.is_battle(award) %]<b class="ui-corner-all">[% dossier_popups.$award || '1' %]</b>[% END %]
-                        </div>
-                        [% awards = awards + 1 %]
-                [% END %]
-                [% IF awards < 1 %]
-                    <span>No badges or medals awarded</span>
-                [% ELSE %]
-                    <div class="clear"></div>
-                [% END %]
-            </div>
+<h4>Battle Awards</h4>
+<div class="heroawardlist clearfix">
+    [% FOREACH award IN replay.stats.achievements.nsort %]
+        <div class="award [% h.get_achievements.index_to_idstr(award) %]" title="[% h.get_achievements.i18n(h.get_achievements.index_to_idstr(award)) |html %] (#[% dossier_popups.$award %])">
+            [% IF !h.get_achievements.is_battle(award) %]<b class="ui-corner-all">[% dossier_popups.$award || '1' %]</b>[% END %]
+        </div>
+    [% END %]
+    [% IF replay.stats.achievements.size < 1 %]
+        <p>No badges or medals awarded</p>
+    [% END %]
+</div>

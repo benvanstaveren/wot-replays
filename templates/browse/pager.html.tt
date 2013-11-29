@@ -1,100 +1,45 @@
-<div class="browsePager">
-    <table style="width: 100%" cellspacing="0" cellpadding="0"><tbody><tr>
-    <td style="text-align: left; width: 200px">  
-        [% IF p > 1 %]
-            <a class="rounded firstpage">&laquo; first</a>
-        [% ELSE %]
-            <span class="rounded firstpage disabled">&laquo; first</span>
-        [% END %]
-        [% IF p > 1 %]
-            <a class="rounded prevpage">&lt; prev</a>
-        [% ELSE %]
-            <span class="rounded prevpage disabled">&lt; prev</span>
-        [% END %]
-    </td>
-    <td style="text-align: center">
-    [% IF p == maxp %]
-        [% start = p - 8 %]
-    [% ELSE %]
-        [% start = p - 4 %]
-    [% END %]
-    [% IF start < 1 %]
-        [% start = 1 %]
-    [% END %]
-    [% cpage = start %]
-    [% cmax  = start + 9 %]
-    [% IF cmax > maxp %]
-        [% cmax = maxp + 1 %]
-    [% END %]
-    [% WHILE cpage < cmax %]
-        [% IF cpage == p %]
-            <span class="rounded">[% cpage %]</span>
-        [% ELSE %]
-            <a  class="gopage rounded">[% cpage %]</a>
-        [% END %]
-        [% cpage = cpage + 1 %]
-    [% END %]
-    </td>
-    <td style="text-align: right; width: 200px">
-        [% IF p < maxp %]
-            <a class="rounded nextpage">next &gt;</a>
-        [% ELSE %]
-            <span class="rounded disabled nextpage">next &gt;</span>
-        [% END %]
-        [% IF p < maxp %]
-            <a class="rounded lastpage">last &raquo;</a>
-        [% ELSE %]
-            <span class="rounded disabled lastpage">last &raquo;</span>
-        [% END %]
-    </td>
-    </tr></tbody></table>
+<div class="row">
+    <div class="col-md-12 col-lg-12">
+        <ul class="pagination pagination-sm"">
+            <li [% IF p == 1 %]class="disabled"[% END %]><a href="#" page="1">&laquo;</a></li>
+            [% start = p - 20 %]
+            [% IF start < 1 %]
+                [% start = 1 %]
+            [% END %]
+            [% cpage = start %]
+            [% cmax  = start + 20 %]
+            [% IF cmax > maxp %]
+                [% cmax = maxp + 1 %]
+            [% END %]
+            [% WHILE cpage < cmax %]
+                [% IF cpage == p %]
+                    <li class="active"><a href="#" page="[% cpage %]">[% cpage %]</a></li>
+                [% ELSE %]
+                    <li><a href="#" page="[% cpage %]">[% cpage %]</a></li>
+                [% END %]
+                [% cpage = cpage + 1 %]
+            [% END %]
+            [% IF p < maxp %]
+                <li><a href="#" page="[% maxp %]">&raquo;</a></li>
+            [% ELSE %]
+                <li class="disabled""><a href="#" page="[% maxp %]">&raquo;</a></li>
+            [% END %]
+        </ul>
+    </div>
 </div>
 [% IF !skipjs %]
 <script type="text/javascript">
-    $('div.browsePager a.firstpage').click(function() {
-        $('form#frm-browse-filter input[name="p"]').val(1);
+    $('ul.pagination li a').on('click', function() {
+        var page = $(this).attr('page');
+        if($(this).hasClass('disabled')) return false;
+        $('form#frm-browse-filter input[name="p"]').val(page);
+
+        $('form#frm-browse-filter input[name="p"]').val('1');
         var s = $('form#frm-browse-filter').serialize();
-        WR.waitElement($('#browseContent'));
-        $('#browseContent').load('/replay/browse', s, function() {
-            $.unblockUI();
-        });
-        return false;
-    });
-    $('div.browsePager a.lastpage').click(function() {
-        $('form#frm-browse-filter input[name="p"]').val([% maxp %]);
-        var s = $('form#frm-browse-filter').serialize();
-        WR.waitElement($('#browseContent'));
-        $('#browseContent').load('/replay/browse', s, function() {
-            $.unblockUI();
-        });
-        return false;
-    });
-    $('div.browsePager a.nextpage').click(function() {
-        $('form#frm-browse-filter input[name="p"]').val([% p + 1 %]);
-        var s = $('form#frm-browse-filter').serialize();
-        WR.waitElement($('#browseContent'));
-        $('#browseContent').load('/replay/browse', s, function() {
-            $.unblockUI();
-        });
-        return false;
-    });
-    $('div.browsePager a.prevpage').click(function() {
-        $('form#frm-browse-filter input[name="p"]').val([% p - 1 %]);
-        var s = $('form#frm-browse-filter').serialize();
-        WR.waitElement($('#browseContent'));
-        $('#browseContent').load('/replay/browse', s, function() {
-            $.unblockUI();
-        });
-        return false;
-    });
-    $('div.browsePager a.gopage').click(function() {
-        var v = parseInt($(this).html());
-        $('form#frm-browse-filter input[name="p"]').val(v);
-        var s = $('form#frm-browse-filter').serialize();
-        WR.waitElement($('#browseContent'));
-        $('#browseContent').load('/replay/browse', s, function() {
-            $.unblockUI();
-        });
+
+        var first = s.replace(/=/g, '/');
+        var second = first.replace(/\&/g, '/');
+        document.location.href = second;
         return false;
     });
 </script>  

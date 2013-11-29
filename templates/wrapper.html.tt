@@ -3,74 +3,90 @@
     <head>
         <title>[% page.title %] - World of Tanks Replays</title>
         <link rel="shortcut icon" href="[% config.urls.static %]/img/favicon.ico"/>
-
-        <script type="text/javascript" src="[% config.urls.static %]/js/jquery-1.8.3.min.js"></script>
-        <script type="text/javascript" src="[% config.urls.static %]/js/jquery-ui-1.9.2.custom.min.js"></script>
-        <script type="text/javascript" src="[% config.urls.static %]/js/jquery.form.js"></script>
-        <script type="text/javascript" src="[% config.urls.static %]/js/jquery.timers.js"></script>
-        <script type="text/javascript" src="[% config.urls.static %]/js/jstz.min.js"></script>
-        <script type="text/javascript" src="[% config.urls.static %]/js/jquery.blockUI.js"></script>
-        <script type="text/javascript" src="[% config.urls.static %]/js/flot/jquery.flot.js"></script>
-        <script type="text/javascript" src="[% config.urls.static %]/js/flot/jquery.flot.pie.js"></script>
-        <script type="text/javascript" src="[% config.urls.static %]/js/underscore-min.js"></script>
-        <script type="text/javascript" src="[% config.urls.static %]/js/backbone-min.js"></script>
-
-        <script type="text/javascript" src="[% config.urls.static %]/js/wr.js"></script>
-        <script type="text/javascript" src="[% config.urls.static %]/js/wr/ui.js"></script>
-        <script type="text/javascript" src="[% config.urls.static %]/js/wr/init.js"></script>
-        [% IF include_battleviewer %]
-            <script type="text/javascript" src="[% config.urls.static %]/js/wr/battleviewer.js"></script>
-        [% END %]
-        <link rel="stylesheet" href="[% config.urls.static %]/css/[% IF config.mode == 'dev' %]wtr.css[% ELSE %]wtr.min.css[% END %]" type="text/css">
         <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
         <meta name="keywords" content="[% IF page.keywords %][% page.keywords %], [% END %]world of tanks replays, wot replays, replays"/>
         [% IF page.description %]
             <meta name="description" content="[% page.description |html %]"/>
         [% END %]
-        [% IF notify %]
-            <script type="text/javascript">
-                $(document).ready(function() {
-                    WR.ui.notify({ type: '[% notify.type %]', text: '[% notify.text |js %]', close: [% IF notify.close %]true[% ELSE %]false [% END %], sticky: [% IF notify.sticky %]true[% ELSE %]false[% END %] });
-                });
-            </script>
-        [% END %]
-        <script type="text/javascript">
-            $(document).ready(function() {
-                $('.top-bar-content select[name="server-selector"]').change(function() {
-                    WR.waitElement();
-                    var v = $(this).val();
-                    document.location = 'http://' + v + '.wotreplays.org/';
-                });
-            });
-        </script>
-        [% INCLUDE bricks/ga.js.tt %]
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.0/backbone-min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-growl/1.0.0/jquery.bootstrap-growl.min.js"></script>
+
+        <script type="text/javascript" src="[% config.urls.static %]/js/jquery.form.js"></script>
+        <script type="text/javascript" src="[% config.urls.static %]/js/jquery.timers.js"></script>
+        <script type="text/javascript" src="[% config.urls.static %]/js/bootstrap-slider.js"></script>
+
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet"/> 
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet"/>
+        <link href="//netdna.bootstrapcdn.com/bootswatch/3.0.1/cyborg/bootstrap.min.css" rel="stylesheet"/>
+
+        <link href="[% config.urls.static %]/css/[% IF config.mode.defined && config.mode == 'dev' %]wtr[% ELSE %]wtr.min[% END %].css" rel="stylesheet"/>
+        <script type="text/javascript" src="[% config.urls.static %]/js/wtr.js"></script>
     </head>
-    <body class="ui">
-        <div style="padding: 25px 0px 25px 0px">
-        <div class="top-bar-content ui-corner-bottom">
-            [% IF h.is_user_authenticated %]
-                Welcome back, <a href="/player/[% h.current_user.player_server |uri %]/[% h.current_user.player_name |uri %]/">[% h.current_user.player_name %]</a> | <a href="/profile/">profile</a> | <a href="/logout">sign out</a>
-            [% ELSE %]
-                Please <a href="/login">sign in</a>!
-            [% END %]
-            <select name="server-selector">
-                <option value="www" [% IF req_host == 'www' %]selected="true"[% END %]>ALL</option>
-                <option value="sea" [% IF req_host == 'sea' %]selected="true"[% END %]>SEA</option>
-                <option value="na" [% IF req_host == 'na' %]selected="true"[% END %]>NA</option>
-                <option value="eu" [% IF req_host == 'eu' %]selected="true"[% END %]>EU</option>
-                <option value="ru" [% IF req_host == 'ru' %]selected="true"[% END %]>RU</option>
-                <option value="vn" [% IF req_host == 'vn' %]selected="true"[% END %]>VN</option>
-                <option value="kr" [% IF req_host == 'kr' %]selected="true"[% END %]>KR</option>
-            </select>
+    <body>
+        <div class="navbar navbar-default navbar-shadow">
+            <div class="navbar-header">
+                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse" id="navbar-main">
+                <ul class="nav navbar-nav">
+                    <li class="[% IF pageid == 'home' %]active[% END %]"><a  href="/">Home</a></li>
+                    <li class=" [% IF pageid == 'browse' %]active[% END %]"><a class="js-hover" href="/browse">Browse</a></li>
+                    [% IF 1 == 0 %]
+                    <li class=" vehicles [% IF pageid == 'player' %]active[% END %]"><a class="js-hover" href="/players">Players</a></li>
+                    <li class="dropdown [% IF pageid == 'vehicle' %]active[% END %]">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="/vehicles">Vehicles <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/vehicles/china">China</a></li>
+                            <li><a href="/vehicles/france">France</a></li>
+                            <li><a href="/vehicles/germany">Germany</a></li>
+                            <li><a href="/vehicles/uk">UK</a></li>
+                            <li><a href="/vehicles/usa">USA</a></li>
+                            <li><a href="/vehicles/ussr">USSR</a></li>
+                            <li><a href="/vehicles/japan">Japan</a></li>
+                        </ul>
+                    </li>
+                    <li class="maps [% IF pageid == 'map' %]active[% END %]"><a class="js-hover" href="/maps">Maps</a></li>
+                    [% END %]
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="[% IF pageid == 'upload' %]active[% END %]"><a href="[% IF h.is_user_authenticated %]/upload/[% ELSE %]/login/[% END %]">Upload Replay</a></li>
+                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Tools <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li class=" issues [% IF pageid == 'issues' %]active[% END %]"><a class="js-hover" href="https://bitbucket.org/wotreplays/wot-replays/issues">Issue Tracker</a></li> 
+                            <li class=" wiki [% IF pageid == 'wiki' %]active[% END %]"><a class="js-hover" href="http://wiki.vbaddict.net/pages/WoT_Developer_Wiki">Wiki</a></li>
+                            <li class=" blog [% IF pageid == 'blog' %]active[% END %]"><a class="js-hover" href="http://blog.wotreplays.org/">Blog</a></li>
+                        </ul>
+                    </li>
+                    [% IF h.is_user_authenticated %]
+                        <li class="dropdown"><a href="/profile" class="dropdown-toggle" data-toggle="dropdown">[% h.current_user.player_name |html %] <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-header">Your Profile</li>
+                                <li><a href="/profile/replays">Replays</a></li>
+                                <li><a href="/profile/settings">Settings</a></li>
+                                <li class="divider"></li>
+                                <li><a href="/logout">Sign Out</a></li>
+                            </ul>
+                        </li>
+                    [% ELSE %]
+                        <li [% IF pageid == 'login' %]class="active"[% END %]>
+                            <a href="/login">Sign In</a>
+                        </li>
+                    [% END %]
+                </ul>
+            </div>
         </div>
-        <div id="container" class="ui-corner-all">
-            [% INCLUDE nav.html.tt %]
-            <div class="clear"></div>
+        <div class="container rounded shadow clearfix">
             <div id="contentMain">[% content %]</div>
-            [% INCLUDE footer.html.tt %]
-            <div class="clear"></div>
-        </div>
-        <div class="clear"></div>
+            <div class="clearfix" style="text-align: center; margin: 40px 0px 10px 0px">&copy; 2012, 2013 Scrambled | default/[% config.versions.app %]/[% config.wot.version %] | <a style="display: inline; text-decoration: underline; padding: 0px" href="/about">about & faq</a> / <a style="display: inline; text-decoration: underline; padding: 0px" href="/credits.html">additional credits</a> | t: <span id="timing_elapsed">[% timing_elapsed || '-' %]</span></div>
         </div>
     </body>
 </html>

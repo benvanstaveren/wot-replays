@@ -29,7 +29,7 @@ sub generate_vehicle_select {
         my $cursor = $self->model('wot-replays.data.vehicles')->find({ country => $country })->sort({ label => 1 });
         while(my $obj = $cursor->next()) {
             push(@{$d->{items}}, {
-                id => $obj->{id},
+                id => $obj->{_id},
                 value => $obj->{label},
                 level => $obj->{level},
             });
@@ -233,7 +233,7 @@ sub add_helpers {
         my $i = $a->{id};
         if(my $c = $self->model('wot-replays.data.components')->find_one({ component => 'shells', _id => $i + 0 })) {
             return sprintf('%s %dmm %s %s', 
-                ($a->{count} > 0) ? sprintf('%d x', $a->{count}) : '',
+                sprintf('%d x', $a->{count}),
                 $c->{caliber}, 
                 $kind_map->{$c->{kind}},
                 $c->{label}

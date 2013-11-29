@@ -1,2 +1,0 @@
-            <span class="label" style="margin-top: 10px">Defended Points</span>
-            <span class="[% IF replay.stats.droppedCapturePoints > 0 %]green[% END %]">[% replay.stats.droppedCapturePoints || '0' %]</span>

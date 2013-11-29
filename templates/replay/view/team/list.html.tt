@@ -1,17 +1,17 @@
-<table style="width: 100%" cellspacing="0" cellpadding="0">
-<tbody>
-<tr class="ui-widget-header">
-    <td></td>
-    <td><b>Tank</b></td>
-    <td><b>Player</b></td>
-    <td><b>Awards</b></td>
-    <td><b>Dmg</b></td>
-    <td><b>XP</b></td>
-    <td title="Kills"><b>K#</b></td>
-</tr>
-[% FOREACH vid IN players %]
-    [% player = h.get_roster_by_vid(replay, vid) %]
-    [% INCLUDE replay/view/team/row.html.tt %]
-[% END %]
-</tbody>
+<table class="table table-bordered table-striped team-list">
+    <thead>
+        <th></th>
+        <th>Tank</th>
+        <th>Player</th>
+        <th>Awards</th>
+        <th>Dmg</th>
+        <th>XP</th>
+        <th>Kills</th>
+    </thead>
+    <tbody>
+        [% FOREACH vid IN players %]
+            [% player = h.get_roster_by_vid(replay, vid) %]
+            [% INCLUDE replay/view/team/row.html.tt %]
+        [% END %]
+    </tbody>
 </table>

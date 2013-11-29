@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 use strict;
 use FindBin;
-use lib ("$FindBin::Bin/lib","$FindBin::Bin/../lib");
+use lib ("$FindBin::Bin/lib","$FindBin::Bin/../lib","$FindBin::Bin/../../lib");
 use WR;
 use WR::XMLReader;
 use Data::Localize;
@@ -99,7 +99,10 @@ foreach my $raw (@{$list->{map}}) {
 sub make_map_base {
     my $map = shift;
     my ($dummy, $id) = split(/_/, $map->{name}, 2);
+
     my $name = $text->localize_for(lang => 'arenas', id => sprintf('%s/name', $map->{name}));
+
+    die 'no name for map, arenas.po path is set to ', $arena_po, "\n" unless(defined($name));
 
     my $slug = lc($name);
     $slug =~ s/\s+//g;

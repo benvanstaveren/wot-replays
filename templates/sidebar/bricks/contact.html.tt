@@ -1,7 +1,11 @@
-    <h3>Contact Me</h3>
-    <div>
+<div class="row">
+    <h4>Contact Me</h4>
+    <div class="col-lg-12 col-md-12">
+        <p>
         To contact me, use one of the following:
+        </p>
         <ul>
             <li> <a href="mailto:scrambled(awyissmothafrakkingatsign)wotreplays.org">email</a> </li>
         </ul>
     </div>
+</div>

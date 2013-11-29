@@ -1,12 +1,11 @@
-<div>
-    <span class="label">Performance</span>
-    <div class="replayTeamList" id="battlePerformance">
-        <table style="width: 100%" class="battleperformance" cellspacing="0">
-        <tbody>
-            [% INCLUDE replay/view/battleperformance/list.html.tt %]
-        </tbody>
-        </table>
-    </div>
+<h4>Performance</h4>
+<table class="table table-bordered team-list table-striped">
+    <tbody>
+        [% INCLUDE replay/view/battleperformance/list.html.tt %]
+    </tbody>
+</table>
+[% IF 1 == 0 %]
+    <!-- old crit detail junk -->
     [% FOREACH pid IN replay.stats.details.keys %]
         [% details = replay.stats.details.$pid %]
         [% cd = h.get_crit_details(details.crits) %]
@@ -48,29 +47,4 @@
             </div>
         [% END %]
     [% END %]
-    <div class="clear"></div>
-</div>
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('td.tooltip').tooltip({ track: true });
-        $('div.crit-details-dlg').dialog({
-            autoOpen: false,
-            modal: true,
-            resizable: false,
-            closeOnEscape: true,
-            buttons: {
-                'Ok': function() {
-                    $(this).dialog('close');
-                }
-            },
-            width: 550,
-            height: 300,
-        });
-        $('span.crits.hasdetails').css({ 'pointer': 'cursor' }).click(function() {
-            var pid = $(this).attr('player');
-            var dlg = $('#crit-details-' + pid);
-            $(dlg).dialog('open');
-            return false;
-        });
-    });
-</script>
+[% END %]

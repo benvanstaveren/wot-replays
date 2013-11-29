@@ -1,26 +1,22 @@
-            [% awards = 0 %]
-            <span class="label">Other Awards</span>
-            <div class="heroawardlist">
-                [% FOREACH award IN other_awards %]
-                    [% IF h.achievement_is_award(award.type) %]
-                        [% IF h.achievement_is_class(award.type) %]
-                            [% IF award.type == 79 %]
-                                [% title = h.get_achievements.i18n(h.get_achievements.index_to_idstr(award.type) _ award.class_suffix) %]
-                            [% ELSE %]
-                                [% title = h.get_achievements.i18n(h.get_achievements.index_to_idstr(award.type)) _ ' ' _ award.class_suffix _ ' Class' %]
-                            [% END %]
-                        [% ELSE %]
-                            [% title = h.get_achievements.i18n(h.get_achievements.index_to_idstr(award.type)) %]
-                        [% END %]
-                        <div class="award [% h.get_achievements.index_to_idstr(award.type) %][% IF award.class_suffix %][% award.class_suffix %][% END %]" title="[% title |html %]">
-                            [% IF award.count && award.count > 1 %]<b class="ui-corner-all">[% award.count %]</b>[% END %]
-                        </div>
-                        [% awards = awards + 1 %]
-                    [% END %]
-                [% END %]
-                [% IF awards < 1 %]
-                    <span>No other badges or medals awarded</span>
+<h4>Other Awards</h4>
+<div class="heroawardlist clearfix">
+    [% FOREACH award IN other_awards %]
+        [% IF h.achievement_is_award(award.type) %]
+            [% IF h.achievement_is_class(award.type) %]
+                [% IF award.type == 79 %]
+                    [% title = h.get_achievements.i18n(h.get_achievements.index_to_idstr(award.type) _ award.class_suffix) %]
                 [% ELSE %]
-                    <div class="clear"></div>
+                    [% title = h.get_achievements.i18n(h.get_achievements.index_to_idstr(award.type)) _ ' ' _ award.class_suffix _ ' Class' %]
                 [% END %]
+            [% ELSE %]
+                [% title = h.get_achievements.i18n(h.get_achievements.index_to_idstr(award.type)) %]
+            [% END %]
+            <div class="award [% h.get_achievements.index_to_idstr(award.type) %][% IF award.class_suffix %][% award.class_suffix %][% END %]" title="[% title |html %]">
+                [% IF award.count && award.count > 1 %]<b class="ui-corner-all">[% award.count %]</b>[% END %]
             </div>
+        [% END %]
+    [% END %]
+    [% IF other_awards.size < 1 %]
+        <p>No other badges or medals awarded</p>
+    [% END %]
+</div>

@@ -1,0 +1,6 @@
+[% FOREACH replay IN replays %]
+    [% INCLUDE replay/panel.html.tt %]
+[% END %]
+[% IF replays.size == 0 %]
+    <p class="lead">Oops, seems there are no replays that match that filter...</p>
+[% END %]

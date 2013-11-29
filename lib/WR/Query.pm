@@ -102,6 +102,10 @@ sub _build_query {
         'site.visible' => Mango::BSON::bson_true,
     };
 
+    foreach my $key (keys(%args)) {
+        delete($args{$key}) if($args{$key} eq '*');
+    }
+
     my $ors = [];
 
     $query->{version} = $args{'version'} if($args{'version'});

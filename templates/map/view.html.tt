@@ -1,25 +1,22 @@
 [% WRAPPER wrapper.html.tt %]
-<div>
-    <div class="content">
-        <h3>
-            <a href="/maps/">Maps</a> &raquo; [% h.map_name(map_id) %]
-        </h3>
-        <div id="browseContent">
-            [% INCLUDE replay/panel_list.html.tt %]
+    <div class="page-header">
+        <h2><a href="/maps/">Maps</a> &raquo; [% h.map_name(map_id) %]</h2>
+    </div>
+    <div class="row">
+        <div class="col-lg-9 col-md-9" id="browseContent">
+            [% INCLUDE replay/list.html.tt %]
             [% INCLUDE browse/pager.html.tt %]
         </div>
+        <div class="col-lg-3 col-md-3">
+            [% INCLUDE sidebar/map.html.tt %]
+        </div>
     </div>
-    <div class="sidebar">
-        [% INCLUDE sidebar/map.html.tt %]
-    </div>
-    <div class="clear"></div>
-</div>
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('form#frm-browse-filter input[name="p"]').val('1');
-        var s = $('form#frm-browse-filter').serialize();
-        $('#browseContent').load('/replay/browse', s, function() {
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('form#frm-browse-filter input[name="p"]').val('1');
+            var s = $('form#frm-browse-filter').serialize();
+            $('#browseContent').load('/replay/browse', s, function() {
+            });
         });
-    });
-</script>
+    </script>
 [% END %]

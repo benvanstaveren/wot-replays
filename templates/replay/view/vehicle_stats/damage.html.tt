@@ -1,17 +1,22 @@
-            <span class="label" style="margin-top: 10px">Damage</span>
-            <table style="width: 100%" cellspacing="0" cellpadding="0"><tbody><tr>
-                <td>
-                    <span class="label small tooltip" title="Damage dealt directly by the player">Direct</span>
-                    <span class="green">[% replay.stats.damageDealt || '0' %]</span>
-                </td>
-                <td>
-                    <span class="label small tooltip" title="Damage dealt by allies ([% replay.stats.damageAssistedRadio %] via spotting, [% replay.stats.damageAssistedTrack %] via tracking)">Assist</span>
-                    <span class="green">[% replay.stats.damageAssistedRadio + replay.stats.damageAssistedTrack %]</span>
-                </td>
-                <td>
-                    <span class="damagereceiveddetail label small tooltip" title="Damage done to the player, click for detail view">Received</span>
-                    [% totalhealth = h.get_recorder_vehicle(replay).health.total %]
-                    [% damageperc  = h.percentage_of(totalhealth, replay.stats.damageReceived) %]
-                    <span class="damagereceiveddetail red tooltip" title="Damage done to the player, click for detail view">[% replay.stats.damageReceived || '0' %] ([% damageperc %]%)</span>
-                </td>
-            </tr></tbody></table>
+<h4>Damage</h4>
+<table class="table table-bordered table-striped">
+    <tbody>
+        <tr>
+            <td><h5 style="margin: 0px" title="Damage dealt directly by the player">Direct</h5></td>
+            <td><span class="green">[% replay.stats.damageDealt || '0' %]</span></td>
+        </tr>
+        <tr>
+            <td><h5 style="margin: 0px" title="Damage dealt by allies ([% replay.stats.damageAssistedRadio %] via spotting, [% replay.stats.damageAssistedTrack %] via tracking)">Assist</h5></td>
+            <td><span class="green">[% replay.stats.damageAssistedRadio + replay.stats.damageAssistedTrack %]</span></td>
+        </tr>
+        <tr>
+            <td><h5 style="margin: 0px" class="damagereceiveddetail" title="Damage done to the player, click for detail view">Received</h5></td>
+            <td>
+                [% totalhealth = h.get_recorder_vehicle(replay).health.total %]
+                [% damageperc  = h.percentage_of(totalhealth, replay.stats.damageReceived) %]
+                <span class="damagereceiveddetail red" title="Damage done to the player, click for detail view">[% replay.stats.damageReceived || '0' %] ([% damageperc %]%)</span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+

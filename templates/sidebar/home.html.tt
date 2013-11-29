@@ -1,5 +1,1 @@
-<div>
-    [% INCLUDE sidebar/bricks/upload.html.tt %]
-    [% INCLUDE sidebar/bricks/contact.html.tt %]
-    [% INCLUDE sidebar/bricks/donate.html.tt %]
-</div>
+[% INCLUDE sidebar/bricks/donate.html.tt %]

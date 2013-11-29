@@ -1,0 +1,13 @@
+<h4>Capture</h4>
+<table class="table table-bordered table-striped">
+    <tbody>
+        <tr>
+            <td><h5 style="margin: 0px">Captured</h5></td>
+            <td><span class="[% IF replay.stats.capturePoints > 0 %]green[% END %]">[% replay.stats.capturePoints || '0' %]</span></td>
+        </tr>
+        <tr>
+            <td><h5 style="margin: 0px">Defended</h5></td>
+            <td><span class="[% IF replay.stats.droppedCapturePoints > 0 %]green[% END %]">[% replay.stats.droppedCapturePoints || '0' %]</span></td>
+        </tr>
+    </tbody>
+</table>

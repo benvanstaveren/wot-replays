@@ -1,100 +1,117 @@
-    <h3>Filter</h3>
-    <div>
+<h3>Filter</h3>
+<div class="row">
+    <div class="col-lg-12 col-md-12">
         <form id="frm-browse-filter" method="post">
             <input type="hidden" name="p" value="[% p %]"/>
-            <input type="hidden" name="skey" value="filter_[% pageid %]"/>
             <input type="hidden" name="vehiclepov" value="1"/>
             <input type="hidden" name="vehicleinv" value="0"/>
             <input type="hidden" name="tier_min" value="1"/>
             <input type="hidden" name="tier_max" value="10"/>
-            <input type="hidden" name="version" value=""/>
-            [% IF req_host != 'www' %]
-                <input type="hidden" name="server" value="[% req_host %]"/>
-            [% END %]
+
             [% IF pageid == 'map' %]
                 <input type="hidden" name="map" value="[% h.map_numericid(map_id) %]"/>
             [% ELSIF pageid == 'vehicle' %]
                 <input type="hidden" name="vehicle" value="[% vehicle_full %]"/>
             [% END %]
+
             [% IF pageid != 'vehicle' %]
-            <span class="label">Vehicle</span>
-            <select name="vehicle">
-                <option value="">-- All vehicles</option>
-                [% FOREACH group IN h.generate_vehicle_select() %]
-                    <optgroup label="[% group.label %]">
-                        [% FOREACH option IN group.items %]
-                            <option tier="[% option.level %]" value="[% group.country %]:[% option.id %]">[% option.value %]</option>
-                        [% END %]
-                    </optgroup>
-                [% END %]
-            </select>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <h5>Vehicle</h5>
+                        <select name="vehicle" class="form-control">
+                            <option value="*">-- All vehicles</option>
+                            [% FOREACH group IN h.generate_vehicle_select() %]
+                                <optgroup label="[% group.label %]">
+                                    [% FOREACH option IN group.items %]
+                                        <option tier="[% option.level %]" value="[% option.id %]">[% option.value %]</option>
+                                    [% END %]
+                                </optgroup>
+                            [% END %]
+                        </select>
+                    </div>
+                </div>
             [% END %]
             [% IF pageid != "vehicle" && !filter.vehicle %]
-            <div id="vehicle-tier-container">
-            <span class="label" style="margin: 10px 0px 0px 0px">Tiers</span>
-            <div style="padding: 4px">
-                <div style="float: left; width: 45px; position: relative; top: -4px">
-                    <span id="tier_min">[% filter.tier_min || '1' %]</span> - <span id="tier_max">[% filter.tier_max || '10' %]</span>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <h5>Tier</h5>
+                        <small style="margin: 0px 15px 0px 0px" id="tier-min">[% filter.tier_min || '1' %]</small><input id="tier-slider" type="text" class="span2" value="" data-slider-min="1" data-slider-max="10" data-slider-value="[[% filter.tier_min || '1' %],[% filter.tier_max || '10' %]]" data-slider-step="1" data-slider-orientation="horizontal" data-slider-tooltip="hide"/> <small style="margin: 0px 0px 0px 15px" id="tier-max"> [% filter.tier_max || '10' %]</small>
+                    </div>
                 </div>
-                <div style="float: left; width: 190px">
-                    <div id="slider-tier"></div>
-                </div>
-                <div class="clear"></div>
-            </div>
-            </div>
             [% END %]
             [% IF pageid != 'map' %]
-            <span class="label">Map</span>
-            <select name="map">
-                <option value="">-- All maps</option>
-                [% FOREACH map IN h.generate_map_select() %]
-                    <option value="[% map.id |html %]">[% map.label %]</option>
-                [% END %]
-            </select>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <h5>Map</h5>
+                        <select name="map" class="form-control">
+                            <option value="*">-- All maps</option>
+                            [% FOREACH map IN h.generate_map_select() %]
+                                <option value="[% map.id |html %]">[% map.label %]</option>
+                            [% END %]
+                        </select>
+                    </div>
+                </div>
             [% END %]
-            [% IF req_host == 'www' %]
-            <span class="label">Server</span>
-            <select name="server">
-                <option value="">-- All servers</option>
-                <option value="na">North America</option>
-                <option value="eu">Europe</option>
-                <option value="ru">Russia</option>
-                <option value="sea">South East Asia</option>
-                <option value="vn">Vietnam</option>
-                <option value="kr">Korea</option>
-            </select>
-            [% END %]
-            <span class="label">Match Mode</span>
-            <select name="matchmode">
-                <option value="">-- All modes</option>
-                <option value="ctf">CTF</option>
-                <option value="domination">Encounter</option>
-                <option value="assault">Assault</option>
-            </select>
-            [% IF pageid != 'tournament' %]
-            <span class="label">Match Type</span>
-            <select name="matchtype">
-                <option value="">-- All types</option>
-                <option value="1">Random Battle</option>
-                <option value="2">Training Room Battle</option>
-                <option value="3">Company Battle</option>
-                <option value="4">Tournament Battle</option>
-                <option value="5">Clan Battle</option>
-            </select>
-            [% END %]
-            <span class="label">Sorting</span>
-            <select name="sort">
-                <option value="upload">Upload Date</option>
-                <option value="matchtime">Match Time</option>
-                <option value="xp">XP Earned</option>
-                <option value="credits">Credits Earned</option>
-                <option value="damage">Damage Done</option>
-                <option value="likes">Most Likes</option>
-                <option value="downloads">Most Downloaded</option>
-            </select>
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <h5>Server</h5>
+                    <select name="server" class="form-control">
+                        <option value="*">-- All servers</option>
+                        <option value="na">North America</option>
+                        <option value="eu">Europe</option>
+                        <option value="ru">Russia</option>
+                        <option value="sea">South East Asia</option>
+                        <option value="vn">Vietnam</option>
+                        <option value="kr">Korea</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <h5>Match Mode</h5>
+                    <select name="matchmode" class="form-control">
+                        <option value="*">-- All modes</option>
+                        <option value="ctf">CTF</option>
+                        <option value="domination">Encounter</option>
+                        <option value="assault">Assault</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <h5>Match Type</h5>
+                    <select name="matchtype" class="form-control">
+                        <option value="*">-- All types</option>
+                        <option value="1">Random Battle</option>
+                        <option value="2">Training Room Battle</option>
+                        <option value="3">Company Battle</option>
+                        <option value="4">Tournament Battle</option>
+                        <option value="5">Clan Battle</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <h5>Sorting</h5>
+                    <select name="sort" class="form-control">
+                        <option value="upload">Upload Date</option>
+                        <option value="matchtime">Match Time</option>
+                        <option value="xp">XP Earned</option>
+                        <option value="credits">Credits Earned</option>
+                        <option value="damage">Damage Done</option>
+                        <option value="likes">Most Likes</option>
+                        <option value="downloads">Most Downloaded</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12" style="padding-top: 15px">
+                    <div class="btn-group btn-group-justified">
+                        <a id="btn-browse-filter" class="btn btn-primary">Filter</a>
+                        <a id="btn-browse-reset" class="btn btn-default">Reset</a>
+                    </div>
+                </div>
+            </div>
         </form>
-        <div class="filter-buttons">
-        <button id="btn-browse-filter" style="width: 120px" class="clean-gray">Filter</button>
-        <button id="btn-browse-reset" style="width: 120px" class="clean-gray">Reset</button>
-        </div>
     </div>
+</div>

@@ -1,80 +1,69 @@
 [% WRAPPER wrapper.html.tt %]
     <script type="text/javascript">
-        WR.g_currentReplayId = '[% h.get_id(replay) %]';
+        var g_currentReplayId = '[% h.get_id(replay) %]';
     </script>
-    <div class="content nosidebar">
-        <div class="box ui-corner-all" style="padding: 5px; background: rgba(0,0,0,0.2) none repeat scroll 0 0; margin: 0px 0px 10px 0px">
-            <div style="margin: 0px 0px 10px 0px">
-                <div style="width: 231px; float: left; margin: 0px 5px 0px 0px">
-                    [% INCLUDE replay/panel/vehiclemap.html.tt %]
+    <div class="row" style="margin: 30px 0px 10px 0px">
+        <div class="col-lg-3 col-md-3">
+            <div 
+                title="[% h.get_recorder_vehicle(replay).vehicle.label |html %] on [% h.map_name(replay.game.map) |html%]" 
+                style="background: transparent url([% config.urls.assets %]/mapscreen/[% h.map_icon(replay.game.map) %]) no-repeat scroll 0 0;"
+                class="rounded-tl"
+                >
+                <div style="width: 231px; height: 97px; background: transparent url([% config.urls.assets %]/mapscreen/overlay.png) no-repeat scroll 0 0">
+                    <img src="[% config.urls.assets %]/vehicles/100/[% h.get_recorder_vehicle(replay).vehicle.icon %]" style="width: 160px; height: 100px; position: relative; top: 0px; left: 110px"/>
                 </div>
-                <div style="float: left">
-                    <h2 style="margin: 0px 0px 0px 0px">
-<a class="[% IF h.get_replay_stats(replay, 'isPremium') %]premium" style="background-position: center left;"[% END %] href="/player/[% replay.game.server %]/[% replay.game.recorder.name |uri %]/" title="[% replay.game.recorder.name |html %] [% IF h.get_replay_stats(replay, 'isPremium') %](Premium)[% END %]">[% replay.game.recorder.name |truncate(15) |html %]</a> - <a href="/vehicle/[% h.vehicle_link(h.get_recorder_vehicle(replay).vehicle.ident) %]/" title="[% h.get_recorder_vehicle(replay).vehicle.label |html %]">[% h.get_recorder_vehicle(replay).vehicle.label_short |html %]</a> - <a href="/map/[% h.map_slug(replay.game.map) |uri %]/">[% h.map_name(replay.game.map) |html %]</a> ([% h.bonus_type_name(replay.game.bonus_type) %] [% h.game_type_name(replay.game.type) %])</a>
-                    </h2>
-                    <h3 style="margin: 0px 0px 5px 0px">
-                        <span style="font-weight: normal">Result:</span><span>[% INCLUDE replay/view/matchresult.html.tt %]</span> <span style="margin: 0px 0px 0px 10px; font-weight: normal">Survived:</span><span> [% INCLUDE replay/view/vehicle_stats/survived.html.tt %]</span>
-                    </h3>
-                    <div>
-                        <button class="rateUp" rid="[% h.get_id(replay) %]" title="Like this replay"><span>Like</span> (<span class="rateUpCount">[% replay.site.like || '0' %]</span>)</button></a>
-                        [% IF replay.site.banner.available %]
-                            <button class="panelButton" style="width: 75px" id="btn-embed">Embed</button>
-                        [% END %]
-                        [% IF !replay.site.download_disabled %]
-                        <button href="/replay/[% h.get_id(replay) %]/download" class="panelButton downloadButton [% IF h.is_old_version(replay) %]incompatible[% END %]" style="width: 125px" id="btn-download">Download (<span class="count">[% replay.site.downloads || '0' %]</span>)</button>
-                        [% END %]
-                        <button class="panelButton replayViewerButton" style="width: 100px;" id="btn-battleviewer">Battle Viewer</button>
-                        [% IF 1 == 0 %]
-                        <button href="/replay/[% h.get_id(replay) %]/csv.csv" class="panelButton downloadButton" style="width: 75px" id="btn-csv">As CSV</button>
-                        [% END %]
-                    </div>
-                </div>
-                <div class="clear"></div>
             </div>
-            <div id="replay-view-content" class="ui-corner-all">
-                <div class="tablist">
-                    <div class="tablist-inner">
-                        <div class="container-tablist">
-                            <ul class="nav">
-                                <li class="nav-item tab active"><a href="#vehicle-stats">Statistics</a></li>
-                                <li class="nav-item tab"><a href="#vehicle-loadout">Loadout</a></li>
-                                <li class="nav-item tab"><a href="#teams">Teams</a></li>
-                                [% IF replay.chat.size > 0 %]
-                                    <li class="nav-item tab"><a href="#battle-chat">Chat</a></li>
-                                [% END %]
-                                <li class="nav-item tab"><a href="#comparison">Compare</a></li>
-                                [% IF related && related.count > 0 %]
-                                    <li class="nav-item tab"><a href="#replay-related">Related Replays ([% related.count %])</a></li>
-                                [% END %]
-                            </ul>
+        </div>
+        <div class="col-lg-9 col-md-9">
+            <p class="lead" style="margin-bottom: 5px">
+                    <a class="[% IF h.get_replay_stats(replay, 'isPremium') %]premium" style="background-position: center left;"[% END %] href="/player/[% replay.game.server %]/[% replay.game.recorder.name |uri %]/" title="[% replay.game.recorder.name |html %] [% IF h.get_replay_stats(replay, 'isPremium') %](Premium)[% END %]">[% replay.game.recorder.name |truncate(15) |html %]</a> - <a href="/vehicle/[% h.vehicle_link(h.get_recorder_vehicle(replay).vehicle.ident) %]/" title="[% h.get_recorder_vehicle(replay).vehicle.label |html %]">[% h.get_recorder_vehicle(replay).vehicle.label_short |html %]</a> - <a href="/map/[% h.map_slug(replay.game.map) |uri %]/">[% h.map_name(replay.game.map) |html %]</a> ([% h.bonus_type_name(replay.game.bonus_type) %] [% h.game_type_name(replay.game.type) %])</a>
+            </p>
+            <h4 style="padding: 0px; margin: 0px 0px 5px 0px">
+                    <span style="font-weight: normal">Result:</span><span>[% INCLUDE replay/view/matchresult.html.tt %]</span> <span style="margin: 0px 0px 0px 10px; font-weight: normal">Survived:</span><span> [% INCLUDE replay/view/vehicle_stats/survived.html.tt %]</span>
+            </h4>
+            <div class="btn-group btn-group-justified">
+                <a class="btn btn-default btn-like-replay" href="[% h.get_id(replay) %]" title="Like this replay"><span class="badge">[% replay.site.like || '0' %]</span> Like</a>
+                <a class="btn btn-default btn-save-replay" title="Download this replay" href="/replay/[% h.get_id(replay) %]/download"><span class="badge">[% replay.site.downloads || '0' %]</span> Save</a>
+                [% IF replay.site.banner.available %]
+                    <a class="btn btn-default btn-embed-replay" href="[% h.get_id(replay) %]" title="Embed this replay">Embed</a>
+                [% END %]
+                <a class="btn btn-default btn-battleviewer disabled" title="Battleviewer" href="[% h.get_id(replay) %]">Battle Viewer</a>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin: 10px 0px 0px 0px">
+        <div class="col-lg-12 col-md-12">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#vehicle-stats" data-toggle="tab">Statistics</a></li>
+                <li><a href="#vehicle-loadout" data-toggle="tab">Loadout</a></li>
+                <li><a href="#teams" data-toggle="tab">Teams</a></li>
+                [% IF replay.chat.size > 0 %]
+                    <li><a href="#battle-chat" data-toggle="tab">Chat</a></li>
+                [% END %]
+                <li class="disabled"><a href="#comparison" data-toggle="tab">Compare</a></li>
+            </ul>
+            <div class="tab-content">
+                <div id="vehicle-stats" class="tab-pane fade in active">
+                    <div class="row">
+                        <div class="col-lg-5 col-md-5">
+                            [% INCLUDE replay/view/battleperformance.html.tt %]
+                        </div>
+                        <div class="col-lg-7 col-md-7">
+                            [% INCLUDE replay/view/vehicle_stats.html.tt %]
                         </div>
                     </div>
                 </div>
-                <div id="vehicle-stats" class="tab-panel">
-                    <div style="width: 390px; float: left">
-                        [% INCLUDE replay/view/battleperformance.html.tt %]
-                    </div>
-                    <div style="margin: 0px 3px 0px 0px; float: left; width: 520px">
-                        [% INCLUDE replay/view/vehicle_stats.html.tt %]
-                    </div>
-                    <div class="clear"></div>
-                </div>
-                <div id="vehicle-loadout" class="tab-panel" style="display: none">
+                <div id="vehicle-loadout" class="tab-pane fade">
                     [% INCLUDE replay/view/vehicle_loadout.html.tt %]
                 </div>
-                <div id="teams" class="tab-panel" style="display: none">
+                <div id="teams" class="tab-pane fade">
                     [% INCLUDE replay/view/teams.html.tt %]
                 </div>
-                <div id="comparison" class="tab-panel" style="display: none">
+                <div id="comparison" class="tab-pane fade">
                     <div id="comparison-display">Loading...</div>
                 </div>
-                [% IF related.count && related.count > 0 %]
-                <div id="replay-related" class="tab-panel" style="display: none">
-                    under construction
-                </div>
-                [% END %]
                 [% IF replay.chat.size > 0 %]
-                <div id="battle-chat" class="tab-panel" style="display: none">
+                <div id="battle-chat" class="tab-pane fade">
                     [% FOREACH message IN replay.chat %]
                         <div style="padding: 2px;">
                             [% message %]
@@ -85,6 +74,48 @@
             </div>
         </div>
     </div>
-    [% INCLUDE replay/view/battleviewer/index.html.tt %]
+    <div id="battleviewerModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Battle Viewer</h4>
+                </div>
+                <div class="modal-body">
+                    <p>The battle viewer is currently being retooled and isn't available right now. Sorry!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="embedModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Embed Replay</h4>
+                </div>
+                <div class="modal-body">
+                    <p>In order to embed this replay, use the supplied BBCode below.</p>
+                    <p>
+                        <img class="banner" style="width: 545px; height: 98px; margin: 0px auto" src="[% config.urls.banners %]/[% replay.site.banner.url_path %]"/>
+                    </p>
+                    <p>
+                        <textarea class="bbcode" style="width: 545px; resize: none" rows="5">
+[url=http://[% config.urls.app %]/replay/[% h.get_id(replay) %].html]
+[img][% config.urls.banners %]/[% replay.site.banner.url_path %][/img]
+[/url]
+                        </textarea>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    [% IF 1 == 0 %]
+        [% INCLUDE replay/view/battleviewer/index.html.tt %]
+    [% END %]
     [% INCLUDE replay/view/script.js.tt %]
 [% END %]

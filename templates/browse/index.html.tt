@@ -1,20 +1,14 @@
 [% WRAPPER wrapper.html.tt %]
-<div>
-    <div id="mainNewReplays" class="content">
-        <h3>[% page.title %]</h3>
-        <div id="browseContent">
-            [% INCLUDE browse/pager.html.tt skipjs=1 %]
-            [% INCLUDE replay/panel_list.html.tt %]
+    <div class="page-header">
+        <h2>Browse Replays</h2>
+    </div>
+    <div class="row">
+        <div class="col-lg-9 col-md-9" id="browseContent">
+            [% INCLUDE replay/list.html.tt %]
             [% INCLUDE browse/pager.html.tt %]
         </div>
+        <div class="col-lg-3 col-md-3">
+            [% INCLUDE sidebar/browse.html.tt %]
+        </div>
     </div>
-    <div id="mainSidebar" class="sidebar">
-        [% INCLUDE sidebar/browse.html.tt %]
-    </div>
-    <div class="clear"></div>
-</div>
-<script type="text/javascript">
-    console.log('query: [% h.dumper(query.query) %]');
-    console.log('explain: [% h.dumper(query.explain) %]');
-</script>
 [% END %]

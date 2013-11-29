@@ -1,6 +1,10 @@
-<a name="rpl-teams"></a>
-<div>
-    <div class="replayTeamList" id="replayTeamOne">[% INCLUDE replay/view/team/list.html.tt players=replay.teams_sorted.xp.0 %]</div>
-    <div class="replayTeamList" id="replayTeamTwo">[% INCLUDE replay/view/team/list.html.tt players=replay.teams_sorted.xp.1 %]</div>
-    <div class="clear"></div>
+<div class="row">
+    <div class="col-md-6 col-lg-6">
+        <h4>Team 1</h4>
+        [% INCLUDE replay/view/team/list.html.tt players=replay.teams_sorted.xp.0 %]
+    </div>
+    <div class="col-md-6 col-lg-6">
+        <h4>Team 2</h4>
+        [% INCLUDE replay/view/team/list.html.tt players=replay.teams_sorted.xp.1 %]
+    </div>
 </div>

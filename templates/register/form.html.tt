@@ -1,8 +1,0 @@
-[% WRAPPER wrapper.html.tt %]    
-    <div class="content nosidebar aboutText">
-        <h3>Register</h3>
-        <div>
-            Account registration is no longer required, you may sign in with your <b>Wargaming.net ID</b>. 
-        </div>
-    </div>
-[% END %]
