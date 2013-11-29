@@ -95,7 +95,7 @@ sub add_helpers {
     $self->helper(current_user => sub {
         my $ctrl = shift;
         if(my $openid = $ctrl->session('openid')) {
-            return $ctrl->stash('_current_user') || {};
+            return $ctrl->stash('current_user') || {};
         } else {
             return undef;
         }
