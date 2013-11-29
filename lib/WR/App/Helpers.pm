@@ -95,7 +95,7 @@ sub add_helpers {
     $self->helper(current_user => sub {
         my $ctrl = shift;
         if(my $openid = $ctrl->session('openid')) {
-            return $self->stash('_current_user');
+            return $ctrl->stash('_current_user') || {};
         } else {
             return undef;
         }
@@ -570,7 +570,7 @@ sub add_helpers {
     $self->helper(is_own_replay => sub {
         my $self = shift;
         my $r = shift;
-
+	
         if($self->is_user_authenticated && ( ($self->current_user->{player_name} eq $r->{game}->{recorder}->{name}) && ($self->current_user->{player_server} eq $r->{game}->{server}))) {
             return 1;
         } else {

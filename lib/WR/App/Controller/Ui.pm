@@ -41,20 +41,12 @@ sub index {
         $c->sort({ 'site.uploaded_at' => -1 })->limit(15);
         $c->all(sub {
             my ($c, $e, $replays) = (@_);
-            if($self->req->is_xhr) {
-                $self->respond(template => 'index/ajax', stash => {
-                    replays         => $replays,
-                    replay_count    => $count,
-                    timing_query    => tv_interval($start),
-                });
-            } else {
-                $self->respond(template => 'index', stash => {
-                    replays         => $replays,
-                    replay_count    => $count,
-                    page            => { title => 'Home' },
-                    timing_query    => tv_interval($start),
-                });
-            }
+            $self->respond(template => 'index', stash => {
+                replays         => $replays || [],
+                replay_count    => $count,
+                page            => { title => 'Home' },
+                timing_query    => tv_interval($start),
+            });
         });
     });
 }
