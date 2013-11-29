@@ -95,13 +95,10 @@ sub add_helpers {
     $self->helper(current_user => sub {
         my $ctrl = shift;
         if(my $openid = $ctrl->session('openid')) {
-            if(my $user = $ctrl->model('wot-replays.accounts')->find_one({ openid => $openid })) {
-                return $user;
-            } else {
-                return undef;
-            }
+            return $self->stash('_current_user');
+        } else {
+            return undef;
         }
-        return undef;
     });
 
     $self->helper(get_replay_stats => sub {
