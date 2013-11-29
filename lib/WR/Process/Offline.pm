@@ -299,6 +299,8 @@ sub _real_process {
         $game->on('setup.roster' => sub {
             my ($s, $roster) = (@_);
 
+            $self->debug('received setup.roster');
+
             my $name_to_vidx = {};
             my $vid_to_vidx = {};
             my $i = 0;
