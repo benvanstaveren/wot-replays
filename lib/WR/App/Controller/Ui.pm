@@ -33,20 +33,14 @@ sub index {
     # here we generate a bunch of hoohah 
     $self->render_later;
 
-    # get a total count first
-    my $count_cursor = $self->model('wot-replays.replays')->find({ 'site.visible' => Mango::BSON::bson_true });
-    $count_cursor->count(sub {
-        my ($c, $e, $count) = (@_);
-
-        $c->sort({ 'site.uploaded_at' => -1 })->limit(15);
-        $c->all(sub {
-            my ($c, $e, $replays) = (@_);
-            $self->respond(template => 'index', stash => {
-                replays         => $replays || [],
-                replay_count    => $count,
-                page            => { title => 'Home' },
-                timing_query    => tv_interval($start),
-            });
+    # no need for a count
+    my $cursor = $self->model('wot-replays.replays')->find({ 'site.visible' => Mango::BSON::bson_true })->sort({ 'site.uploaded_at' => -1 })->limit(15)->all(sub {
+        my ($c, $e, $replays) = (@_);
+        $self->respond(template => 'index', stash => {
+            replays         => $replays || [],
+            replay_count    => $count,
+            page            => { title => 'Home' },
+            timing_query    => tv_interval($start),
         });
     });
 }
