@@ -25,7 +25,7 @@
                 <h6 style="padding: 0px; margin: 5px 0px 0px 0px">credits:</h6>
             </td>
             <td>
-                <span class="label fw">credits:</span><span class="value fw" title="Earned [% replay.stats.credits %] credits including premium and other bonuses" >[% replay.stats.credits || '0' |truncate(5)%]</span>
+                <span class="value fw" title="Earned [% replay.stats.credits %] credits including premium and other bonuses" >[% replay.stats.credits || '0' |truncate(5)%]</span>
             </td>
         </tr>
         <tr>
