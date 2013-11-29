@@ -1,0 +1,140 @@
+$image_base: "//images.wotreplays.org";
+$static_base: "";
+$background_from_theme: #060606;
+
+@import "wn7";
+@import "awards";
+@import "rounded";
+@import "shadow";
+@import "slider";
+
+div {
+    &.shadow {
+        @extend %box-shadow;
+    }
+    &.rounded {
+        @extend %rounded;
+    }
+    &.rounded-tl {
+        @extend %rounded-tl;
+    }
+    &.container {
+        /*background: #060606 none repeat scroll 0 0;*/
+        background: rgba($background_from_theme,0.95) none repeat scroll 0 0;
+    }
+    &.sidebar {
+        padding-top: 10px;
+    } 
+    &.navbar-shadow {
+        @extend %box-shadow;
+    }
+}
+
+
+body {
+    background-image:url(#{$static_base}/img/bg.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+}
+
+.table>tbody>tr>td.playerName {
+    vertical-align: middle;
+}
+
+.table.team-list>tbody>tr>td {
+    vertical-align: middle;
+    height: 58px;
+}
+    
+td.playerName {
+    width: 100px;
+}
+
+td.playerVehicle {
+    text-align: center;
+    width: 80px;
+    div.playerHealth {
+        width: 98%;
+        margin: 0px auto;
+        height: 10px;
+        background: rgba(0, 0, 0, 0.3) none repeat scroll 0 0;
+        position: relative;
+        top: 20px;
+        div.health {
+            background: rgba(0,254, 0, 0.3) none repeat scroll 0 0;
+            height: 10px;
+        }
+        div.healthnumbers {
+            color: #fff;
+            font-size: 0.6em;
+            font-family: monospace;
+            text-align: center;
+            position: relative;
+            top: -10px;
+        }
+    }
+}
+
+td.playerDetails {
+    width: 160px;
+    span {
+        width: 32px;
+        height: 32px;
+        margin: 4px;
+        display: block;
+        float: left;
+        &.dimmed {
+            opacity: 0.3;
+        }
+        &.hidden {
+            visibility: hidden;
+        }
+        &.kill {
+            background: black url(#{$image_base}/misc/kill.png) no-repeat scroll 0 0;
+        }
+        &.teamkill {
+            background: black url(#{$image_base}/misc/teamKill.png) no-repeat scroll 0 0;
+        }
+        &.damage {
+            background: black url(#{$image_base}/misc/damage.png) no-repeat scroll 0 0;
+        }
+        &.spotted {
+            background: black url(#{$image_base}/misc/spotted.png) no-repeat scroll 0 0;
+        }
+        &.evil {
+            background: black url(#{$image_base}/misc/evil.png) no-repeat scroll 0 0;
+        }
+        &.crits {
+            background: black url(#{$image_base}/misc/crits.png) no-repeat scroll 0 0;
+        }
+        b {
+            width: 16px;
+            height: 16px;
+            border: #444 1px solid;
+            display: inline-block;
+            text-align: center;
+            font-weight: normal;
+            font-size: 0.75em;
+            color: #fff;
+            background: rgba(34,34,34,0.5) none repeat scroll 0 0;
+            position: relative;
+            top: 15px;
+            left: 16px;
+        }
+    }
+}
+
+span {
+    &.equipment-icon {
+        width: 24px;
+        height: 24px;
+        display: inline-block;
+        border: #444 1px solid;
+    }
+    &.equipment-name {
+        position: relative; 
+        top: -7px; 
+        padding: 0px 0px 0px 5px;
+    }
+}

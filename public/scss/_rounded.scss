@@ -1,0 +1,52 @@
+$corner_radius: 4px;
+
+%rounded-tr {
+    -moz-border-top-right-radius: $corner_radius;
+    -webkit-border-top-right-radius: $corner_radius;
+    border-top-right-radius: $corner_radius;
+}
+
+%rounded-tl {
+    -moz-border-top-left-radius: $corner_radius;
+    -webkit-border-top-left-radius: $corner_radius;
+    border-top-left-radius: $corner_radius;
+}
+
+%rounded-br {
+    -moz-border-bottom-right-radius: $corner_radius;
+    -webkit-border-bottom-right-radius: $corner_radius;
+    border-bottom-right-radius: $corner_radius;
+}
+
+%rounded-bl {
+    -moz-border-bottom-left-radius: $corner_radius;
+    -webkit-border-bottom-left-radius: $corner_radius;
+    border-bottom-left-radius: $corner_radius;
+}
+
+%rounded-bottom {
+    @extend %rounded-br;
+    @extend %rounded-bl;
+}
+
+%rounded-top {
+    @extend %rounded-tr;
+    @extend %rounded-tl;
+}
+
+%rounded-left {
+    @extend %rounded-tl;
+    @extend %rounded-bl;
+}
+
+%rounded-right {
+    @extend %rounded-tr;
+    @extend %rounded-br;
+}
+
+%rounded {
+    @extend %rounded-tr;
+    @extend %rounded-tl;
+    @extend %rounded-br;
+    @extend %rounded-bl;
+}

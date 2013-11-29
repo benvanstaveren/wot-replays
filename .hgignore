@@ -18,4 +18,3 @@ bin/*.txt
 wrapi.development.conf
 bannerserver.conf
 bannerserver.development.conf
-public/*
