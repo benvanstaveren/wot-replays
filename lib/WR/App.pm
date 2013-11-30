@@ -51,7 +51,7 @@ sub startup {
     $r->route('/browse/*filter')->to('replays#browse', pageid => 'browse');
     $r->route('/browse')->to(cb => sub {
         my $self = shift;
-        $self->redirect_to('/browse/p/1/vehiclepov/1/vehicleinv/0/tier_min/1/tier_max/10/vehicle/*/map/*/server/*/matchmode/*/matchtype/*/sort/upload'));
+        $self->redirect_to('/browse/p/1/vehiclepov/1/vehicleinv/0/tier_min/1/tier_max/10/vehicle/*/map/*/server/*/matchmode/*/matchtype/*/sort/upload');
     });
     $r->route('/about')->to('ui#about', pageid => 'about');
     $r->route('/donate')->to('ui#donate', pageid => 'donate');
