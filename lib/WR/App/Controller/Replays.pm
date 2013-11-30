@@ -35,7 +35,7 @@ sub desc {
 sub browse {
     my $self = shift;
     my $filter = {};
-    my $perpage = $self->req->param('perpage') || 15;
+    my $perpage = 15;
     my $sorting = {
         upload      => { 'site.uploaded_at'         => -1 },
         matchtime   => { 'game.started'             => -1 },
@@ -68,6 +68,10 @@ sub browse {
         );
             
     my $p = $filter->{p} || 1;
+
+    use Data::Dumper;
+    warn Dumper($filter);
+
     $query->page($p => sub {
         my $replays = shift || [];
         my $maxp    = $query->maxp;
