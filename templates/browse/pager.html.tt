@@ -4,6 +4,7 @@
             <li [% IF p == 1 %]class="disabled"[% END %]><a href="/browse/[% h.browse_page(1) %]" page="1">&laquo;</a></li>
             <li [% IF p == 1 %]class="disabled"[% END %]><a href="/browse/[% h.browse_page(p - 1) %]" page="[% p - 1 %]">&lt;</a></li>
             [% start = p - 10 %]
+            [% IF start < 1 %]
                 [% start = 1 %]
             [% END %]
             [% cpage = start %]
