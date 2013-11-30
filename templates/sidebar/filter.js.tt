@@ -7,7 +7,7 @@
     $('#frm-browse-filter select[name="sort"]').val('[% filter.sort || 'upload'%]');
 
 
-    [% IF pageid != "vehicle" && !filter.vehicle %]
+    [% IF pageid != "vehicle" && filter.vehicle != '*' %]
         $('#tier-slider').slider()
             .on('slideStop', function(ev) {
                 var v = ev.value;
