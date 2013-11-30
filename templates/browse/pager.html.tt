@@ -39,7 +39,7 @@
 
         var first = s.replace(/=/g, '/');
         var second = first.replace(/\&/g, '/');
-        document.location.href = second;
+        document.location.href = '/browse/' + second;
         return false;
     });
 </script>  
