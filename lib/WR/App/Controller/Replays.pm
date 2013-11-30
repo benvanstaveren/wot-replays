@@ -48,6 +48,9 @@ sub browse {
 
     # yank all the settings out into filter
     my $filterlist = [ split('/', $self->stash('filter')) ];
+    use Data::Dumper;
+    warn Dumper($filterlist);
+
     while(my $i = shift(@$filterlist)) {
         $filter->{$i} = shift(@$filterlist);
     }
@@ -66,8 +69,9 @@ sub browse {
         perpage => $perpage,
         filter => $filter,
         );
-            
-    my $p = $filter->{p} || 1;
+           
+    $filter->{p} ||= 1;
+    my $p = $filter->{p};
 
     use Data::Dumper;
     warn Dumper($filter);
