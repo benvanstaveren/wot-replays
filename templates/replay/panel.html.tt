@@ -14,12 +14,12 @@
         </div>
         <div class="col-lg-9 col-md-9">
             <div class="row">
-                <div class="col-lg-8 col-md-8">
+                <div class="col-lg-7 col-md-7">
                     <p class="lead">
                         <a class="[% IF h.get_replay_stats(replay, 'isPremium') %]premium[% END %]" href="/player/[% replay.game.server %]/[% replay.game.recorder.name |uri %]/" title="[% replay.game.recorder.name |html %] [% IF h.get_replay_stats(replay, 'isPremium') %](Premium)[% END %]">[% replay.game.recorder.name |truncate(15) |html %]</a> - <a href="/vehicle/[% h.vehicle_link(h.get_recorder_vehicle(replay).vehicle.ident) %]/" title="[% h.get_recorder_vehicle(replay).vehicle.label |html %]">[% h.get_recorder_vehicle(replay).vehicle.label_short |html %]</a> - <a href="/map/[% h.map_slug(replay.game.map) |uri %]/">[% h.map_name(replay.game.map) |html %]</a> 
                     </p>
                 </div>
-                <div class="col-lg-4 col-md-4 text-right">
+                <div class="col-lg-5 col-md-5 text-right">
                     <p class="lead text-right">([% h.bonus_type_name(replay.game.bonus_type) %] [% h.game_type_name(replay.game.type) %])</p>
                 </div>
             </div>
