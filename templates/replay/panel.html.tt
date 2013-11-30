@@ -20,7 +20,7 @@
                     </p>
                 </div>
                 <div class="col-lg-5 col-md-5 text-right">
-                    <p class="lead text-right">([% h.bonus_type_name(replay.game.bonus_type) %] [% h.game_type_name(replay.game.type) %])</p>
+                    <p class="text-right">([% h.bonus_type_name(replay.game.bonus_type) %] [% h.game_type_name(replay.game.type) %])</p>
                 </div>
             </div>
             <div class="row">

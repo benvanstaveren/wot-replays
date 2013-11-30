@@ -18,5 +18,13 @@
     "5": {
         "label": "Clan Battle",
         "label_short": "Clan"
+    },
+    "6": {
+        "label": "Tutorial Battle",
+        "label_short": "Tutorial"
+    }
+    "7": {
+        "label": "Cybersport Battle",
+        "label_short": "Cybersport"
     }
 }
