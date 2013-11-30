@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-md-12 col-lg-12">
         <ul class="pagination pagination-sm"">
-            <li [% IF p == 1 %]class="disabled"[% END %]><a href="#" page="1">&laquo;</a></li>
+            <li [% IF p == 1 %]class="disabled"[% END %]><a href="/browse/[% h.browse_page(1) %]" page="1">&laquo;</a></li>
             [% start = p - 20 %]
             [% IF start < 1 %]
                 [% start = 1 %]
@@ -13,16 +13,16 @@
             [% END %]
             [% WHILE cpage < cmax %]
                 [% IF cpage == p %]
-                    <li class="active"><a href="#" page="[% cpage %]">[% cpage %]</a></li>
+                    <li class="active"><a href="/browse/[% h.browse_page(cpage) %]" page="[% cpage %]">[% cpage %]</a></li>
                 [% ELSE %]
-                    <li><a href="#" page="[% cpage %]">[% cpage %]</a></li>
+                    <li><a href="/browse/[% h.browse_page(cpage) %]" page="[% cpage %]">[% cpage %]</a></li>
                 [% END %]
                 [% cpage = cpage + 1 %]
             [% END %]
             [% IF p < maxp %]
-                <li><a href="#" page="[% maxp %]">&raquo;</a></li>
+                <li><a href="/browse/[% h.browse_page(maxp) %]" page="[% maxp %]">&raquo;</a></li>
             [% ELSE %]
-                <li class="disabled""><a href="#" page="[% maxp %]">&raquo;</a></li>
+                <li class="disabled"><a href="/browse/[% h.browse_page(maxp) %]" page="[% maxp %]">&raquo;</a></li>
             [% END %]
         </ul>
     </div>
@@ -30,8 +30,9 @@
 [% IF !skipjs %]
 <script type="text/javascript">
     $('ul.pagination li a').on('click', function() {
-        var page = $(this).attr('page');
         if($(this).hasClass('disabled')) return false;
+
+        var page = $(this).attr('page');
         $('form#frm-browse-filter input[name="p"]').val(page);
 
         $('form#frm-browse-filter input[name="p"]').val('1');

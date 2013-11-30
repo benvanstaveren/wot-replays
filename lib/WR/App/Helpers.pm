@@ -52,6 +52,22 @@ sub add_helpers {
         return $self->app->_sf->get_server_by_id($id + 0);
     });
 
+    $self->helper(browse_page => sub {
+        my $self = shift;
+        my $p    = shift;
+
+        my $f = $self->stash('browse_filter_raw');
+        $f->{p} = $p;
+
+        my @a = ();
+        
+        foreach my $key (sort(keys(%$f))) {
+            push(@a, $key, $f->{$key});
+        }
+
+        return join('/', @a);
+    });
+
     $self->helper(wot_version => sub {
         my $self = shift;
         my $replay = shift;

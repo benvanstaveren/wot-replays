@@ -52,8 +52,7 @@ sub browse {
         $filter->{$i} = shift(@$filterlist);
     }
 
-    use Data::Dumper;
-    warn Dumper($filter);
+    $self->stash('browse_filter_raw' => $filter);
 
     $self->render_later;
 
