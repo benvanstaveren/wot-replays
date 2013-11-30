@@ -81,8 +81,9 @@ sub browse {
         $self->respond(
             template => $template,
             stash => {
+                pageid => 'browse',
                 page => {
-                    title   =>  'Home',
+                    title   =>  'Browse Replays',
                 },
                 replays => $replays,
                 filter  => $filter,

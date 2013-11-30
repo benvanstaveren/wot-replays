@@ -48,7 +48,7 @@ sub startup {
 
     $r->route('/')->to('ui#index', pageid => 'home');
 
-    $r->route('/browse/*filter')->to('replays#browse', pageid => 'browse');
+    $r->route('/browse/*filter')->to('replays#browse');
     $r->route('/browse')->to(cb => sub {
         my $self = shift;
         $self->redirect_to('/browse/p/1/vehiclepov/1/vehicleinv/0/tier_min/1/tier_max/10/vehicle/*/map/*/server/*/matchmode/*/matchtype/*/sort/upload');
