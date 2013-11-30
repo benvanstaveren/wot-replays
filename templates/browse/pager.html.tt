@@ -3,12 +3,11 @@
         <ul class="pagination pagination-sm"">
             <li [% IF p == 1 %]class="disabled"[% END %]><a href="/browse/[% h.browse_page(1) %]" page="1">&laquo;</a></li>
             <li [% IF p == 1 %]class="disabled"[% END %]><a href="/browse/[% h.browse_page(p - 1) %]" page="[% p - 1 %]">&lt;</a></li>
-            [% start = p - 15 %]
-            [% IF start < 1 %]
+            [% start = p - 10 %]
                 [% start = 1 %]
             [% END %]
             [% cpage = start %]
-            [% cmax  = p + 15 %]
+            [% cmax  = p + 10 %]
             [% IF cmax > maxp %]
                 [% cmax = maxp + 1 %]
             [% END %]
