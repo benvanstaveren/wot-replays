@@ -1,5 +1,6 @@
 package WR::Process::Offline;
 use Mojo::Base 'Mojo::EventEmitter';
+use Mojo::UserAgent;
 use File::Path qw/make_path/;
 use Data::Dumper;
 use Mango::BSON;
@@ -26,6 +27,7 @@ has '_parser'       => undef;
 has 'tcr'           => sub { my $self = shift; return WR::Provider::TypeCompResolver->new(coll => $self->model('wot-replays.data.vehicles')) };
 has 'packets'       => sub { [] };
 has 'log'           => undef;
+has 'ua'            => sub { Mojo::UserAgent->new };
 
 sub _log {
     my $self = shift;
@@ -177,47 +179,79 @@ sub _real_process {
                 # and other such happy things
                 $self->debug('setting up packet store delay');
                 my $packet_store_delay = Mojo::IOLoop->delay(sub {
-                    # get the WN7 data from Statterbox, since it's on the same machine
-                    # we can cheat like hell ;) 
-                    
-                    $self->debug('setting up wn7 delay');
+
+                    $self->debug('setting up wn7 fetch delay');
+
                     my $wn7_delay = Mojo::IOLoop->delay(sub {
                         $self->debug('emitting state.done, replay process finished');
                         $self->emit('state.done');
                         $cb->($self, $replay);
                     });
 
-                    foreach my $player (keys(%{$replay->{players}})) {
-                        my $roster = $replay->{roster}->[ $replay->{players}->{$player} ];
-                        my $id     = $roster->{player}->{accountDBID};
-                        my $end    = $wn7_delay->begin(0);
-                        $self->model('statterbox.summary')->find_one({ _id => $id + 0 } => sub {
-                            my ($coll, $err, $summary) = (@_);
+                    $self->debug('fetching wn7 from statterbox');
 
-                            my $roster = $replay->{roster}->[ $replay->{players}->{$player} ];
-                            if(defined($summary)) {
-                                $roster->{wn7} = { 
-                                    available => Mango::BSON::bson_true,
-                                    data => { overall => $summary->{wn7} }
-                                };
+                    foreach my $player (keys(%{$replay->{players}})) {
+                        my $end = $wn7_delay->begin;
+                        my $url = sprintf('http://statterbox.com/api/v1/%s/wn7?server=%s&player=%s', 
+                            '5299a074907e1337e0010000',
+                            $replay->{game}->{server},
+                            lc($player)
+                            );
+
+                        $self->debug(sprintf('[%s]: %s', $player, $url));
+
+                        my $roster = $replay->{roster}->[ $replay->{players}->{$player} ];
+
+                        $self->ua->get($url => sub {
+                            my ($ua, $tx) = (@_);
+
+                            $self->debug(sprintf('[%s]: received response', $player));
+                            
+                            if(defined($tx)) {
+                                $self->debug(sprintf('[%s]: have tx', $player));
+                                if(my $res = $tx->success) {
+                                    $self->debug(sprintf('[%s]: have res: %s', $player, Dumper($res->json)));
+                                    if($res->json->{ok} == 1) {
+                                        if(my $wn7 = $res->json->{data}->{lc($player)}) {
+                                            $roster->{wn7} = { 
+                                                available => Mango::BSON::bson_true,
+                                                data => { overall => $wn7 }
+                                            };
+                                        } else {
+                                            $roster->{wn7} = { 
+                                                available => Mango::BSON::bson_false,
+                                                data => { overall => 0 }
+                                            };
+                                        }
+                                    } else {
+                                        $self->debug(sprintf('[%s]: json status not ok', $player));
+                                        $roster->{wn7} = { 
+                                            available => Mango::BSON::bson_false,
+                                            data => { overall => 0 }
+                                        };
+                                    }
+                                } else {
+                                    $self->debug(sprintf('[%s]: no res, %s/%s', $player, $tx->error));
+                                    $roster->{wn7} = { 
+                                        available => Mango::BSON::bson_false,
+                                        data => { overall => 0 }
+                                    };
+                                }
                                 $replay->{wn7} = $roster->{wn7} if($player eq $replay->{game}->{recorder}->{name});
-                                $end->();
                             } else {
+                                $self->debug(sprintf('[%s]: no tx, %s/%s', $player, $tx->error));
                                 $roster->{wn7} = { 
                                     available => Mango::BSON::bson_false,
-                                    data =>{ overall => 0 }
+                                    data => { overall => 0 }
                                 };
                                 $replay->{wn7} = $roster->{wn7} if($player eq $replay->{game}->{recorder}->{name});
-                                $self->model('statterbox.external')->save({
-                                    created => Mango::BSON::bson_time,
-                                    server  => $replay->{game}->{server},
-                                    player  => $player
-                                } => sub {
-                                    $end->();
-                                });
                             }
+                            $self->debug(sprintf('[%s]: finished', $player));
+                            $end->();
                         });
                     }
+
+                    $self->debug('after wn7 delay setup');
                 });
            
                 $self->debug('storing packets for replay');

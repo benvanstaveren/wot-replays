@@ -45,7 +45,6 @@ sub fetch {
 
     my $delay = Mojo::IOLoop->delay(sub {
         my ($delay, @results) = (@_);
-        warn 'TCR fetch done, resultset: ', Dumper([@results]), "\n";
         my $res = {};
         foreach my $r (@results) {
             $res->{$r->{t}} = $r->{v};
@@ -57,7 +56,6 @@ sub fetch {
         $self->_fetch_one($t => sub {
             my ($r, $c) = (@_);
             my $res = { t => $t, v => $r };
-            warn 'TCR fetch_one returned ', ($c) ? 'cached' : 'fresh', ': ', Dumper($res), "\n";
             $end->($res);
         });
     }

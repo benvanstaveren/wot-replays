@@ -11,6 +11,7 @@ use Mango::BSON;
 use WR;
 use WR::Process::Offline;
 use Data::Dumper;
+use Carp qw/cluck/;
 
 my $config  = {};
 my $cfile   = undef;
@@ -185,7 +186,7 @@ sub get_new_job {
                 $log->debug('Found new job but it has already been locked');
                 $cb->(undef);
             } else {
-                $db->collection('jobs')->update({ _id => $doc->{_id} }, { '$set' => { 'locked' => Mango::BSON::bson_true, 'locked_by' => $$ } } => sub {
+                $db->collection('jobs')->update({ _id => $doc->{_id} }, { '$set' => { 'status_text' => [], 'locked' => Mango::BSON::bson_true, 'locked_by' => $$ } } => sub {
                     $cb->($doc);
                 });
             }
