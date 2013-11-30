@@ -48,8 +48,6 @@ sub browse {
 
     # yank all the settings out into filter
     my $filterlist = [ split('/', $self->stash('filter')) ];
-    use Data::Dumper;
-    warn Dumper($filterlist);
 
     while(my $i = shift(@$filterlist)) {
         $filter->{$i} = shift(@$filterlist);
@@ -72,9 +70,6 @@ sub browse {
            
     $filter->{p} ||= 1;
     my $p = $filter->{p};
-
-    use Data::Dumper;
-    warn Dumper($filter);
 
     $query->page($p => sub {
         my $replays = shift || [];
