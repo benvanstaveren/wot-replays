@@ -179,36 +179,48 @@ sub get_new_job {
         complete    => Mango::BSON::bson_false,
     })->sort({ ctime => 1 })->next(sub {
         my ($coll, $err, $doc) = (@_);
-        $cb->($doc);
+
+        if(defined($doc)) {
+            if($doc->{locked}) {
+                $log->debug('Found new job but it has already been locked');
+                $cb->(undef);
+            } else {
+                $db->collection('jobs')->update({ _id => $job->{_id} }, { '$set': { 'locked': Mango::BSON::bson_true, 'locked_by' => $$ } } => sub {
+                    $cb->($doc);
+                });
+            }
+        } else {
+            $cb->(undef);
+        }
     });
 }
 
 $timersub = sub {
+    Mojo::IOLoop->singleton->remove($timer);
     get_new_job(sub {
         my $job = shift;
 
         if($job) {
             $log->debug('received job, dump follows: ', Dumper($job));
-            Mojo::IOLoop->singleton->remove($timer);
             $db->collection('replays')->find({ digest => $job->{_id} })->count(sub {
                 my ($c, $e, $count) = (@_);
                 if($count > 0) {
                     job_error($job, 'It seems that replay has already been uploaded and processed...', sub {
-                        Mojo::IOLoop->singleton->timer(10 => $timersub);
+                        $timer = Mojo::IOLoop->singleton->timer(10 => $timersub);
                     });
                 } else {
                     process_job($job => sub {
                         my $rv = shift;
-                        Mojo::IOLoop->singleton->timer(($rv == 0) ? 10 : 1 => $timersub);
+                        $timer = Mojo::IOLoop->singleton->timer(($rv == 0) ? 20 : 10 => $timersub);
                     });
                 }
             });
         } else {
             $log->debug('no job, waiting 10 seconds');
             Mojo::IOLoop->singleton->remove($timer);
-            Mojo::IOLoop->singleton->timer(10 => $timersub);
+            $timer = Mojo::IOLoop->singleton->timer(10 => $timersub);
         }
     });
 };
-$timer = Mojo::IOLoop->singleton->timer(1 => $timersub);
+$timer = Mojo::IOLoop->singleton->timer(5 => $timersub);
 Mojo::IOLoop->start unless(Mojo::IOLoop->is_running);
