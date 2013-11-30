@@ -1,18 +1,25 @@
 <div class="well well-sm bs-tooltip" data-toggle="tooltip" title="[% IF replay.site.description %][% replay.site.description |html %] - [% END %]" data-container="body" data-placement="auto">
     <div class="row">
         <div class="col-lg-3 col-md-3">
-            <a href="/replay/[% h.get_id(replay) %].html">
-            <div 
-                title="[% h.get_recorder_vehicle(replay).vehicle.label |html %] on [% h.map_name(replay.game.map) |html%]" 
-                style="background: transparent url([% config.urls.assets %]/maps/180/[% h.map_icon(replay.game.map) %]) no-repeat scroll 0 0; width: 180px; height: 180px; margin: 2px auto; position: relative"
-                class="rounded bs-tooltip"
-                data-toggle="tooltip"
-                data-placement="auto"
-                >
-                    <img src="[% config.urls.assets %]/vehicles/100/[% h.get_recorder_vehicle(replay).vehicle.icon %]" style="width: 160px; height: 100px; position: absolute; top: 50%; left: 50%; margin-top: -50px; margin-left: -80px"/>
-            </div>
-            </a>
-            <div class="wn7 [% IF replay.wn7.available %][% h.wn7_color(replay.wn7.data.overall) %][% ELSE %]notavailable[% END %] rounded" style="margin: 2px; font-weight: bold; text-align: center">[% IF replay.wn7.available %][% replay.wn7.data.overall %][% ELSE %]-[% END %]</div>
+                <a href="/replay/[% h.get_id(replay) %].html">
+                    <div 
+                        title="[% h.get_recorder_vehicle(replay).vehicle.label |html %] on [% h.map_name(replay.game.map) |html%]" 
+                        style="background: transparent url([% config.urls.assets %]/maps/180/[% h.map_icon(replay.game.map) %]) no-repeat scroll 0 0; width: 180px; height: 180px; margin: 2px auto; position: relative"
+                        class="rounded bs-tooltip"
+                        data-toggle="tooltip"
+                        data-placement="auto"
+                        >
+                            <img src="[% config.urls.assets %]/vehicles/100/[% h.get_recorder_vehicle(replay).vehicle.icon %]" style="width: 160px; height: 100px; position: absolute; top: 50%; left: 50%; margin-top: -50px; margin-left: -80px"/>
+                    </div>
+                </a>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6" title="Player overall WN7">
+                        <div class="wn7 [% IF replay.wn7.available %][% h.wn7_color(replay.wn7.data.overall) %][% ELSE %]notavailable[% END %] rounded" style="margin: 2px; font-weight: bold; text-align: center">[% IF replay.wn7.available %][% replay.wn7.data.overall %][% ELSE %]-[% END %]</div>
+                    </div>
+                    <div class="col-lg-6 col-md-6" title="WN7 for this battle">
+                        <div class="wn7 [% h.wn7_color(replay.wn7.data.battle) %] rounded" style="margin: 2px; font-weight: bold; text-align: center">[% replay.wn7.data.battle || '-' %]</div>
+                    </div>
+                </div>
         </div>
         <div class="col-lg-9 col-md-9">
             <div class="row">

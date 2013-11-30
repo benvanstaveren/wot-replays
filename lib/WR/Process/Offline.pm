@@ -10,6 +10,7 @@ use WR::Parser;
 use WR::Res::Achievements;
 use WR::Provider::ServerFinder;
 use WR::Provider::Imager;
+use WR::Provider::WN7;
 use WR::Constants qw/nation_id_to_name decode_arena_type_id/;
 use WR::Util::TypeComp qw/parse_int_compact_descr/;
 use WR::Provider::TypeCompResolver;
@@ -183,6 +184,22 @@ sub _real_process {
                     $self->debug('setting up wn7 fetch delay');
 
                     my $wn7_delay = Mojo::IOLoop->delay(sub {
+
+                        # calculate the per-battle WN7 here for all players(?) 
+                        my $wn7p = WR::Provider::WN7->new();
+                        my $roster = $replay->{roster}->[ $replay->{players}->{$replay->{game}->{recorder}->{name}} ];
+                        my $v = $wn7p->calculate({
+                            winrate         => 50,                          # winrate of 50% for per-battle WN7
+                            average_tier    => $roster->{vehicle}->{level}, # tier of player vehicle
+                            battles         => 1,                           # because it is a single battle
+                            destroyed       => $replay->{stats}->{kills},
+                            damage_dealt    => $replay->{stats}->{damageDealt},
+                            spotted         => $replay->{stats}->{spotted},
+                            defense         => $replay->{stats}->{droppedCapturePoints},
+                        });
+
+                        $replay->{wn7}->{data}->{battle} = $v;
+
                         $self->debug('emitting state.done, replay process finished');
                         $self->emit('state.done');
                         $cb->($self, $replay);
