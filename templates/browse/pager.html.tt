@@ -2,12 +2,13 @@
     <div class="col-md-12 col-lg-12">
         <ul class="pagination pagination-sm"">
             <li [% IF p == 1 %]class="disabled"[% END %]><a href="/browse/[% h.browse_page(1) %]" page="1">&laquo;</a></li>
-            [% start = p - 20 %]
+            <li [% IF p == 1 %]class="disabled"[% END %]><a href="/browse/[% h.browse_page(p - 1) %]" page="[% p - 1 %]">&lt;</a></li>
+            [% start = p - 10 %]
             [% IF start < 1 %]
                 [% start = 1 %]
             [% END %]
             [% cpage = start %]
-            [% cmax  = start + 20 %]
+            [% cmax  = start + 10 %]
             [% IF cmax > maxp %]
                 [% cmax = maxp + 1 %]
             [% END %]
@@ -20,8 +21,10 @@
                 [% cpage = cpage + 1 %]
             [% END %]
             [% IF p < maxp %]
+                <li><a href="/browse/[% h.browse_page(p + 1) %]" page="[% p + 1 %]">&gt;</a></li>
                 <li><a href="/browse/[% h.browse_page(maxp) %]" page="[% maxp %]">&raquo;</a></li>
             [% ELSE %]
+                <li class="disabled"><a href="/browse/[% h.browse_page(p + 1) %]" page="[% p + 1 %]">&gt;</a></li>
                 <li class="disabled"><a href="/browse/[% h.browse_page(maxp) %]" page="[% maxp %]">&raquo;</a></li>
             [% END %]
         </ul>
