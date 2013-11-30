@@ -185,7 +185,7 @@ sub get_new_job {
                 $log->debug('Found new job but it has already been locked');
                 $cb->(undef);
             } else {
-                $db->collection('jobs')->update({ _id => $job->{_id} }, { '$set': { 'locked': Mango::BSON::bson_true, 'locked_by' => $$ } } => sub {
+                $db->collection('jobs')->update({ _id => $doc->{_id} }, { '$set' => { 'locked' => Mango::BSON::bson_true, 'locked_by' => $$ } } => sub {
                     $cb->($doc);
                 });
             }
