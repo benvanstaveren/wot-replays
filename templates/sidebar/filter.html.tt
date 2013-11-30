@@ -8,50 +8,38 @@
             <input type="hidden" name="tier_min" value="1"/>
             <input type="hidden" name="tier_max" value="10"/>
 
-            [% IF pageid == 'map' %]
-                <input type="hidden" name="map" value="[% h.map_numericid(map_id) %]"/>
-            [% ELSIF pageid == 'vehicle' %]
-                <input type="hidden" name="vehicle" value="[% vehicle_full %]"/>
-            [% END %]
-
-            [% IF pageid != 'vehicle' %]
-                <div class="row">
-                    <div class="col-lg-12 col-md-12">
-                        <h5>Vehicle</h5>
-                        <select name="vehicle" class="form-control">
-                            <option value="*">-- All vehicles</option>
-                            [% FOREACH group IN h.generate_vehicle_select() %]
-                                <optgroup label="[% group.label %]">
-                                    [% FOREACH option IN group.items %]
-                                        <option tier="[% option.level %]" value="[% option.id %]">[% option.value %]</option>
-                                    [% END %]
-                                </optgroup>
-                            [% END %]
-                        </select>
-                    </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <h5>Vehicle</h5>
+                    <select name="vehicle" class="form-control">
+                        <option value="*">-- All vehicles</option>
+                        [% FOREACH group IN h.generate_vehicle_select() %]
+                            <optgroup label="[% group.label %]">
+                                [% FOREACH option IN group.items %]
+                                    <option tier="[% option.level %]" value="[% option.id %]">[% option.value %]</option>
+                                [% END %]
+                            </optgroup>
+                        [% END %]
+                    </select>
                 </div>
-            [% END %]
-            [% IF pageid != "vehicle" && filter.vehicle != '*' %]
-                <div class="row">
-                    <div class="col-lg-12 col-md-12">
-                        <h5>Tier</h5>
-                        <small style="margin: 0px 15px 0px 0px" id="tier-min">[% filter.tier_min || '1' %]</small><input id="tier-slider" type="text" class="span2" value="" data-slider-min="1" data-slider-max="10" data-slider-value="[[% filter.tier_min || '1' %],[% filter.tier_max || '10' %]]" data-slider-step="1" data-slider-orientation="horizontal" data-slider-tooltip="hide"/> <small style="margin: 0px 0px 0px 15px" id="tier-max"> [% filter.tier_max || '10' %]</small>
-                    </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <h5>Tier</h5>
+                    <small style="margin: 0px 15px 0px 0px" id="tier-min">[% filter.tier_min || '1' %]</small><input id="tier-slider" type="text" class="span2" value="" data-slider-min="1" data-slider-max="10" data-slider-value="[[% filter.tier_min || '1' %],[% filter.tier_max || '10' %]]" data-slider-step="1" data-slider-orientation="horizontal" data-slider-tooltip="hide"/> <small style="margin: 0px 0px 0px 15px" id="tier-max"> [% filter.tier_max || '10' %]</small>
                 </div>
-            [% END %]
-            [% IF pageid != 'map' %]
-                <div class="row">
-                    <div class="col-lg-12 col-md-12">
-                        <h5>Map</h5>
-                        <select name="map" class="form-control">
-                            <option value="*">-- All maps</option>
-                            [% FOREACH map IN h.generate_map_select() %]
-                                <option value="[% map.id |html %]">[% map.label %]</option>
-                            [% END %]
-                        </select>
-                    </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <h5>Map</h5>
+                    <select name="map" class="form-control">
+                        <option value="*">-- All maps</option>
+                        [% FOREACH map IN h.generate_map_select() %]
+                            <option value="[% map.id |html %]">[% map.label %]</option>
+                        [% END %]
+                    </select>
                 </div>
-            [% END %]
+            </div>
             <div class="row">
                 <div class="col-lg-12 col-md-12">
                     <h5>Server</h5>
