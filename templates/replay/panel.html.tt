@@ -17,7 +17,7 @@
                         <div class="wn7 [% IF replay.wn7.available %][% h.wn7_color(replay.wn7.data.overall) %][% ELSE %]notavailable[% END %] rounded" style="margin: 2px; font-weight: bold; text-align: center">[% IF replay.wn7.available %][% replay.wn7.data.overall %][% ELSE %]-[% END %]</div>
                     </div>
                     <div class="col-lg-6 col-md-6" title="WN7 for this battle">
-                        <div class="wn7 [% h.wn7_color(replay.wn7.data.battle) %] rounded" style="margin: 2px; font-weight: bold; text-align: center">[% replay.wn7.data.battle || '-' %]</div>
+                        <div class="wn7 [% IF replay.wn7.data.battle.defined %][% h.wn7_color(replay.wn7.data.battle) %][% ELSE %]unavailable[% END %] rounded" style="margin: 2px; font-weight: bold; text-align: center">[% IF replay.wn7.data.battl.defined %]replay.wn7.data.battle  %][% ELSE %]-[% END %]</div>
                     </div>
                 </div>
         </div>
