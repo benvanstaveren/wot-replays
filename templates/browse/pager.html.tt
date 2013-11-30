@@ -31,17 +31,7 @@
 <script type="text/javascript">
     $('ul.pagination li a').on('click', function() {
         if($(this).hasClass('disabled')) return false;
-
-        var page = $(this).attr('page');
-        $('form#frm-browse-filter input[name="p"]').val(page);
-
-        $('form#frm-browse-filter input[name="p"]').val('1');
-        var s = $('form#frm-browse-filter').serialize();
-
-        var first = s.replace(/=/g, '/');
-        var second = first.replace(/\&/g, '/');
-        document.location.href = '/browse/' + second;
-        return false;
+        return true;
     });
 </script>  
 [% END %]
