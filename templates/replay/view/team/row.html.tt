@@ -19,8 +19,8 @@
         </div>
     </td>
     <td class="playerName" title="[% player.player.name |html %]">
-        [% IF player.player.clan %]
-            [% player.player.name |truncate(12)|html %]<span class="clan">[[% player.player.clan %]]</span>
+        [% IF player.player.clanDBID > 0 %]
+            [% player.player.name |truncate(12)|html %]<span class="clan">[[% player.player.clanAbbrev %]]</span>
         [% ELSE %]
             [% player.player.name |truncate(16)|html %]
         [% END %]

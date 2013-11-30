@@ -550,7 +550,7 @@ sub generate_banner {
             spotted => $res->{stats}->{spotted},
             damaged => $res->{stats}->{damaged},
             player  => $res->{roster}->[ $recorder ]->{player}->{name},
-            clan    => $res->{roster}->[ $recorder ]->{player}->{clan},
+            clan    => ($res->{roster}->[ $recorder ]->{player}->{clanDBID} > 0) ? $res->{roster}->[ $recorder ]->{player}->{clanAbbrev} : undef,
             destination => sprintf('%s/%s.jpg', $base_path, $res->{_id} . ''),
             awards  => $self->stringify_awards($res),
         );

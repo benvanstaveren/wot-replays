@@ -11,8 +11,8 @@
             <div class="healthnumbers">[% roster.health.remaining %]/[% roster.health.total %]</div>
         </div>
     </td>
-    <td class="playerName" title="[% roster.player.name |html %][% IF roster.player.clan %][[% roster.player.clan %]][% END %]">
-        [% roster.player.name |truncate(10) |html %][% IF roster.player.clan %]<span class="clan">[[% roster.player.clan %]]</span>[% END %]
+    <td class="playerName" title="[% roster.player.name |html %][% IF roster.player.clanDBID > 0 %][[% roster.player.clanAbbrev %]][% END %]">
+        [% roster.player.name |truncate(10) |html %][% IF roster.player.clanDBID > 0 %]<span class="clan">[[% roster.player.clanAbbrev %]]</span>[% END %]
     </td>
     <td class="playerDetails">
         <span class="
