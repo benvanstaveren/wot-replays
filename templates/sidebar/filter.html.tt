@@ -12,7 +12,7 @@
                 <div class="col-lg-12 col-md-12">
                     <h5>Vehicle</h5>
                     <select name="vehicle" class="form-control">
-                        <option value="*">-- All vehicles</option>
+                        <option value="*" tier="-1">-- All vehicles</option>
                         [% FOREACH group IN h.generate_vehicle_select() %]
                             <optgroup label="[% group.label %]">
                                 [% FOREACH option IN group.items %]

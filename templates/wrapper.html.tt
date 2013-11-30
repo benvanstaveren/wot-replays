@@ -86,7 +86,7 @@
         </div>
         <div class="container rounded shadow clearfix">
             <div id="contentMain">[% content %]</div>
-            <div class="clearfix" style="text-align: center; margin: 40px 0px 10px 0px">&copy; 2012, 2013 Scrambled | default/[% config.versions.app %]/[% config.wot.version %] | <a style="display: inline; text-decoration: underline; padding: 0px" href="/about">about & faq</a> / <a style="display: inline; text-decoration: underline; padding: 0px" href="/credits.html">additional credits</a> | t: <span id="timing_elapsed">[% timing_elapsed || '-' %]</span></div>
+            <div class="clearfix" style="text-align: center; margin: 40px 0px 10px 0px">&copy; 2012, 2013 Scrambled | default/[% config.versions.app %]/[% config.wot.version %] | <a style="display: inline; text-decoration: underline; padding: 0px" href="/about">about & faq</a> / <a style="display: inline; text-decoration: underline; padding: 0px" href="/credits.html">additional credits</a> | t: <span id="timing_elapsed">[% timing_elapsed || '-' %]</span> [% IF timing_query.defined %]q: <span id="timing_query">[% timing_query %]</span>[% END %]</div>
         </div>
     </body>
 </html>

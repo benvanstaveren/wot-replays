@@ -9,7 +9,9 @@
 
         $('select[name="vehicle"] option').each(function(i, e) {
             var t = $(e).attr('tier');
-            if(t < [% filter.tier_min %] || t > [% filter.tier_max %]) {
+            if(t == -1) {
+                $(e).show();
+            } else if(t < [% filter.tier_min %] || t > [% filter.tier_max %]) {
                 $(e).hide();
             } else {
                 $(e).show();

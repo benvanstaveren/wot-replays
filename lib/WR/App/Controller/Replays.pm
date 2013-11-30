@@ -74,12 +74,8 @@ sub browse {
     $query->page($p => sub {
         my $replays = shift || [];
         my $maxp    = $query->maxp;
-
-        $self->stash('timing_query'  => tv_interval($start, [ gettimeofday ]));
-
-        my $template = 'browse/index';
         $self->respond(
-            template => $template,
+            template => 'browse/index',
             stash => {
                 pageid => 'browse',
                 page => {
@@ -89,6 +85,7 @@ sub browse {
                 filter  => $filter,
                 maxp    => $maxp,
                 p       => $p,
+                timing_query => tv_interval($start, [ gettimeofday ],
             }
         );
     });
