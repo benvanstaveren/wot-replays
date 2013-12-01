@@ -48,7 +48,7 @@ sub xhr_qs {
     my $self = shift;
 
     $self->render_later;
-    $self->model('jobs')->count({ ready => Mango::BSON::bson_true, complete => Mango::BSON::bson_false } => sub {
+    $self->model('jobs')->find({ ready => Mango::BSON::bson_true, complete => Mango::BSON::bson_false })->count(sub {
         my ($c, $e, $d) = (@_);
 
         if(defined($d)) {
