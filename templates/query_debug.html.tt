@@ -3,6 +3,7 @@
     <div class="col-lg-6 col-md-6">
         <h4>Query</h4>
 <pre>[% h.dumper(query) %]</pre>
+<pre>[% h.dumper(query_sort) %]</pre>
     </div>
     <div class="col-lg-6 col-md-6">
         <h4>Explain</h4>
