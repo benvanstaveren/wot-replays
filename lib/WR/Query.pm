@@ -16,6 +16,7 @@ has '_query'  => sub {
 has '_res'    => undef;
 has 'total'   => 0;
 has 'log'     => undef;
+has 'query_explain' => undef;
 
 sub error { shift->_log('error', @_) }
 sub info { shift->_log('info', @_) }
@@ -72,6 +73,8 @@ sub page {
         $cursor->sort($self->sort) if($self->sort);
         $cursor->skip($offset);
         $cursor->limit($self->perpage);
+
+        $self->query_explain($cursor->explain());
 
         $cursor->all(sub {
             my ($c, $e, $d) = (@_);

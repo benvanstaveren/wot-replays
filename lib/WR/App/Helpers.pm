@@ -595,7 +595,12 @@ sub add_helpers {
     });
 
     $self->helper(is_the_boss => sub {
-        return ($self->is_user_authenticated && ($self->current_user->{player_name} eq 'Scrambled' && $self->current_user->{player_server} eq 'sea')) ? 1 : 0
+        my $self = shift;
+        if($self->is_user_authenticated && ( ($self->current_user->{player_name} eq 'Scrambled') && ($self->current_user->{player_server} eq 'sea'))) {
+            return 1;
+        } else {
+            return 0;
+        }
     });
 
     $self->helper(user => sub {

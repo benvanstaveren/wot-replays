@@ -42,7 +42,7 @@ sub browse {
         xp          => { 'stats.originalXP'         => -1 },
         credits     => { 'stats.originalCredits'    => -1 },
         damage      => { 'stats.damageDealt'        => -1 },
-        likes       => { 'site.like'                => -1 },
+        likes       => { 'site.likes'               => -1 },
         downloads   => { 'site.downloads'           => -1 },
         };
 
@@ -86,6 +86,8 @@ sub browse {
                 maxp    => $maxp,
                 p       => $p,
                 timing_query => tv_interval($start, [ gettimeofday ]),
+                query_explain => $query->query_explain,
+                query         => $query->_query,
             }
         );
     });
