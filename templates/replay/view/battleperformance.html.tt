@@ -4,47 +4,39 @@
         [% INCLUDE replay/view/battleperformance/list.html.tt %]
     </tbody>
 </table>
-[% IF 1 == 0 %]
-    <!-- old crit detail junk -->
+<script type="text/javascript">
+    var critDetails = {};
+
     [% FOREACH pid IN replay.stats.details.keys %]
         [% details = replay.stats.details.$pid %]
         [% cd = h.get_crit_details(details.crits) %]
         [% IF cd.count > 0 %]
-            <div id="crit-details-[% pid %]" class="crit-details-dlg" style="display: none" title="Critical Hit Details">
-                <div style="padding: 4px">
-                    <table style="width: 100%" cellspacing="0" cellpadding="0"><tbody>
-                    <tr>
-                        <td style="width: 33%; vertical-align: top">
-                            <h2>Damaged Modules</h2>
-                            [% FOREACH id IN cd.critical_devices %]
-                                <div style="font-size: 1.4em">
-                                    <span><img src="[% config.urls.assets %]/icon/crit/[% id %]CriticalSmall.png" style="width: 16px; height: 16px"></span>
-                                    <span>[% h.crit_component_name(id) %]</span>
-                                </div>
-                            [% END %]
-                        </td>
-                        <td style="width: 33%; vertical-align: top">
-                            <h2>Destroyed Modules</h2>
-                            [% FOREACH id IN cd.destroyed_devices %]
-                                <div style="font-size: 1.4em">
-                                    <span><img src="[% config.urls.assets %]/icon/crit/[% id %]DestroyedSmall.png" style="width: 16px; height: 16px"></span>
-                                    <span>[% h.crit_component_name(id) %]</span>
-                                </div>
-                            [% END %]
-                        </td>
-                        <td style="width: 33%; vertical-align: top">
-                            <h2>Injured Crew</h2>
-                            [% FOREACH id IN cd.destroyed_tankmen %]
-                                <div style="font-size: 1.4em">
-                                    <span><img src="[% config.urls.assets %]/icon/crit/[% id %]DestroyedSmall.png" style="width: 16px; height: 16px"></span>
-                                    <span>[% h.crit_tankman_name(id) %]</span>
-                                </div>
-                            [% END %]
-                        </td>
-                    </tr>
-                    </tbody></table>
-                </div>
-            </div>
+            critDetails['[% pid %]'] = {
+                'title': 'Critical Hit Details',
+                'placement': 'right',
+                'container': 'body',
+                'html': true,
+                'content': '<table class="table table-bordered"><thead><th>Damaged</th><th>Destroyed</th><th>Crew</th></thead><tbody><tr><td>' +
+[% FOREACH id IN cd.critical_devices %]
+'<div><span><img src="[% config.urls.assets %]/icon/crit/[% id %]CriticalSmall.png" style="width: 16px; height: 16px"></span><span>[% h.crit_component_name(id) %]</span></div>' +
+[% END %]
+                '</td><td>' + 
+[% FOREACH id IN cd.destroyed_devices %]
+'<div><span><img src="[% config.urls.assets %]/icon/crit/[% id %]DestroyedSmall.png" style="width: 16px; height: 16px"></span><span>[% h.crit_component_name(id) %]</span></div>' +
+[% END %]
+                '</td><td>' + 
+[% FOREACH id IN cd.destroyed_tankmen %]
+'<div><span><img src="[% config.urls.assets %]/icon/crit/[% id %]DestroyedSmall.png" style="width: 16px; height: 16px"></span><span>[% h.crit_tankman_name(id) %]</span></div>' +
+[% END %]
+                '</td></tr><tbody></table>'
+            }
         [% END %]
     [% END %]
-[% END %]
+
+    $(document).ready(function() {
+        $('.bs-popover').each(function(i, e) {
+            var pid = $(e).attr('player');
+            $(e).popover(critDetails[pid]);
+        });
+    });
+</script>

@@ -31,10 +31,12 @@
             <b>[% details.hits + details.he_hits %]</b> 
             [% END %]
         </span>
-        <span data-container="body" data-placement="auto" data-toggle="tooltip" class="bs-popover bs-tooltip crits [% IF cd.count == 0 %]dimmed"[% ELSE %] hasdetails" player="[% pid %]" title="Player made [% cd.count %] critical hits, click for details"[% END %]>
-            [% IF cd.count > 0 %]
-            <b>[% cd.count %]</b>
-            [% END %]
+        <span player="[% pid %]" class="[% IF cd.count > 0 %]bs-popover[% END %]" title="Critical Hit Details">
+            <span data-container="body" data-placement="auto" data-toggle="tooltip" class="bs-tooltip crits [% IF cd.count == 0 %]dimmed"[% ELSE %] hasdetails" player="[% pid %]" title="Player made [% cd.count %] critical hits, click for details"[% END %]>
+                [% IF cd.count > 0 %]
+                    <b>[% cd.count %]</b>
+                [% END %]
+            </span>
         </span>
         [% IF details && (details.damageAssistedRadio + details.damageAssistedTrack) > 0 %]
             <span data-container="body" data-placement="auto" data-toggle="tooltip" class="bs-tooltip evil " title="Player spotted this vehicle, and team members contributed [% details.damageAssistedRadio + details.damageAssistedTrack %] points ([% h.percentage_of(ph, details.damageAssistedRadio + details.damageAssistedTrack) %]%) of damage"></span>
