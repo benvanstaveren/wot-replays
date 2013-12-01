@@ -97,11 +97,11 @@ sub startup {
         $openid->any('/return')->to('ui#openid_return');
 
     my $pb = $r->bridge('/profile')->to('profile#check');
-        $pb->route('/')->to('profile#index', pageid => 'profile');
-        $pb->route('/replays')->to('profile#replays', pageid => 'profile');
-        $pb->route('/sr')->to('profile#sr', pageid => 'profile');
-        $pb->route('/hr')->to('profile#hr', pageid => 'profile');
-        $pb->route('/j/setting')->to('profile#setting');
+        $pb->route('/replays/type/:type/page/:page')->to('profile#replays', pageid => 'profile');
+
+        my $pbj = $pb->under('/j');
+            $pbj->route('/sr')->to('profile#sr', pageid => 'profile');
+            $pbj->route('/hr')->to('profile#hr', pageid => 'profile');
 
     $self->sessions->default_expiration(86400 * 365); 
     $self->sessions->cookie_name('wrsession');

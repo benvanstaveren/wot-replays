@@ -5,22 +5,8 @@ use Mango::BSON;
 
 sub check {
     my $self = shift;
-
     return 1 if($self->is_user_authenticated);
     $self->redirect_to('/login') and return 0;
-}
-
-sub setting {
-    my $self = shift;
-    my $s    = $self->req->param('s');
-    my $v    = $self->req->param('v');
-
-    $self->model('wot-replays.accounts')->update({ _id => $self->current_user->{_id} }, {
-        '$set' => {
-            sprintf('settings.%s', $s) => ($v) ? 1 : 0,
-        },
-    });
-    $self->render(json => { ok => 1 });
 }
 
 sub hr {
@@ -61,30 +47,15 @@ sub sr {
     });
 }
 
-sub index {
-    my $self = shift;
-
-    $self->respond(
-        template => 'profile/index',
-        stash => {
-            profile_replay_type => $self->session('profile_replay_type'),
-            page => { title => 'Your Profile' },
-        },
-    );
-}
-
 sub replays {
     my $self = shift;
-    my $type = $self->req->param('type');
+    my $type = $self->stash('type');
+    my $page = $self->stash('page');
     my $query = {
         'game.recorder.name' => $self->stash('current_player_name'),
         'game.server' => lc($self->stash('current_player_server')),
         };
 
-
-    my $p = $self->req->param('p') || 1;
-
-    $self->session('profile_replay_type' => $type);
 
     if($type eq 'p') {  
         $query->{'site.visible'} = Mango::BSON::bson_true;
@@ -100,7 +71,7 @@ sub replays {
         my $maxp   = int($count/25);
         $maxp++ if($maxp * 25 < $count);
 
-        $cursor->skip( ($p - 1) * 25 );
+        $cursor->skip( ($page - 1) * 25 );
         $cursor->limit(25);
         $cursor->sort({ 'site.uploaded_at' => -1 });
 
@@ -108,27 +79,18 @@ sub replays {
             my ($c, $e, $docs) = (@_);
 
             my $replays = [ map { WR::Query->fuck_tt($_) } @$docs ];
-    
             $self->respond(template => 'profile/replays', stash => {
+                page => {
+                    title => 'Your Profile - Replays',
+                },
                 maxp => $maxp,
                 type => $type,
-                p    => $p,
+                p    => $page,
                 replays => $replays,
                 total_replays => $count,
             });
         });
     });
-}
-
-sub settings {
-    my $self = shift;
-
-    $self->respond(
-        template => 'profile/settings',
-        stash => {
-            page => { title => 'Your Profile - Settings' },
-        },
-    );
 }
 
 1;

@@ -1,13 +1,127 @@
 <div id="replay-list">
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <h4>[% total_replays %] [% IF type == 'h' %]hidden[% ELSIF type == 'p' %]public[% END %] replay(s) featuring you</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>map</th>
+                    <th>vehicle</th>
+                    <th>w/l</th>
+                    <th>surv.</th>
+                    <th>kills</th>
+                    <th>damaged</th>
+                    <th>spotted</th>
+                    <th>xp</th>
+                    <th>credits</th>
+                    <th>version</th>
+                    <th>links</th>
+                    <th colspan="2">
+                        <select name="type" style="width: 100%">
+                            <option value="*">all</option>
+                            <option value="p">published</option>
+                            <option value="h">hidden</option>
+                        </select>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                [% FOREACH replay IN replays %]
+                    <tr>
+                        <td>[% h.map_name(replay.game.map) %]</td>
+                        <td>[% h.get_recorder_vehicle(replay).vehicle.label %]</td>
+                        <td>
+                            [% IF h.is_victory(replay) %]won
+                            [% ELSIF h.is_defeat(replay) %]lost
+                            [% ELSE %]draw[% END %]
+                        </td>
+                        <td>
+                            [% IF recv.player.survived.defined %]
+                                [% IF recv.player.survived %]yes[% ELSE %]no[% END %]
+                            [% ELSE %]
+                                [% IF replay.game.recorder.survived %]yes[% ELSE %]no[% END %]
+                            [% END %]
+                        </td>
+                        <td>[% replay.stats.kills + 0 %]</td>
+                        <td>[% replay.stats.damaged + 0 %]</td>
+                        <td>[% replay.stats.spotted + 0 %]</td>
+                        <td>[% replay.stats.xp + 0 %]</td>
+                        <td>[% replay.stats.credits + 0 %]</td>
+                        <td>[% h.wot_version(replay) %]</td>
+                        <td><a href="/replay/[% h.get_id(replay) %].html">view</a></td>
+                        <td class="status [% h.get_id(replay) %]">[% IF replay.site.visible %]visible[% ELSE %]hidden[% END %]</td>
+                        <td>
+                            <a href="#" class="replay-action [% IF replay.site.visible %]hidereplay[% ELSE %]showreplay[% END %]" rid="[% replay.id %]">[% IF replay.site.visible %]hide[% ELSE %]show[% END %]</a>
+                        </td>
+                    </tr>
+                [% END %]
+            </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <ul class="pagination pagination-sm">
+                <li [% IF p == 1 %]class="disabled"[% END %]><a href="/profile/replays/type/[% type %]/page/1">&laquo;</a></li>
+                <li [% IF p == 1 %]class="disabled"[% END %]><a href="/profile/replays/type/[% type %]/page/[% p - 1 %]">&lt;</a></li>
+                [% start = p - 10 %]
+                [% IF start < 1 %]
+                    [% start = 1 %]
+                [% END %]
+                [% cpage = start %]
+                [% cmax  = p + 10 %]
+                [% IF cmax > maxp %]
+                    [% cmax = maxp + 1 %]
+                [% END %]
+                [% WHILE cpage < cmax %]
+                    [% IF cpage == p %]
+                        <li class="active"><a href="/profile/replays/type/[% type %]/page/[% cpage %]">[% cpage %]</a></li>
+                    [% ELSE %]
+                        <li><a href="/profile/replays/type/[% type %]/page/[% cpage %]">[% cpage %]</a></li>
+                    [% END %]
+                    [% cpage = cpage + 1 %]
+                [% END %]
+                [% IF p < maxp %]
+                    <li><a href="/profile/replays/type/[% type %]/page/[% p + 1 %]">&gt;</a></li>
+                    <li><a href="/profile/replays/type/[% type %]/page/[% maxp %]">&raquo;</a></li>
+                [% ELSE %]
+                    <li class="disabled"><a href="/profile/replays/type/[% type %]/page/[% p + 1 %]">&gt;</a></li>
+                    <li class="disabled"><a href="/profile/replays/type/[% type %]/page/[% maxp %]">&raquo;</a></li>
+                [% END %]
+            </ul>
+        </div>
+    </div>
 </div>
 <script type="text/javascript">
     $(document).ready(function() {
-        var type = '[% profile_replay_type %]';
-        $('#replay-list').html('Loading...');
-        $('#replay-list').load('/profile/replays/', { type: type }, function(d, t, x) {
-            if(t != 'success') {
-                $('#replay-list').html(t);
+        $('a.replay-action').click(function() {
+            var id = $(this).attr('rid');
+            var a = $(this);
+            if($(this).hasClass('hidereplay')) {
+                $.getJSON('/profile/j/hr', { id: id }, function(d) {
+                    if(d.ok == 1) {
+                        document.location.href = '/profile/replays/type/[% type %]/page/[% p %]' 
+                    } else {
+                        alert(d.error);
+                    }
+                });
+            } else {
+                $.getJSON('/profile/j/sr', { id: id }, function(d) {
+                    if(d.ok == 1) {
+                        document.location.href = '/profile/replays/type/[% type %]/page/[% p %]' 
+                    } else {
+                        alert(d.error);
+                    }
+                });
             }
+            return false;
+        });
+        $('select[name="type"]').val('[% type %]').change(function() {
+            document.location.href = '/profile/replays/type/' + $(this).val() + '/page/1';
         });
     });
 </script>
