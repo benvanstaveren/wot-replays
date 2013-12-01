@@ -30,6 +30,11 @@ sub startup {
 
     # set up the mango stuff here
     $self->attr(mango => sub { Mango->new($config->{mongodb}->{host}) });
+    $self->helper(get_database => sub {
+        my $s = shift;
+        my $d = $config->{mongodb}->{database};
+        return $s->app->mango->db($d);
+    });
     $self->helper(model => sub {
         my $s = shift;
         my ($d, $c) = split(/\./, shift, 2);
@@ -75,6 +80,7 @@ sub startup {
 
     my $xhr = $r->under('/xhr');
         $xhr->route('/qs')->to('ui#xhr_qs');
+        $xhr->route('/ds')->to('ui#xhr_ds');
 
     my $rb = $r->under('/replay/:replay_id');
         $rb->route('/')->to('replays-view#view', pageid => undef)->name('viewreplay');

@@ -44,6 +44,26 @@ sub index {
     });
 }
 
+sub xhr_ds {
+    my $self = shift;
+
+    $self->render_later;
+
+    $self->get_database->command(Mango::BSON::bson_doc('dbStats' => 1, 'scale' => (1024 * 1024)) => sub {
+        my ($db, $err, $doc) = (@_);
+
+        if(defined($doc)) {
+            my $n = {};
+            for(qw/dataSize storageSize indexSize/) {
+                $n->{$_} = $doc->{$_};
+            }
+            $self->render(json => { ok => 1, data => $n });
+        } else {
+            $self->render(json => { ok => 0 });
+        }
+    });
+}
+
 sub xhr_qs {
     my $self = shift;
 

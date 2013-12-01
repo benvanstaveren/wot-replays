@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="col-lg-12 col-md-12">
+        <h4>Status</h4>
+        <table class="table">
+            <tbody>
+                <tr id="status-pending">
+                    <td><h6>pending processing:</h6></ttd>
+                    <td><h6 style="color: #888" id="queue-count"></h6></td>
+                </tr>
+                <tr id="status-data">
+                    <td><h6>data size:</h6></td>
+                    <td><h6 style="color: #888" id="dataSize"></h6></td>
+                </tr>
+                <tr id="status-index">
+                    <td><h6>index size:</h6></td>
+                    <td><h6 style="color: #888" id="indexSize"></h6></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+            
+<script type="text/javascript">
+    $(document).ready(function() {
+        $.getJSON('/xhr/qs', {}, function(d) {
+            if(d.ok == 1) {
+                $('#queue-count').html(d.count);
+            } else {
+                $('#queue-count').html('-');
+            }
+        });
+        $.getJSON('/xhr/ds', {}, function(d) {
+            if(d.ok == 1) {
+                $('#indexSize').html(d.data.indexSize + 'Mb');
+                $('#dataSize').html(d.data.dataSize + 'Mb');
+            } else {
+                $('#status-index').addClass('hide');
+                $('#status-data').addClass('hide');
+            }
+        });
+    });
+</script>
