@@ -73,9 +73,11 @@ sub startup {
     });
 
     # these are all simple pages
-    for(qw/about donate credits upload/) {
+    for(qw/about donate credits/) {
         $r->route(sprintf('/%s', $_))->to(sprintf('ui#%s', $_), pageid => $_);
     }
+
+    $r->route('/upload')->to('replays-upload#upload', pageid => 'upload);
 
     # this one's a bit out of place, should eventually go under xhr
     $r->route('/process/:jobid')->to('replays-upload#process_replay', pageid => 'upload');
