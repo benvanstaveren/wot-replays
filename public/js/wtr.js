@@ -13,7 +13,7 @@ $(document).ready(function() {
         }
         if(!go) return false;
         var c = parseInt($(this).find('span.badge').html());
-        $(this).find('span.badge.downloads').html(c + 1);
+        $(this).find('span.badge').html(c + 1);
         var href = $(this).attr('href');
     });
     $('a.btn.btn-view-replay').on('click', function() {
