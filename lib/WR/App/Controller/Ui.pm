@@ -7,6 +7,7 @@ use Net::OpenID::Consumer;
 use URI::Escape;
 use LWPx::ParanoidAgent;
 use Time::HiRes qw/gettimeofday tv_interval/;
+use Filesys::DiskUsage::Fast qw/du/;
 
 sub faq {
     shift->respond(template => 'faq', stash => { page => { title => 'Frequently Asked Questions' } });
@@ -41,6 +42,21 @@ sub index {
             page            => { title => 'Home' },
             timing_query    => tv_interval($start),
         });
+    });
+}
+
+sub xhr_disk {
+    my $self = shift;
+
+    $self->render_later;
+    my $bytes = du($self->stash('config')->{paths}->{replays});
+    
+    $self->render({
+        json => {
+            bytes => $bytes,
+            megabytes => sprintf('%.2f', $bytes / (1024 * 1024)),
+            gigabytes => sprintf('%.2f', $bytes / (1024 * 1024 * 1024)),
+        }
     });
 }
 

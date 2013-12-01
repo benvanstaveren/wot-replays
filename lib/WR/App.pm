@@ -85,6 +85,7 @@ sub startup {
     my $xhr = $r->under('/xhr');
         $xhr->route('/qs')->to('ui#xhr_qs');
         $xhr->route('/ds')->to('ui#xhr_ds');
+        $xhr->route('/disk')->to('ui#xhr_disk');
 
     my $rb = $r->under('/replay/:replay_id');
         $rb->route('/')->to('replays-view#view', pageid => undef)->name('viewreplay');

@@ -5,15 +5,19 @@
             <tbody>
                 <tr id="status-pending">
                     <td><h6>pending processing:</h6></ttd>
-                    <td><h6 style="color: #888" id="queue-count"></h6></td>
+                    <td><h6 style="color: #888" id="queue-count">-</h6></td>
                 </tr>
                 <tr id="status-data">
                     <td><h6>data size:</h6></td>
-                    <td><h6 style="color: #888" id="dataSize"></h6></td>
+                    <td><h6 style="color: #888" id="dataSize">-</h6></td>
                 </tr>
                 <tr id="status-index">
                     <td><h6>index size:</h6></td>
-                    <td><h6 style="color: #888" id="indexSize"></h6></td>
+                    <td><h6 style="color: #888" id="indexSize">-</h6></td>
+                </tr>
+                <tr id="status-disk">
+                    <td><h6>disk usage:</h6></td>
+                    <td><h6 style="color: #888" id="disk-usage">-</h6></td>
                 </tr>
             </tbody>
         </table>
@@ -22,6 +26,9 @@
             
 <script type="text/javascript">
     $(document).ready(function() {
+        $.getJSON('/xhr/disk', {}, function(d) {
+            $('#disk-usage').html(d.megabytes + 'Mb');
+        });
         $.getJSON('/xhr/qs', {}, function(d) {
             if(d.ok == 1) {
                 $('#queue-count').html(d.count);
