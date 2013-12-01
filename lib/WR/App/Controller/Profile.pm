@@ -72,7 +72,7 @@ sub replays {
         $maxp++ if($maxp * 10 < $count);
 
         $cursor->skip( ($page - 1) * 10 );
-        $cursor->limit(15);
+        $cursor->limit(10);
         $cursor->sort({ 'site.uploaded_at' => -1 });
 
         $cursor->all(sub {
