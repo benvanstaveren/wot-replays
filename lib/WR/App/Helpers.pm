@@ -61,7 +61,7 @@ sub add_helpers {
 
         my @a = ();
         
-        foreach my $key (sort(keys(%$f))) {
+        foreach my $key (sort { $a cmp $b } (keys(%$f))) {
             push(@a, $key, $f->{$key});
         }
 
