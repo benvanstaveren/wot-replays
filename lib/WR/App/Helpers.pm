@@ -147,7 +147,7 @@ sub add_helpers {
 
     $self->helper(wr_query => sub {
         my $self = shift;
-        return WR::Query->new(@_, coll => $self->model('wot-replays.replays'));
+        return WR::Query->new(@_, coll => $self->model('wot-replays.replays'), log => $self->app->log);
     });
 
     $self->helper('lc' => sub {

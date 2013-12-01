@@ -3,6 +3,7 @@ use Mojo::Base '-base';
 use Mojo::JSON;
 use Mango::BSON;
 use Data::Dumper;
+use Time::HiRes qw/gettimeofday tv_interval/;
 
 # args
 has 'coll'    => undef;
@@ -14,20 +15,36 @@ has '_query'  => sub {
 };
 has '_res'    => undef;
 has 'total'   => 0;
+has 'log'     => undef;
+
+sub error { shift->_log('error', @_) }
+sub info { shift->_log('info', @_) }
+sub warning { shift->_log('warn', @_) }
+sub debug { shift->_log('info', @_) } # yes, info...
+
+sub _log {
+    my $self = shift;
+    my $level = shift;
+    my $msg = join(' ', '[WR::Query]', @_);
+
+    $self->log->$level($msg) if(defined($self->log));
+}
 
 sub exec {
     my $self = shift;
     my $cb   = shift;
 
     if(defined($self->_res)) {
+        $self->debug('exec already has result');
         $cb->($self->_res);
     } else {
-        my $cursor = $self->coll->find($self->_query);
-        $cursor->count(sub {
+        $self->debug('exec has no result yet');
+        $self->coll->find($self->_query)->count(sub {
             my ($c, $e, $count) = (@_);
             $self->total($count);
-            $self->_res($cursor);
-            $cb->($cursor);
+            $self->_res($c);
+            $self->debug('exec fetched result, stored');
+            $cb->($c);
         });
     }
 }
@@ -47,6 +64,8 @@ sub page {
     my $cb   = shift;
 
     my $offset = ($page - 1) * $self->perpage;
+
+    $self->debug('[page]: offset: ', $offset, ' sort is set to: ', Dumper($self->sort));
 
     $self->exec(sub {
         my $cursor = shift;
@@ -156,9 +175,8 @@ sub _build_query {
     $query->{'game.bonus_type'} = $args{'matchtype'} + 0 if($args{'matchtype'} && $args{'matchtype'} ne '');
 
     # if the wn7 flag is set we need to use min and max to obtain it
-    if(defined($args{'wn7'})) {
-        $query->{'wn7.data.overall'} = { '$gte' => $args{wn7} };
-    }
+    $query->{'wn7.data.overall'} = { '$gte' => $args{wn7} } if(defined($args{'wn7'}));
+    $query->{'wn7.data.battle'} = { '$gte' => $args{wn7_battle} } if(defined($args{'wn7_battle'}));
 
     # finalize the query
     if(scalar(@$ors) > 1) {
@@ -168,6 +186,8 @@ sub _build_query {
     } elsif(scalar(@$ors) > 0) {
         $query->{'$or'} = shift(@$ors);
     }
+
+    $self->debug('[_build_query]: built query: ', Dumper($query));
 
     return $query;
 }
