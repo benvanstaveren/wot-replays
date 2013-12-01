@@ -45,19 +45,18 @@ sub index {
     });
 }
 
-sub xhr_disk {
+sub xhr_du {
     my $self = shift;
 
-    $self->render_later;
     my $bytes = du($self->stash('config')->{paths}->{replays});
     
-    $self->render({
+    $self->render(
         json => {
             bytes => $bytes,
             megabytes => sprintf('%.2f', $bytes / (1024 * 1024)),
             gigabytes => sprintf('%.2f', $bytes / (1024 * 1024 * 1024)),
         }
-    });
+    );
 }
 
 sub xhr_ds {
