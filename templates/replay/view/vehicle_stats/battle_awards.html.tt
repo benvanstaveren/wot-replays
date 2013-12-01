@@ -1,7 +1,7 @@
 <h4>Battle Awards</h4>
 <div class="heroawardlist clearfix">
     [% FOREACH award IN replay.stats.achievements.nsort %]
-        <div data-placement="bottom" data-toggle="tooltip" data-container="body" class="bs-tooltip award [% h.get_achievements.index_to_idstr(award) %]" title="[% h.get_achievements.i18n(h.get_achievements.index_to_idstr(award)) |html %] (#[% dossier_popups.$award %])"></div>
+        <div data-placement="bottom" data-toggle="tooltip" data-container="body" class="bs-tooltip award [% h.get_achievements.index_to_idstr(award) %]" title="[% h.get_achievements.i18n(h.get_achievements.index_to_idstr(award)) |html %]"></div>
     [% END %]
     [% IF replay.stats.achievements.size < 1 %]
         <p>No badges or medals awarded</p>
