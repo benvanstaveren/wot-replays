@@ -83,7 +83,7 @@
                     </p>
                     <p>
                         <textarea class="bbcode" style="width: 545px; resize: none" rows="5">
-[url=http://[% config.urls.app %]/replay/[% h.get_id(replay) %].html]
+[url=[% config.urls.app %]/replay/[% h.get_id(replay) %].html]
 [img][% config.urls.banners %]/[% replay.site.banner.url_path %][/img]
 [/url]
                         </textarea>
