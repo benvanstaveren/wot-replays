@@ -64,6 +64,23 @@ sub xhr_ds {
     });
 }
 
+sub nginx_post_action {
+    my $self = shift;
+    my $file = $self->req->param('f');
+    my $stat = $self->req->param('s');
+
+    $self->render_later;
+
+    if(defined($stat) && lc($stat) eq 'ok') {
+        my $real_file = substr($file, 1); # because we want to ditch that leading slash
+        $self->model('replays')->update({ file => $real_file }, { '$inc' => { 'site.downloads' => 1 } } => sub {
+            $self->render(text => 'OK');
+        });
+    } else {
+        $self->render(text => 'OK');
+    }
+}
+
 sub xhr_qs {
     my $self = shift;
 

@@ -13,11 +13,11 @@ sub download {
         if($e) {
             $self->render(status => 404, text => 'Not Found');
         } else {
-            $self->model('wot-replays.replays')->update({ _id => Mango::BSON::bson_oid($id) }, { '$inc' => { 'site.downloads' => 1 }} => sub {
-                my ($c, $e, $d) = (@_);
-                my $url = Mojo::URL->new(sprintf('%s/%s', $self->stash('config')->{urls}->{replays}, $replay->{file}));
-                $self->redirect_to($url->to_string);
-            });
+            my $url = Mojo::URL->new(sprintf('%s/%s', $self->stash('config')->{urls}->{replays}, $replay->{file}));
+            $self->redirect_to($url->to_string);
+            #$self->model('wot-replays.replays')->update({ _id => Mango::BSON::bson_oid($id) }, { '$inc' => { 'site.downloads' => 1 }} => sub {
+            #    my ($c, $e, $d) = (@_);
+            #});
         }
     });
 }

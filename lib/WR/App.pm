@@ -77,9 +77,10 @@ sub startup {
         $r->route(sprintf('/%s', $_))->to(sprintf('ui#%s', $_), pageid => $_);
     }
 
+    # funky bits
     $r->route('/upload')->to('replays-upload#upload', pageid => 'upload');
-
     $r->route('/process/:jobid')->to('replays-upload#process_replay', pageid => 'upload');
+    $r->route('/postaction')->to('ui#nginx_post_action');
 
     my $xhr = $r->under('/xhr');
         $xhr->route('/qs')->to('ui#xhr_qs');
