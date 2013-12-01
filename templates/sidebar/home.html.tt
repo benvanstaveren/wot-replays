@@ -1,1 +1,2 @@
 [% INCLUDE sidebar/bricks/donate.html.tt %]
+[% INCLUDE sidebar/bricks/queue.html.tt %]

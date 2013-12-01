@@ -105,11 +105,17 @@ sub _real_process {
 
     $self->debug('instantiating parser');
 
-    $self->_parser(try {
-        return WR::Parser->new(%args);
+    my $parser;
+
+    try {
+        $parser = WR::Parser->new(%args);
     } catch {
-        $self->error('unable to parse replay: ', $_) and $cb->($self, undef);
-    });
+        $self->error('unable to parse replay: ', $_);
+        die('Unable to parse replay: ', $_);
+    };
+
+    $self->_parser($parser);
+
     $self->debug('parser instantiated');
 
     # do we need a battle result? well, yeah, I guess we do after all
@@ -221,13 +227,9 @@ sub _real_process {
 
                         $self->ua->get($url => sub {
                             my ($ua, $tx) = (@_);
-
-                            $self->debug(sprintf('[%s]: received response', $player));
                             
                             if(defined($tx)) {
-                                $self->debug(sprintf('[%s]: have tx', $player));
                                 if(my $res = $tx->success) {
-                                    $self->debug(sprintf('[%s]: have res: %s', $player, Dumper($res->json)));
                                     if($res->json->{ok} == 1) {
                                         if(my $wn7 = $res->json->{data}->{lc($player)}) {
                                             $roster->{wn7} = { 
@@ -241,14 +243,12 @@ sub _real_process {
                                             };
                                         }
                                     } else {
-                                        $self->debug(sprintf('[%s]: json status not ok', $player));
                                         $roster->{wn7} = { 
                                             available => Mango::BSON::bson_false,
                                             data => { overall => 0 }
                                         };
                                     }
                                 } else {
-                                    $self->debug(sprintf('[%s]: no res, %s/%s', $player, $tx->error));
                                     $roster->{wn7} = { 
                                         available => Mango::BSON::bson_false,
                                         data => { overall => 0 }
@@ -256,14 +256,12 @@ sub _real_process {
                                 }
                                 $replay->{wn7} = $roster->{wn7} if($player eq $replay->{game}->{recorder}->{name});
                             } else {
-                                $self->debug(sprintf('[%s]: no tx, %s/%s', $player, $tx->error));
                                 $roster->{wn7} = { 
                                     available => Mango::BSON::bson_false,
                                     data => { overall => 0 }
                                 };
                                 $replay->{wn7} = $roster->{wn7} if($player eq $replay->{game}->{recorder}->{name});
                             }
-                            $self->debug(sprintf('[%s]: finished', $player));
                             $end->();
                         });
                     }
@@ -285,10 +283,12 @@ sub _real_process {
                     $fh->print($json->encode($self->packets));
                     $fh->close;
                     $self->debug('wrote packets to file');
+                    $replay->{packets} = sprintf('%s/%s.json', $self->hashbucket($replay->{_id} . '', 7), $replay->{_id} . '');
                     $self->emit('state.packet.save.done');
                     $packet_end->();
                 } else {
                     $self->debug('could not write packets to file');
+                    $replay->{packets} = undef;
                     $self->emit('state.packet.save.done');
                     $packet_end->();
                 }

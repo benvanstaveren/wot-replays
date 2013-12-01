@@ -24,10 +24,8 @@
             <div class="btn-group btn-group-justified">
                 <a class="btn btn-default btn-like-replay" href="[% h.get_id(replay) %]" title="Like this replay"><span class="badge">[% replay.site.like || '0' %]</span> Like</a>
                 <a class="btn btn-default btn-save-replay" title="Download this replay" href="/replay/[% h.get_id(replay) %]/download"><span class="badge">[% replay.site.downloads || '0' %]</span> Save</a>
-                [% IF replay.site.banner.available %]
-                    <a class="btn btn-default btn-embed-replay" href="[% h.get_id(replay) %]" title="Embed this replay">Embed</a>
-                [% END %]
-                <a class="btn btn-default btn-battleviewer disabled" title="Battleviewer" href="[% h.get_id(replay) %]">Battle Viewer</a>
+                <a class="btn btn-default btn-embed-replay [% IF !replay.site.banner.available %]disabled[% END %]" href="[% h.get_id(replay) %]" title="Embed this replay">Embed</a>
+                <a class="btn btn-default btn-battleviewer [% IF !replay.packets.defined %]disabled[% END %]" title="Battleviewer" href="/battleviewer/[% h.get_id(replay) %].html">Battle Viewer</a>
             </div>
         </div>
     </div>
@@ -37,9 +35,7 @@
                 <li class="active"><a href="#vehicle-stats" data-toggle="tab">Statistics</a></li>
                 <li><a href="#vehicle-loadout" data-toggle="tab">Loadout</a></li>
                 <li><a href="#teams" data-toggle="tab">Teams</a></li>
-                [% IF replay.chat.size > 0 %]
-                    <li><a href="#battle-chat" data-toggle="tab">Chat</a></li>
-                [% END %]
+                <li class="[% IF replay.chat.size < 1 %]disabled [% END %]"><a href="#battle-chat" data-toggle="tab">Chat</a></li>
                 <li class="disabled"><a href="#comparison" data-toggle="tab">Compare</a></li>
             </ul>
             <div class="tab-content">
@@ -62,29 +58,12 @@
                 <div id="comparison" class="tab-pane fade">
                     <div id="comparison-display">Loading...</div>
                 </div>
-                [% IF replay.chat.size > 0 %]
                 <div id="battle-chat" class="tab-pane fade">
                     [% FOREACH message IN replay.chat %]
                         <div style="padding: 2px;">
                             [% message %]
                         </div>
                     [% END %]
-                </div>
-                [% END %]
-            </div>
-        </div>
-    </div>
-    <div id="battleviewerModal" class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Battle Viewer</h4>
-                </div>
-                <div class="modal-body">
-                    <p>The battle viewer is currently being retooled and isn't available right now. Sorry!</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
@@ -114,8 +93,5 @@
             </div>
         </div>
     </div>
-    [% IF 1 == 0 %]
-        [% INCLUDE replay/view/battleviewer/index.html.tt %]
-    [% END %]
     [% INCLUDE replay/view/script.js.tt %]
 [% END %]

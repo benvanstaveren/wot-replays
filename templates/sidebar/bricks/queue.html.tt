@@ -1,0 +1,22 @@
+<div class="row">
+    <div class="col-lg-12 col-md-12">
+        <h4>Queue Status</h4>
+        <div id="queue-status">
+            <div class="loading">Loading...</div>
+            <div class="count" style="display: none">There are currently <b><span id="queue-count"></span></b> replays waiting to be processed.</div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $.getJSON('/xhr/qs', {}, function(d) {
+            if(d.ok == 1) {
+                $('#queue-status .loading').hide();
+                $('#queue-status .count').show();
+                $('#queue-count').html(d.count);
+            } else {
+                $('#queue-status .loading').html('Error loading data');
+            }
+        });
+    });
+</script>

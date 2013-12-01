@@ -34,13 +34,28 @@ sub index {
     $self->render_later;
 
     # no need for a count
-    my $cursor = $self->model('wot-replays.replays')->find({ 'site.visible' => Mango::BSON::bson_true })->sort({ 'site.uploaded_at' => -1 })->limit(15)->all(sub {
+    my $cursor = $self->model('replays')->find({ 'site.visible' => Mango::BSON::bson_true })->sort({ 'site.uploaded_at' => -1 })->limit(15)->all(sub {
         my ($c, $e, $replays) = (@_);
         $self->respond(template => 'index', stash => {
             replays         => $replays || [],
             page            => { title => 'Home' },
             timing_query    => tv_interval($start),
         });
+    });
+}
+
+sub xhr_qs {
+    my $self = shift;
+
+    $self->render_later;
+    $self->model('jobs')->count({ ready => Mango::BSON::bson_true, complete => Mango::BSON::bson_false } => sub {
+        my ($c, $e, $d) = (@_);
+
+        if(defined($d)) {
+            $self->render(json => { ok => 1, count => $d });
+        } else {
+            $self-render(json => { ok => 0 });
+        }
     });
 }
 

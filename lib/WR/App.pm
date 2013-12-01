@@ -57,7 +57,11 @@ sub startup {
     $r->route('/donate')->to('ui#donate', pageid => 'donate');
     $r->route('/credits')->to('ui#credits', pageid => 'credits');
     $r->route('/upload')->to('replays-upload#upload', pageid => 'upload');
+
     $r->route('/process/:jobid')->to('replays-upload#process_replay', pageid => 'upload');
+
+    my $xhr = $r->under('/xhr');
+        $xhr->route('/qs')->to('ui#xhr_qs');
 
     my $rb = $r->under('/replay/:replay_id');
         $rb->route('/')->to('replays-view#view', pageid => undef)->name('viewreplay');
