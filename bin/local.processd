@@ -185,7 +185,6 @@ sub main_loop {
             } else {
                 process_job($job);
             }
-            sleep(10);
         } else {
             $log->debug('no job, waiting 10 seconds');
             sleep(10);
