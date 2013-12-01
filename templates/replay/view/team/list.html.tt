@@ -3,10 +3,11 @@
         <th></th>
         <th>Tank</th>
         <th>Player</th>
+        <th>WN7</th>
         <th>Awards</th>
         <th>Dmg</th>
         <th>XP</th>
-        <th>Kills</th>
+        <th class="bs-tooltip" data-toggle="tooltip" data-placement="auto" data-container"body" title="Kills">K</th>
     </thead>
     <tbody>
         [% FOREACH vid IN players %]

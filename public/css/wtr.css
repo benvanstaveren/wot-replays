@@ -81,6 +81,37 @@ div.wn7.notavailable {
   color: white;
   background: black; }
 
+td.wn7.verybad {
+  color: #404040;
+  background: black none repeat scroll 0 0; }
+td.wn7.bad {
+  color: #de0000;
+  background: #5e0000 none repeat scroll 0 0; }
+td.wn7.belowaverage {
+  color: #e69999;
+  background: #cd3333 none repeat scroll 0 0; }
+td.wn7.average {
+  color: #ffe558;
+  background: #d7b600 none repeat scroll 0 0; }
+td.wn7.good {
+  color: #afdb5b;
+  background: #6d9521 none repeat scroll 0 0; }
+td.wn7.verygood {
+  color: #8ac262;
+  background: #4c762e none repeat scroll 0 0; }
+td.wn7.great {
+  color: #a5c9db;
+  background: #4a92b7 none repeat scroll 0 0; }
+td.wn7.unicum {
+  color: #bfa6ce;
+  background: #83579d none repeat scroll 0 0; }
+td.wn7.superunicum {
+  color: #9c66bf;
+  background: #5a3175 none repeat scroll 0 0; }
+td.wn7.notavailable {
+  color: white;
+  background: black; }
+
 div.award {
   float: left;
   width: 45px;

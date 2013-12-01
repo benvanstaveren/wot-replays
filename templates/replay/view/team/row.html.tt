@@ -18,12 +18,15 @@
             <div class="healthnumbers">[% player.health.remaining %]/[% totalhealth %]</div>
         </div>
     </td>
-    <td class="playerName" title="[% player.player.name |html %]">
+    <td class="bs-tooltip playerName" title="[% player.player.name |html %]" data-placement="auto" data-toggle="tooltip" data-container="body">
         [% IF player.player.clanDBID > 0 %]
             [% player.player.name |truncate(12)|html %]<span class="clan">[[% player.player.clanAbbrev %]]</span>
         [% ELSE %]
-            [% player.player.name |truncate(16)|html %]
+            [% player.player.name |truncate(12)|html %]
         [% END %]
+    </td>
+    <td class="playerRating">
+        <div title="Player overall WN7" data-placement="auto" data-toggle="tooltip" data-container="body" class="bs-tooltip wn7 [% IF player.wn7.available %][% h.wn7_color(player.wn7.data.overall) %][% ELSE %]notavailable[% END %] rounded" style="padding: 2px; margin: 0px; font-weight: bold; text-align: center">[% IF player.wn7.available %]<a class="wn7 [% h.wn7_color(player.wn7.data.overall) %]" href="http://statterbox.com/[% h.fix_server(replay.game.server) %]/[% player.player.name |uri %]">[% player.wn7.data.overall %]</a>[% ELSE %]-[% END %]</div>
     </td>
     <td class="playerDetails">
         [% FOREACH award IN player.stats.achievements.nsort %]
