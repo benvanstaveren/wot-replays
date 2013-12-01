@@ -40,9 +40,9 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12">
                     <div class="btn-group btn-group-justified">
-                        <a data-toggle="tooltip" data-placement="auto" data-container="body" class="bs-tooltip btn btn-default btn-view-replay" href="/replay/[% h.get_id(replay) %].html" title="View this replay"><span class="badge">[% replay.site.views || '0' %]</span> View</a>
-                        <a data-toggle="tooltip" data-placement="auto" data-container="body" class="bs-tooltip btn btn-default btn-like-replay" href="[% h.get_id(replay) %]" title="Like this replay"><span class="badge">[% replay.site.like || '0' %]</span> Like</a>
-                        <a data-toggle="tooltip" data-placement="auto" data-container="body" class="bs-tooltip btn btn-default btn-save-replay" title="Download this replay" href="[% config.urls.replays %]/[% replay.file %]"><span class="badge">[% replay.site.downloads || '0' %]</span> Save</a>
+                        <a data-toggle="tooltip" data-placement="bottom" data-container="body" class="bs-tooltip btn btn-default btn-view-replay" href="/replay/[% h.get_id(replay) %].html" title="View this replay"><span class="badge">[% replay.site.views || '0' %]</span> View</a>
+                        <a data-toggle="tooltip" data-placement="bottom" data-container="body" class="bs-tooltip btn btn-default btn-like-replay" href="[% h.get_id(replay) %]" title="Like this replay"><span class="badge">[% replay.site.like || '0' %]</span> Like</a>
+                        <a data-toggle="tooltip" data-placement="bottom" data-container="body" class="bs-tooltip btn btn-default btn-save-replay" title="Download this replay" href="[% config.urls.replays %]/[% replay.file %]"><span class="badge">[% replay.site.downloads || '0' %]</span> Save</a>
                     </div>
                 </div>
             </div>
