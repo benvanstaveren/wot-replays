@@ -25,7 +25,7 @@
             </h4>
             <div class="btn-group btn-group-justified">
                 <a class="bs-tooltip btn btn-default btn-like-replay" href="[% h.get_id(replay) %]" data-toggle="tooltip" data-container="body" data-placement="auto" title="Like this replay"><span class="badge">[% replay.site.like || '0' %]</span> Like</a>
-                <a class="bs-tooltip btn btn-default btn-save-replay" data-placement="auto" data-toggle="tooltip" data-container="body" title="Download this replay" href="/replay/[% h.get_id(replay) %]/download"><span class="badge">[% replay.site.downloads || '0' %]</span> Save</a>
+                <a class="bs-tooltip btn btn-default btn-save-replay" data-placement="auto" data-toggle="tooltip" data-container="body" title="Download this replay" href="[% config.urls.replays %]/[% replay.file %]"><span class="badge">[% replay.site.downloads || '0' %]</span> Save</a>
                 <a class="bs-tooltip btn btn-default btn-embed-replay [% IF !replay.site.banner.available %]disabled[% END %]" data-placement="auto" data-toggle="tooltip" data-container="body" href="[% h.get_id(replay) %]" title="Embed this replay">Embed</a>
                 <a class="bs-tooltip btn btn-default btn-battleviewer [% IF !replay.packets.defined %]disabled[% END %]" data-placement="auto" data-toggle="tooltip" data-container="body"  title="Battleviewer" href="/battleviewer/[% h.get_id(replay) %].html">Battle Viewer</a>
             </div>
