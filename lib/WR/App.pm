@@ -137,8 +137,6 @@ sub startup {
     my $tt = WR::Renderer->build(
         mojo => $self,
         template_options => {
-            COMPILE_DIR  => undef,
-            COMPILE_EXT  => undef,
             PRE_CHOMP    => 0,
             POST_CHOMP   => 1,
             TRIM => 1,
@@ -157,6 +155,8 @@ sub startup {
             RELATIVE => 1,
             ABSOLUTE => 1, # otherwise hypnotoad gets a bit cranky, for some reason
             INCLUDE_PATH => [ $self->app->home->rel_dir('templates') ],
+            COMPILE_DIR  => $self->app->home->rel_dir('tmp/tmplc'),
+            COMPILE_EXT  => '.compiled',
         },
     );
     $self->types->type(csv => 'text/csv; charset=utf-8');
