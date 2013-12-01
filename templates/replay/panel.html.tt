@@ -13,11 +13,11 @@
                     </div>
                 </a>
                 <div class="row">
-                    <div class="col-lg-6 col-md-6" title="Player overall WN7">
-                        <div class="wn7 [% IF replay.wn7.available %][% h.wn7_color(replay.wn7.data.overall) %][% ELSE %]notavailable[% END %] rounded" style="margin: 2px; font-weight: bold; text-align: center">[% IF replay.wn7.available %][% replay.wn7.data.overall %][% ELSE %]-[% END %]</div>
+                    <div class="col-lg-6 col-md-6"">
+                        <div title="Player overall WN7" data-placement="auto" data-toggle="tooltip" class="bs-tooltip wn7 [% IF replay.wn7.available %][% h.wn7_color(replay.wn7.data.overall) %][% ELSE %]notavailable[% END %] rounded" style="margin: 2px; font-weight: bold; text-align: center">[% IF replay.wn7.available %]<a class="wn7 [% h.wn7_color(replay.wn7.data.overall) %]" href="http://statterbox.com/[% h.fix_server(replay.game.server) %]/[% replay.game.recorder.name |uri %]">[% replay.wn7.data.overall %]</a>[% ELSE %]-[% END %]</div>
                     </div>
-                    <div class="col-lg-6 col-md-6" title="WN7 for this battle">
-                        <div class="wn7 [% IF replay.wn7.data.battle.defined %][% h.wn7_color(replay.wn7.data.battle) %][% ELSE %]notavailable[% END %] rounded" style="margin: 2px; font-weight: bold; text-align: center">[% IF replay.wn7.data.battle.defined %][% replay.wn7.data.battle %][% ELSE %]-[% END %]</div>
+                    <div class="col-lg-6 col-md-6">
+                        <div title="WN7 for this battle" data-placement="auto" data-toggle="tooltip" class="bs-tooltip wn7 [% IF replay.wn7.data.battle.defined %][% h.wn7_color(replay.wn7.data.battle) %][% ELSE %]notavailable[% END %] rounded" style="margin: 2px; font-weight: bold; text-align: center">[% IF replay.wn7.data.battle.defined %][% replay.wn7.data.battle %][% ELSE %]-[% END %]</div>
                     </div>
                 </div>
         </div>

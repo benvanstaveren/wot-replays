@@ -1,7 +1,7 @@
 [% roster = h.get_roster_by_vid(replay, pid) %]
 [% cd = h.get_crit_details(details.crits) %]
 <tr>
-    <td class="playerVehicle" style="background: transparent url([% config.urls.assets %]/vehicles/48/[% roster.vehicle.icon %]) no-repeat scroll center center" title="[% roster.vehicle.label |html %]">
+    <td data-container="body" class="playerVehicle bs-tooltip" style="background: transparent url([% config.urls.assets %]/vehicles/48/[% roster.vehicle.icon %]) no-repeat scroll center center" data-placement="auto" data-toggle="tooltip" title="[% roster.vehicle.label |html %]">
         <div class="playerHealth">
             [% ph = roster.health.total %]
             [% hp = h.percentage_of(ph, roster.health.remaining) %]
@@ -11,17 +11,17 @@
             <div class="healthnumbers">[% roster.health.remaining %]/[% roster.health.total %]</div>
         </div>
     </td>
-    <td class="playerName" title="[% roster.player.name |html %][% IF roster.player.clanDBID > 0 %][[% roster.player.clanAbbrev %]][% END %]">
+    <td data-container="body" class="playerName bs-tooltip" data-placement="auto" data-toggle="tooltip" title="[% roster.player.name |html %][% IF roster.player.clanDBID > 0 %][[% roster.player.clanAbbrev %]][% END %]">
         [% roster.player.name |truncate(10) |html %][% IF roster.player.clanDBID > 0 %]<span class="clan">[[% roster.player.clanAbbrev %]]</span>[% END %]
     </td>
     <td class="playerDetails">
-        <span class="
+        <span data-container="body" data-placement="auto" data-toggle="tooltip" class="bs-tooltip 
             [% IF roster.player.team == replay.game.recorder.team %]
                 teamkill [% IF !h.was_killed_by_recorder(replay, roster.stats.killerID) %]dimmed"[% ELSE %]" title="Player killed this team member"[% END %]
             [% ELSE %]
                 kill [% IF !details || !h.was_killed_by_recorder(replay, roster.stats.killerID) %]dimmed"[% ELSE %]" title="Player got the killing blow on this enemy"[% END %]
             [% END %]></span>
-        <span class="damage 
+        <span data-container="body" data-placement="auto" data-toggle="tooltip" class="damage bs-tooltip  
             [% IF roster.player.team == replay.game.recorder.team %]
                 [% IF details.hits + details.he_hits == 0 %]dimmed[% ELSE %][% END %]" title="Player did [% details.damageDealt %] damage to a team member"
             [% ELSE %]
@@ -31,15 +31,15 @@
             <b>[% details.hits + details.he_hits %]</b> 
             [% END %]
         </span>
-        <span class="crits [% IF cd.count == 0 %]dimmed"[% ELSE %] hasdetails" player="[% pid %]" title="Player made [% cd.count %] critical hits, click for details"[% END %]>
+        <span data-container="body" data-placement="auto" data-toggle="tooltip" class="bs-tooltip crits [% IF cd.count == 0 %]dimmed"[% ELSE %] hasdetails" player="[% pid %]" title="Player made [% cd.count %] critical hits, click for details"[% END %]>
             [% IF cd.count > 0 %]
             <b>[% cd.count %]</b>
             [% END %]
         </span>
         [% IF details && (details.damageAssistedRadio + details.damageAssistedTrack) > 0 %]
-            <span class="evil " title="Player spotted this vehicle, and team members contributed [% details.damageAssistedRadio + details.damageAssistedTrack %] points ([% h.percentage_of(ph, details.damageAssistedRadio + details.damageAssistedTrack) %]%) of damage"></span>
+            <span data-container="body" data-placement="auto" data-toggle="tooltip" class="bs-tooltip evil " title="Player spotted this vehicle, and team members contributed [% details.damageAssistedRadio + details.damageAssistedTrack %] points ([% h.percentage_of(ph, details.damageAssistedRadio + details.damageAssistedTrack) %]%) of damage"></span>
         [% ELSE %]
-            <span class="spotted [% IF !details || details.spotted == 0 %]dimmed"[% ELSE %]" title="Player spotted this vehicle"[% END %]></span>
+            <span data-container="body" data-placement="auto" data-toggle="tooltip" class="bs-tooltip spotted [% IF !details || details.spotted == 0 %]dimmed"[% ELSE %]" title="Player spotted this vehicle"[% END %]></span>
         [% END %]
         <div class="clear"></div>
     </td>

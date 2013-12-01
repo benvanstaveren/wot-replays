@@ -11,8 +11,6 @@
         $('#embedModal').modal({
             show: false,
         });
-        $('#battleviewerModal').modal({
-            show: false,
-        });
+        $('.bs-tooltip').tooltip();
     });
 </script>

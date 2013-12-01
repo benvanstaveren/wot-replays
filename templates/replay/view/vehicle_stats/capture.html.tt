@@ -3,11 +3,11 @@
     <tbody>
         <tr>
             <td><h5 style="margin: 0px">Captured</h5></td>
-            <td><span class="[% IF replay.stats.capturePoints > 0 %]green[% END %]">[% replay.stats.capturePoints || '0' %]</span></td>
+            <td><span data-placement="auto" data-toggle="tooltip" title="Points captured by the player" class="bs-tooltip [% IF replay.stats.capturePoints > 0 %]green[% END %]">[% replay.stats.capturePoints || '0' %]</span></td>
         </tr>
         <tr>
             <td><h5 style="margin: 0px">Defended</h5></td>
-            <td><span class="[% IF replay.stats.droppedCapturePoints > 0 %]green[% END %]">[% replay.stats.droppedCapturePoints || '0' %]</span></td>
+            <td><span data-placement="auto" data-toggle="tooltip" title="Points dropped by the enemy as a result of the player damaging them" class="bs-tooltip [% IF replay.stats.droppedCapturePoints > 0 %]green[% END %]">[% replay.stats.droppedCapturePoints || '0' %]</span></td>
         </tr>
     </tbody>
 </table>

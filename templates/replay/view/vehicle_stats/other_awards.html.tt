@@ -11,7 +11,7 @@
             [% ELSE %]
                 [% title = h.get_achievements.i18n(h.get_achievements.index_to_idstr(award.type)) %]
             [% END %]
-            <div class="award [% h.get_achievements.index_to_idstr(award.type) %][% IF award.class_suffix %][% award.class_suffix %][% END %]" title="[% title |html %]">
+            <div data-toggle="tooltip" data-placement="auto" data-container="body" class="bs-tooltip award [% h.get_achievements.index_to_idstr(award.type) %][% IF award.class_suffix %][% award.class_suffix %][% END %]" title="[% title |html %]">
                 [% IF award.count && award.count > 1 %]<b class="ui-corner-all">[% award.count %]</b>[% END %]
             </div>
         [% END %]

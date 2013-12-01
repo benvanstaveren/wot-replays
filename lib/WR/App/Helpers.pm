@@ -52,6 +52,13 @@ sub add_helpers {
         return $self->app->_sf->get_server_by_id($id + 0);
     });
 
+    $self->helper(fix_server => sub {
+        my $self = shift;
+        my $server = shift;
+
+        return ($server eq 'sea') ? 'asia' : $server;
+    });
+
     $self->helper(browse_page => sub {
         my $self = shift;
         my $p    = shift;

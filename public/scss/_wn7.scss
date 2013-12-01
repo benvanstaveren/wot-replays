@@ -23,6 +23,22 @@ span {
         &.superunicum { color: $wn7_superunicum }
     }
 }
+
+a {
+    &.wn7 {
+        &.verybad { color: lighten($wn7_verybad, 25%); background: $wn7_verybad none repeat scroll 0 0 }
+        &.bad { color: lighten($wn7_bad, 25%); background: $wn7_bad none repeat scroll 0 0 }
+        &.belowaverage { color: lighten($wn7_belowaverage, 25%); background: $wn7_belowaverage none repeat scroll 0 0 }
+        &.average { color: lighten($wn7_average, 25%); background: $wn7_average none repeat scroll 0 0 }
+        &.good { color: lighten($wn7_good, 25%); background: $wn7_good none repeat scroll 0 0 }
+        &.verygood { color: lighten($wn7_verygood, 25%); background: $wn7_verygood none repeat scroll 0 0 }
+        &.great { color: lighten($wn7_great, 25%); background: $wn7_great none repeat scroll 0 0 }
+        &.unicum { color: lighten($wn7_unicum, 25%); background: $wn7_unicum none repeat scroll 0 0 }
+        &.superunicum { color: lighten($wn7_superunicum, 25%); background: $wn7_superunicum none repeat scroll 0 0 }
+        &.notavailable { color: white; background: black }
+    }
+}
+
 div {
     &.wn7 {
         &.verybad { color: lighten($wn7_verybad, 25%); background: $wn7_verybad none repeat scroll 0 0 }
