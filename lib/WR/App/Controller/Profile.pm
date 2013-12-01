@@ -68,11 +68,11 @@ sub replays {
     my $cursor = $self->model('wot-replays.replays')->find($query);
     $cursor->count(sub {
         my ($cursor, $e, $count) = (@_);
-        my $maxp   = int($count/25);
-        $maxp++ if($maxp * 25 < $count);
+        my $maxp   = int($count/15);
+        $maxp++ if($maxp * 15 < $count);
 
-        $cursor->skip( ($page - 1) * 25 );
-        $cursor->limit(25);
+        $cursor->skip( ($page - 1) * 15 );
+        $cursor->limit(15);
         $cursor->sort({ 'site.uploaded_at' => -1 });
 
         $cursor->all(sub {
