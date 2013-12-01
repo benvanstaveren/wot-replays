@@ -71,11 +71,13 @@ sub startup {
         });
         $self->redirect_to(sprintf('/browse/%s', $self->browse_page(1)));
     });
-    $r->route('/about')->to('ui#about', pageid => 'about');
-    $r->route('/donate')->to('ui#donate', pageid => 'donate');
-    $r->route('/credits')->to('ui#credits', pageid => 'credits');
-    $r->route('/upload')->to('replays-upload#upload', pageid => 'upload');
 
+    # these are all simple pages
+    for(qw/about donate credits upload/) {
+        $r->route(sprintf('/%s', $_))->to(sprintf('ui#%s', $_), pageid => $_);
+    }
+
+    # this one's a bit out of place, should eventually go under xhr
     $r->route('/process/:jobid')->to('replays-upload#process_replay', pageid => 'upload');
 
     my $xhr = $r->under('/xhr');
@@ -86,12 +88,9 @@ sub startup {
         $rb->route('/')->to('replays-view#view', pageid => undef)->name('viewreplay');
         $rb->route('/desc')->to('replays#desc', pageid => undef);
         $rb->route('/download')->to('replays-export#download', pageid => undef);
-        $rb->route('/csv')->to('replays-export#csv', pageid => undef);
-        $rb->route('/up')->to('replays-rate#rate_up', pageid => undef);
-        $rb->route('/stats')->to('replays-view#stats', pageid => undef);
-        $rb->route('/incview')->to('replays-view#incview', pageid => undef);
-        $rb->route('/comparison')->to('replays-view#comparison', pageid => undef);
         $rb->route('/packets')->to('replays-view#packets', pageid => undef);
+        $rb->route('/up')->to('replays-rate#rate_up', pageid => undef);
+        $rb->route('/comparison')->to('replays-view#comparison', pageid => undef);
 
     $r->route('/players')->to('player#index', pageid => 'player');
     my $playerbridge = $r->bridge('/player/:server/:player_name')->to('player#player_bridge');

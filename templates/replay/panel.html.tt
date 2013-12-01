@@ -9,7 +9,9 @@
                         data-toggle="tooltip"
                         data-placement="auto"
                         >
-                            <img src="[% config.urls.assets %]/vehicles/100/[% h.get_recorder_vehicle(replay).vehicle.icon %]" style="width: 160px; height: 100px; position: absolute; top: 50%; left: 50%; margin-top: -50px; margin-left: -80px"/>
+                        <div class="panel-vehicle-wrapper">
+                            <img src="[% config.urls.assets %]/vehicles/100/[% h.get_recorder_vehicle(replay).vehicle.icon %]"/>
+                        </div>
                     </div>
                 </a>
                 <div class="row">

@@ -29,3 +29,20 @@ $(document).ready(function() {
         return false;
     });
 });
+
+window.WR = {
+    defaultChartOptions: {
+        well: { 
+            backgroundColor: '#151515', 
+            fontName: 'Droid Sans',
+            legend: { 
+                textStyle: { 
+                    color: '#888' 
+                },
+            },
+            titleTextStyle: { 
+                color: '#fff'
+            } 
+        }
+    }
+};

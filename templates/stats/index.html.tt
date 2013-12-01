@@ -1,51 +1,10 @@
 [% WRAPPER wrapper.html.tt %]
-<div>
-    <div class="content nosidebar aboutText">
-        <h3>[% page.title %]</h3>
-        <div class="box ui-corner-all" style="padding: 5px; background: rgba(0,0,0,0.2) none repeat scroll 0 0; margin: 0px 0px 10px 0px">
-            <div class="tablist">
-                <div class="tablist-inner">
-                    <div class="container-tablist">
-                        <ul class="nav">
-                            <li class="nav-item tab active"><a href="#global">Global</a></li>
-                            <li class="nav-item tab"><a href="#vehicle">Vehicles</a></li>
-                            <li class="nav-item tab"><a href="#map">Maps</a></li>
-                            <li class="nav-item tab"><a href="#cluster">Server Cluster</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div id="stats-global" class="tab-panel">
-            </div>
-            <div id="stats-vehicle" class="tab-panel" style="display: none">
-            </div>
-            <div id="stats-map" class="tab-panel" style="display: none">
-            </div>
-            <div id="stats-cluster" class="tab-panel" style="display: none">
-            </div>
+    <div class="page-header">
+        <h2>Statistics</h2>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <p class="lead">Under construction...</p>
         </div>
     </div>
-    <script type="text/javascript">
-        function loadStatPanel(panel) {
-            WR.waitElement();
-            var url = '/stats/' + panel;
-            WR.trackAjaxPageview(url);
-            $('#stats-' + panel).load(url, {}, function() {
-                $('div.tab-panel').hide();
-                $('#stats-' + panel).show();
-                $.unblockUI();
-            });
-        }
-        $(document).ready(function() {
-            $('li.nav-item.tab a').click(function() {
-                $('li.nav-item.tab').removeClass('active');
-                $(this).parent().addClass('active');
-                var href = $(this).attr('href').substr(1);
-                loadStatPanel(href);
-                return false;
-            });
-            loadStatPanel('global');
-        });
-    </script>
-</div>
 [% END %]
