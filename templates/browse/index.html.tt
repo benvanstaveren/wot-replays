@@ -6,7 +6,6 @@
         <div class="col-lg-9 col-md-9" id="browseContent">
             [% INCLUDE replay/list.html.tt %]
             [% INCLUDE browse/pager.html.tt %]
-            [% INCLUDE query_debug.html.tt %]
         </div>
         <div class="col-lg-3 col-md-3">
             [% INCLUDE sidebar/browse.html.tt %]

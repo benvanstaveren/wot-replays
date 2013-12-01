@@ -86,9 +86,6 @@ sub browse {
                 maxp    => $maxp,
                 p       => $p,
                 timing_query => tv_interval($start, [ gettimeofday ]),
-                query_explain => $query->query_explain,
-                query         => $query->_query,
-                query_sort    => $query->sort,
             }
         );
     });

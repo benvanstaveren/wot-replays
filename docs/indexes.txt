@@ -1,65 +1,107 @@
+// sort indexes
 db.replays.ensureIndex({
-    'site.uploaded_at': -1,
-    'game.time': -1,
-    'statistics.xp_base': -1,
-    'statistics.credits_base': -1,
-    'statistics.damageDealt': -1,
-    'site.like': -1,
-    'site.downloads': -1,
-    'site.visible': 1,
+    'game.started': -1 
+    }, {
+        name: 'sort.game.started',
+    }
+);
+db.replays.ensureIndex({
+    'site.uploaded_at': -1 
+    }, {
+        name: 'sort.site.uploaded_at',
+    }
+);
+db.replays.ensureIndex({
+    'site.likes': -1 
+    }, {
+        name: 'sort.site.likes',
+    }
+);
+db.replays.ensureIndex({
+    'site.downloads': -1 
+    }, {
+        name: 'sort.site.downloads',
+    }
+);
+db.replays.ensureIndex({
+    'stats.originalXP': -1 
+    }, {
+        name: 'sort.stats.originalXP',
+    }
+);
+db.replays.ensureIndex({
+    'stats.originalCredits': -1 
+    }, {
+        name: 'sort.stats.originalCredits',
+    }
+);
+db.replays.ensureIndex({
+    'stats.damageDealt': -1 
+    }, {
+        name: 'sort.stats.damageDealt',
+    }
+);
 
-    'map.id': 1,
-    'player.server': 1,
+// query indexes
+
+// vehicle type
+db.replays.ensureIndex({
+    'site.visible': 1,
+    'game.recorder.vehicle.ident': 1,
+    }, {
+        name: 'query.vehicle'
+    }
+);
+db.replays.ensureIndex({
+    'site.visible': 1,
+    'game.recorder.vehicle.tier': 1,
+    }, {
+        name: 'query.vehicle.tier',
+    }
+);
+db.replays.ensureIndex({
+    'site.visible': 1,
+    'game.map': 1,
+    }, {
+        name: 'query.map',
+    }
+);
+db.replays.ensureIndex({
+    'site.visible': 1,
+    'game.server': 1,
+    }, {
+        name: 'query.server',
+    }
+);
+db.replays.ensureIndex({
+    'site.visible': 1,
+    'game.type': 1,
+    }, {
+        name: 'query.matchmode',
+    }
+);
+db.replays.ensureIndex({
+    'site.visible': 1,
+    'game.bonus_type': 1,
+    }, {
+        name: 'query.matchtype',
+    }
+);
+db.replays.ensureIndex({
+    'site.visible': 1,
     'game.type': 1,
     'game.bonus_type': 1,
-}, {
-    name: 'list.vehicles',
-});
+    'game.server': 1,
+    'game.map': 1,
+    'game.recorder.vehicle.tier': 1,
+    'game.recorder.vehicle.ident': 1
+    }, {
+        name: 'query.all'
+    }
+);
 
-db.replays.ensureIndex({
-    'site.uploaded_at': -1,
-    'game.time': -1,
-    'statistics.xp_base': -1,
-    'statistics.credits_base': -1,
-    'statistics.damageDealt': -1,
-    'site.like': -1,
-    'site.downloads': -1,
-    'site.visible': 1,
 
-    'player.vehicle.tier': 1,
-    'player.vehicle.full': 1,
-    'player.server': 1,
-    'game.type': 1,
-    'game.bonus_type': 1,
-}, {
-    name: 'list.maps',
-});
 
-db.replays.ensureIndex({
-    'site.uploaded_at': -1,
 
-    'player.name': 1,
-    'player.server': 1,
-}, {
-    name: 'list.players',
-});
 
-db.replays.ensureIndex({
-    'site.uploaded_at': -1,
-    'game.time': -1,
-    'statistics.xp_base': -1,
-    'statistics.credits_base': -1,
-    'statistics.damageDealt': -1,
-    'site.like': -1,
-    'site.downloads': -1,
-    'site.visible': 1,
 
-    'player.vehicle.tier': 1,
-    'player.vehicle.full': 1,
-    'map.id': 1,
-    'player.server': 1,
-    'game.type': 1,
-    'game.bonus_type': 1,
-}, {
-    name: 'list.browse',
-});
