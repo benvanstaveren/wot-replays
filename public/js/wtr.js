@@ -21,10 +21,13 @@ $(document).ready(function() {
         $(this).find('span.badge').html(c + 1);
     });
     $('a.btn.btn-like-replay').on('click', function() {
+        if($(this).hasClass('disabled')) return false;
         var href = $(this).attr('href');
+        $(this).addClass('disabled');
         var s = this;
         $.getJSON('/replay/' + href + '/up', {}, function(d) {
             $(s).find('span.badge').html(d.c);
+            $(s).removeClass('disabled');
         });
         return false;
     });
