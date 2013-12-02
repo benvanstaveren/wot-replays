@@ -27,7 +27,7 @@
 <script type="text/javascript">
     $(document).ready(function() {
         $.getJSON('/xhr/du', {}, function(d) {
-            $('#disk-usage').html(d.megabytes + 'Mb');
+            $('#disk-usage').html(d.gigabytes + 'Gb');
         });
         $.getJSON('/xhr/qs', {}, function(d) {
             if(d.ok == 1) {
