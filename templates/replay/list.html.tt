@@ -7,5 +7,6 @@
 <script type="text/javascript">
     $(document).ready(function() {
         $('.bs-tooltip').tooltip();
+        $('.bs-popover').popover();
     });
 </script>

@@ -87,6 +87,9 @@ sub startup {
         $xhr->route('/ds')->to('ui#xhr_ds');
         $xhr->route('/du')->to('ui#xhr_du');
 
+    my $bv = $r->under('/battleviewer/:replay_id');
+        $bv->route('/')->to('replays-view#battleviewer', pageid => 'battleviewer');
+
     my $rb = $r->under('/replay/:replay_id');
         $rb->route('/')->to('replays-view#view', pageid => undef)->name('viewreplay');
         $rb->route('/desc')->to('replays#desc', pageid => undef);

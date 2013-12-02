@@ -25,7 +25,11 @@
         <link href="//netdna.bootstrapcdn.com/bootswatch/3.0.1/cyborg/bootstrap.min.css" rel="stylesheet"/>
 
         <link href="[% config.urls.static %]/css/[% IF config.mode.defined && config.mode == 'dev' %]wtr[% ELSE %]wtr.min[% END %].css" rel="stylesheet"/>
+
         <script type="text/javascript" src="[% config.urls.static %]/js/wtr.js"></script>
+        [% IF pageid == 'battleviewer' %]
+            <script type="text/javascript" src="[% config.urls.static %]/js/battleviewer.js"></script>
+        [% END %]
     </head>
     <body>
         <div class="navbar navbar-default navbar-shadow">

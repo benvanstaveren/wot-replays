@@ -15,6 +15,30 @@ sub load_replay {
     $self->model('wot-replays.replays')->find_one({ _id => Mango::BSON::bson_oid($self->stash('replay_id')) } => $cb);
 }
 
+sub battleviewer {
+    my $self = shift;
+
+    $self->render_later;
+
+    $self->load_replay(sub {
+        my ($c, $e, $replay) = @_;
+
+        if(defined($replay)) {
+            # construct packet url
+            my $packet_url = sprintf('%s/%s', $self->stash('config')->{urls}->{packets}, $replay->{packets});
+
+            $self->respond(template => 'battleviewer/index', stash => {
+                page        => { title => 'Battle Viewer' },
+                packet_url  => $packet_url,
+                replay      => $replay,
+            });
+        } else {
+            $self->respond(template => 'battleviewer/nopackets', stash => { page => { title => 'Battle Viewer' }});
+        }
+    });
+}
+
+
 sub stats {
     my $self = shift;
 

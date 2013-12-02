@@ -4,10 +4,6 @@
             $('#embedModal').modal('show');
             return false;
         });
-        $('a.btn-battleviewer').click(function() {
-            $('#battleviewerModal').modal('show');
-            return false;
-        });
         $('#embedModal').modal({
             show: false,
         });
