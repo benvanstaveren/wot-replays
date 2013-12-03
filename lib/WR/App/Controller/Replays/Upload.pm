@@ -62,6 +62,7 @@ sub upload {
                 ctime       => Mango::BSON::bson_time,
                 status_text => [ ],
                 data        => { }
+                uploader    => $self->current_user,
             } => sub {
                 my ($coll, $err, $oid) = (@_);
                 if(defined($oid)) {
