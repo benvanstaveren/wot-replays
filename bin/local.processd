@@ -191,7 +191,7 @@ sub main_loop {
             sleep(10);
         }
     }
-    exit(0);
+    exit(1);
 }
 
 main_loop;
