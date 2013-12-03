@@ -5,6 +5,7 @@
     <div class="row">
         <div class="col-lg-9 col-md-9" id="browseContent">
             [% INCLUDE replay/list.html.tt %]
+            [% INCLUDE query_debug.html.tt %]
             [% INCLUDE browse/pager.html.tt %]
         </div>
         <div class="col-lg-3 col-md-3">
