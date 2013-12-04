@@ -77,9 +77,9 @@ sub add_helpers {
 
     $self->helper(wot_version => sub {
         my $self = shift;
-        my $replay = shift;
+        my $version = shift;
 
-        my @parts = split(/, /, $replay->{game}->{version});
+        my @parts = split(/, /, $version);
         pop(@parts); # drop the last 0
         return join('.', @parts);
     });
@@ -136,7 +136,9 @@ sub add_helpers {
         my $self = shift;
         my $r    = shift;
 
-        if($self->stash('config')->{wot}->{version_numeric} != $r->{game}->{version_numeric}) {
+        $r =~ s/\D+//g;
+        $r += 0;
+        if($self->stash('config')->{wot}->{version_numeric} > $r) {
             return 1;
         } else {
             return 0;
@@ -211,12 +213,19 @@ sub add_helpers {
         my $a = shift;
 
         return undef unless(defined($a));
-        my $tc = parse_int_compact_descr($a);
-        my $i = $tc->{id};
-        if(my $c = $self->model('wot-replays.data.consumables')->find_one({ wot_id => $i + 0 })) {
-            return sprintf('style="background: transparent url(http://images.wotreplays.org/consumables/24x24/%s) no-repeat scroll 0 0"', $c->{icon});
+
+        if(ref($a)) {
+            $self->app->log->debug('new style consumable');
+            return sprintf('style="background: transparent url(http://images.wotreplays.org/consumables/24x24/%s) no-repeat scroll 0 0"', $a->{icon});
         } else {
-            return undef;
+            $self->app->log->debug('old style consumable');
+            my $tc = parse_int_compact_descr($a);
+            my $i = $tc->{id};
+            if(my $c = $self->model('wot-replays.data.consumables')->find_one({ wot_id => $i + 0 })) {
+                return sprintf('style="background: transparent url(http://images.wotreplays.org/consumables/24x24/%s) no-repeat scroll 0 0"', $c->{icon});
+            } else {
+                return undef;
+            }
         }
     });
 
@@ -225,12 +234,21 @@ sub add_helpers {
         my $a = shift;
 
         return undef unless(defined($a) && ref($a) eq 'HASH');
-        my $i = $a->{id};
-        if(my $c = $self->model('wot-replays.data.components')->find_one({ component => 'shells', _id => $i + 0 })) {
-            my $n = ($a->{count} > 0) ? $c->{kind} : sprintf('NO_%s', $c->{kind});
+
+        if(defined($a->{ammo})) {
+            # new style
+            my $n = ($a->{count} > 0) ? $a->{ammo}->{kind} : sprintf('NO_%s', $a->{ammo}->{kind});
+            $self->app->log->debug('new style ammo');
             return sprintf('style="background: transparent url(http://images.wotreplays.org/ammo/24x24/%s.png) no-repeat scroll 0 0"', $n);
         } else {
-            return undef;
+            $self->app->log->debug('old style ammo');
+            my $i = $a->{id};
+            if(my $c = $self->model('wot-replays.data.components')->find_one({ component => 'shells', _id => $i + 0 })) {
+                my $n = ($a->{count} > 0) ? $c->{kind} : sprintf('NO_%s', $c->{kind});
+                return sprintf('style="background: transparent url(http://images.wotreplays.org/ammo/24x24/%s.png) no-repeat scroll 0 0"', $n);
+            } else {
+                return undef;
+            }
         }
     });
 
@@ -246,8 +264,10 @@ sub add_helpers {
         };
 
         return undef unless(defined($a) && ref($a) eq 'HASH');
-        my $i = $a->{id};
-        if(my $c = $self->model('wot-replays.data.components')->find_one({ component => 'shells', _id => $i + 0 })) {
+
+        if(defined($a->{ammo})) {
+            $self->app->log->debug('new style ammo');
+            my $c = $a->{ammo};
             return sprintf('%s %dmm %s %s', 
                 sprintf('%d x', $a->{count}),
                 $c->{caliber}, 
@@ -255,7 +275,18 @@ sub add_helpers {
                 $c->{label}
                 );
         } else {
-            return undef;
+            $self->app->log->debug('old style ammo');
+            my $i = $a->{id};
+            if(my $c = $self->model('wot-replays.data.components')->find_one({ component => 'shells', _id => $i + 0 })) {
+                return sprintf('%s %dmm %s %s', 
+                    sprintf('%d x', $a->{count}),
+                    $c->{caliber}, 
+                    $kind_map->{$c->{kind}},
+                    $c->{label}
+                    );
+            } else {
+                return undef;
+            }
         }
     });
 
@@ -279,11 +310,19 @@ sub add_helpers {
         my $a = shift;
 
         return undef unless(defined($a));
-        my $tc = parse_int_compact_descr($a);
-        if(my $c = $self->model('wot-replays.data.consumables')->find_one({ wot_id => $tc->{id} + 0 })) {
-            return $c->{label} || $c->{name};
+
+        if(ref($a)) {
+            # new style
+            $self->app->log->debug('new style consumable');
+            return $a->{label} || $a->{name};
         } else {
-            return sprintf('404:%d', $a);
+            $self->app->log->debug('old style consumable');
+            my $tc = parse_int_compact_descr($a);
+            if(my $c = $self->model('wot-replays.data.consumables')->find_one({ wot_id => $tc->{id} + 0 })) {
+                return $c->{label} || $c->{name};
+            } else {
+                return sprintf('404:%d', $a);
+            }
         }
     });
 

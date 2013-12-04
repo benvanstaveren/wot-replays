@@ -18,6 +18,8 @@ has 'total'   => 0;
 has 'log'     => undef;
 has 'query_explain' => undef;
 
+has 'panel'   => 0;
+
 sub error { shift->_log('error', @_) }
 sub info { shift->_log('info', @_) }
 sub warning { shift->_log('warn', @_) }
@@ -74,7 +76,13 @@ sub page {
         $cursor->skip($offset);
         $cursor->limit($self->perpage);
 
-        $self->query_explain($cursor->explain());
+        # if we're doing panels...
+        if($self->panel) {
+            $cursor->fields({
+                panel => 1,
+                site  => 1,
+            });
+        }
 
         $cursor->all(sub {
             my ($c, $e, $d) = (@_);

@@ -10,9 +10,10 @@ use WR::Parser;
 use WR::Res::Achievements;
 use WR::Provider::ServerFinder;
 use WR::Provider::Imager;
+use WR::Provider::Panelator;
 use WR::Provider::WN7;
 use WR::Constants qw/nation_id_to_name decode_arena_type_id/;
-use WR::Util::TypeComp qw/parse_int_compact_descr/;
+use WR::Util::TypeComp qw/parse_int_compact_descr type_id_to_name/;
 
 use Scalar::Util qw/blessed/;
 
@@ -28,6 +29,38 @@ has '_parser'       => undef;
 has 'packets'       => sub { [] };
 has 'log'           => undef;
 has 'ua'            => sub { Mojo::UserAgent->new };
+
+has '_consumables'  => sub { {} }; # consumables are keyed by their typecomp id fragment
+has '_components'   => sub { {} }; # components are keyed by type, country, id
+
+sub _preload {
+    my $self = shift;
+    my $cursor = $self->model('wot-replays.data.consumables')->find();
+    while(my $c = $cursor->next()) {
+        $self->_consumables->{$c->{wot_id}} = $c;
+    }
+
+    $cursor = $self->model('wot-replays.data.components')->find();
+    while(my $c = $cursor->next()) {
+        $self->_components->{$c->{component}}->{$c->{country}}->{$c->{component_id}} = $c;
+    }
+}
+
+sub get_consumable {
+    my $self = shift;
+    my $id   = shift;
+
+    return $self->_consumables->{$id};
+}
+
+sub get_component {
+    my $self = shift;
+    my $type = shift;
+    my $country = shift;
+    my $id = shift;
+
+    return $self->_components->{$type}->{$country}->{$id};
+}
 
 sub _log {
     my $self = shift;
@@ -74,6 +107,8 @@ sub error {
 sub process {
     my $self = shift;
     my $cb = shift;
+
+    $self->_preload;
 
     my $replay;
 
@@ -136,7 +171,6 @@ sub _real_process {
         stats   => $battle_result->{personal},
         chat    => [],
     };
-
 
     if(my $game = $self->_parser->game(Mojo::IOLoop->new)) {
         $game->on('game.version' => sub {
@@ -283,15 +317,33 @@ sub _real_process {
                 $self->emit('state.finish');
                 $self->debug('emitted state.finish');
 
-                $replay->{game}->{recorder}->{consumables} = [ map { $_ + 0 } (keys(%{$game->vcons_initial})) ];
+                # we alter the consumables list, the original consumables list contains numbers only, 
+                # the new one will have refs
+                my $consumables = [];
+                foreach my $tc (keys(%{$game->vcons_initial})) {
+                    warn 'vcons tc: ', $tc, "\n";
+                    if($tc > 0) {
+                        my $a = parse_int_compact_descr($tc);
+                        warn 'vcons tc: ', $tc, ' parsed: ', Dumper($a);
+                        if(my $c = $self->get_consumable($a->{id})) {
+                            push(@$consumables, $c);
+                        }
+                    }
+                }
+
+                $replay->{game}->{recorder}->{consumables} = $consumables;
                 $replay->{game}->{recorder}->{ammo} = [];
 
                 # ammo is a bit different since the array needs to be hashes of { id => typeid, count => count }
                 foreach my $id (keys(%{$game->vshells_initial})) {
-                    push(@{$replay->{game}->{recorder}->{ammo}}, {
-                        id => $id,
-                        count => $game->vshells_initial->{$id}->{count},
-                    });
+                    my $tc = parse_int_compact_descr($id);
+                    warn 'ammo id: ', $id, ' parsed: ', Dumper($tc);
+                    if(my $a = $self->get_component('shells', nation_id_to_name($tc->{country}), $tc->{id})) {
+                        push(@{$replay->{game}->{recorder}->{ammo}}, {
+                            ammo  => $a,
+                            count => $game->vshells_initial->{$id}->{count},
+                        });
+                    }
                 }
 
                 $self->emit('state.generatebanner');
@@ -410,8 +462,16 @@ sub _real_process {
         $self->emit('state.streaming');
         $game->start;
 
-        # after game is done, we should in theory have a replay, unless...
-        return ($self->has_error) ? undef : $replay;
+        # after game is done, we should in theory have a replay
+        if($self->has_error) {
+            return undef;
+        } else {
+            # yep, replay - in order to fix a few things up so we can use a simplified query,
+            # we're now going to construct the panel data 
+            my $p = WR::Provider::Panelator->new(db => $self->mango->db('wot-replays')); # hardcoding bad...
+            $replay->{panel} = $p->panelate($replay);
+            return $replay;
+        }
     } else {
         $self->error('unable to stream replay');
         return undef;
@@ -549,7 +609,7 @@ sub _game {
     $game->{map}  = $decoded_arena_type_id->{map_id};
 
     # additional map information we need to get, if we can
-    if(my $d = $self->model('data.maps')->find_one({ numerical_id => $replay->{game}->{map} })) {
+    if(my $d = $self->model('wot-replays.data.maps')->find_one({ numerical_id => $game->{map} })) {
         $game->{map_extra} = {
             ident   => $d->{_id},
             slug    => $d->{slug},

@@ -203,7 +203,7 @@ sub actual_view_replay {
     my $title = sprintf('%s - %s - %s (%s)',
         $replay->{game}->{recorder}->{name},
         $self->get_recorder_vehicle($replay)->{vehicle}->{label},
-        $self->map_name($replay->{game}->{map}),
+        $self->map_name($replay),
         $self->app->wr_res->gametype->i18n($replay->{game}->{type})
         );
         
@@ -212,7 +212,7 @@ sub actual_view_replay {
         $self->app->wr_res->gametype->i18n($replay->{game}->{type}), 
         $replay->{game}->{recorder}->{name}, 
         $self->get_recorder_vehicle($replay)->{vehicle}->{label},
-        $self->map_name($replay->{game}->{map})
+        $self->map_name($replay),
         );
 
     my $playerteam = $replay->{game}->{recorder}->{team} - 1;

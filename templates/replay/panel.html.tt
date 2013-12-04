@@ -1,25 +1,25 @@
 <div class="well well-sm [% IF replay.site.description.defined %]bs-popover[% END %]" [% IF replay.site.description.defined %]title="Replay Description" data-toggle="popover" data-trigger="hover" data-content="[% replay.site.description |html %]" data-container="body" data-placement="left"[% END %]>
     <div class="row">
         <div class="col-lg-3 col-md-3">
-                <a href="/replay/[% h.get_id(replay) %].html">
+                <a href="/replay/[% replay.panel.id %].html">
                     <div 
-                        title="[% h.get_recorder_vehicle(replay).vehicle.label |html %] on [% h.map_name(replay) |html%]" 
-                        style="background: transparent url([% config.urls.assets %]/maps/180/[% h.map_icon(replay) %]) no-repeat scroll 0 0; width: 180px; height: 180px; margin: 2px auto; position: relative"
+                        title="[% replay.panel.vehicle.label |html %] on [% replay.panel.map.label |html %]"
+                        style="background: transparent url([% config.urls.assets %]/maps/180/[% replay.panel.map.icon %]) no-repeat scroll 0 0; width: 180px; height: 180px; margin: 2px auto; position: relative"
                         class="rounded bs-tooltip"
                         data-toggle="tooltip"
                         data-placement="auto"
                         >
                         <div class="panel-vehicle-wrapper">
-                            <img src="[% config.urls.assets %]/vehicles/100/[% h.get_recorder_vehicle(replay).vehicle.icon %]"/>
+                            <img src="[% config.urls.assets %]/vehicles/100/[% replay.panel.vehicle.icon %]"/>
                         </div>
                     </div>
                 </a>
                 <div class="row">
                     <div class="col-lg-6 col-md-6"">
-                        <div title="Player overall WN7" data-placement="auto" data-toggle="tooltip" class="bs-tooltip wn7 [% IF replay.wn7.available %][% h.wn7_color(replay.wn7.data.overall) %][% ELSE %]notavailable[% END %] rounded" style="margin: 2px; font-weight: bold; text-align: center">[% IF replay.wn7.available %]<a class="wn7 [% h.wn7_color(replay.wn7.data.overall) %]" href="http://statterbox.com/[% h.fix_server(replay.game.server) %]/[% replay.game.recorder.name |uri %]">[% replay.wn7.data.overall %]</a>[% ELSE %]-[% END %]</div>
+                        <div title="Player overall WN7" data-placement="auto" data-toggle="tooltip" class="bs-tooltip wn7 [% IF replay.panel.wn7.overall %][% h.wn7_color(replay.panel.wn7.overall) %][% ELSE %]notavailable[% END %] rounded" style="margin: 2px; font-weight: bold; text-align: center">[% IF replay.panel.wn7.overall %]<a class="wn7 [% h.wn7_color(replay.panel.wn7.overall) %]" href="http://statterbox.com/[% h.fix_server(replay.panel.server) %]/[% replay.panel.name |uri %]">[% replay.panel.wn7.overall %]</a>[% ELSE %]-[% END %]</div>
                     </div>
                     <div class="col-lg-6 col-md-6">
-                        <div title="WN7 for this battle" data-placement="auto" data-toggle="tooltip" class="bs-tooltip wn7 [% IF replay.wn7.data.battle.defined %][% h.wn7_color(replay.wn7.data.battle) %][% ELSE %]notavailable[% END %] rounded" style="margin: 2px; font-weight: bold; text-align: center">[% IF replay.wn7.data.battle.defined %][% replay.wn7.data.battle %][% ELSE %]-[% END %]</div>
+                        <div title="WN7 for this battle" data-placement="auto" data-toggle="tooltip" class="bs-tooltip wn7 [% IF replay.panel.wn7.battle.defined %][% h.wn7_color(replay.panel.wn7.battle) %][% ELSE %]notavailable[% END %] rounded" style="margin: 2px; font-weight: bold; text-align: center">[% IF replay.panel.wn7.battle.defined %][% replay.panel.wn7.battle %][% ELSE %]-[% END %]</div>
                     </div>
                 </div>
         </div>
@@ -27,11 +27,11 @@
             <div class="row">
                 <div class="col-lg-9 col-md-9">
                     <p class="lead">
-                        <a data-placement="auto" data-toggle="tooltip" class="bs-tooltip [% IF h.get_replay_stats(replay, 'isPremium') %]premium[% END %]" href="/player/[% replay.game.server %]/[% replay.game.recorder.name |uri %]/" title="[% replay.game.recorder.name |html %] [% IF h.get_replay_stats(replay, 'isPremium') %](Premium)[% END %]">[% replay.game.recorder.name |truncate(15) |html %]</a> - <a href="/vehicle/[% h.vehicle_link(h.get_recorder_vehicle(replay).vehicle.ident) %]/" data-placement="auto" title="[% h.get_recorder_vehicle(replay).vehicle.label |html %]" data-toggle="tooltip" class="bs-tooltip">[% h.get_recorder_vehicle(replay).vehicle.label_short |html %]</a> - <a href="/map/[% h.map_slug(replay) |uri %]/" data-toggle="tooltip" class="bs-tooltip" title="[% h.map_name(replay) |html %]" data-placement="auto">[% h.map_name(replay) |html %]</a> 
+                        <a data-placement="auto" data-toggle="tooltip" class="bs-tooltip [% IF replay.panel.premium %]premium[% END %]" href="/player/[% replay.panel.server %]/[% replay.panel.name |uri %]/" title="[% replay.panel.name |html %] [% IF replay.panel.premium %](Premium)[% END %]">[% replay.panel.name |truncate(15) |html %]</a> - <a href="/vehicle/[% h.vehicle_link(replay.panel.vehicle.ident) %]/" data-placement="auto" title="[% replay.panel.vehicle.label |html %]" data-toggle="tooltip" class="bs-tooltip">[% replay.panel.vehicle.label_short |html %]</a> - <a href="/map/[% replay.panel.map.slug |uri %]/" data-toggle="tooltip" class="bs-tooltip" title="[% replay.panel.map.label |html %]" data-placement="auto">[% replay.panel.map.label |html %]</a> 
                     </p>
                 </div>
                 <div class="col-lg-3 col-md-3 text-right">
-                    <p class="text-right">([% h.bonus_type_name(replay.game.bonus_type) %] [% h.game_type_name(replay.game.type) %])</p>
+                    <p class="text-right">([% h.bonus_type_name(replay.panel.bonus_type) %] [% h.game_type_name(replay.panel.game_type) %])</p>
                 </div>
             </div>
             <div class="row">
@@ -40,9 +40,9 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12">
                     <div class="btn-group btn-group-justified">
-                        <a data-toggle="tooltip" data-placement="bottom" data-container="body" class="bs-tooltip btn btn-default btn-view-replay" href="/replay/[% h.get_id(replay) %].html" title="View this replay"><span class="badge">[% replay.site.views || '0' %]</span> View</a>
-                        <a data-toggle="tooltip" data-placement="bottom" data-container="body" class="bs-tooltip btn btn-default btn-like-replay" href="[% h.get_id(replay) %]" title="Like this replay"><span class="badge">[% replay.site.like || '0' %]</span> Like</a>
-                        <a data-toggle="tooltip" data-placement="bottom" data-container="body" class="bs-tooltip btn btn-default btn-save-replay" title="Download this replay" href="[% config.urls.replays %]/[% replay.file %]"><span class="badge">[% replay.site.downloads || '0' %]</span> Save</a>
+                        <a data-toggle="tooltip" data-placement="bottom" data-container="body" class="bs-tooltip btn btn-default btn-view-replay" href="/replay/[% replay.panel.id %].html" title="View this replay"><span class="badge">[% replay.site.views || '0' %]</span> View</a>
+                        <a data-toggle="tooltip" data-placement="bottom" data-container="body" class="bs-tooltip btn btn-default btn-like-replay" href="[% replay.panel.id %]" title="Like this replay"><span class="badge">[% replay.site.like || '0' %]</span> Like</a>
+                        <a data-toggle="tooltip" data-placement="bottom" data-container="body" class="bs-tooltip btn btn-default btn-save-replay" title="Download this replay" href="[% config.urls.replays %]/[% replay.panel.file %]"><span class="badge">[% replay.site.downloads || '0' %]</span> Save</a>
                     </div>
                 </div>
             </div>

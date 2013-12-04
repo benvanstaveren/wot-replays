@@ -35,7 +35,7 @@ sub index {
     $self->render_later;
 
     # no need for a count
-    my $cursor = $self->model('replays')->find({ 'site.visible' => Mango::BSON::bson_true })->sort({ 'site.uploaded_at' => -1 })->limit(15)->all(sub {
+    my $cursor = $self->model('replays')->find({ 'site.visible' => Mango::BSON::bson_true })->sort({ 'site.uploaded_at' => -1 })->limit(15)->fields({ panel => 1, site => 1 })->all(sub {
         my ($c, $e, $replays) = (@_);
         $self->respond(template => 'index', stash => {
             replays         => $replays || [],

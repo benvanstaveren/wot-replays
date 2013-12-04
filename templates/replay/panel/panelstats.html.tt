@@ -6,9 +6,9 @@
             </td>
             <td style="width: 16%">
                 <span class="value fw">
-                    [% IF replay.game.winner == 0 %]
+                    [% IF replay.panel.winner == 0 %]
                         draw
-                    [% ELSIF replay.game.recorder.team == replay.game.winner %]
+                    [% ELSIF replay.panel.team == replay.panel.winner %]
                         <span class="green">victory</span>
                     [% ELSE %]
                         <span class="red">defeat</span>
@@ -19,13 +19,13 @@
                 <h6 style="padding: 0px; margin: 5px 0px 0px 0px">xp:</h6>
             </td>
             <td  style="width: 16%">
-                <span data-toggle="tooltip" data-placement="auto" title="Earned [% replay.stats.xp || '0' %] xp including premium and multiplier bonuses" class="bs-tooltip value fw">[% replay.stats.xp || '0' |truncate(5) %] [% IF replay.stats.dailyXPFactor10 > 10 %](x[% replay.stats.dailyXPFactor10 / 10 %])[% END %]</span>
+                <span data-toggle="tooltip" data-placement="auto" title="Earned [% replay.panel.xp || '0' %] xp including premium and multiplier bonuses" class="bs-tooltip value fw">[% replay.panel.xp || '0' |truncate(5) %] [% IF replay.panel.multiplier > 1 %](x[% replay.panel.multiplier %])[% END %]</span>
             </td>
             <td style="width: 16%">
                 <h6 style="padding: 0px; margin: 5px 0px 0px 0px">credits:</h6>
             </td>
             <td style="width: 16%">
-                <span class="bs-tooltip value fw" data-placement="auto" data-toggle="tooltip" title="Earned [% replay.stats.credits %] credits including premium and other bonuses" >[% replay.stats.credits || '0' |truncate(5)%]</span>
+                <span class="bs-tooltip value fw" data-placement="auto" data-toggle="tooltip" title="Earned [% replay.panel.credits %] credits including premium and other bonuses" >[% replay.panel.credits || '0' |truncate(5)%]</span>
             </td>
         </tr>
         <tr>
@@ -33,19 +33,19 @@
                 <h6 style="padding: 0px; margin: 5px 0px 0px 0px">spotted:</h6>
             </td>
             <td>
-                <span class="value fw">[% replay.stats.spotted || '0' %] / <span class="green value fw">[% replay.stats.damageAssistedRadio + replay.stats.damageAssistedTrack || '0' %]</span>
+                <span class="value fw">[% replay.panel.spotted || '0' %] / <span class="green value fw">[% replay.panel.spotted_damage || '0' %]</span>
             </td>
             <td>
                 <h6 style="padding: 0px; margin: 5px 0px 0px 0px">damaged:</h6>
             </td>
             <td>
-                <span class="value fw">[% replay.stats.damaged || '0' %] / <span class="green value fw">[% replay.stats.damageDealt || '0' %]</span>
+                <span class="value fw">[% replay.panel.damaged || '0' %] / <span class="green value fw">[% replay.panel.damage_dealt || '0' %]</span>
             </td>
             <td>
                 <h6 style="padding: 0px; margin: 5px 0px 0px 0px">killed:</h6>
             </td>
             <td>
-               <span class="value fw">[% replay.stats.kills || '0' %]</span>
+               <span class="value fw">[% replay.panel.kills || '0' %]</span>
             </td>
         </tr>
         <tr>
@@ -54,7 +54,7 @@
             </td>
             <td>
                 <span class="value fw">
-                    [% IF replay.game.recorder.survived %]
+                    [% IF replay.panel.survived %]
                         <span class="green">yes</span>
                     [% ELSE %]
                         <span class="red">no</span>
@@ -65,13 +65,13 @@
                 <h6 style="padding: 0px; margin: 5px 0px 0px 0px">server:</h6>
             </td>
             <td>
-                <span class="value fw">[% replay.game.server |upper %]</span>
+                <span class="value fw">[% replay.panel.server |upper %]</span>
             </td>
             <td>
                 <h6 style="padding: 0px; margin: 5px 0px 0px 0px">version:</h6>
             </td>
             <td>
-               <span class="value fw bs-tooltip" data-placement="auto" data-toggle="tooltip" title="[% IF !h.is_old_version(replay) %]Current version[% ELSE %]Incompatible version[% END %]" style="color: #6[% IF !h.is_old_version(replay) %]66[% ELSE %]00[% END %]">[% h.wot_version(replay) %]</span>
+               <span class="value fw bs-tooltip" data-placement="auto" data-toggle="tooltip" title="[% IF !h.is_old_version(replay.panel.version) %]Current version[% ELSE %]Incompatible version[% END %]" style="color: #6[% IF !h.is_old_version(replay.panel.version) %]66[% ELSE %]00[% END %]">[% h.wot_version(replay.panel.version) %]</span>
             </td>
         </tr>
     </tbody>
