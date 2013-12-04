@@ -15,7 +15,7 @@ my $coll   = $db->collection('replays');
 my $p = WR::Provider::Panelator->new(db => $db);
 
 
-my $cursor = $coll->find();
+my $cursor = $coll->find()->sort({ 'site.uploaded_at': -1 });
 my $total = $cursor->count;
 my $done  = 0;
 while(my $replay = $cursor->next()) {
