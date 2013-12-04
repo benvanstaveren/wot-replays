@@ -548,6 +548,16 @@ sub _game {
     $game->{type} = $decoded_arena_type_id->{gameplay_type};
     $game->{map}  = $decoded_arena_type_id->{map_id};
 
+    # additional map information we need to get, if we can
+    if(my $d = $self->model('data.maps')->find_one({ numerical_id => $replay->{game}->{map} })) {
+        $game->{map_extra} = {
+            ident   => $d->{_id},
+            slug    => $d->{slug},
+            icon    => $d->{icon},
+            label   => $d->{label},
+        }
+    }
+
     return $game;
 }
 

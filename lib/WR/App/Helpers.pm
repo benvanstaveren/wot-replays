@@ -302,20 +302,17 @@ sub add_helpers {
     });
 
     $self->helper(map_icon => sub {
-        my $self = shift;
-        my $mid  = shift;
+        my $self   = shift;
+        my $replay = shift;
 
-        if(my $obj = $self->model('wot-replays.data.maps')->find_one({ 
-            '$or' => [
-                { _id => $mid },
-                { numerical_id => $mid },
-                { name_id => $mid },
-                { slug => $mid },
-            ],
-        })) {
-            return $obj->{icon};
+        if(defined($replay->{game}->{map_extra})) {
+            return $replay->{game}->{map_extra}->{icon};
         } else {
-            return sprintf('404:%s', $mid);
+            if(my $obj = $self->model('wot-replays.data.maps')->find_one({ numerical_id => $replay->{game}->{map} })) {
+                return $obj->{icon};
+            } else {
+                return sprintf('404:%s', $replay->{game}->{map});
+            }
         }
     });
 
@@ -345,57 +342,33 @@ sub add_helpers {
         return $ident;
     });
 
-    $self->helper(map_numericid => sub {
-        my $self = shift;
-        my $mid = shift;
-
-        if(my $obj = $self->model('wot-replays.data.maps')->find_one({ 
-            '$or' => [
-                { _id => $mid },
-                { numerical_id => $mid },
-                { name_id => $mid },
-                { slug => $mid },
-            ],
-        })) {
-            return $obj->{numerical_id} + 0;
-        } else {
-            return 0;
-        }
-    });
-
     $self->helper(map_ident => sub {
         my $self = shift;
-        my $mid = shift;
+        my $replay = shift;
 
-        if(my $obj = $self->model('wot-replays.data.maps')->find_one({ 
-            '$or' => [
-                { _id => $mid },
-                { numerical_id => $mid },
-                { name_id => $mid },
-                { slug => $mid },
-            ],
-        })) {
-            return $obj->{_id};
+        if(defined($replay->{game}->{map_extra})) {
+            return $replay->{game}->{map_extra}->{_id};
         } else {
-            return sprintf('404:%s', $mid);
+            if(my $obj = $self->model('wot-replays.data.maps')->find_one({ numerical_id => $replay->{game}->{map} })) {
+                return $obj->{_id};
+            } else {
+                return sprintf('404:%s', $replay->{game}->{map});
+            }
         }
     });
 
     $self->helper(map_name => sub {
         my $self = shift;
-        my $mid = shift;
+        my $replay = shift;
 
-        if(my $obj = $self->model('wot-replays.data.maps')->find_one({ 
-            '$or' => [
-                { _id => $mid },
-                { numerical_id => $mid },
-                { name_id => $mid },
-                { slug => $mid },
-            ],
-        })) {
-            return $obj->{label};
+        if(defined($replay->{game}->{map_extra})) {
+            return $replay->{game}->{map_extra}->{label};
         } else {
-            return sprintf('404:%s', $mid);
+            if(my $obj = $self->model('wot-replays.data.maps')->find_one({ numerical_id => $replay->{game}->{map} })) {
+                return $obj->{label};
+            } else {
+                return sprintf('404:%s', $replay->{game}->{map});
+            }
         }
     });
 
@@ -580,16 +553,6 @@ sub add_helpers {
         return sprintf('%.0f', 100/($a/$b));
     });
 
-    $self->helper(model_for_replay => sub {
-        my $self = shift;
-        my $r    = shift || $self->stash('req_replay');
-        my $v    = $r->{version};
-
-        return ($self->stash('config')->{wot}->{version} eq $v)
-            ? 'wot-replays.replays'
-            : sprintf('wot-replays.replays.%s', $v);
-    });
-
     $self->helper(is_own_replay => sub {
         my $self = shift;
         my $r = shift;
@@ -616,19 +579,16 @@ sub add_helpers {
 
     $self->helper(map_slug => sub {
         my $self = shift;
-        my $mid = shift;
+        my $replay = shift;
 
-        if(my $obj = $self->model('wot-replays.data.maps')->find_one({ 
-            '$or' => [
-                { _id => $mid },
-                { numerical_id => $mid },
-                { name_id => $mid },
-                { slug => $mid },
-            ],
-        })) {
-            return $obj->{slug};
+        if(defined($replay->{game}->{map_extra})) {
+            return $replay->{game}->{map_extra}->{icon};
         } else {
-            return undef;
+            if(my $obj = $self->model('wot-replays.data.maps')->find_one({ numerical_id => $replay->{game}->{map} })) {
+                return $obj->{slug};
+            } else {
+                return sprintf('404:%s', $replay->{game}->{map});
+            }
         }
     });
 

@@ -32,7 +32,7 @@
             <tbody>
                 [% FOREACH replay IN replays %]
                     <tr>
-                        <td>[% h.map_name(replay.game.map) %]</td>
+                        <td>[% h.map_name(replay) %]</td>
                         <td>[% h.get_recorder_vehicle(replay).vehicle.label %]</td>
                         <td>
                             [% IF h.is_victory(replay) %]won
