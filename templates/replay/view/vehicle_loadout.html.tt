@@ -31,8 +31,8 @@
             </li>
             <li class="list-group-item">
                 <span title="Tracks" class="equipment-icon rounded" style="background: transparent url([% config.urls.assets %]/icon/components/24x24/chassis.png) no-repeat scroll 0 0"></span>
-                <span class="equipment-name" title="[% h.component_name(fitting.nation, 'chassis', fitting.tracks) %]"> 
-                    [% h.component_name(fitting.nation, 'chassis', fitting.tracks) %]
+                <span class="equipment-name" title="[% h.component_name(fitting.nation, 'chassis', fitting.chassis) %]"> 
+                    [% h.component_name(fitting.nation, 'chassis', fitting.chassis) %]
                 </span>
             </li>
             <li class="list-group-item">

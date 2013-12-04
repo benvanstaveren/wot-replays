@@ -54,6 +54,7 @@ sub upload {
             # set this up as the job id
             $self->model('wot-replays.jobs')->save({
                 _id         => $digest,
+                uploader    => $self->current_user, 
                 ready       => Mango::BSON::bson_false,
                 complete    => Mango::BSON::bson_false,
                 status      => 0,
