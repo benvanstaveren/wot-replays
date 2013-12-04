@@ -63,9 +63,10 @@ sub browse {
 
     my $start = [ gettimeofday ];
     my $query = $self->wr_query(
-        sort => $sort,
+        sort    => $sort,
         perpage => $perpage,
-        filter => $filter,
+        filter  => $filter,
+        panel   => 1,
         );
            
     $filter->{p} ||= 1;
