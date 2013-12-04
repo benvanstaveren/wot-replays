@@ -45,7 +45,7 @@
                 <h6 style="padding: 0px; margin: 5px 0px 0px 0px">killed:</h6>
             </td>
             <td>
-               <span class="value fw">[% replay.panel.kills || '0' %]</span>
+               <span class="value fw">[% replay.panel.killed || '0' %]</span>
             </td>
         </tr>
         <tr>
