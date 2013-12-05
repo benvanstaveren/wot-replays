@@ -27,7 +27,7 @@ sub addpacket {
 
 sub extract {
     my $file = shift;
-    my $parser = WR::Parser->new(bf_key => WOT_BF_KEY, file => $file);
+    my $parser = WR::Parser->new(bf_key => WOT_BF_KEY, file => sprintf('/home/wotreplay/wot-replays/data/replays/%s', $file));
     my $game   = $parser->game(Mojo::IOLoop->new);
 
     for my $event ('player.position', 'player.health', 'player.track.destroyed', 'player.orientation.hull', 'player.chat') {
