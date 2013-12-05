@@ -2,13 +2,14 @@
 use strict;
 use warnings;
 use FindBin;
-use lib "$FindBin::Bin/../lib";
+use lib "$FindBin::Bin/../../lib";
 use WR;
-use WR::Process;
+use WR::Process::Offline;
 use Mango;
 use Time::HiRes qw/time gettimeofday tv_interval/;
 use Data::Dumper;
 use Try::Tiny;
+use Mojo::Log;
 
 $| = 1;
 
@@ -18,17 +19,18 @@ use constant WOT_BF_KEY     => join('', map { chr(hex($_)) } (split(/\s/, WOT_BF
 my $mango = Mango->new('mongodb://localhost:27017/');
 
 my $start = [ gettimeofday ];
-my $process = WR::Process->new(bf_key => WOT_BF_KEY, file => $ARGV[0], mango => $mango, banner_path => sprintf('%s/../tmp/banner', $FindBin::Bin));
 
-my $d;
+my $o = WR::Process::Offline->new(
+    bf_key          => WOT_BF_KEY,
+    banner_path     => '/home/ben/projects/wot-rep;ays/site/data/banners',
+    packet_path     => '/home/ben/projects/wot-replays/site/data/packets',
+    mango           => $mango,
+    file            => $ARGV[0],
+    log             => Mojo::Log->new(level => 'debug', path => 'parse.log'),
+    );
 
-try {
-    $d = $process->process();
-} catch {
-    die $_, "\n";
-    #print 'EXCEPT: ', $_, "\n";
-};
-
-my $end = tv_interval($start);
-
-print Dumper($d);
+if(my $d = $o->process) {
+    warn Dumper($d);
+} else {
+    warn 'Error processing: ', $o->error, "\n";
+}

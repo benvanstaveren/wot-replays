@@ -172,7 +172,7 @@ sub _real_process {
         chat    => [],
     };
 
-    if(my $game = $self->_parser->game(Mojo::IOLoop->new)) {
+    if(my $game = $self->_parser->game()) {
         $game->on('game.version' => sub {
             my ($s, $v) = (@_);
             $replay->{game}->{version} = $v;
@@ -459,6 +459,7 @@ sub _real_process {
                 });
             }
         });
+
         $self->emit('state.streaming');
         $game->start;
 
