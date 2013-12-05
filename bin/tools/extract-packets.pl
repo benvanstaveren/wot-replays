@@ -37,8 +37,9 @@ sub extract {
     $game->start();
 }
 
-my $cursor = $coll->find()->sort({ 'site.uploaded_at' => -1 });
+my $cursor = $coll->find();
 my $total = $cursor->count;
+$cursor->sort({ 'site.uploaded_at' => -1 });
 my $done  = 0;
 my $j     = JSON::XS->new();
 
@@ -52,7 +53,7 @@ while(my $replay = $cursor->next()) {
 
     make_path($path) unless(-e $path);
 
-    if(my $fh = IO::File->new($path, '>')) {
+    if(my $fh = IO::File->new($filename, '>')) {
         $fh->print($j->encode($packets));
         $fh->close;
 
