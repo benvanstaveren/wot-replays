@@ -8,7 +8,7 @@
                 <div class="row">
                     <div class="col-lg-12 col-md-12">
                         <div id="battleviewer-container">
-                            <div id="battleviewer-player" style="overflow: hidden; background: #000 url([% config.urls.assets %]/battleviewer/maps/[% h.map_ident(replay.game.map) %]_[% h.short_game_type(replay.game.type) %]_[% h.get_recorder_vehicle(replay).player.team - 1 %].png) no-repeat scroll 0 0">
+                            <div id="battleviewer-player" style="overflow: hidden; background: #000 url([% config.urls.assets %]/battleviewer/maps/[% h.map_ident(replay) %]_[% h.short_game_type(replay.game.type) %]_[% h.get_recorder_vehicle(replay).player.team - 1 %].png) no-repeat scroll 0 0">
                                 <div id="battleviewer-clock">15:00</div>
                                 [% FOREACH roster IN replay.roster %]
                                     [% IF roster.player.name == replay.game.recorder.name %]
@@ -48,7 +48,7 @@
             clock: $('#battleviewer-clock'),
             gamedata: {
                 mode: '[% h.short_game_type(replay.game.type) |js %]',
-                map_boundaries: [% h.as_json(h.map_boundingbox(replay.game.map)) %],
+                map_boundaries: [% h.as_json(h.map_boundingbox(replay)) %],
                 recorder_id: '[% replay.game.recorder.vehicle.id |js %]',
             },
             player_details: {

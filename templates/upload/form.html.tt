@@ -214,7 +214,8 @@
                 },
                 error: function(x, t, e) {
                     $('#uploadModal').modal('hide');
-                    $.bootstrapGrowl('Error occurred during upload, try again...', {
+                    console.log('Error occurred during upload, try again: ' + e);
+                    $.bootstrapGrowl('Error occurred during upload, try again: ' + e, {
                         type: 'danger',
                         align: 'center',
                         width: '760px',

@@ -44,7 +44,6 @@ Player.prototype = {
     },
     updateHealth: function(newhealth) {
         if(newhealth < 0) newhealth = 0;
-        if(newhealth > this.hp) return;
         if(this.hp > 0) {
             if(newhealth > 0) {
                 var percentage_of = Math.floor(100/(this.hp/newhealth));
@@ -58,9 +57,7 @@ Player.prototype = {
         if(this.health <= 0) this.alive = false;
     },
     death: function() {
-        $(this.element).hide();
         $(this.element).addClass('dead').css({ 'background-color': 'rgba(0, 0, 0, 0.8)', 'opacity': 0.8 });
-        $(this.element).show();
     }
 };
 
@@ -94,19 +91,24 @@ Game.prototype = {
 			var player      = this.getPlayer(frame.id);
             player.clock    = this.clock;
 
-		    if (typeof(frame.position) != 'undefined') {
-                player.position = frame.position;
-            }
-            if(typeof(frame.orientation) != 'undefined') {
-                if(player.recorder) player.hull_dir = frame.orientation[0];
-            }
-            if (typeof(frame.health) != 'undefined') {
-                player.updateHealth(frame.health);
-                if (typeof(frame.source) != 'undefined') {
-                    var source = this.getPlayer(frame.source);
-                    player.damaged = true;
-                    player.damagesource = source.position;
-                    player.damager = frame.source;
+            // we could in theory keep track of all this for dead entities
+            // but we don't...
+
+            if(player.alive) {
+                if (typeof(frame.position) != 'undefined') {
+                    player.position = frame.position;
+                }
+                if(typeof(frame.orientation) != 'undefined') {
+                    if(player.recorder) player.hull_dir = frame.orientation[0];
+                }
+                if (typeof(frame.health) != 'undefined') {
+                    player.updateHealth(frame.health);
+                    if (typeof(frame.source) != 'undefined') {
+                        var source = this.getPlayer(frame.source);
+                        player.damaged = true;
+                        player.damagesource = source.position;
+                        player.damager = frame.source;
+                    }
                 }
             }
         }
@@ -114,17 +116,17 @@ Game.prototype = {
 }
 
 var BattleViewer = function(options) {
-    this.container     = options.container;
-    this.tracercount   = 1;
-    this.clock         = options.clock;
-    this.packet_url    = options.packets;
-    this.game_data     = options.gamedata;
-    this.onError       = options.onError;
+    this.container      = options.container;
+    this.tracercount    = 1;
+    this.clock          = options.clock;
+    this.packet_url     = options.packets;
+    this.game_data      = options.gamedata;
+    this.onError        = options.onError;
     this.map_boundaries = this.game_data.map_boundaries;
     this.player_details = options.player_details || {};
     this.onLoaded       = options.onLoaded;
-    this.stopping = false;
-    this.updateSpeed = 100; // realtime?
+    this.stopping       = false;
+    this.updateSpeed    = 100; // realtime?
 }
 
 BattleViewer.prototype = {
@@ -310,8 +312,6 @@ BattleViewer.prototype = {
         }
 
         angle = Math.round(angle);
-
-        //console.log('tracer ', this.tracercount, ' at length: ', length, ' atan_angle: ', atan_angle, ' angle: ', angle, ' y_delta: ', y_delta, ' x_delta: ', x_delta, ' quad: ', quad);
         
         $(tracer).css({
             'transform': 'rotate(' + angle + 'deg)',
@@ -327,11 +327,7 @@ BattleViewer.prototype = {
         $(tracer).attr('source', s.x + ',' + s.y);
         $(tracer).attr('target', t.x + ',' + t.y);
 
-
-        //$(this.container).append($(tracer), $(sdiv), $(tdiv));
         $(this.container).append($(tracer));
-        //$(sdiv).hide().fadeIn(this.updateSpeed);
-        //$(tdiv).hide().fadeIn(this.updateSpeed);
         $(tracer).hide().fadeIn(this.updateSpeed, function() {
             $(tracer).fadeOut(400, function() {
                 $(tracer).remove();
