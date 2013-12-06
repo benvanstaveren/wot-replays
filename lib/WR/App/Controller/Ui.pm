@@ -136,13 +136,12 @@ sub do_login {
         my $cache = Cache::File->new(cache_root => sprintf('%s/openid', $self->app->home->rel_dir('tmp/cache')));
         my $csr = Net::OpenID::Consumer->new(
             ua              => LWPx::ParanoidAgent->new,
-            cache           => $cache,
             args            => \%params,
             consumer_secret => $self->app->secret,
             required_root   => $my_url,
             debug           => 1,
         );
-        my $url = sprintf('https://%s.wargaming.net/', $s);
+        my $url = sprintf('http://%s.wargaming.net/', $s);
         if(my $claimed_identity = $csr->claimed_identity($url)) {
             my $check_url = $claimed_identity->check_url(
                 return_to      => qq{$my_url/openid/return},
@@ -175,7 +174,6 @@ sub openid_return {
     my $cache = Cache::File->new(cache_root => sprintf('%s/openid', $self->app->home->rel_dir('tmp/cache')));
     my $csr = Net::OpenID::Consumer->new(
         ua              => LWPx::ParanoidAgent->new,
-        cache           => $cache,
         args            => \%params,
         consumer_secret => $self->app->secret,
         required_root   => $my_url
