@@ -142,7 +142,7 @@ sub do_login {
             required_root   => $my_url,
             debug           => 1,
         );
-        my $url = sprintf('http://%s.wargaming.net/id/', $s);
+        my $url = sprintf('https://%s.wargaming.net/', $s);
         if(my $claimed_identity = $csr->claimed_identity($url)) {
             my $check_url = $claimed_identity->check_url(
                 return_to      => qq{$my_url/openid/return},

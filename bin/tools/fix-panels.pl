@@ -15,8 +15,9 @@ my $coll   = $db->collection('replays');
 my $p = WR::Provider::Panelator->new(db => $db);
 
 
-my $cursor = $coll->find()->sort({ 'site.uploaded_at': -1 });
+my $cursor = $coll->find();
 my $total = $cursor->count;
+$cursor->sort({ 'site.uploaded_at' => -1 });
 my $done  = 0;
 while(my $replay = $cursor->next()) {
     if(!defined($replay->{game}->{map_extra})) {
