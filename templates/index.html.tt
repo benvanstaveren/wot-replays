@@ -7,6 +7,10 @@
             [% INCLUDE replay/list.html.tt %]
         </div>
         <div class="col-lg-3 col-md-3">
+	    <div class="alert alert-danger">
+              There are issues with Wargaming's OpenID service it seems,
+              if logging in doesn't work the first time, keep clicking the button until it does ;)
+            </div>
             [% INCLUDE sidebar/home.html.tt %]
         </div>
     </div>

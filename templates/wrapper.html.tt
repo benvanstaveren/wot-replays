@@ -30,6 +30,17 @@
         [% IF pageid == 'battleviewer' %]
             <script type="text/javascript" src="[% config.urls.static %]/js/battleviewer.js"></script>
         [% END %]
+	[% IF notify %]
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$.bootstrapGrowl('[% notify.text %]', {
+				type: '[% IF notify.type == 'error' %]danger[% ELSE %]info[% END %]',
+				allow_dismiss: [% IF notify.close %]true[% ELSE %]false[% END %],
+				delay: 20000,
+			});
+		});
+	</script>
+	[% END %]
     </head>
     <body>
         <div class="navbar navbar-default navbar-shadow">
