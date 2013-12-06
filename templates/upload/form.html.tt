@@ -153,9 +153,9 @@
                         if(!d.error) d.error = 'Unknown error occurred during processing';
                         $.bootstrapGrowl(d.error, {
                             type: 'danger',
-                            align: 'center',
-                            width: '760px',
                             allow_dismiss: true,
+                            delay: 20000,
+                            offset: { from: 'top', amount: 40 },
                         });
                     }
                 } else {
@@ -177,9 +177,9 @@
                         if(!d.error) d.error = 'Unknown error occurred during processing';
                         $.bootstrapGrowl(d.error, {
                             type: 'danger',
-                            align: 'center',
-                            width: '760px',
+                            offset: { from: 'top', amount: 40 },
                             allow_dismiss: true,
+                            delay: 20000,
                         });
                     }
                 }
@@ -216,10 +216,10 @@
                     $('#uploadModal').modal('hide');
                     console.log('Error occurred during upload, try again: ' + e);
                     $.bootstrapGrowl('Error occurred during upload, try again: ' + e, {
-                        type: 'danger',
-                        align: 'center',
-                        width: '760px',
+                        offset: { from: 'top', amount: 40 },
                         allow_dismiss: true,
+                        delay: 20000,
+                        type: 'danger',
                     });
                 },
                 success: function(d, t, x) {
@@ -231,17 +231,17 @@
                     } else {
                         if(d.error) {
                             $.bootstrapGrowl(d.error, {
-                                type: 'danger',
-                                align: 'center',
-                                width: 760,
+                                offset: { from: 'top', amount: 40 },
                                 allow_dismiss: true,
+                                delay: 20000,
+                                type: 'danger',
                             });
                         } else {
                             $.bootstrapGrowl('Error occurred while storing replay, try again...', {
-                                type: 'danger',
-                                align: 'center',
-                                width: 760,
+                                offset: { from: 'top', amount: 40 },
                                 allow_dismiss: true,
+                                delay: 20000,
+                                type: 'danger',
                             });
                         }
                     }

@@ -32,30 +32,34 @@
             <tbody>
                 [% FOREACH replay IN replays %]
                     <tr>
-                        <td>[% h.map_name(replay) %]</td>
-                        <td>[% h.get_recorder_vehicle(replay).vehicle.label %]</td>
+                        <td>[% replay.panel.map.label %]</td>
+                        <td>[% replay.panel.vehicle.label %]</td>
                         <td>
-                            [% IF h.is_victory(replay) %]won
-                            [% ELSIF h.is_defeat(replay) %]lost
-                            [% ELSE %]draw[% END %]
+                            [% IF replay.panel.winner == 0 %]
+                                draw
+                            [% ELSIF replay.panel.team == replay.panel.winner %]
+                                <span class="green">victory</span>
+                            [% ELSE %]
+                                <span class="red">defeat</span>
+                            [% END %]
                         </td>
                         <td>
                             [% IF recv.player.survived.defined %]
                                 [% IF recv.player.survived %]yes[% ELSE %]no[% END %]
                             [% ELSE %]
-                                [% IF replay.game.recorder.survived %]yes[% ELSE %]no[% END %]
+                                [% IF replay.panel.survived %]yes[% ELSE %]no[% END %]
                             [% END %]
                         </td>
-                        <td>[% replay.stats.kills + 0 %]</td>
-                        <td>[% replay.stats.damaged + 0 %]</td>
-                        <td>[% replay.stats.spotted + 0 %]</td>
-                        <td>[% replay.stats.xp + 0 %]</td>
-                        <td>[% replay.stats.credits + 0 %]</td>
-                        <td>[% h.wot_version(replay) %]</td>
-                        <td><a href="/replay/[% h.get_id(replay) %].html">view</a></td>
-                        <td class="status [% h.get_id(replay) %]">[% IF replay.site.visible %]visible[% ELSE %]hidden[% END %]</td>
+                        <td>[% replay.panel.killed + 0 %]</td>
+                        <td>[% replay.panel.damaged + 0 %]</td>
+                        <td>[% replay.panel.spotted + 0 %]</td>
+                        <td>[% replay.panel.xp + 0 %]</td>
+                        <td>[% replay.panel.credits + 0 %]</td>
+                        <td>[% h.wot_version(replay.panel.version) %]</td>
+                        <td><a href="/replay/[% replay.panel.id %].html">view</a></td>
+                        <td class="status [% replay.panel.id %]">[% IF replay.site.visible %]visible[% ELSE %]hidden[% END %]</td>
                         <td>
-                            <a href="#" class="replay-action [% IF replay.site.visible %]hidereplay[% ELSE %]showreplay[% END %]" rid="[% replay.id %]">[% IF replay.site.visible %]hide[% ELSE %]show[% END %]</a>
+                            <a href="#" class="replay-action [% IF replay.site.visible %]hidereplay[% ELSE %]showreplay[% END %]" rid="[% replay.panel.id %]">[% IF replay.site.visible %]hide[% ELSE %]show[% END %]</a>
                         </td>
                     </tr>
                 [% END %]

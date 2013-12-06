@@ -116,6 +116,7 @@ sub do_logout {
 
     # logging out just means we want to jack up the session cookie
     $self->session('openid' => undef);
+
     $self->respond(template => 'login/form', stash => {
         page => { title => 'Login' },
         notify  => { type => 'notify', text => 'You logged out successfully', sticky => 0, close => 1 },
@@ -133,8 +134,6 @@ sub do_login {
         $self->session('after_openid' => $f);
         my %params = @{ $self->req->params->params };
         my $my_url = $self->req->url->base;
-        my $cache = Cache::File->new(cache_root => sprintf('%s/openid', $self->app->home->rel_dir('tmp/cache')));
-            #cache           => $cache,
         my $csr = Net::OpenID::Consumer->new(
             ua              => LWPx::ParanoidAgent->new,
             args            => \%params,
@@ -173,11 +172,6 @@ sub openid_return {
         $params{$k} = URI::Escape::uri_unescape($v);
     }
 
-    use Data::Dumper;
-    warn Dumper({%params});
-
-    my $cache = Cache::File->new(cache_root => sprintf('%s/openid', $self->app->home->rel_dir('tmp/cache')));
-        #cache           => $cache,
     my $csr = Net::OpenID::Consumer->new(
         ua              => LWPx::ParanoidAgent->new,
         args            => \%params,
@@ -189,19 +183,15 @@ sub openid_return {
 
     $csr->handle_server_response(
         not_openid => sub {
-            warn 'NOT OPENID', "\n";
             $self->respond(template => 'login/form', stash => {
                 page    => { title => 'Login' },
                 notify  => { type => 'error', text => 'A message was received that was not an OpenID message', sticky => 1, close => 1 },
             });
         },
         setup_needed => sub {
-            warn 'REQUIRE SETUP', "\n";
-            # fuck this shit
             return $self->redirect_to($params{'openid.user_setup_url'});
         },
         cancelled => sub {
-            warn 'OPENID CANCELLED?!', "\n";
             $self->respond(template => 'login/form', stash => {
                 page    => { title => 'Login' },
                 notify  => { type => 'error', text => 'You cancelled the signin process', sticky => 0, close => 1 },
@@ -210,8 +200,6 @@ sub openid_return {
         verified => sub {
             my $vident = shift;
             my $url    = $vident->url;
-
-            warn 'VERIFIED YO', "\n";
 
             $self->session(
                 'openid' => $vident->url,
@@ -227,10 +215,9 @@ sub openid_return {
         error => sub {
             my $err = shift;
 
-            warn 'ERROR: ', $err, "\n";
             $self->respond(template => 'login/form', stash => {
                 page    => { title => 'Login' },
-                notify  => { type => 'error', text => sprintf('OpenID Error: %s', $err), sticky => 0, cloes => 1 },
+                notify  => { type => 'error', text => sprintf('OpenID Error: %s', $err), sticky => 0, close => 1 },
             });
         },
     );

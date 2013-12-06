@@ -74,11 +74,11 @@ sub replays {
         $cursor->skip( ($page - 1) * 10 );
         $cursor->limit(10);
         $cursor->sort({ 'site.uploaded_at' => -1 });
+        $cursor->fields({ panel => 1, site => 1 });
 
         $cursor->all(sub {
             my ($c, $e, $docs) = (@_);
 
-            my $replays = [ map { WR::Query->fuck_tt($_) } @$docs ];
             $self->respond(template => 'profile/replays', stash => {
                 page => {
                     title => 'Your Profile - Replays',
@@ -86,7 +86,7 @@ sub replays {
                 maxp => $maxp,
                 type => $type,
                 p    => $page,
-                replays => $replays,
+                replays => $docs,
                 total_replays => $count,
             });
         });
