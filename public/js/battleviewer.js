@@ -1,5 +1,5 @@
 /*
-    wotreplays.org battle viewer
+    wotreplays.org battle viewer 2.0 20131208 0338
 
     Based on work done by Evido (http://github.com/evido)
    
