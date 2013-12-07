@@ -1,5 +1,5 @@
 /*
-    wotreplays.org battle viewer 2.0 20131208 0426
+    wotreplays.org battle viewer 2.0 20131208 0431
 
     Based on work done by Evido (http://github.com/evido)
    
@@ -108,18 +108,14 @@ Game.prototype = {
 		return player;
 	},
     updateChatRaw: function(message) {
-        $(this.chatPanel).append(
+        $(this.chatPanel).prepend(
             $(message).addClass('clearfix')
         );
     },
     updateChat: function(message) {
-        if(this.chatPanel) {
-            $(this.chatPanel).append(
-                $('<div>').addClass('clearfix').html(message)
-            );
-        } else {
-            console.log('Chat: ', message);
-        }
+        $(this.chatPanel).prepend(
+            $('<div>').addClass('clearfix').html(message)
+        );
     },
     isEnemy: function(player) {
         return (player.team == this.playerTeam) ? false : true;
