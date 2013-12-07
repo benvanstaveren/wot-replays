@@ -131,7 +131,7 @@ sub process_job {
         if(!defined($replay->{game}->{version_numeric}) || (defined($replay->{game}->{version_numeric}) && $replay->{game}->{version_numeric} < $config->{wot}->{min_version})) {
             unlink($job->{file});
             job_error($job, 'That replay is from an older version of World of Tanks which we cannot process...');
-        } elsif($replay->{game}->{version_numeric} > $config->{wot}->{version_numric}) {
+        } elsif($replay->{game}->{version_numeric} > $config->{wot}->{version_numeric}) {
             unlink($job->{file});
             job_error($job, 'That replay seems to be coming from the test server, we cannot process those yet...');
         } else {
