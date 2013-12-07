@@ -33,6 +33,7 @@ div {
                 }
                 &.dead {
                     background-color: rgba(0, 0, 0, 0.8);
+                    opacity: 0.80;
                     -moz-border-radius: 4px;
                     -webkit-border-radius: 4px;
                     -o-border-radius: 4px;
@@ -40,8 +41,14 @@ div {
                     border-radius: 4px;
                     z-index: 10;
                     &.recorder {
-                        border: #000 1px solid;
+                        border: #fff 1px solid;
                         z-index: 10;
+                    }
+                    &.player-healthbar {
+                        display: none;
+                    }
+                    &.playerhealth {
+                        display: none;
                     }
                 }
             }

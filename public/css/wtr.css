@@ -936,6 +936,7 @@ div#battleviewer-player {
       z-index: 200; }
     div#battleviewer-player div.player.dead {
       background-color: rgba(0, 0, 0, 0.8);
+      opacity: 0.80;
       -moz-border-radius: 4px;
       -webkit-border-radius: 4px;
       -o-border-radius: 4px;
@@ -943,8 +944,12 @@ div#battleviewer-player {
       border-radius: 4px;
       z-index: 10; }
       div#battleviewer-player div.player.dead.recorder {
-        border: black 1px solid;
+        border: white 1px solid;
         z-index: 10; }
+      div#battleviewer-player div.player.dead.player-healthbar {
+        display: none; }
+      div#battleviewer-player div.player.dead.playerhealth {
+        display: none; }
   div#battleviewer-player div.player-icon {
     width: 17px;
     height: 17px; }
