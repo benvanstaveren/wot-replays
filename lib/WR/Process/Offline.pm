@@ -196,8 +196,8 @@ sub _real_process {
 
         # here's some additional bits and pieces that we are interested in
         for my $event ('player.position', 'player.health', 'player.tank.destroyed', 'player.orientation.hull', 'player.chat', 'arena.period', 'player.tank.damaged') {
-            if($_ eq 'player.chat') {
-                $game->on($_ => sub {
+            if($event eq 'player.chat') {
+                $game->on($event => sub {
                     my ($game, $chat) = (@_);
                     push(@{$replay->{chat}}, $chat->{text});
                     $self->add_packet($chat);
@@ -617,7 +617,8 @@ sub _game {
             slug    => $d->{slug},
             icon    => $d->{icon},
             label   => $d->{label},
-        }
+            geometry => [ $d->{attributes}->{geometry}->{bottom_left}, $d->{attributes}->{geometry}->{upper_right} ],
+        };
     }
 
     return $game;

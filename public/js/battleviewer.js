@@ -38,9 +38,7 @@ Player.prototype = {
         $(this.element).show();
     },
     move: function(ctop, cleft) {
-        $(this.element).hide();
         $(this.element).css({ top: ctop, left: cleft });
-        $(this.element).show();
     },
     rotate: function() {
         // the hull direction is in fact in radians, so convert to degrees first
@@ -298,6 +296,7 @@ BattleViewer.prototype = {
         this.game.updateChat(message);
     },
 	show: function() {
+        if(!$(this.clock).is(':visible')) $(this.clock).show();
 		for (var player_id in this.game.players) {
 			var player = this.game.getPlayer(player_id);
 
@@ -327,7 +326,6 @@ BattleViewer.prototype = {
             if(player.recorder) player.rotate();
             player.move(Math.round(coord.y - (17/2)), Math.round(coord.x - (17/2)));
 		}
-        if(!$(this.clock).is(':visible')) $(this.clock).show();
 	},
     delta: function(a, b) {
         if(a < b) {
