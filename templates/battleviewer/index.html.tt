@@ -71,7 +71,7 @@
                 <div class="alert alert-info">Awaiting Players</div>
             </div>
             <div class="well hide" id="arena-chat">
-                <div style="height: 438px" id="chat" style="overflow-y: auto"></div>
+                <div id="chat" style="overflow-y: auto; height: 438px"></div>
             </div>
         </div>
     </div>
