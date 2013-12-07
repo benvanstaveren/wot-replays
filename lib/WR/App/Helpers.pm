@@ -191,11 +191,7 @@ sub add_helpers {
     $self->helper(as_json => sub {
         my $self = shift;
         my $v    = shift;
-        warn 'as_json call', "\n";
-
-        warn Dumper($v);
         my $s = $self->app->json->encode($v);
-        warn $s, "\n";
         return $s;
     });
 
@@ -364,9 +360,6 @@ sub add_helpers {
         my $replay  = shift;
 
         if(defined($replay->{game}->{map_extra})) {
-            warn 'new style replay', "\n";
-            use Data::Dumper;
-            warn Dumper($replay->{game}->{map_extra});
             return $replay->{game}->{map_extra}->{geometry};
         } else {
             if(my $obj = $self->model('wot-replays.data.maps')->find_one({ numerical_id => $replay->{game}->{map} })) {
