@@ -8,9 +8,15 @@
         </div>
         <div class="col-lg-3 col-md-3">
 	    <div class="alert alert-danger">
-              There are issues with Wargaming's OpenID service it seems,
-              if logging in doesn't work the first time, keep clicking the button until it does ;)
-            </div>
+                <p><b>Test Server</b><br/>
+Please do <b>not</b> upload replays from the test server; the current parser is not set up to handle them, and weird things may (or may not) happen at any given time.
+           </p> 
+              <p>
+                  <b>Authentication Issues</b><br/>
+                  There are issues with Wargaming's OpenID service it seems,
+                  if logging in doesn't work the first time, keep clicking the button until it does ;)
+              </p>
+        </div>
             [% INCLUDE sidebar/home.html.tt %]
         </div>
     </div>
