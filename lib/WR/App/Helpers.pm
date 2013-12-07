@@ -356,20 +356,17 @@ sub add_helpers {
     });
 
     $self->helper(map_boundingbox => sub {
-        my $self = shift;
-        my $mid  = shift;
+        my $self    = shift;
+        my $replay  = shift;
 
-        if(my $obj = $self->model('wot-replays.data.maps')->find_one({ 
-            '$or' => [
-                { _id => $mid },
-                { numerical_id => $mid },
-                { name_id => $mid },
-                { slug => $mid },
-            ],
-        })) {
-            return [ $obj->{attributes}->{geometry}->{bottom_left}, $obj->{attributes}->{geometry}->{upper_right} ];
+        if(defined($replay->{game}->{map_extra})) {
+            return $replay->{game}->{map_extra}->{geometry};
         } else {
-            return undef;
+            if(my $obj = $self->model('wot-replays.data.maps')->find_one({ numerical_id => $replay->{game}->{map} })) {
+                return [ $obj->{attributes}->{geometry}->{bottom_left}, $obj->{attributes}->{geometry}->{upper_right} ];
+            } else {
+                return undef;
+            }
         }
     });
 
@@ -386,7 +383,7 @@ sub add_helpers {
         my $replay = shift;
 
         if(defined($replay->{game}->{map_extra})) {
-            return $replay->{game}->{map_extra}->{_id};
+            return $replay->{game}->{map_extra}->{ident};
         } else {
             if(my $obj = $self->model('wot-replays.data.maps')->find_one({ numerical_id => $replay->{game}->{map} })) {
                 return $obj->{_id};

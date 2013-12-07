@@ -21,6 +21,7 @@ sub generate_map_extra {
             slug    => $d->{slug},
             icon    => $d->{icon},
             label   => $d->{label},
+            geometry => [ $d->{attributes}->{geometry}->{bottom_left}, $d->{attributes}->{geometry}->{upper_right} ],
         }
     } else {
         return undef;

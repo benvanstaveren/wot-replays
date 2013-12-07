@@ -116,6 +116,7 @@ sub do_logout {
 
     # logging out just means we want to jack up the session cookie
     $self->session('openid' => undef);
+
     $self->respond(template => 'login/form', stash => {
         page => { title => 'Login' },
         notify  => { type => 'notify', text => 'You logged out successfully', sticky => 0, close => 1 },
@@ -133,7 +134,6 @@ sub do_login {
         $self->session('after_openid' => $f);
         my %params = @{ $self->req->params->params };
         my $my_url = $self->req->url->base;
-        my $cache = Cache::File->new(cache_root => sprintf('%s/openid', $self->app->home->rel_dir('tmp/cache')));
         my $csr = Net::OpenID::Consumer->new(
             ua              => LWPx::ParanoidAgent->new,
             args            => \%params,
@@ -150,6 +150,7 @@ sub do_login {
             );
             return $self->redirect_to($check_url);
         } else {
+            $self->app->log->debug(sprintf('OpenID error: %s', $csr->err));
             $self->session(
                 'notify' => { type => 'error', text => sprintf('OpenID Error: %s', $csr->err),  close => 1, sticky => 1 },
             );
@@ -171,7 +172,6 @@ sub openid_return {
         $params{$k} = URI::Escape::uri_unescape($v);
     }
 
-    my $cache = Cache::File->new(cache_root => sprintf('%s/openid', $self->app->home->rel_dir('tmp/cache')));
     my $csr = Net::OpenID::Consumer->new(
         ua              => LWPx::ParanoidAgent->new,
         args            => \%params,
@@ -189,9 +189,7 @@ sub openid_return {
             });
         },
         setup_needed => sub {
-            my $setup_url = shift;
-            $setup_url = URI::Escape::uri_unescape($setup_url);
-            return $self->redirect_to($setup_url);
+            return $self->redirect_to($params{'openid.user_setup_url'});
         },
         cancelled => sub {
             $self->respond(template => 'login/form', stash => {
@@ -203,14 +201,6 @@ sub openid_return {
             my $vident = shift;
             my $url    = $vident->url;
 
-            # find an account that has this ID associted with it, if no account exists, 
-            # offer people an opportunity via profile to re-claim an existing account
-
-            unless(my $account = $self->model('wot-replays.accounts')->find_one({ openid => $vident->url })) {
-                $self->model('wot-replays.accounts')->save({ 
-                    openid => $vident->url
-                });
-            }
             $self->session(
                 'openid' => $vident->url,
                 'notify' => { type => 'info', text => 'Login successful', close => 1 },
@@ -224,9 +214,10 @@ sub openid_return {
         },
         error => sub {
             my $err = shift;
+
             $self->respond(template => 'login/form', stash => {
                 page    => { title => 'Login' },
-                notify  => { type => 'error', text => sprintf('OpenID Error: %s', $err), sticky => 0, cloes => 1 },
+                notify  => { type => 'error', text => sprintf('OpenID Error: %s', $err), sticky => 0, close => 1 },
             });
         },
     );
