@@ -200,7 +200,7 @@ sub _real_process {
                 $game->on($_ => sub {
                     my ($game, $chat) = (@_);
                     push(@{$replay->{chat}}, $chat->{text});
-                    $self->add_packet($v);
+                    $self->add_packet($chat);
                 });
             } else {
                 $game->on($event => sub {
