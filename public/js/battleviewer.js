@@ -1,5 +1,5 @@
 /*
-    wotreplays.org battle viewer 2.0 20131208 0355
+    wotreplays.org battle viewer 2.0 20131208 0426
 
     Based on work done by Evido (http://github.com/evido)
    
@@ -273,9 +273,6 @@ BattleViewer.prototype = {
 				var packet = packets[ix];
 				if (typeof(packet.clock) == 'undefined' && (typeof(packet.period) == 'undefined')) continue; // chat has clock, period doesnt(?)
 				if (packet.clock > window_end) break;
-
-                // there's a sneaky one here
-                if(typeof(packet.text) != 'undefined') this.updateChat(packet.text);
                 game.update(packet);
 			}
 
