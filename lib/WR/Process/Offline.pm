@@ -404,6 +404,7 @@ sub _real_process {
                         $self->debug(sprintf('[%s]: %s', $player, $url));
 
                         my $roster = $replay->{roster}->[ $replay->{players}->{$player} ];
+                        $self->ua->inactivity_timeout(10);
 
                         if(my $tx = $self->ua->get($url)) {
                             if(my $res = $tx->success) {
