@@ -1,5 +1,5 @@
 /*
-    wotreplays.org battle viewer 2.0 20131208 0431
+    wotreplays.org battle viewer 2.0 20131208 0500
 
     Based on work done by Evido (http://github.com/evido)
    
@@ -32,7 +32,7 @@ Player.prototype = {
     },
     setAge: function(newAge) {
         this.age = newAge;
-        $(this.element).css({ opacity: 1 - this.age });
+        if(this.alive) $(this.element).css({ opacity: 1 - this.age });
     },
     show: function() {
         $(this.element).show();
