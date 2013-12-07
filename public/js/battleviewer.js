@@ -72,7 +72,8 @@ Player.prototype = {
     death: function() {
         this.alive = false; 
         this.updateHealth(0);
-        $(this.element).addClass('dead');
+        $(this.element).addClass('dead'); // meh
+        $(this.element).css({ opacity: 0.8 }).find('div.player-healthbar').hide();
     }
 };
 
