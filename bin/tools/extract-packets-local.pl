@@ -28,9 +28,11 @@ sub addpacket {
 sub extract {
     my $file = shift;
     my $parser = WR::Parser->new(bf_key => WOT_BF_KEY, file => sprintf('/home/ben/projects/wot-replays/site/data/replays/%s', $file));
-    my $game   = $parser->game(Mojo::IOLoop->new);
+    my $game   = $parser->game();
 
-    for my $event ('player.position', 'player.health', 'player.track.destroyed', 'player.orientation.hull', 'player.chat') {
+    # these are the ones we're interested in for the time being, other packets will not be added 
+
+    for my $event ('player.position', 'player.health', 'player.tank.destroyed', 'player.orientation.hull', 'player.chat', 'arena.period', 'player.tank.damaged') {
         $game->on($event => \&addpacket);
     }
 
@@ -41,7 +43,7 @@ my $cursor = $coll->find();
 my $total = $cursor->count;
 $cursor->sort({ 'site.uploaded_at' => -1 });
 my $done  = 0;
-my $j     = JSON::XS->new();
+my $j     = JSON::XS->new()->pretty(1);
 
 while(my $replay = $cursor->next()) {
     extract($replay->{file});

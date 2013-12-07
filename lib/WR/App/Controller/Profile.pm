@@ -93,4 +93,44 @@ sub replays {
     });
 }
 
+sub uploads {
+    my $self = shift;
+    my $type = $self->stash('type');
+    my $page = $self->stash('page');
+    my $query = {
+        'uploader.player_name'      => $self->stash('current_player_name'),
+        'uploader.player_server'    => lc($self->stash('current_player_server')),
+    };
+
+    $self->render_later;
+
+    use Data::Dumper;
+    warn Dumper($query);
+
+    my $cursor = $self->model('wot-replays.jobs')->find($query);
+    $cursor->count(sub {
+        my ($cursor, $e, $count) = (@_);
+        my $maxp   = int($count/10);
+        $maxp++ if($maxp * 10 < $count);
+
+        $cursor->skip( ($page - 1) * 10 );
+        $cursor->limit(10);
+        $cursor->sort({ 'ctime' => -1 });
+
+        $cursor->all(sub {
+            my ($c, $e, $docs) = (@_);
+
+            $self->respond(template => 'profile/uploads', stash => {
+                page => {
+                    title => 'Your Profile - Uploads',
+                },
+                maxp => $maxp,
+                type => $type,
+                p    => $page,
+                uploads => $docs,
+            });
+        });
+    });
+}
+
 1;

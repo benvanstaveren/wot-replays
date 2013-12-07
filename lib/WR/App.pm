@@ -122,6 +122,7 @@ sub startup {
 
     my $pb = $r->bridge('/profile')->to('profile#check');
         $pb->route('/replays/type/:type/page/:page')->to('profile#replays', pageid => 'profile');
+        $pb->route('/uploads/page/:page')->to('profile#uploads', pageid => 'profile');
 
         my $pbj = $pb->under('/j');
             $pbj->route('/sr')->to('profile#sr', pageid => 'profile');

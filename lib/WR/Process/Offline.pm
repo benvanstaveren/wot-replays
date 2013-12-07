@@ -195,18 +195,21 @@ sub _real_process {
         });
 
         # here's some additional bits and pieces that we are interested in
-        $game->on('player.position' => sub {
-            my ($s, $v) = (@_);
-            $self->add_packet($v);
-        });
-        $game->on('player.orientation.hull' => sub {
-            my ($s, $v) = (@_);
-            $self->add_packet($v);
-        });
-        $game->on('player.health' => sub {
-            my ($s, $v) = (@_);
-            $self->add_packet($v);
-        });
+        for my $event ('player.position', 'player.health', 'player.tank.destroyed', 'player.orientation.hull', 'player.chat', 'arena.period', 'player.tank.damaged') {
+            if($_ eq 'player.chat') {
+                $game->on($_ => sub {
+                    my ($game, $chat) = (@_);
+                    push(@{$replay->{chat}}, $chat->{text});
+                    $self->add_packet($v);
+                });
+            } else {
+                $game->on($event => sub {
+                    my ($s, $v) = (@_);
+                    $self->add_packet($v);
+                });
+            }
+        }
+
         $game->on('setup.roster' => sub {
             my ($s, $roster) = (@_);
 
@@ -303,10 +306,7 @@ sub _real_process {
                 ident   => $replay->{roster}->[ $replay->{players}->{$replay->{game}->{recorder}->{name}} ]->{vehicle}->{ident},
             };
         });
-        $game->on('player.chat' => sub {
-            my ($game, $chat) = (@_);
-            push(@{$replay->{chat}}, $chat);
-        });
+
 
         $game->on(finish => sub {
             my ($game, $reason) = (@_);

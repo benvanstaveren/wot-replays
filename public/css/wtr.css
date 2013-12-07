@@ -960,6 +960,11 @@ div#battleviewer-player {
     height: 3px;
     width: 100%; }
 
+span.friendly {
+  color: #80d63a; }
+span.enemy {
+  color: #ff2414; }
+
 div.container {
   /*background: #060606 none repeat scroll 0 0;*/
   background: rgba(6, 6, 6, 0.95) none repeat scroll 0 0;

@@ -88,6 +88,7 @@
                             <ul class="dropdown-menu">
                                 <li class="dropdown-header">Your Profile</li>
                                 <li><a href="/profile/replays/type/p/page/1">Replays</a></li>
+                                <li><a href="/profile/uploads/page/1">Uploads</a></li>
                                 <li class="disabled"><a class="disabled" href="/profile/settings">Settings</a></li>
                                 <li class="divider"></li>
                                 <li><a href="/logout">Sign Out</a></li>

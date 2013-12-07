@@ -1,10 +1,10 @@
 [% WRAPPER wrapper.html.tt %]
     <div class="page-header">
-        <h2>Your Profile - Replays</h2>
+        <h2>Your Profile - Uploads</h2>
     </div>
     <div class="row">
         <div class="col-lg-12 col-md-12">
-            [% INCLUDE profile/replays/list.html.tt %]
+            [% INCLUDE profile/uploads/list.html.tt %]
         </div>
     </div>
 [% END %]

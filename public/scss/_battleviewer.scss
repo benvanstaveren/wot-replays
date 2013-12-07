@@ -65,3 +65,7 @@ div {
         }
     }
 }
+span {
+    &.friendly { color: #80D63A }
+    &.enemy { color: #FF2414 }
+}

@@ -1,10 +1,23 @@
+/*
+    wotreplays.org battle viewer
+
+    Based on work done by Evido (http://github.com/evido)
+   
+    Alterations by Scrambled:
+    - Use HTML5 instead of canvas
+    - Modified to use the different packet format that wotreplays.org writes out
+
+    Feel free to copy and use for your own purposes
+*/
 var Player = function(id) {
 	this.id 		= id;
 	this.position 	= null;
 	this.alive		= null;
 	this.clock		= null;
 	this.health     = 0;
+    this.team       = 0;
     this.hp         = 0;
+    this.name       = null;
     this.element    = $('div#player-' + id);
     this.age        = 0;
     this.hull_dir   = null;
@@ -44,6 +57,7 @@ Player.prototype = {
     },
     updateHealth: function(newhealth) {
         if(newhealth < 0) newhealth = 0;
+        var oldHealth = this.health;
         if(this.hp > 0) {
             if(newhealth > 0) {
                 var percentage_of = Math.floor(100/(this.hp/newhealth));
@@ -52,22 +66,31 @@ Player.prototype = {
             } else {
                 $('#player-health-' + this.id).css({ width: '0%' });
             }
-        }
+        } 
         this.health = newhealth;
-        if(this.health <= 0) this.alive = false;
+        var diff = oldHealth - newhealth;
+        return diff;
     },
     death: function() {
-        $(this.element).addClass('dead').css({ 'background-color': 'rgba(0, 0, 0, 0.8)', 'opacity': 0.8 });
+        this.alive = false; 
+        this.updateHealth(0);
+        $(this.element).addClass('dead');
     }
 };
 
-var Game = function(game, map_boundaries, playerDetails) {
+var Game = function(game, map_boundaries, playerDetails, periodPanel, chatPanel, playerTeam) {
 	this.players 	    = {};
 	this.playerDetails 	= playerDetails;
+    this.playerTeam     = playerTeam;
+    this.periodPanel    = periodPanel;
 	this.clock		    = 0;
 	this.game		    = game;
     this.mode           = game.mode;
     this.map_boundaries = map_boundaries;
+    this.period         = 0;
+    this.period_length  = -1;
+    this.clock_at_period = 0;
+    this.chatPanel       = chatPanel;
 }
 
 Game.prototype = {
@@ -79,14 +102,59 @@ Game.prototype = {
             if(typeof(this.playerDetails[id]) != 'undefined') {
                 player.hp = this.playerDetails[id].hp;
                 player.health = this.playerDetails[id].hp;
+                player.name = this.playerDetails[id].name;
+                player.team = this.playerDetails[id].team;
             }
 			this.players[id] = player;
 		}
 		return player;
 	},
+    updateChatRaw: function(message) {
+        $(this.chatPanel).append(
+            $(message).addClass('clearfix')
+        );
+    },
+    updateChat: function(message) {
+        if(this.chatPanel) {
+            $(this.chatPanel).append(
+                $('<div>').addClass('clearfix').html(message)
+            );
+        } else {
+            console.log('Chat: ', message);
+        }
+    },
+    isEnemy: function(player) {
+        return (player.team == this.playerTeam) ? false : true;
+    },
+    teamColorName: function(player) {
+        var s = $('<span>');
+        if(this.isEnemy(player)) {
+            $(s).addClass('enemy');
+        } else {
+            $(s).addClass('friendly');
+        }
+        $(s).text(player.name);
+        return s;
+    },
 	update: function(frame) {
+        var g = this;
+        if (frame.period) {
+            //console.log('got frame.period: ', frame.period);
+            this.period = frame.period;
+            if(this.period == 2) {
+                $(this.periodPanel).html('Countdown...');
+            } else if(this.period == 3) {
+                $(this.periodPanel).html('In Battle...');
+            } else if(this.period == 4) {
+                $(this.periodPanel).html('After Battle...');
+            }
+            this.period_length = frame.period_length;
+            this.clock_at_period = this.clock;
+        }
 		if (typeof(frame.clock) == 'undefined') return;
 		if (frame.clock != null && frame.clock >= this.clock) this.clock = frame.clock;
+        if (typeof(frame.text) != 'undefined') this.updateChat(frame.text);
+
         if(typeof(frame.id) != 'undefined') {
 			var player      = this.getPlayer(frame.id);
             player.clock    = this.clock;
@@ -94,20 +162,34 @@ Game.prototype = {
             // we could in theory keep track of all this for dead entities
             // but we don't...
 
+            if (typeof(frame.position) != 'undefined') {
+                player.position = frame.position;
+            }
+            if(typeof(frame.orientation) != 'undefined') {
+                if(player.recorder) player.hull_dir = frame.orientation[0];
+            }
+            if(typeof(frame.destroyer) != 'undefined' && typeof(frame.destroyed) != 'undefined') {
+                var destroyed = this.getPlayer(frame.destroyed);
+                var destroyer = this.getPlayer(frame.destroyer);
+                this.updateChatRaw( 
+                    $('<div>').append(
+                        this.teamColorName(destroyer),
+                        $('<b>').css({ 'margin-left': '5px', 'margin-right': '5px' }).text('destroyed'),
+                        this.teamColorName(destroyed) 
+                    )
+                );
+                destroyed.death();
+            }
             if(player.alive) {
-                if (typeof(frame.position) != 'undefined') {
-                    player.position = frame.position;
-                }
-                if(typeof(frame.orientation) != 'undefined') {
-                    if(player.recorder) player.hull_dir = frame.orientation[0];
-                }
                 if (typeof(frame.health) != 'undefined') {
                     player.updateHealth(frame.health);
                     if (typeof(frame.source) != 'undefined') {
-                        var source = this.getPlayer(frame.source);
-                        player.damaged = true;
-                        player.damagesource = source.position;
-                        player.damager = frame.source;
+                        var source = g.getPlayer(frame.source);
+                        if(source) {
+                            player.damaged = true;
+                            player.damagesource = source.position;
+                            player.damager = frame.source;
+                        }
                     }
                 }
             }
@@ -127,10 +209,14 @@ var BattleViewer = function(options) {
     this.onLoaded       = options.onLoaded;
     this.stopping       = false;
     this.updateSpeed    = 100; // realtime?
+    this.chatPanel      = options.chatPanel;
+    this.periodPanel    = options.periodPanel;
+    this.playerTeam     = options.playerTeam;
 }
 
 BattleViewer.prototype = {
 	start: function() {
+        console.log('battleViewer start');
         var bv = this;
         // hide all players, and the clock
         $('div.player').hide();
@@ -156,26 +242,52 @@ BattleViewer.prototype = {
         });
     },
     stop: function() {
+        // kill the clock
         this.stopping = true;
     },
     setSpeed: function(newspeed) {
+        console.log('new speed: ', newspeed);
         this.updateSpeed = newspeed;
     },
+    updateClock: function() {
+        var clockHtml = "--:--";
+        if(this.game) {
+            if(this.game.period_length > 0) {
+                // clock seconds is period length minus (the game clock minus the clock_at_period value)
+                //console.log('update clock, period len: ', this.game.period_length, ' clock: ', this.game.clock, ' clock_at_period: ', this.game.clock_at_period, ' time in period: ', this.game.clock - this.game.clock_at_period);
+	            var clockseconds = this.game.period_length - (this.game.clock - this.game.clock_at_period);
+	            var minutes = Math.floor(clockseconds / 60);
+	            var seconds = Math.floor(clockseconds - minutes * 60);
+	            seconds = (seconds < 10 ? '0' + seconds : seconds);
+	            minutes = (minutes < 10 ? '0' + minutes : minutes);
+	            clockHtml = minutes + ":" + seconds;
+            } 
+        } 
+        $(this.clock).html(clockHtml);
+
+    },
     _replay: function() {
-        this.game = new Game(this.game_data, this.map_boundaries, this.player_details);
+        this.game = new Game(this.game_data, this.map_boundaries, this.player_details, this.periodPanel, this.chatPanel, this.playerTeam);
+        var me = this;
+
 		var update = function(game, packets, window_start, window_size, start_ix) {
 			if (this.game != game) return;
 			var window_end = window_start + window_size, ix;
 			for (ix = start_ix; ix < packets.length; ix++) {
 				var packet = packets[ix];
-				if (typeof(packet.clock) == 'undefined') continue;
+				if (typeof(packet.clock) == 'undefined' && (typeof(packet.period) == 'undefined')) continue; // chat has clock, period doesnt(?)
 				if (packet.clock > window_end) break;
-				game.update(packet);
+
+                // there's a sneaky one here
+                if(typeof(packet.text) != 'undefined') this.updateChat(packet.text);
+                game.update(packet);
 			}
 
 			this.show();
 
             if(this.stopping) ix = packets.length;
+
+            this.updateClock();
 			
 			if (ix < packets.length) {
 				setTimeout(update.bind(this, game, packets, window_end, window_size, ix), this.updateSpeed);	
@@ -186,12 +298,11 @@ BattleViewer.prototype = {
 		update.call(this, this.game, this.packets, 0, 0.1, 0);
 	},
 	updateChat: function(message) {
-        console.log('chat: ', message);
+        this.game.updateChat(message);
     },
 	show: function() {
 		for (var player_id in this.game.players) {
 			var player = this.game.getPlayer(player_id);
-            player.hide();
 
 			if (player.position == null) continue;
 
@@ -202,24 +313,23 @@ BattleViewer.prototype = {
             age = age > 0.66 ? 0.66 : age;
 
             player.setAge(age);
+
             if(player.damaged) {
+                //console.log('player damaged');
                 if(typeof(player.damagesource) == 'object' && typeof(player.position) == 'object') {
+                    //console.log('source is another player');
                     var source = this.to_2d_coord(player.damagesource, this.game.map_boundaries, 512, 512);
-                    if(source != null) this.drawTracer(source, coord);
+                    if(source != null) {
+                        //console.log('source coordinates established, drawing tracer from ', source, ' to ', coord);
+                        this.drawTracer(source, coord);
+                    }
                 }
-                player.damaged = false;
+                player.damaged      = false;
                 player.damagesource = null;
-                player.damager = null;
             }
             if(player.recorder) player.rotate();
-			if (player.alive) {
-                player.move(Math.round(coord.y - (17/2)), Math.round(coord.x - (17/2)));
-	 		} else {
-                player.death();
- 			}
+            player.move(Math.round(coord.y - (17/2)), Math.round(coord.x - (17/2)));
 		}
-        $(this.clock).html(this.getClock(this.game.clock, this.game.mode));
-        // if the clock is hidden, show it
         if(!$(this.clock).is(':visible')) $(this.clock).show();
 	},
     delta: function(a, b) {
@@ -343,16 +453,13 @@ BattleViewer.prototype = {
             y = (map_boundaries[1][1] - y) * (height / (map_boundaries[1][1] - map_boundaries[0][1] + 1));
             return { x: x, y: y };
         } catch(err) {
-            console.log('tried getting position out of ', position, ' failed with ', err);
+            //console.log('tried getting position out of ', position, ' failed with ', err);
             return null;
         }
     },
-    getClock: function(clock, mode) {
-	    var gamelength = (mode == 'ctf' ? 938 : 638);
-	    var clockseconds = gamelength-clock;
-	    var minutes = Math.floor(clockseconds / 60);
-	    var seconds = Math.floor(clockseconds - minutes * 60);
-	    seconds = (seconds < 10 ? '0' + seconds : seconds);
-	    return minutes + ":" + seconds;
-    }
 };
+
+
+$(document).ready(function() {
+    bView.start();
+});

@@ -26,7 +26,6 @@ sub battleviewer {
         if(defined($replay)) {
             # construct packet url
             my $packet_url = sprintf('%s/%s', $self->stash('config')->{urls}->{packets}, $replay->{packets});
-
             $self->respond(template => 'battleviewer/index', stash => {
                 page        => { title => 'Battle Viewer' },
                 packet_url  => $packet_url,
