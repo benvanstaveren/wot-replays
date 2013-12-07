@@ -27,25 +27,11 @@ has '_error'        => undef;
 has 'has_error'     => 0;
 has '_parser'       => undef;
 has 'packets'       => sub { [] };
-has '_chat'         => sub {
-    text    =>  [],
-    seen    =>  {},
-};
 has 'log'           => undef;
 has 'ua'            => sub { Mojo::UserAgent->new };
 
 has '_consumables'  => sub { {} }; # consumables are keyed by their typecomp id fragment
 has '_components'   => sub { {} }; # components are keyed by type, country, id
-
-sub add_chat {
-    my $self = shift;
-    my $p    = shift;
-
-    my $sc = sprintf('%f-%s', $p->{clock}, $p->{text}); # seen line, clock has to be different 
-    return if(defined($self->_chat->{seen}->{$sc}) && $self->_chat->{seen}->{$sc} == 1);
-    $self->_chat->{seen}->{$sc} = 1;
-    push(@{$self->_chat->{text}, $p->{text});
-}
 
 sub _preload {
     my $self = shift;
@@ -213,8 +199,7 @@ sub _real_process {
             if($event eq 'player.chat') {
                 $game->on($event => sub {
                     my ($game, $chat) = (@_);
-                    #push(@{$replay->{chat}}, $chat->{text});
-                    $self->add_chat($chat);
+                    push(@{$replay->{chat}}, $chat->{text});
                     $self->add_packet($chat);
                 });
             } else {
@@ -484,8 +469,7 @@ sub _real_process {
             return undef;
         } else {
             # yep, replay - in order to fix a few things up so we can use a simplified query,
-            # we're now going to construct the panel data, and merge the chat
-            $replay->{game}->{chat} = $self->_chat->{text};
+            # we're now going to construct the panel data 
             my $p = WR::Provider::Panelator->new(db => $self->mango->db('wot-replays')); # hardcoding bad...
             $replay->{panel} = $p->panelate($replay);
             return $replay;
