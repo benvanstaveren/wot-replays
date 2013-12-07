@@ -1,5 +1,5 @@
 /*
-    wotreplays.org battle viewer 2.0 20131208 0338
+    wotreplays.org battle viewer 2.0 20131208 0355
 
     Based on work done by Evido (http://github.com/evido)
    
@@ -215,6 +215,7 @@ var BattleViewer = function(options) {
 BattleViewer.prototype = {
 	start: function() {
         console.log('battleViewer start');
+        $('div.player').hide(); // hide all players, we'll show them once we first get a position in move()
         var bv = this;
         if(this.packets) {
             this._replay();
@@ -301,6 +302,8 @@ BattleViewer.prototype = {
 			var player = this.game.getPlayer(player_id);
 
 			if (player.position == null) continue;
+
+            player.show();
 
 			var coord = this.to_2d_coord(player.position, this.game.map_boundaries, 512, 512);
             if(coord == null) continue;
