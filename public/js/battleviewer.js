@@ -218,9 +218,6 @@ BattleViewer.prototype = {
 	start: function() {
         console.log('battleViewer start');
         var bv = this;
-        // hide all players, and the clock
-        $('div.player').hide();
-        $(this.clock).hide();
         if(this.packets) {
             this._replay();
             return;
