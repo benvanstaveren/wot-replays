@@ -5,6 +5,11 @@ div {
         padding: 0px;
         background: #e56717 none repeat scroll 0 0;
     }
+    &#chat {
+        img {
+            display: none;
+        }
+    }
     &#battleviewer-player {
         width: 512px;
         height: 512px;

@@ -911,6 +911,8 @@ div.tracer {
   margin: 0px;
   padding: 0px;
   background: #e56717 none repeat scroll 0 0; }
+div#chat img {
+  display: none; }
 div#battleviewer-player {
   width: 512px;
   height: 512px;
