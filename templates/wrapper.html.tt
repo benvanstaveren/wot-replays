@@ -55,48 +55,32 @@
             </div>
             <div class="navbar-collapse collapse" id="navbar-main">
                 <ul class="nav navbar-nav">
-                    <li class="[% IF pageid == 'home' %]active[% END %]"><a  href="/">Home</a></li>
-                    <li class=" [% IF pageid == 'browse' %]active[% END %]"><a class="js-hover" href="/browse">Browse</a></li>
-                    [% IF 1 == 0 %]
-                    <li class=" vehicles [% IF pageid == 'player' %]active[% END %]"><a class="js-hover" href="/players">Players</a></li>
-                    <li class="dropdown [% IF pageid == 'vehicle' %]active[% END %]">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="/vehicles">Vehicles <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="/vehicles/china">China</a></li>
-                            <li><a href="/vehicles/france">France</a></li>
-                            <li><a href="/vehicles/germany">Germany</a></li>
-                            <li><a href="/vehicles/uk">UK</a></li>
-                            <li><a href="/vehicles/usa">USA</a></li>
-                            <li><a href="/vehicles/ussr">USSR</a></li>
-                            <li><a href="/vehicles/japan">Japan</a></li>
-                        </ul>
-                    </li>
-                    <li class="maps [% IF pageid == 'map' %]active[% END %]"><a class="js-hover" href="/maps">Maps</a></li>
-                    [% END %]
+                    <li class="[% IF pageid == 'home' %]active[% END %]"><a  href="/">[% h.loc('nav.home') %]</a></li>
+                    <li class=" [% IF pageid == 'browse' %]active[% END %]"><a class="js-hover" href="/browse">[% h.loc('nav.browse') %]</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="[% IF pageid == 'upload' %]active[% END %]"><a href="[% IF h.is_user_authenticated %]/upload/[% ELSE %]/login/[% END %]">Upload Replay</a></li>
-                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Tools <b class="caret"></b></a>
+                    <li class="[% IF pageid == 'upload' %]active[% END %]"><a href="[% IF h.is_user_authenticated %]/upload/[% ELSE %]/login/[% END %]">[% h.loc('nav.upload') %]</a></li>
+                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">[% h.loc('nav.tools') %] <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li class=" issues [% IF pageid == 'issues' %]active[% END %]"><a class="js-hover" href="https://bitbucket.org/wotreplays/wot-replays/issues">Issue Tracker</a></li> 
-                            <li class=" wiki [% IF pageid == 'wiki' %]active[% END %]"><a class="js-hover" href="http://wiki.vbaddict.net/pages/WoT_Developer_Wiki">Wiki</a></li>
-                            <li class=" blog [% IF pageid == 'blog' %]active[% END %]"><a class="js-hover" href="http://blog.wotreplays.org/">Blog</a></li>
+                            <li class=" issues [% IF pageid == 'issues' %]active[% END %]"><a class="js-hover" href="https://bitbucket.org/wotreplays/wot-replays/issues">[% h.loc('nav.tools.issuetracker') %]</a></li> 
+                            <li class=" wiki [% IF pageid == 'wiki' %]active[% END %]"><a class="js-hover" href="http://wiki.vbaddict.net/pages/WoT_Developer_Wiki">[% h.loc('nav.tools.wiki') %]</a></li>
+                            <li class=" blog [% IF pageid == 'blog' %]active[% END %]"><a class="js-hover" href="http://blog.wotreplays.org/">[% h.loc('nav.tools.blog') %]</a></li>
                         </ul>
                     </li>
                     [% IF h.is_user_authenticated %]
                         <li class="dropdown [% IF pageid == 'profile' %]active[% END %]"><a href="/profile" class="dropdown-toggle" data-toggle="dropdown">[% h.current_user.player_name |html %] <b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li class="dropdown-header">Your Profile</li>
-                                <li><a href="/profile/replays/type/p/page/1">Replays</a></li>
-                                <li><a href="/profile/uploads/page/1">Uploads</a></li>
-                                <li class="disabled"><a class="disabled" href="/profile/settings">Settings</a></li>
+                                <li class="dropdown-header">[% h.loc('nav.profile.header') %]</li>
+                                <li><a href="/profile/replays/type/p/page/1">[% h.loc('nav.profile.replays') %]</a></li>
+                                <li><a href="/profile/uploads/page/1">[% h.loc('nav.profile.uploads') %]</a></li>
+                                <li class="disabled"><a class="disabled" href="/profile/settings">[% h.loc('nav.profile.settings') %]</a></li>
                                 <li class="divider"></li>
-                                <li><a href="/logout">Sign Out</a></li>
+                                <li><a href="/logout">[% h.loc('nav.profile.signout') %]</a></li>
                             </ul>
                         </li>
                     [% ELSE %]
                         <li [% IF pageid == 'login' %]class="active"[% END %]>
-                            <a href="/login">Sign In</a>
+                            <a href="/login">[% h.loc('nav.signin') %]</a>
                         </li>
                     [% END %]
                 </ul>

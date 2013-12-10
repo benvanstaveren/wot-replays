@@ -33,7 +33,7 @@ $| = 1;
 my $j = JSON::XS->new;
 
 
-my $b = read_file(sprintf('../etc/res/raw/%s/vehicles/fix.json', $version));
+my $b = read_file(sprintf('../../etc/res/raw/%s/vehicles/fix.json', $version));
 my $langfix = $j->decode($b);
 
 sub fixed_ident {
@@ -45,7 +45,7 @@ sub fixed_ident {
 } 
 
 for my $country (qw/japan china france germany usa ussr uk/) {
-    my $f = sprintf('../etc/res/raw/%s/vehicles/%s.json', $version, $country);
+    my $f = sprintf('../../etc/res/raw/%s/vehicles/%s.json', $version, $country);
     print 'processing: ', $f, "\n";
     my $b = read_file($f);
     my $x = $j->decode($b);
@@ -83,6 +83,7 @@ for my $country (qw/japan china france germany usa ussr uk/) {
             $type = 'T';
         }
 
+        $data->{i18n} = $x->{$vid}->{userString};
         $data->{label} = $text->localize_for(lang => $cat, id => fixed_ident($ident));
         $data->{label_short} = $text->localize_for(lang => $cat, id => fixed_ident(sprintf('%s_short', $ident))) || $data->{label};
         $data->{_id} = sprintf('%s:%s', $country, $vid);

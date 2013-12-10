@@ -1,10 +1,13 @@
 package WR::App::Controller::Auto;
 use Mojo::Base 'WR::App::Controller';
+use Data::Localize;
+use Data::Localize::Gettext;
 
 sub index {
     my $self = shift;
 
     $self->stash('timing.start' => [ Time::HiRes::gettimeofday ]);
+
     if(my $notify = $self->session->{'notify'}) {
         delete($self->session->{'notify'});
         $self->stash(notify => $notify);
@@ -26,6 +29,14 @@ sub index {
             });
         }
     }
+
+    my $language = $self->session('lang');
+    $language ||= 'en';
+    my $langpath = $self->app->home->rel_dir(sprintf('lang/%s', $language));
+    $language = 'en' unless(-e $langpath);
+
+    my $localizer = Data::Localize::Gettext->new(path => sprintf('%s/*.po', $langpath));
+    $self->stash('i18n_localizer' => $localizer);
 
     return 1;
 }

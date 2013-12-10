@@ -704,6 +704,30 @@ sub add_helpers {
         }
         return 'unavailable';
     });
+
+    # i18n helpers 
+    $self->helper(loc => sub {
+        my $self = shift;
+        my $str  = shift;
+        my @args = (@_);
+        my $l    = 'site';
+
+        # find out if the string is a WoT style userString
+        if($str =~ /^#(.*?):(.*)/) {
+            $l   = $1;
+            $str = $2;
+        }
+
+        if(my $localizer = $self->stash('i18n_localizer')) {
+            if(my $xlat = $localizer->localize_for(lang => $l, id => $str, args => \@args)) {
+                return $xlat;
+            } else {
+                return $str;
+            }
+        } else {
+            return $str;
+        }
+    });
 }
 
 1;

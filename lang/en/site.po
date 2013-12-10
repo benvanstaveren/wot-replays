@@ -1,0 +1,102 @@
+# English language file for wotreplays.org
+
+# navbar elements
+msgid "nav.home"
+msgstr "Home"
+
+msgid "nav.browse"
+msgstr "Browse"
+
+msgid "nav.upload"
+msgstr "Upload Replay"
+
+msgid "nav.signin"
+msgstr "Sign In"
+
+msgid "nav.tools"
+msgstr "Tools"
+
+msgid "nav.tools.blog"
+msgstr "Blog"
+
+msgid "nav.tools.issuetracker"
+msgstr "Issue Tracker"
+
+msgid "nav.tools.wiki"
+msgstr "Wiki"
+
+msgid "nav.profile.header"
+msgstr "Your Profile"
+
+msgid "nav.profile.replays"
+msgstr "Replays"
+
+msgid "nav.profile.uploads"
+msgstr "Uploads"
+
+msgid "nav.profile.settings"
+msgstr "Settings"
+
+msgid "nav.profile.signout"
+msgstr "Sign Out"
+
+# various sidebar elements
+msgid "sidebar.donate.header"
+msgstr "Donate"
+
+msgid "sidebar.donate.text"
+msgstr "As the site gets more popular every day, it also costs me a lot more to run it. Nearly 10.000 page views every day means the hardware expense is getting bigger and bigger. If you use the site and you think it's worth it, please donate your spare change. Please see the <a href=\"/donate\">why donate page</a> for more info."
+
+msgid "sidebar.status.header"
+msgstr "Status"
+
+msgid "sidebar.status.pending"
+msgstr "pending processing"
+
+msgid "sidebar.status.datasize"
+msgstr "data size"
+
+msgid "sidebar.status.indexsize"
+msgstr "index size"
+
+msgid "sidebar.status.diskusage"
+msgstr "disk usage"
+
+
+# index elements
+msgid "index.page.title" 
+msgstr "Home"
+
+msgid "index.page.header"
+msgstr "Newest Replays"
+
+# misc. button bits
+msgid "button.like.text"
+msgstr "Like"
+
+msgid "button.like.title"
+msgstr "Like this replay"
+
+msgid "button.save.text"
+msgstr "Save"
+
+msgid "button.save.title"
+msgstr "Download this replay"
+
+msgid "button.view.text"
+msgstr "View"
+
+msgid "button.view.title"
+msgstr "View this replay"
+
+msgid "button.embed.text"
+msgstr "Embed"
+
+msgid "button.embed.title"
+msgstr "Generate UBB code to embed this replay on a forum"
+
+msgid "button.battleviewer.text"
+msgstr "Battle Viewer"
+
+msgid "button.battleviewer.title"
+msgstr "Replay this battle on a virtual mini-map"
