@@ -13,11 +13,11 @@ msgstr "Upload Replay"
 msgid "nav.signin"
 msgstr "Sign In"
 
+msgid "nav.blog"
+msgstr "News and Updates"
+
 msgid "nav.tools"
 msgstr "Tools"
-
-msgid "nav.tools.blog"
-msgstr "Blog"
 
 msgid "nav.tools.issuetracker"
 msgstr "Issue Tracker"
