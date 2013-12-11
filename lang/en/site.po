@@ -40,6 +40,13 @@ msgstr "Settings"
 msgid "nav.profile.signout"
 msgstr "Sign Out"
 
+# footer bits
+msgid "page.footer.credits"
+msgstr "additional credits"
+
+msgid "page.footer.about"
+msgstr "about the site"
+
 # various sidebar elements
 msgid "sidebar.donate.header"
 msgstr "Donate"
@@ -100,3 +107,10 @@ msgstr "Battle Viewer"
 
 msgid "button.battleviewer.title"
 msgstr "Replay this battle on a virtual mini-map"
+
+# generic tooltip texts
+msgid "tooltip.wn7.overall"
+msgstr "Player overall WN7"
+
+msgid "tooltip.wn7.battle"
+msgstr "Player WN7 for this battle only"

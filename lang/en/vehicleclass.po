@@ -1,0 +1,14 @@
+msgid "L"
+msgstr "Light Tank"
+
+msgid "M"
+msgstr "Medium Tank"
+
+msgid "H"
+msgstr "Heavy Tank"
+
+msgid "T"
+msgstr "Tank Destroyer"
+
+msgid "S"
+msgstr "SPG"

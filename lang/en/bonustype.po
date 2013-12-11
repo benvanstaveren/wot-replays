@@ -1,0 +1,41 @@
+msgid "1"
+msgstr "Random Battle"
+
+msgid "1/short"
+msgstr "Random"
+
+msgid "2"
+msgstr "Training Room Battle"
+
+msgid "2/short"
+msgstr "Training"
+
+msgid "3"
+msgstr "Company Battle"
+
+msgid "3/short"
+msgstr "Company"
+
+msgid "4"
+msgstr "Tournament Battle"
+
+msgid "4/short"
+msgstr "Tournament"
+
+msgid "5"
+msgstr "Clan Battle"
+
+msgid "5/short"
+msgstr "Clan"
+
+msgid "6"
+msgstr "Tutorial Battle"
+
+msgid "6/short"
+msgstr "Tutorial"
+
+msgid "7"
+msgstr "Team Battle"
+
+msgid "7/short"
+msgstr "Team"

@@ -2,30 +2,30 @@
     <tbody>
         <tr>
             <td style="width: 16%">
-                <h6 style="padding: 0px; margin: 5px 0px 0px 0px">result:</h6>
+                <h6 style="padding: 0px; margin: 5px 0px 0px 0px">[% h.loc('#panel:result.heading') %]:</h6>
             </td>
             <td style="width: 16%">
                 <span class="value fw">
                     [% IF replay.panel.winner == 0 %]
-                        draw
+                        [% h.loc('#panel:result.draw') %]
                     [% ELSIF replay.panel.team == replay.panel.winner %]
-                        <span class="green">victory</span>
+                        <span class="green">[% h.loc('#panel:result.victory') %]</span>
                     [% ELSE %]
-                        <span class="red">defeat</span>
+                        <span class="red">[% h.loc('#panel:result.defeat') %]</span>
                     [% END %]
                 </span>
             </td>
             <td style="width: 16%">
-                <h6 style="padding: 0px; margin: 5px 0px 0px 0px">xp:</h6>
+                <h6 style="padding: 0px; margin: 5px 0px 0px 0px">[% h.loc('#panel:xp.heading') %]:</h6>
             </td>
             <td  style="width: 16%">
-                <span data-toggle="tooltip" data-placement="auto" title="Earned [% replay.panel.xp || '0' %] xp including premium and multiplier bonuses" class="bs-tooltip value fw">[% replay.panel.xp || '0' |truncate(5) %] [% IF replay.panel.multiplier > 1 %](x[% replay.panel.multiplier %])[% END %]</span>
+                <span data-toggle="tooltip" data-placement="auto" title="[% h.loc('#panel:xp.tooltip', replay.panel.xp) %]" class="bs-tooltip value fw">[% replay.panel.xp || '0' |truncate(5) %] [% IF replay.panel.multiplier > 1 %](x[% replay.panel.multiplier %])[% END %]</span>
             </td>
             <td style="width: 16%">
-                <h6 style="padding: 0px; margin: 5px 0px 0px 0px">credits:</h6>
+                <h6 style="padding: 0px; margin: 5px 0px 0px 0px">[% h.loc('#panel:credits.heading') %]:</h6>
             </td>
             <td style="width: 16%">
-                <span class="bs-tooltip value fw" data-placement="auto" data-toggle="tooltip" title="Earned [% replay.panel.credits %] credits including premium and other bonuses" >[% replay.panel.credits || '0' |truncate(5)%]</span>
+                <span class="bs-tooltip value fw" data-placement="auto" data-toggle="tooltip" title="[% h.loc('#panel:credits.tooltip', replay.panel.credits) %]" >[% replay.panel.credits || '0' |truncate(5)%]</span>
             </td>
         </tr>
         <tr>

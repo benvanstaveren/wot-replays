@@ -706,11 +706,27 @@ sub add_helpers {
     });
 
     # i18n helpers 
+    $self->helper(loc_short => sub {
+        my $self = shift;
+        my $str  = shift;
+
+        # append /short to the string
+        return $self->loc(sprintf('%s/short', $str), @_);
+    });
+
+    $self->helper(loc_desc => sub {
+        my $self = shift;
+        my $str  = shift;
+
+        # append /desc to the string
+        return $self->loc(sprintf('%s/desc', $str), @_);
+    });
+
     $self->helper(loc => sub {
         my $self = shift;
         my $str  = shift;
         my @args = (@_);
-        my $l    = 'site';
+        my $l    = 'site';  # default localizer "language"
 
         # find out if the string is a WoT style userString
         if($str =~ /^#(.*?):(.*)/) {
