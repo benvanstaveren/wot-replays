@@ -7,7 +7,6 @@
             [% INCLUDE replay/list.html.tt %]
         </div>
         <div class="col-lg-3 col-md-3">
-            [% INCLUDE sidebar/alert.html.tt %]
             [% INCLUDE sidebar/home.html.tt %]
         </div>
     </div>

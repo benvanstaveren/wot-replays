@@ -30,9 +30,9 @@
         [% IF pageid == 'battleviewer' %]
             <script type="text/javascript" src="[% config.urls.static %]/js/battleviewer.js"></script>
         [% END %]
-	    [% IF notify.defined %]
-	        <script type="text/javascript">
-                $(document).ready(function() {
+	    <script type="text/javascript">
+            $(document).ready(function() {
+	            [% IF notify.defined %]
                     var notifyOpts = { 
                         type: '[% IF notify.type == 'error' %]danger[% ELSE %]info[% END %]',
                         allow_dismiss: [% IF notify.close %]true[% ELSE %]false[% END %],
@@ -41,8 +41,15 @@
                     });
                     $.bootstrapGrowl('[% notify.text |js %]', notifyOpts);
                 });
-	        </script>
-	    [% END %]
+	            [% END %]
+                [% IF hint.defined %]
+                    $('#hintModal').modal({
+                        backdrop: 'static',
+                        keyboard: false,
+                    });
+                [% END %]
+            });
+        </script>
     </head>
     <body>
         <div class="navbar navbar-default navbar-shadow">
@@ -90,6 +97,20 @@
             <div id="contentMain">[% content %]</div>
             <div class="clearfix" style="text-align: center; margin: 40px 0px 10px 0px">&copy; 2012, 2013 Scrambled | default/[% config.versions.app %]/[% config.wot.version %] | <a style="display: inline; text-decoration: underline; padding: 0px" href="/about">about & faq</a> / <a style="display: inline; text-decoration: underline; padding: 0px" href="/credits.html">additional credits</a> | t: <span id="timing_elapsed">[% timing_elapsed || '-' %]</span> [% IF timing_query.defined %]q: <span id="timing_query">[% timing_query %]</span>[% END %]</div>
         </div>
+        [% IF hint.defined %]
+            <div class="modal fade" id="hintModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">[% hint.title %]</h4>
+                        </div>
+                        <div class="modal-body">
+                            [% hint.text %]
+                        </div>
+                    </div>
+                </div>
+            </div>
+        [% END %]
         <!-- Piwik -->
         <script type="text/javascript"> 
             var _paq = _paq || [];
