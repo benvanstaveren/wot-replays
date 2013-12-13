@@ -1049,6 +1049,24 @@ span.equipment-icon {
   height: 24px;
   display: inline-block;
   border: #444444 1px solid; }
+span.mission-icon {
+  width: 32px;
+  height: 32px;
+  display: inline-block;
+  border: #444444 1px solid; }
+  span.mission-icon b {
+    width: 16px;
+    height: 16px;
+    border: #444444 1px solid;
+    display: inline-block;
+    text-align: center;
+    font-weight: normal;
+    font-size: 0.75em;
+    color: #fff;
+    background: rgba(34, 34, 34, 0.5) none repeat scroll 0 0;
+    position: relative;
+    top: 15px;
+    left: 16px; }
 span.equipment-name {
   position: relative;
   top: -7px;

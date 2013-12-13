@@ -7,6 +7,7 @@ use File::Slurp qw/read_file/;
 use Time::HiRes qw/gettimeofday tv_interval/;
 use JSON::XS;
 use Text::CSV_XS;
+use WR::Mission;
 
 sub load_replay {
     my $self = shift;
@@ -61,6 +62,30 @@ sub incview {
     } => sub {
         $self->render(json => { ok => 1 });
     });
+}
+
+sub generate_mission_panel {
+    my $self    = shift;
+    my $replay  = shift;
+    my $cb      = shift;
+    my $mission_panel = [];
+
+    my $delay   = Mojo::IOLoop->delay(sub {
+        $cb->($mission_panel);
+    });
+        
+    foreach my $mission_id (sort(keys(%{$replay->{stats}->{questsProgress}}))) {
+        my $end = $delay->begin;
+        $self->model('statterbox.missions')->find_one({ _id => $mission_id } => sub {
+            my ($coll, $err, $doc) = (@_);
+
+            if(defined($doc)) {
+                my $mission = WR::Mission->new(mission => $doc, result => $replay->{stats}->{questsProgress}->{$mission_id});
+                push(@$mission_panel, $mission); # if($mission->is_awarded); 
+            }
+            $end->();
+        });
+    }
 }
 
 sub get_comparison {
@@ -295,22 +320,30 @@ sub actual_view_replay {
         '$inc' => { 'site.views' => 1 },
     } => sub {
         $replay->{site}->{views} += 1; 
-        $self->respond(
-            stash => {
-                pageid => 'browse', # really? yah really
-                replay => $replay,
-                page   => {
-                    title => $title,
-                    description => $description,
-                },
-                other_awards => $other_awards,
-                platoons => $pl_members,
-                hashbucket => $self->hashbucket($replay->{_id} . ''), # easier to handle some things 
-                include_battleviewer => 1,
-                timing_view => tv_interval($start, [ gettimeofday ]),
-            }, 
-            template => 'replay/view/index',
-        );
+
+        # generate the mission panel
+        $self->generate_mission_panel($replay => sub {
+            my $mission_panel = shift;
+
+            $replay->{mission_panel} = $mission_panel;
+
+            $self->respond(
+                stash => {
+                    pageid => 'browse', # really? yah really
+                    replay => $replay,
+                    page   => {
+                        title => $title,
+                        description => $description,
+                    },
+                    other_awards => $other_awards,
+                    platoons => $pl_members,
+                    hashbucket => $self->hashbucket($replay->{_id} . ''), # easier to handle some things 
+                    include_battleviewer => 1,
+                    timing_view => tv_interval($start, [ gettimeofday ]),
+                }, 
+                template => 'replay/view/index',
+            );
+        });
     });
 }
 

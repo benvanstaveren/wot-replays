@@ -1,10 +1,60 @@
 <h4>Missions</h4>
-<table class="table table-bordered table-striped">
-    <tbody>
-        [% FOREACH mission IN replay.stats.questsProgress.keys %]
-            <tr>
-                <td>[% mission %]</td>
-            </tr>
-        [% END %]
-    </tbody>
-</table>
+[% IF replay.mission_panel.defined %]
+    <table class="table table-bordered table-striped">
+        <thead><th colspan="2">Completed Missions</th></thead>
+        <tbody>
+            [% FOREACH entry IN replay.mission_panel %]
+                [% IF entry.is_awarded %]
+                    <tr>
+                        <td style="vertical-align: top"><h5>[% entry.name %]<br/><small>[% entry.desc %]</small></h5></td>
+                        <td style="width: 25%; vertical-align: middle; text-align: center">
+                            [% FOREACH bonustype IN entry.bonuses.keys %]
+                                [% IF bonustype == 'items' %]
+                                    [% FOREACH item IN entry.bonuses.$bonustype %]
+                                        [% h.generate_item_icon_with_count(item) %]
+                                    [% END %]
+                                [% ELSE %]
+                                    [% IF bonustype == 'xpFactor' %]
+                                        [% entry.bonuses.$bonustype %]x xp
+                                    [% ELSIF bonustype == 'creditsFactor' %]
+                                        [% entry.bonuses.$bonustype %]x credits
+                                    [% ELSIF bonustype == 'credits' %]
+                                        [% entry.bonuses.$bonustype %] credits
+                                    [% ELSE %]
+                                        [% bonustype %] -> [% entry.bonuses.$bonustype %]
+                                    [% END %]
+                                [% END %]
+                            [% END %]
+                        </td>
+                    </tr>
+                [% END %]
+            [% END %]
+        </tbody>
+    </table>
+    [% IF 1 == 0 %]
+    <!-- temporarily removed
+    <table class="table table-bordered table-striped">
+        <thead><th colspan="2">In Progress</th></thead>
+        <tbody>
+            [% FOREACH entry IN replay.mission_panel %]
+                [% IF !entry.is_awarded %]
+                    <tr>
+                        <td style="vertical-align: top"><h5>[% entry.name %]<br/><small>[% entry.desc %]</small></h5></td>
+                        <td style="width: 25%; vertical-align: middle; text-align: center">
+                            [% IF entry.progression_key.defined %]
+                                [% entry.progress_current %] / [% entry.progress_max %]
+                            [% ELSE %]
+                                Oops, don't know how to handle this condition
+                            [% END %]
+                        </td>
+                    </tr>
+                [% END %]
+            [% END %]
+        </tbody>
+    </table>
+    [% END %]
+[% ELSE %]
+<div>
+    <p>Either no missions are active, or we haven't got the mission details in our database. Want to help out with that? Send Scrambled a PM on the WoT forum (EU/NA/Asia)</p>
+</div>
+[% END %]

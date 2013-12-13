@@ -6,7 +6,7 @@ use WR::Res;
 use WR::Util::CritDetails;
 use WR::Provider::ServerFinder;
 use WR::Constants qw/nation_id_to_name/;
-use WR::Util::TypeComp qw/parse_int_compact_descr/;
+use WR::Util::TypeComp qw/parse_int_compact_descr type_id_to_name/;
 use Data::Dumper;
 
 use constant ROMAN_NUMERALS => [qw(0 I II III IV V VI VII VIII IX X)];
@@ -57,6 +57,23 @@ sub add_helpers {
         my $server = shift;
 
         return ($server eq 'sea') ? 'asia' : $server;
+    });
+
+    $self->helper(generate_item_icon_with_count => sub {
+        my $self = shift;
+        my $i    = shift;
+        my $tc   = parse_int_compact_descr($i->{item});
+
+        my $type    = type_id_to_name($tc->{type_id});
+        my $model   = ($type eq 'equipment') ? 'wot-replays.data.consumables' : 'wot-replays.data.equipment'; 
+        my $path    = ($type eq 'equipment') ? 'consumables' : 'equipment';
+
+        # the typecomp is the ID of the item 
+        if(my $c = $self->model('wot-replays.data.consumables')->find_one({ wot_id => $tc->{id} })) {
+            return sprintf('<span data-placement="bottom" data-toggle="tooltip" title="%s x%d" class="bs-tooltip mission-icon rounded" style="background: transparent url(http://images.wotreplays.org/%s/32x32/%s) no-repeat scroll 0 0"><b>%d</b></span>', $c->{label}, $i->{count}, $path, $c->{icon}, $i->{count});
+        } else {
+            return undef;
+        }
     });
 
     $self->helper(browse_page => sub {
