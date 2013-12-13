@@ -13,6 +13,12 @@ msgstr "Upload Replay"
 msgid "nav.signin"
 msgstr "Sign In"
 
+msgid "nav.maps"
+msgstr "Maps"
+
+msgid "nav.vehicles"
+msgstr "Vehicles"
+
 msgid "nav.blog"
 msgstr "News and Updates"
 
