@@ -83,10 +83,12 @@ sub add_helpers {
         my $f = $self->stash('browse_filter_raw');
         $f->{p} = $p;
 
-        if($self->stash('page_id') eq 'vehicle') {
+        if($self->stash('pageid') eq 'vehicle') {
             delete($f->{$_}) for(qw/vehicle tier_min tier_max/);
-        } elsif($self->stash('page_id') eq 'map') {
+        } elsif($self->stash('pageid') eq 'map') {
             delete($f->{$_}) for(qw/map/);
+        } elsif($self->stash('pageid') eq 'player') {
+            delete($f->{$_}) for(qw/tplayer player/);
         }
 
         my @a = ();
