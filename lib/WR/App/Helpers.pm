@@ -8,6 +8,7 @@ use WR::Provider::ServerFinder;
 use WR::Constants qw/nation_id_to_name/;
 use WR::Util::TypeComp qw/parse_int_compact_descr type_id_to_name/;
 use Data::Dumper;
+use DateTime;
 
 use constant ROMAN_NUMERALS => [qw(0 I II III IV V VI VII VIII IX X)];
 
@@ -57,6 +58,23 @@ sub add_helpers {
         my $server = shift;
 
         return ($server eq 'sea') ? 'asia' : $server;
+    });
+
+    $self->helper(strftime => sub {
+        my $self = shift;
+        my $fmt  = shift;
+        my $time = shift;
+
+        my $dt = DateTime->from_epoch(epoch => $time / 1000, time_zone => 'UTC');
+        return $dt->strftime($fmt);
+    });
+
+    $self->helper(basename => sub {
+        my $self = shift;
+        my $n    = shift;
+        my @a    = split(/\//, $n);
+
+        return pop(@a);
     });
 
     $self->helper(generate_item_icon_with_count => sub {

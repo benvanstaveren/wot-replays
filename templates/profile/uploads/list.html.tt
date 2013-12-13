@@ -2,6 +2,11 @@
     <div class="row">
         <div class="col-lg-12 col-md-12">
             <table class="table table-bordered table-striped">
+            <colgroup>
+                <col style="width: 20%"/>
+                <col style="width: 40%"/>
+                <col style="width: 40%"/>
+            </colgroup>
             <thead>
                 <tr>
                     <th>Upload Date</th>
@@ -13,17 +18,23 @@
                 [% FOREACH upload IN uploads %]
                     <tr>
                         <td>
-                            date
+                            [% h.strftime('%d/%m/%Y %H:%M:%S', upload.ctime) %] UTC
                         </td>
                         <td>
-                            file
+                            [% h.basename(upload.data.file_base) %]
                         </td>
                         <td>
                             [% IF upload.complete %]
                                 [% IF upload.status == 1 %]
-                                    OK
+                                    <div class="well well-sm">
+                                        PROCESSED OK<br/>
+                                        <a href="[% config.urls.app %]/replay/[% upload.replayid %].html">replay page</a> | <a href="[% config.urls.replays %]/[% upload.data.file_base %]">replay file</a>
+                                    </div>
                                 [% ELSE %]
-                                    ERROR
+                                    <div class="alert well-sm alert-danger">
+                                        PROCESS ERROR<br/>
+                                        [% upload.error %]
+                                    </div>
                                 [% END %]
                             [% ELSE %]
                                 [% IF upload.ready && !upload.locked %]
