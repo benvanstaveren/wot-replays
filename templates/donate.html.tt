@@ -2,16 +2,19 @@
     <h3>Why Donate?</h3>
     <div class="well well-lg">
         <p class="lead">
-            wotreplays.org gets about 10.000 pageviews on a daily basis, not counting any direct replay downloads
+            wotreplays.org gets about 10.000 pageviews on a daily basis, not counting any direct replay downloads. 
         </p>
         <p>
             Running any sort of website costs money, that's something I think we can all agree on. However, running a site such as this costs a lot more than your average old blog or personal page. Besides having to be able to deal with the traffic, there is also the requirement for storage, and memory to make sure the database doesn't get slow. 
         </p>
         <p>
-            The site currently runs on a dedicated server, an i7-920 with 24Gb of memory, and RAID1 750Gb SATA disks. This server costs <b>&euro; 79.00</b> every month. This, however, is something I've always paid out of my own pocket because I don't have a problem with doing it. Then there is the time I spend on the site, it may often not look like it, but at least 10 to 20 hours a week go into maintenance, adding new features, handling issues, and basically making sure everything runs the way it should. This is where you can make a big difference.
+            The site currently runs on a dedicated server, an i7-920 with 24Gb of memory, and RAID1 750Gb SATA disks. This server costs <b>&euro; 60.00</b> every month. Currently, I'm paying this out of my own pocket because hey, it's a hobby, and hobbies are allowed to cost money. However, it's starting to cost more and more. Not just in the server cost department, but also the time I spend on maintaining and improving the site. Unfortunately my "hobby time" is limited due to the need to pay my bills, for which I need to do "real" paying work. 
         </p>
         <p>
-            Donations aren't mandatory, but seeing one show up does motivate me to work on the site more; it also means I can "afford" to work on it, since it means I can spend less time on my freelancing dayjob (the job that pays the bills), and more time working on this project. So if you feel like it and you have the chance, please donate your spare change; it's very much appreciated.
+            Donations allow me to justify spending more time on the site, not only that, they help pay the server bill which indirectly has the same result; more time spent working on the site. Besides that, seeing a donation come in is a great motivation to continue the project. 
+        </p>
+        <p>
+            So if you can, please donate. Any amount is welcome!
         </p>
         <p>
             [% INCLUDE donatebutton.html.tt %]
