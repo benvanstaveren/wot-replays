@@ -15,13 +15,13 @@
                                     [% END %]
                                 [% ELSE %]
                                     [% IF bonustype == 'xpFactor' %]
-                                        [% entry.bonuses.$bonustype %]x xp
+                                        [% entry.bonuses.$bonustype %]x xp<br/>
                                     [% ELSIF bonustype == 'creditsFactor' %]
-                                        [% entry.bonuses.$bonustype %]x credits
+                                        [% entry.bonuses.$bonustype %]x credits<br/>
                                     [% ELSIF bonustype == 'credits' %]
-                                        [% entry.bonuses.$bonustype %] credits
+                                        [% entry.bonuses.$bonustype %] credits<br/>
                                     [% ELSE %]
-                                        [% bonustype %] -> [% entry.bonuses.$bonustype %]
+                                        [% bonustype %] -> [% entry.bonuses.$bonustype %]<br/>
                                     [% END %]
                                 [% END %]
                             [% END %]
