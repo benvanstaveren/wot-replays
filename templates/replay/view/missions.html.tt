@@ -20,8 +20,10 @@
                                         [% entry.bonuses.$bonustype %]x credits<br/>
                                     [% ELSIF bonustype == 'credits' %]
                                         [% entry.bonuses.$bonustype %] credits<br/>
+                                    [% ELSIF bonustype == 'tankmenXPFactor' %]
+                                        [% entry.bonuses.$bonustype %]x crew xp<br/>
                                     [% ELSE %]
-                                        [% bonustype %] -> [% entry.bonuses.$bonustype %]<br/>
+                                        (unknown bonus type [% bonustype %]) [% entry.bonuses.$bonustype %]<br/>
                                     [% END %]
                                 [% END %]
                             [% END %]
