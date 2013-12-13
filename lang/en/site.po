@@ -60,6 +60,9 @@ msgstr "Donate"
 msgid "sidebar.donate.text"
 msgstr "As the site gets more popular every day, it also costs me a lot more to run it. Nearly 10.000 page views every day means the hardware expense is getting bigger and bigger. If you use the site and you think it's worth it, please donate your spare change. Please see the <a href=\"/donate\">why donate page</a> for more info."
 
+msgid "sidebar.donate.goal.text"
+msgstr "I've set a monthly goal of $60 in donations, this will pay for the server costs, and allow me to spend more time working on the site."
+
 msgid "sidebar.status.header"
 msgstr "Status"
 

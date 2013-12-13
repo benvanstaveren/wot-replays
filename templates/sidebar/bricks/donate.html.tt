@@ -1,8 +1,19 @@
 <div class="row">
     <div class="col-lg-12 col-md-12">
         <h4>[% h.loc('sidebar.donate.header') %]</h4>
-        <div class="alert alert-info">
-            [% h.loc('sidebar.donate.text') %]
+        <div class="well well-sm">
+            <p>[% h.loc('sidebar.donate.text') %]</p>
+            <p>[% h.loc('sidebar.donate.goal.text') %]</p>
+            <p>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-success" style="width: 50%">
+                        <span>$30.00/$60.00</span> 
+                    </div>
+                </div>
+            </p>
+            <p>
+                [% INCLUDE donatebutton.html.tt %]
+            </p>
         </div>
     </div>
 </div>
