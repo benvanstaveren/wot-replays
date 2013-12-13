@@ -17,17 +17,28 @@
             </div>
         </div>
         <div class="col-lg-9 col-md-9">
-            <p class="lead" style="margin-bottom: 5px">
-                    <a data-placement="auto" data-toggle="tooltip" class="bs-tooltip [% IF h.get_replay_stats(replay, 'isPremium') %]premium" style="background-position: center left;"[% END %] href="/player/[% replay.game.server %]/[% replay.game.recorder.name |uri %]/" title="[% replay.game.recorder.name |html %] [% IF h.get_replay_stats(replay, 'isPremium') %](Premium)[% END %]">[% replay.game.recorder.name |truncate(15) |html %]</a> - <a href="/vehicle/[% h.vehicle_link(h.get_recorder_vehicle(replay).vehicle.ident) %]/" data-placement="auto" data-toggle="tooltip" class="bs-tooltip" title="[% h.get_recorder_vehicle(replay).vehicle.label |html %]">[% h.get_recorder_vehicle(replay).vehicle.label_short |html %]</a> - <a href="/map/[% h.map_slug(replay) |uri %]/">[% h.map_name(replay) |html %]</a> ([% h.bonus_type_name(replay.game.bonus_type) %] [% h.game_type_name(replay.game.type) %])</a>
-            </p>
-            <h4 style="padding: 0px; margin: 0px 0px 5px 0px">
-                    <span style="font-weight: normal">Result:</span><span>[% INCLUDE replay/view/matchresult.html.tt %]</span> <span style="margin: 0px 0px 0px 10px; font-weight: normal">Survived:</span><span> [% INCLUDE replay/view/vehicle_stats/survived.html.tt %]</span>
-            </h4>
-            <div class="btn-group btn-group-justified">
-                <a class="bs-tooltip btn btn-default btn-like-replay" href="[% h.get_id(replay) %]" data-toggle="tooltip" data-container="body" data-placement="bottom" title="Like this replay"><span class="badge">[% replay.site.like || '0' %]</span> Like</a>
-                <a class="bs-tooltip btn btn-default btn-save-replay" data-placement="bottom" data-toggle="tooltip" data-container="body" title="Download this replay" href="[% config.urls.replays %]/[% replay.file %]"><span class="badge">[% replay.site.downloads || '0' %]</span> Save</a>
-                <a class="bs-tooltip btn btn-default btn-embed-replay [% IF !replay.site.banner.available %]disabled[% END %]" data-placement="bottom" data-toggle="tooltip" data-container="body" href="[% h.get_id(replay) %]" title="Embed this replay">Embed</a>
-                <a class="bs-tooltip btn btn-default btn-battleviewer [% IF !replay.packets.defined %]disabled[% END %]" data-placement="bottom" data-toggle="tooltip" data-container="body"  title="Battleviewer" href="/battleviewer/[% h.get_id(replay) %].html">Battle Viewer</a>
+            <div class="row">
+                <div class="col-lg-8 col-md-8">
+                    <p class="lead" style="margin-bottom: 5px">
+                            <a data-placement="auto" data-toggle="tooltip" class="bs-tooltip [% IF h.get_replay_stats(replay, 'isPremium') %]premium" style="background-position: center left;"[% END %] href="/player/[% replay.game.server %]/[% replay.game.recorder.name |uri %]/" title="[% replay.game.recorder.name |html %] [% IF h.get_replay_stats(replay, 'isPremium') %](Premium)[% END %]">[% replay.game.recorder.name |truncate(15) |html %]</a> - <a href="/vehicle/[% h.vehicle_link(h.get_recorder_vehicle(replay).vehicle.ident) %]/" data-placement="auto" data-toggle="tooltip" class="bs-tooltip" title="[% h.get_recorder_vehicle(replay).vehicle.label |html %]">[% h.get_recorder_vehicle(replay).vehicle.label_short |html %]</a> - <a href="/map/[% h.map_slug(replay) |uri %]/">[% h.map_name(replay) |html %]</a> 
+                    </p>
+                </div>
+                <div class="col-lg-4 col-md-4 text-right">
+                    <p class="lead text-right" style="margin-bottom: 5px">([% h.loc('#bonustype:' _ replay.game.bonus_type) %], [% h.loc('#gametype:' _ replay.game.type) %])</a></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <h4 style="padding: 0px; margin: 0px 0px 5px 0px">
+                            <span style="font-weight: normal">Result:</span><span>[% INCLUDE replay/view/matchresult.html.tt %]</span> <span style="margin: 0px 0px 0px 10px; font-weight: normal">Survived:</span><span> [% INCLUDE replay/view/vehicle_stats/survived.html.tt %]</span>
+                    </h4>
+                    <div class="btn-group btn-group-justified">
+                        <a class="bs-tooltip btn btn-default btn-like-replay" href="[% h.get_id(replay) %]" data-toggle="tooltip" data-container="body" data-placement="bottom" title="Like this replay"><span class="badge">[% replay.site.like || '0' %]</span> Like</a>
+                        <a class="bs-tooltip btn btn-default btn-save-replay" data-placement="bottom" data-toggle="tooltip" data-container="body" title="Download this replay" href="[% config.urls.replays %]/[% replay.file %]"><span class="badge">[% replay.site.downloads || '0' %]</span> Save</a>
+                        <a class="bs-tooltip btn btn-default btn-embed-replay [% IF !replay.site.banner.available %]disabled[% END %]" data-placement="bottom" data-toggle="tooltip" data-container="body" href="[% h.get_id(replay) %]" title="Embed this replay">Embed</a>
+                        <a class="bs-tooltip btn btn-default btn-battleviewer [% IF !replay.packets.defined %]disabled[% END %]" data-placement="bottom" data-toggle="tooltip" data-container="body"  title="Battleviewer" href="/battleviewer/[% h.get_id(replay) %].html">Battle Viewer</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -78,9 +78,9 @@
                     <h5>Match Mode</h5>
                     <select name="matchmode" class="form-control">
                         <option value="*">-- All modes</option>
-                        <option value="ctf">CTF</option>
-                        <option value="domination">Encounter</option>
-                        <option value="assault">Assault</option>
+                        <option value="ctf">[% h.loc('#gametype:ctf') %]</option>
+                        <option value="domination">[% h.loc('#gametype:domination') %]</option>
+                        <option value="assault">[% h.loc('#gametype:assault') %]</option>
                     </select>
                 </div>
             </div>
@@ -89,11 +89,13 @@
                     <h5>Match Type</h5>
                     <select name="matchtype" class="form-control">
                         <option value="*">-- All types</option>
-                        <option value="1">Random Battle</option>
-                        <option value="2">Training Room Battle</option>
-                        <option value="3">Company Battle</option>
-                        <option value="4">Tournament Battle</option>
-                        <option value="5">Clan Battle</option>
+                        <option value="1">[% h.loc('#bonustype:1') %]</option>
+                        <option value="2">[% h.loc('#bonustype:2') %]</option>
+                        <option value="3">[% h.loc('#bonustype:3') %]</option>
+                        <option value="4">[% h.loc('#bonustype:4') %]</option>
+                        <option value="5">[% h.loc('#bonustype:5') %]</option>
+                        <option value="6">[% h.loc('#bonustype:6') %]</option>
+                        <option value="7">[% h.loc('#bonustype:7') %]</option>
                     </select>
                 </div>
             </div>
