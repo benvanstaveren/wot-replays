@@ -63,7 +63,19 @@
             <div class="navbar-collapse collapse" id="navbar-main">
                 <ul class="nav navbar-nav">
                     <li class="[% IF pageid == 'home' %]active[% END %]"><a  href="/">[% h.loc('nav.home') %]</a></li>
-                    <li class=" [% IF pageid == 'browse' %]active[% END %]"><a class="js-hover" href="/browse">[% h.loc('nav.browse') %]</a></li>
+                    <li class="[% IF pageid == 'browse' %]active[% END %]"><a href="/browse">[% h.loc('nav.browse') %]</a></li>
+                    <li class="[% IF pageid == 'map' %]active[% END %]"><a href="/maps/">[% h.loc('nav.maps') %]</a></li>
+                    <li class="dropdown [% IF pageid == 'vehicle' %]active[% END %]"><a class="dropdown-toggle" data-toggle="dropdown" href="/vehicles/">[% h.loc('nav.vehicles') %] <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/vehicles/china">China</a></li>
+                            <li><a href="/vehicles/france">France</a></li>
+                            <li><a href="/vehicles/germany">Germany</a></li>
+                            <li><a href="/vehicles/japan">Japan</a></li>
+                            <li><a href="/vehicles/uk">United Kingdom</a></li>
+                            <li><a href="/vehicles/usa">USA</a></li>
+                            <li><a href="/vehicles/ussr">USSR</a></li>
+                        </ul>
+                    </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="[% IF pageid == 'blog' %]active[% END %]"><a href="http://blog.wotreplays.org/">[% h.loc('nav.blog') %]</a></li>
