@@ -13,8 +13,9 @@ use File::Slurp qw/read_file/;
 use Data::Dumper;
 
 die 'Usage: mongo-maps.pl <path to arena defs> <path to arenas.po>', "\n" unless($ARGV[1]);
-my $arena_defs = $ARGV[0];
-my $arena_po   = $ARGV[1];
+my $arena_defs = shift(@ARGV);
+my $arena_po   = shift(@ARGV);
+my @maps       = (@ARGV);
 
 my $text = Data::Localize::Gettext->new(path => $arena_po);
 
@@ -93,6 +94,8 @@ foreach my $raw (@{$list->{map}}) {
         width_height => [ $width, $height ],
     };
 
+    die Dumper($map_data), Dumper($map);
+
     $coll->save($map);
 }
 
@@ -115,6 +118,7 @@ sub make_map_base {
         label           => $name,
         slug            => $slug,
         icon            => lc(sprintf('%s.png', $map->{name})),
+        i18n            => sprintf('#arenas:%s/name', $map->{name}),
         attributes      => {},
     };
     return $data;

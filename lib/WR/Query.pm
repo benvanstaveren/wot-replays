@@ -81,6 +81,7 @@ sub page {
             $cursor->fields({
                 panel => 1,
                 site  => 1,
+                file  => 1,
             });
         }
 

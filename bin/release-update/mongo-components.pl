@@ -5,17 +5,16 @@ use JSON::XS;
 use Data::Localize;
 use Data::Localize::Gettext;
 use File::Slurp qw/read_file/;
-use MongoDB;
-use boolean;
+use Mango;
 
 die 'Usage: mongo-components.pl <version>', "\n" unless($ARGV[0]);
 my $version = $ARGV[0];
 
 my $text = Data::Localize::Gettext->new(path => sprintf('../etc/res/raw/%s/lang/*_vehicles.po', $version));
 
-my $mongo  = MongoDB::Connection->new(host => $ENV{'MONGO'} || 'localhost');
-my $db     = $mongo->get_database('wot-replays');
-my $coll   = $db->get_collection('data.components');
+my $mango  = Mango->new('mongodb://localhost:27017/');
+my $db     = $mango->db('wot-replays');
+my $coll   = $db->collection('data.components');
 
 $coll->drop();
 
@@ -83,7 +82,7 @@ sub fix_us {
 
 for my $country (@nationlist) {
     for my $comptype (@comptype) {
-        my $f = sprintf('../etc/res/raw/%s/components/%s_%s.json', $version, $country, $comptype);
+        my $f = sprintf('../../etc/res/raw/%s/components/%s_%s.json', $version, $country, $comptype);
         warn 'processing: ', $f, "\n";
         my $d = read_file($f);
         warn 'read', "\n";
@@ -93,7 +92,6 @@ for my $country (@nationlist) {
         my $ids = (defined($x->{ids})) ? $x->{ids} : $x;
 
         foreach my $name (keys(%$ids)) {
-            warn 'name: ', $name, "\n";
             next if($name eq 'text');
             my $id = $x->{ids}->{$name};
             next if($id eq '' || $id == 0);
@@ -129,10 +127,12 @@ for my $country (@nationlist) {
                 if($comptype eq 'guns') {
                     $data->{shots} = [ keys(%{$x->{shared}->{$name}->{shots}}) ];
                 }
+                $data->{i18n} = $x->{shared}->{$name}->{userString};
             } else {
                 warn 'label: from ', $name, "\n";
                 $data->{label} = $text->localize_for(lang => sprintf('%s_vehicles', $country), id => $name);
                 $data->{description} = '';
+                $data->{i18n} = sprintf('#%s_vehicles:%s', $country, $name);
             }
 
             $coll->insert($data);
@@ -140,7 +140,7 @@ for my $country (@nationlist) {
         }
     }
 
-    my $f = sprintf('../etc/res/raw/%s/components/%s_%s.json', $version, $country, 'shells');
+    my $f = sprintf('../../etc/res/raw/%s/components/%s_%s.json', $version, $country, 'shells');
     warn 'processing: ', $f, "\n";
     my $d = read_file($f);
     my $x = $j->decode($d);
@@ -158,6 +158,7 @@ for my $country (@nationlist) {
             component       => 'shells',
         };
         $data->{component_id} = delete($data->{id});
+        $data->{i18n} = $data->{userString};
 
         if(ref($data->{price}) eq 'HASH') {
             $data->{price} = { unit => 'gold', amount => $data->{price}->{text} + 0 };

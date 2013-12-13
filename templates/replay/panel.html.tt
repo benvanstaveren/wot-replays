@@ -42,7 +42,7 @@
                     <div class="btn-group btn-group-justified">
                         <a data-toggle="tooltip" data-placement="bottom" data-container="body" class="bs-tooltip btn btn-default btn-view-replay" href="/replay/[% replay.panel.id %].html" title="[% h.loc('button.view.title') %]"><span class="badge">[% replay.site.views || '0' %]</span> [% h.loc('button.view.text') %]</a>
                         <a data-toggle="tooltip" data-placement="bottom" data-container="body" class="bs-tooltip btn btn-default btn-like-replay" href="[% replay.panel.id %]" title="[% h.loc('button.like.title') %]"><span class="badge">[% replay.site.like || '0' %]</span> [% h.loc('button.like.text') %]</a>
-                        <a data-toggle="tooltip" data-placement="bottom" data-container="body" class="bs-tooltip btn btn-default btn-save-replay" title="[% h.loc('button.save.title') %]" href="[% config.urls.replays %]/[% replay.panel.file %]"><span class="badge">[% replay.site.downloads || '0' %]</span> [% h.loc('button.save.text') %]</a>
+                        <a data-toggle="tooltip" data-placement="bottom" data-container="body" class="bs-tooltip btn btn-default btn-save-replay" title="[% h.loc('button.save.title') %]" href="[% config.urls.replays %]/[% replay.panel.file || replay.file %]"><span class="badge">[% replay.site.downloads || '0' %]</span> [% h.loc('button.save.text') %]</a>
                     </div>
                 </div>
             </div>

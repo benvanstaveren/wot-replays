@@ -1,41 +1,149 @@
-<h4>Earnings</h4>
+<h4>XP Earnings</h4>
 <table class="table table-bordered table-striped">
-    <thead>
-        <th>XP [% IF replay.stats.dailyXPFactor10 > 10 %](x[% replay.stats.dailyXPFactor10 / 10 %])[% END %]</th>
-        <th>Free XP</th>
-        <th>Credits</th>
-        <th>Repairs</th>
-        <th>Reloads</th>
-        <th>Resupply</th>
-        <th>Net XP</th>
-        <th>Net Credits</th>
-    </thead>
+    <colgroup>
+        <col style="width: 50%"/>
+        <col style="width: 50%"/>
+    </colgroup>
     <tbody>
         <tr>
-            <td>
-                <span class="green">+[% replay.stats.xp || '0' %]</span> 
-                [% IF replay.stats.xpPenalty > 0 %]
-                    <span title="Team Damage/Kill XP Penalty" class="red">-[% replay.stats.xpPenalty %]</span>
-                [% END %]
-            </td>
-            <td><span class="green">[% replay.stats.freeXP || '0' %]</span></td>
-            <td>
-                <span class="green">+[% replay.stats.credits || '0' %]</span>
-                [% IF replay.stats.creditsContributionOut > 0 %]
-                    <span title="Team Damage/Kill Credit Penalty" class="red">-[% replay.stats.creditsContributionOut %]</span>
-                [% END %]
-            </td>
-            <td><span class="red">-[% replay.stats.repair || '0' %]</span></td>
-            <td><span class="red">-[% replay.stats.autoLoadCost.0 || '0' %]</span></td>
-            <td><span class="red">-[% replay.stats.autoEquipCost.0 || '0' %]</span></td>
-            <td>
-                [% nxp = replay.stats.xp + replay.stats.freeXP - replay.stats.xpPenalty %]
-                <span class="[% IF nxp > 0 %]green[% ELSE %]red[% END %]">[% IF nxp > 0 %]+[% ELSE %]-[% END %][% nxp %]</span>
-            </td>
-            <td>
-                [% ncr = replay.stats.credits - replay.stats.repair - replay.stats.creditsContributionOut - replay.stats.autoLoadCost.0 - replay.stats.autoEquipCost.0 %]
-                <span class="[% IF ncr > 0 %]green[% ELSE %]red[% END %]">[% IF ncr > 0 %]+[% ELSE %]-[% END %][% ncr %]</span>
-            </td>
+            <td><h5 style="margin: 0px">Base</h5></td>
+            <td>[% replay.stats.originalXP %]</td>
         </tr>
+        [% IF replay.stats.isPremium == 1 %]
+            <tr>
+                <td><h5 style="margin: 0px">+ Premium [% h.sprintf('%.1f', replay.stats.premiumXPFactor10 / 10) %]x</td>
+                <td>
+                    [% subtotal = (replay.stats.originalXP * replay.stats.premiumXPFactor10) / 10 %]
+                    [% h.int(subtotal - replay.stats.originalXP) %]
+                </td>
+            </tr>
+        [% END %]
+        [% IF replay.stats.dailyXPFactor10 > 10 %]
+            <tr>
+                <td><h5 style="margin: 0px">+ [% replay.stats.dailyXPFactor10 / 10 %]x Daily</td>
+                <td>
+                    [% subtotal = (replay.stats.originalXP * replay.stats.dailyXPFactor10) / 10 %]
+                    [% h.int(subtotal - replay.stats.originalXP) %]
+                </td>
+            </tr>
+        [% END %]
+        [% IF replay.stats.eventXP > 0 %]
+            <tr>
+                <td><h5 style="margin: 0px">+ Event/Mission</td>
+                <td>
+                    [% replay.stats.eventXP %]
+                </td>
+            </tr>
+        [% END %]
+        [% IF replay.stats.xpPenalty > 0 %]
+            <tr>
+                <td><h5 style="margin: 0px">Subtotal</h5></td>
+                <td>[% replay.stats.xp %]</td>
+            </tr>
+            <tr>
+                <td><h5 style="margin: 0px">- Penalty</h5></td>
+                <td>[% replay.stats.xpPenalty %]</td>
+            </tr>
+        [% ELSE %]
+            <tr>
+                <td><h5 style="margin: 0px">Earned</h5></td>
+                <td>[% h.nonegative(replay.stats.xp - replay.stats.xpPenalty) %]</td>
+            </tr>
+        [% END %]
+    </tbody>
+</table>
+<h4>Free XP Earnings</h4>
+<table class="table table-bordered table-striped">
+    <colgroup>
+        <col style="width: 50%"/>
+        <col style="width: 50%"/>
+    </colgroup>
+    <tbody>
+        <tr>
+            <td><h5 style="margin: 0px">Base</h5></td>
+            <td>[% replay.stats.originalFreeXP %]</td>
+        </tr>
+        [% IF replay.stats.isPremium == 1 %]
+            <tr>
+                <td><h5 style="margin: 0px">+ Premium [% h.sprintf('%.1f', replay.stats.premiumXPFactor10 / 10) %]x</td>
+                <td>
+                    [% subtotal = (replay.stats.originalFreeXP * replay.stats.premiumXPFactor10) / 10 %]
+                    [% h.int(subtotal - replay.stats.originalFreeXP) %]
+                </td>
+            </tr>
+        [% END %]
+        [% IF replay.stats.dailyXPFactor10 > 10 %]
+            <tr>
+                <td><h5 style="margin: 0px">+ [% replay.stats.dailyXPFactor10 / 10 %]x Daily</td>
+                <td>
+                    [% subtotal = (replay.stats.originalFreeXP * replay.stats.dailyXPFactor10) / 10 %]
+                    [% h.int(subtotal - replay.stats.originalFreeXP) %]
+                </td>
+            </tr>
+        [% END %]
+        <tr>
+            <td><h5 style="margin: 0px">Earned</h5></td>
+            <td>[% replay.stats.freeXP %]</td>
+        </tr>
+    </tbody>
+</table>
+
+<h4>Credit Earnings</h4>
+<table class="table table-bordered table-striped">
+    <colgroup>
+        <col style="width: 50%"/>
+        <col style="width: 50%"/>
+    </colgroup>
+    <tbody>
+        <tr>
+            <td><h5 style="margin: 0px">Base</h5></td>
+            <td>[% replay.stats.originalCredits %]</td>
+        </tr>
+        [% IF replay.stats.isPremium == 1 %]
+            <tr>
+                <td><h5 style="margin: 0px">+ Premium [% h.sprintf('%.1f', replay.stats.premiumXPFactor10 / 10) %]x</td>
+                <td>
+                    [% subtotal = (replay.stats.originalCredits * replay.stats.premiumXPFactor10) / 10 %]
+                    [% h.int(subtotal - replay.stats.originalCredits) %]
+                </td>
+            </tr>
+        [% END %]
+        [% IF replay.stats.eventCredits > 0 %]
+            <tr>
+                <td><h5 style="margin: 0px">+ Event/Mission</td>
+                <td>
+                    [% replay.stats.eventCredits %]
+                </td>
+            </tr>
+        [% END %]
+        [% IF replay.stats.autoEquipCost.0 + replay.stats.repair + replay.stats.creditsPenalty > 0 %]
+            <tr>
+                <td><h5 style="margin: 0px">Subtotal</h5></td>
+                <td>[% replay.stats.credits %]</td>
+            </tr>
+            <tr>
+                <td><h5 style="margin: 0px">- Reload</h5></td>
+                <td>[% replay.stats.autoEquipCost.0 %]</td>
+            </tr>
+            <tr>
+                <td><h5 style="margin: 0px">- Repair</h5></td>
+                <td>[% replay.stats.repair %]</td>
+            </tr>
+            [% IF replay.stats.creditsPenalty > 0 %]
+                <tr>
+                    <td><h5 style="margin: 0px">- Penalty</h5></td>
+                    <td>[% replay.stats.creditsPenalty %]</td>
+                </tr>
+            [% END %]
+            <tr>
+                <td><h5 style="margin: 0px">Earned</h5></td>
+                <td>[% replay.stats.credits - (replay.stats.autoEquipCost.0 + replay.stats.repair + replay.stats.creditsPenalty) %]</td>
+            </tr>
+        [% ELSE %]
+            <tr>
+                <td><h5 style="margin: 0px">Earned</h5></td>
+                <td>[% replay.stats.credits %]</td>
+            </tr>
+        [% END %]
     </tbody>
 </table>

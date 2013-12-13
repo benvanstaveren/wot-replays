@@ -205,7 +205,6 @@ sub actual_view_replay {
         $self->map_name($replay),
         $self->app->wr_res->gametype->i18n($replay->{game}->{type})
         );
-        
 
     my $description = sprintf('This is a replay of a %s match fought by %s, using the %s vehicle, on map %s', 
         $self->app->wr_res->gametype->i18n($replay->{game}->{type}), 

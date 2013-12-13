@@ -5,26 +5,28 @@ use JSON::XS;
 use Data::Localize;
 use Data::Localize::Gettext;
 use File::Slurp qw/read_file/;
-use MongoDB;
-use boolean;
+use Mango;
+use Data::Dumper;
 
 die 'Usage: mongo-consumables.pl <version>', "\n" unless($ARGV[0]);
 my $version = $ARGV[0];
 
 my $text = Data::Localize::Gettext->new(path => sprintf('../etc/res/raw/%s/lang/artefacts.po', $version));
 
-my $mongo  = MongoDB::Connection->new(host => $ENV{'MONGO'} || 'localhost');
-my $db     = $mongo->get_database('wot-replays');
-my $coll   = $db->get_collection('data.consumables');
+my $mango  = Mango->new('mongodb://localhost:27017/');
+my $db     = $mango->db('wot-replays');
+my $coll   = $db->collection('data.consumables');
 
 $| = 1;
 
 my $j = JSON::XS->new();
 
-my $f = sprintf('../etc/res/raw/%s/consumables.json', $version);
+my $f = sprintf('../../etc/res/raw/%s/consumables.json', $version);
 print 'processing: ', $f, "\n";
 my $d = read_file($f);
 my $x = $j->decode($d);
+
+die Dumper($x);
 
 foreach my $id (keys(%$x)) {
     next if($id eq 'text');
@@ -42,6 +44,7 @@ foreach my $id (keys(%$x)) {
         icon    =>  $icon,
         name    =>  $id,
         label   =>  $text->localize_for(lang => 'artefacts', id => $us),
+        i18n    =>  $data->{userString},
     };
 
     $coll->save($m);

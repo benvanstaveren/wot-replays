@@ -1,0 +1,10 @@
+<h4>Missions</h4>
+<table class="table table-bordered table-striped">
+    <tbody>
+        [% FOREACH mission IN replay.stats.questsProgress.keys %]
+            <tr>
+                <td>[% mission %]</td>
+            </tr>
+        [% END %]
+    </tbody>
+</table>

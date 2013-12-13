@@ -3,6 +3,9 @@ $static_base: "";
 $background_from_theme: #060606;
 $text_color_from_theme: #888;
 
+$base_green: rgb(0, 255, 0);
+$base_red:   rgb(255, 0, 0);
+
 @import "wn7";
 @import "awards";
 @import "rounded";
@@ -41,13 +44,21 @@ body {
     background-position: center center;
 }
 
-.table>tbody>tr>td.playerName {
-    vertical-align: middle;
+.table.team-list .vehicleIcon {
+    width: 120px;
+}
+
+.table.team-list .iconBar {
+    width: 220px;
 }
 
 .table.team-list>tbody>tr>td {
     vertical-align: middle;
     height: 58px;
+}
+
+.table.team-list .playerName { 
+    width: auto;
 }
     
 td.playerName {
@@ -105,8 +116,8 @@ td.playerDetails {
         &.spotted {
             background: black url(#{$image_base}/misc/spotted.png) no-repeat scroll 0 0;
         }
-        &.evil {
-            background: black url(#{$image_base}/misc/evil.png) no-repeat scroll 0 0;
+        &.assist {
+            background: black url(#{$image_base}/misc/assist.png) no-repeat scroll 0 0;
         }
         &.crits {
             background: black url(#{$image_base}/misc/crits.png) no-repeat scroll 0 0;
@@ -143,6 +154,12 @@ span {
     &.clan {
         color: #333;
     }
+    &.green {
+        color: darken($base_green, 10%);
+    }
+    &.red {
+        color: darken($base_red, 10%);
+    }
 }
 
 div.panel-vehicle-wrapper {
@@ -162,4 +179,12 @@ div.panel-vehicle-wrapper {
         left: 50%;
         margin-left: -80px;
     }
+}
+
+.earning-header {
+    width: 40%;
+}
+
+.earning-value {
+    width: 60%;
 }

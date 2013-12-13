@@ -1,0 +1,16 @@
+<h4>Description [% IF h.is_own_replay(replay) %] <small>(<a href="#edit-desc" id="edit-desc-link">edit</a>)</small>[% END %]</h4>
+<div class="well well-lg">
+    <div style="width: 95%" id="desc-show">
+        [% IF replay.site.description && replay.site.description.length > 0 %]
+            [% replay.site.description |html|html_line_break %]
+        [% ELSE %]
+            No description
+        [% END %]
+    </div>
+    [% IF h.is_own_replay(replay) %]
+        <div style="width: 95%; display: none" id="desc-edit">
+            <textarea id="edit-text" style="resize: none; width: 100%; min-height: 75px">[% replay.site.description.replace('<br.*?>', "\n") %]</textarea>
+            <button class="btn btn-primary btn-sm" id="edit-save">Save</button>
+        </div>
+    [% END %]
+</div>

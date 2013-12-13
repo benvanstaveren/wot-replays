@@ -9,4 +9,35 @@
         });
         $('.bs-tooltip').tooltip();
     });
+    [% IF h.is_own_replay(replay) %]
+        $('a#edit-desc-link').click(function() {
+            $('#desc-show').hide();
+            $('#desc-edit').show();
+            return false;
+        });
+        $('button#edit-save').click(function() {
+            var v = $('textarea#edit-text').val();
+            $(this).attr('disabled', true);
+            $('textarea#edit-text').attr('disabled', true);
+            $(this).html('Saving...');
+            
+            $.getJSON('/replay/[% h.get_id(replay) %]/desc', {
+                desc: v,
+            }, function(d, t, x) {
+                if(d.ok == 1) {
+                    document.location.reload(); 
+                } else {
+                    $.bootstrapGrowl(d.error, {
+                        type: 'danger',
+                        align: 'center',
+                        width: '760px',
+                        allow_dismiss: true,
+                    });
+                    $('#desc-show').show();
+                    $('#desc-edit').hide();
+                }
+            });
+            return false;
+        });
+    [% END %]
 </script>

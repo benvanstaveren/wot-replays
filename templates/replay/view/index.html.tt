@@ -43,11 +43,20 @@
             <div class="tab-content">
                 <div id="vehicle-stats" class="tab-pane fade in active">
                     <div class="row">
-                        <div class="col-lg-5 col-md-5">
+                        <div class="col-lg-6 col-md-6">
                             [% INCLUDE replay/view/battleperformance.html.tt %]
+                            [% INCLUDE replay/view/missions.html.tt %]
                         </div>
-                        <div class="col-lg-7 col-md-7">
+                        <div class="col-lg-6 col-md-6">
                             [% INCLUDE replay/view/vehicle_stats.html.tt %]
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6">
+                            [% INCLUDE replay/view/desc.html.tt %]
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            [% INCLUDE replay/view/comments.html.tt %]
                         </div>
                     </div>
                 </div>

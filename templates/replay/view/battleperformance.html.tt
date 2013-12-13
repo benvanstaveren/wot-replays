@@ -1,5 +1,10 @@
 <h4>Performance</h4>
 <table class="table table-bordered team-list table-striped">
+    <colgroup>
+        <col class="vehicleIcon"/>
+        <col class="playerName"/>
+        <col class="iconBar"/>
+    </colgroup>
     <tbody>
         [% INCLUDE replay/view/battleperformance/list.html.tt %]
     </tbody>

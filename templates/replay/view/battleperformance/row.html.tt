@@ -12,7 +12,12 @@
         </div>
     </td>
     <td data-container="body" class="playerName bs-tooltip" data-placement="auto" data-toggle="tooltip" title="[% roster.player.name |html %][% IF roster.player.clanDBID > 0 %][[% roster.player.clanAbbrev %]][% END %]">
-        [% roster.player.name |truncate(10) |html %][% IF roster.player.clanDBID > 0 %]<span class="clan">[[% roster.player.clanAbbrev %]]</span>[% END %]
+        [% IF roster.player.clanDBID > 0 %]
+            [% roster.player.name |truncate(15) |html %]
+            [% IF roster.player.clanDBID > 0 %]<span class="clan">[[% roster.player.clanAbbrev %]]</span>[% END %]
+        [% ELSE %]
+            [% roster.player.name |truncate(20) |html %]
+        [% END %]
     </td>
     <td class="playerDetails">
         <span data-container="body" data-placement="auto" data-toggle="tooltip" class="bs-tooltip 
@@ -31,18 +36,22 @@
             <b>[% details.hits + details.he_hits %]</b> 
             [% END %]
         </span>
-        <span player="[% pid %]" class="[% IF cd.count > 0 %]bs-popover[% END %]" title="Critical Hit Details">
+        <span player="[% pid %]" class="[% IF cd.count > 0 %]bs-popover[% END %]" title="Critical Hit Details" style="padding: 0px; margin: 0px">
             <span data-container="body" data-placement="auto" data-toggle="tooltip" class="bs-tooltip crits [% IF cd.count == 0 %]dimmed"[% ELSE %] hasdetails" player="[% pid %]" title="Player made [% cd.count %] critical hits, click for details"[% END %]>
                 [% IF cd.count > 0 %]
                     <b>[% cd.count %]</b>
                 [% END %]
             </span>
         </span>
-        [% IF details && (details.damageAssistedRadio + details.damageAssistedTrack) > 0 %]
-            <span data-container="body" data-placement="auto" data-toggle="tooltip" class="bs-tooltip evil " title="Player spotted this vehicle, and team members contributed [% details.damageAssistedRadio + details.damageAssistedTrack %] points ([% h.percentage_of(ph, details.damageAssistedRadio + details.damageAssistedTrack) %]%) of damage"></span>
-        [% ELSE %]
-            <span data-container="body" data-placement="auto" data-toggle="tooltip" class="bs-tooltip spotted [% IF !details || details.spotted == 0 %]dimmed"[% ELSE %]" title="Player spotted this vehicle"[% END %]></span>
-        [% END %]
-        <div class="clear"></div>
+        <span data-container="body" data-placement="auto" data-toggle="tooltip" class="bs-tooltip assist [% IF details.damageAssistedRadio + damageAssistedTrack < 1 %]dimmed[% END %]" 
+            title="
+                [% IF details.damageAssistedTrack + details.damageAssistedRadio > 0 %]Team members assisted [% ELSE %]No assisted damage done[% END %]
+                [% IF details.damageAssistedRadio > 0 %]
+                    [% details.damageAssistedRadio %] points ([% h.percentage_of(ph, details.damageAssistedRadio) %]%) of damage due to spotting
+                    [% IF details.damageAssistedTrack >0 %], and[% END %]
+                [% END %]
+                [% IF details.damageAssistedTrack > 0 %][% details.damageAssistedTrack %] points ([% h.percentage_of(ph, details.damageAssistedTrack) %]%) of damage due to tracking[% END %]
+                "></span>
+        <span data-container="body" data-placement="auto" data-toggle="tooltip" class="bs-tooltip spotted [% IF !details || details.spotted == 0 %]dimmed"[% ELSE %]" title="Player spotted this vehicle"[% END %]></span>
     </td>
 </tr>

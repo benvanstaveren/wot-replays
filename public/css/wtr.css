@@ -969,12 +969,18 @@ body {
   background-attachment: fixed;
   background-position: center center; }
 
-.table > tbody > tr > td.playerName {
-  vertical-align: middle; }
+.table.team-list .vehicleIcon {
+  width: 120px; }
+
+.table.team-list .iconBar {
+  width: 220px; }
 
 .table.team-list > tbody > tr > td {
   vertical-align: middle;
   height: 58px; }
+
+.table.team-list .playerName {
+  width: auto; }
 
 td.playerName {
   width: 100px; }
@@ -1020,8 +1026,8 @@ td.playerDetails {
       background: black url(//images.wotreplays.org/misc/damage.png) no-repeat scroll 0 0; }
     td.playerDetails span.spotted {
       background: black url(//images.wotreplays.org/misc/spotted.png) no-repeat scroll 0 0; }
-    td.playerDetails span.evil {
-      background: black url(//images.wotreplays.org/misc/evil.png) no-repeat scroll 0 0; }
+    td.playerDetails span.assist {
+      background: black url(//images.wotreplays.org/misc/assist.png) no-repeat scroll 0 0; }
     td.playerDetails span.crits {
       background: black url(//images.wotreplays.org/misc/crits.png) no-repeat scroll 0 0; }
     td.playerDetails span b {
@@ -1049,6 +1055,10 @@ span.equipment-name {
   padding: 0px 0px 0px 5px; }
 span.clan {
   color: #333; }
+span.green {
+  color: #00cc00; }
+span.red {
+  color: #cc0000; }
 
 div.panel-vehicle-wrapper {
   height: 100px;
@@ -1066,3 +1076,9 @@ div.panel-vehicle-wrapper {
     top: 0px;
     left: 50%;
     margin-left: -80px; }
+
+.earning-header {
+  width: 40%; }
+
+.earning-value {
+  width: 60%; }

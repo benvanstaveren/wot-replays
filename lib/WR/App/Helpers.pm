@@ -571,6 +571,17 @@ sub add_helpers {
         return $dt;
     });
 
+    $self->helper(nonegative => sub {
+        my $self = shift;
+        my $v    = shift;
+
+        return ($v >= 0) ? $v : 0;
+    });
+
+    $self->helper(int => sub {
+        shift and return CORE::int(shift);
+    });
+
     $self->helper(sprintf => sub {
         my $self = shift;
         my $fmt = shift;
