@@ -31,8 +31,6 @@
             [% END %]
         </tbody>
     </table>
-    [% IF 1 == 0 %]
-    <!-- temporarily removed
     <table class="table table-bordered table-striped">
         <thead><th colspan="2">In Progress</th></thead>
         <tbody>
@@ -52,7 +50,6 @@
             [% END %]
         </tbody>
     </table>
-    [% END %]
 [% ELSE %]
 <div>
     <p>Either no missions are active, or we haven't got the mission details in our database. Want to help out with that? Send Scrambled a PM on the WoT forum (EU/NA/Asia)</p>
