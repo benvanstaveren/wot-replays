@@ -69,7 +69,7 @@ sub add_helpers {
         my $path    = ($type eq 'equipment') ? 'consumables' : 'equipment';
 
         # the typecomp is the ID of the item 
-        if(my $c = $self->model('wot-replays.data.consumables')->find_one({ wot_id => $tc->{id} })) {
+        if(my $c = $self->model($model)->find_one({ wot_id => $tc->{id} })) {
             return sprintf('<span data-placement="bottom" data-toggle="tooltip" title="%s x%d" class="bs-tooltip mission-icon rounded" style="background: transparent url(http://images.wotreplays.org/%s/32x32/%s) no-repeat scroll 0 0"><b>%d</b></span>', $c->{label}, $i->{count}, $path, $c->{icon}, $i->{count});
         } else {
             return undef;
