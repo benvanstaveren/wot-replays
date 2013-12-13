@@ -83,6 +83,12 @@ sub add_helpers {
         my $f = $self->stash('browse_filter_raw');
         $f->{p} = $p;
 
+        if($self->stash('page_id') eq 'vehicle') {
+            delete($f->{$_}) for(qw/vehicle tier_min tier_max/);
+        } elsif($self->stash('page_id') eq 'map') {
+            delete($f->{$_}) for(qw/map/);
+        }
+
         my @a = ();
         
         foreach my $key (sort { $a cmp $b } (keys(%$f))) {

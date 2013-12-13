@@ -34,6 +34,26 @@ sub desc {
 
 sub browse {
     my $self = shift;
+
+    $self->render_later;
+
+    if(defined($self->stash('filter_opts')->{async})) {
+        $self->stash('filter_opts')->{base_query}->($self, sub {
+            my $result = shift;
+            $self->_real_browse($result);
+        });
+    } else {
+        if(defined($self->stash('filter_opts')->{base_query})) {
+            $self->_real_browse($self->stash('filter_opts')->{base_query}->($self));
+        } else {
+            $self->_real_browse({});
+        }
+    }
+}
+
+sub _real_browse {
+    my $self = shift;
+    my $base_q = shift;
     my $filter = {};
     my $perpage = 15;
     my $sorting = {
@@ -53,9 +73,15 @@ sub browse {
         $filter->{$i} = shift(@$filterlist);
     }
 
-    $self->stash('browse_filter_raw' => $filter);
+    $self->stash('browse_filter_raw' => $filter); # this will bomb dafux out 
 
-    $self->render_later;
+    foreach my $k (keys(%$base_q)) {
+        $filter->{$k} = $base_q->{$k};
+    }
+
+    if(defined($self->stash('filter_opts')->{filter_root})) {
+        $self->stash(filter_root => $self->stash('filter_opts')->{filter_root}->($self));
+    }
 
     my $tier_min = $filter->{tier_min} || 1;
     my $tier_max = $filter->{tier_max} || 10;
@@ -78,18 +104,14 @@ sub browse {
         $self->respond(
             template => 'browse/index',
             stash => {
-                pageid => 'browse',
-                page => {
-                    title   =>  'Browse Replays',
-                },
                 replays => $replays,
                 filter  => $filter,
                 maxp    => $maxp,
                 p       => $p,
-                timing_query => tv_interval($start, [ gettimeofday ]),
                 query   => $query->_query,
-                query_sort => $query->sort,
+                query_sort => $sort,
                 query_explain => $query->query_explain,
+                timing_query => tv_interval($start, [ gettimeofday ]),
             }
         );
     });

@@ -143,14 +143,17 @@ sub _build_query {
 
     if($args{'player'}) {
         if($args{'playerpov'} > 0) {
+            $query->{'game.server'} = $self->fixargs($args{'server'});
             $query->{'game.recorder.name'} = $self->fixargs($args{'player'});
-        } elsif($args{'playerinv'}) {
+        } elsif($args{'playerinv'} > 0) {
+            $query->{'game.server'} = $self->fixargs($args{'server'});
             $query->{'involved.players'} = $self->fixargs($args{'player'}, '$in'); 
             $query->{'game.recorder.name'} = $self->fixargs($args{'player'}, '$nin');
         } else {
             push(@$ors, [ 
                 { 'game.recorder.name' => $self->fixargs($args{'player'}) }, { 'involved.players' => $self->fixargs($args{'player'}, '$in') } 
             ]);
+            $query->{'game.server'} = $self->fixargs($args{'server'});
         }
     }
 

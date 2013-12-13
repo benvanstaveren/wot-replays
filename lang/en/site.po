@@ -77,6 +77,22 @@ msgstr "Home"
 msgid "index.page.header"
 msgstr "Newest Replays"
 
+# browse elements
+msgid "browse.page.title"
+msgstr "Browse Replays"
+
+# vehicle page elements
+msgid "vehicle.page.title"
+msgstr "Browse Vehicle"
+
+# player page elements
+msgid "player.page.title"
+msgstr "Browse Player"
+
+# map page elements
+msgid "map.page.title"
+msgstr "Browse Map"
+
 # misc. button bits
 msgid "button.like.text"
 msgstr "Like"

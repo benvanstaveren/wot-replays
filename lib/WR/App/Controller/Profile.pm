@@ -74,7 +74,7 @@ sub replays {
         $cursor->skip( ($page - 1) * 10 );
         $cursor->limit(10);
         $cursor->sort({ 'site.uploaded_at' => -1 });
-        $cursor->fields({ panel => 1, site => 1 });
+        $cursor->fields({ panel => 1, site => 1, file => 1 });
 
         $cursor->all(sub {
             my ($c, $e, $docs) = (@_);

@@ -1,8 +1,8 @@
 <div class="row">
     <div class="col-md-12 col-lg-12">
         <ul class="pagination pagination-sm"">
-            <li [% IF p == 1 %]class="disabled"[% END %]><a href="/browse/[% h.browse_page(1) %]" page="1">&laquo;</a></li>
-            <li [% IF p == 1 %]class="disabled"[% END %]><a href="/browse/[% h.browse_page(p - 1) %]" page="[% p - 1 %]">&lt;</a></li>
+            <li [% IF p == 1 %]class="disabled"[% END %]><a href="/[% filter_root %]/[% h.browse_page(1) %]" page="1">&laquo;</a></li>
+            <li [% IF p == 1 %]class="disabled"[% END %]><a href="/[% filter_root %]/[% h.browse_page(p - 1) %]" page="[% p - 1 %]">&lt;</a></li>
             [% start = p - 10 %]
             [% IF start < 1 %]
                 [% start = 1 %]
@@ -14,27 +14,25 @@
             [% END %]
             [% WHILE cpage < cmax %]
                 [% IF cpage == p %]
-                    <li class="active"><a href="/browse/[% h.browse_page(cpage) %]" page="[% cpage %]">[% cpage %]</a></li>
+                    <li class="active"><a href="/[% filter_root %]/[% h.browse_page(cpage) %]" page="[% cpage %]">[% cpage %]</a></li>
                 [% ELSE %]
-                    <li><a href="/browse/[% h.browse_page(cpage) %]" page="[% cpage %]">[% cpage %]</a></li>
+                    <li><a href="/[% filter_root %]/[% h.browse_page(cpage) %]" page="[% cpage %]">[% cpage %]</a></li>
                 [% END %]
                 [% cpage = cpage + 1 %]
             [% END %]
             [% IF p < maxp %]
-                <li><a href="/browse/[% h.browse_page(p + 1) %]" page="[% p + 1 %]">&gt;</a></li>
-                <li><a href="/browse/[% h.browse_page(maxp) %]" page="[% maxp %]">&raquo;</a></li>
+                <li><a href="/[% filter_root %]/[% h.browse_page(p + 1) %]" page="[% p + 1 %]">&gt;</a></li>
+                <li><a href="/[% filter_root %]/[% h.browse_page(maxp) %]" page="[% maxp %]">&raquo;</a></li>
             [% ELSE %]
-                <li class="disabled"><a href="/browse/[% h.browse_page(p + 1) %]" page="[% p + 1 %]">&gt;</a></li>
-                <li class="disabled"><a href="/browse/[% h.browse_page(maxp) %]" page="[% maxp %]">&raquo;</a></li>
+                <li class="disabled"><a href="/[% filter_root %]/[% h.browse_page(p + 1) %]" page="[% p + 1 %]">&gt;</a></li>
+                <li class="disabled"><a href="/[% filter_root %]/[% h.browse_page(maxp) %]" page="[% maxp %]">&raquo;</a></li>
             [% END %]
         </ul>
     </div>
 </div>
-[% IF !skipjs %]
 <script type="text/javascript">
     $('ul.pagination li a').on('click', function() {
         if($(this).hasClass('disabled')) return false;
         return true;
     });
 </script>  
-[% END %]

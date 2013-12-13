@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>[% page.title %] - World of Tanks Replays</title>
+        <title>[% h.loc(page.title) %] - World of Tanks Replays</title>
         <link rel="shortcut icon" href="[% config.urls.static %]/img/favicon.ico"/>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
         <meta name="keywords" content="[% IF page.keywords %][% page.keywords %], [% END %]world of tanks replays, wot replays, replays"/>

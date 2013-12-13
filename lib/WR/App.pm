@@ -53,7 +53,8 @@ sub startup {
 
     $r->route('/')->to('ui#index', pageid => 'home');
 
-    $r->route('/browse/*filter')->to('replays#browse');
+
+    $r->route('/browse/*filter')->to('replays#browse', filter_opts => {}, pageid => 'browse', page => { title => 'browse.page.title' }, filter_root => 'browse');
     $r->route('/browse')->to(cb => sub {
         my $self = shift;
         $self->stash('browse_filter_raw' => {
@@ -99,20 +100,117 @@ sub startup {
         $rb->route('/comparison')->to('replays-view#comparison', pageid => undef);
 
     $r->route('/players')->to('player#index', pageid => 'player');
-    my $playerbridge = $r->bridge('/player/:server/:player_name')->to('player#player_bridge');
-        $playerbridge->route('/')->to('player#view', pageid => 'player');
-        $playerbridge->route('/involved')->to('player#involved', pageid => 'player');
-        $playerbridge->route('/latest')->to('player#latest', pageid => 'player');
+    my $player = $r->under('/player');
+        $player->route('/:server/:player_name')->to(cb => sub {
+            my $self = shift;
+            $self->stash('browse_filter_raw' => {
+                p => 1,
+                vehiclepov => 1,
+                map => '*',
+                server => '*',
+                matchmode => '*',
+                matchtype => '*',
+                sort => 'upload',
+                playerpov => 1, 
+                playerinv => 0,
+            });
+            $self->redirect_to(sprintf('/player/%s/%s/%s', $self->stash('server'), $self->stash('player_name'), $self->browse_page(1)));
+        }, pageid => 'player');
+        $player->route('/:server/:player_name/latest')->to('player#latest', pageid => 'player');
+        $player->route('/:server/:player_name/*filter')->to('replays#browse',
+            page => {
+                title => 'player.page.title',
+            },
+            pageid => 'player',
+            filter_opts => {
+                base_query => sub {
+                    my $self = shift;
+                    return { 'player' => $self->stash('player_name'), 'server' => $self->stash('server') };
+                },
+                filter_root => sub {
+                    my $self = shift;
+                    return sprintf('player/%s/%s', $self->stash('server'), $self->stash('player_name'));
+                }
+            }
+        );
+
 
     my $vehicles = $r->under('/vehicles');
         $vehicles->route('/:country')->to('vehicle#index', pageid => 'vehicle');
 
     my $vehicle = $r->under('/vehicle');
-        $vehicle->route('/:country/:vehicle')->to('vehicle#view', pageid => 'vehicle');
+        $vehicle->route('/:country/:vehicle')->to(cb => sub {
+            my $self = shift;
+            $self->stash('browse_filter_raw' => {
+                p => 1,
+                vehiclepov => 1,
+                map => '*',
+                server => '*',
+                matchmode => '*',
+                matchtype => '*',
+                sort => 'upload',
+            });
+            $self->redirect_to(sprintf('/vehicle/%s/%s/%s', $self->stash('country'), $self->stash('vehicle'), $self->browse_page(1)));
+        }, pageid => 'vehicle');
+        $vehicle->route('/:country/:vehicle/*filter')->to('replays#browse', 
+            page => {
+                title => 'vehicle.page.title',
+            },
+            pageid => 'vehicle',
+            filter_opts => {
+                base_query => sub {
+                    my $self = shift;
+                    return { 'vehicle' => sprintf('%s:%s', $self->stash('country'), $self->stash('vehicle')) };
+                },
+                filter_root => sub {
+                    my $self = shift;
+                    return sprintf('vehicle/%s/%s', $self->stash('country'), $self->stash('vehicle'));
+                }
+            }
+        );
 
     $r->route('/maps')->to('map#index', pageid => 'map');
     my $map = $r->under('/map');
-        $map->route('/:map_id')->to('map#view', pageid => 'map');
+        $map->route('/:map_id')->to(cb => sub {
+            my $self = shift;
+            $self->stash('browse_filter_raw' => {
+                p => 1,
+                vehiclepov => 1,
+                tier_min => 1,
+                tier_max => 10,
+                vehicle => '*',
+                server => '*',
+                matchmode => '*',
+                matchtype => '*',
+                sort => 'upload',
+            });
+            $self->redirect_to(sprintf('/map/%s/%s', $self->stash('map_id'), $self->browse_page(1)));
+        }, pageid => 'map');
+        $map->route('/:map_id/*filter')->to('replays#browse', 
+            page => {
+                title => 'map.page.title',
+            },
+            pageid => 'map',
+            filter_opts => {
+                async      => 1,
+                base_query => sub {
+                    my $self = shift;
+                    my $cb   = shift;
+                    my $slug = $self->stash('map_id');
+
+                    $self->model('wot-replays.data.maps')->find_one({ slug => $slug } => sub {
+                        my ($coll, $err, $doc) = (@_);
+
+                        warn 'gonna return ', $doc->{numerical_id}, ' from: ', $slug, "\n";
+                        $cb->({ map => $doc->{numerical_id }});
+                    });
+                },
+                filter_root => sub {
+                    my $self = shift;
+                    return sprintf('map/%s', $self->stash('map_id'));
+                }
+            }
+        );
 
     $r->any('/login')->to('ui#do_login', pageid => 'login');
     $r->any('/logout')->to('ui#do_logout');
