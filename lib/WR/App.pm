@@ -212,8 +212,11 @@ sub startup {
             }
         );
 
-    $r->any('/login')->to('ui#do_login', pageid => 'login');
-    $r->any('/logout')->to('ui#do_logout');
+    my $login = $r->under('/login');
+        $login->route('/')->to('ui#do_login', pageid => 'login');
+        $login->route('/:s')->to('ui#do_login', pageid => 'login');
+
+    $r->route('/logout')->to('ui#do_logout');
 
     my $openid = $r->under('/openid');
         $openid->any('/return')->to('ui#openid_return');

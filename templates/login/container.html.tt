@@ -1,29 +1,28 @@
 <p class="lead">Please select the server you play on; if it is not listed, you can't log in, sorry!</p>
 <div class="row locationselect">
     <div class="col-lg-4 col-md-4">
-        <button id="eu" type="button" class="btn btn-primary btn-lg btn-block">Europe</button>
+        <a id="eu" type="button" class="btn btn-primary btn-lg btn-block" href="/login/eu">Europe</a>
     </div>
     <div class="col-lg-4 col-md-4">
-        <button id="sea" type="button" class="btn btn-primary btn-lg btn-block">Asia</button>
+        <a id="sea" type="button" class="btn btn-primary btn-lg btn-block" href="/login/asia">Asia</a>
     </div>
     <div class="col-lg-4 col-md-4">
-        <button id="na" type="button" class="btn btn-primary btn-lg btn-block">North America</button>
+        <a id="na" type="button" class="btn btn-primary btn-lg btn-block" href="/login/na">North America</a>
     </div>
 </div>
 <div class="row locationselect" style="margin-top: 20px">
     <div class="col-lg-4 col-md-4">
-        <button id="ru" type="button" class="btn btn-primary btn-lg btn-block">Russia</button>
+        <a id="ru" type="button" class="btn btn-primary btn-lg btn-block" href="/login/ru">Russia</a>
     </div>
     <div class="col-lg-4 col-md-4">
-        <button id="vn" type="button" class="btn btn-default btn-lg btn-block">Vietnam</button>
+        <a id="vn" type="button" class="btn btn-default btn-lg btn-block" href="/login">Vietnam</a>
     </div>
     <div class="col-lg-4 col-md-4">
-        <button id="kr" type="button" class="btn btn-default btn-lg btn-block">Korea</button>
+        <a id="kr" type="button" class="btn btn-default btn-lg btn-block" href="/login">Korea</a>
     </div>
 </div>
 <script type="text/javascript">
-    $('div.row.locationselect button').click(function() {
-        var id = $(this).attr('id');
+    $('div.row.locationselect a.btn').click(function() {
         if($(this).hasClass('btn-default')) {
             $.bootstrapGrowl('Sorry, but the Wargaming.net OpenID service is not available here yet...', {
                 type: 'danger',
@@ -31,9 +30,8 @@
                 width: 'auto',
                 allow_dismiss: true,
             });
-        } else {
-            document.location.href = '/login?s=' + id + '&f=[% from |uri %]';
+            return false;
         }
-        return false;
+        return true;
     });
 </script>

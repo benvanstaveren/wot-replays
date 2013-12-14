@@ -38,16 +38,9 @@
                         allow_dismiss: [% IF notify.close %]true[% ELSE %]false[% END %],
                         offset: { from: 'top', amount: 40 },
                         delay: [% IF notify.sticky %]200000[% ELSE %]20000[% END %]
-                    });
+                    };
                     $.bootstrapGrowl('[% notify.text |js %]', notifyOpts);
-                });
 	            [% END %]
-                [% IF hint.defined %]
-                    $('#hintModal').modal({
-                        backdrop: 'static',
-                        keyboard: false,
-                    });
-                [% END %]
             });
         </script>
     </head>

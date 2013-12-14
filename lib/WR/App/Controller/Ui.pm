@@ -2,12 +2,9 @@ package WR::App::Controller::Ui;
 use Mojo::Base 'WR::App::Controller';
 use WR::Res::Achievements;
 use boolean;
-use Cache::File;
-use Net::OpenID::Consumer;
-use URI::Escape;
-use LWPx::ParanoidAgent;
 use Time::HiRes qw/gettimeofday tv_interval/;
 use Filesys::DiskUsage::Fast qw/du/;
+use WR::OpenID;
 
 sub faq {
     shift->respond(template => 'faq', stash => { page => { title => 'Frequently Asked Questions' } });
@@ -125,37 +122,16 @@ sub do_logout {
 
 sub do_login {
     my $self = shift;
-    my $s    = $self->req->param('s');
-    my $f    = $self->req->param('f');
+    my $s    = $self->stash('s'); # $self->req->param('s');
 
     if(defined($s)) {
         # fix for the sea -> asia move
         $s = 'asia' if($s eq 'sea');
-        $self->session('after_openid' => $f);
-        my %params = @{ $self->req->params->params };
-        my $my_url = $self->req->url->base;
-        my $csr = Net::OpenID::Consumer->new(
-            ua              => LWPx::ParanoidAgent->new,
-            args            => \%params,
-            consumer_secret => $self->app->secret,
-            required_root   => $my_url,
-            debug           => 1,
-        );
+
         my $url = sprintf('http://%s.wargaming.net/', $s);
-        if(my $claimed_identity = $csr->claimed_identity($url)) {
-            my $check_url = $claimed_identity->check_url(
-                return_to      => qq{$my_url/openid/return},
-                trust_root     => qq{$my_url/},
-                delayed_return => 1,
-            );
-            return $self->redirect_to($check_url);
-        } else {
-            $self->app->log->debug(sprintf('OpenID error: %s', $csr->err));
-            $self->session(
-                'notify' => { type => 'error', text => sprintf('OpenID Error: %s', $csr->err),  close => 1, sticky => 1 },
-            );
-            $self->redirect_to('/');
-        }
+        my $my_url = $self->req->url->base;
+        my $o = WR::OpenID->new(realm => $my_url, region => $s, schema => 'https', ua => $self->ua, return_to => sprintf('%s/openid/return', $my_url));
+        $self->redirect_to($o->checkid_setup($url));
     } else {
         $self->respond(template => 'login/form', stash => {
             page => { title => 'Login' },
@@ -164,63 +140,49 @@ sub do_login {
 }
 
 sub openid_return {
-    my $self = shift;
+    my $self   = shift;
     my $my_url = $self->req->url->base;
-    my %params = @{ $self->req->query_params->params };
+    my $params = { @{$self->req->params} };
 
-    while ( my ( $k, $v ) = each %params ) {
-        $params{$k} = URI::Escape::uri_unescape($v);
-    }
+    my $o = WR::OpenID->new(realm => $my_url, ua => $self->ua, return_to => sprintf('%s/openid/return', $my_url), nonce_cache => $self->model('wot-replays.openid_nonce_cache'));
 
-    my $csr = Net::OpenID::Consumer->new(
-        ua              => LWPx::ParanoidAgent->new,
-        args            => \%params,
-        consumer_secret => $self->app->secret,
-        required_root   => $my_url
-    );
+    $o->on('not_openid' => sub {
+        $self->respond(template => 'login/form', stash => {
+            page    => { title => 'Login' },
+            notify  => { type => 'error', text => 'A message was received that was not an OpenID message', sticky => 1, close => 1 },
+        });
+    });
 
-    $self->render_later;
+    $o->on('setup_needed' => sub {
+        $self->redirect_to($params->{'openid.user_setup_url'});
+    });
 
-    $csr->handle_server_response(
-        not_openid => sub {
-            $self->respond(template => 'login/form', stash => {
-                page    => { title => 'Login' },
-                notify  => { type => 'error', text => 'A message was received that was not an OpenID message', sticky => 1, close => 1 },
-            });
-        },
-        setup_needed => sub {
-            return $self->redirect_to($params{'openid.user_setup_url'});
-        },
-        cancelled => sub {
-            $self->respond(template => 'login/form', stash => {
-                page    => { title => 'Login' },
-                notify  => { type => 'error', text => 'You cancelled the signin process', sticky => 0, close => 1 },
-            });
-        },
-        verified => sub {
-            my $vident = shift;
-            my $url    = $vident->url;
+    $o->on('cancelled' => sub {
+        $self->respond(template => 'login/form', stash => {
+            page    => { title => 'Login' },
+            notify  => { type => 'error', text => 'You cancelled the signin process', sticky => 0, close => 1 },
+        });
+    });
 
-            $self->session(
-                'openid' => $vident->url,
-                'notify' => { type => 'info', text => 'Login successful', close => 1 },
-            );
+    $o->on('verified' => sub {
+        my $o  = shift;
+        my $ident = shift;
 
-            if(my $f = $self->session('after_openid')) {
-                $self->redirect_to(sprintf('/%s', $f));
-            } else {
-                $self->redirect_to('/');
-            }
-        },
-        error => sub {
-            my $err = shift;
+        $self->session('openid' => $ident, 'notify' => { type => 'info', text => 'Login successful', close => 1 }),
+        $self->redirect_to('/');
+    });
 
-            $self->respond(template => 'login/form', stash => {
-                page    => { title => 'Login' },
-                notify  => { type => 'error', text => sprintf('OpenID Error: %s', $err), sticky => 0, close => 1 },
-            });
-        },
-    );
+    $o->on('error' => sub {
+        my $o = shift;
+        my $err = shift;
+
+        $self->respond(template => 'login/form', stash => {
+            page    => { title => 'Login' },
+            notify  => { type => 'error', text => sprintf('OpenID Error: %s', $err), sticky => 0, close => 1 },
+        });
+    });
+
+    $o->response(params => $params, skip_verify => 1);
 };
 
 1;
