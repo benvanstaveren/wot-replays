@@ -43,6 +43,7 @@ sub startup {
                     $data->route(sprintf('/%s', $_))->to('v1#validate_token', type => $_, next => 'data');
                 }
             $v1->route('/typecomp')->to('v1#validate_token', next => 'resolve_typecomp');
+            $v1->route('/process')->to('v1#validate_token', next => 'process_replay');
 }
 
 1;
