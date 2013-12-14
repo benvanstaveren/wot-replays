@@ -1,8 +1,5 @@
 package WR::API;
 use Mojo::Base 'Mojolicious';
-
-
-# this is a bit cheesy but... 
 use FindBin;
 use lib "$FindBin::Bin/../lib";
 
@@ -13,30 +10,39 @@ sub startup {
     my $r    = $self->routes;
 
     my $config = $self->plugin('Config', { file => 'wrapi.conf' });
-    $config->{wot}->{bf_key} = join('', map { chr(hex($_)) } (split(/\s/, $config->{wot}->{bf_key})));
 
-    $self->secret($config->{app}->{secret});
-
-    $self->plugin('mongodb', {
-        host => $config->{mongodb},
-    });
-
+    $self->secret($config->{app}->{secret}); # same secret as main app? why not
     $self->defaults(config => $config);
+
+    # set up the mango stuff here
+    $self->attr(mango => sub { Mango->new($config->{mongodb}->{host}) });
+    $self->helper(get_database => sub {
+        my $s = shift;
+        my $d = $config->{mongodb}->{database};
+        return $s->app->mango->db($d);
+    });
+    $self->helper(model => sub {
+        my $s = shift;
+        my ($d, $c) = split(/\./, shift, 2);
+
+        unless(defined($c)) {
+            $c = $d ;
+            $d = $config->{mongodb}->{database};
+        } elsif(defined($d)) {
+            $d = $config->{mongodb}->{database} if($d eq 'wot-replays'); # hack to make sure we pick up new db name if needed
+        }
+        return $s->app->mango->db($d)->collection($c);
+    });
 
     $self->routes->namespaces([qw/WR::API/]);
 
     my $root = $r->bridge('/')->to('auto#index');
-    my $apiroot  = $root->under('/v1');
-        my $api = $apiroot->bridge('/')->to('v1#check_token');
-            my $data = $api->under('/data');
-                $data->route('/equipment')->to('v1#data', type => 'equipment');
-                $data->route('/consumables')->to('v1#data', type => 'consumables');
-                $data->route('/vehicles')->to('v1#data', type => 'vehicles');
-                $data->route('/components')->to('v1#data', type => 'components');
-                $data->route('/players')->to('v1#data', type => 'players');
-            
-            $api->route('/parse')->via('post')->to('v1#parse');
-
+        my $v1 = $root->under('/v1');
+            my $data = $v1->under('/data');
+                for(qw/equipment consumables vehicles components/) {
+                    $data->route(sprintf('/%s', $_))->to('v1#validate_token', type => $_, next => 'data');
+                }
+            $v1->route('/typecomp')->to('v1#validate_token', next => 'resolve_typecomp');
 }
 
 1;

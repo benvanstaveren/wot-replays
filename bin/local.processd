@@ -125,9 +125,6 @@ sub process_job {
     $o->on('state.packet.save.done' => sub {
         job_status($job, 'Stored replay packets');
     });
-    $o->on('state.packet.save.done' => sub {
-        job_status($job, 'Stored replay packets');
-    });
     $o->on('state.wn7.start' => sub {
         job_status($job, 'Fetching WN7 data from Statterbox (may take a while)');
     });

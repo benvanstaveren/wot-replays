@@ -18,6 +18,14 @@ sub name    { return shift->mission->{name} }
 sub desc    { return shift->mission->{description} }
 sub bonuses { return shift->mission->{bonuses} }
 
+sub is_limited_to_vehicle {
+    my $self = shift;
+
+    return (defined($self->mission->{conditions}->{preBattle}->{vehicle}->{vehicleDescr})) ? 1 : 0;
+}
+
+sub get_limited_to_vehicle_list { return shift->mission->{conditions}->{preBattle}->{vehicle}->{vehicleDescr}->{types}->{value} }
+
 sub progression_key {
     my $self = shift;
     my $cond = $self->mission->{conditions}->{bonus};

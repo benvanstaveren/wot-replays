@@ -1,239 +1,70 @@
 package WR::API::V1;
 use Mojo::Base 'Mojolicious::Controller';
-use WR::Parser;
-use WR::Util::PyPickle;
-use WR::Process;
-use WR::Provider::ServerFinder;
-use WR::Res::Achievements;
-use DateTime;
 use File::Path qw/make_path/;
-use boolean;
 use Try::Tiny qw/try catch/;
 
-sub token_valid {
-    my $self = shift;
-    my $t    = shift;
+sub validate_token {
+    my $self    = shift;
+    my $token   = $self->req->param('t');
+    my $next    = $self->stash('next');
 
-    if(my $rec = $self->model('wot-replays.api')->find_one({ _id => $t })) {
-        $self->stash('token_ident' => $rec->{ident});
-        return 1;
-    } else {
-        return undef;
-    }
-}
+    # cb is only called when the token is valid 
+    $self->model('api_token')->find_one({ _id => $t } => sub {
+        my ($coll, $err, $doc) = (@_);
 
-sub check_token {
-    my $self = shift;
-    my $t    = $self->req->param('t');
-
-    # find out if the token is allowed to access and what the limits are
-    if(my $rv = $self->token_valid($t)) {
-        if($rv == -1) {
-            # out of requests
-            $self->render(json => { ok => 0, error => 'Request limit exceeded' }, status => 420);
-        } else {
-            return 1;
+        if(defined($doc)) {
+            # we don't do request counts yet, copy that out of statterbox' API end
+            $self->$next();
+        }  else {
+            $self->render(json => { ok => 0, error => 'Invalid token' });
         }
-    } else {
-        # token's not valid so return the proper HTTP code as well
-        $self->render(json => { ok => 0, error => 'Token Invalid' }, status => 401);
-        return 0;
-    }
+    });
 }
 
-sub fuck_boolean {
-    my $self = shift;
-    my $obj = shift;
+sub resolve_typecomp {
+    my $self    = shift;
+    my $types   = $self->req->param('types') || $self->req->param('types[]');
+    
+    $types = [ split(/,/, $types) ] if(!ref($types));
 
-    return $obj unless(ref($obj));
+    $self->render_later;
 
-    if(ref($obj) eq 'ARRAY') {
-        return [ map { $self->fuck_boolean($_) } @$obj ];
-    } elsif(ref($obj) eq 'HASH') {
-        foreach my $field (keys(%$obj)) {
-            next unless(ref($obj->{$field}));
-            if(ref($obj->{$field}) eq 'HASH') {
-                $obj->{$field} = $self->fuck_boolean($obj->{$field});
-            } elsif(ref($obj->{$field}) eq 'ARRAY') {
-                my $t = [];
-                push(@$t, $self->fuck_boolean($_)) for(@{$obj->{$field}});
-                $obj->{$field} = $t;
-            } elsif(boolean::isBoolean($obj->{$field})) {
-                $obj->{$field} = ($obj->{$field}) ? Mojo::JSON->true : Mojo::JSON->false;
+    $self->model('wot-replays.data.vehicles')->find({ typecomp => { '$in' => [ map { $_ + 0 } @$types ] } })->all(sub {
+        my ($coll, $err, $docs) = (@_);
+        my $list = {};
+        my $reqtypes = { map { $_ => 1 } @$types };
+
+        foreach my $doc (@$docs) {
+            if(defined($reqtypes->{$doc->{typecomp}})) {
+                $list->{$doc->{typecomp}} = $doc;
             }
         }
-        return $obj;
-    }
+
+        foreach my $type (@$types) {
+            $list->{$type} = undef unless(defined($list->{$type}));
+        }
+
+        $self->render(json => { ok => 1, data => $list });
+    });
 }
 
 sub data {
     my $self = shift;
     my $type = $self->stash('type');
 
+    $self->render_later;
+
     if($type =~ /^(vehicles|equipment|components|consumables)$/) {
         my $m = sprintf('wot-replays.data.%s', $type);
-        my $a = [ $self->model($m)->find()->all() ];
-        $self->render(json => { ok => 1, data => $self->fuck_boolean($a) });
-    } elsif($type eq 'players') {
-        $self->render(json => { ok => 1, data => $self->fuck_boolean([ $self->model('wot-replays.cache.server_finder')->find()->all() ]) });
+        $self->model($m)->find()->all(sub {
+            my ($coll, $err, $docs) = (@_);
+
+            $self->render(json => { ok => (defined($err)) ? 0 : 1, (defined($err)) ? (error => $err) : (data => $docs) });
+        });
     } else {
         $self->render(json => { ok => 0, error => 'Invalid data type specified' });
     }
 }
 
-sub parse_rpc {
-    my $self = shift;
-    my $job  = {};
-
-    if(my $replay_url = $self->req->param('replay_url')) {
-        if(my $postback_url = $self->req->param('postback_url')) {
-            my $job = {
-                _id             => MongoDB::OID->new()->to_string,
-                replay_url      => $replay_url,
-                postback_url    => $postback_url,
-                store           => ($self->req->param('ns')) ? 0 : 1,
-                complete        => false,
-                processing      => false,
-                created         => time(),
-                completed       => 0,
-            };
-
-            $self->model('wot-replays.process')->save($job);
-            $self->render(json => { ok => 1, job_id => $job->{_id} });
-        } else {
-            $self->render(json => { ok => 0, error => '[missing]: postback url' });
-        }
-    } else {
-        $self->render(json => { ok => 0, error => '[missing]: replay url' });
-    }
-}
-
-sub parse {
-    my $self = shift;
-    my $s    = ($self->req->param('ns')) ? 0 : 1;
-
-    if(my $upload = $self->req->upload('replay')) {
-        my $asset = $upload->asset;
-        if(ref($asset) eq 'Mojo::Asset::Memory') {
-            my $fileasset = Mojo::Asset::File->new();
-            $fileasset->add_chunk($asset->slurp);
-            $asset = $fileasset; # heh
-        }
-
-        my $p = WR::Process->new(
-            file    => $asset->path,
-            db      => $self->db('wot-replays'),
-            bf_key  => $self->stash('config')->{wot}->{bf_key},
-            banner  => $s,
-            app     => $self->app,
-        );
-        my $br;
-
-        my $m_data;
-        try {
-            $m_data = $p->process();
-            $br     = $p->pickledata;
-        } catch {
-            my $e = $_;
-            if($e =~ /incomplete/) {
-                $self->render(json => { ok => 0, error => 'no battle result block in replay' });
-            } else {
-                $self->app->log->error("[process]: $_");
-                $self->render(json => { ok => 0, error => "[process]: $_" });
-            }
-        };
-
-        return unless(defined($m_data));
-
-        my $filename = $upload->filename;
-        $filename =~ s/.*\\//g if($filename =~ /\\/);
-        $filename =~ s/.*\///g if($filename =~ /\//);
-        
-        my $url = undef;
-
-        if($s == 1) {
-            unless($self->model('wot-replays.replays')->find_one({ replay_digest => $m_data->{replay_digest}})) {
-                my $dt = DateTime->now();
-                my $replay_filename = sprintf('%s/%s', $dt->strftime('%Y/%m/%d'), $filename);
-                my $replay_path = sprintf('%s/%s', $self->stash('config')->{paths}->{replays}, $dt->strftime('%Y/%m/%d'));
-                my $replay_file = sprintf('%s/%s', $replay_path, $filename);
-
-                make_path($replay_path);
-
-                $asset->move_to($replay_file);
-
-                # figure out if it's a clan war or training battle, they are hidden
-                # by default
-                my $visible = ($m_data->{game}->{bonus_type} == 2 || $m_data->{game}->{bonus_type} == 5) ? false : true;
-
-                unless($m_data->{complete}) {
-                    if(my $user = $self->model('wot-replays.accounts')->find_one({
-                        player_name     => $m_data->{player}->{name},
-                        player_server   => $m_data->{player}->{server},
-                    })) {
-                        $visible = ($user->{settings}->{upload_incomplete} == 1) ? true : false;
-                    }
-                }
-
-                my $mdl = ($m_data->{version} eq $self->stash('config')->{wot}->{version}) ? 'replays' : sprintf('replays.%s', $m_data->{version});
-
-                $self->model($mdl)->save({
-                    %$m_data,
-                    file => $replay_filename,
-                    site => {
-                        description => undef,
-                        uploaded_at => time(),
-                        uploaded_by => undef,
-                        ident       => $self->stash('token_ident'),
-                        visible     => $visible,
-                    }
-                });
-
-                if($visible && $m_data->{version} eq $self->stash('config')->{wot}->{version}) {
-                    $self->model('wot-replays.newest.www')->insert({ 
-                        replay => $m_data->{_id}
-                    });
-                    $self->model(sprintf('wot-replays.newest.%s', $m_data->{player}->{server}))->insert({
-                        replay => $m_data->{_id}
-                    });
-                }
-
-                $self->model('wot-replays.replays.players')->insert({
-                    _id    => $m_data->{_id},
-                    server => $m_data->{player}->{server},
-                    player => $m_data->{player}->{name},
-                    uploaded_at => $m_data->{site}->{uploaded_at},
-                    version => $m_data->{version},
-                    visible     => $visible,
-                });
-                if(defined($m_data->{player}->{clan})) {
-                    $self->model('wot-replays.replays.clans')->insert({
-                        _id    => $m_data->{_id},
-                        server => $m_data->{player}->{server},
-                        clan   => $m_data->{player}->{clan},
-                        uploaded_at => $m_data->{site}->{uploaded_at},
-                        version => $m_data->{version},
-                        visible     => $visible,
-                    });
-                }
-                $url = sprintf('http://www.wot-replays.org/replay/%s.html', $m_data->{_id}->to_string);
-            } else {
-                # still return it
-                $url = sprintf('http://www.wot-replays.org/replay/%s.html', $m_data->{_id}->to_string);
-            }
-        } else {
-            # ehrmahgerd, replays that aren't supposed to be stored still get their image saved, is no good jais?
-            $asset->cleanup;
-        }
-        my $data = {
-            ok          =>  1,
-            replay      =>  $self->fuck_boolean($m_data),
-        };
-        $data->{url} = $url if($s == 1 && defined($url));
-        $self->render(json => $data);
-    } else {
-        $self->render(json => { ok => 0, error => 'no such upload "replay"' });
-    }
-}
-
 1;
+
