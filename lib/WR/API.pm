@@ -2,7 +2,7 @@ package WR::API;
 use Mojo::Base 'Mojolicious';
 use FindBin;
 use lib "$FindBin::Bin/../lib";
-
+use Mango;
 use WR;
 
 sub startup {
