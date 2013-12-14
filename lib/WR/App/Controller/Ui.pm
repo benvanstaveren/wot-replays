@@ -182,7 +182,7 @@ sub openid_return {
         });
     });
 
-    $o->response(params => $params, skip_verify => 1);
+    $o->response(params => $params);
 };
 
 1;

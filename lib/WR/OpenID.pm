@@ -27,6 +27,9 @@ sub response {
     my %args    = (@_);
     my $params  = $args{'params'};
 
+    use Data::Dumper;
+    warn Dumper($params);
+
     $self->emit('not_openid') and return unless(defined($params->{'openid.ns'}));
     $self->emit('setup_needed') and return if($params->{'openid.mode'} eq 'setup_needed');
     $self->emit('cancelled') and return if($params->{'openid.mode'} eq 'cancel');
@@ -54,28 +57,32 @@ sub response {
         } else {
             $self->nonce_cache->save({ _id => $params->{'openid.response_nonce'}, identity => $ident, created => Mango::BSON::bson_time } => sub {
                 my ($coll, $err, $oid) = (@_);
-                my $continue = 0;
 
-                if(defined($params->{'openid.oic.time'})) {
-                    my ($sig_time, $sig) = split(/\-/, $params->{'openid.oic.time'} || '');
-                    if($sig_time < time() - 3600) {
-                        $self->emit('error' => 'Request too old (', (time() - 3600) - $sig_time, ' seconds)');
-                    } elsif($sig_time > time() + 30) {
-                        $self->emit('error' => 'Request wants to time travel');
-                    } else {
-                        $continue = 1;
-                    }
+                if(defined($args{'skip_verify'}) && $args{'skip_verify'} > 0) {
+                    $self->emit('verified' => $ident)
                 } else {
-                    $continue = 1;
-                }
+                    # let's go verify, no need to strip fragments since we're in control here
+                    my $ah = $params->{'openid.assoc_handle'};
+                    my @signed = split(/,/, $params->{'openid.signed'});
+                    my $form = $params;
+                    $form->{'openid.mode'} = 'check_authentication';
 
-                if($continue == 1) {
-                    # should now verify the identity but I have a case of the lazies and this isn't here yet so
-                    if(defined($args{'skip_verify'}) && $args{'skip_verify'} > 0) {
-                        $self->emit('verified' => $ident)
-                    } else {
-                        $self->emit('error' => 'Asked for verification but not implemented yet, someone bug Scrambled!');
-                    }
+                    # fiddle this
+                    $self->openid_url($server);
+
+                    $self->_request($form => sub {
+                        my ($o, $err, $res) = (@_);
+
+                        if(defined($err)) {
+                            $self->emit('error' => sprintf('Error during verification: %s', $err));
+                        } else {
+                            if($res->params->{is_valid} eq 'true') {
+                                $self->emit('verified' => $ident);
+                            } else {
+                                $self->emit('error' => 'Invalid verification');
+                            }
+                        }
+                    });
                 } 
             });
         }
