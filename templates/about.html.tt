@@ -2,10 +2,8 @@
     <div class="page-header">
             <h2>About the Site</h2>
     </div>
+    <h3>wotreplays.org is a World of Tanks replay hosting site.</h3>
     <div class="well well-lg">
-        <p class="lead">
-            wotreplays.org is a World of Tanks replay hosting site. 
-        </p>
         <p>
             Besides hosting your replay files, we also extract information from them and use this information to allow you to browse replays in various ways. Besides this, we also data-mine the available replays to generate statistics and player ratings. After shutting down in September, it got itself revived as a way to combat Scrambled's boredom.
         </p>
@@ -22,7 +20,7 @@
             [% INCLUDE donatebutton.html.tt %]
         </p>
     </div>
-    <h4>Copyright Notices</h4>
+    <h3>Copyright Notices</h3>
     <div class="well well-lg">
         <p>
             This site is copyright 2012, 2013 by yours truly, <a href="http://worldoftanks.asia/community/accounts/2000036302-Scrambled/">Scrambled</a>.
