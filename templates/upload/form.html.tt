@@ -112,6 +112,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="close-and-view" href="">Close & View</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div>
@@ -148,6 +149,7 @@
                             $('#banner-available').hide();
                             $('#banner-unavailable').show();
                         }
+                        $('button#close-and-view').attr('href', '[% config.urls.app %]/replay/' + d.replayid + '.html');
                         $('#completeModal').modal('show');
                     } else if(d.status == -1) {
                         if(!d.error) d.error = 'Unknown error occurred during processing';
@@ -186,6 +188,11 @@
             });
         }
         $(document).ready(function() {
+            $('button#close-and-view').click(function() {
+                var href = $(this).attr('href');
+                $('#completeModal').modal('hide');
+                document.location.href = href;
+            });
             $('#frm-upload').ajaxForm({
                 clearForm: true,
                 resetForm: true,
