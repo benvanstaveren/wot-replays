@@ -26,6 +26,8 @@ sub progression_key {
         return 'battlesCount';
     } elsif(defined($cond->{cumulative}->{value})) {
         return $cond->{cumulative}->{value}->[0];
+    } elsif(defined($cond->{vehicleKills})) {
+        return 'vehicleKills';
     }
 }
 
@@ -37,6 +39,10 @@ sub progress_max {
         return $cond->{battles}->{value};
     } elsif(defined($cond->{cumulative}->{value})) {
         return $cond->{cumulative}->{value}->[1];
+    } elsif(defined($cond->{vehicleKills})) {
+        if(defined($cond->{vehicleKills}->{greaterOrEqual})) {
+            return $cond->{vehicleKills}->{greaterOrEqual}->{value};
+        }
     }
 }
 
