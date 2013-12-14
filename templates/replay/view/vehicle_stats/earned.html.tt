@@ -123,7 +123,7 @@
             </tr>
             <tr>
                 <td><h5 style="margin: 0px">- Ammo</h5></td>
-                <td>[% replay.stats.autoLoadCoast.0 %]</td>
+                <td>[% replay.stats.autoLoadCost.0 %]</td>
             </tr>
             <tr>
                 <td><h5 style="margin: 0px">- Consumables</h5></td>
@@ -141,7 +141,7 @@
             [% END %]
             <tr>
                 <td><h5 style="margin: 0px">Earned</h5></td>
-                <td>[% replay.stats.credits - (replay.stats.autoEquipCost.0 + replay.stats.autoLoadCOst.0 + replay.stats.repair + replay.stats.creditsPenalty) %]</td>
+                <td>[% replay.stats.credits - (replay.stats.autoEquipCost.0 + replay.stats.autoLoadCost.0 + replay.stats.repair + replay.stats.creditsPenalty) %]</td>
             </tr>
         [% ELSE %]
             <tr>
