@@ -9,7 +9,7 @@ sub validate_token {
     my $next    = $self->stash('next');
 
     # cb is only called when the token is valid 
-    $self->model('api_token')->find_one({ _id => $t } => sub {
+    $self->model('api_token')->find_one({ _id => $token } => sub {
         my ($coll, $err, $doc) = (@_);
 
         if(defined($doc)) {
