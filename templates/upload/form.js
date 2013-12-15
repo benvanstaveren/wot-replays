@@ -8,7 +8,7 @@ function processBackground() {
 
 handleProcess = function(jobid) {
     var nonce = new Date().getTime();
-    var processURL = 'http://api.wotreplays.org/process/status/' + jobid;
+    var processURL = 'http://api.wotreplays.org/v1/process/status/' + jobid;
     $('.process-log').addClass('job-' + jobid);
 
     var processLog = $('#processModal .process-log.job-' + jobid);
