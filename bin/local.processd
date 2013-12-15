@@ -319,7 +319,7 @@ sub get_new_job {
     if(my $job = $db->collection('jobs')->find({
         ready       => Mango::BSON::bson_true,
         complete    => Mango::BSON::bson_false,
-    })->sort({ priority => 1, ctime => 1 })->next()) {
+    })->sort({ priority => 1, ctime => 1 })->limit(1)->next()) {
         if($job->{locked}) {
             $log->debug('Found new job but it has already been locked');
             return undef;
