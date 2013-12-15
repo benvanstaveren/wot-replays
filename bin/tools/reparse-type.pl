@@ -37,4 +37,5 @@ while(my $replay = $cursor->next()) {
         },
         priority    => 1000,
     });
+    $db->collection('jobs')->save($job);
 }
