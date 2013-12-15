@@ -51,6 +51,8 @@ sub upload {
             $sha->add($replay_filename);       
             my $digest = $sha->hexdigest;
 
+            my $prio   = ($self->current_user->{player_server} eq 'sea' && $self->current_user->{player_name} eq 'Scrambled') ? 10 : 50;
+
             # set this up as the job id
             $self->model('wot-replays.jobs')->save({
                 _id         => $digest,
@@ -62,7 +64,8 @@ sub upload {
                 replayid    => undef,
                 ctime       => Mango::BSON::bson_time,
                 status_text => [ ],
-                data        => { }
+                data        => { },
+                priority    => $prio,
             } => sub {
                 my ($coll, $err, $oid) = (@_);
                 if(defined($oid)) {

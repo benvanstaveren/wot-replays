@@ -1,7 +1,17 @@
 var handleProcess = null;
+var timerID = null;
+var jobIDstatus = {};
+
+function processBackground() {
+    clearTimer(timerID); // and really that's all there's to it 
+}
+
 handleProcess = function(jobid) {
-    var timerID = null;
     var processURL = '/process/' + jobid;
+    $('.process-log').addClass('job-' + jobid);
+
+    var processLog = $('#processModal .process-log.job-' + jobid);
+
     $.getJSON(processURL, {}, function(d) {
         if(d.complete) {
             $('#processModal').modal('hide');
@@ -40,7 +50,7 @@ handleProcess = function(jobid) {
             }
         } else {
             if(d.status == 0) {
-                $('#processModal .process-log').empty();
+                processLog.empty();
 
                 var pt = $('<table>');
                 pt.addClass('table');
@@ -69,7 +79,7 @@ handleProcess = function(jobid) {
                         tb.append(row);
                     });
                     pt.append(tb);
-                    $('#processModal .process-log').html(pt);
+                    processLog.html(pt);
                 } else {
                     var pt = $('<table>').addClass('table');
                     var tb = $('<tbody/>');
@@ -81,8 +91,9 @@ handleProcess = function(jobid) {
                     tb.append(row);
                     pt.append(tb);
 
-                    $('#processModal .process-log').append(pt);
+                    processLog.html(pt);
                 }
+
                 timerID = setTimeout(function() {
                     handleProcess(jobid);
                 }, 2500);
@@ -101,6 +112,10 @@ handleProcess = function(jobid) {
 }
 
 $(document).ready(function() {
+    $('button#process-background').click(function() {
+        $('#processModal').modal('hide');
+        processBackground();
+    });
     $('button#close-and-view').click(function() {
         var href = $(this).attr('href');
         $('#completeModal').modal('hide');

@@ -104,9 +104,6 @@ sub uploads {
 
     $self->render_later;
 
-    use Data::Dumper;
-    warn Dumper($query);
-
     my $cursor = $self->model('wot-replays.jobs')->find($query);
     $cursor->count(sub {
         my ($cursor, $e, $count) = (@_);
