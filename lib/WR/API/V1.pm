@@ -153,7 +153,7 @@ sub process_replay {
                     } else {
                         $self->model('wot-replays.jobs')->find({ complete => Mango::BSON::bson_false, ready => Mango::BSON::bson_true })->count(sub {
                             my ($coll, $err, $count) = (@_);
-                            $self->render(json => { ok => 1, queue_position => $count, process_id => $jid });
+                            $self->render(json => { ok => 1, queue_position => $count, process_id => $digest });
                         });
                     } 
                 });
