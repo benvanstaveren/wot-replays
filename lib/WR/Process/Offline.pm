@@ -117,7 +117,7 @@ sub process {
     my $replay;
 
     try {
-        $replay = $self->_real_process($prepared_id_;
+        $replay = $self->_real_process($prepared_id);
     } catch {
         my $e = $_;
         $self->error($e);
