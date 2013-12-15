@@ -70,10 +70,13 @@ sub generate_mission_panel {
     my $cb      = shift;
     my $mission_panel = [];
 
+    # if there are no missions then we don't even need to bother and we can just bail out now
+    $cb->($mission_panel) and return unless(scalar(keys(%{$replay->{stats}->{questsProgress}})) > 0);
+
     my $delay   = Mojo::IOLoop->delay(sub {
         $cb->($mission_panel);
     });
-        
+
     foreach my $mission_id (sort(keys(%{$replay->{stats}->{questsProgress}}))) {
         my $end = $delay->begin;
         $self->model('statterbox.missions')->find_one({ _id => $mission_id } => sub {
@@ -324,9 +327,7 @@ sub actual_view_replay {
         # generate the mission panel
         $self->generate_mission_panel($replay => sub {
             my $mission_panel = shift;
-
             $replay->{mission_panel} = $mission_panel;
-
             $self->respond(
                 stash => {
                     pageid => 'browse', # really? yah really
