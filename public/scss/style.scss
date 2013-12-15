@@ -65,6 +65,18 @@ td.playerName {
     width: 100px;
 }
 
+#processModal .process-log table td {
+    vertical-align: middle;
+    &.text {
+        text-align: left;
+        width: 60%;
+    }
+    &.spinner {
+        text-align: center;
+        width: 40%;
+    }
+}
+
 td.playerVehicle {
     text-align: center;
     width: 80px;
@@ -140,6 +152,12 @@ td.playerDetails {
 }
 
 span {
+    &.spinner {
+        width: 24px;
+        height: 24px;
+        display: inline-block;
+        background: transparent url(#{$static_base}/img/spinner.gif) no-repeat scroll center center;
+    }
     &.equipment-icon {
         width: 24px;
         height: 24px;

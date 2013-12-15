@@ -79,15 +79,35 @@ sub job_error {
 }
 
 sub job_status {
-    my $job  = shift;
-    my $status = shift;
+    my $job     = shift;
+    my $status  = shift;
+    my $current;
+    my $u = 0;
+
+    $current = $job->{status_text};
+
+    my $new = [];
+
+    foreach my $e (@$current) {
+        if($e->{id} eq $status->{id}) {
+            push(@$new, $status);
+            $u++;
+        } else {
+            push(@$new, $e);
+        }
+    }
+
+    push(@$new, $status) unless($u > 0);
 
     $db->collection('jobs')->update({ _id => $job->{_id} }, {
-        '$push' => {
-            status_text => $status,
+        '$set' => {
+            status_text => $new,
         }
     });
+
+    $job->{status_text} = $new; # wonder if this works...
 }
+
 
 sub process_job {
     my $job = shift;
@@ -101,39 +121,126 @@ sub process_job {
         log             => $log,
         );
 
-    $o->on('state.prepare' => sub {
-        job_status($job, 'Preparing replay');
+    $o->on('state.prepare.start' => sub {
+        job_status($job, {
+            id      =>  'prepare',
+            text    =>  'Preparing replay',
+            type    =>  'spinner',
+            done    =>  Mango::BSON::bson_false,
+        });
     });
-    $o->on('state.finish' => sub {
-        job_status($job, 'Finished streaming packets');
+    $o->on('state.prepare.finish' => sub {
+        job_status($job, {
+            id      =>  'prepare',
+            text    =>  'Preparing replay',
+            type    =>  'spinner',
+            done    =>  Mango::BSON::bson_true,
+        });
     });
-    $o->on('state.generatebanner' => sub {
-        job_status($job, 'Generating preview banner');
+    $o->on('state.streaming.start' => sub {
+        job_status($job, {
+            id      => 'streaming',
+            text    => 'Extracting packets',
+            type    => 'spinner',
+            done    =>  Mango::BSON::bson_false,
+        });
     });
-    $o->on('state.wotlabsfetch' => sub {
-        job_status($job, 'Fetching WN7 for players');
+    $o->on('state.streaming.finish' => sub {
+        job_status($job, {
+            id      => 'streaming',
+            text    => 'Extracting packets',
+            type    => 'spinner',
+            done    =>  Mango::BSON::bson_true,
+        });
     });
-    $o->on('state.done' => sub {
-        job_status($job, 'Done procesing replay');
+    $o->on('state.generatebanner.start' => sub {
+        job_status($job, {
+            id      => 'generatebanner',
+            text    => 'Generating preview banner',
+            type    => 'spinner',
+            done    =>  Mango::BSON::bson_false,
+        });
     });
-    $o->on('state.streaming' => sub {
-        job_status($job, 'Streaming replay packets');
+    $o->on('state.generatebanner.finish' => sub {
+        job_status($job, {
+            id      => 'generatebanner',
+            text    => 'Generating preview banner',
+            type    => 'spinner',
+            done    =>  Mango::BSON::bson_true,
+        });
     });
     $o->on('state.packet.save.start' => sub {
-        job_status($job, 'Storing replay packets to disk');
+        job_status($job, {
+            id      => 'packetsave',
+            text    => 'Storing replay packets to disk',
+            type    => 'spinner',
+            done    =>  Mango::BSON::bson_false,
+        });
     });
-    $o->on('state.packet.save.done' => sub {
-        job_status($job, 'Stored replay packets');
+    $o->on('state.packet.save.finish' => sub {
+        job_status($job, {
+            id      => 'packetsave',
+            text    => 'Storing replay packets to disk',
+            type    => 'spinner',
+            done    =>  Mango::BSON::bson_true,
+        });
     });
     $o->on('state.wn7.start' => sub {
-        job_status($job, 'Fetching WN7 data from Statterbox (may take a while)');
+        my ($o, $total) = (@_);
+
+        job_status($job, {
+            id      =>  'wn7',
+            text    =>  'Fetching WN7 data from Statterbox',
+            type    =>  'progress',
+            count   =>  0,
+            total   =>  $total,
+            perc    =>  0,
+            done    =>  Mango::BSON::bson_false,
+        });
     });
-    $o->on('state.wn7.done' => sub {
-        job_status($job, 'Fetched WN7 data');
+    $o->on('state.wn7.progress' => sub {
+        my ($o, $d) = (@_);
+        my $perc;
+
+        if($d->{count} > 0 && $d->{total} > 0) {
+            $perc = sprintf('%.0f', (100/($d->{total}/$d->{count})));
+        } else {
+            $perc = 0;
+        }
+
+        job_status($job, {
+            id      =>  'wn7',
+            text    =>  'Fetching WN7 data from Statterbox',
+            type    =>  'progress',
+            count   =>  $d->{count},
+            total   =>  $d->{total},
+            perc    =>  $perc,
+            done    =>  Mango::BSON::bson_false,
+        });
+    });
+    $o->on('state.wn7.finish' => sub {
+        my ($o, $total) = (@_);
+        job_status($job, {
+            id      =>  'wn7',
+            text    =>  'Fetching WN7 data from Statterbox',
+            type    =>  'progress',
+            count   =>  $total,
+            total   =>  $total,
+            perc    =>  100,
+            done    =>  Mango::BSON::bson_true,
+        });
     });
 
     if(my $replay = $o->process) {
-        $log->debug('no error, yay');
+        $log->debug('no error yet, yay');
+
+        job_status($job, {
+            id      =>  'final',
+            text    =>  'Saving replay',
+            type    =>  'spinner',
+            done    =>  Mango::BSON::bson_false,
+        });
+        
         if(!defined($replay->{game}->{version_numeric}) || (defined($replay->{game}->{version_numeric}) && $replay->{game}->{version_numeric} < $config->{wot}->{min_version})) {
             unlink($job->{file});
             job_error($job, 'That replay is from an older version of World of Tanks which we cannot process...');
@@ -157,6 +264,12 @@ sub process_job {
                         file     => $replay->{file},
                     }
                 });
+                job_status($job, {
+                    id      =>  'final',
+                    text    =>  'Saving replay',
+                    type    =>  'spinner',
+                    done    =>  Mango::BSON::bson_true,
+                });
             } else {
                 job_error($job, 'Error saving replay');
             }
@@ -167,7 +280,6 @@ sub process_job {
 }
 
 sub get_new_job {
-
     if(my $job = $db->collection('jobs')->find({
         ready       => Mango::BSON::bson_true,
         complete    => Mango::BSON::bson_false,

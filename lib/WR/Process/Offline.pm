@@ -130,7 +130,7 @@ sub _real_process {
         file    => $self->file,
     );
     
-    $self->emit('state.prepare');
+    $self->emit('state.prepare.start');
 
     $self->debug('instantiating parser');
 
@@ -146,6 +146,8 @@ sub _real_process {
     $self->_parser($parser);
 
     $self->debug('parser instantiated');
+
+    $self->emit('state.prepare.finish');
 
     # do we need a battle result? well, yeah, I guess we do after all
     unless($self->_parser->has_battle_result) {
@@ -314,8 +316,7 @@ sub _real_process {
                 $self->error(Dumper($reason));
                 $replay = undef;
             } else {
-                $self->emit('state.finish');
-                $self->debug('emitted state.finish');
+                $self->emit('state.streaming.finish');
 
                 # we alter the consumables list, the original consumables list contains numbers only, 
                 # the new one will have refs
@@ -346,10 +347,12 @@ sub _real_process {
                     }
                 }
 
-                $self->emit('state.generatebanner');
+                $self->emit('state.generatebanner.start');
                 $self->debug('preparing banner');
                 $self->generate_banner($replay => sub {
                     my $image = shift;
+
+                    $self->emit('state.generatebanner.finish');
                         
                     $replay->{site}->{banner} = $image;
                     $replay->{game}->{server} = WR::Provider::ServerFinder->new->get_server_by_id($replay->{roster}->[ $replay->{players}->{$replay->{game}->{recorder}->{name}} ]->{player}->{accountDBID} + 0);
@@ -383,16 +386,18 @@ sub _real_process {
                         $fh->close;
                         $self->debug('wrote packets to file');
                         $replay->{packets} = sprintf('%s/%s.json', $self->hashbucket($replay->{_id} . '', 7), $replay->{_id} . '');
-                        $self->emit('state.packet.save.done');
+                        $self->emit('state.packet.save.finish');
                     } else {
                         $self->debug('could not write packets to file');
                         $replay->{packets} = undef;
-                        $self->emit('state.packet.save.done');
+                        $self->emit('state.packet.save.finish');
                     }
 
                     $self->debug('fetching wn7 from statterbox');
 
-                    $self->emit('state.wn7.start');
+                    $self->emit('state.wn7.start' => scalar(keys(%{$replay->{players}})));
+
+                    my $count = 0;
 
                     foreach my $player (keys(%{$replay->{players}})) {
                         my $url = sprintf('http://statterbox.com/api/v1/%s/wn7?server=%s&player=%s', 
@@ -440,9 +445,10 @@ sub _real_process {
                             };
                             $replay->{wn7} = $roster->{wn7} if($player eq $replay->{game}->{recorder}->{name});
                         }
+                        $self->emit('state.wn7.progress' => { count => ++$count, total => scalar(keys(%{$replay->{players}})) });
                     }
 
-                    $self->emit('state.wn7.done');
+                    $self->emit('state.wn7.finish');
 
                     my $wn7p = WR::Provider::WN7->new();
                     my $roster = $replay->{roster}->[ $replay->{players}->{$replay->{game}->{recorder}->{name}} ];
@@ -461,7 +467,7 @@ sub _real_process {
             }
         });
 
-        $self->emit('state.streaming');
+        $self->emit('state.streaming.start');
         $game->start;
 
         # after game is done, we should in theory have a replay
