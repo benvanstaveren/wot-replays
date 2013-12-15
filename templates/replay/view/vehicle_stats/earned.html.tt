@@ -44,10 +44,14 @@
                 <td><h5 style="margin: 0px">- Penalty</h5></td>
                 <td>[% replay.stats.xpPenalty %]</td>
             </tr>
-        [% ELSE %]
             <tr>
                 <td><h5 style="margin: 0px">Earned</h5></td>
                 <td>[% h.nonegative(replay.stats.xp - replay.stats.xpPenalty) %]</td>
+            </tr>
+        [% ELSE %]
+            <tr>
+                <td><h5 style="margin: 0px">Earned</h5></td>
+                <td>[% h.nonegative(replay.stats.xp) %]</td>
             </tr>
         [% END %]
     </tbody>
