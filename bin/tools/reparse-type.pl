@@ -15,7 +15,6 @@ my $coll   = $db->collection('replays');
 my $cursor = $coll->find({ 'game.bonus_type' => $ARGV[0] + 0 });
 my $total = $cursor->count;
 $cursor->sort({ 'site.uploaded_at' => -1 });
-$cursor->fields({ digest => 1 });
 my $done  = 0;
 while(my $replay = $cursor->next()) {
     $db->collection('jobs')->update({ 
