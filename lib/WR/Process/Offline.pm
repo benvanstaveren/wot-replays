@@ -110,14 +110,14 @@ sub error {
 
 sub process {
     my $self = shift;
-    my $cb = shift;
+    my $prepared_id = shift;
 
     $self->_preload;
 
     my $replay;
 
     try {
-        $replay = $self->_real_process;
+        $replay = $self->_real_process($prepared_id_;
     } catch {
         my $e = $_;
         $self->error($e);
@@ -226,6 +226,7 @@ sub finalize_roster {
 
 sub _real_process {
     my $self = shift;
+    my $prepared_id = shift;
 
     my %args = (
         bf_key  => $self->bf_key,
@@ -260,7 +261,7 @@ sub _real_process {
     $self->debug('setting up temporary result');
     # set up the temporary result 
     my $replay = {
-        _id     => Mango::BSON::bson_oid,
+        _id     => (defined($prepared_id)) ? $prepared_id : Mango::BSON::bson_oid,
         site    => {
             visible     => Mango::BSON::bson_true,
             uploaded_at => Mango::BSON::bson_time,

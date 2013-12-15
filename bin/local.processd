@@ -260,13 +260,12 @@ sub process_job {
         });
     });
 
-    if(my $replay = $o->process) {
+    if(my $replay = $o->process(($job->{reprocess}) ? $job->{replayid})) {
         $log->debug('no error yet, yay');
 
         if($job->{reprocess}) {
             my $oreplay = $db->collection('replays')->find_one({ digest => $job->{_id}}); # that's the way to find it, innit?
             $replay->{site} = $oreplay->{site};
-            $replay->{_id}  = $oreplay->{_id};
         }
 
         job_status($job, {
