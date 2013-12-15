@@ -23,7 +23,7 @@ has 'panel'   => 0;
 sub error { shift->_log('error', @_) }
 sub info { shift->_log('info', @_) }
 sub warning { shift->_log('warn', @_) }
-sub debug { shift->_log('info', @_) } # yes, info...
+sub debug { shift->_log('debug', @_) } 
 
 sub _log {
     my $self = shift;
