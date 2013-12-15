@@ -44,7 +44,7 @@ sub startup {
                 }
             $v1->route('/typecomp')->to('v1#validate_token', next => 'resolve_typecomp');
 
-            my $process = $root->under('/process');
+            my $process = $v1->under('/process');
                 $process->route('/')->to('v1#validate_token', next => 'process_replay');
                 $process->route('/status/:job_id')->to('v1#process_status'); # yeah, really, this doesn't need a token 
 
