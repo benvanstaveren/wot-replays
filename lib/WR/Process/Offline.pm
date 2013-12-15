@@ -33,7 +33,9 @@ has 'ua'            => sub { Mojo::UserAgent->new };
 has '_consumables'  => sub { {} }; # consumables are keyed by their typecomp id fragment
 has '_components'   => sub { {} }; # components are keyed by type, country, id
 
-has '_rsize'        => 0;
+has '_rsize'        =>  0;
+
+has '_arena_initialize' => undef;
 
 sub _preload {
     my $self = shift;
@@ -124,6 +126,104 @@ sub process {
     return $replay;
 }
 
+sub finalize_roster {
+    my $self            = shift;
+    my $battle_result   = shift;
+    my $replay          = shift;
+    my $roster          = shift;
+
+    my $name_to_vidx = {};
+    my $vid_to_vidx = {};
+    my $i = 0;
+    my $typecomps = {};
+    my $newroster = [];
+    my $teams = [];
+    my $plat  = {};
+
+    foreach my $entry (@$roster) {
+        $name_to_vidx->{$entry->{name}} = $i;
+        $vid_to_vidx->{$entry->{vehicleID}} = $i;
+        push(@{$teams->[$entry->{team} - 1]}, $i);
+
+        my $rawv = $battle_result->{vehicles}->{$entry->{vehicleID}};
+        my $newentry = {
+            health  =>  {
+                total       => ($rawv->{health} + $rawv->{damageReceived}),
+                remaining   => $rawv->{health},
+            },
+            stats => { map { $_ => $rawv->{$_} } (qw/this damageAssistedTrack damageAssistedRadio he_hits pierced kills shots spotted tkills potentialDamageReceived noDamageShotsReceived credits mileage heHitsReceived hits damaged piercedReceived droppedCapturePoints damageReceived killerID damageDealt shotsReceived xp deathReason lifeTime tdamageDealt capturePoints achievements/) },
+            player => $entry,
+            platoon => (defined($plat->{$rawv->{accountDBID}})) ? $plat->{$rawv->{accountDBID}} : undef,
+            vehicle => { id => $entry->{vehicleID} },
+        };
+        $newentry->{stats}->{isTeamKiller} = ($rawv->{isTeamKiller}) ? Mango::BSON::bson_true : Mango::BSON::bson_false;
+        $typecomps->{$entry->{vehicleID}} = $rawv->{typeCompDescr};
+        push(@$newroster, $newentry);
+        $i++;
+    }
+
+    my $teams_sorted = {};
+    my $roster_sorted = {};
+    my $sort_key = { 
+        damageDealt => 'damage',
+        xp          => 'xp',
+        kills       => 'kills',
+    };
+
+    foreach my $key (keys(%$sort_key)) {
+        my $sk = $sort_key->{$key};
+
+        $teams_sorted->{$sk} = [ [], [] ];
+
+        foreach my $entry (sort { $b->{stats}->{$key} <=> $a->{stats}->{$key} } (@$newroster)) {
+            push(@{$roster_sorted->{$sk}}, $vid_to_vidx->{$entry->{vehicle}->{id}});
+            push(@{$teams_sorted->{$sk}->[$entry->{player}->{team} - 1]}, $entry->{vehicle}->{id});
+        }
+    }
+
+    my $t_resolve = {};
+    foreach my $key (keys(%$typecomps)) {
+        if(my $tc = $typecomps->{$key}) {
+            if(defined($t_resolve->{$tc . ''})) {
+                push(@{$t_resolve->{$tc . ''}}, $key);
+            } else {
+                $t_resolve->{$tc . ''} = [ $key ];
+            }
+        }
+    }
+    $self->debug('starting typecomp resolve for roster');
+
+    my $cursor = $self->model('wot-replays.data.vehicles')->find({ typecomp => { '$in' => [ map { $_ + 0 } (keys(%$t_resolve)) ] }});
+    while(my $tc = $cursor->next()) {
+        my $typecomp = $tc->{typecomp};
+        foreach my $vid (@{$t_resolve->{$typecomp}}) {
+            my $idx = $vid_to_vidx->{$vid . ''};
+            my $newvehicle = {};
+            my $vehicle = $tc;
+            foreach my $key (keys(%$vehicle)) {
+                $newvehicle->{$key} = $vehicle->{$key};
+            }
+            $newvehicle->{ident} = delete($newvehicle->{_id});
+            $newvehicle->{id} = $vid + 0;
+            $newvehicle->{icon} = sprintf('%s-%s.png', $vehicle->{country}, $vehicle->{name_lc});
+            $newroster->[$idx]->{vehicle} = $newvehicle;
+        }
+    }
+
+    $replay->{roster}        = $newroster;
+    $replay->{vehicles}      = $vid_to_vidx;
+    $replay->{players}       = $name_to_vidx;
+    $replay->{teams}         = $teams;
+    $replay->{roster_sorted} = $roster_sorted;
+    $replay->{teams_sorted}  = $teams_sorted;
+
+    $replay->{game}->{recorder}->{vehicle} = {
+        id      => $replay->{roster}->[ $replay->{players}->{$replay->{game}->{recorder}->{name}} ]->{vehicle}->{id},
+        tier    => $replay->{roster}->[ $replay->{players}->{$replay->{game}->{recorder}->{name}} ]->{vehicle}->{level},
+        ident   => $replay->{roster}->[ $replay->{players}->{$replay->{game}->{recorder}->{name}} ]->{vehicle}->{ident},
+    };
+}
+
 sub _real_process {
     my $self = shift;
 
@@ -133,7 +233,6 @@ sub _real_process {
     );
     
     $self->emit('state.prepare.start');
-
     $self->debug('instantiating parser');
 
     my $parser;
@@ -148,7 +247,6 @@ sub _real_process {
     $self->_parser($parser);
 
     $self->debug('parser instantiated');
-
     $self->emit('state.prepare.finish');
 
     # do we need a battle result? well, yeah, I guess we do after all
@@ -179,7 +277,6 @@ sub _real_process {
     if(my $game = $self->_parser->game()) {
         $game->on('replay.size' => sub {
             my ($s, $v) = (@_);
-
             $self->_rsize($v);
         });
         $game->on('replay.position' => sub {
@@ -202,13 +299,13 @@ sub _real_process {
             my ($s, $v) = (@_);
             $replay->{game}->{recorder}->{id} = $v + 0;
         });
-        $game->on('setup.battle_level' => sub {
-            my ($s, $v) = (@_);
-            $replay->{game}->{battle_level} = (defined($v)) ? $v + 0 : undef;
+        $game->on('arena.initialize' => sub {
+            my ($s, $init) = (@_);
+            $replay->{game}->{battle_level} = (defined($init->{battleLevel})) ? $init->{battleLevel} + 0 : undef;
+            $replay->{game}->{opponents}    = (defined($init->{opponents})) ? $init->{opponents} : undef;
         });
-
         # here's some additional bits and pieces that we are interested in
-        for my $event ('player.position', 'player.health', 'player.tank.destroyed', 'player.orientation.hull', 'player.chat', 'arena.period', 'player.tank.damaged') {
+        for my $event ('player.position', 'player.health', 'player.tank.destroyed', 'player.orientation.hull', 'player.chat', 'arena.period', 'player.tank.damaged', 'arena.initialize') {
             if($event eq 'player.chat') {
                 $game->on($event => sub {
                     my ($game, $chat) = (@_);
@@ -223,104 +320,6 @@ sub _real_process {
             }
         }
 
-        $game->on('setup.roster' => sub {
-            my ($s, $roster) = (@_);
-
-            $self->debug('received setup.roster');
-
-            my $name_to_vidx = {};
-            my $vid_to_vidx = {};
-            my $i = 0;
-            my $typecomps = {};
-            my $newroster = [];
-            my $teams = [];
-            my $plat  = {};
-
-            foreach my $entry (@$roster) {
-                $name_to_vidx->{$entry->{name}} = $i;
-                $vid_to_vidx->{$entry->{vehicleID}} = $i;
-                push(@{$teams->[$entry->{team} - 1]}, $i);
-
-                my $rawv = $battle_result->{vehicles}->{$entry->{vehicleID}};
-                my $newentry = {
-                    health  =>  {
-                        total       => ($rawv->{health} + $rawv->{damageReceived}),
-                        remaining   => $rawv->{health},
-                    },
-                    stats => { map { $_ => $rawv->{$_} } (qw/this damageAssistedTrack damageAssistedRadio he_hits pierced kills shots spotted tkills potentialDamageReceived noDamageShotsReceived credits mileage heHitsReceived hits damaged piercedReceived droppedCapturePoints damageReceived killerID damageDealt shotsReceived xp deathReason lifeTime tdamageDealt capturePoints achievements/) },
-                    player => $entry,
-                    platoon => (defined($plat->{$rawv->{accountDBID}})) ? $plat->{$rawv->{accountDBID}} : undef,
-                    vehicle => { id => $entry->{vehicleID} },
-                };
-                $newentry->{stats}->{isTeamKiller} = ($rawv->{isTeamKiller}) ? Mango::BSON::bson_true : Mango::BSON::bson_false;
-                $typecomps->{$entry->{vehicleID}} = $rawv->{typeCompDescr};
-                push(@$newroster, $newentry);
-                $i++;
-            }
-
-            my $teams_sorted = {};
-            my $roster_sorted = {};
-            my $sort_key = { 
-                damageDealt => 'damage',
-                xp          => 'xp',
-                kills       => 'kills',
-            };
-
-            foreach my $key (keys(%$sort_key)) {
-                my $sk = $sort_key->{$key};
-
-                $teams_sorted->{$sk} = [ [], [] ];
-
-                foreach my $entry (sort { $b->{stats}->{$key} <=> $a->{stats}->{$key} } (@$newroster)) {
-                    push(@{$roster_sorted->{$sk}}, $vid_to_vidx->{$entry->{vehicle}->{id}});
-                    push(@{$teams_sorted->{$sk}->[$entry->{player}->{team} - 1]}, $entry->{vehicle}->{id});
-                }
-            }
-
-            my $t_resolve = {};
-            foreach my $key (keys(%$typecomps)) {
-                if(my $tc = $typecomps->{$key}) {
-                    if(defined($t_resolve->{$tc . ''})) {
-                        push(@{$t_resolve->{$tc . ''}}, $key);
-                    } else {
-                        $t_resolve->{$tc . ''} = [ $key ];
-                    }
-                }
-            }
-            $self->debug('starting typecomp resolve for roster');
-
-            my $cursor = $self->model('wot-replays.data.vehicles')->find({ typecomp => { '$in' => [ map { $_ + 0 } (keys(%$t_resolve)) ] }});
-            while(my $tc = $cursor->next()) {
-                my $typecomp = $tc->{typecomp};
-                foreach my $vid (@{$t_resolve->{$typecomp}}) {
-                    my $idx = $vid_to_vidx->{$vid . ''};
-                    my $newvehicle = {};
-                    my $vehicle = $tc;
-                    foreach my $key (keys(%$vehicle)) {
-                        $newvehicle->{$key} = $vehicle->{$key};
-                    }
-                    $newvehicle->{ident} = delete($newvehicle->{_id});
-                    $newvehicle->{id} = $vid + 0;
-                    $newvehicle->{icon} = sprintf('%s-%s.png', $vehicle->{country}, $vehicle->{name_lc});
-                    $newroster->[$idx]->{vehicle} = $newvehicle;
-                }
-            }
-
-            $replay->{roster}        = $newroster;
-            $replay->{vehicles}      = $vid_to_vidx;
-            $replay->{players}       = $name_to_vidx;
-            $replay->{teams}         = $teams;
-            $replay->{roster_sorted} = $roster_sorted;
-            $replay->{teams_sorted}  = $teams_sorted;
-
-            $replay->{game}->{recorder}->{vehicle} = {
-                id      => $replay->{roster}->[ $replay->{players}->{$replay->{game}->{recorder}->{name}} ]->{vehicle}->{id},
-                tier    => $replay->{roster}->[ $replay->{players}->{$replay->{game}->{recorder}->{name}} ]->{vehicle}->{level},
-                ident   => $replay->{roster}->[ $replay->{players}->{$replay->{game}->{recorder}->{name}} ]->{vehicle}->{ident},
-            };
-        });
-
-
         $game->on(finish => sub {
             my ($game, $reason) = (@_);
             if($reason->{ok} == 0) {
@@ -329,14 +328,15 @@ sub _real_process {
             } else {
                 $self->emit('state.streaming.finish' => $game->stream->len);
 
+                # finalize the roster
+                $self->finalize_roster($battle_result, $replay, $game->roster);
+
                 # we alter the consumables list, the original consumables list contains numbers only, 
                 # the new one will have refs
                 my $consumables = [];
                 foreach my $tc (keys(%{$game->vcons_initial})) {
-                    warn 'vcons tc: ', $tc, "\n";
                     if($tc > 0) {
                         my $a = parse_int_compact_descr($tc);
-                        warn 'vcons tc: ', $tc, ' parsed: ', Dumper($a);
                         if(my $c = $self->get_consumable($a->{id})) {
                             push(@$consumables, $c);
                         }
@@ -349,7 +349,6 @@ sub _real_process {
                 # ammo is a bit different since the array needs to be hashes of { id => typeid, count => count }
                 foreach my $id (keys(%{$game->vshells_initial})) {
                     my $tc = parse_int_compact_descr($id);
-                    warn 'ammo id: ', $id, ' parsed: ', Dumper($tc);
                     if(my $a = $self->get_component('shells', nation_id_to_name($tc->{country}), $tc->{id})) {
                         push(@{$replay->{game}->{recorder}->{ammo}}, {
                             ammo  => $a,
