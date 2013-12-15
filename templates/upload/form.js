@@ -70,9 +70,7 @@ handleProcess = function(jobid) {
                             } else if(element.type == 'progress') {
                                 var p = $('<div/>').addClass('progress')
                                     .append(
-                                        $('<div/>').addClass('progress-bar progress-bar-success').css({ 'width': element.perc + '%' }).append(
-                                            $('<span/>').text(element.count + ' / ' + element.total)
-                                        )
+                                        $('<div/>').addClass('progress-bar progress-bar-success').css({ 'width': element.perc + '%' })
                                     );
                                 row.append($('<td/>').append(p).addClass('spinner'));
                             }
