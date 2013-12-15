@@ -5,6 +5,7 @@ use WR::Query;
 use WR::Res;
 use WR::Util::CritDetails;
 use WR::Provider::ServerFinder;
+use File::Slurp qw/read_file/;
 use WR::Constants qw/nation_id_to_name/;
 use WR::Util::TypeComp qw/parse_int_compact_descr type_id_to_name/;
 use Data::Dumper;
@@ -12,8 +13,13 @@ use DateTime;
 
 use constant ROMAN_NUMERALS => [qw(0 I II III IV V VI VII VIII IX X)];
 
+# there are a few helpers that still make database calls, these need to be
+# replaced with "better" solutions since blocking DB calls can really mess
+# up the works... 
+
 sub generate_vehicle_select {
     my $self = shift;
+
     my $p = [];
     my $l = { 
         china => 'China',
@@ -44,8 +50,116 @@ sub add_helpers {
     my $class = shift;
     my $self  = shift; # not really self but the Mojo app
 
-    $self->attr(_sf => sub { WR::Provider::ServerFinder->new });
+    ### DB CALLING HELPERS - FIXME FIXME FIXME
+    $self->helper(generate_item_icon_with_count => sub {
+        my $self = shift;
+        my $i    = shift;
+        my $tc   = parse_int_compact_descr($i->{item});
 
+        my $type    = type_id_to_name($tc->{type_id});
+        my $model   = ($type eq 'equipment') ? 'wot-replays.data.consumables' : 'wot-replays.data.equipment'; 
+        my $path    = ($type eq 'equipment') ? 'consumables' : 'equipment';
+
+        # the typecomp is the ID of the item 
+        if(my $c = $self->model($model)->find_one({ wot_id => $tc->{id} })) {
+            return sprintf('<span data-placement="bottom" data-toggle="tooltip" title="%s x%d" class="bs-tooltip mission-icon rounded" style="background: transparent url(http://images.wotreplays.org/%s/32x32/%s) no-repeat scroll 0 0"><b>%d</b></span>', $c->{label}, $i->{count}, $path, $c->{icon}, $i->{count});
+        } else {
+            return undef;
+        }
+    });
+
+    $self->helper(generate_vehicle_select => \&generate_vehicle_select);
+    $self->helper(consumable_icon_style => sub {
+        my $self = shift;
+        my $a = shift;
+
+        return undef unless(defined($a));
+
+        if(ref($a)) {
+            $self->app->log->debug('new style consumable');
+            return sprintf('style="background: transparent url(http://images.wotreplays.org/consumables/24x24/%s) no-repeat scroll 0 0"', $a->{icon});
+        } else {
+            $self->app->log->debug('old style consumable');
+            my $tc = parse_int_compact_descr($a);
+            my $i = $tc->{id};
+            if(my $c = $self->model('wot-replays.data.consumables')->find_one({ wot_id => $i + 0 })) {
+                return sprintf('style="background: transparent url(http://images.wotreplays.org/consumables/24x24/%s) no-repeat scroll 0 0"', $c->{icon});
+            } else {
+                return undef;
+            }
+        }
+    });
+
+    $self->helper(ammo_icon_style => sub {
+        my $self = shift;
+        my $a = shift;
+
+        return undef unless(defined($a) && ref($a) eq 'HASH');
+
+        if(defined($a->{ammo})) {
+            # new style
+            my $n = ($a->{count} > 0) ? $a->{ammo}->{kind} : sprintf('NO_%s', $a->{ammo}->{kind});
+            $self->app->log->debug('new style ammo');
+            return sprintf('style="background: transparent url(http://images.wotreplays.org/ammo/24x24/%s.png) no-repeat scroll 0 0"', $n);
+        } else {
+            $self->app->log->debug('old style ammo');
+            my $i = $a->{id};
+            if(my $c = $self->model('wot-replays.data.components')->find_one({ component => 'shells', _id => $i + 0 })) {
+                my $n = ($a->{count} > 0) ? $c->{kind} : sprintf('NO_%s', $c->{kind});
+                return sprintf('style="background: transparent url(http://images.wotreplays.org/ammo/24x24/%s.png) no-repeat scroll 0 0"', $n);
+            } else {
+                return undef;
+            }
+        }
+    });
+
+    $self->helper(ammo_name => sub {
+        my $self = shift;
+        my $a = shift;
+        my $kind_map = {
+            'ARMOR_PIERCING' => 'Armor-Piercing',
+            'ARMOR_PIERCING_CR' => 'AP Composite-Rigid',
+            'ARMOR_PIERCING_HE' => 'AP High-Explosive',
+            'HIGH_EXPLOSIVE' => 'High-Explosive',
+            'HOLLOW_CHARGE' => 'High-Explosive Anti-Tank',
+        };
+
+        return undef unless(defined($a) && ref($a) eq 'HASH');
+
+        if(defined($a->{ammo})) {
+            $self->app->log->debug('new style ammo');
+            my $c = $a->{ammo};
+            return sprintf('%s %dmm %s %s', 
+                sprintf('%d x', $a->{count}),
+                $c->{caliber}, 
+                $kind_map->{$c->{kind}},
+                $c->{label}
+                );
+        } else {
+            $self->app->log->debug('old style ammo');
+            my $i = $a->{id};
+            if(my $c = $self->model('wot-replays.data.components')->find_one({ component => 'shells', _id => $i + 0 })) {
+                return sprintf('%s %dmm %s %s', 
+                    sprintf('%d x', $a->{count}),
+                    $c->{caliber}, 
+                    $kind_map->{$c->{kind}},
+                    $c->{label}
+                    );
+            } else {
+                return undef;
+            }
+        }
+    });
+
+    ### DB CALLING HELPERS END
+
+    $self->helper(wr_query => sub {
+        my $self = shift;
+        return WR::Query->new(@_, coll => $self->model('wot-replays.replays'), log => $self->app->log);
+    });
+
+
+    $self->attr(_sf => sub { WR::Provider::ServerFinder->new });
     $self->helper(resolve_server_by_playerid => sub {
         my $self = shift;
         my $id   = shift;
@@ -75,23 +189,6 @@ sub add_helpers {
         my @a    = split(/\//, $n);
 
         return pop(@a);
-    });
-
-    $self->helper(generate_item_icon_with_count => sub {
-        my $self = shift;
-        my $i    = shift;
-        my $tc   = parse_int_compact_descr($i->{item});
-
-        my $type    = type_id_to_name($tc->{type_id});
-        my $model   = ($type eq 'equipment') ? 'wot-replays.data.consumables' : 'wot-replays.data.equipment'; 
-        my $path    = ($type eq 'equipment') ? 'consumables' : 'equipment';
-
-        # the typecomp is the ID of the item 
-        if(my $c = $self->model($model)->find_one({ wot_id => $tc->{id} })) {
-            return sprintf('<span data-placement="bottom" data-toggle="tooltip" title="%s x%d" class="bs-tooltip mission-icon rounded" style="background: transparent url(http://images.wotreplays.org/%s/32x32/%s) no-repeat scroll 0 0"><b>%d</b></span>', $c->{label}, $i->{count}, $path, $c->{icon}, $i->{count});
-        } else {
-            return undef;
-        }
     });
 
     $self->helper(browse_page => sub {
@@ -197,11 +294,6 @@ sub add_helpers {
         return join('/', @parts);
     });
 
-    $self->helper(wr_query => sub {
-        my $self = shift;
-        return WR::Query->new(@_, coll => $self->model('wot-replays.replays'), log => $self->app->log);
-    });
-
     $self->helper('lc' => sub {
         shift and return lc(shift);
     });
@@ -238,100 +330,9 @@ sub add_helpers {
         return $s;
     });
 
-    $self->helper('clear_replay_page' => sub {
-        my $self = shift;
-        my $id   = shift;
-
-        my $filename = sprintf('%s/%s.html', $self->stash('config')->{paths}->{pages}, $id);
-        unlink($filename);
-    });
-
     $self->helper(get_id => sub { return $_[1]->{_id} });
     $self->helper(res => sub { return shift->app->wr_res });
 
-    $self->helper(generate_vehicle_select => \&generate_vehicle_select);
-
-    $self->helper(consumable_icon_style => sub {
-        my $self = shift;
-        my $a = shift;
-
-        return undef unless(defined($a));
-
-        if(ref($a)) {
-            $self->app->log->debug('new style consumable');
-            return sprintf('style="background: transparent url(http://images.wotreplays.org/consumables/24x24/%s) no-repeat scroll 0 0"', $a->{icon});
-        } else {
-            $self->app->log->debug('old style consumable');
-            my $tc = parse_int_compact_descr($a);
-            my $i = $tc->{id};
-            if(my $c = $self->model('wot-replays.data.consumables')->find_one({ wot_id => $i + 0 })) {
-                return sprintf('style="background: transparent url(http://images.wotreplays.org/consumables/24x24/%s) no-repeat scroll 0 0"', $c->{icon});
-            } else {
-                return undef;
-            }
-        }
-    });
-
-    $self->helper(ammo_icon_style => sub {
-        my $self = shift;
-        my $a = shift;
-
-        return undef unless(defined($a) && ref($a) eq 'HASH');
-
-        if(defined($a->{ammo})) {
-            # new style
-            my $n = ($a->{count} > 0) ? $a->{ammo}->{kind} : sprintf('NO_%s', $a->{ammo}->{kind});
-            $self->app->log->debug('new style ammo');
-            return sprintf('style="background: transparent url(http://images.wotreplays.org/ammo/24x24/%s.png) no-repeat scroll 0 0"', $n);
-        } else {
-            $self->app->log->debug('old style ammo');
-            my $i = $a->{id};
-            if(my $c = $self->model('wot-replays.data.components')->find_one({ component => 'shells', _id => $i + 0 })) {
-                my $n = ($a->{count} > 0) ? $c->{kind} : sprintf('NO_%s', $c->{kind});
-                return sprintf('style="background: transparent url(http://images.wotreplays.org/ammo/24x24/%s.png) no-repeat scroll 0 0"', $n);
-            } else {
-                return undef;
-            }
-        }
-    });
-
-    $self->helper(ammo_name => sub {
-        my $self = shift;
-        my $a = shift;
-        my $kind_map = {
-            'ARMOR_PIERCING' => 'Armor-Piercing',
-            'ARMOR_PIERCING_CR' => 'AP Composite-Rigid',
-            'ARMOR_PIERCING_HE' => 'AP High-Explosive',
-            'HIGH_EXPLOSIVE' => 'High-Explosive',
-            'HOLLOW_CHARGE' => 'High-Explosive Anti-Tank',
-        };
-
-        return undef unless(defined($a) && ref($a) eq 'HASH');
-
-        if(defined($a->{ammo})) {
-            $self->app->log->debug('new style ammo');
-            my $c = $a->{ammo};
-            return sprintf('%s %dmm %s %s', 
-                sprintf('%d x', $a->{count}),
-                $c->{caliber}, 
-                $kind_map->{$c->{kind}},
-                $c->{label}
-                );
-        } else {
-            $self->app->log->debug('old style ammo');
-            my $i = $a->{id};
-            if(my $c = $self->model('wot-replays.data.components')->find_one({ component => 'shells', _id => $i + 0 })) {
-                return sprintf('%s %dmm %s %s', 
-                    sprintf('%d x', $a->{count}),
-                    $c->{caliber}, 
-                    $kind_map->{$c->{kind}},
-                    $c->{label}
-                    );
-            } else {
-                return undef;
-            }
-        }
-    });
 
     $self->helper(get_battleviewer_icon => sub {
         my $self = shift;

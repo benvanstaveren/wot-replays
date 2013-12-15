@@ -80,7 +80,6 @@ sub startup {
 
     # funky bits
     $r->route('/upload')->to('replays-upload#upload', pageid => 'upload');
-    $r->route('/process/:jobid')->to('replays-upload#process_replay', pageid => 'upload');
     $r->route('/postaction')->to('ui#nginx_post_action');
 
     my $xhr = $r->under('/xhr');

@@ -105,20 +105,4 @@ sub upload {
     }
 }
 
-sub process_replay {
-    my $self = shift;
-    my $jid  = $self->stash('jobid');
-
-    $self->render_later;
-    $self->model('wot-replays.jobs')->find_one({ _id => $jid } => sub {
-        my ($coll, $err, $doc) = (@_);
-
-        if(defined($doc)) {
-            $self->render(json => $doc);
-        } else {
-            $self->render(json => { status => -1, error => 'No such job ID exists' });
-        }
-    });
-}
-
 1;

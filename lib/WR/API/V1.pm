@@ -66,6 +66,22 @@ sub data {
     }
 }
 
+sub process_status {
+    my $self    = shift;
+    my $job_id  = $self->stash('job_id');
+
+    $self->render_later;
+    $self->model('wot-replays.jobs')->find_one({ _id => $job_id } => sub {
+        my ($coll, $err, $doc) = (@_);
+
+        if(defined($doc)) {
+            $self->render(json => $doc);
+        } else {
+            $self->render(json => { status => -1, error => 'No such job ID exists' });
+        }
+    });
+}
+
 sub process_replay {
     my $self = shift;
     my $adoc = shift;

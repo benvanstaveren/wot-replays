@@ -7,12 +7,13 @@ function processBackground() {
 }
 
 handleProcess = function(jobid) {
-    var processURL = '/process/' + jobid;
+    var nonce = new Date().getTime();
+    var processURL = 'http://api.wotreplays.org/process/status/' + jobid;
     $('.process-log').addClass('job-' + jobid);
 
     var processLog = $('#processModal .process-log.job-' + jobid);
 
-    $.getJSON(processURL, {}, function(d) {
+    $.getJSON(processURL, { 'seq': nonce }, function(d) {
         if(d.complete) {
             $('#processModal').modal('hide');
             if(d.status == 1) {

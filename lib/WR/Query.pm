@@ -10,14 +10,11 @@ has 'coll'    => undef;
 has 'perpage' => 15;
 has 'filter'  => sub { {} };
 has 'sort'    => sub { {} };
-has '_query'  => sub {
-    return shift->_build_query;
-};
+has '_query'  => sub { return shift->_build_query };
 has '_res'    => undef;
 has 'total'   => 0;
 has 'log'     => undef;
-has 'query_explain' => undef;
-
+has 'query_explain' => sub { return shift->exec()->explain() }; # since this is usually called until way after we've done our exec, we can probably get away with this here 
 has 'panel'   => 0;
 
 sub error { shift->_log('error', @_) }
@@ -37,9 +34,14 @@ sub exec {
     my $self = shift;
     my $cb   = shift;
 
+
     if(defined($self->_res)) {
         $self->debug('exec already has result');
-        $cb->($self->_res);
+        if(!defined($cb)) {
+            return $self->_res;
+        } else {
+            $cb->($self->_res);
+        }
     } else {
         $self->debug('exec has no result yet');
         $self->coll->find($self->_query)->count(sub {
@@ -68,8 +70,6 @@ sub page {
 
     my $offset = ($page - 1) * $self->perpage;
 
-    $self->debug('[page]: offset: ', $offset, ' sort is set to: ', Dumper($self->sort));
-
     $self->exec(sub {
         my $cursor = shift;
         $cursor->sort($self->sort) if($self->sort);
@@ -91,18 +91,10 @@ sub page {
             if($e) {
                 $cb->(undef);
             } else {
-                $cb->([ map { $self->fuck_tt($_) } @$d ]);
+                $cb->($d);
             }
         });
     });
-}
-
-sub fuck_tt {
-    my $self = shift;
-    my $o = shift;
-
-    $o->{id} = $o->{_id};
-    return $o;
 }
 
 sub fixargs {
