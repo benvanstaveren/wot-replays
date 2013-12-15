@@ -260,7 +260,7 @@ sub process_job {
         });
     });
 
-    if(my $replay = $o->process(($job->{reprocess}) ? $job->{replayid})) {
+    if(my $replay = $o->process( ($job->{reprocess}) ? $job->{replayid} : undef)) {
         $log->debug('no error yet, yay');
 
         if($job->{reprocess}) {
