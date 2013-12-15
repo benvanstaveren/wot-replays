@@ -138,18 +138,47 @@ sub process_job {
         });
     });
     $o->on('state.streaming.start' => sub {
+        my ($o, $total) = (@_);
+
         job_status($job, {
-            id      => 'streaming',
-            text    => 'Extracting packets',
-            type    => 'spinner',
+            id      =>  'streaming',
+            text    =>  'Extracting packets',
+            type    =>  'progress',
+            count   =>  0,
+            total   =>  $total,
+            perc    =>  0,
+            done    =>  Mango::BSON::bson_false,
+        });
+    });
+    $o->on('state.streaming.progress' => sub {
+        my ($o, $d) = (@_);
+        my $perc;
+
+        if($d->{count} > 0 && $d->{total} > 0) {
+            $perc = sprintf('%.0f', (100/($d->{total}/$d->{count})));
+        } else {
+            $perc = 0;
+        }
+
+        job_status($job, {
+            id      =>  'streaming',
+            text    =>  'Extracting packets',
+            type    =>  'progress',
+            count   =>  $d->{count},
+            total   =>  $d->{total},
+            perc    =>  $perc,
             done    =>  Mango::BSON::bson_false,
         });
     });
     $o->on('state.streaming.finish' => sub {
+        my ($o, $total) = (@_);
         job_status($job, {
-            id      => 'streaming',
-            text    => 'Extracting packets',
-            type    => 'spinner',
+            id      =>  'streaming',
+            text    =>  'Extracting packets',
+            type    =>  'progress',
+            count   =>  $total,
+            total   =>  $total,
+            perc    =>  100,
             done    =>  Mango::BSON::bson_true,
         });
     });

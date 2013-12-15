@@ -33,6 +33,8 @@ has 'ua'            => sub { Mojo::UserAgent->new };
 has '_consumables'  => sub { {} }; # consumables are keyed by their typecomp id fragment
 has '_components'   => sub { {} }; # components are keyed by type, country, id
 
+has '_rsize'        => 0;
+
 sub _preload {
     my $self = shift;
     my $cursor = $self->model('wot-replays.data.consumables')->find();
@@ -175,6 +177,15 @@ sub _real_process {
     };
 
     if(my $game = $self->_parser->game()) {
+        $game->on('replay.size' => sub {
+            my ($s, $v) = (@_);
+
+            $self->_rsize($v);
+        });
+        $game->on('replay.position' => sub {
+            my ($s, $v) = (@_);
+            $self->emit('state.streaming.progress' => { count => $v, total => $self->_rsize });
+        });
         $game->on('game.version' => sub {
             my ($s, $v) = (@_);
             $replay->{game}->{version} = $v;
@@ -316,7 +327,7 @@ sub _real_process {
                 $self->error(Dumper($reason));
                 $replay = undef;
             } else {
-                $self->emit('state.streaming.finish');
+                $self->emit('state.streaming.finish' => $game->stream->len);
 
                 # we alter the consumables list, the original consumables list contains numbers only, 
                 # the new one will have refs
@@ -467,7 +478,7 @@ sub _real_process {
             }
         });
 
-        $self->emit('state.streaming.start');
+        $self->emit('state.streaming.start' => $game->stream->len);
         $game->start;
 
         # after game is done, we should in theory have a replay
