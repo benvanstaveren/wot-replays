@@ -17,6 +17,7 @@ my $total = $cursor->count;
 $cursor->sort({ 'site.uploaded_at' => -1 });
 my $done  = 0;
 while(my $replay = $cursor->next()) {
+    print 'ID: ', $replay->{_id}, ' DIGEST: ', $replay->{digest}, "\n";
     $db->collection('jobs')->update({ 
         _id => $replay->{digest} 
     }, { 
