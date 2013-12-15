@@ -263,8 +263,11 @@ sub process_job {
     if(my $replay = $o->process) {
         $log->debug('no error yet, yay');
 
-        # figure out if it's a reprocess
-        $replay->{_id} = $job->{replayid} if($job->{reprocess});
+        if($job->{reprocess}) {
+            my $oreplay = $db->collection('replays')->find_one({ digest => $job->{_id}});
+            $replay->{site} = $oreplay->{site};
+            $replay->{_id}  = $oreplay->{_id};
+        }
 
         job_status($job, {
             id      =>  'final',
@@ -280,10 +283,12 @@ sub process_job {
             unlink($job->{file});
             job_error($job, 'That replay seems to be coming from the test server, we cannot process those yet...');
         } else {
-            $replay->{digest} = $job->{_id};
-            $replay->{site}->{visible} = Mango::BSON::bson_false if($job->{data}->{visible} < 1);
-            $replay->{site}->{description} = (defined($job->{data}->{desc}) && length($job->{data}->{desc}) > 0) ? $job->{data}->{desc} : undef;
-            $replay->{file} = $job->{data}->{file_base}; 
+            if(!$job->{reprocess}) {
+                $replay->{digest} = $job->{_id};
+                $replay->{site}->{visible} = Mango::BSON::bson_false if($job->{data}->{visible} < 1);
+                $replay->{site}->{description} = (defined($job->{data}->{desc}) && length($job->{data}->{desc}) > 0) ? $job->{data}->{desc} : undef;
+                $replay->{file} = $job->{data}->{file_base}; 
+            }
 
             # don't bother with the packets, we'll send them out as an event stream later after we store them in the database(?)
             if(my $oid = $mango->db('wot-replays')->collection('replays')->save($replay)) {
