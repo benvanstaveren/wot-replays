@@ -23,9 +23,9 @@ while(my $replay = $cursor->next()) {
     }, { 
         '$set' => {
             locked      => Mango::BSON::bson_false,
-            ready       => Mango::BSON::bson_false,
+            ready       => Mango::BSON::bson_true,
             complete    => Mango::BSON::bson_false,
-            reprocess   => Mango::BSON::bson_false,
+            reprocess   => Mango::BSON::bson_true,
             priority    => 1000,
             status_text => [],
         },
