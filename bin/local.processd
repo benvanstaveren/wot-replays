@@ -263,6 +263,9 @@ sub process_job {
     if(my $replay = $o->process) {
         $log->debug('no error yet, yay');
 
+        # figure out if it's a reprocess
+        $replay->{_id} = $job->{replayid} if($job->{reprocess});
+
         job_status($job, {
             id      =>  'final',
             text    =>  'Saving replay',
@@ -318,6 +321,7 @@ sub get_new_job {
             return undef;
         } else {
             $db->collection('jobs')->update({ _id => $job->{_id} }, { '$set' => { 'status_text' => [], 'locked' => Mango::BSON::bson_true, 'locked_by' => $$ } } );
+            $log->debug('Job is a reprocess job for ', $job->{replayid}) if($job->{reprocess});
             return $job;
         }
     } else {
@@ -330,7 +334,7 @@ sub main_loop {
         if(my $job = get_new_job()) {
             $log->debug('received job, dump follows: ', Dumper($job));
             my $count = $db->collection('replays')->find({ digest => $job->{_id} })->count();
-            if($count > 0) {
+            if($count > 0 && !$job->{reprocess}) {
                 job_error($job, 'It seems that replay has already been uploaded and processed...');
             } else {
                 process_job($job);
