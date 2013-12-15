@@ -30,6 +30,4 @@ while(my $replay = $cursor->next()) {
             status_text => [],
         },
     });
-    printf "% 6d / %6d                             \r", ++$done, $total;
 }
-print "\n";
