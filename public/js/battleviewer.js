@@ -237,6 +237,13 @@ Arena.prototype = {
     getPlayer: function(id) {
         return this.players[id];
     },
+    getAllPlayers: function() {
+        var o = [];
+        for(k in this.players) {
+            o.push(this.players[k]);
+        }
+        return o;
+    },
     updateChatRaw: function(message) {
         $(message).addClass('clearfix');
         this.dispatch('chat', message);
@@ -294,9 +301,8 @@ Arena.prototype = {
                 );
                 destroyed.death();
             }
-
             if(player) {
-                player.clock    = this.clock;
+                player.clock = this.clock;
                 if (typeof(frame.position) != 'undefined') player.move(this.convertGamePosition(frame.position));
                 if(typeof(frame.orientation) != 'undefined') if(player.recorder) player.rotate(frame.orientation[0]);
                 if(player.alive) {
@@ -309,17 +315,18 @@ Arena.prototype = {
                             }
                         }
                     }
-                    var age = (this.clock - player.clock) / 20;
-                    age = age > 0.66 ? 0.66 : age;
-                    player.setAge(age);
                 }
             } else {
                 console.log('Frame refers to playerid that is not a player, maybe arena or destructible?');
             }
         }
 
-        // update the clock
-
+        // do some after-frame updates
+        this.getAllPlayers().forEach(function(player) {
+            var age = (this.clock - player.clock) / 20;
+            age = age > 0.66 ? 0.66 : age;
+            player.setAge(age);
+        });
 	},
     delta: function(a, b) {
         if(a < b) {
