@@ -108,6 +108,50 @@ Player.prototype = {
         this.playerbar.hide();
     }
 };
+var SpawnPoint = function() {
+    this.position = null;
+    this.enemy = false;
+    this.friendly = false;
+    this.el = $('<div/>').addClass('spawn');
+    this.pointIndex = -1;
+};
+SpawnPoint.prototype = {
+    clearClass: function() {
+        this.el.removeClass('friendly').removeClass('neutral').removeClass('enemy');
+    },
+    render: function() {
+        var cl = this.isNeutral() 
+            ? 'neutral' : this.isEnemy()
+                ? 'enemy' : 'friendly';
+        this.el.addClass(cl + ' point-' + this.pointIndex);
+        return this;
+    },
+    setPoint: function(p) {
+        this.pointIndex = p;
+    },
+    setPosition: function(pos) {
+        console.log('SpawnPoint.setPosition: ', pos);
+        this.position = pos;
+        this.el.css({ 'top': pos.y - 32, 'left': pos.x - 32 }); // since the icons are 64x64 
+    },
+    setEnemy: function() {
+        this.friendly = false;
+        this.enemy = true;
+    },
+    setFriendly: function() {
+        this.friendly = true;
+        this.enemy = false;
+    },
+    setNeutral: function() {
+        this.enemy = false;
+        this.friendly = false;
+    },
+    isEnemy: function() { return this.enemy },
+    isFriendly: function() { return this.friendly },
+    isNeutral: function() {
+        return (this.enemy == false && this.friendly == false) ? true : false;
+    },
+};
 var BasePoint = function() {
     this.friendly = false;
     this.enemy    = false;
@@ -129,22 +173,18 @@ BasePoint.prototype = {
     setEnemy: function() {
         this.friendly = false;
         this.enemy = true;
-        return this.render();
     },
     setFriendly: function() {
         this.friendly = true;
         this.enemy = false;
-        return this.render();
     },
     setPosition: function(pos) {
         this.position = pos;
         this.el.css({ 'top': pos.y - 32, 'left': pos.x - 32 }); // since the icons are 64x64 
-        return this.render();
     },
     setNeutral: function() {
         this.enemy = false;
         this.friendly = false;
-        return this.render();
     },
     isEnemy: function() { return this.enemy },
     isFriendly: function() { return this.friendly },
@@ -430,22 +470,82 @@ BattleViewer.prototype = {
     initializeItems: function() {
         var bv = this;
         this.mapGrid.addItem('clock', $('<div/>').attr('id', 'battleviewer-clock').html('--:--'));
-        for(itemType in this.positions) {
-            if(itemType == 'base') {
-                if(this.gameType == 'ctf') {
-                    for(i = 0; i < this.positions.base.length; i++) {
-                        this.positions.base[i].forEach(function(basedata) {
-                            var isEnemy = bv.getArena().isEnemyTeam(i + 1);
-                            var base = new BasePoint();
-                            if(isEnemy) {
-                                base.setEnemy();
-                            } else {
-                                base.setFriendly();
-                            }
-                            base.setPosition(bv.getArena().convertArrayPosition(basedata));
-                            bv.mapGrid.addItem('base-' + i, base.render().el);
-                        });
+        if(this.gameType == 'ctf') {
+            for(i = 0; i < this.positions.base.length; i++) {
+                this.positions.base[i].forEach(function(basedata) {
+                    var isEnemy = bv.getArena().isEnemyTeam(i + 1);
+                    var base = new BasePoint();
+                    if(isEnemy) {
+                        base.setEnemy();
+                    } else {
+                        base.setFriendly();
                     }
+                    base.setPosition(bv.getArena().convertArrayPosition(basedata));
+                    bv.mapGrid.addItem('base-' + i, base.render().el);
+                });
+            }
+            for(i = 0; i < this.positions.team.length; i++) {
+                if(this.positions.team[i] != null) {
+                    for(j = 0; j < this.positions.team[i].length; j++) {
+                        var spawn = new SpawnPoint();
+                        spawn.setPoint(j + 1);
+                        if(bv.getArena().isEnemyTeam(i + 1)) {
+                            spawn.setEnemy();
+                        } else {
+                            spawn.setFriendly();
+                        }
+                        spawn.setPosition(bv.getArena().convertArrayPosition(this.positions.team[i][j]));
+                        bv.mapGrid.addItem('spawn-' + i + '-' + j, spawn.render().el);
+                    }
+                }
+            }
+        } else if(this.gameType == 'assault') {
+            // depending on who's owning the base...
+            var control = new BasePoint();
+            if(this.positions.base[0] == null) {
+                control.setPosition(bv.getArena().convertArrayPosition(this.positions.base[1][0]));
+                control.setEnemy();
+            } else {
+                control.setPosition(bv.getArena().convertArrayPosition(this.positions.base[0][0]));
+                control.setFriendly();
+            }
+
+            bv.mapGrid.addItem('base-control', control.render().el);
+
+            // now iterate over the spawn points for both teams
+            for(i = 0; i < this.positions.team.length; i++) {
+                for(j = 0; j < this.positions.team[i].length; j++) {
+                    var spawn = new SpawnPoint();
+                    spawn.setPoint(j + 1);
+                    if(bv.getArena().isEnemyTeam(i + 1)) {
+                        spawn.setEnemy();
+                    } else {
+                        spawn.setFriendly();
+                    }
+                    spawn.setPosition(bv.getArena().convertArrayPosition(this.positions.team[i][j]));
+                    bv.mapGrid.addItem('spawn-' + i + '-' + j, spawn.render().el);
+                }
+            }
+        } else if(this.gameType == 'domination') {
+            // set the control point
+            var control = new BasePoint();
+            control.setNeutral();
+            control.setPosition(bv.getArena().convertArrayPosition(this.positions.control[0]));
+            bv.mapGrid.addItem('base-control', control.render().el);
+
+            // add the team spawns
+            for(i = 0; i < this.positions.team.length; i++) {
+                for(j = 0; j < this.positions.team[i].length; j++) {
+                    var isEnemy = bv.getArena().isEnemyTeam(i + 1);
+                    var spawn = new SpawnPoint();
+                    spawn.setPoint(j + 1);
+                    if(isEnemy) {
+                        spawn.setEnemy();
+                    } else {
+                        spawn.setFriendly();
+                    }
+                    spawn.setPosition(bv.getArena().convertArrayPosition(this.positions.team[i][j]));
+                    bv.mapGrid.addItem('spawn-' + i + '-' + j, spawn.render().el);
                 }
             }
         }

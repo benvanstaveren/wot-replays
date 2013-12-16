@@ -189,7 +189,7 @@ MapGrid.prototype = {
             .animate({ borderColor: fadeOut, backgroundColor: fadeOut }, 500)
             .animate({ borderColor: fadeIn, backgroundColor: fadeIn }, 500)
             .animate({ borderColor: fadeOut, backgroundColor: fadeOut }, {
-                duration: 250
+                duration: 250,
                 complete: function() {
                     $(cell).stop().css({ 'border': 'transparent 0px solid', 'background-color': 'transparent' });
                 }

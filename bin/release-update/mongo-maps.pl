@@ -42,7 +42,10 @@ sub get_position {
     } else {
         $r = [ [ map { $_ + 0 } (split(/\s/, $pos, 2)) ] ];
     }
+    return $r;
 }
+
+print Dumper($list);
 
 foreach my $raw (@{$list->{map}}) {
     my $map = make_map_base($raw);
@@ -57,29 +60,74 @@ foreach my $raw (@{$list->{map}}) {
         my $gt = $map_data->{gameplayTypes}->{$type};
         my $pos = {};
 
-        if(defined($gt->{teamSpawnPoints})) {
-            if(defined($gt->{teamSpawnPoints}->{team1}->{position})) {
-                my $r = get_position($gt->{teamSpawnPoints}->{team1}->{position});
-                # always comes out as an array so
-                $pos->{team}->[0] = $r;
-            } 
-            if(defined($gt->{teamSpawnPoints}->{team2}->{position})) {
-                my $r = get_position($gt->{teamSpawnPoints}->{team2}->{position});
-                # always comes out as an array so
-                $pos->{team}->[1] = $r;
-            } 
-        }
-        if(defined($gt->{controlPoint})) {
+        if($type eq 'assault') {
+            my $basepos = [];
+            if(defined($gt->{teamBasePositions}->{team2})) {
+                my $t = $gt->{teamBasePositions}->{team2};
+                if(scalar(keys(%$t)) > 0) {
+                    $basepos->[1] = get_position($t->{position1});
+                } else {
+                    $basepos->[1] = undef;
+                }
+            }
+            if(defined($gt->{teamBasePositions}->{team1})) {
+                my $t = $gt->{teamBasePositions}->{team1};
+                if(scalar(keys(%$t)) > 0) {
+                    $basepos->[0] = get_position($t->{position1});
+                } else {
+                    $basepos->[0] = undef;
+                }
+            }
+
+            $pos->{base} = $basepos;
+
+            if(defined($gt->{teamSpawnPoints})) {
+                if(defined($gt->{teamSpawnPoints}->{team1}->{position})) {
+                    $pos->{team}->[0] = get_position($gt->{teamSpawnPoints}->{team1}->{position});
+                }
+                if(defined($gt->{teamSpawnPoints}->{team2}->{position})) {
+                    $pos->{team}->[1] = get_position($gt->{teamSpawnPoints}->{team2}->{position});
+                }
+            } else {
+                $pos->{team} = [ [ [ 0, 0 ] ], [ [ 0, 0 ] ] ];
+            }
+        } elsif($type eq 'ctf') {
+            # ctf has 2 bases
+            if(defined($gt->{teamBasePositions}->{team1}->{position1})) {
+                $pos->{base}->[0] = get_position($gt->{teamBasePositions}->{team1}->{position1});
+            }
+            if(defined($gt->{teamBasePositions}->{team2}->{position1})) {
+                $pos->{base}->[1] = get_position($gt->{teamBasePositions}->{team2}->{position1});
+            }
+            # but it may also have additional team points
+            if(defined($gt->{teamSpawnPoints})) {
+                if(defined($gt->{teamSpawnPoints}->{team1}->{position})) {
+                    $pos->{team}->[0] = get_position($gt->{teamSpawnPoints}->{team1}->{position});
+                }
+                if(defined($gt->{teamSpawnPoints}->{team2}->{position})) {
+                    $pos->{team}->[1] = get_position($gt->{teamSpawnPoints}->{team2}->{position});
+                }
+            } else {
+                $pos->{team} = [ undef, undef ];
+            }
+        } else {
+            # encounter mode, has a control point, and 2 team spawns
             $pos->{control} = get_position($gt->{controlPoint});
-        } 
-        if(defined($gt->{teamBasePositions}->{team1}->{position1})) {
-            $pos->{base}->[0] = get_position($gt->{teamBasePositions}->{team1}->{position1});
-        }
-        if(defined($gt->{teamBasePositions}->{team2}->{position1})) {
-            $pos->{base}->[1] = get_position($gt->{teamBasePositions}->{team2}->{position1});
+            if(defined($gt->{teamSpawnPoints})) {
+                if(defined($gt->{teamSpawnPoints}->{team1}->{position})) {
+                    $pos->{team}->[0] = get_position($gt->{teamSpawnPoints}->{team1}->{position});
+                }
+                if(defined($gt->{teamSpawnPoints}->{team2}->{position})) {
+                    $pos->{team}->[1] = get_position($gt->{teamSpawnPoints}->{team2}->{position});
+                }
+            } else {
+                $pos->{team} = [ [ [ 0, 0 ] ], [ [ 0, 0 ] ] ];
+            }
         }
         $map->{attributes}->{positions}->{$type} = $pos;
     }
+
+    print '-' x 80, "\n", $map->{label}, "\n", '-' x 80, "\n", Dumper($map_data->{gameplayTypes}), "\n\n", Dumper($map->{attributes}->{positions}), "\n\n\n";
 
     # get the bounding box, and the length/width of the map
     my $bb = $map_data->{boundingBox};
@@ -93,8 +141,6 @@ foreach my $raw (@{$list->{map}}) {
         bottom_left => $bl,
         width_height => [ $width, $height ],
     };
-
-    die Dumper($map_data), Dumper($map);
 
     $coll->save($map);
 }

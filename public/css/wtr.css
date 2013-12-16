@@ -921,6 +921,34 @@ div #battleviewer-clock {
   right: 10px;
   font-size: 2.0em;
   color: yellow; }
+div.spawn {
+  position: absolute;
+  width: 64px;
+  height: 64px; }
+  div.spawn.friendly.point-1 {
+    background: transparent url(//images.wotreplays.org/battleviewer/elements/friendly_spawn1.png) no-repeat scroll center center; }
+  div.spawn.friendly.point-2 {
+    background: transparent url(//images.wotreplays.org/battleviewer/elements/friendly_spawn2.png) no-repeat scroll center center; }
+  div.spawn.friendly.point-3 {
+    background: transparent url(//images.wotreplays.org/battleviewer/elements/friendly_spawn3.png) no-repeat scroll center center; }
+  div.spawn.friendly.point-4 {
+    background: transparent url(//images.wotreplays.org/battleviewer/elements/friendly_spawn4.png) no-repeat scroll center center; }
+  div.spawn.enemy.point-1 {
+    background: transparent url(//images.wotreplays.org/battleviewer/elements/enemy_spawn1.png) no-repeat scroll center center; }
+  div.spawn.enemy.point-2 {
+    background: transparent url(//images.wotreplays.org/battleviewer/elements/enemy_spawn2.png) no-repeat scroll center center; }
+  div.spawn.enemy.point-3 {
+    background: transparent url(//images.wotreplays.org/battleviewer/elements/enemy_spawn3.png) no-repeat scroll center center; }
+  div.spawn.enemy.point-4 {
+    background: transparent url(//images.wotreplays.org/battleviewer/elements/enemy_spawn4.png) no-repeat scroll center center; }
+  div.spawn.neutral.point-1 {
+    background: transparent url(//images.wotreplays.org/battleviewer/elements/neutral_spawn1.png) no-repeat scroll center center; }
+  div.spawn.neutral.point-2 {
+    background: transparent url(//images.wotreplays.org/battleviewer/elements/neutral_spawn2.png) no-repeat scroll center center; }
+  div.spawn.neutral.point-3 {
+    background: transparent url(//images.wotreplays.org/battleviewer/elements/neutral_spawn3.png) no-repeat scroll center center; }
+  div.spawn.neutral.point-4 {
+    background: transparent url(//images.wotreplays.org/battleviewer/elements/neutral_spawn4.png) no-repeat scroll center center; }
 div.base {
   position: absolute;
   width: 64px;

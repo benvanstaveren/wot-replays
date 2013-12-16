@@ -19,6 +19,53 @@ div {
         font-size: 2.0em;
         color: yellow;
     }
+    &.spawn {
+        position: absolute;
+        width: 64px;
+        height: 64px;
+        &.friendly {
+            &.point-1 {
+                background: transparent url(#{$image_base}/battleviewer/elements/friendly_spawn1.png) no-repeat scroll center center;
+            }
+            &.point-2 {
+                background: transparent url(#{$image_base}/battleviewer/elements/friendly_spawn2.png) no-repeat scroll center center;
+            }
+            &.point-3 {
+                background: transparent url(#{$image_base}/battleviewer/elements/friendly_spawn3.png) no-repeat scroll center center;
+            }
+            &.point-4 {
+                background: transparent url(#{$image_base}/battleviewer/elements/friendly_spawn4.png) no-repeat scroll center center;
+            }
+        }
+        &.enemy {
+            &.point-1 {
+                background: transparent url(#{$image_base}/battleviewer/elements/enemy_spawn1.png) no-repeat scroll center center;
+            }
+            &.point-2 {
+                background: transparent url(#{$image_base}/battleviewer/elements/enemy_spawn2.png) no-repeat scroll center center;
+            }
+            &.point-3 {
+                background: transparent url(#{$image_base}/battleviewer/elements/enemy_spawn3.png) no-repeat scroll center center;
+            }
+            &.point-4 {
+                background: transparent url(#{$image_base}/battleviewer/elements/enemy_spawn4.png) no-repeat scroll center center;
+            }
+        }
+        &.neutral {
+            &.point-1 {
+                background: transparent url(#{$image_base}/battleviewer/elements/neutral_spawn1.png) no-repeat scroll center center;
+            }
+            &.point-2 {
+                background: transparent url(#{$image_base}/battleviewer/elements/neutral_spawn2.png) no-repeat scroll center center;
+            }
+            &.point-3 {
+                background: transparent url(#{$image_base}/battleviewer/elements/neutral_spawn3.png) no-repeat scroll center center;
+            }
+            &.point-4 {
+                background: transparent url(#{$image_base}/battleviewer/elements/neutral_spawn4.png) no-repeat scroll center center;
+            }
+        }
+    }
     &.base {
         position: absolute;
         width: 64px;
