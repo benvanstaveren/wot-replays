@@ -10,52 +10,85 @@ div {
             display: none;
         }
     }
-    &#battleviewer-player {
-        width: 512px;
-        height: 512px;
-        margin: 0px auto;
+    #battleviewer-clock {
+        font-weight: bold;
         position: relative;
-        top: 0px;
-        #battleviewer-clock {
-            font-weight: bold;
-            position: relative;
-            float: right;
-            top: 10px;
-            right: 10px;
-            font-size: 2.0em;
-            color: yellow;
+        float: right;
+        top: 10px;
+        right: 10px;
+        font-size: 2.0em;
+        color: yellow;
+    }
+    &.base {
+        position: absolute;
+        width: 64px;
+        height: 64px;
+        &.friendly {
+            background: transparent url(#{$image_base}/battleviewer/elements/friendly_base.png) no-repeat scroll center center;
         }
-        div {
-            &.player {
-                position: absolute;
-                top: 0px;
-                left: 0px;
-                width: 17px;
-                height: 17px;
-                z-index: 100;
-                &.recorder {
-                    z-index: 200;
-                }
-            }
-            &.player-icon {
-                width: 17px;
-                height: 17px;
-            }
-            &.player-healthbar {
-                width: 100%;
-                background: #000 none repeat scroll 0 0;
-                height: 3px;
-                position: absolute;
-                top: 14px;
-                left: 0px;
-            }
-            &.playerhealth {
-                background: #0f0 none repeat scroll 0 0;
-                height: 3px;
-                width: 100%;
-            } 
+        &.enemy {
+            background: transparent url(#{$image_base}/battleviewer/elements/enemy_base.png) no-repeat scroll center center;
+        }
+        &.neutral {
+            background: transparent url(#{$image_base}/battleviewer/elements/neutral_base.png) no-repeat scroll center center;
         }
     }
+    &.player {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 17px;
+        height: 17px;
+        z-index: 100;
+        &.recorder {
+            z-index: 200;
+            .player-icon {
+                background: transparent url(#{$image_base}/battleviewer/vehicle/recorder.png) no-repeat scroll center center;
+            }
+        }
+    }
+}
+
+@mixin pIcon($col, $type) {
+    background: transparent url(#{$image_base}/battleviewer/vehicle/#{$type}_#{$col}.png) no-repeat scroll center center;
+}
+
+div.player-icon {
+    width: 17px;
+    height: 17px;
+}
+
+@each $type in "h" "m" "l" "t" "s" {
+    div.player.enemy.type_#{$type} {
+        .player-icon {
+            @include pIcon('r', $type);
+        }
+    }
+}
+
+@each $type in "h" "m" "l" "t" "s" {
+    div.player.friendly.type_#{$type} {
+        .player-icon {
+            @include pIcon('g', $type);
+        }
+    }
+}
+
+
+div {
+    &.player-healthbar {
+        width: 100%;
+        background: #000 none repeat scroll 0 0;
+        height: 3px;
+        position: absolute;
+        top: 14px;
+        left: 0px;
+    }
+    &.playerhealth {
+        background: #0f0 none repeat scroll 0 0;
+        height: 3px;
+        width: 100%;
+    } 
 }
 span {
     &.friendly { color: #80D63A }

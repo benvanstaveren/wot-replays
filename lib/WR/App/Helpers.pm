@@ -6,7 +6,7 @@ use WR::Res;
 use WR::Util::CritDetails;
 use WR::Provider::ServerFinder;
 use File::Slurp qw/read_file/;
-use WR::Constants qw/nation_id_to_name/;
+use WR::Constants qw/nation_id_to_name gameplay_id_to_name/;
 use WR::Util::TypeComp qw/parse_int_compact_descr type_id_to_name/;
 use Data::Dumper;
 use DateTime;
@@ -398,6 +398,18 @@ sub add_helpers {
             }
         }
     });
+
+    $self->helper(map_positions => sub {
+        my $self    = shift;
+        my $replay  = shift;
+        my $type    = $replay->{game}->{type};
+
+        if(my $obj = $self->model('wot-replays.data.maps')->find_one({ numerical_id => $replay->{game}->{map} })) {
+            return $obj->{attributes}->{positions}->{$type};
+        } else {
+            return undef;
+        }
+    });     
 
     $self->helper(map_boundingbox => sub {
         my $self    = shift;

@@ -17,6 +17,9 @@ use WR::Util::TypeComp qw/parse_int_compact_descr type_id_to_name/;
 
 use Scalar::Util qw/blessed/;
 
+use constant PARSER_VERSION => 0; # yeah
+use constant PACKET_VERSION => 1; # even more yeah
+
 has 'file'          => undef;
 has 'mango'         => undef;
 has 'bf_key'        => undef;
@@ -306,7 +309,7 @@ sub _real_process {
             $replay->{game}->{opponents}    = (defined($init->{opponents})) ? $init->{opponents} : undef;
         });
         # here's some additional bits and pieces that we are interested in
-        for my $event ('player.position', 'player.health', 'player.tank.destroyed', 'player.orientation.hull', 'player.chat', 'arena.period', 'player.tank.damaged', 'arena.initialize') {
+        for my $event ('player.position', 'player.health', 'player.tank.destroyed', 'player.orientation.hull', 'player.chat', 'arena.period', 'player.tank.damaged', 'arena.initialize', 'cell.attention') {
             if($event eq 'player.chat') {
                 $game->on($event => sub {
                     my ($game, $chat) = (@_);
@@ -489,6 +492,8 @@ sub _real_process {
             # we're now going to construct the panel data 
             my $p = WR::Provider::Panelator->new(db => $self->mango->db('wot-replays')); # hardcoding bad...
             $replay->{panel} = $p->panelate($replay);
+            $replay->{parser_version} = $self->PARSER_VERSION;
+            $replay->{packet_version} = $self->PACKET_VERSION;
             return $replay;
         }
     } else {

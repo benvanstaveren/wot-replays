@@ -6,6 +6,10 @@ use Time::HiRes qw/gettimeofday tv_interval/;
 use Filesys::DiskUsage::Fast qw/du/;
 use WR::OpenID;
 
+sub test {
+    shift->respond(template => 'test', stash => { page => { title => 'Test Page' } });
+}
+
 sub faq {
     shift->respond(template => 'faq', stash => { page => { title => 'Frequently Asked Questions' } });
 }
