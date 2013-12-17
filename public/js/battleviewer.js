@@ -191,6 +191,10 @@ BasePoint.prototype = {
     captureProgress: function(points, isEnemy) {
         if(this.captured) return;
         if(!this.stateInit) return;
+        if(points == 0) {
+            this.stopCapturing();
+            return;
+        }
         if(isEnemy) {
             this.captureBarP.css({ 'background-color': '#0f0' });
         } else {
