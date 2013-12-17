@@ -426,7 +426,7 @@ Arena.prototype = {
                 } else if(typeof(frame.ident) != 'undefined') {
                     //console.log('[FRAME_WITH_IDENT]: got frame with identifier: ', frame);
                     if(frame.ident == 'arena.base_points') {
-                        if(this.bases && this.bases[frame.team - 1])
+                        if(this.bases && this.bases[frame.team - 1]) {
                             var base = this.bases[frame.team - 1][frame.baseID - 1];
                             if(!base) return;
                             if(!base.stateInit) {
