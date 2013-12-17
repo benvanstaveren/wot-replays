@@ -33,7 +33,7 @@ sub extract {
 
     # these are the ones we're interested in for the time being, other packets will not be added 
 
-    for my $event ('player.position', 'player.health', 'player.tank.destroyed', 'player.orientation.hull', 'player.chat', 'arena.period', 'player.tank.damaged') {
+    for my $event ('player.position', 'player.health', 'player.tank.destroyed', 'player.orientation.hull', 'player.chat', 'arena.period', 'player.tank.damaged', 'arena.initialize', 'cell.attention', 'arena.base_points', 'arena.base_captured') {
         $game->on($event => \&addpacket);
     }
 
@@ -44,7 +44,8 @@ my $cursor = $coll->find();
 my $total = $cursor->count;
 $cursor->sort({ 'site.uploaded_at' => -1 });
 my $done  = 0;
-my $j     = JSON::XS->new()->pretty(1);
+my $j     = JSON::XS->new();
+# ->pretty(1); <- moar compactzor if you remove this
 
 while(my $replay = $cursor->next()) {
     extract($replay->{file});
