@@ -309,7 +309,7 @@ sub _real_process {
             $replay->{game}->{opponents}    = (defined($init->{opponents})) ? $init->{opponents} : undef;
         });
         # here's some additional bits and pieces that we are interested in
-        for my $event ('player.position', 'player.health', 'player.tank.destroyed', 'player.orientation.hull', 'player.chat', 'arena.period', 'player.tank.damaged', 'arena.initialize', 'cell.attention') {
+        for my $event ('player.position', 'player.health', 'player.tank.destroyed', 'player.orientation.hull', 'player.chat', 'arena.period', 'player.tank.damaged', 'arena.initialize', 'cell.attention', 'arena.base_points', 'arena.base_captured') {
             if($event eq 'player.chat') {
                 $game->on($event => sub {
                     my ($game, $chat) = (@_);

@@ -175,6 +175,9 @@ MapGrid.prototype = {
     getSubCellAt: function(coords) {
         return this.getSubCellByCellID(this.coord_to_subcell_id(coords));
     },
+    getAllSubCells: function() {
+        return $(this.container + ' div.subcell');
+    },
     callAttentionByWGCellID: function(cellid) {
         this.callAttention(this.getCellByWGCellID(cellid));
     },

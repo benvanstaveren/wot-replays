@@ -124,6 +124,52 @@
             }
         });
 
+        battleViewer.onStop(function() {
+            battleViewer.getArena().hideAllPlayers();
+
+            [% IF 1 == 0 %]
+            /* this will have to wait until later some time */
+
+            var deathLocations = battleViewer.getArena().getDeathLocations();
+            console.log('deathlocations: ', deathLocations);
+            var mapGrid = battleViewer.getMapGrid();
+            var totalDeaths = 0;
+
+            for(x = 0; x < deathLocations.length; x++) {
+                for(y = 0; y < deathLocations[x].length; y++) {
+                    var cell = mapGrid.getSubCellAt({ x: x, y: y });
+                    var cdeaths = (cell.hasAttr('deaths')) ? parseInt(cell.attr('deaths')) : 0;
+                    cell.attr('deaths', cdeaths + deathLocations[x][y]);
+                    totalDeaths += deathLocations[x][y];
+                }
+            }
+
+            mapGrid.getAllSubCells().each(function(i, subcell) {
+                if(!subcell.hasAttr('deaths')) return;
+                var deaths = parseInt(subcell.attr('deaths'));
+
+                // it's a percentage of the total, but the minimum is 50 (0.5) 
+                if(deaths > 0 && totalDeaths > 0) {
+                    var a = null;
+                    var p = Math.round(100/(totalDeaths/deaths));
+                    if(p > 0) {
+                        if(p > 50) {
+                            a = 'rgba(255, 0, 0, ' + ((50 + p) / 2) + ')';
+                        } else {
+                            a = 'rgba(0, 255, 0, ' + ((50 + p) / 2) + ')';
+                        }
+                    } else {
+                        return;
+                    }
+                    subcell.css({ 'background-color': a });
+                } else {
+                    return;
+                }
+            });
+
+            [% END %]
+        });
+
         // add players to arena
         [% FOREACH roster IN replay.roster %]
             battleViewer.getArena().addPlayer({

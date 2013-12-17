@@ -60,7 +60,7 @@ Player.prototype = {
         if(this.seen && this.alive) $(this.element).css({ opacity: 1 - this.age });
     },
     show: function() {
-        $(this.element).show();
+        if(this.seen) $(this.element).show();
     },
     move: function(coords) {
         if(!this.seen) {
@@ -69,6 +69,9 @@ Player.prototype = {
         }
         $(this.element).css({ top: coords.y - (17/2), left: coords.x - (17/2) });
         this.position = coords;
+    },
+    getPosition: function() {
+        return this.position;
     },
     rotate: function(hull_dir) {
         // the hull direction is in fact in radians, so convert to degrees first
@@ -130,7 +133,6 @@ SpawnPoint.prototype = {
         this.pointIndex = p;
     },
     setPosition: function(pos) {
-        console.log('SpawnPoint.setPosition: ', pos);
         this.position = pos;
         this.el.css({ 'top': pos.y - 32, 'left': pos.x - 32 }); // since the icons are 64x64 
     },
@@ -153,10 +155,19 @@ SpawnPoint.prototype = {
     },
 };
 var BasePoint = function() {
-    this.friendly = false;
-    this.enemy    = false;
-    this.position = null;
-    this.el = $('<div/>').addClass('base');
+    this.friendly       = false;
+    this.enemy          = false;
+    this.position       = null;
+    this.beingCaptured  = false;
+    this.capturePoints  = 0;
+    this.stateInit      = false;
+    this.captured       = false;
+    this.el             = $('<div/>').addClass('base');
+    this.captureBar     = $('<div/>').css({ width: '64px', height: '10px', position: 'absolute', 'border': '#000 1px solid', 'background': '#000 none repeat scroll 0 0', top: '-8px', left: '0px' });
+    this.captureBarP    = $('<div/>').css({ width: '0%', height: '10px', position: 'absolute', 'border': '#000 1px solid', top: '0px', left: '0px' });
+
+    this.el.append(this.captureBar.append(this.captureBarP));
+    this.captureBar.hide();
 };
 BasePoint.prototype = {
     clearClass: function() {
@@ -169,6 +180,47 @@ BasePoint.prototype = {
                 ? 'enemy' : 'friendly';
         this.el.addClass(cl);
         return this;
+    },
+    stopCapturing: function() {
+        if(this.captured) return;
+        this.beingCaptured = false;
+        this.captureBar.hide();
+        this.captureBarP.css({ width: '0%' });
+        this.capturePoints = 0;
+    },
+    captureProgress: function(points, isEnemy) {
+        if(this.captured) return;
+        if(isEnemy) {
+            this.captureBarP.css({ 'background-color': '#0f0' });
+        } else {
+            this.captureBarP.css({ 'background-color': '#f00' });
+        }
+        this.beingCaptured = true;
+        this.captureBar.show();
+        this.captureBarP.css({ width: points + '%' });
+        this.capturePoints = points;
+    },
+    _flashCount: 0,
+    _flasher: function() {
+        el = this.el;
+        me = this;
+
+        if(this._flashCount == 8) {
+            el.css({ 'opacity': '0.75' });
+        } else {
+            el.fadeOut(250 / me._flashCount, function() {
+                el.fadeIn(250 / me._flashCount, function() {
+                    me._flashCount++;
+                    me._flasher();
+                });
+            });
+        }
+    },
+    hasBeenCaptured: function(isEnemy) {
+        this.captureProgress(100, isEnemy);
+        this.captured = true;
+
+        this._flasher();
     },
     setEnemy: function() {
         this.friendly = false;
@@ -203,8 +255,19 @@ var Arena = function(options) {
     this.playerTeam         = -1;
     this.coordinateConvert  = options.coordinateConvert;
     this.tracerCount        = 0;
+    this.deathLocations     = new Array();
+    this.bases              = new Array();
+    this.controlPoint       = null;
+    this.arenaID            = 0;
 };
 Arena.prototype = {
+    addControlPoint: function(control) {
+        this.controlPoint = control;
+    },
+    addBasePoint: function(team, baseNumber, base) {
+        if(!this.bases[team]) this.bases[team] = new Array();
+        this.bases[team][baseNumber] = base;
+    },
     onChat: function(handler) {
         this.handlers.chat.push(handler);
     },
@@ -216,6 +279,26 @@ Arena.prototype = {
     },
     setPlayerTeam: function(team) {
         this.playerTeam = team;
+    },
+    hideAllPlayers: function() {
+        this.getAllPlayers().forEach(function(player) {
+            player.hide();
+        });
+    },
+    getDeathLocations: function() {
+        return this.deathLocations;
+    },
+    addDeathLocation: function(destroyed) {
+        var dpos = destroyed.getPosition();
+        if(dpos == null) return;
+        dpos.x = Math.round(dpos.x);
+        dpos.y = Math.round(dpos.y);
+        if(!this.deathLocations[dpos.x]) this.deathLocations[dpos.x] = new Array();
+        if(!this.deathLocations[dpos.x][dpos.y]) {
+            this.deathLocations[dpos.x][dpos.y] = 1;
+        } else {
+            this.deathLocations[dpos.x][dpos.y]++;
+        }
     },
     addPlayer: function(player) {
         this.players[player.id] = new Player(player.id, {
@@ -273,55 +356,96 @@ Arena.prototype = {
         $(s).text(player.name);
         return s;
     },
-	update: function(frame) {
-        var g = this;
-        if (frame.period) {
+    frameIsArena: function(frame) {
+        return (frame.id == this.arenaID) ? true : false;
+    },
+    update: function(frame) {
+		if(frame.clock != null && frame.clock >= this.clock) this.clock = frame.clock;
+        if(frame.arena_unique_id) {
+            this.arenaID = frame.player_id;
+            return;
+        } else if (frame.period) {
             this.period = frame.period;
             this.dispatch('period', { period: frame.period });
             this.period_length = frame.period_length;
-            this.clock_at_period = this.clock;
+            this.clock_at_period = this.clock;$
+            return;
+        } else if (typeof(frame.text) != 'undefined') {
+            this.updateChat(frame.text);
+            return;
+        } else if(typeof(frame.cell_id) != 'undefined') {
+            this.dispatch('attention', frame.cell_id);
+            return;
         }
-		if (typeof(frame.clock) == 'undefined') return; 
-		if (frame.clock != null && frame.clock >= this.clock) this.clock = frame.clock;
-        if (typeof(frame.text) != 'undefined') this.updateChat(frame.text);
-        if (typeof(frame.cell_id) != 'undefined') this.dispatch('attention', frame.cell_id);
 
+        // all frames SHOULD have an id property after the above two
         if(typeof(frame.id) != 'undefined') {
-			var player      = this.getPlayer(frame.id);
-
-            if(typeof(frame.destroyer) != 'undefined' && typeof(frame.destroyed) != 'undefined') {
-                var destroyed = this.getPlayer(frame.destroyed);
-                var destroyer = this.getPlayer(frame.destroyer);
-                this.updateChatRaw( 
-                    $('<div>').append(
-                        this.teamColorName(destroyer),
-                        $('<b>').css({ 'margin-left': '5px', 'margin-right': '5px' }).text('destroyed'),
-                        this.teamColorName(destroyed) 
-                    )
-                );
-                destroyed.death();
-            }
-            if(player) {
-                player.clock = this.clock;
-                if (typeof(frame.position) != 'undefined') player.move(this.convertGamePosition(frame.position));
-                if(typeof(frame.orientation) != 'undefined') if(player.recorder) player.rotate(frame.orientation[0]);
-                if(player.alive) {
-                    if (typeof(frame.health) != 'undefined') {
-                        player.updateHealth(frame.health);
-                        if (typeof(frame.source) != 'undefined') {
-                            var source = this.getPlayer(frame.source);
-                            if(source && source.position) {
-                                this.drawTracer(source.position, player.position);
+            if(!this.frameIsArena(frame)) {
+			    var player = this.getPlayer(frame.id);
+                if(player) {
+                    player.clock = this.clock;
+                    if(typeof(frame.position) != 'undefined') {
+                        player.move(this.convertGamePosition(frame.position));
+                    } else if(typeof(frame.orientation) != 'undefined' && player.recorder) {
+                        player.rotate(frame.orientation[0]);
+                    } else if(typeof(frame.health) != 'undefined') {
+                        if(player.alive) {
+                            player.updateHealth(frame.health);
+                            if (typeof(frame.source) != 'undefined') {
+                                var source = this.getPlayer(frame.source);
+                                if(source && source.position) {
+                                    this.drawTracer(source.position, player.position);
+                                }
                             }
+                        }
+                    }  
+                } else {
+                    //console.log('[NON_ARENA_INVALID_PLAYER]: A non-arena frame refers to a player ID that does not exist. Arena ID: ', this.arenaID, ' frame: ', frame);
+                }
+            } else {
+                // arena-keyed packets
+                if(typeof(frame.destroyer) != 'undefined' && typeof(frame.destroyed) != 'undefined') {
+                    var destroyed = this.getPlayer(frame.destroyed);
+                    var destroyer = this.getPlayer(frame.destroyer);
+                    if(destroyer && destroyed) {
+                        this.updateChatRaw( 
+                            $('<div>').append(
+                                this.teamColorName(destroyer),
+                                $('<b>').css({ 'margin-left': '5px', 'margin-right': '5px' }).text('destroyed'),
+                                this.teamColorName(destroyed) 
+                            )
+                        );
+                        destroyed.death();
+                        this.addDeathLocation(destroyed);
+                    }
+                } else if(typeof(frame.ident) != 'undefined') {
+                    //console.log('[FRAME_WITH_IDENT]: got frame with identifier: ', frame);
+                    if(frame.ident == 'arena.base_points') {
+                        var base = this.bases[frame.team - 1][frame.baseID - 1];
+                        if(!base) return;
+                        if(!base.stateInit) {
+                            base.stateInit = true;
+                        } else {
+                            if(frame.capturingStopped == 1) {
+                                base.stopCapturing();
+                                //console.log('[STOP_CAPTURING]: ', base);
+                            } else {
+                                base.captureProgress(frame.points, this.isEnemyTeam(frame.team));
+                                //console.log('[CAPTURE_PROGRESS]: ', base);
+                            }
+                        }
+                    } else if(frame.ident == 'arena.base_captured') {
+                        var base = this.bases[frame.team - 1][frame.baseID - 1];
+                        if(!base) return;
+                        if(!base.stateInit) {
+                            base.stateInit = true;
+                        } else {
+                            base.hasBeenCaptured(this.isEnemyTeam(frame.team));
                         }
                     }
                 }
-            } else {
-                console.log('Frame refers to playerid that is not a player, maybe arena or destructible?');
             }
         }
-
-        // do some after-frame updates
         this.getAllPlayers().forEach(function(player) {
             var age = (this.clock - player.clock) / 20;
             age = age > 0.66 ? 0.66 : age;
@@ -360,12 +484,10 @@ Arena.prototype = {
         }
     },
     drawTracer: function(s, t) {
-        /*
-        s.x = Math.floor(s.x);
-        s.y = Math.floor(s.y);
-        t.x = Math.floor(t.x);
-        t.y = Math.floor(t.y);
-        */
+        s.x = Math.round(s.x);
+        s.y = Math.round(s.y);
+        t.x = Math.round(t.x);
+        t.y = Math.round(t.y);
 
         var length = this.distance(s, t);
 
@@ -467,6 +589,7 @@ var BattleViewer = function(options) {
         error: [],
         progress: [],
         start: [],
+        stop: [],
     };
 
     this.arena.setPlayerTeam(options.playerTeam);
@@ -474,6 +597,24 @@ var BattleViewer = function(options) {
 };
 
 BattleViewer.prototype = {
+    _handle: function(what, handler) {
+        this.handlers[what].push(handler);
+    },
+    onStart: function(handler) {
+        this._handle('start', handler);
+    },
+    onPacketsProgress: function(handler) {
+        this._handle('progress', handler);
+    },
+    onPacketsError: function(handler) {
+        this._handle('error', handler);
+    },
+    onPacketsLoaded: function(handler) {
+        this._handle('loaded', handler);
+    },
+    onStop: function(handler) {
+        this._handle('stop', handler);
+    },
     initializeItems: function() {
         var bv = this;
         this.mapGrid.addItem('clock', $('<div/>').attr('id', 'battleviewer-clock').html('--:--'));
@@ -489,6 +630,8 @@ BattleViewer.prototype = {
                     }
                     base.setPosition(bv.getArena().convertArrayPosition(basedata));
                     bv.mapGrid.addItem('base-' + i, base.render().el);
+                    // we want the arena to get a copy too
+                    bv.getArena().addBasePoint(i, 0, base); // 0 because it's 0-based >_<
                 });
             }
             for(i = 0; i < this.positions.team.length; i++) {
@@ -563,18 +706,6 @@ BattleViewer.prototype = {
     getArena: function() {
         return this.arena;
     },
-    onStart: function(handler) {
-        this.handlers.start.push(handler);
-    },
-    onPacketsProgress: function(handler) {
-        this.handlers.progress.push(handler);
-    },
-    onPacketsError: function(handler) {
-        this.handlers.error.push(handler);
-    },
-    onPacketsLoaded: function(handler) {
-        this.handlers.loaded.push(handler);
-    },
 	start: function() {
         var bv = this;
         this.mapGrid.render();
@@ -609,7 +740,6 @@ BattleViewer.prototype = {
         this.stopping = true;
     },
     setSpeed: function(newspeed) {
-        console.log('setting updatespeed to ', newspeed);
         this.updateSpeed = newspeed;
     },
     dispatch: function(type, e) {
@@ -645,10 +775,10 @@ BattleViewer.prototype = {
 
             if(this.stopping) ix = packets.length;
 			if (ix < packets.length) {
-				setTimeout(update.bind(this, this.getArena(), packets, window_end, window_size, ix), this.updateSpeed);	
-			} else {
-				this.updateChat('Replay finished.');
-			}
+                setTimeout(update.bind(this, this.getArena(), packets, window_end, window_size, ix), this.updateSpeed);	
+            } else {
+                this.dispatch('stop');
+            }
 		}
 		update.call(this, this.arena, this.packets, 0, 0.1, 0);
 	},
