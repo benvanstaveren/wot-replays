@@ -455,8 +455,9 @@ Arena.prototype = {
                 }
             }
         }
+        var me = this;
         this.getAllPlayers().forEach(function(player) {
-            var age = (this.clock - player.clock) / 20;
+            var age = (me.clock - player.clock) / 20;
             age = age > 0.66 ? 0.66 : age;
             player.setAge(age);
         });
