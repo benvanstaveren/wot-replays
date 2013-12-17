@@ -1,0 +1,1 @@
+([% IF replay.game.finish_reason == 0 %]unknown[% ELSIF replay.game.finish_reason == 1 %]all [% IF replay.game.recorder.team == replay.game.winner %]enemies[% ELSE %]friendlies[% END %] killed[% ELSIF replay.game.finish_reason == 2 %]base captured[% ELSIF replay.game.finish_reason == 3 %]timeout[% ELSIF replay.game.finish_reason == 4 %]failure[% ELSE %]technical[% END %])

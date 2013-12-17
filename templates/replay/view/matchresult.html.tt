@@ -2,6 +2,7 @@
     <span class="green">
         [% mr_inc = 'replay/view/matchresult/' _ replay.game.type _ '/victory.html.tt' %]
         [% INCLUDE $mr_inc %]
+        [% INCLUDE replay/view/matchresult/reason.html.tt %]
     </span>
 [% ELSIF replay.game.winner == 0 %]
     <span>Draw</span>
@@ -9,5 +10,6 @@
     <span class="red">
         [% mr_inc = 'replay/view/matchresult/' _ replay.game.type _ '/defeat.html.tt' %]
         [% INCLUDE $mr_inc %]
+        [% INCLUDE replay/view/matchresult/reason.html.tt %]
     </span>
 [% END %]
