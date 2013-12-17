@@ -426,26 +426,30 @@ Arena.prototype = {
                 } else if(typeof(frame.ident) != 'undefined') {
                     //console.log('[FRAME_WITH_IDENT]: got frame with identifier: ', frame);
                     if(frame.ident == 'arena.base_points') {
-                        var base = this.bases[frame.team - 1][frame.baseID - 1];
-                        if(!base) return;
-                        if(!base.stateInit) {
-                            base.stateInit = true;
-                        } else {
-                            if(frame.capturingStopped == 1) {
-                                base.stopCapturing();
-                                //console.log('[STOP_CAPTURING]: ', base);
+                        if(this.bases && this.bases[frame.team - 1])
+                            var base = this.bases[frame.team - 1][frame.baseID - 1];
+                            if(!base) return;
+                            if(!base.stateInit) {
+                                base.stateInit = true;
                             } else {
-                                base.captureProgress(frame.points, this.isEnemyTeam(frame.team));
-                                //console.log('[CAPTURE_PROGRESS]: ', base);
+                                if(frame.capturingStopped == 1) {
+                                    base.stopCapturing();
+                                    //console.log('[STOP_CAPTURING]: ', base);
+                                } else {
+                                    base.captureProgress(frame.points, this.isEnemyTeam(frame.team));
+                                    //console.log('[CAPTURE_PROGRESS]: ', base);
+                                }
                             }
                         }
                     } else if(frame.ident == 'arena.base_captured') {
-                        var base = this.bases[frame.team - 1][frame.baseID - 1];
-                        if(!base) return;
-                        if(!base.stateInit) {
-                            base.stateInit = true;
-                        } else {
-                            base.hasBeenCaptured(this.isEnemyTeam(frame.team));
+                        if(this.bases && this.bases[frame.team - 1]) {
+                            var base = this.bases[frame.team - 1][frame.baseID - 1];
+                            if(!base) return;
+                            if(!base.stateInit) {
+                                base.stateInit = true;
+                            } else {
+                                base.hasBeenCaptured(this.isEnemyTeam(frame.team));
+                            }
                         }
                     }
                 }
