@@ -28,7 +28,11 @@
 
         <script type="text/javascript" src="[% config.urls.static %]/js/wtr.js"></script>
         [% IF pageid == 'battleviewer' %]
+            <script type="text/javascript" src="[% config.urls.static %]/js/mapgrid.js"></script>
             <script type="text/javascript" src="[% config.urls.static %]/js/battleviewer.js"></script>
+        [% END %]
+        [% IF pageid == 'heatmaps' %]
+            <script type="text/javascript" src="[% config.urls.static %]/js/mapgrid.js"></script>
         [% END %]
 	    <script type="text/javascript">
             $(document).ready(function() {
