@@ -42,14 +42,10 @@
         </div>
         <div class="pull-left" style="width: 330px; margin: 22px 0px 0px 5px"">
             <div class="well text-center" id="load-progress">
-                <p>Packets streaming...</p>
-                <p>
-                    p:<span id="playstats"></span> s:<span id="streamstats"></span>
-                </p>
-                <div class="progress" id="stream">
+                <div class="progress bs-tooltip" id="stream" data-placement="auto" data-toggle="tooltip" data-container="body" title="Packet streaming progress">
                     <div class="progress-bar" style="width: 0%"></div>
                 </div>
-                <div class="progress" id="play">
+                <div class="progress bs-tooltip" id="play" data-placement="auto" data-toggle="tooltip" data-container="body" title="Packets in playback buffer">
                     <div class="progress-bar progress-bar-success" style="width: 0%"></div>
                 </div>
                 <div>
@@ -80,14 +76,6 @@
             playerTeam  : [% replay.game.recorder.team %]
         });
 
-        battleViewer.onStreamStats(function(e) {
-            $('#streamstats').html(e[1] + 'p/s');
-        });
-
-        battleViewer.onPlayStats(function(e) {
-            $('#playstats').html(e[1] + 'p/s');
-        });
-
         battleViewer.onPacketsStart(function() {
             console.log('battleViewer.onPacketsStart()');
             $('#battleviewer-controls .btn-speed').removeClass('disabled').on('click', function() {
@@ -111,11 +99,11 @@
 
         battleViewer.onPacketsProgress(function(percentage) {
             $('#load-progress #stream .progress-bar').css({ width: percentage + '%' });
-            if(percentage > 1 && $('#btn-play').hasClass('disabled') && !$('#btn-play').hasClass('clicked')) $('#btn-play').removeClass('disabled');
+            if(percentage > 5 && $('#btn-play').hasClass('disabled') && !$('#btn-play').hasClass('clicked')) $('#btn-play').removeClass('disabled');
         });
 
         battleViewer.onPlayProgress(function(percentage) {
-            $('#load-progress #play .progress-bar').css({ width: percentage + '%' });
+            $('#load-progress #play .progress-bar').css({ width: (100 - percentage) + '%' });
         });
 
         battleViewer.getArena().onChat(function(message) {
