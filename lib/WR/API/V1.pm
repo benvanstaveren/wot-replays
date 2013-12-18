@@ -125,7 +125,7 @@ sub replay_packets_ws {
         my $sendsub;
         $sendsub = sub {
             $c->next(sub {
-                my ($cr, $e, $d) = (@_)
+                my ($cr, $e, $d) = (@_);
 
                 if(defined($d)) {
                     delete($d->{_meta});
