@@ -126,7 +126,7 @@ sub replay_packets_ws {
         my $sendsub;
         $sendsub = sub {
             my $delay = Mojo::IOLoop->delay(sub {
-                my $docs = shift;
+                my ($d, $docs) = (@_);
                 $self->app->log->debug('docs isa: ' . $docs);
                 my $dc = scalar(@$docs);
 
