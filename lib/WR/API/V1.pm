@@ -128,14 +128,15 @@ sub replay_packets_eventsource {
         my $j = JSON::XS->new;
 
         # while $doc = next... 
-        my $cb = sub {
+        my $cb;
+        $cb = sub {
             my ($cursor, $err, $doc) = (@_);
             if($doc) {
                 my $seq = $doc->{_meta}->{seq};
                 delete($doc->{_meta});
                 delete($doc->{_id});
                 $self->write(sprintf("event:packet\nid: %d\ndata: %s\n\n", $seq, $j->encode($doc)));
-                $cursor->next(__SUB__);
+                $cursor->next($cb);
             } else {
                 $end->();
             }
