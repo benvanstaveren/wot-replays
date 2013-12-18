@@ -56,4 +56,6 @@ while(my $replay = $cursor->next()) {
             @splice
         ]);
     }
+
+    print 'Extracted for: ', $replay->{_id}, "\n";
 }
