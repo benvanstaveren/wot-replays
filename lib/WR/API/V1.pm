@@ -126,6 +126,8 @@ sub replay_packets_ws {
             my $doc = shift;
 
             if(defined($doc) && !blessed($doc)) {
+                delete($doc->{_meta}); # cos we don't need seq
+                delete($doc->{_id});
                 $self->send($j->encode({ e => 'packet', data => $doc }));
             } else {
                 $self->send($j->encode({ e => 'done' }));

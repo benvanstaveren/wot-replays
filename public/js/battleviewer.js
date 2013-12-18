@@ -749,7 +749,6 @@ BattleViewer.prototype = {
 
             if(evt.e == 'hi') {
                 console.log('Got hi!');
-                bv.ws.send('start');
             } else if(evt.e == 'start') {
                 bv.totalPackets = evt.data.count;
                 bv.totalPackets = parseInt(evt.data) - 1;
@@ -757,7 +756,6 @@ BattleViewer.prototype = {
                 bv.dispatch('pstart');
                 bv.dispatch('progress', 50);
                 bv.packetTime = new Date().getTime();
-                bv.ws.send('next');
             } else if(evt.e == 'done') {
                 bv.ws.close();
                 bv.dispatch('pdone');
@@ -776,7 +774,6 @@ BattleViewer.prototype = {
                     var pps  = (ppms > 0) ? Math.floor(ppms * 1000) : 0;
                     bv.dispatch('streamstats', [ ppms, pps ]);
                 }
-                bv.ws.send('next');
             }
         };
 
