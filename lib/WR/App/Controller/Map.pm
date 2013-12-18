@@ -18,6 +18,28 @@ sub index {
     });
 }
 
+sub heatmap {
+    my $self        = shift;
+    my $map_ident   = $self->stash('map_ident');
+
+    $self->render_later;
+    $self->model('wot-replays.data.maps')->find_one({ slug => $map_ident } => sub {
+        my ($c, $e, $m_obj) = (@_);
+        $self->respond(
+            template => 'heatmap/index',
+            stash    => {
+                map_id   => $m_obj->{numerical_id},
+                map_name => $m_obj->{label},
+                map_ident => $m_obj->{_id},
+                pageid => 'heatmap',
+                page => {
+                    title => sprintf('Maps &raquo; %s &raquo; Heatmap', $m_obj->{label}),
+                },
+            }
+        );
+    });
+}
+
 sub view {
     my $self   = shift;
     my $map_id = $self->stash('map_id');

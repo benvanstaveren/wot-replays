@@ -168,7 +168,17 @@ sub startup {
             }
         );
 
+
     $r->route('/maps')->to('map#index', pageid => 'map');
+
+    $r->route('/heatmaps')->to('heatmap#index', pageid => 'heatmap');
+    my $heatmap = $r->under('/heatmaps/:map_ident');
+        $heatmap->route('/')->to(cb => sub {
+            my $self = shift;
+            $self->redirect_to(sprintf('/heatmaps/%s/type/location/mode/ctf', $self->stash('map_ident')));
+        });
+        $heatmap->route('/type/:type/mode/:mode')->to('heatmap#view');
+
     my $map = $r->under('/map');
         $map->route('/:map_id')->to(cb => sub {
             my $self = shift;

@@ -21,11 +21,16 @@ my $bonus_type  = $init->{bonus_type};
 foreach my $p (@$packets) {
     if(defined($p->{position})) {
         $lastpos->{$p->{id}} = $p->{position};
-        print $j->encode({ map_id => $map_id, gameplay_id => $gameplay_id, bonus_type => $bonus_type, x => int($p->{position}->[0]), y => int($p->{position}->[2]), is_death => 0 }), "\n";
+        print $j->encode({ map_id => $map_id, gameplay_id => $gameplay_id, bonus_type => $bonus_type, x => $p->{position}->[0], y => $p->{position}->[2], is_death => 0, is_damage => 0 }), "\n";
     }
     if(defined($p->{destroyer})) {
         my $dl = $lastpos->{$p->{destroyed}};
         next unless(defined($dl));
-        print $j->encode({ map_id => $map_id, gameplay_id => $gameplay_id, bonus_type => $bonus_type, is_death => 1, x => int($dl->[0]), y => int($dl->[2]) }), "\n";
+        print $j->encode({ map_id => $map_id, gameplay_id => $gameplay_id, bonus_type => $bonus_type,  x => $dl->[0], y => $dl->[2], is_damage => 0, is_death => 1 }), "\n";
+    }
+    if(defined($p->{health}) && defined($p->{source})) {
+        my $dl = $lastpos->{$p->{id}};
+        next unless(defined($dl));
+        print $j->encode({ map_id => $map_id, gameplay_id => $gameplay_id, bonus_type => $bonus_type, x => $dl->[0], y => $dl->[2], is_death => 0, is_damage => 1 }), "\n";
     }
 }

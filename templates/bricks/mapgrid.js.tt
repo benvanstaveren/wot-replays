@@ -5,6 +5,6 @@ var [% varname %] = new MapGrid({
         width       : 768,
         height      : 768,
         bounds      : [% h.as_json(h.map_boundingbox_by_ident(ident)) %],
-        positions   : [% h.as_json(h.map_positions_by_ident(ident)) %],
+        positions   : [% IF without_position.defined %]{}[% ELSE %][% h.as_json(h.map_positions_by_ident(ident, gamemode)) %][% END %],
     }
 });

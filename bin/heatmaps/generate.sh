@@ -11,6 +11,7 @@ mongo wtr-heatmaps js/bonustypelist.js
 mongo wtr-heatmaps js/loc-global.js
 
 script/export.pl > export.sh
+rm -rf ../../data/packets/heatmaps/*.json
 . ./export.sh
 
 rm ../../data/packets/import.json

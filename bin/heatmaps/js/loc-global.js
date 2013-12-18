@@ -17,6 +17,7 @@ db.map_list.find().forEach(function(map) {
         query: {
             map_id: mapid,
             is_death: 0,
+            is_damage: 0,
         }
     });
 
@@ -35,6 +36,7 @@ db.map_list.find().forEach(function(map) {
         query: {
             map_id: mapid,
             is_death: 1,
+            is_damage: 0,
         }
     });
 
@@ -47,6 +49,27 @@ db.map_list.find().forEach(function(map) {
         };
         db[coll].save(rec);
     });
+
+    db.raw_location.mapReduce(mapf, redf, {
+        out: { 'replace': 'locations_tmp' },
+        query: {
+            map_id: mapid,
+            is_death: 0,
+            is_damage: 1,
+        }
+    });
+
+    db.locations_tmp.find().forEach(function(loc) {
+        var coll = 'damage_locations_' + mapid + '_' + loc._id.gameplay_id;
+        var rec  = {
+            x       : loc._id.x,
+            y       : loc._id.y,
+            count   : loc.value
+        };
+        db[coll].save(rec);
+    });
+
+
 });
 
 db.locations_tmp.drop();

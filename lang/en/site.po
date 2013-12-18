@@ -25,6 +25,9 @@ msgstr "News and Updates"
 msgid "nav.tools"
 msgstr "Tools"
 
+msgid "nav.heatmaps"
+msgstr "Heatmaps"
+
 msgid "nav.tools.issuetracker"
 msgstr "Issue Tracker"
 
@@ -101,6 +104,10 @@ msgstr "Browse Player"
 # map page elements
 msgid "map.page.title"
 msgstr "Browse Map"
+
+# heatmap page elements
+msgid "heatmaps.page.title"
+msgstr "Heatmaps"
 
 # misc. button bits
 msgid "button.like.text"

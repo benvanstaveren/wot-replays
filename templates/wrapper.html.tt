@@ -31,7 +31,7 @@
             <script type="text/javascript" src="[% config.urls.static %]/js/mapgrid.js"></script>
             <script type="text/javascript" src="[% config.urls.static %]/js/battleviewer.js"></script>
         [% END %]
-        [% IF pageid == 'heatmaps' %]
+        [% IF pageid == 'heatmap' %]
             <script type="text/javascript" src="[% config.urls.static %]/js/mapgrid.js"></script>
             <script type="text/javascript" src="[% config.urls.static %]/js/heatmap.js"></script>
         [% END %]
@@ -74,6 +74,7 @@
                             <li><a href="/vehicles/ussr">USSR</a></li>
                         </ul>
                     </li>
+                    <li class="[% IF pageid == 'heatmap' %]active[% END %]"><a href="/heatmaps/">[% h.loc('nav.heatmaps') %]</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="[% IF pageid == 'blog' %]active[% END %]"><a href="http://blog.wotreplays.org/">[% h.loc('nav.blog') %]</a></li>
