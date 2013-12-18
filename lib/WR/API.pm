@@ -3,6 +3,7 @@ use Mojo::Base 'Mojolicious';
 use FindBin;
 use lib "$FindBin::Bin/../lib";
 use Mango;
+use Mojo::Util qw/monkey_patch/;
 use WR;
 
 sub startup {
@@ -13,6 +14,20 @@ sub startup {
 
     $self->secret($config->{app}->{secret}); # same secret as main app? why not
     $self->defaults(config => $config);
+
+    # these are teh nasties(tm)
+    monkey_patch('Mango::Cursor',
+        'all_with_cb' => sub {
+            my ($self, $cb) = (@_);
+            return $self->next(sub { shift->_acb_next($cb, @_) });
+        },
+        '_acb_next' => sub {
+            my ($self, $cb, $err, $doc) = (@_);
+            return $self->_defer($cb, undef) if($err || !$doc);
+            $cb->($doc);
+            $self->next(sub { shift->acb_next($cb, @_) });
+        }   
+    );
 
     # set up the mango stuff here
     $self->attr(mango => sub { Mango->new($config->{mongodb}->{host}) });

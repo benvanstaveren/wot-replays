@@ -115,11 +115,6 @@ sub replay_packets_eventsource {
         $q->{'_meta.seq'} = { '$gt' => $lid + 0 };
     }
 
-    my $delay = Mojo::IOLoop->delay(sub {
-        $self->write("event:finished\n\n");
-    });
-    my $end = $delay->begin(0);
-
     my $cursor = $self->model('wot-replays.packets')->find($q);
     $cursor->count(sub {
         my ($coll, $err, $count) = (@_);
@@ -127,21 +122,17 @@ sub replay_packets_eventsource {
         $cursor->sort({ '_meta.seq' => 1 });
         my $j = JSON::XS->new;
 
-        # while $doc = next... 
-        my $cb;
-        $cb = sub {
-            my ($cursor, $err, $doc) = (@_);
-            if($doc) {
+        $cursor->all_with_cb(sub {
+            if(my $doc = shift) {
                 my $seq = $doc->{_meta}->{seq};
                 delete($doc->{_meta});
                 delete($doc->{_id});
                 $self->write(sprintf("event:packet\nid: %d\ndata: %s\n\n", $seq, $j->encode($doc)));
-                $cursor->next($cb);
             } else {
-                $end->();
+                $self->write("event:finished\n\n");
+                $self->finish;
             }
-        };
-        $cursor->next($cb);
+        });
     });
 }
 
