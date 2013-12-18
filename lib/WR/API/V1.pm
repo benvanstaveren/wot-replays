@@ -102,42 +102,40 @@ sub replay_packets {
     });
 }
 
-sub replay_packets_eventsource {
+sub replay_packets_ws {
     my $self = shift;
     my $oid  = Mango::BSON::bson_oid($self->stash('replay_id'));
 
     Mojo::IOLoop->stream($self->tx->connection)->timeout(300);
-    $self->render_later;
-
-    $self->res->headers->content_type('text/event-stream');
 
     my $q = { '_meta.replay' => $oid };
-    if(my $lid = $self->req->headers->header('last-event-id')) {
-        $q->{'_meta.seq'} = { '$gt' => $lid + 0 };
-    }
-
+    my $j = JSON::XS->new;
     my $cursor = $self->model('wot-replays.packets')->find($q);
-    $cursor->count(sub {
-        my ($coll, $err, $count) = (@_);
-        $self->write("event:start\ndata: $count\n\n");
-        $cursor->sort({ '_meta.seq' => 1 });
-        my $j = JSON::XS->new;
 
-        $cursor->all_with_cb(sub {
-            my $doc = shift;
-            if(defined($doc) && !blessed($doc)) {
-                next if($self->tx->is_finished); # waaaaste of resources ... 
-                my $seq = $doc->{_meta}->{seq};
-                delete($doc->{_meta});
-                delete($doc->{_id});
-                $self->write(sprintf("event:packet\nid: %d\ndata: %s\n\n", $seq, $j->encode($doc)));
-            } else {
-                unless($self->tx->is_finished) { 
-                    $self->write("event:finished\n\n");
-                    $self->finish;
+    # on message
+    $self->on(message => sub {
+        my ($self, $msg) = (@_);
+
+        if($msg eq 'start') {
+            $cursor->count(sub {
+                my ($c, $e, $cnt) = (@_);
+                $self->send($j->encode({ e => 'start', data => { count => $cnt }}));
+                $cursor->sort({ '_meta.seq' => 1 });
+            });
+        } elsif($msg eq 'next') {
+            $cursor->next(sub {
+                my ($c, $e, $d) = (@_);
+                if(defined($d)) {
+                    delete($d->{_meta});
+                    delete($d->{_id});
+                    $self->send($j->encode({ e => 'packet', data => $d }));
+                } else {
+                    $self->send($j->encode({ e => 'finished' }));
                 }
-            }
-        });
+            });
+        } elsif($msg eq 'stop') {
+            $self->finish;
+        }
     });
 }
 
