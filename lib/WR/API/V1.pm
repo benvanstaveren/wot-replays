@@ -112,6 +112,8 @@ sub replay_packets_ws {
     my $j = JSON::XS->new;
     my $cursor = $self->model('wot-replays.packets')->find($q);
 
+    $self->send($j->encode({ e => 'hi' }));
+
     # on message
     $self->on(message => sub {
         my ($self, $msg) = (@_);

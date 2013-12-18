@@ -743,18 +743,21 @@ BattleViewer.prototype = {
         console.log('setting up websocket source with url: ', this.packet_url);
         this.ws = new WebSocket(this.packet_url);
         
-        ws.onmessage = function(event) {
+        this.ws.onmessage = function(event) {
             var evt = JSON.parse(event.data);
             console.log('ws.onmessage: ', event.data, ' -> ', evt);
 
-            if(evt.e == 'start') {
+            if(evt.e == 'hi') {
+                console.log('Got hi!');
+                bv.ws.send('start');
+            } else if(evt.e == 'start') {
                 bv.totalPackets = evt.data.count;
                 bv.totalPackets = parseInt(evt.data) - 1;
                 bv.currentPackets = 0;
                 bv.dispatch('pstart');
                 bv.dispatch('progress', 50);
                 bv.packetTime = new Date().getTime();
-                ws.send('next');
+                bv.ws.send('next');
             } else if(evt.e == 'done') {
                 bv.ws.close();
                 bv.dispatch('pdone');
@@ -773,7 +776,7 @@ BattleViewer.prototype = {
                     var pps  = (ppms > 0) ? Math.floor(ppms * 1000) : 0;
                     bv.dispatch('streamstats', [ ppms, pps ]);
                 }
-                ws.send('next');
+                bv.ws.send('next');
             }
         };
 
