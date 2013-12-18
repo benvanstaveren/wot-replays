@@ -106,6 +106,7 @@ sub replay_packets_eventsource {
     my $oid  = Mango::BSON::bson_oid($self->stash('replay_id'));
 
     Mojo::IOLoop->stream($self->tx->connection)->timeout(30);
+    $self->render_later;
 
     $self->res->headers->content_type('text/event-stream');
 
