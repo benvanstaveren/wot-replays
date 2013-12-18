@@ -133,12 +133,16 @@ sub replay_packets_ws {
 
                 my $dc = scalar(@$docs);
 
+                $self->app->log->debug('cnt: ' . $cnt . ' dc: ' . $dc);
+
                 if($dc > 0) {
                     $skip += $dc;
                     $self->send($j->encode({ e => 'packet', data => [ map { delete($_->{_meta}); delete($_->{_id}); $_; } @$docs ] }));
                     $cnt -= $dc;
+                    $self->app->log->debug('after cnt: ' . $cnt);
                     $timer = Mojo::IOLoop->timer(0 => $sendsub) if($cnt > 0);
                 } else {
+                    $self->app->log->debug('no docs yo');
                     $self->send($j->encode({ e => 'done' }));
                     $self->finish;
                 }
