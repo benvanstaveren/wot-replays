@@ -131,7 +131,7 @@ sub replay_packets_eventsource {
                 $self->write(sprintf("event:packet\nid: %d\ndata: %s\n\n", $seq, $j->encode($doc)));
             } else {
                 unless($self->tx->is_finished) { 
-                    $self->write("event:finished\n\n") 
+                    $self->write("event:finished\n\n");
                     $self->finish;
                 }
             }
