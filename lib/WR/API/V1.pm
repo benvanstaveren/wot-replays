@@ -82,6 +82,22 @@ sub process_status {
     });
 }
 
+sub replay_packets {
+    my $self = shift;
+    my $oid  = Mango::BSON::bson_oid($self->stash('replay_id'));
+
+    $self->render_later;
+    $self->model('wot-replays.packets')->find({ '_meta.replay' => $oid })->sort({ '_meta.seq': 1 })->all(sub {
+        my ($coll, $err, $docs) = (@_);
+
+        if($err) {
+            $self->render(json => { ok => 0, error => $err }, status => 500); 
+        } else {
+            $self->render(json => { ok => 1, packets => $docs });
+        }
+    });
+}
+
 sub process_replay {
     my $self = shift;
     my $adoc = shift;

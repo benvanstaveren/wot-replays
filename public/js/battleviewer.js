@@ -734,8 +734,12 @@ BattleViewer.prototype = {
             crossDomain: true,
             timeout: 60000,
             success: function(d, t, x) {
-                bv.packets = d;
-                bv.dispatch('loaded'); 
+                if(d.ok == 1) {
+                    bv.packets = d.packets;
+                    bv.dispatch('loaded'); 
+                } else {
+                    bv.dispatch('error', { error: 'Failed to get packets from API' });
+                }
             },
             error: function(j, t, e) {
                 bv.dispatch('error', { error: t + ", " + e });
@@ -763,7 +767,7 @@ BattleViewer.prototype = {
     dispatch: function(type, e) {
         if(!this.handlers[type]) this.handlers[type] = [];
         this.handlers[type].forEach(function(handler) {
-            handler.bind(this)(e);
+            handler.call(this, e);
         });
     },
     updateClock: function() {

@@ -43,10 +43,12 @@ sub startup {
                     $data->route(sprintf('/%s', $_))->to('v1#validate_token', type => $_, next => 'data');
                 }
             $v1->route('/typecomp')->to('v1#validate_token', next => 'resolve_typecomp');
-
             my $process = $v1->under('/process');
                 $process->route('/')->to('v1#validate_token', next => 'process_replay');
-                $process->route('/status/:job_id')->to('v1#process_status'); # yeah, really, this doesn't need a token 
+                $process->route('/status/:job_id')->to('v1#process_status'); # yep no token required here...
+            
+            my $replay = $v1->under('/replay/:replay_id');
+                $replay->route('packets')->to('v1#replay_packets'); # and no token here either...
 
 }
 

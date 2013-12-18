@@ -389,25 +389,26 @@ sub _real_process {
                     # and other such happy things
 
                     $self->debug('storing packets for replay');
-                    $self->emit('state.packet.save.start');
+                    my $total = scalar(@{$self->packets});
+                    my $seq = 0;
 
-                    my $base_path = sprintf('%s/%s', $self->packet_path, $self->hashbucket($replay->{_id} . '', 7));
-                    make_path($base_path) unless(-e $base_path);
-                    my $packet_file = sprintf('%s/%s.json', $base_path, $replay->{_id} . '');
-                    if(my $fh = IO::File->new(sprintf('>%s', $packet_file))) {
-                        my $json = JSON::XS->new();
-                        $fh->print($json->encode($self->packets));
-                        $fh->close;
-                        $self->debug('wrote packets to file');
-                        $replay->{packets} = sprintf('%s/%s.json', $self->hashbucket($replay->{_id} . '', 7), $replay->{_id} . '');
-                        $self->emit('state.packet.save.finish');
-                    } else {
-                        $self->debug('could not write packets to file');
-                        $replay->{packets} = undef;
-                        $self->emit('state.packet.save.finish');
+                    $self->emit('state.packet.save.start' => $total);
+                    while(@{$self->packets}) {
+                        $self->model('wot-replays.packets')->insert([ 
+                            map {
+                                $_->{_meta} = {
+                                    replay  => $replay->{_id},
+                                    fields  => [ keys(%$_) ],
+                                    seq     => $seq++,
+                                };
+                                $_;
+                            }
+                            splice(@{$self->packets}, 0, 1000)
+                        ]);
+                        $self->emit('state.packet.save.progress' => { count => $seq, total => $total });
                     }
-
-                    $self->debug('fetching wn7 from statterbox');
+                    $self->emit('state.packet.save.finish' => $total);
+                    $replay->{has_packets} = Mango::BSON::bson_true;
 
                     $self->emit('state.wn7.start' => scalar(keys(%{$replay->{players}})));
 
@@ -415,7 +416,7 @@ sub _real_process {
 
                     foreach my $player (keys(%{$replay->{players}})) {
                         my $url = sprintf('http://statterbox.com/api/v1/%s/wn7?server=%s&player=%s', 
-                            '5299a074907e1337e0010000',
+                            '5299a074907e1337e0010000', # yes it's a hardcoded API token :P
                             $replay->{game}->{server},
                             lc($player)
                             );
@@ -462,7 +463,7 @@ sub _real_process {
                         $self->emit('state.wn7.progress' => { count => ++$count, total => scalar(keys(%{$replay->{players}})) });
                     }
 
-                    $self->emit('state.wn7.finish');
+                    $self->emit('state.wn7.finish' => scalar(keys(%{$replay->{players}})));
 
                     my $wn7p = WR::Provider::WN7->new();
                     my $roster = $replay->{roster}->[ $replay->{players}->{$replay->{game}->{recorder}->{name}} ];
