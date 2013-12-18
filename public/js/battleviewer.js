@@ -763,8 +763,10 @@ BattleViewer.prototype = {
                 console.log('got done');
                 bv.dispatch('pdone');
             } else if(evt.e == 'packet') {
-                bv.currentPackets++;
-                bv.packets.push(evt.data);
+                bv.currentPackets += evt.data.length;
+                evt.data.forEach(function(packet) {
+                    bv.packets.push(packet);
+                });
                 var perc = Math.floor(100/(bv.totalPackets/bv.currentPackets));
                 bv.dispatch('progress', perc);
 
