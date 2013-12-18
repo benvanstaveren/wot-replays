@@ -68,7 +68,7 @@
         // create battleviewer
         var battleViewer = new BattleViewer({
             container   : '#bv-player',
-            packets     : 'ws://api.wotreplays.org:8081/v1/replay/[% h.get_id(replay) %]/packets_ws', 
+            packets     : 'ws://api.wotreplays.org/v1/replay/[% h.get_id(replay) %]/packets_ws', 
             map         : {
                 ident       : '[% h.map_ident(replay) %]',
                 width       : 768,
