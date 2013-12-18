@@ -149,6 +149,7 @@ sub replay_packets_ws {
             my $end = $delay->begin;
             $cr->all(sub {
                 my ($c, $e, $docs) = (@_);
+                $self->app->log->debug(Dumper($c->explain()));
                 $end->($docs);
             });
         };
