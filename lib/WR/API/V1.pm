@@ -117,30 +117,21 @@ sub replay_packets_ws {
 
     $self->send($j->encode({ e => 'hi' }));
 
-    # on message
-    $self->on(message => sub {
-        my ($self, $msg) = (@_);
+    $cursor->count(sub {
+        my ($c, $e, $cnt) = (@_);
+        $self->send($j->encode({ e => 'start', data => { count => $cnt }}));
+        $cursor->sort({ '_meta.seq' => 1 });
 
-        if($msg eq 'start') {
-            $cursor->count(sub {
-                my ($c, $e, $cnt) = (@_);
-                $self->send($j->encode({ e => 'start', data => { count => $cnt }}));
-                $cursor->sort({ '_meta.seq' => 1 });
-            });
-        } elsif($msg eq 'next') {
-            $cursor->next(sub {
-                my ($c, $e, $d) = (@_);
-                if(defined($d)) {
-                    delete($d->{_meta});
-                    delete($d->{_id});
-                    $self->send($j->encode({ e => 'packet', data => $d }));
-                } else {
-                    $self->send($j->encode({ e => 'finished' }));
-                }
-            });
-        } elsif($msg eq 'stop') {
-            $self->finish;
-        }
+        $cursor->all_with_cb(sub {
+            my $doc = shift;
+
+            if(defined($doc) && !blessed($doc)) {
+                $self->send($j->encode({ e => 'packet', data => $doc }));
+            } else {
+                $self->send($j->encode({ e => 'done' }));
+                $self->finish;
+            }
+        });
     });
 }
 
