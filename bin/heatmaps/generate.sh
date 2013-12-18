@@ -1,10 +1,9 @@
 #!/bin/bash
 mongo wtr-heatmaps js/start.js
-rm import.json
 for a in `find ../../data/packets/ -name "*.json"`; do
-    script/import.pl $a >> import.json;
+    script/import.pl $a >> ../../data/packets/import.json;
 done
-mongoimport -d wtr-heatmaps -c raw_location < import.json
+mongoimport -d wtr-heatmaps -c raw_location < ../../data/packets/import.json
 
 mongo wtr-heatmaps js/maplist.js
 mongo wtr-heatmaps js/gameplaylist.js
@@ -14,5 +13,5 @@ mongo wtr-heatmaps js/loc-global.js
 script/export.pl > export.sh
 . ./export.sh
 
-rm import.json
+rm ../../data/packets/import.json
 rm export.sh
