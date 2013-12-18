@@ -93,7 +93,6 @@ sub replay_packets {
     my $cursor = $self->model('wot-replays.packets')->find({ '_meta.replay' => $oid })->sort({ '_meta.seq' => 1 });
     $cursor->all(sub {
         my ($coll, $err, $docs) = (@_);
-
         if($err) {
             $self->render(json => { ok => 0, error => $err }, status => 500); 
         } else {
@@ -106,13 +105,9 @@ sub replay_packets_eventsource {
     my $self = shift;
     my $oid  = Mango::BSON::bson_oid($self->stash('replay_id'));
 
-    Mojo::IOLoop->stream($self->tx->connection)->timeout(300);
+    Mojo::IOLoop->stream($self->tx->connection)->timeout(30);
 
     $self->res->headers->content_type('text/event-stream');
-
-    my $delay = Mojo::IOLoop->delay(sub {
-        $self->write("event:finished\n\n");
-    });
 
     my $q = { '_meta.replay' => $oid };
     if(my $lid = $self->req->headers->header('last-event-id')) {
@@ -120,29 +115,35 @@ sub replay_packets_eventsource {
     }
 
     my $cursor = $self->model('wot-replays.packets')->find($q);
-    my $count  = $cursor->count;
-    $cursor->sort({ '_meta.seq' => 1 });
-    $self->write("event:start\ndata: $count\n\n");
-    my $j = JSON::XS->new;
-    my $end = $delay->begin;
+    my $count  = $cursor->count(sub {
+        my ($coll, $err, $count) = (@_);
 
-    my $getnext;
-    $getnext = sub {
-        $cursor->next(sub {
-            my ($coll, $err, $doc) = (@_);
-
-            if(defined($doc)) {
-                my $seq = $doc->{_meta}->{seq};
-                delete($doc->{_meta});
-                delete($doc->{_id});
-                $self->write(sprintf("event:packet\nid: %d\ndata: %s\n\n", $seq, $j->encode($doc)));
-                Mojo::IOLoop->timer(0 => $getnext);
-            } else {
-                $end->();
-            }
+        my $delay = Mojo::IOLoop->delay(sub {
+            $self->write("event:finished\n\n");
         });
-    };
-    $getnext->();
+
+        $self->write("event:start\ndata: $count\n\n");
+        $cursor->sort({ '_meta.seq' => 1 });
+
+        my $j = JSON::XS->new;
+        my $end = $delay->begin;
+        my $timer;
+
+        $timer = Mojo::IOLoop->singleton->recurring(0 => sub {
+            $cursor->next(sub {
+                my ($coll, $err, $doc) = (@_);
+                if(defined($doc)) {
+                    my $seq = $doc->{_meta}->{seq};
+                    delete($doc->{_meta});
+                    delete($doc->{_id});
+                    $self->write(sprintf("event:packet\nid: %d\ndata: %s\n\n", $seq, $j->encode($doc)));
+                } else {
+                    Mojo::IOLoop->remove($timer);
+                    $end->();
+                }
+            });
+        });
+    });
 }
 
 sub process_replay {
@@ -197,7 +198,6 @@ sub process_replay {
             my ($coll, $err, $oid) = (@_);
             if(defined($oid)) {
                 $upload->asset->move_to($replay_file);
-
                 $self->model('wot-replays.jobs')->update({ _id => $digest }, { 
                     '$set' => {
                         'data'  => {

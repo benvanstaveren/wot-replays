@@ -42,16 +42,25 @@
         </div>
         <div class="pull-left" style="width: 330px; margin: 22px 0px 0px 5px"">
             <div class="well text-center" id="load-progress">
-                <p>Packets loading...</p>
-                <div class="progress">
+                <p>Packets streaming...</p>
+                <p>
+                    p:<span id="playstats"></span> s:<span id="streamstats"></span>
+                </p>
+                <div class="progress" id="stream">
                     <div class="progress-bar" style="width: 0%"></div>
                 </div>
+                <div class="progress" id="play">
+                    <div class="progress-bar progress-bar-success" style="width: 0%"></div>
+                </div>
+                <div>
+                    <a class="btn btn-primary btn-block disabled" id="btn-play" href="#">Play</a>
+                </div>
             </div>
-            <div class="well hide text-center" id="arena-period">
-                <div class="alert alert-info">Click to Start</div>
+            <div class="well center" id="arena-period">
+                <div class="alert alert-info">Awaiting players...</div>
             </div>
-            <div class="well hide"  id="arena-chat">
-                <div id="chat" style="overflow-y: auto; height: 600px"></div>
+            <div class="well" id="arena-chat">
+                <div id="chat" style="overflow-y: auto; height: 405px"></div>
             </div>
         </div>
     </div>
@@ -59,7 +68,7 @@
         // create battleviewer
         var battleViewer = new BattleViewer({
             container   : '#bv-player',
-            packets     : 'http://api.wotreplays.org/v1/replay/[% h.get_id(replay) %]/packets', 
+            packets     : 'http://api.wotreplays.org/events/packets/[% h.get_id(replay) %]/', 
             map         : {
                 ident       : '[% h.map_ident(replay) %]',
                 width       : 768,
@@ -71,25 +80,16 @@
             playerTeam  : [% replay.game.recorder.team %]
         });
 
-        // handlers for loading
-        battleViewer.onPacketsError(function(e) {
-            $.bootstrapGrowl('Could not load packet data, try reloading the page', {
-                type: 'danger',
-                allow_dismiss: true
-            });
-        });
-        battleViewer.onPacketsProgress(function(percentage) {
-            $('#load-progress .progress-bar').css({ width: percentage + '%' });
+        battleViewer.onStreamStats(function(e) {
+            $('#streamstats').html(e[1] + 'p/s');
         });
 
-        battleViewer.onPacketsLoaded(function() {
-            $('#load-progress').remove();
-            $('#arena-chat').removeClass('hide');
-            $('#arena-period').removeClass('hide').on('click', function() {
-                $('#arena-period').off('click');
-                $('#arena-period').css({ 'cursor': 'default' });
-                battleViewer.replay();
-            }).css({ 'cursor': 'pointer' });
+        battleViewer.onPlayStats(function(e) {
+            $('#playstats').html(e[1] + 'p/s');
+        });
+
+        battleViewer.onPacketsStart(function() {
+            console.log('battleViewer.onPacketsStart()');
             $('#battleviewer-controls .btn-speed').removeClass('disabled').on('click', function() {
                 var speed = $(this).attr('speed');
                 $('.btn-speed').removeClass('active');
@@ -97,9 +97,27 @@
                 battleViewer.setSpeed(parseInt(speed));
                 return false;
             });
+            $('#btn-play').on('click', function() {
+                if($(this).hasClass('disabled')) return false;
+                battleViewer.replay();
+                $(this).addClass('disabled clicked');
+                return false;
+            });
         });
 
-        // arena handlers
+        battleViewer.onStart(function() {
+            // nothing to do here...
+        });
+
+        battleViewer.onPacketsProgress(function(percentage) {
+            $('#load-progress #stream .progress-bar').css({ width: percentage + '%' });
+            if(percentage > 1 && $('#btn-play').hasClass('disabled') && !$('#btn-play').hasClass('clicked')) $('#btn-play').removeClass('disabled');
+        });
+
+        battleViewer.onPlayProgress(function(percentage) {
+            $('#load-progress #play .progress-bar').css({ width: percentage + '%' });
+        });
+
         battleViewer.getArena().onChat(function(message) {
             $('#arena-chat #chat').prepend(message);
         });
@@ -124,48 +142,6 @@
 
         battleViewer.onStop(function() {
             battleViewer.getArena().hideAllPlayers();
-
-            [% IF 1 == 0 %]
-            /* this will have to wait until later some time */
-
-            var deathLocations = battleViewer.getArena().getDeathLocations();
-            console.log('deathlocations: ', deathLocations);
-            var mapGrid = battleViewer.getMapGrid();
-            var totalDeaths = 0;
-
-            for(x = 0; x < deathLocations.length; x++) {
-                for(y = 0; y < deathLocations[x].length; y++) {
-                    var cell = mapGrid.getSubCellAt({ x: x, y: y });
-                    var cdeaths = (cell.hasAttr('deaths')) ? parseInt(cell.attr('deaths')) : 0;
-                    cell.attr('deaths', cdeaths + deathLocations[x][y]);
-                    totalDeaths += deathLocations[x][y];
-                }
-            }
-
-            mapGrid.getAllSubCells().each(function(i, subcell) {
-                if(!subcell.hasAttr('deaths')) return;
-                var deaths = parseInt(subcell.attr('deaths'));
-
-                // it's a percentage of the total, but the minimum is 50 (0.5) 
-                if(deaths > 0 && totalDeaths > 0) {
-                    var a = null;
-                    var p = Math.round(100/(totalDeaths/deaths));
-                    if(p > 0) {
-                        if(p > 50) {
-                            a = 'rgba(255, 0, 0, ' + ((50 + p) / 2) + ')';
-                        } else {
-                            a = 'rgba(0, 255, 0, ' + ((50 + p) / 2) + ')';
-                        }
-                    } else {
-                        return;
-                    }
-                    subcell.css({ 'background-color': a });
-                } else {
-                    return;
-                }
-            });
-
-            [% END %]
         });
 
         // add players to arena
