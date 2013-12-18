@@ -115,35 +115,18 @@ sub replay_packets_eventsource {
     }
 
     my $cursor = $self->model('wot-replays.packets')->find($q);
-    my $count  = $cursor->count(sub {
-        my ($coll, $err, $count) = (@_);
+    my $count  = $cursor->count;
+    $self->write("event:start\ndata: $count\n\n");
+    $cursor->sort({ '_meta.seq' => 1 });
 
-        my $delay = Mojo::IOLoop->delay(sub {
-            $self->write("event:finished\n\n");
-        });
-
-        $self->write("event:start\ndata: $count\n\n");
-        $cursor->sort({ '_meta.seq' => 1 });
-
-        my $j = JSON::XS->new;
-        my $end = $delay->begin;
-        my $timer;
-
-        $timer = Mojo::IOLoop->singleton->recurring(0 => sub {
-            $cursor->next(sub {
-                my ($coll, $err, $doc) = (@_);
-                if(defined($doc)) {
-                    my $seq = $doc->{_meta}->{seq};
-                    delete($doc->{_meta});
-                    delete($doc->{_id});
-                    $self->write(sprintf("event:packet\nid: %d\ndata: %s\n\n", $seq, $j->encode($doc)));
-                } else {
-                    Mojo::IOLoop->remove($timer);
-                    $end->();
-                }
-            });
-        });
-    });
+    my $j = JSON::XS->new;
+    while(my $doc = $cursor->next()) {
+        my $seq = $doc->{_meta}->{seq};
+        delete($doc->{_meta});
+        delete($doc->{_id});
+        $self->write(sprintf("event:packet\nid: %d\ndata: %s\n\n", $seq, $j->encode($doc)));
+    }
+    $self->write("event:finished\n\n");
 }
 
 sub process_replay {
