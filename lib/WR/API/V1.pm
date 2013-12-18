@@ -120,16 +120,13 @@ sub replay_packets_ws {
     $cursor->count(sub {
         my ($c, $e, $cnt) = (@_);
         $self->send($j->encode({ e => 'start', data => { count => $cnt }}));
-        $c->sort({ '_meta.seq' => 1 });
-        $c->limit(500);
 
         my $skip = 0;
         my $timer;
         my $sendsub;
         $sendsub = sub {
-            my $c = shift;
-            $c->skip($skip);
-            $c->all(sub {
+            my $cr = $self->model('wot-replays.packets')->find($q)->sort({ '_meta.seq': 1 })->limit(500)->skip($skip);
+            $cr->all(sub {
                 my ($c, $e, $docs) = (@_);
 
                 my $dc = scalar(@$docs);
@@ -141,15 +138,16 @@ sub replay_packets_ws {
                     $self->send($j->encode({ e => 'packet', data => [ map { delete($_->{_meta}); delete($_->{_id}); $_; } @$docs ] }));
                     $cnt -= $dc;
                     $self->app->log->debug('after cnt: ' . $cnt);
-                    $timer = Mojo::IOLoop->timer(0 => sub { $sendsub->($c) }) if($cnt > 0);
+                    $timer = Mojo::IOLoop->timer(0 => $sendsub ) if($cnt > 0);
                 } else {
                     $self->app->log->debug('no docs yo');
                     $self->send($j->encode({ e => 'done' }));
+                    $cnt = 0;
                     $self->finish;
                 }
             });
         };
-        $sendsub->($c);
+        $sendsub->();
     });
 }
 
