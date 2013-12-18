@@ -4,6 +4,7 @@ use warnings;
 use WR;
 use Mango;
 use Mojo::Util qw/monkey_patch/;
+use Scalar::Util qw/blessed/;
 
 monkey_patch 'Mango::Cursor', 
     'all_with_cb' => sub {
@@ -22,12 +23,14 @@ monkey_patch 'Mango::Cursor',
 
 my $m = Mango->new('mongodb://localhost:27017/');
 my $d = $m->db('wot-replays');
-my $c = $d->collection('packets');
+my $c = $d->collection('data.maps');
 
 my $cursor = $c->find();
 
 $cursor->all_with_cb(sub {
-    if(my $doc = shift) {
+    my $doc = shift;
+
+    if(!blessed($doc)) {
         warn 'got doc, id: ', $doc->{_id}, "\n";
     } else {
         warn 'end', "\n";

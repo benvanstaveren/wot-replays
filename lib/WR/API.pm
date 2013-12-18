@@ -4,6 +4,7 @@ use FindBin;
 use lib "$FindBin::Bin/../lib";
 use Mango;
 use Mojo::Util qw/monkey_patch/;
+use Scalar::Util qw/blessed/;
 use WR;
 
 sub startup {

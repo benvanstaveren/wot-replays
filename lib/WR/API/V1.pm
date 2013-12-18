@@ -3,6 +3,7 @@ use Mojo::Base 'Mojolicious::Controller';
 use File::Path qw/make_path/;
 use JSON::XS;
 use Mango::BSON;
+use Scalar::Util qw/blessed/;
 use Try::Tiny qw/try catch/;
 
 sub validate_token {
@@ -123,7 +124,8 @@ sub replay_packets_eventsource {
         my $j = JSON::XS->new;
 
         $cursor->all_with_cb(sub {
-            if(my $doc = shift) {
+            my $doc = shift;
+            if(defined($doc) && !blessed($doc)) {
                 next if($self->tx->is_finished); # waaaaste of resources ... 
                 my $seq = $doc->{_meta}->{seq};
                 delete($doc->{_meta});
