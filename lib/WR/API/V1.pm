@@ -113,13 +113,14 @@ sub replay_packets_ws {
 
     my $q = { '_meta.replay' => $oid };
     my $j = JSON::XS->new;
-    my $cursor = $self->model('wot-replays.packets')->find($q)->sort({ '_meta.seq' => 1 });
+    my $cursor = $self->model('wot-replays.packets')->find($q);
 
     $self->send($j->encode({ e => 'hi' }));
 
     $cursor->count(sub {
         my ($c, $e, $cnt) = (@_);
         $self->send($j->encode({ e => 'start', data => { count => $cnt }}));
+        $c->sort({ '_meta.seq' => 1 });
 
         my $timer;
         my $sendsub;
