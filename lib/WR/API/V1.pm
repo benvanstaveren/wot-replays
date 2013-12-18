@@ -98,6 +98,42 @@ sub replay_packets {
     });
 }
 
+sub replay_packets_eventsource {
+    my $self = shift;
+    my $oid  = Mango::BSON::bson_oid($self->stash('replay_id'));
+
+    Mojo::IOLoop->stream($self->tx->connection)->timeout(300);
+
+    $self->res->headers->content_type('text/event-stream');
+    $self->write("event:start\n\n");
+
+    my $delay = Mojo::IOLoop->delay(sub {
+        $self->write("event:finished\n\n");
+    });
+
+    my $cursor = $self->model('wot-replays.packets')->find({ '_meta.replay' => $oid })->sort({ '_meta.seq': 1 });
+    my $j = JSON::XS->new;
+    my $end = $delay->begin;
+
+    my $getnext;
+    $getnext = sub {
+        $cursor->next(sub {
+            my ($coll, $err, $doc) = (@_);
+
+            if(defined($doc)) {
+                my $seq = $doc->{_meta}->{seq};
+                delete($doc->{_meta});
+                delete($doc->{_id});
+                $self->write(sprintf("event:packet\nid: %d\ndata: %s\n\n", $seq, $j->encode($doc)));
+                Mojo::IOLoop->timer(0 => $getnext);
+            } else {
+                $end->();
+            }
+        });
+    };
+    $getnext->();
+}
+
 sub process_replay {
     my $self = shift;
     my $adoc = shift;

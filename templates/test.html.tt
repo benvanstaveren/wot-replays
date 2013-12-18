@@ -7,38 +7,25 @@
     <div class="row">
         <div class="col-lg-12 col-md-12">
             <div id="test-container"></div>
-            <div id="buttons" style="text-align: center">
-            </div>
         </div>
     </div>
     <script type="text/javascript">
-        [% INCLUDE bricks/mapgrid.js.tt varname = 'testmap', ident = '06_ensk', container = '#test-container' %]
-        $(document).ready(function() {
-            var overlay = testmap.getOverlay('viewer');
-            testmap.render();
+        var s = new EventSource('http://api.wotreplays.org/v1/replay/52b162f59c81a506e2010000/packets.evt');
 
-            var cfg = {
-                "radius"    : 40,
-                "element"   : document.getElementById('overlay-viewer'),
-                "visible"   : true,
-                "opacity"   : 50,
-                "gradient"  : { 0.01: "rgb(0,0,128)", 0.2: "rgb(0,0,255)", 0.3: "rgb(0,128,128)", 0.4: "rgb(0,255,255)", 0.5: "rgb(0,128,0)", 0.6: "rgb(0,255,0)", 0.7: "rgb(128,128,0)", 0.8: "rgb(255,255,0)", 0.9: "rgb(128,0,0)", 0.99: "rgb(255,0,0)", 1.0: "rgb(255,255,255)" }
-            };
+        s.onmessage = function(evt) {
+            console.log('msg: ', evt);
+        });
 
-            var heatmap = heatmapFactory.create(cfg);
-            var dataset = null;
+        s.addEventListener('packetstart', function(evt) {
+            $('#test-container').append($('<div/>').text('start'));
+        });
+        s.addEventListener('packetdone', function(evt) {
+            $('#test-container').append($('<div/>').text('stop'));
+            s.close();
+        });
 
-            $.getJSON('http://packets.wotreplays.org/heatmaps/d_6_0.json', {}, function(d) {
-                var max = 0;
-                d.forEach(function(data) {
-                    if(data.count > max) max = data.count;
-                    var gc = testmap.game_to_map_coord([ data.x, 0, data.y ]);
-                    data.x = gc.x;
-                    data.y = gc.y
-                });
-                dataset = { max: max, data: d };
-                heatmap.store.setDataSet(dataset);
-            });
+        s.addEventListener('packet', function(evt) {
+            $('#test-container').append($('<div/>').append($('<pre/>').text(evt.data)));
         });
     </script>
 [% END %]

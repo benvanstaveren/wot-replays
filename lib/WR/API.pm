@@ -50,6 +50,9 @@ sub startup {
             my $replay = $v1->under('/replay/:replay_id');
                 $replay->route('packets')->to('v1#replay_packets'); # and no token here either...
 
+        my $events = $root->under('/events');
+            $events->route('/packets/:replay_id/')->to('v1#replay_packets_eventsource');
+
 }
 
 1;
