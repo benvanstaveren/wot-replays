@@ -124,13 +124,16 @@ sub replay_packets_eventsource {
 
         $cursor->all_with_cb(sub {
             if(my $doc = shift) {
+                next if($self->tx->is_finished); # waaaaste of resources ... 
                 my $seq = $doc->{_meta}->{seq};
                 delete($doc->{_meta});
                 delete($doc->{_id});
                 $self->write(sprintf("event:packet\nid: %d\ndata: %s\n\n", $seq, $j->encode($doc)));
             } else {
-                $self->write("event:finished\n\n");
-                $self->finish;
+                unless($self->tx->is_finished) { 
+                    $self->write("event:finished\n\n") 
+                    $self->finish;
+                }
             }
         });
     });
