@@ -1,6 +1,8 @@
 package WR::API::V1;
 use Mojo::Base 'Mojolicious::Controller';
 use File::Path qw/make_path/;
+use JSON::XS;
+use Mango::BSON;
 use Try::Tiny qw/try catch/;
 
 sub validate_token {
@@ -87,7 +89,9 @@ sub replay_packets {
     my $oid  = Mango::BSON::bson_oid($self->stash('replay_id'));
 
     $self->render_later;
-    $self->model('wot-replays.packets')->find({ '_meta.replay' => $oid })->sort({ '_meta.seq': 1 })->all(sub {
+    Mojo::IOLoop->stream($self->tx->connection)->timeout(300);
+    my $cursor = $self->model('wot-replays.packets')->find({ '_meta.replay' => $oid })->sort({ '_meta.seq' => 1 });
+    $cursor->all(sub {
         my ($coll, $err, $docs) = (@_);
 
         if($err) {
@@ -105,13 +109,20 @@ sub replay_packets_eventsource {
     Mojo::IOLoop->stream($self->tx->connection)->timeout(300);
 
     $self->res->headers->content_type('text/event-stream');
-    $self->write("event:start\n\n");
 
     my $delay = Mojo::IOLoop->delay(sub {
         $self->write("event:finished\n\n");
     });
 
-    my $cursor = $self->model('wot-replays.packets')->find({ '_meta.replay' => $oid })->sort({ '_meta.seq': 1 });
+    my $q = { '_meta.replay' => $oid };
+    if(my $lid = $self->req->headers->header('last-event-id')) {
+        $q->{'_meta.seq'} = { '$gt' => $lid + 0 };
+    }
+
+    my $cursor = $self->model('wot-replays.packets')->find($q);
+    my $count  = $cursor->count;
+    $cursor->sort({ '_meta.seq' => 1 });
+    $self->write("event:start\ndata: $count\n\n");
     my $j = JSON::XS->new;
     my $end = $delay->begin;
 
