@@ -146,7 +146,7 @@ sub replay_packets_ws {
                 }
             });
 
-            my $cr = $self->model('wot-replays.packets')->find($q)->sort({ '_meta.seq' => 1 })->limit(500)->skip($skip);
+            my $cr = $self->model('wot-replays.packets')->find($q)->sort({ '_meta.seq' => 1 })->limit(2000)->skip($skip);
             my $end = $delay->begin(0);
             $cr->all(sub {
                 my ($c, $e, $docs) = (@_);
