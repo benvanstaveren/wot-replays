@@ -763,6 +763,7 @@ BattleViewer.prototype = {
                 console.log('got done');
                 bv.dispatch('pdone');
             } else if(evt.e == 'packet') {
+                console.log('packet: ', evt);
                 bv.currentPackets += evt.data.length;
                 evt.data.forEach(function(packet) {
                     bv.packets.push(packet);

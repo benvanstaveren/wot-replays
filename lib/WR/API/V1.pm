@@ -113,7 +113,7 @@ sub replay_packets_ws {
 
     my $q = { '_meta.replay' => $oid };
     my $j = JSON::XS->new;
-    my $cursor = $self->model('wot-replays.packets')->find($q);
+    my $cursor = $self->model('wot-replays.packets')->find($q)->sort({ '_meta.seq' => 1 });
 
     $self->send($j->encode({ e => 'hi' }));
 
@@ -121,39 +121,25 @@ sub replay_packets_ws {
         my ($c, $e, $cnt) = (@_);
         $self->send($j->encode({ e => 'start', data => { count => $cnt }}));
 
-        my $skip = 0;
         my $timer;
         my $sendsub;
         $sendsub = sub {
-            my $delay = Mojo::IOLoop->delay(sub {
-                my ($d, $docs) = (@_);
-                $self->app->log->debug('docs isa: ' . $docs);
-                my $dc = scalar(@$docs);
+            $c->next(sub {
+                my ($cr, $e, $d) = (@_)
 
-                $self->app->log->debug('cnt: ' . $cnt . ' dc: ' . $dc);
-
-                if($dc > 0) {
-                    $skip += $dc;
-                    $self->send($j->encode({ e => 'packet', data => [ map { delete($_->{_meta}); delete($_->{_id}); $_; } @$docs ] }));
-                    $cnt -= $dc;
-                    $self->app->log->debug('after cnt: ' . $cnt);
-                    $timer = Mojo::IOLoop->timer(0 => $sendsub ) if($cnt > 0);
+                if(defined($d)) {
+                    delete($d->{_meta});
+                    delete($d->{_id});
+                    $self->send($j->encode({ e => 'packet', data => $d }));
+                    $timer = Mojo::IOLoop->timer(0 => $sendsub );
                 } else {
                     $self->app->log->debug('no docs yo');
                     $self->send($j->encode({ e => 'done' }));
-                    $cnt = 0;
                     $self->finish;
                 }
             });
-
-            my $cr = $self->model('wot-replays.packets')->find($q)->sort({ '_meta.seq' => 1 })->limit(2000)->skip($skip);
-            my $end = $delay->begin(0);
-            $cr->all(sub {
-                my ($c, $e, $docs) = (@_);
-                $end->($docs);
-            });
         };
-        $sendsub->();
+        $timer = Mojo::IOLoop->timer(0 => $sendsub);
     });
 }
 
