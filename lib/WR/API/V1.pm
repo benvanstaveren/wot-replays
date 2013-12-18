@@ -106,6 +106,9 @@ sub replay_packets_ws {
     my $self = shift;
     my $oid  = Mango::BSON::bson_oid($self->stash('replay_id'));
 
+    use Data::Dumper;
+    $self->app->log->debug('headers: ' . Dumper($self->req->headers->to_hash));
+
     Mojo::IOLoop->stream($self->tx->connection)->timeout(300);
 
     my $q = { '_meta.replay' => $oid };
