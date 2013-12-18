@@ -25,7 +25,7 @@ sub startup {
             my ($self, $cb, $err, $doc) = (@_);
             return $self->_defer($cb, undef) if($err || !$doc);
             $cb->($doc);
-            $self->next(sub { shift->acb_next($cb, @_) });
+            $self->next(sub { shift->_acb_next($cb, @_) });
         }   
     );
 
