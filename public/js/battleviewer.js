@@ -740,43 +740,43 @@ BattleViewer.prototype = {
 	start: function() {
         var bv = this;
         this.mapGrid.render();
-        console.log('setting up event source with url: ', this.packet_url);
-        this.eventSource = new EventSource(this.packet_url + '?_' + new Date().getTime());
-        this.eventSource.onerror = function() {
-            console.log('event source error: ', arguments);
-        };
-        this.totalPackets = 0;
-        this.currentPackets = 0;
-        this.eventSource.addEventListener('start', function(evt) {
-            console.log('packet start with data: ', evt.data);
-            bv.totalPackets = parseInt(evt.data) - 1;
-            bv.currentPackets = 0;
-            bv.dispatch('pstart');
-            bv.dispatch('progress', 50);
-            bv.packetTime = new Date().getTime();
-        });
-        this.eventSource.addEventListener('finished', function(evt) {
-            bv.eventSource.close();
-            bv.eventSource = null;
-            bv.dispatch('pdone');
-        });
-        this.eventSource.addEventListener('packet', function(evt) {
-            bv.currentPackets = parseInt(evt.lastEventId); // because it's the seq id
-            bv.packets.push(JSON.parse(evt.data)); 
-            var perc = Math.floor(100/(bv.totalPackets/bv.currentPackets));
-            bv.dispatch('progress', perc);
+        console.log('setting up websocket source with url: ', this.packet_url);
+        this.ws = new WebSocket(this.packet_url);
+        
+        ws.onmessage = function(event) {
+            var evt = JSON.parse(event.data);
+            console.log('ws.onmessage: ', event.data, ' -> ', evt);
 
-            var now = new Date().getTime();
-            var then = bv.packetTime;
-            var sdiff = now - then;
+            if(evt.e == 'start') {
+                bv.totalPackets = evt.data.count;
+                bv.totalPackets = parseInt(evt.data) - 1;
+                bv.currentPackets = 0;
+                bv.dispatch('pstart');
+                bv.dispatch('progress', 50);
+                bv.packetTime = new Date().getTime();
+                ws.send('next');
+            } else if(evt.e == 'done') {
+                bv.ws.close();
+                bv.dispatch('pdone');
+            } else if(evt.e == 'packet') {
+                bv.currentPackets++;
+                bv.packets.push(evt.data);
+                var perc = Math.floor(100/(bv.totalPackets/bv.currentPackets));
+                bv.dispatch('progress', perc);
 
-            if(sdiff > 0) {
-                var ppms = (bv.currentPackets > 0) ? bv.currentPackets/sdiff : 0;
-                var pps  = (ppms > 0) ? Math.floor(ppms * 1000) : 0;
-                bv.dispatch('streamstats', [ ppms, pps ]);
+                var now = new Date().getTime();
+                var then = bv.packetTime;
+                var sdiff = now - then;
+
+                if(sdiff > 0) {
+                    var ppms = (bv.currentPackets > 0) ? bv.currentPackets/sdiff : 0;
+                    var pps  = (ppms > 0) ? Math.floor(ppms * 1000) : 0;
+                    bv.dispatch('streamstats', [ ppms, pps ]);
+                }
+                ws.send('next');
             }
+        };
 
-        });
         this.dispatch('start');
     },
     stop: function() {
