@@ -125,10 +125,8 @@ sub replay_packets_ws {
         my $timer;
         my $sendsub;
         $sendsub = sub {
-            my $cr = $self->model('wot-replays.packets')->find($q)->sort({ '_meta.seq' => 1 })->limit(500)->skip($skip);
-            $cr->all(sub {
-                my ($c, $e, $docs) = (@_);
-
+            my $delay = Mojo::IOLoop->delay(sub {
+                my $docs = shift;
                 my $dc = scalar(@$docs);
 
                 $self->app->log->debug('cnt: ' . $cnt . ' dc: ' . $dc);
@@ -145,6 +143,13 @@ sub replay_packets_ws {
                     $cnt = 0;
                     $self->finish;
                 }
+            });
+
+            my $cr = $self->model('wot-replays.packets')->find($q)->sort({ '_meta.seq' => 1 })->limit(500)->skip($skip);
+            my $end = $delay->begin;
+            $cr->all(sub {
+                my ($c, $e, $docs) = (@_);
+                $end->($docs);
             });
         };
         $sendsub->();
