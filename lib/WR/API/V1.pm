@@ -127,7 +127,7 @@ sub replay_packets_ws {
         my $timer;
         my $sendsub;
         $sendsub = sub {
-            $cursor->offset($skip);
+            $cursor->skip($skip);
             $cursor->all(sub {
                 my ($c, $e, $docs) = (@_);
 
