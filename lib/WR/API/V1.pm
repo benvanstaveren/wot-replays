@@ -121,19 +121,29 @@ sub replay_packets_ws {
         my ($c, $e, $cnt) = (@_);
         $self->send($j->encode({ e => 'start', data => { count => $cnt }}));
         $cursor->sort({ '_meta.seq' => 1 });
+        $cursor->limit(500);
 
-        $cursor->all_with_cb(sub {
-            my $doc = shift;
+        my $skip = 0;
+        my $timer;
+        my $sendsub = sub {
+            $cursor->offset($skip);
+            $cursor->all(sub {
+                my ($c, $e, $docs) = (@_);
 
-            if(defined($doc) && !blessed($doc)) {
-                delete($doc->{_meta}); # cos we don't need seq
-                delete($doc->{_id});
-                $self->send($j->encode({ e => 'packet', data => $doc }));
-            } else {
-                $self->send($j->encode({ e => 'done' }));
-                $self->finish;
-            }
-        });
+                my $dc = scalar(@$docs);
+
+                if($dc > 0) {
+                    $skip += $dc;
+                    $self->send($j->encode({ e => 'packet', data => [ map { delete($_->{_meta}); delete($_->{_id}); $_; } @$docs ] }));
+                    $cnt -= $dc;
+                    $timer = Mojo::IOLoop->timer(0 => $sendsub) if($cnt > 0);
+                } else {
+                    $self->send($j->encode({ e => 'done' }));
+                    $self->finish;
+                }
+            });
+        };
+        $sendsub->();
     });
 }
 

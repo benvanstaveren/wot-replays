@@ -742,22 +742,25 @@ BattleViewer.prototype = {
         this.mapGrid.render();
         console.log('setting up websocket source with url: ', this.packet_url);
         this.ws = new WebSocket(this.packet_url);
+
+        this.ws.onclose = function() {
+            console.log('websocket connection closed');
+        };
         
         this.ws.onmessage = function(event) {
             var evt = JSON.parse(event.data);
-            console.log('ws.onmessage: ', event.data, ' -> ', evt);
-
             if(evt.e == 'hi') {
                 console.log('Got hi!');
             } else if(evt.e == 'start') {
                 bv.totalPackets = evt.data.count;
-                bv.totalPackets = parseInt(evt.data) - 1;
                 bv.currentPackets = 0;
                 bv.dispatch('pstart');
-                bv.dispatch('progress', 50);
+                bv.dispatch('progress', 0);
                 bv.packetTime = new Date().getTime();
+                console.log('Got start, count: ', evt.data.count);
             } else if(evt.e == 'done') {
                 bv.ws.close();
+                console.log('got done');
                 bv.dispatch('pdone');
             } else if(evt.e == 'packet') {
                 bv.currentPackets++;
