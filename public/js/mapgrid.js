@@ -28,10 +28,10 @@ var MapGrid = function(options) {
     };
     this.items      = {};
     this.overlays   = {
-        'item'      : $('<div/>').addClass('item-overlay').css({ width: this.width + 'px', height: this.height + 'px', position: 'absolute', top: '0px', left: '0px' }),
-        'viewer'    : $('<div/>').addClass('viewer-overlay').css({ width: this.width + 'px', height: this.height + 'px', position: 'absolute', top: '0px', left: '0px' }),
-        'cell'      : $('<div/>').addClass('cell-overlay').css({ width: this.width + 'px', height: this.height + 'px', position: 'absolute', top: '0px', left: '0px' }),
-        'subcell'   : $('<div/>').addClass('subcell-overlay').css({ width: this.width + 'px', height: this.height + 'px', position: 'absolute', top: '0px', left: '0px' })
+        'item'      : $('<div/>').attr('id', 'overlay-item').addClass('item-overlay').css({ width: this.width + 'px', height: this.height + 'px', position: 'absolute', top: '0px', left: '0px' }),
+        'viewer'    : $('<div/>').attr('id', 'overlay-viewer').addClass('viewer-overlay').css({ width: this.width + 'px', height: this.height + 'px', position: 'absolute', top: '0px', left: '0px' }),
+        'cell'      : $('<div/>').attr('id', 'overlay-cell').addClass('cell-overlay').css({ width: this.width + 'px', height: this.height + 'px', position: 'absolute', top: '0px', left: '0px' }),
+        'subcell'   : $('<div/>').attr('id', 'overlay-subcell').addClass('subcell-overlay').css({ width: this.width + 'px', height: this.height + 'px', position: 'absolute', top: '0px', left: '0px' })
     };
 }
 MapGrid.prototype = {

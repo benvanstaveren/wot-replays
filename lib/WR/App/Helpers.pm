@@ -399,6 +399,18 @@ sub add_helpers {
         }
     });
 
+    $self->helper(map_positions_by_ident => sub {
+        my $self    = shift;
+        my $ident   = shift;
+        my $type    = shift;
+
+        if(my $obj = $self->model('wot-replays.data.maps')->find_one({ _id => $ident })) {
+            return $obj->{attributes}->{positions}->{$type};
+        } else {
+            return undef;
+        }
+    });     
+
     $self->helper(map_positions => sub {
         my $self    = shift;
         my $replay  = shift;
@@ -410,6 +422,18 @@ sub add_helpers {
             return undef;
         }
     });     
+
+    $self->helper(map_boundingbox_by_ident => sub {
+        my $self    = shift;
+        my $ident  = shift;
+
+        if(my $obj = $self->model('wot-replays.data.maps')->find_one({ _id => $ident })) {
+            return [ $obj->{attributes}->{geometry}->{bottom_left}, $obj->{attributes}->{geometry}->{upper_right} ];
+        } else {
+            return undef;
+        }
+    });
+
 
     $self->helper(map_boundingbox => sub {
         my $self    = shift;

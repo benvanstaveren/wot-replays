@@ -655,7 +655,7 @@ BattleViewer.prototype = {
                             spawn.setFriendly();
                         }
                         spawn.setPosition(bv.getArena().convertArrayPosition(this.positions.team[i][j]));
-                        bv.mapGrid.addItem('spawn-' + i + '-' + j, spawn.render().el);
+                        bv.getMapGrid().addItem('spawn-' + i + '-' + j, spawn.render().el);
                     }
                 }
             }
@@ -664,13 +664,21 @@ BattleViewer.prototype = {
             var control = new BasePoint();
             if(this.positions.base[0] == null) {
                 control.setPosition(bv.getArena().convertArrayPosition(this.positions.base[1][0]));
-                control.setEnemy();
+                if(this.getArena().isEnemyTeam(2)) {
+                    control.setEnemy();
+                } else {
+                    control.setFriendly();
+                }
             } else {
                 control.setPosition(bv.getArena().convertArrayPosition(this.positions.base[0][0]));
-                control.setFriendly();
+                if(this.getArena().isEnemyTeam(1)) {
+                    control.setEnemy();
+                } else {
+                    control.setFriendly();
+                }
             }
 
-            bv.mapGrid.addItem('base-control', control.render().el);
+            bv.getMapGrid().addItem('base-control', control.render().el);
 
             // now iterate over the spawn points for both teams
             for(i = 0; i < this.positions.team.length; i++) {

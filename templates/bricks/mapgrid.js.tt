@@ -1,0 +1,10 @@
+var [% varname %] = new MapGrid({
+    container: '[% container %]',
+    ident    : '[% ident %]',
+    map      : { 
+        width       : 768,
+        height      : 768,
+        bounds      : [% h.as_json(h.map_boundingbox_by_ident(ident)) %],
+        positions   : [% h.as_json(h.map_positions_by_ident(ident)) %],
+    }
+});
