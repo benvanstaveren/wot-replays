@@ -7,6 +7,8 @@ use WR;
 use WR::Provider::Panelator;
 use WR::Parser;
 use Mango;
+use JSON::XS;
+use File::Path qw/make_path/;
 
 $| = 1;
 
@@ -28,34 +30,44 @@ sub extract {
     my $parser = WR::Parser->new(bf_key => WOT_BF_KEY, file => sprintf('/home/wotreplay/wot-replays/data/replays/%s', $file));
 
     my $game   = $parser->game();
+
+    # these are the ones we're interested in for the time being, other packets will not be added 
+
     for my $event ('player.position', 'player.health', 'player.tank.destroyed', 'player.orientation.hull', 'player.chat', 'arena.period', 'player.tank.damaged', 'arena.initialize', 'cell.attention', 'arena.base_points', 'arena.base_captured') {
         $game->on($event => \&addpacket);
     }
+
     $game->start();
 }
 
-my $cursor = $coll->find({ 'has_packets' => Mango::BSON::bson_false })->sort({ 'site.uploaded_at' => -1 })->limit(1);
+my $cursor = $coll->find();
+my $total = $cursor->count;
+$cursor->sort({ 'site.uploaded_at' => -1 });
+my $done  = 0;
+my $j     = JSON::XS->new();
+# ->pretty(1); <- moar compactzor if you remove this
 
 while(my $replay = $cursor->next()) {
     extract($replay->{file});
 
-    $coll->update({ _id => $replay->{_id} }, { '$set' => { 'has_packets' => Mango::BSON::bson_true }});
+    # packets are hashbucketed at 7 
+    my $bucket = join('/', split(//, substr($replay->{_id} . '', 0, 7)));
+    my $path   = sprintf('/home/wotreplay/wot-replays/data/packets/%s', $bucket);
+    my $filename = sprintf('%s/%s.json', $path, $replay->{_id} . '');
 
-    my $seq = 0;
-    while(@$packets) {
-        my @splice = splice(@$packets, 0, 1000);
-        $db->collection('packets')->insert([
-            map {
-                $_->{_meta} = {
-                    replay => $replay->{_id},
-                    fields => [ keys(%$_) ],
-                    seq    => $seq++,
-                };
-                $_;
-            }
-            @splice
-        ]);
+    make_path($path) unless(-e $path);
+
+    if(my $fh = IO::File->new($filename, '>')) {
+        $fh->print($j->encode($packets));
+        $fh->close;
+
+        $replay->{packets} = sprintf('%s/%s.json', $bucket, $replay->{_id} . '');
+    } else {
+        $replay->{packets} = undef;
     }
+    $coll->save($replay);
+    $packets = [];
 
-    print 'Extracted for: ', $replay->{_id}, "\n";
+    printf "% 6d / %6d                             \r", ++$done, $total;
 }
+print "\n";
