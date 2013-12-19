@@ -34,6 +34,7 @@
         [% IF pageid == 'heatmap' %]
             <script type="text/javascript" src="[% config.urls.static %]/js/mapgrid.js"></script>
             <script type="text/javascript" src="[% config.urls.static %]/js/heatmap.js"></script>
+            <script type="text/javascript" src="[% config.urls.static %]/js/heatmapviewer.js"></script>
         [% END %]
 	    <script type="text/javascript">
             $(document).ready(function() {

@@ -51,6 +51,24 @@ sub resolve_typecomp {
     });
 }
 
+sub map_details {
+    my $self      = shift;
+    my $map_ident = shift;
+
+    $self->render_later;
+
+    $self->model('wot-replays.data.maps')->find_one({ _id => $map_ident } => sub {
+        my ($c, $e, $d) = (@_);
+
+        if(defined($d)) {
+            delete($d->{_id});
+            $self->render(json => { ok => 1, data => $d });
+        } else {
+            $self->render(json => { ok => 0, error => 'not.found', 'not.found' => 'That map does not exist' });
+        }
+    });
+}
+
 sub data {
     my $self = shift;
     my $type = $self->stash('type');
