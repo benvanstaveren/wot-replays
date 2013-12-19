@@ -13,6 +13,17 @@
     <script type="text/javascript">
         [% INCLUDE bricks/mapgrid.js.tt varname = 'gameMap', ident = map_ident, container = '#map-container', gamemode = mode %]
 
+        $(document).ready(function() {
+            $.ajaxError(function(e, j, a, t) {
+                $.bootstrapGrowl({
+                    text: 'There is no heatmap data available for this selection',
+                    delay: 40000,
+                    allow_dismiss: true
+                });
+                gameMap.hideLoader();
+            });
+        });
+
         function WR_loadHeatmap(mode, hmtype, cb) {
             var fragMap = { 
                 'deaths': 'd_',
@@ -26,29 +37,16 @@
             };
             var typeFragment = fragMap[hmtype];
             var url = 'http://packets.wotreplays.org/heatmaps/' + typeFragment + '[% map_id %]_' + modeMap[mode] + '.json';
-            $.ajax({
-                url: url,
-                data: { _: new Date().getTime() },
-                type: 'POST',
-                dataType: 'json',
-                success: function(d, t, x) {
-                    var max = 0;
-                    d.forEach(function(data) {
-                        if(data.count > max) max = data.count;
-                        var gc = gameMap.game_to_map_coord([ data.x, 0, data.y ]);
-                        data.x = gc.x;
-                        data.y = gc.y
-                    });
-                    window.WR_heatmap.store.setDataSet({ max: max, data: d });
-                },
-                error: function() {
-                    $.bootstrapGrowl({
-                        text: 'There is no heatmap data available for this selection',
-                        delay: 40000,
-                        allow_dismiss: true
-                        });
-                },
-                complete: cb,
+            $.getJSON(url, { _: new Date().getTime() }, function(d) {
+                var max = 0;
+                d.forEach(function(data) {
+                    if(data.count > max) max = data.count;
+                    var gc = gameMap.game_to_map_coord([ data.x, 0, data.y ]);
+                    data.x = gc.x;
+                    data.y = gc.y
+                });
+                window.WR_heatmap.store.setDataSet({ max: max, data: d });
+                cb();
             });
         }
 

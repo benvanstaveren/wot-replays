@@ -5,8 +5,6 @@ use boolean;
 sub view {
     my $self        = shift;
     my $map_ident   = $self->stash('map_ident');
-    my $mode        = $self->stash('mode');
-    my $mmap        = { ctf => 0, domination => 1, assault => 2 };
 
     $self->render_later;
 
@@ -22,7 +20,6 @@ sub view {
                     map_id      => $map->{numerical_id},
                     map_name    => $map->{label},
                     map_ident   => $map->{_id},
-                    mode_id     => $mmap->{$mode},
                     modes       => $modes,
                     pageid => 'heatmap',
                     page => {
