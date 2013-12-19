@@ -1,6 +1,6 @@
 [% WRAPPER wrapper.html.tt %]
     <div class="page-header">
-        <h2><a href="/heatmaps/">Heatmaps</a> &raquo; [% map_name %]</h2>
+        <h2><a href="/heatmaps/">Heatmaps</a> &raquo; [% map_name %] <b class="caret"></b></h2>
     </div>
     <div class="row">
         <div class="col-lg-9 col-md-9">
