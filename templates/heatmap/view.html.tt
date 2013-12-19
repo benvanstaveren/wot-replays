@@ -1,6 +1,6 @@
 [% WRAPPER wrapper.html.tt %]
     <div class="page-header">
-        <h2><a href="/heatmaps/">Heatmaps</a> &raquo; [% map_name %] <b class="caret"></b></h2>
+        <h2>[% page.title %]</h2>
     </div>
     <div class="row">
         <div class="col-lg-9 col-md-9">
@@ -14,7 +14,7 @@
         $(document).ready(function() {
             var heatmapViewer = new HeatmapViewer({
                 ident: '[% map_ident %]',
-                container: $('#overlay-viewer'),
+                container: $('#map-container'),
             });
 
             $(document).ajaxError(function(e, j, a, t) {
@@ -29,14 +29,27 @@
                     allow_dismiss: true
                 });
             });
-
-            heatmapViewer.onInit(function() {
-                // this is bound to the heatmap viewer
-                this.bindModeSelect($('select[name="mode"]'));  
-                this.bindTypeSelect($('select[name="type"]'));
-                this.render();
+            heatmapViewer.onLoadStart(function() {
+                $('#detail-container').addClass('hide');
+                $('select[name="mode"]').addClass('disabled').prop('disabled', true);
+                $('select[name="type"]').addClass('disabled').prop('disabled', true);
             });
-
+            heatmapViewer.onLoadEnd(function() {
+                $('#detail-container').removeClass('hide');
+                if(this.mapModeCount > 1) $('select[name="mode"]').removeClass('disabled').prop('disabled', false);
+                $('select[name="type"]').removeClass('disabled').prop('disabled', false);
+            });
+            heatmapViewer.onInit(function() {
+                this.bindModeSelect($('select[name="mode"]')); 
+                this.bindTypeSelect($('select[name="type"]'));
+                $('#detail-container').removeClass('hide');
+                $('#detail-slider').slider()
+                    .on('slideStop', function(ev) {
+                        var v = ev.value;
+                        heatmapViewer.setRadius(v);
+                    })
+                this.load();
+            });
             heatmapViewer.init();
         });
     </script>

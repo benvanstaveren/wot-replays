@@ -1,27 +1,39 @@
-<h3>Heatmaps</h3>
+<h3>Options</h3>
 <div class="row">
     <div class="col-lg-12 col-md-12">
-        <form id="frm-heatmap-filter" method="post">
-            <div class="row">
-                <div class="col-lg-12 col-md-12">
-                    <h5>Match Type</h5>
-                    <select name="mode" class="form-control">
-                        [% FOREACH mode IN modes.sort %]
-                            <option value="[% mode %]">[% h.loc('#gametype:' _ mode) %]</option>
-                        [% END %]
-                    </select>
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <h5>Match Type</h5>
+                <select name="mode" class="form-control">
+                    [% FOREACH mode IN modes.sort %]
+                        <option value="[% mode %]">[% h.loc('#gametype:' _ mode) %]</option>
+                    [% END %]
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <h5>Heatmap Type</h5>
+                <select name="type" class="form-control">
+                    <option value="location">Locations</option>
+                    <option value="damage">Damage</option>
+                    <option value="deaths">Deaths</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <h5>Detail Level</h5>
+                <div id="detail-container" class="hide">
+                    <div class="row">
+                        <div class="col-md-1 col-lg-1"><i class="fa fa-plus fa-lg"></i></div>
+                        <div class="col-md-9 col-lg-9">
+                            <input id="detail-slider" value="" style="width: 100%" data-slider-min="8" data-slider-max="64" data-slider-value="32" data-slider-step="8" data-slider-orientation="horizontal" data-slider-tooltip="hide"/>
+                        </div>
+                        <div class="col-md-1 col-lg-1"><i class="fa fa-minus fa-lg"></i></div>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-12 col-md-12">
-                    <h5>Heatmap Type</h5>
-                    <select name="type" class="form-control">
-                        <option value="location">Locations</option>
-                        <option value="damage">Damage</option>
-                        <option value="deaths">Deaths</option>
-                    </select>
-                </div>
-            </div>
-        </form>
+        </div>
     </div>
 </div>

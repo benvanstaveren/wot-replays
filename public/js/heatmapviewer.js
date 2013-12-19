@@ -7,7 +7,8 @@
 HeatmapViewer = function(options) {
     this.container      =   options.container; 
     this.ident          =   options.ident;
-    this.api_url        =   'http://api.wotreplays.org/v1';
+    this.caching        =   (options.caching == null) ? true : options.caching;
+    this.api_url        =   (options.api_url == null) ? 'http://api.wotreplays.org/v1' : options.api_url;
     this.handlers       =   [];
     this.heatmapConfig  =   {
         "radius"    : 32,
@@ -24,7 +25,7 @@ HeatmapViewer = function(options) {
         modes: null,
     };
     this.gridConfig     =   {
-        container: $(this.container).attr('id'),
+        container: '#' + $(this.container).attr('id'), // because yeah... 
         ident    : this.ident,
         map      : {
             width: 768,
@@ -34,6 +35,7 @@ HeatmapViewer = function(options) {
 
     this._mapGrid = null;
     this._heatmap = null;
+    this._cache   = {};
 
     this._type    = 'location';
     this._mode    = 'ctf';
@@ -47,8 +49,11 @@ HeatmapViewer.prototype = {
     onError: function(handler) {
         this._handle('error', handler);
     },
-    onDataLoaded: function(handler) {
-        this._handle('dataloaded', handler);
+    onLoadStart: function(handler) {
+        this._handle('loadstart', handler);
+    },
+    onLoadEnd: function(handler) {
+        this._handle('loadend', handler);
     },
     _handle: function(evtn, handler) {
         if(!this.handlers[evtn]) this.handlers[evtn] = new Array();
@@ -56,8 +61,9 @@ HeatmapViewer.prototype = {
     },
     trigger: function(evtn, evtdata) {
         if(!this.handlers[evtn]) return;
+        var me = this;
         this.handlers[evtn].forEach(function(handler) {
-            handler.call(this, evtdata);
+            handler.call(me, evtdata);
         });
     },
     init: function() {
@@ -65,18 +71,18 @@ HeatmapViewer.prototype = {
         var me = this;
         $.getJSON(this.api_url + '/map/' + this.ident + '.json', { _: new Date().getTime() }, function(d) {
             if(d.ok == 1) {
-                me.gridConfig.bounds = [ d.data.attributes.geometry.bottom_left, d.data.attributes.geometry.upper_right ];
-                me.gridConfig.positions = null;
-
+                me.gridConfig.map.bounds = [ d.data.attributes.geometry.bottom_left, d.data.attributes.geometry.upper_right ];
+                me.gridConfig.map.positions = null;
                 var modes = [];
                 for(k in d.data.attributes.positions) {
                     modes.push(k);
                 }
                 me.config.modes = modes;
+                me.mapModeCount = modes.length;
                 me.config.map_id = d.data.numerical_id;
-                me._mapGrid = new MapGrid(this.gridConfig);
-                me.heatmapConfig.element = document.getElementById($(me.container).attr('id')); // yeah, strange
-                me.heatmap  = heatmapFactory.create(me.heatmapConfig);
+                me._mapGrid = new MapGrid(me.gridConfig);
+                me.getMapGrid().render(); 
+                me.rendered = true;
                 me.trigger('init');
             } else {
                 me.trigger('error', { code: d.error, text: d[d.error] });
@@ -88,6 +94,10 @@ HeatmapViewer.prototype = {
         return this._mapGrid;
     },
     getHeatmap: function() {
+        if(!this._heatmap) {
+            this.heatmapConfig.element = document.getElementById($(this.getMapGrid().getOverlay('viewer')).attr('id')); // yeah, strange
+            this._heatmap  = heatmapFactory.create(this.heatmapConfig);
+        }
         return this._heatmap;
     },
     bindTypeSelect: function(select) {
@@ -98,18 +108,25 @@ HeatmapViewer.prototype = {
             )
         });
         var me = this;
+        $(select).val(this._type);
         $(select).change(function() {
             me.setType($(this).val());
         });
     },
     bindModeSelect: function(select) {
+        var modeNames = {
+            'ctf': 'CTF',
+            'assault': 'Assault',
+            'domination': 'Encounter',
+        };
         $(select).empty();
         this.config.modes.forEach(function(mode) {
             $(select).append(
-                $('<option/>').attr('value', mode.id).html(mode.name)
+                $('<option/>').attr('value', mode).html(modeNames[mode])
             );
         });
         var me = this;
+        $(select).val(this._mode);
         $(select).change(function() {
             me.setMode($(this).val());
         });
@@ -140,37 +157,39 @@ HeatmapViewer.prototype = {
             'damage': 'dmg_',
         };
         var url = 'http://packets.wotreplays.org/heatmaps/' + prefixMap[this.getType()] + this.config.map_id + '_' + this.getMode() + '.json';
-        if(this.rendered) this.getMapGrid().showLoader() 
+        var cachekey = this.getType() + this.config.map_id + this.getMode();
+        this.trigger('loadstart');
 
         if(this.caching) {
-            if(this._cache[url]) {
-                this._setDataSet(this._cache[url]);
+            if(this._cache[cachekey]) {
+                this._setDataSet(this._cache[cachekey]);
                 return;
             }
         }
+
+        if(this.rendered) this.getMapGrid().showLoader() 
+
         var me  = this;
         $.getJSON(url, { _: new Date().getTime() }, function(d) {
             var max = 0;
             d.forEach(function(data) {
                 if(data.count > max) max = data.count;
-                var gc = me.getMapGrid.game_to_map_coord([ data.x, 0, data.y ]);
+                var gc = me.getMapGrid().game_to_map_coord([ data.x, 0, data.y ]);
                 data.x = gc.x;
                 data.y = gc.y
             });
             var dataset = { max: max, data: d };
-            if(me.caching) me._cache[url] = dataset;
+            if(me.caching) me._cache[cachekey] = dataset;
             me._setDataSet(dataset);
             if(me.rendered) me.getMapGrid().hideLoader() 
-            me.trigger('dataloaded');
         });
     },
     _setDataSet: function(dataset) {
         this._currentSet = dataset;
         this.getHeatmap().store.setDataSet(this._currentSet);
+        this.trigger('loadend');
     },
-    render: function() {
-        this.rendered = true;
-        this.getMapGrid().render();
+    load: function() {
         this.loadHeatmapData();
     },
 };

@@ -69,7 +69,7 @@ MapGrid.prototype = {
         this.handlers.subcellclick.push(handler);
     },
     render: function() {
-        var self = this;
+        var me = this;
         var mapGrid = $('<div/>').addClass('map-grid').css({ width: (this.width + 25) + 'px', position: 'relative' });
         var gridNumbers = $('<div/>').addClass('grid-numbers');
         var gridLetters = $('<div/>').addClass('grid-letters');
@@ -119,17 +119,17 @@ MapGrid.prototype = {
             var cx = evt.offsetX;
             var cy = evt.offsetY;
 
-            var cell = self.getCellAt({ x: cx, y: cy });
-            var subcell = self.getSubCellAt({ x: cx, y: cy });
+            var cell = me.getCellAt({ x: cx, y: cy });
+            var subcell = me.getSubCellAt({ x: cx, y: cy });
 
-            self.handlers.mapclick.forEach(function(handler) {
-                handler.bind(self)(cell, subcell);
+            me.handlers.mapclick.forEach(function(handler) {
+                handler.call(me, cell, subcell);
             });
-            self.handlers.cellclick.forEach(function(handler) {
-                handler.bind(self)(cell);
+            me.handlers.cellclick.forEach(function(handler) {
+                handler.call(me, cell);
             });
-            self.handlers.subcellclick.forEach(function(handler) {
-                handler.bind(self)(subcell);
+            me.handlers.subcellclick.forEach(function(handler) {
+                handler.call(me, subcell);
             });
 
         });
