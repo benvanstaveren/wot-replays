@@ -595,17 +595,13 @@ var BattleViewer = function(options) {
     this.container      = options.container;
     this.arena          = new Arena({ container: this.mapGrid.getOverlay('viewer'), coordinateConvert: this.mapGrid.game_to_map_coord.bind(this.mapGrid) });
     this.handlers       = {
+        loaded: [],
         error: [],
-        pstart: [],
-        pdone: [],
         progress: [],
         start: [],
         stop: [],
-        streamstats: [],
-        playstats: [],
-        playprogress: [],
     };
-    this.packets        = new Array();
+
     this.arena.setPlayerTeam(options.playerTeam);
     this.initializeItems();
 };
@@ -617,23 +613,14 @@ BattleViewer.prototype = {
     onStart: function(handler) {
         this._handle('start', handler);
     },
-    onPlayProgress: function(handler) {
-        this._handle('playprogress', handler);
-    },
-    onPlayStats: function(handler) {
-        this._handle('playstats', handler);
-    },
-    onStreamStats: function(handler) {
-        this._handle('streamstats', handler);
-    },
     onPacketsProgress: function(handler) {
         this._handle('progress', handler);
     },
-    onPacketsStart: function(handler) {
-        this._handle('pstart', handler);
+    onPacketsError: function(handler) {
+        this._handle('error', handler);
     },
-    onPacketsDone: function(handler) {
-        this._handle('pdone', handler);
+    onPacketsLoaded: function(handler) {
+        this._handle('loaded', handler);
     },
     onStop: function(handler) {
         this._handle('stop', handler);
@@ -740,46 +727,31 @@ BattleViewer.prototype = {
 	start: function() {
         var bv = this;
         this.mapGrid.render();
-        console.log('setting up websocket source with url: ', this.packet_url);
-        this.ws = new WebSocket(this.packet_url);
-
-        this.ws.onclose = function() {
-            console.log('websocket connection closed');
-        };
-        
-        this.ws.onmessage = function(event) {
-            var evt = JSON.parse(event.data);
-            if(evt.e == 'hi') {
-                console.log('Got hi!');
-            } else if(evt.e == 'start') {
-                bv.totalPackets = evt.data.count;
-                bv.currentPackets = 0;
-                bv.dispatch('pstart');
-                bv.dispatch('progress', 0);
-                bv.packetTime = new Date().getTime();
-                console.log('Got start, count: ', evt.data.count);
-            } else if(evt.e == 'done') {
-                bv.ws.close();
-                console.log('got done');
-                bv.dispatch('pdone');
-            } else if(evt.e == 'packet') {
-                bv.packets.push(evt.data);
-                bv.currentPackets = bv.packets.length;
-                var perc = Math.floor(100/(bv.totalPackets/bv.currentPackets));
-                bv.dispatch('progress', perc);
-
-                var now = new Date().getTime();
-                var then = bv.packetTime;
-                var sdiff = now - then;
-
-                if(sdiff > 0) {
-                    var ppms = (bv.currentPackets > 0) ? bv.currentPackets/sdiff : 0;
-                    var pps  = (ppms > 0) ? Math.floor(ppms * 1000) : 0;
-                    bv.dispatch('streamstats', [ ppms, pps ]);
-                }
+        $.ajax({
+            url: this.packet_url,
+            type: 'GET',
+            dataType: 'json',
+            crossDomain: true,
+            timeout: 60000,
+            success: function(d, t, x) {
+                bv.packets = d;
+                bv.dispatch('loaded'); 
+            },
+            error: function(j, t, e) {
+                bv.dispatch('error', { error: t + ", " + e });
+            },
+            xhr: function() {
+                var xhr = jQuery.ajaxSettings.xhr();
+                xhr.addEventListener('progress', function(evt) {
+                    var percent = 0;
+                    if (evt.lengthComputable) {
+                        percent = Math.ceil(100/(evt.total / evt.loaded));
+                    }
+                    bv.dispatch('progress', percent);
+                })
+                return xhr;
             }
-        };
-
+        });
         this.dispatch('start');
     },
     stop: function() {
@@ -791,7 +763,7 @@ BattleViewer.prototype = {
     dispatch: function(type, e) {
         if(!this.handlers[type]) this.handlers[type] = [];
         this.handlers[type].forEach(function(handler) {
-            handler.call(this, e);
+            handler.bind(this)(e);
         });
     },
     updateClock: function() {
@@ -807,49 +779,25 @@ BattleViewer.prototype = {
         this.mapGrid.getItem('clock').html(clockHtml);
     },
     replay: function() {
-        this.playStart = new Date().getTime();
-
-		var update = function(window_start, window_size, start_ix) {
+        var me = this;
+		var update = function(arena, packets, window_start, window_size, start_ix) {
 			var window_end = window_start + window_size, ix;
-			for (ix = start_ix; ix < this.packets.length; ix++) {
-				var packet = this.packets[ix];
+			for (ix = start_ix; ix < packets.length; ix++) {
+				var packet = packets[ix];
 				if (typeof(packet.clock) == 'undefined' && (typeof(packet.period) == 'undefined')) continue; // chat has clock, period doesnt(?)
 				if (packet.clock > window_end) break;
-                this.getArena().update(packet);
+                arena.update(packet);
 			}
-            var perc = (ix > 0 && this.packets.length > 0) ? Math.floor(100/(this.packets.length/ix)) : 0;
-            this.dispatch('playprogress', perc);
-
-            var timediff = new Date().getTime() - this.playStart;
-
-            if(timediff > 0) {
-                var ppms = (ix > 0) ? ix/timediff : 0;
-                var pps = (ppms > 0) ? Math.floor(ppms * 1000) : 0;
-                this.dispatch('playstats', [ ppms, pps ]);
-            }
 
             this.updateClock(); // should really, really be part of something else
 
-            if(this.stopping) ix = this.packets.length;
-			if (ix < this.packets.length) {
-                setTimeout(update.bind(this, window_end, window_size, ix), this.updateSpeed);	
+            if(this.stopping) ix = packets.length;
+			if (ix < packets.length) {
+                setTimeout(update.bind(this, this.getArena(), packets, window_end, window_size, ix), this.updateSpeed);	
             } else {
-                if(this.stopping) {
-                    if(this.eventSource) {
-                        this.eventSource.close();
-                        this.dispatch('pdone'); // not really but..
-                    }
-                    this.dispatch('stop');
-                } else if(this.packets.length < this.totalPackets) {
-                    // we're not there yet, so we either ran out of buffer space or we went all kaka on something
-                    // so let's try this again, hopefully we'll get some progress eventually 
-                    setTimeout(update.bind(this, window_end, window_size, ix), this.updateSpeed);	
-                } else {
-                    // it's a legit stop
-                    this.dispatch('stop');
-                }
+                this.dispatch('stop');
             }
 		}
-		update.call(this, 0, 0.1, 0);
+		update.call(this, this.arena, this.packets, 0, 0.1, 0);
 	},
 };
