@@ -12,21 +12,20 @@
     </div>
     <script type="text/javascript">
         [% INCLUDE bricks/mapgrid.js.tt varname = 'gameMap', ident = map_ident, container = '#map-container', gamemode = mode %]
-        $(document).ready(function() {
-            gameMap.render();
-            var heatmapConfig = {
-                "radius"    : 32,
-                "element"   : document.getElementById('overlay-viewer'),
-                "visible"   : true,
-                "opacity"   : 50,
-                "gradient"  : { 0.1: "rgb(0,0,255)", 0.3: "rgb(0,128,128)", 0.6: "rgb(0,255,255)", 0.8: "rgb(0,255,0)", 0.9: "rgb(255,255,0)", 0.91: "#ffbf00", 0.92: "#ff7f00", 0.93: "#ff3f00", 0.94: "#ff0000", 0.95: "#ff2a2a", 0.96: "#ff5555", 0.97: "#ff7f7f", 0.98: "#ffaaaa", 0.99: "#ffd4d4", 1.00: "#ffffff" }
+
+        function WR_loadHeatmap(mode, hmtype, cb) {
+            var fragMap = { 
+                'deaths': 'd_',
+                'damage': 'dmg_',
+                'location': '',
             };
-            var heatmap = heatmapFactory.create(heatmapConfig);
-            var dataset = null;
-
-            var typeFragment = '[% IF type == 'deaths' %]d_[% ELSIF type == 'damage' %]dmg_[% ELSE %][% END %]';
-
-            var url = 'http://packets.wotreplays.org/heatmaps/' + typeFragment + '[% map_id %]_[% mode_id %].json';
+            var modeMap = {
+                'ctf': 0,
+                'domination': 1,
+                'assault': 2,
+            };
+            var typeFragment = fragMap[hmtype];
+            var url = 'http://packets.wotreplays.org/heatmaps/' + typeFragment + '[% map_id %]_' + modeMap[mode] + '.json';
             $.getJSON(url, { s: new Date().getTime() }, function(d) {
                 var max = 0;
                 d.forEach(function(data) {
@@ -35,9 +34,34 @@
                     data.x = gc.x;
                     data.y = gc.y
                 });
-                dataset = { max: max, data: d };
-                heatmap.store.setDataSet(dataset); 
+                window.WR_heatmap.store.setDataSet({ max: max, data: d });
+                cb();
             });
+        }
+
+        function WR_settingChange() {
+            var mode = $('select[name="mode"]').val();
+            var type = $('select[name="type"]').val();
+
+            gameMap.showLoader();
+            WR_loadHeatmap(mode, type, function() {
+                gameMap.hideLoader();
+            });
+        }
+
+        $(document).ready(function() {
+            gameMap.render();
+            var WR_heatmapConfig = {
+                "radius"    : 32,
+                "element"   : document.getElementById('overlay-viewer'),
+                "visible"   : true,
+                "opacity"   : 50,
+                "gradient"  : { 0.1: "rgb(0,0,255)", 0.3: "rgb(0,128,128)", 0.6: "rgb(0,255,255)", 0.8: "rgb(0,255,0)", 0.9: "rgb(255,255,0)", 0.91: "#ffbf00", 0.92: "#ff7f00", 0.93: "#ff3f00", 0.94: "#ff0000", 0.95: "#ff2a2a", 0.96: "#ff5555", 0.97: "#ff7f7f", 0.98: "#ffaaaa", 0.99: "#ffd4d4", 1.00: "#ffffff" }
+            };
+            window.WR_heatmap = heatmapFactory.create(WR_heatmapConfig);
+            $('select[name="mode"]').change(WR_settingChange);
+            $('select[name="type"]').change(WR_settingChange);
+            WR_settingChange();
         });
     </script>
 [% END %]

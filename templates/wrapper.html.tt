@@ -74,7 +74,11 @@
                             <li><a href="/vehicles/ussr">USSR</a></li>
                         </ul>
                     </li>
-                    <li class="[% IF pageid == 'heatmap' %]active[% END %]"><a href="/heatmaps/">[% h.loc('nav.heatmaps') %]</a></li>
+                    <li class="dropdown [% IF pageid == 'heatmap' %]active[% END %]"><a class="dropdown-toggle" data-toggle="dropdown" href="/heatmaps/">[% h.loc('nav.heatmaps') %] <b class="caret"></b></a>
+                        <ul class="dropdown-menu" style="column-count: 3; -moz-column-count: 3; -webkit-column-count: 3; width: 500px">
+                            [% INCLUDE generated/heatmap_list.html.tt %]
+                        </ul>
+                    </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="[% IF pageid == 'blog' %]active[% END %]"><a href="http://blog.wotreplays.org/">[% h.loc('nav.blog') %]</a></li>

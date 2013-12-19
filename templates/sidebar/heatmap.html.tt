@@ -4,23 +4,11 @@
         <form id="frm-heatmap-filter" method="post">
             <div class="row">
                 <div class="col-lg-12 col-md-12">
-                    <h5>Map</h5>
-                    <select name="map_ident" class="form-control">
-                        <option class="ctf assault domination" value="">-- Select Map</option>
-                        [% FOREACH entry IN map_list %]
-                            <option class="mapoption [% entry.modes.join(' ') %] nid_[% entry.id %]" [% IF entry.ident == map_ident %]selected[% END %] value="[% entry.slug %]">[% h.loc(entry.i18n) |html %]</option>
-                        [% END %]
-                    </select>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12 col-md-12">
                     <h5>Match Type</h5>
                     <select name="mode" class="form-control">
-                        <option value="">-- Select Game Type</option>
-                        <option [% IF mode == 'ctf' %]selected[% END %] value="ctf">[% h.loc('#gametype:ctf') %]</option>
-                        <option [% IF mode == 'domination' %]selected[% END %] value="domination">[% h.loc('#gametype:domination') %]</option>
-                        <option [% IF mode == 'assault' %]selected[% END %] value="assault">[% h.loc('#gametype:assault') %]</option>
+                        [% FOREACH mode IN modes.sort %]
+                            <option value="[% mode %]">[% h.loc('#gametype:' _ mode) %]</option>
+                        [% END %]
                     </select>
                 </div>
             </div>
@@ -28,68 +16,12 @@
                 <div class="col-lg-12 col-md-12">
                     <h5>Heatmap Type</h5>
                     <select name="type" class="form-control">
-                        <option value="">-- Select Heatmap Type</option>
-                        <option [% IF type == 'location' %]selected[% END %] value="location">Locations</option>
-                        <option [% IF type == 'damage' %]selected[% END %] value="damage">Damage</option>
-                        <option [% IF type == 'deaths' %]selected[% END %] value="deaths">Deaths</option>
+                        <option value="location">Locations</option>
+                        <option value="damage">Damage</option>
+                        <option value="deaths">Deaths</option>
                     </select>
-                </div>
-            </div>
-            <div class="row" style="margin-top: 10px">
-                <div class="col-lg-12 col-md-12">
-                    <div class="btn-group btn-group-justified">
-                        <a id="btn-heatmap-filter" class="btn btn-primary">View</a>
-                    </div>
                 </div>
             </div>
         </form>
     </div>
 </div>
-<script type="text/javascript">
-    function setURL() {
-        var i = $('select[name="map_ident"]').val();
-        var t = $('select[name="type"]').val();
-        var m = $('select[name="mode"]').val();
-
-
-        var u = '/heatmaps/' + i + '/type/' + t + '/mode/' + m;
-
-        if(i.length > 0 && t.length > 0 && m.length > 0) {
-            $('a#btn-heatmap-filter').removeClass('disabled');
-            $('a#btn-heatmap-filter').attr('href', u);
-        } else {
-            $('a#btn-heatmap-filter').addClass('disabled');
-        }
-    }
-
-    $(document).ready(function() {
-        $('select[name="mode"]').change(function() {
-            var v = $(this).val();
-            $('option.mapoption').show();
-            if(v !='' && v.length > 0) {
-                $('option.mapoption').each(function(i, e) {
-                    if(!$(e).hasClass(v)) {
-                        if($(e).is(':selected')) $('select[name="map_ident"]').val('');
-                        $(e).hide();
-                    }
-                });
-            }
-            setURL();
-        });
-        $('select[name="map_ident"]').change(setURL);
-        $('select[name="type"]').change(setURL);
-
-        $('a#btn-heatmap-filter').on('click', function() {
-            if($(this).hasClass('disabled')) return false;
-            return true;
-        });
-
-        [% IF mode.defined %]
-            $('option.mapoption').each(function(i, e) {
-                if(!$(e).hasClass('[% mode %]')) $(e).hide();
-            });
-        [% END %]
-
-        setURL();
-    });
-</script>

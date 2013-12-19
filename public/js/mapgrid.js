@@ -31,7 +31,8 @@ var MapGrid = function(options) {
         'item'      : $('<div/>').attr('id', 'overlay-item').addClass('item-overlay').css({ width: this.width + 'px', height: this.height + 'px', position: 'absolute', top: '0px', left: '0px' }),
         'viewer'    : $('<div/>').attr('id', 'overlay-viewer').addClass('viewer-overlay').css({ width: this.width + 'px', height: this.height + 'px', position: 'absolute', top: '0px', left: '0px' }),
         'cell'      : $('<div/>').attr('id', 'overlay-cell').addClass('cell-overlay').css({ width: this.width + 'px', height: this.height + 'px', position: 'absolute', top: '0px', left: '0px' }),
-        'subcell'   : $('<div/>').attr('id', 'overlay-subcell').addClass('subcell-overlay').css({ width: this.width + 'px', height: this.height + 'px', position: 'absolute', top: '0px', left: '0px' })
+        'subcell'   : $('<div/>').attr('id', 'overlay-subcell').addClass('subcell-overlay').css({ width: this.width + 'px', height: this.height + 'px', position: 'absolute', top: '0px', left: '0px' }),
+        'loader'    : $('<div/>').attr('id', 'overlay-loader').addClass('loader-overlay hide').css({ width: this.width + 'px', height: this.height + 'px', position: 'absolute', top: '0px', left: '0px' })
     };
 }
 MapGrid.prototype = {
@@ -44,6 +45,12 @@ MapGrid.prototype = {
     },
     getOverlay: function(name) {
         return this.overlays[name];
+    },
+    showLoader: function() {
+        this.getOverlay('loader').removeClass('hide');
+    },
+    hideLoader: function() {
+        this.getOverlay('loader').addClass('hide');
     },
     addItem: function(name, element) {
         this.items[name] = element;

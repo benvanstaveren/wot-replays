@@ -85,65 +85,6 @@ sub process_status {
     });
 }
 
-sub replay_packets {
-    my $self = shift;
-    my $oid  = Mango::BSON::bson_oid($self->stash('replay_id'));
-
-    $self->render_later;
-    Mojo::IOLoop->stream($self->tx->connection)->timeout(300);
-    my $cursor = $self->model('wot-replays.packets')->find({ '_meta.replay' => $oid })->sort({ '_meta.seq' => 1 });
-    $cursor->all(sub {
-        my ($coll, $err, $docs) = (@_);
-        if($err) {
-            $self->render(json => { ok => 0, error => $err }, status => 500); 
-        } else {
-            $self->render(json => { ok => 1, packets => $docs });
-        }
-    });
-}
-
-sub replay_packets_ws {
-    my $self = shift;
-    my $oid  = Mango::BSON::bson_oid($self->stash('replay_id'));
-
-    use Data::Dumper;
-    $self->app->log->debug('headers: ' . Dumper($self->req->headers->to_hash));
-
-    Mojo::IOLoop->stream($self->tx->connection)->timeout(300);
-
-    my $q = { '_meta.replay' => $oid };
-    my $j = JSON::XS->new;
-    my $cursor = $self->model('wot-replays.packets')->find($q);
-
-    $self->send($j->encode({ e => 'hi' }));
-
-    $cursor->count(sub {
-        my ($c, $e, $cnt) = (@_);
-        $self->send($j->encode({ e => 'start', data => { count => $cnt }}));
-        $c->sort({ '_meta.seq' => 1 });
-
-        my $timer;
-        my $sendsub;
-        $sendsub = sub {
-            $c->next(sub {
-                my ($cr, $e, $d) = (@_);
-
-                if(defined($d)) {
-                    delete($d->{_meta});
-                    delete($d->{_id});
-                    $self->send($j->encode({ e => 'packet', data => $d }));
-                    $timer = Mojo::IOLoop->timer(0 => $sendsub );
-                } else {
-                    $self->app->log->debug('no docs yo');
-                    $self->send($j->encode({ e => 'done' }));
-                    $self->finish;
-                }
-            });
-        };
-        $timer = Mojo::IOLoop->timer(0 => $sendsub);
-    });
-}
-
 sub process_replay {
     my $self = shift;
     my $adoc = shift;

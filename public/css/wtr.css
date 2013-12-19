@@ -1041,6 +1041,10 @@ div.subcell-overlay {
 div.viewer-overlay {
   z-index: 50; }
 
+div.loader-overlay {
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.75) url(/img/waiting.gif) no-repeat scroll center center; }
+
 div.grid-numbers {
   height: 25px;
   margin-left: 25px;
