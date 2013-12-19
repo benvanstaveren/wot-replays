@@ -26,17 +26,35 @@
             };
             var typeFragment = fragMap[hmtype];
             var url = 'http://packets.wotreplays.org/heatmaps/' + typeFragment + '[% map_id %]_' + modeMap[mode] + '.json';
-            $.getJSON(url, { s: new Date().getTime() }, function(d) {
-                var max = 0;
-                d.forEach(function(data) {
-                    if(data.count > max) max = data.count;
-                    var gc = gameMap.game_to_map_coord([ data.x, 0, data.y ]);
-                    data.x = gc.x;
-                    data.y = gc.y
-                });
-                window.WR_heatmap.store.setDataSet({ max: max, data: d });
-                cb();
+            $.ajax({
+                url: url,
+                data: { _: new Date().getTime() },
+                type: 'POST',
+                dataType: 'json',
+                success: function(d, t, x) {
+                    var max = 0;
+                    d.forEach(function(data) {
+                        if(data.count > max) max = data.count;
+                        var gc = gameMap.game_to_map_coord([ data.x, 0, data.y ]);
+                        data.x = gc.x;
+                        data.y = gc.y
+                    });
+                    window.WR_heatmap.store.setDataSet({ max: max, data: d });
+                },
+                error: function() {
+                    $.bootstrapGrowl({
+                        text: 'There is no heatmap data available for this selection',
+                        delay: 40000,
+                        allow_dismiss: true
+                        });
+                },
+                complete: cb,
             });
+        }
+
+        function WR_setRadius(newRadius) {
+            WR_heatmap.set('radius', newRadius);
+            WR_heatmap.store.setDataSet(WR_heatmap.store.exportDataSet());
         }
 
         function WR_settingChange() {
