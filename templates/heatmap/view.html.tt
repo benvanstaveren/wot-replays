@@ -45,14 +45,15 @@
                     data.x = gc.x;
                     data.y = gc.y
                 });
-                window.WR_heatmap.store.setDataSet({ max: max, data: d });
+                WR_heatmap_dataset = { max: max, data: d };
+                window.WR_heatmap.store.setDataSet(WR_heatmap_dataset);
                 cb();
             });
         }
 
         function WR_setRadius(newRadius) {
             WR_heatmap.set('radius', newRadius);
-            WR_heatmap.store.setDataSet(WR_heatmap.store.exportDataSet());
+            WR_heatmap.store.setDataSet(WR_heatmap_dataset);
         }
 
         function WR_settingChange() {
