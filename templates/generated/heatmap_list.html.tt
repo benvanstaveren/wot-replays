@@ -33,7 +33,6 @@
 <li><a href="/heatmaps/southcoast">[% h.loc('#arenas:39_crimea/name') %]</a></li>
 <li><a href="/heatmaps/steppes">[% h.loc('#arenas:35_steppes/name') %]</a></li>
 <li><a href="/heatmaps/swamp">[% h.loc('#arenas:22_slough/name') %]</a></li>
-<li><a href="/heatmaps/trainingarea">[% h.loc('#arenas:00_tank_tutorial/name') %]</a></li>
 <li><a href="/heatmaps/tundra">[% h.loc('#arenas:63_tundra/name') %]</a></li>
 <li><a href="/heatmaps/westfield">[% h.loc('#arenas:23_westfeld/name') %]</a></li>
 <li><a href="/heatmaps/widepark">[% h.loc('#arenas:17_munchen/name') %]</a></li>
