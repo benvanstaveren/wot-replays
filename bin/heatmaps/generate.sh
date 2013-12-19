@@ -1,8 +1,6 @@
 #!/bin/bash
 mongo wtr-heatmaps js/start.js
-for a in `find ../../data/packets/ -name "*.json"`; do
-    script/import.pl $a;
-done
+script/import.pl ../../data/packets/5
 
 mongo wtr-heatmaps js/maplist.js
 mongo wtr-heatmaps js/gameplaylist.js
