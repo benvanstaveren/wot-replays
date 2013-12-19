@@ -14,7 +14,7 @@
         [% INCLUDE bricks/mapgrid.js.tt varname = 'gameMap', ident = map_ident, container = '#map-container', gamemode = mode %]
 
         $(document).ready(function() {
-            $.ajaxError(function(e, j, a, t) {
+            $(document).ajaxError(function(e, j, a, t) {
                 $.bootstrapGrowl({
                     text: 'There is no heatmap data available for this selection',
                     delay: 40000,
