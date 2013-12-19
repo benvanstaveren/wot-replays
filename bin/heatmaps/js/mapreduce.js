@@ -3,7 +3,6 @@ var mapf = function() {
 };
 var redf = function(k, v) {
     var sum = 0;
-
     v.forEach(function(e) {
         sum += e;
     });
@@ -68,8 +67,6 @@ db.map_list.find().forEach(function(map) {
         };
         db[coll].save(rec);
     });
-
-
 });
 
 db.locations_tmp.drop();
