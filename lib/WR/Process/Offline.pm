@@ -384,31 +384,24 @@ sub _real_process {
                         vehicles    => [ map { $_->{vehicle}->{ident} } @{$replay->{roster}} ],
                     };
 
-                    # we want to store the packets in the database because we'll be streaming them out to the 
-                    # battle viewer as an event stream, so we can also do a funky progress bar for the loading
-                    # and other such happy things
-
                     $self->debug('storing packets for replay');
-                    my $total = scalar(@{$self->packets});
-                    my $seq = 0;
+                    $self->emit('state.packet.save.start');
 
-                    $self->emit('state.packet.save.start' => $total);
-                    while(@{$self->packets}) {
-                        $self->model('wot-replays.packets')->insert([ 
-                            map {
-                                $_->{_meta} = {
-                                    replay  => $replay->{_id},
-                                    fields  => [ keys(%$_) ],
-                                    seq     => $seq++,
-                                };
-                                $_;
-                            }
-                            splice(@{$self->packets}, 0, 1000)
-                        ]);
-                        $self->emit('state.packet.save.progress' => { count => $seq, total => $total });
+                    my $base_path = sprintf('%s/%s', $self->packet_path, $self->hashbucket($replay->{_id} . '', 7));
+                    make_path($base_path) unless(-e $base_path);
+                    my $packet_file = sprintf('%s/%s.json', $base_path, $replay->{_id} . '');
+                    if(my $fh = IO::File->new(sprintf('>%s', $packet_file))) {
+                        my $json = JSON::XS->new();
+                        $fh->print($json->encode($self->packets));
+                        $fh->close;
+                        $self->debug('wrote packets to file');
+                        $replay->{packets} = sprintf('%s/%s.json', $self->hashbucket($replay->{_id} . '', 7), $replay->{_id} . '');
+                        $self->emit('state.packet.save.finish');
+                    } else {
+                        $self->debug('could not write packets to file');
+                        $replay->{packets} = undef;
+                        $self->emit('state.packet.save.finish');
                     }
-                    $self->emit('state.packet.save.finish' => $total);
-                    $replay->{has_packets} = Mango::BSON::bson_true;
 
                     $self->emit('state.wn7.start' => scalar(keys(%{$replay->{players}})));
 
