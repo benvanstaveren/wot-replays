@@ -18,8 +18,8 @@
             });
 
             $(document).ajaxError(function(e, j, a, t) {
-                heatmapViewer.trigger('error', { text: 'There is no heatmap data available for this selection' });
-                if(heatmapViewer.rendered) heatmapViewer.getMapGrid().hideLoader();
+                alert('There is no heatmap data available for this selection');
+                document.location.reload();
             });
 
             heatmapViewer.onError(function(e) {
