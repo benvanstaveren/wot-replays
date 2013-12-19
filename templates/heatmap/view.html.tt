@@ -24,11 +24,6 @@
             var heatmap = heatmapFactory.create(heatmapConfig);
             var dataset = null;
 
-            var fragmentTypes = {
-                'deaths': 'd_',
-                'damage: 'dmg_'
-            };
-
             var typeFragment = '[% IF type == 'deaths' %]d_[% ELSIF type == 'damage' %]dmg_[% ELSE %][% END %]';
 
             var url = 'http://packets.wotreplays.org/heatmaps/' + typeFragment + '[% map_id %]_[% mode_id %].json';
