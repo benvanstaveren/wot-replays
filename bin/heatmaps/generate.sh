@@ -11,3 +11,4 @@ script/export.pl > export.sh
 rm -rf ../../data/packets/heatmaps/*.json
 . ./export.sh
 rm export.sh
+mongo wtr-heatmaps js/end.js

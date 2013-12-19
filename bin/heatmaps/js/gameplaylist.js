@@ -3,11 +3,9 @@ var mapf = function() {
 };
 var redf = function(k, v) {
     var sum = 0;
-
     v.forEach(function(e) {
         sum += e;
     });
-
     return sum;
 };
 

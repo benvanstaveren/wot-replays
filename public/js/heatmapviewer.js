@@ -1,4 +1,5 @@
 /* 
+    v 20131219 2048
     wotreplays.org heatmap viewer
     requires heatmap.js from github.com/pa7/heatmap.js
     requires wotreplays mapgrid
@@ -20,7 +21,8 @@ HeatmapViewer = function(options) {
         types: [
             { id: 'location', name: 'Locations' },
             { id: 'deaths', name: 'Deaths' },
-            { id: 'damage', name: 'Damage Taken' },
+            { id: 'damage', name: 'Damage Received' },
+            { id: 'damage_d', name: 'Damage Done' },
         ],
         modes: null,
     };
@@ -155,6 +157,7 @@ HeatmapViewer.prototype = {
             'location': '',
             'deaths': 'd_',
             'damage': 'dmg_',
+            'damage_d': 'dd_'
         };
         var url = 'http://packets.wotreplays.org/heatmaps/' + prefixMap[this.getType()] + this.config.map_id + '_' + this.getMode() + '.json';
         var cachekey = this.getType() + this.config.map_id + this.getMode();
