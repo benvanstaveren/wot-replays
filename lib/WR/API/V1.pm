@@ -53,7 +53,7 @@ sub resolve_typecomp {
 
 sub map_details {
     my $self      = shift;
-    my $map_ident = shift;
+    my $map_ident = $self->stash('map_ident');;
 
     $self->render_later;
 
