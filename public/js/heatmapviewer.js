@@ -149,27 +149,20 @@ HeatmapViewer.prototype = {
         return this._type;
     },
     getMode: function() {
-        var mmap = { 'ctf': 0, 'assault': 2, 'domination': 1, 'encounter': 1 };
-        return mmap[this._mode];
+        return this._mode;
     },
     setRadius: function(newRadius) {
         this.getHeatmap().set('radius', newRadius);
         this.getHeatmap().store.setDataSet(this._currentSet);
     },
     loadHeatmapData: function() {
-        var prefixMap = {
-            'location': '',
-            'deaths': 'd_',
-            'damage': 'dmg_',
-            'damage_d': 'dd_'
-        };
-        var url = 'http://packets.wotreplays.org/heatmaps/' + prefixMap[this.getType()] + this.config.map_id + '_' + this.getMode() + '.json';
-        var cachekey = this.getType() + this.config.map_id + this.getMode();
+        var url = this.api_url + '/map/' + this.ident + '/heatmap/' + this.getType() + '/' + this.getMode() + '/';
+
         this.trigger('loadstart');
 
         if(this.caching) {
-            if(this._cache[cachekey]) {
-                this._setDataSet(this._cache[cachekey]);
+            if(this._cache[url]) {
+                this._setDataSet(this._cache[url]);
                 return;
             }
         }
@@ -178,22 +171,23 @@ HeatmapViewer.prototype = {
 
         var me  = this;
         $.getJSON(url, { _: new Date().getTime() }, function(d) {
-            // here's the kicker, if we use onDataProcess, it should take care of using _setDataSet instead
-            // of us.
-            if(me.handlers['process'] && me.handlers['process'].length > 0) {
-                // we're doing onProcess bits, so so so 
-                me.trigger('process', d);
+            if(d.ok == 0) {
+                me.trigger('onError', { code: d.error, text: d[d.error] });
             } else {
-                var max = 0;
-                var hmd = [];
-                d.forEach(function(data) {
-                    if(data.count > max) max = data.count;
-                    var gc = me.getMapGrid().game_to_map_coord([ data.x, 0, data.y ]);
-                    hmd.push({ x: gc.x, y: gc.y, count: data.count });
-                });
-                var dataset = { max: max, data: hmd };
-                me._setDataSet(dataset, cachekey);
-                if(me.rendered) me.getMapGrid().hideLoader();
+                if(d.data.count == 0) {
+                    me.trigger('onNoData');
+                } else {
+                    var max = 0;
+                    var hmd = [];
+                    d.data.set.forEach(function(data) {
+                        if(data.value > max) max = data.value;
+                        var gc = me.getMapGrid().getSubCellCenterCoordinatesBySubCellID(data.cell);
+                        hmd.push({ x: gc.x, y: gc.y, count: data.count });
+                    });
+                    var dataset = { max: max, data: hmd };
+                    me._setDataSet(dataset, url);
+                    if(me.rendered) me.getMapGrid().hideLoader();
+                }
             }
         });
     },

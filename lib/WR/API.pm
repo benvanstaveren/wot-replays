@@ -51,7 +51,7 @@ sub startup {
             
             my $map = $v1->under('/map/:map_ident');
                 $map->route('/')->to('v1#validate_token', next => 'map_details');
-                my $heatmap = $map->under('/heatmap/:game_type');
+                my $heatmap = $map->under('/heatmap/:heatmap_type/:game_type');
                     $heatmap->route('/')->to('v1#validate_token', next => 'map_heatmap_data', bonus_types => '0,1,2,3,4,5,6,7');
                     $heatmap->route('/:bonus_types')->to('v1#validate_token', next => 'map_heatmap_data');
 

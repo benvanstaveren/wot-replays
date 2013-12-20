@@ -5,6 +5,7 @@ use JSON::XS;
 use Mango::BSON;
 use Scalar::Util qw/blessed/;
 use Try::Tiny qw/try catch/;
+use WR::Provider::Mapgrid;
 
 sub validate_token {
     my $self    = shift;
@@ -74,6 +75,40 @@ sub map_details {
         if(defined($d)) {
             delete($d->{_id});
             $self->render(json => { ok => 1, data => $d });
+        } else {
+            $self->render(json => { ok => 0, error => 'not.found', 'not.found' => 'That map does not exist' });
+        }
+    });
+}
+
+sub map_heatmap_data {
+    my $self      = shift;
+    my $map_ident = $self->stash('map_ident');
+    my $gpid      = { 'ctf' => 0, 'domination' => 1, 'assault' => 2 }->{$self->stash('game_type')};
+    my $hmtype    = $self->stash('heatmap_type');
+    my $bt        = [ split(/,/, $self->stash('bonus_types')) ];
+
+    $self->render_later;
+    $self->model('wot-replays.data.maps')->find_one({ _id => $map_ident } => sub {
+        my ($c, $e, $d) = (@_);
+        if(defined($d)) {
+            $self->model(sprintf('wot-replays.hm_%s', $hmtype))->find_one({ _id => $d->{numerical_id}} => sub {
+                my ($c, $e, $hmd) = (@_);
+                if(defined($hmd)) {
+                    my $data = $hmd->{$gpid}; # gameplay id 
+                    my $real_data = {};
+                    my $pc = 0;
+                    foreach my $t (@$bt) {
+                        foreach my $cell (keys(%{$data->{$t}})) {
+                            $real_data->{$cell} += $data->{$t}->{$cell}; 
+                            $pc++;
+                        }
+                    }
+                    $self->render(json => { ok => 1, data => { set => [ map { { cell => $_, value => $real_data->{$_} } } (keys(%$real_data)) ], count => $pc } });
+                } else {
+                    $self->render(json => { ok => 0, error => 'db.error', 'db.error' => $err });
+                }
+            });
         } else {
             $self->render(json => { ok => 0, error => 'not.found', 'not.found' => 'That map does not exist' });
         }
