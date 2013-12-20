@@ -7,6 +7,7 @@
 
 HeatmapViewer = function(options) {
     this.container      =   options.container; 
+    this.apitoken       =   options.apitoken;
     this.ident          =   options.ident;
     this.caching        =   (options.caching == null) ? true : options.caching;
     this.api_url        =   (options.api_url == null) ? 'http://api.wotreplays.org/v1' : options.api_url;
@@ -48,6 +49,9 @@ HeatmapViewer.prototype = {
     onInit: function(handler) {
         this._handle('init', handler);
     },
+    onDataProcess: function(handler) {
+        this._handle('process', handler);
+    },
     onError: function(handler) {
         this._handle('error', handler);
     },
@@ -71,7 +75,7 @@ HeatmapViewer.prototype = {
     init: function() {
         // make an API call to find the map boundaries and valid game modes for the given map ident
         var me = this;
-        $.getJSON(this.api_url + '/map/' + this.ident + '.json', { _: new Date().getTime() }, function(d) {
+        $.getJSON(this.api_url + '/map/' + this.ident + '.json', { 't': this.apitoken, '_': new Date().getTime() }, function(d) {
             if(d.ok == 1) {
                 me.gridConfig.map.bounds = [ d.data.attributes.geometry.bottom_left, d.data.attributes.geometry.upper_right ];
                 me.gridConfig.map.positions = null;
@@ -174,20 +178,27 @@ HeatmapViewer.prototype = {
 
         var me  = this;
         $.getJSON(url, { _: new Date().getTime() }, function(d) {
-            var max = 0;
-            d.forEach(function(data) {
-                if(data.count > max) max = data.count;
-                var gc = me.getMapGrid().game_to_map_coord([ data.x, 0, data.y ]);
-                data.x = gc.x;
-                data.y = gc.y
-            });
-            var dataset = { max: max, data: d };
-            if(me.caching) me._cache[cachekey] = dataset;
-            me._setDataSet(dataset);
-            if(me.rendered) me.getMapGrid().hideLoader() 
+            // here's the kicker, if we use onDataProcess, it should take care of using _setDataSet instead
+            // of us.
+            if(me.handlers['process'] && me.handlers['process'].length > 0) {
+                // we're doing onProcess bits, so so so 
+                me.trigger('process', d);
+            } else {
+                var max = 0;
+                var hmd = [];
+                d.forEach(function(data) {
+                    if(data.count > max) max = data.count;
+                    var gc = me.getMapGrid().game_to_map_coord([ data.x, 0, data.y ]);
+                    hmd.push({ x: gc.x, y: gc.y, count: data.count });
+                });
+                var dataset = { max: max, data: hmd };
+                me._setDataSet(dataset, cachekey);
+                if(me.rendered) me.getMapGrid().hideLoader();
+            }
         });
     },
-    _setDataSet: function(dataset) {
+    _setDataSet: function(dataset, cachekey) {
+        if(this.caching && cachekey) this._cache[cachekey] = dataset;
         this._currentSet = dataset;
         this.getHeatmap().store.setDataSet(this._currentSet);
         this.trigger('loadend');

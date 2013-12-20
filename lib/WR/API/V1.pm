@@ -16,8 +16,17 @@ sub validate_token {
         my ($coll, $err, $doc) = (@_);
 
         if(defined($doc)) {
-            # we don't do request counts yet, copy that out of statterbox' API end
-            $self->$next($doc);
+            my $oh = $self->req->headers->header('Origin');
+            my $ho = 0;
+            
+            foreach my $o (@{$doc->{origin}}) {
+                $ho = 1 and last if($o eq $oh);
+            }
+            if($ho) {
+                $self->$next($doc);
+            } else {
+                $self->render(json => { ok => 0, error => 'token.unbound' });
+            }
         }  else {
             $self->render(json => { ok => 0, error => 'token.invalid' });
         }

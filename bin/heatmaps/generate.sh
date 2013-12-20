@@ -1,14 +1,10 @@
 #!/bin/bash
-mongo wtr-heatmaps js/start.js
+mongo wot-replays js/start.js
 script/import.pl ../../data/packets/5
 
-mongo wtr-heatmaps js/maplist.js
-mongo wtr-heatmaps js/gameplaylist.js
-mongo wtr-heatmaps js/bonustypelist.js
-mongo wtr-heatmaps js/mapreduce.js
+mongo wot-replays js/maplist.js
+mongo wot-replays js/gameplaylist.js
+mongo wot-replays js/bonustypelist.js
+mongo wot-replays js/mapreduce.js
 
-script/export.pl > export.sh
-rm -rf ../../data/packets/heatmaps/*.json
-. ./export.sh
-rm export.sh
-mongo wtr-heatmaps js/end.js
+mongo wot-replays js/end.js

@@ -60,9 +60,13 @@ sub startup {
                 }
             my $process = $v1->under('/process');
                 $process->route('/')->to('v1#validate_token', next => 'process_replay');
-                $process->route('/status/:job_id')->to('v1#process_status'); # yep no token required here...
+                $process->route('/status/:job_id')->to('v1#validate_token', next => 'process_status');
             $v1->route('/typecomp')->to('v1#validate_token', next => 'resolve_typecomp');
-            $v1->route('/map/:map_ident')->to('v1#map_details');
+            
+            my $map = $v1->under('/map/:map_ident');
+                $map->route('/')->to('v1#validate_token', next => 'map_details');
+                $map->route('/heatmap')->to('v1#validate_token', next => 'map_heatmap_data');
+
 }
 
 1;

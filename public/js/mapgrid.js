@@ -101,11 +101,14 @@ MapGrid.prototype = {
         var subcellcount = 0;
         for(x = 0; x < 100; x++) {
             for(y = 0; y < 100; y++) {
+                // don't be fooled by center-x center-y, i typoed on the x/y declaration above but too lazy to fix it 
                 this.getOverlay('subcell').append(
                     $('<div/>')
                         .addClass('subcell')
                         .attr('data-subcellid', subcellcount++)
                         .css({ width: this.scellw + 'px', height: this.scellh + 'px', position: 'absolute', 'left': (y * this.scellh) + 'px', 'top': (x * this.scellw) + 'px' })
+                        .attr('data-center-y', Math.floor(x * this.scellw + (this.scellw / 2)))
+                        .attr('data-center-x', Math.floor(y * this.scellh + (this.scellh / 2)))
                 )
             }
         }
@@ -166,6 +169,10 @@ MapGrid.prototype = {
         var x = Math.floor(coords.x / this.scellw);
         var y = Math.floor(coords.y / this.scellh);
         return (y * 100) + x;
+    },
+    getSubcellCenterCoordinates: function(coords) {
+        var subcell = this.getSubCellAt(coords);
+        return { x: parseInt($(subcell).attr('data-center-x')), y: parseInt($(subcell).attr('data-center-y')) };
     },
     getSubCellByCellID: function(subcellid) {
         return $(this.container + ' div.subcell[data-subcellid="' + subcellid + '"]');
