@@ -32,16 +32,27 @@
                     allow_dismiss: true
                 });
             });
+
+            heatmapViewer.onNoData(function(e) {
+                $.bootstrapGrowl({
+                    text: 'There is no data available for this combination of match type and gameplay type',
+                    delay: 40000,
+                    allow_dismiss: true
+                });
+            });
+
             heatmapViewer.onLoadStart(function() {
                 $('#detail-container').addClass('hide');
                 $('select[name="mode"]').addClass('disabled').prop('disabled', true);
                 $('select[name="type"]').addClass('disabled').prop('disabled', true);
             });
+
             heatmapViewer.onLoadEnd(function() {
                 $('#detail-container').removeClass('hide');
                 if(this.mapModeCount > 1) $('select[name="mode"]').removeClass('disabled').prop('disabled', false);
                 $('select[name="type"]').removeClass('disabled').prop('disabled', false);
             });
+
             heatmapViewer.onInit(function() {
                 this.bindModeSelect($('select[name="mode"]')); 
                 this.bindTypeSelect($('select[name="type"]'));

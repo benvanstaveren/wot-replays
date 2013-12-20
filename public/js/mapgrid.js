@@ -175,7 +175,7 @@ MapGrid.prototype = {
         return { x: parseInt($(subcell).attr('data-center-x')), y: parseInt($(subcell).attr('data-center-y')) };
     },
     getSubCellCenterCoordinatesBySubCellID: function(subcellid) {
-        var subcell = this.getSubcellByCellID(subcellid);
+        var subcell = this.getSubCellByCellID(subcellid);
         return { x: parseInt($(subcell).attr('data-center-x')), y: parseInt($(subcell).attr('data-center-y')) };
     },
     getSubCellByCellID: function(subcellid) {

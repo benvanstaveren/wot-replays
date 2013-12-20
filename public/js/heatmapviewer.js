@@ -10,7 +10,7 @@ HeatmapViewer = function(options) {
     this.apitoken       =   options.apitoken;
     this.ident          =   options.ident;
     this.caching        =   (options.caching == null) ? true : options.caching;
-    this.api_url        =   (options.api_url == null) ? 'http://api.wotreplays.org:8081/v1' : options.api_url;
+    this.api_url        =   (options.api_url == null) ? 'http://api.wotreplays.org/v1' : options.api_url;
     this.handlers       =   [];
     this.heatmapConfig  =   {
         "radius"    : 32,
@@ -22,7 +22,7 @@ HeatmapViewer = function(options) {
         types: [
             { id: 'location', name: 'Locations' },
             { id: 'deaths', name: 'Deaths' },
-            { id: 'damage', name: 'Damage Received' },
+            { id: 'damage_r', name: 'Damage Received' },
             { id: 'damage_d', name: 'Damage Done' },
         ],
         modes: null,
@@ -60,6 +60,9 @@ HeatmapViewer.prototype = {
     },
     onLoadEnd: function(handler) {
         this._handle('loadend', handler);
+    },
+    onNoData: function(handler) {
+        this._handle('nodata', handler);
     },
     _handle: function(evtn, handler) {
         if(!this.handlers[evtn]) this.handlers[evtn] = new Array();
@@ -175,7 +178,8 @@ HeatmapViewer.prototype = {
                 me.trigger('onError', { code: d.error, text: d[d.error] });
             } else {
                 if(d.data.count == 0) {
-                    me.trigger('onNoData');
+                    me.trigger('nodata');
+                    if(me.rendered) me.getMapGrod().hideLoader();
                 } else {
                     var max = 0;
                     var hmd = [];
