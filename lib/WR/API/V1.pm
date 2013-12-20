@@ -99,7 +99,7 @@ sub map_heatmap_data {
             $self->model(sprintf('wot-replays.hm_%s', $hmtype))->find_one({ _id => $d->{numerical_id}} => sub {
                 my ($c, $e, $hmd) = (@_);
                 if(defined($hmd)) {
-                    my $data = $hmd->{$gpid}; # gameplay id 
+                    my $data = $hmd->{'g'}->{$gpid}; # gameplay id 
                     my $real_data = {};
                     my $pc = 0;
                     use Data::Dumper;
