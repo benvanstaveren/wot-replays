@@ -1,5 +1,5 @@
 /* 
-    v 20131219 2048
+    v 20131221 0655
     wotreplays.org heatmap viewer
     requires heatmap.js from github.com/pa7/heatmap.js
     requires wotreplays mapgrid
