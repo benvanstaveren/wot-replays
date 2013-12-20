@@ -10,7 +10,7 @@ HeatmapViewer = function(options) {
     this.apitoken       =   options.apitoken;
     this.ident          =   options.ident;
     this.caching        =   (options.caching == null) ? true : options.caching;
-    this.api_url        =   (options.api_url == null) ? 'http://api.wotreplays.org/v1' : options.api_url;
+    this.api_url        =   (options.api_url == null) ? 'http://api.wotreplays.org:8081/v1' : options.api_url;
     this.handlers       =   [];
     this.heatmapConfig  =   {
         "radius"    : 32,
@@ -170,7 +170,7 @@ HeatmapViewer.prototype = {
         if(this.rendered) this.getMapGrid().showLoader() 
 
         var me  = this;
-        $.getJSON(url, { _: new Date().getTime() }, function(d) {
+        $.getJSON(url, { 't': this.apitoken, '_': new Date().getTime() }, function(d) {
             if(d.ok == 0) {
                 me.trigger('onError', { code: d.error, text: d[d.error] });
             } else {

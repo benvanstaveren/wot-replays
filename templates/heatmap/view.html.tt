@@ -18,10 +18,12 @@
                 apitoken    : '[% config.secrets.apitoken %]',
             });
 
+            /* 
             $(document).ajaxError(function(e, j, a, t) {
                 alert('There is no heatmap data available for this selection');
                 document.location.reload();
             });
+            */
 
             heatmapViewer.onError(function(e) {
                 $.bootstrapGrowl({

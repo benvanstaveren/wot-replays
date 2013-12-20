@@ -21,7 +21,10 @@ sub validate_token {
             my $ho = 0;
             
             foreach my $o (@{$doc->{origin}}) {
-                $ho = 1 and last if($o eq $oh);
+                if($o eq $oh) {
+                    $ho = 1;
+                    last;
+                }
             }
             if($ho) {
                 $self->res->headers->header('Access-Control-Allow-Origin' => $oh);
