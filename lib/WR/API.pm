@@ -16,20 +16,6 @@ sub startup {
     $self->secret($config->{app}->{secret}); # same secret as main app? why not
     $self->defaults(config => $config);
 
-    # these are teh nasties(tm)
-    monkey_patch('Mango::Cursor',
-        'all_with_cb' => sub {
-            my ($self, $cb) = (@_);
-            return $self->next(sub { shift->_acb_next($cb, @_) });
-        },
-        '_acb_next' => sub {
-            my ($self, $cb, $err, $doc) = (@_);
-            return $self->_defer($cb, undef) if($err || !$doc);
-            $cb->($doc);
-            $self->next(sub { shift->_acb_next($cb, @_) });
-        }   
-    );
-
     # set up the mango stuff here
     $self->attr(mango => sub { Mango->new($config->{mongodb}->{host}) });
     $self->helper(get_database => sub {
@@ -65,7 +51,10 @@ sub startup {
             
             my $map = $v1->under('/map/:map_ident');
                 $map->route('/')->to('v1#validate_token', next => 'map_details');
-                $map->route('/heatmap')->to('v1#validate_token', next => 'map_heatmap_data');
+                my $heatmap = $map->under('/heatmap/:game_type');
+                    $heatmap->route('/')->to('v1#validate_token', next => 'map_heatmap_data', bonus_types => '0,1,2,3,4,5,6,7');
+                    $heatmap->route('/:bonus_types')->to('v1#validate_token', next => 'map_heatmap_data');
+
 
 }
 

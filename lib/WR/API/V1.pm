@@ -23,6 +23,8 @@ sub validate_token {
                 $ho = 1 and last if($o eq $oh);
             }
             if($ho) {
+                $self->res->headers->header('Access-Control-Allow-Origin' => $oh);
+                $self->res->headers->header('Access-Control-Allow-Headers' => '*');
                 $self->$next($doc);
             } else {
                 $self->render(json => { ok => 0, error => 'token.unbound' });
