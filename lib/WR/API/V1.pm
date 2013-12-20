@@ -109,7 +109,7 @@ sub map_heatmap_data {
                     }
                     $self->render(json => { ok => 1, data => { set => [ map { { cell => $_, value => $real_data->{$_} } } (keys(%$real_data)) ], count => $pc } });
                 } else {
-                    $self->render(json => { ok => 0, error => 'db.error', 'db.error' => $err });
+                    $self->render(json => { ok => 0, error => 'db.error', 'db.error' => $e });
                 }
             });
         } else {
