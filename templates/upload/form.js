@@ -13,7 +13,7 @@ handleProcess = function(jobid) {
 
     var processLog = $('#processModal .process-log.job-' + jobid);
 
-    $.getJSON(processURL, { 'seq': nonce }, function(d) {
+    $.getJSON(processURL, { 'seq': nonce, 't': '[% config.secrets.apitoken %]' }, function(d) {
         if(d.complete) {
             $('#processModal').modal('hide');
             if(d.status == 1) {

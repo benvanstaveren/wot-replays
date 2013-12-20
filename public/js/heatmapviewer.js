@@ -7,6 +7,7 @@
 
 HeatmapViewer = function(options) {
     this.container      =   options.container; 
+    this.apitoken       =   options.apitoken;
     this.ident          =   options.ident;
     this.caching        =   (options.caching == null) ? true : options.caching;
     this.api_url        =   (options.api_url == null) ? 'http://api.wotreplays.org/v1' : options.api_url;
@@ -74,7 +75,7 @@ HeatmapViewer.prototype = {
     init: function() {
         // make an API call to find the map boundaries and valid game modes for the given map ident
         var me = this;
-        $.getJSON(this.api_url + '/map/' + this.ident + '.json', { _: new Date().getTime() }, function(d) {
+        $.getJSON(this.api_url + '/map/' + this.ident + '.json', { 't': this.apitoken, '_': new Date().getTime() }, function(d) {
             if(d.ok == 1) {
                 me.gridConfig.map.bounds = [ d.data.attributes.geometry.bottom_left, d.data.attributes.geometry.upper_right ];
                 me.gridConfig.map.positions = null;

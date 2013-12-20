@@ -13,8 +13,9 @@
     <script type="text/javascript">
         $(document).ready(function() {
             var heatmapViewer = new HeatmapViewer({
-                ident: '[% map_ident %]',
-                container: $('#map-container'),
+                ident       : '[% map_ident %]',
+                container   : $('#map-container'),
+                apitoken    : '[% config.secrets.apitoken %]',
             });
 
             $(document).ajaxError(function(e, j, a, t) {

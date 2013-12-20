@@ -12,6 +12,7 @@ use WR::Provider::ServerFinder;
 use WR::Provider::Imager;
 use WR::Provider::Panelator;
 use WR::Provider::WN7;
+use WR::Provider::Mapgrid;
 use WR::Constants qw/nation_id_to_name decode_arena_type_id/;
 use WR::Util::TypeComp qw/parse_int_compact_descr type_id_to_name/;
 
@@ -36,9 +37,20 @@ has 'ua'            => sub { Mojo::UserAgent->new };
 has '_consumables'  => sub { {} }; # consumables are keyed by their typecomp id fragment
 has '_components'   => sub { {} }; # components are keyed by type, country, id
 
-has '_rsize'        =>  0;
-
+has '_rsize'            =>  0;
 has '_arena_initialize' => undef;
+has 'mapgrid'           => undef;
+
+has 'hm_updates'        => sub {
+    {
+        'location'          =>  {},
+        'deaths'            =>  {},
+        'damage_d'          =>  {},
+        'damage_r'          =>  {},
+    }
+};
+
+has '_lastpos' => sub { {} };
 
 sub _preload {
     my $self = shift;
@@ -308,22 +320,61 @@ sub _real_process {
             $replay->{game}->{battle_level} = (defined($init->{battleLevel})) ? $init->{battleLevel} + 0 : undef;
             $replay->{game}->{opponents}    = (defined($init->{opponents})) ? $init->{opponents} : undef;
         });
-        # here's some additional bits and pieces that we are interested in
+        # here's some additional bits and pieces that we are interested in to write packet files
         for my $event ('player.position', 'player.health', 'player.tank.destroyed', 'player.orientation.hull', 'player.chat', 'arena.period', 'player.tank.damaged', 'arena.initialize', 'cell.attention', 'arena.base_points', 'arena.base_captured') {
-            if($event eq 'player.chat') {
-                $game->on($event => sub {
-                    my ($game, $chat) = (@_);
-                    push(@{$replay->{chat}}, $chat->{text});
-                    $self->add_packet($chat);
-                });
-            } else {
-                $game->on($event => sub {
-                    my ($s, $v) = (@_);
-                    $self->add_packet($v);
-                });
-            }
+            $game->on($event => sub {
+                my ($s, $v) = (@_);
+                $self->add_packet($v);
+            });
         }
 
+        # subscribe some duplicates for other things
+        $game->on('player.chat' => sub {
+            my ($game, $chat) = (@_);
+            push(@{$replay->{chat}}, $chat->{text});
+        });
+
+        # these are for the heatmaps
+        $game->on('arena.initialize' => sub {
+            $self->mapgrid(
+                WR::Provider::Mapgrid->new(
+                    width   => 768,
+                    height  => 768,
+                    bounds  => $replay->{game}->{map_extra}->{geometry},
+                )
+            );
+        });
+        $game->on('player.position' => sub {
+            my ($g, $v) = (@_);
+            # convert the position to a cell id, and push for updates
+            $self->_lastpos->{$v->{id}} = $v->{position};
+            $self->hm_updates->{location}->{$self->mapgrid->coord_to_subcell_id($v->{position})}++;
+        });
+        $game->on('player.tank.destroyed' => sub {
+            my ($g, $v) = (@_);
+            if(defined($v->{destroyer})) {
+                if(my $dl = $self->_lastpos->{$v->{destroyer}}) {
+                    $self->hm_updates->{deaths}->{$self->mapgrid->coord_to_subcell_id($dl)}++;
+                }
+            }
+        });
+        $game->on('player.health' => sub {
+            my ($g, $v) = (@_);
+
+            if(defined($v->{source})) {
+                if(defined($self->_lastpos->{$v->{id}})) {
+                    if(my $dl = $self->_lastpos->{$v->{id}}) {
+                        $self->hm_updates->{damage_r}->{$self->mapgrid->coord_to_subcell_id($dl)}++;
+                    }
+                }
+                if(defined($self->_lastpos->{$v->{source}})) {
+                    if(my $dl = $self->_lastpos->{$v->{source}}) {
+                        $self->hm_updates->{damage_d}->{$self->mapgrid->coord_to_subcell_id($dl)}++;
+                    }
+                }
+            }
+        });
+                    
         $game->on(finish => sub {
             my ($game, $reason) = (@_);
             if($reason->{ok} == 0) {
