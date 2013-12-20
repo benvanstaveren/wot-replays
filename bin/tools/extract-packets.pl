@@ -42,10 +42,9 @@ sub extract {
 
 my $cursor = $coll->find();
 my $total = $cursor->count;
-$cursor->sort({ 'site.uploaded_at' => -1 });
+$cursor->sort({ 'site.uploaded_at' => -1 })->limit(50);
 my $done  = 0;
 my $j     = JSON::XS->new();
-# ->pretty(1); <- moar compactzor if you remove this
 
 while(my $replay = $cursor->next()) {
     extract($replay->{file});
