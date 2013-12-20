@@ -17,7 +17,7 @@ find(sub {
 }, $ARGV[0]);
 
 my $mongo_import;
-open($mongo_import, '|/usr/bin/mongoimport -d wtr-heatmaps -c raw_location') || die ('Could not open pipe to mongoimport', "\n");
+open($mongo_import, '|/usr/bin/mongoimport -d wot-replays -c raw_location') || die ('Could not open pipe to mongoimport', "\n");
 
 my $j       = JSON::XS->new();
 
