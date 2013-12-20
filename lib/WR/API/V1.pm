@@ -17,7 +17,7 @@ sub validate_token {
         my ($coll, $err, $doc) = (@_);
 
         if(defined($doc)) {
-            my $oh = $self->req->headers->header('Origin');
+            my $oh = $self->req->headers->header('Origin') || '';
             my $ho = 0;
             
             foreach my $o (@{$doc->{origin}}) {
@@ -95,12 +95,15 @@ sub map_heatmap_data {
     $self->model('wot-replays.data.maps')->find_one({ _id => $map_ident } => sub {
         my ($c, $e, $d) = (@_);
         if(defined($d)) {
+            $self->app->log->debug(sprintf('map_heatmap_data: collection: wot-replays.hm_%s with _id: %d for gpid %d', $hmtype, $d->{numerical_id}, $gpid));
             $self->model(sprintf('wot-replays.hm_%s', $hmtype))->find_one({ _id => $d->{numerical_id}} => sub {
                 my ($c, $e, $hmd) = (@_);
                 if(defined($hmd)) {
                     my $data = $hmd->{$gpid}; # gameplay id 
                     my $real_data = {};
                     my $pc = 0;
+                    use Data::Dumper;
+                    $self->app->log->debug('map_heatmap_data: HMD: ' . Dumper($data));
                     foreach my $t (@$bt) {
                         foreach my $cell (keys(%{$data->{$t}})) {
                             $real_data->{$cell} += $data->{$t}->{$cell}; 
