@@ -40,13 +40,109 @@
                 ident       : '[% h.map_ident(replay) %]',
                 container   : '#battle-heatmap',
                 map         : {
-                    positions: null,
                     width: 768,
                     height: 768,
                     bounds: [% h.as_json(h.map_boundingbox(replay)) %],
                 }
             });
+            // find out what game type we're running
+            var gameType = '[% replay.game.type %]';
+            var positions = [% h.as_json(h.map_positions(replay)) %];
+
+            console.log('pre render');
             mapGrid.render();
+            console.log('post render');
+
+            if(gameType == 'ctf') {
+                console.log('base: ', positions.base);
+                for(i = 0; i < positions.base.length; i++) {
+                    positions.base[i].forEach(function(basedata) {
+                        var isEnemy = ((i + 1) == [% replay.game.recorder.team %]) ? false : true;
+                        var base = new BasePoint();
+                        if(isEnemy) {
+                            base.setEnemy();
+                        } else {
+                            base.setFriendly();
+                        }
+                        base.setPosition(mapGrid.game_to_map_coord(basedata));
+                        mapGrid.addItem('base-' + i, base.render().el);
+                    });
+                }
+                for(i = 0; i < positions.team.length; i++) {
+                    if(positions.team[i] != null) {
+                        for(j = 0; j < positions.team[i].length; j++) {
+                            var spawn = new SpawnPoint();
+                            spawn.setPoint(j + 1);
+                            if((i + 1) == [% replay.game.recorder.team %]) {
+                                spawn.setFriendly();
+                            } else {
+                                spawn.setEnemy();
+                            }
+                            spawn.setPosition(mapGrid.game_to_map_coord(positions.team[i][j]));
+                            mapGrid().addItem('spawn-' + i + '-' + j, spawn.render().el);
+                        }
+                    }
+                }
+            } else if(gameType == 'assault') {
+                var control = new BasePoint();
+                if(positions.base[0] == null) {
+                    control.setPosition(mapGrid.game_to_map_coord(positions.base[1][0]));
+                    if(2 == [% replay.game.recorder.team %]) {
+                        control.setFriendly();
+                    } else {
+                        control.setEnemy();
+                    }
+                } else {
+                    control.setPosition(mapGrid.game_to_map_coord(positions.base[0][0]));
+                    if(1 == [% replay.game.recorder.team %]) {
+                        control.setFriendly();
+                    } else {
+                        control.setEnemy();
+                    }
+                }
+
+                mapGrid.addItem('base-control', control.render().el);
+
+                // now iterate over the spawn points for both teams
+                for(i = 0; i < positions.team.length; i++) {
+                    if(positions.team[i] != null) {
+                        for(j = 0; j < positions.team[i].length; j++) {
+                            var spawn = new SpawnPoint();
+                            spawn.setPoint(j + 1);
+                            if((i + 1) == [% replay.game.recorder.team %]) {
+                                spawn.setFriendly();
+                            } else {
+                                spawn.setEnemy();
+                            }
+                            spawn.setPosition(mapGrid.game_to_map_coord(positions.team[i][j]));
+                            mapGrid.addItem('spawn-' + i + '-' + j, spawn.render().el);
+                        }
+                    }
+                }
+            } else if(gameType == 'domination') {
+                // set the control point
+                var control = new BasePoint();
+                control.setNeutral();
+                control.setPosition(mapGrid.game_to_map_coord(positions.control[0]));
+                mapGrid.addItem('base-control', control.render().el);
+
+                // add the team spawns
+                for(i = 0; i < positions.team.length; i++) {
+                    for(j = 0; j < positions.team[i].length; j++) {
+                        var isEnemy = ([% replay.game.recorder.team %] == (i + 1)) ? false : true;
+                        var spawn = new SpawnPoint();
+                        spawn.setPoint(j + 1);
+                        if(isEnemy) {
+                            spawn.setEnemy();
+                        } else {
+                            spawn.setFriendly();
+                        }
+                        spawn.setPosition(mapGrid.game_to_map_coord(positions.team[i][j]));
+                        mapGrid.addItem('spawn-' + i + '-' + j, spawn.render().el);
+                    }
+                }
+            }
+
             var heatmapConfig = {
                 "radius"    : 48,
                 "visible"   : true,

@@ -147,13 +147,19 @@ MapGrid.prototype = {
     },
     game_to_map_coord: function(position) {
         try {
-            var x = position[0];
-            var y = position[2];
+            if(position.length == 3) {
+                var x = position[0];
+                var y = position[2];
+            } else if(position.length == 2) {
+                var x = position[0];
+                var y = position[1];
+            }
             x = (x - this.bounds[0][0]) * (this.width / (this.bounds[1][0] - this.bounds[0][0] + 1));
             y = (this.bounds[1][1] - y) * (this.height / (this.bounds[1][1] - this.bounds[0][1] + 1));
             var res = { x: x, y: y };
             return res;
         } catch(err) {
+            console.log('mapGrid.game_to_map_coord error: ', err);
             return null;
         }
     },
@@ -216,4 +222,142 @@ MapGrid.prototype = {
                 }
             });
     }
+};
+var SpawnPoint = function() {
+    this.position = null;
+    this.enemy = false;
+    this.friendly = false;
+    this.el = $('<div/>').addClass('spawn');
+    this.pointIndex = -1;
+};
+SpawnPoint.prototype = {
+    clearClass: function() {
+        this.el.removeClass('friendly').removeClass('neutral').removeClass('enemy');
+    },
+    render: function() {
+        var cl = this.isNeutral() 
+            ? 'neutral' : this.isEnemy()
+                ? 'enemy' : 'friendly';
+        this.el.addClass(cl + ' point-' + this.pointIndex);
+        return this;
+    },
+    setPoint: function(p) {
+        this.pointIndex = p;
+    },
+    setPosition: function(pos) {
+        this.position = pos;
+        this.el.css({ 'top': pos.y - 32, 'left': pos.x - 32 }); // since the icons are 64x64 
+    },
+    setEnemy: function() {
+        this.friendly = false;
+        this.enemy = true;
+    },
+    setFriendly: function() {
+        this.friendly = true;
+        this.enemy = false;
+    },
+    setNeutral: function() {
+        this.enemy = false;
+        this.friendly = false;
+    },
+    isEnemy: function() { return this.enemy },
+    isFriendly: function() { return this.friendly },
+    isNeutral: function() {
+        return (this.enemy == false && this.friendly == false) ? true : false;
+    },
+};
+var BasePoint = function() {
+    this.friendly       = false;
+    this.enemy          = false;
+    this.position       = null;
+    this.beingCaptured  = false;
+    this.capturePoints  = 0;
+    this.stateInit      = false;
+    this.captured       = false;
+    this.el             = $('<div/>').addClass('base');
+    this.captureBar     = $('<div/>').css({ width: '64px', height: '10px', position: 'absolute', 'border': '#000 1px solid', 'background': '#000 none repeat scroll 0 0', top: '-8px', left: '0px' });
+    this.captureBarP    = $('<div/>').css({ width: '0%', height: '10px', position: 'absolute', 'border': '#000 1px solid', top: '0px', left: '0px' });
+
+    this.el.append(this.captureBar.append(this.captureBarP));
+    this.captureBar.hide();
+};
+BasePoint.prototype = {
+    clearClass: function() {
+        this.el.removeClass('friendly').removeClass('neutral').removeClass('enemy');
+    },
+    render: function() {
+        this.clearClass();
+        var cl = this.isNeutral() 
+            ? 'neutral' : this.isEnemy()
+                ? 'enemy' : 'friendly';
+        this.el.addClass(cl);
+        return this;
+    },
+    stopCapturing: function() {
+        if(this.captured) return;
+        this.beingCaptured = false;
+        this.captureBar.hide();
+        this.captureBarP.css({ width: '0%' });
+        this.capturePoints = 0;
+    },
+    captureProgress: function(points, isEnemy) {
+        if(this.captured) return;
+        if(!this.stateInit) return;
+        if(points == 0) {
+            this.stopCapturing();
+            return;
+        }
+        if(isEnemy) {
+            this.captureBarP.css({ 'background-color': '#0f0' });
+        } else {
+            this.captureBarP.css({ 'background-color': '#f00' });
+        }
+        this.beingCaptured = true;
+        this.captureBar.show();
+        this.captureBarP.css({ width: points + '%' });
+        this.capturePoints = points;
+    },
+    _flashCount: 0,
+    _flasher: function() {
+        el = this.el;
+        me = this;
+
+        if(this._flashCount == 8) {
+            el.css({ 'opacity': '0.75' });
+        } else {
+            el.fadeOut(250 / me._flashCount, function() {
+                el.fadeIn(250 / me._flashCount, function() {
+                    me._flashCount++;
+                    me._flasher();
+                });
+            });
+        }
+    },
+    hasBeenCaptured: function(isEnemy) {
+        this.captureProgress(100, isEnemy);
+        this.captured = true;
+
+        this._flasher();
+    },
+    setEnemy: function() {
+        this.friendly = false;
+        this.enemy = true;
+    },
+    setFriendly: function() {
+        this.friendly = true;
+        this.enemy = false;
+    },
+    setPosition: function(pos) {
+        this.position = pos;
+        this.el.css({ 'top': pos.y - 32, 'left': pos.x - 32 }); // since the icons are 64x64 
+    },
+    setNeutral: function() {
+        this.enemy = false;
+        this.friendly = false;
+    },
+    isEnemy: function() { return this.enemy },
+    isFriendly: function() { return this.friendly },
+    isNeutral: function() {
+        return (this.enemy == false && this.friendly == false) ? true : false;
+    },
 };
