@@ -67,7 +67,7 @@ sub xhr_ds {
 
     $self->render_later;
 
-    $self->get_database->command(Mango::BSON::bson_doc('dbStats' => 1, 'scale' => (1024 * 1024 * 1024)) => sub {
+    $self->get_database->command(Mango::BSON::bson_doc('dbStats' => 1, 'scale' => (1024 * 1024)) => sub {
         my ($db, $err, $doc) = (@_);
 
         if(defined($doc)) {
