@@ -50,6 +50,15 @@ has 'hm_updates'        => sub {
     }
 };
 
+has 'battle_hm' => sub {
+    { 
+        'location' => {},
+        'deaths' => {},
+        'damage_d' => {},
+        'damage_r' => {},
+    }
+};
+
 has '_lastpos' => sub { {} };
 
 sub _preload {

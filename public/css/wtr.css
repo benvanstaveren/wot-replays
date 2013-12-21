@@ -1315,3 +1315,7 @@ div.panel-vehicle-wrapper {
 
 .earning-value {
   width: 60%; }
+
+div#progressModal div.progress {
+  position: relative;
+  top: 8px; }
