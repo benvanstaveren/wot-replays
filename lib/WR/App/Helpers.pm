@@ -709,7 +709,7 @@ sub add_helpers {
         my $replay = shift;
 
         if(defined($replay->{game}->{map_extra})) {
-            return $replay->{game}->{map_extra}->{icon};
+            return $replay->{game}->{map_extra}->{slug};
         } else {
             if(my $obj = $self->model('wot-replays.data.maps')->find_one({ numerical_id => $replay->{game}->{map} })) {
                 return $obj->{slug};
