@@ -74,7 +74,7 @@ sub startup {
     });
 
     # these are all simple pages
-    for(qw/about donate credits test/) {
+    for(qw/about donate credits/) {
         $r->route(sprintf('/%s', $_))->to(sprintf('ui#%s', $_), pageid => $_);
     }
 
