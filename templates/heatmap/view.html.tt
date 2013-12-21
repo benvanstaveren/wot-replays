@@ -12,18 +12,12 @@
     </div>
     <script type="text/javascript">
         $(document).ready(function() {
-            var heatmapViewer = new HeatmapViewer({
+            window.heatmapViewer = new HeatmapViewer({
                 ident       : '[% map_ident %]',
                 container   : $('#map-container'),
                 apitoken    : '[% config.secrets.apitoken %]',
+                heatmap     : { radius: 24 },
             });
-
-            /* 
-            $(document).ajaxError(function(e, j, a, t) {
-                alert('There is no heatmap data available for this selection');
-                document.location.reload();
-            });
-            */
 
             heatmapViewer.onError(function(e) {
                 $.bootstrapGrowl({
@@ -61,7 +55,7 @@
                     .on('slideStop', function(ev) {
                         var v = ev.value;
                         heatmapViewer.setRadius(v);
-                    })
+                    }).slider('setValue', 24);
                 this.load();
             });
             heatmapViewer.init();
