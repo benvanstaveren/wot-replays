@@ -37,6 +37,7 @@
                         <a class="bs-tooltip btn btn-default btn-save-replay" data-placement="bottom" data-toggle="tooltip" data-container="body" title="Download this replay" href="[% config.urls.replays %]/[% replay.file %]"><span class="badge">[% replay.site.downloads || '0' %]</span> Save</a>
                         <a class="bs-tooltip btn btn-default btn-embed-replay [% IF !replay.site.banner.available %]disabled[% END %]" data-placement="bottom" data-toggle="tooltip" data-container="body" href="[% h.get_id(replay) %]" title="Embed this replay">Embed</a>
                         <a class="bs-tooltip btn btn-default btn-battleviewer [% IF !replay.packets.defined %]disabled[% END %]" data-placement="bottom" data-toggle="tooltip" data-container="body"  title="Battleviewer" href="/battleviewer/[% h.get_id(replay) %].html">Battle Viewer</a>
+                        <a class="bs-tooltip btn btn-default btn-battleheatmap [% IF !replay.heatmap.defined %]disabled[% END %]" data-placement="bottom" data-toggle="tooltip" data-container="body"  title="Battle Heatmap" href="/battleheatmap/[% h.get_id(replay) %].html">Battle Heatmap</a>
                     </div>
                 </div>
             </div>

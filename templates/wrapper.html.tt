@@ -27,15 +27,11 @@
         <link href="[% config.urls.static %]/css/[% IF config.mode.defined && config.mode == 'dev' %]wtr[% ELSE %]wtr.min[% END %].css" rel="stylesheet"/>
 
         <script type="text/javascript" src="[% config.urls.static %]/js/wtr.js"></script>
-        [% IF pageid == 'battleviewer' %]
-            <script type="text/javascript" src="[% config.urls.static %]/js/mapgrid.js"></script>
-            <script type="text/javascript" src="[% config.urls.static %]/js/battleviewer.js"></script>
-        [% END %]
-        [% IF pageid == 'heatmap' %]
-            <script type="text/javascript" src="[% config.urls.static %]/js/mapgrid.js"></script>
-            <script type="text/javascript" src="[% config.urls.static %]/js/heatmap.js"></script>
-            <script type="text/javascript" src="[% config.urls.static %]/js/heatmapviewer.js"></script>
-        [% END %]
+
+        <script type="text/javascript" src="[% config.urls.static %]/js/mapgrid.js"></script>
+        <script type="text/javascript" src="[% config.urls.static %]/js/heatmap.js"></script>
+        <script type="text/javascript" src="[% config.urls.static %]/js/heatmapviewer.js"></script>
+
 	    <script type="text/javascript">
             $(document).ready(function() {
 	            [% IF notify.defined %]

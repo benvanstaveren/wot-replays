@@ -50,16 +50,12 @@ has 'hm_updates'        => sub {
     }
 };
 
-has 'battle_hm' => sub {
-    { 
-        'location' => {},
-        'deaths' => {},
-        'damage_d' => {},
-        'damage_r' => {},
-    }
-};
+has '_lastpos'      => sub { {} };
+has 'player_team'   => 0;
+has 'game'          => undef;
 
-has '_lastpos' => sub { {} };
+# keyed by team ID since we'll be showing double heatmaps on the overlay
+has 'battleheat'        => sub { [ {}, {} ] };
 
 sub _preload {
     my $self = shift;
@@ -215,7 +211,6 @@ sub finalize_roster {
             }
         }
     }
-    $self->debug('starting typecomp resolve for roster');
 
     my $cursor = $self->model('wot-replays.data.vehicles')->find({ typecomp => { '$in' => [ map { $_ + 0 } (keys(%$t_resolve)) ] }});
     while(my $tc = $cursor->next()) {
@@ -246,6 +241,32 @@ sub finalize_roster {
         tier    => $replay->{roster}->[ $replay->{players}->{$replay->{game}->{recorder}->{name}} ]->{vehicle}->{level},
         ident   => $replay->{roster}->[ $replay->{players}->{$replay->{game}->{recorder}->{name}} ]->{vehicle}->{ident},
     };
+}
+
+sub is_friendly {
+    my $self = shift;
+    my $vid  = shift;
+
+    # if the roster isn't finalized, all we have is the roster entry from the 
+    # replay, which may be missing a few things here and there, so we only test
+    # for friendlyness, if you ain't with us, you sure must be against us! 
+
+    foreach my $entry (@{$self->game->roster}) {
+        return 1 if($entry->{vehicleID} == $vid && $entry->{team} == $self->player_team);
+        return 0 if($entry->{vehicleID} == $vid && $entry->{team} != $self->player_team);
+    }
+    return 0; # this catches anything that may be missing from the roster
+}
+
+sub vteam {
+    my $self = shift;
+    my $vid  = shift;
+
+    return ($self->is_friendly($vid)) 
+        ? $self->player_team 
+        : ($self->player_team == 1)
+            ? 2
+            : 1;
 }
 
 sub _real_process {
@@ -300,6 +321,7 @@ sub _real_process {
     };
 
     if(my $game = $self->_parser->game()) {
+        $self->game($game); # yeah yeah
         $game->on('replay.size' => sub {
             my ($s, $v) = (@_);
             $self->_rsize($v);
@@ -336,14 +358,14 @@ sub _real_process {
                 $self->add_packet($v);
             });
         }
-
         # subscribe some duplicates for other things
         $game->on('player.chat' => sub {
             my ($game, $chat) = (@_);
             push(@{$replay->{chat}}, $chat->{text});
         });
 
-        # these are for the heatmaps
+        # these are for the heatmaps, could grab it out of the packets array after we save them to disk
+        # but this is (relatively speaking) a bit easier to handle 
         $game->on('arena.initialize' => sub {
             $self->mapgrid(
                 WR::Provider::Mapgrid->new(
@@ -358,12 +380,14 @@ sub _real_process {
             # convert the position to a cell id, and push for updates
             $self->_lastpos->{$v->{id}} = $v->{position};
             $self->hm_updates->{location}->{$self->mapgrid->coord_to_subcell_id($v->{position})}++;
+            $self->battleheat->[ $self->vteam($v->{id}) ]->{location}->{$self->mapgrid->coord_to_subcell_id($v->{position})}++;
         });
         $game->on('player.tank.destroyed' => sub {
             my ($g, $v) = (@_);
             if(defined($v->{destroyer})) {
-                if(my $dl = $self->_lastpos->{$v->{destroyer}}) {
+                if(my $dl = $self->_lastpos->{$v->{destroyed}}) {
                     $self->hm_updates->{deaths}->{$self->mapgrid->coord_to_subcell_id($dl)}++;
+                    $self->battleheat->[ $self->vteam($v->{destroyed}) ]->{deaths}->{$self->mapgrid->coord_to_subcell_id($dl)}++;
                 }
             }
         });
@@ -374,16 +398,17 @@ sub _real_process {
                 if(defined($self->_lastpos->{$v->{id}})) {
                     if(my $dl = $self->_lastpos->{$v->{id}}) {
                         $self->hm_updates->{damage_r}->{$self->mapgrid->coord_to_subcell_id($dl)}++;
+                        $self->battleheat->[ $self->vteam($v->{id}) ]->{damage_r}->{$self->mapgrid->coord_to_subcell_id($dl)}++;
                     }
                 }
                 if(defined($self->_lastpos->{$v->{source}})) {
                     if(my $dl = $self->_lastpos->{$v->{source}}) {
                         $self->hm_updates->{damage_d}->{$self->mapgrid->coord_to_subcell_id($dl)}++;
+                        $self->battleheat->[ $self->vteam($v->{source}) ]->{damage_d}->{$self->mapgrid->coord_to_subcell_id($dl)}++;
                     }
                 }
             }
         });
-                    
         $game->on(finish => sub {
             my ($game, $reason) = (@_);
             if($reason->{ok} == 0) {
@@ -394,6 +419,10 @@ sub _real_process {
 
                 # finalize the roster
                 $self->finalize_roster($battle_result, $replay, $game->roster);
+
+                # here's the issue, we have a bunch of packets that we are interested in sitting in
+                # the packets array, but we now need to go and extract em and sort them out by enemy and friendly 
+                # team. 
 
                 # we alter the consumables list, the original consumables list contains numbers only, 
                 # the new one will have refs
@@ -529,8 +558,8 @@ sub _real_process {
                         spotted         => $replay->{stats}->{spotted},
                         defense         => $replay->{stats}->{droppedCapturePoints},
                     });
-
                     $replay->{wn7}->{data}->{battle} = $v;
+
                 });
             }
         });
@@ -548,6 +577,7 @@ sub _real_process {
             $replay->{panel} = $p->panelate($replay);
             $replay->{parser_version} = $self->PARSER_VERSION;
             $replay->{packet_version} = $self->PACKET_VERSION;
+            $replay->{heatmap} = [ $self->battleheat->[1], $self->battleheat->[2] ]; # because fuck WG
             return $replay;
         }
     } else {
@@ -681,6 +711,9 @@ sub _game {
     $game->{recorder}->{survived}   = ($b->{personal}->{deathReason} == -1) ? Mango::BSON::bson_true : Mango::BSON::bson_false;
     $game->{recorder}->{killer}     = ($b->{personal}->{killerID} > 0) ? $b->{personal}->{killerID} : undef;
     $game->{recorder}->{lifetime}   = $b->{personal}->{lifeTime} + 0;
+
+    # set this so it's easier to refer to later on
+    $self->player_team($b->{personal}->{team} + 0);
 
     my $decoded_arena_type_id = decode_arena_type_id($b->{common}->{arenaTypeID});
     $game->{type} = $decoded_arena_type_id->{gameplay_type};

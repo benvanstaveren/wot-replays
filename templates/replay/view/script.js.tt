@@ -8,6 +8,12 @@
             show: false,
         });
         $('.bs-tooltip').tooltip();
+        $('.btn-battleviewer').on('click', function() {
+            if($(this).hasClass('disabled')) return false;
+        });
+        $('.btn-battleheatmap').on('click', function() {
+            if($(this).hasClass('disabled')) return false;
+        });
     });
     [% IF h.is_own_replay(replay) %]
         $('a#edit-desc-link').click(function() {

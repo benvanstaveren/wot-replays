@@ -120,38 +120,37 @@
                 </td>
             </tr>
         [% END %]
-        [% IF replay.stats.autoEquipCost.0 + replay.stats.repair + replay.stats.creditsPenalty + replay.stats.autoLoadCost.0 > 0 %]
+        <tr>
+            <td><h5 style="margin: 0px">Subtotal</h5></td>
+            <td>[% replay.stats.credits %]</td>
+        </tr>
+        <tr>
+            <td><h5 style="margin: 0px">- Ammo</h5></td>
+            <td>[% replay.stats.autoLoadCost.0 %]</td>
+        </tr>
+        <tr>
+            <td><h5 style="margin: 0px">- Consumables</h5></td>
+            <td>[% replay.stats.autoEquipCost.0 %]</td>
+        </tr>
+        <tr>
+            <td><h5 style="margin: 0px">- Repair</h5></td>
+            <td>[% replay.stats.repair %]</td>
+        </tr>
+        [% IF replay.stats.creditsPenalty > 0 %]
             <tr>
-                <td><h5 style="margin: 0px">Subtotal</h5></td>
-                <td>[% replay.stats.credits %]</td>
-            </tr>
-            <tr>
-                <td><h5 style="margin: 0px">- Ammo</h5></td>
-                <td>[% replay.stats.autoLoadCost.0 %]</td>
-            </tr>
-            <tr>
-                <td><h5 style="margin: 0px">- Consumables</h5></td>
-                <td>[% replay.stats.autoEquipCost.0 %]</td>
-            </tr>
-            <tr>
-                <td><h5 style="margin: 0px">- Repair</h5></td>
-                <td>[% replay.stats.repair %]</td>
-            </tr>
-            [% IF replay.stats.creditsPenalty > 0 %]
-                <tr>
-                    <td><h5 style="margin: 0px">- Penalty</h5></td>
-                    <td>[% replay.stats.creditsPenalty %]</td>
-                </tr>
-            [% END %]
-            <tr>
-                <td><h5 style="margin: 0px">Earned</h5></td>
-                <td>[% replay.stats.credits - (replay.stats.autoEquipCost.0 + replay.stats.autoLoadCost.0 + replay.stats.repair + replay.stats.creditsPenalty) %]</td>
-            </tr>
-        [% ELSE %]
-            <tr>
-                <td><h5 style="margin: 0px">Earned</h5></td>
-                <td>[% replay.stats.credits %]</td>
+                <td><h5 style="margin: 0px">- Penalty</h5></td>
+                <td>[% replay.stats.creditsPenalty %]</td>
             </tr>
         [% END %]
+        [% IF replay.stats.creditsContributionIn > 0 %]
+            <tr>
+                <td><h5 style="margin: 0px">+ Compensation</h5></td>
+                <td>[% replay.stats.creditsContributionIn %]</td>
+            </tr>
+        [% END %]
+        <tr>
+            <td><h5 style="margin: 0px">Earned</h5></td>
+            <td>[% replay.stats.credits - (replay.stats.autoEquipCost.0 + replay.stats.autoLoadCost.0 + replay.stats.repair + replay.stats.creditsPenalty) + replay.stats.creditsContributionIn %]</td>
+        </tr>
     </tbody>
 </table>

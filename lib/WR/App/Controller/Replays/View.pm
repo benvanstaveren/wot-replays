@@ -27,17 +27,35 @@ sub battleviewer {
         if(defined($replay)) {
             # construct packet url
             my $packet_url = sprintf('%s/%s', $self->stash('config')->{urls}->{packets}, $replay->{packets});
-            $self->respond(template => 'battleviewer/index', stash => {
+            $self->respond(template => 'replay/view/battleviewer', stash => {
                 page        => { title => 'Battle Viewer' },
                 packet_url  => $packet_url,
                 replay      => $replay,
             });
         } else {
-            $self->respond(template => 'battleviewer/nopackets', stash => { page => { title => 'Battle Viewer' }});
+            $self->respond(template => 'replay/view/nopackets', stash => { page => { title => 'Battle Viewer' }});
         }
     });
 }
 
+sub heatmap {
+    my $self = shift;
+
+    $self->render_later;
+
+    $self->load_replay(sub {
+        my ($c, $e, $replay) = @_;
+
+        if(defined($replay)) {
+            $self->respond(template => 'replay/view/heatmap', stash => {
+                page        => { title => 'Battle Heatmap' },
+                replay      => $replay,
+            });
+        } else {
+            $self->respond(template => 'replay/view/nodata', stash => { page => { title => 'Battle Heatmap' }});
+        }
+    });
+}
 
 sub stats {
     my $self = shift;

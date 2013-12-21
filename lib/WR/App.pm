@@ -90,6 +90,9 @@ sub startup {
     my $bv = $r->under('/battleviewer/:replay_id');
         $bv->route('/')->to('replays-view#battleviewer', pageid => 'battleviewer');
 
+    my $bv = $r->under('/battleheatmap/:replay_id');
+        $bv->route('/')->to('replays-view#heatmap', pageid => 'battleheatmap');
+
     my $rb = $r->under('/replay/:replay_id');
         $rb->route('/')->to('replays-view#view', pageid => undef)->name('viewreplay');
         $rb->route('/desc')->to('replays#desc', pageid => undef);
@@ -97,6 +100,8 @@ sub startup {
         $rb->route('/packets')->to('replays-view#packets', pageid => undef);
         $rb->route('/up')->to('replays-rate#rate_up', pageid => undef);
         $rb->route('/comparison')->to('replays-view#comparison', pageid => undef);
+        $bv->route('/battleviewer')->to('replays-view#battleviewer', pageid => 'battleviewer');
+        $bv->route('/heatmap')->to('replays-view#heatmap');
 
     $r->route('/players')->to('player#index', pageid => 'player');
     my $player = $r->under('/player');
