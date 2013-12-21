@@ -56,6 +56,7 @@ has 'game'          => undef;
 
 # keyed by team ID since we'll be showing double heatmaps on the overlay
 has 'battleheat'        => sub { [ {}, {} ] };
+has 'arenaperiod'       => 0;
 
 sub _preload {
     my $self = shift;
@@ -366,6 +367,10 @@ sub _real_process {
 
         # these are for the heatmaps, could grab it out of the packets array after we save them to disk
         # but this is (relatively speaking) a bit easier to handle 
+        $game->on('arena.period' => sub {
+            my ($g, $v) = (@_);
+            $self->arenaperiod($v->{period});
+        });
         $game->on('arena.initialize' => sub {
             $self->mapgrid(
                 WR::Provider::Mapgrid->new(
@@ -380,14 +385,14 @@ sub _real_process {
             # convert the position to a cell id, and push for updates
             $self->_lastpos->{$v->{id}} = $v->{position};
             $self->hm_updates->{location}->{$self->mapgrid->coord_to_subcell_id($v->{position})}++;
-            $self->battleheat->[ $self->vteam($v->{id}) ]->{location}->{$self->mapgrid->coord_to_subcell_id($v->{position})}++;
+            $self->battleheat->[ $self->vteam($v->{id}) ]->{location}->{$self->mapgrid->coord_to_subcell_id($v->{position})}++ if($self->arenaperiod == 3);
         });
         $game->on('player.tank.destroyed' => sub {
             my ($g, $v) = (@_);
             if(defined($v->{destroyer})) {
                 if(my $dl = $self->_lastpos->{$v->{destroyed}}) {
                     $self->hm_updates->{deaths}->{$self->mapgrid->coord_to_subcell_id($dl)}++;
-                    $self->battleheat->[ $self->vteam($v->{destroyed}) ]->{deaths}->{$self->mapgrid->coord_to_subcell_id($dl)}++;
+                    $self->battleheat->[ $self->vteam($v->{destroyed}) ]->{deaths}->{$self->mapgrid->coord_to_subcell_id($dl)}++ if($self->arenaperiod == 3);
                 }
             }
         });
@@ -398,13 +403,13 @@ sub _real_process {
                 if(defined($self->_lastpos->{$v->{id}})) {
                     if(my $dl = $self->_lastpos->{$v->{id}}) {
                         $self->hm_updates->{damage_r}->{$self->mapgrid->coord_to_subcell_id($dl)}++;
-                        $self->battleheat->[ $self->vteam($v->{id}) ]->{damage_r}->{$self->mapgrid->coord_to_subcell_id($dl)}++;
+                        $self->battleheat->[ $self->vteam($v->{id}) ]->{damage_r}->{$self->mapgrid->coord_to_subcell_id($dl)}++ if($self->arenaperiod == 3);
                     }
                 }
                 if(defined($self->_lastpos->{$v->{source}})) {
                     if(my $dl = $self->_lastpos->{$v->{source}}) {
                         $self->hm_updates->{damage_d}->{$self->mapgrid->coord_to_subcell_id($dl)}++;
-                        $self->battleheat->[ $self->vteam($v->{source}) ]->{damage_d}->{$self->mapgrid->coord_to_subcell_id($dl)}++;
+                        $self->battleheat->[ $self->vteam($v->{source}) ]->{damage_d}->{$self->mapgrid->coord_to_subcell_id($dl)}++ if($self->arenaperiod == 3);
                     }
                 }
             }

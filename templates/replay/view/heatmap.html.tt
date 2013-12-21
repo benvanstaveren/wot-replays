@@ -79,7 +79,7 @@
                                 spawn.setEnemy();
                             }
                             spawn.setPosition(mapGrid.game_to_map_coord(positions.team[i][j]));
-                            mapGrid().addItem('spawn-' + i + '-' + j, spawn.render().el);
+                            mapGrid.addItem('spawn-' + i + '-' + j, spawn.render().el);
                         }
                     }
                 }
