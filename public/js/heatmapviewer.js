@@ -18,7 +18,6 @@ HeatmapViewer = function(options) {
         "radius"    : 32,
         "visible"   : true,
         "opacity"   : 40,
-        "gradient"  : { 0.1: "rgb(0,0,255)", 0.3: "rgb(0,128,128)", 0.6: "rgb(0,255,255)", 0.8: "rgb(0,255,0)", 0.9: "rgb(255,255,0)", 0.91: "#ffbf00", 0.92: "#ff7f00", 0.93: "#ff3f00", 0.94: "#ff0000", 0.95: "#ff2a2a", 0.96: "#ff5555", 0.97: "#ff7f7f", 0.98: "#ffaaaa", 0.99: "#ffd4d4", 1.00: "#ffffff" }
     };
 
     for(k in options.heatmap) {

@@ -16,7 +16,22 @@
                 ident       : '[% map_ident %]',
                 container   : $('#map-container'),
                 apitoken    : '[% config.secrets.apitoken %]',
-                heatmap     : { radius: 24 },
+                heatmap     : { 
+                    radius      : 24,
+                    gradient    : {
+                        0.20        : 'rgb(0,0,128)', 
+                        0.30        : 'rgb(0,0,255)', 
+                        0.40        : 'rgb(0,128,128)',
+                        0.50        : 'rgb(0,255,255)',
+                        0.60        : 'rgb(0,128,0)',
+                        0.60        : 'rgb(0,255,0)',
+                        0.70        : 'rgb(128,128,0)',
+                        0.80        : 'rgb(255,255,0)',
+                        0.90        : 'rgb(128,0,0)',
+                        0.90        : 'rgb(255,0,0)',
+                        1.00        : 'rgb(255,255,255)',
+                    }
+                }
             });
 
             heatmapViewer.onError(function(e) {
