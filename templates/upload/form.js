@@ -30,7 +30,7 @@ handleProcess = function(jobid) {
 
                     $('#banner-image').attr('src', '[% config.urls.banners %]/' + d.banner.url_path);
                     $('#banner-bbcode').text(
-                        '[url=[% config.urls.app %]/replay/' + d.file + '.html]' + "\n" +
+                        '[url=[% config.urls.app %]/replay/' + d.replayid + '.html]' + "\n" +
                         '[img][% config.urls.banners %]/' + d.banner.url_path + '[/img]' + "\n" +
                         '[/url]'
                     );
