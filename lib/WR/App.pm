@@ -90,8 +90,8 @@ sub startup {
     my $bv = $r->under('/battleviewer/:replay_id');
         $bv->route('/')->to('replays-view#battleviewer', pageid => 'battleviewer');
 
-    my $bv = $r->under('/battleheatmap/:replay_id');
-        $bv->route('/')->to('replays-view#heatmap', pageid => 'battleheatmap');
+    my $bhm = $r->under('/battleheatmap/:replay_id');
+        $bhm->route('/')->to('replays-view#heatmap', pageid => 'battleheatmap');
 
     my $rb = $r->under('/replay/:replay_id');
         $rb->route('/')->to('replays-view#view', pageid => undef)->name('viewreplay');
