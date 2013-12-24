@@ -7,8 +7,7 @@ use Data::Localize::Gettext;
 use File::Slurp qw/read_file/;
 use WR;
 use WR::Util::ItemTypes;
-use MongoDB;
-use boolean;
+use Mango;
 
 my $it = WR::Util::ItemTypes->new;
 
@@ -17,9 +16,9 @@ my $version = $ARGV[0];
 
 my $text = Data::Localize::Gettext->new(path => sprintf('../../etc/res/raw/%s/lang/artefacts.po', $version));
 
-my $mongo  = MongoDB::Connection->new(host => $ENV{'MONGO'} || 'localhost');
-my $db     = $mongo->get_database('wot-replays');
-my $coll   = $db->get_collection('data.equipment');
+my $mango  = Mango->new('mongodb://localhost:27017/');
+my $db     = $mango->db('wot-replays');
+my $coll   = $db->collection('data.equipment');
 
 $| = 1;
 
