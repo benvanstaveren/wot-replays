@@ -253,9 +253,11 @@ Arena.prototype = {
                     player.clock = this.clock;
                     if(typeof(frame.position) != 'undefined') {
                         player.move(this.convertGamePosition(frame.position));
-                    } else if(typeof(frame.orientation) != 'undefined' && player.recorder) {
+                    }
+                    if(typeof(frame.orientation) != 'undefined' && player.recorder) {
                         player.rotate(frame.orientation[0]);
-                    } else if(typeof(frame.health) != 'undefined') {
+                    } 
+                    if(typeof(frame.health) != 'undefined') {
                         if(player.alive) {
                             player.updateHealth(frame.health);
                             if (typeof(frame.source) != 'undefined') {
