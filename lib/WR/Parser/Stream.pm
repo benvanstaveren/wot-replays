@@ -82,6 +82,8 @@ sub _finish {
     my $p = shift;
 
     $self->emit(finish => $reason);
+    use Data::Dumper;
+    warn 'WR::Parser::Stream emit finish with reason: ', Dumper($reason), "\n";
     $self->stop;
     return (defined($p)) ? $p : undef;
 }
@@ -97,6 +99,9 @@ sub next {
 
     return $self->_finish({ ok => 0, reason => sprintf('EOF PT: %02x (%d), PS: %d', $pt, $pt, $payload_s) }) unless(defined($payload_s) && defined($pt)); # not really true but...
     return $self->_finish({ ok => 0, reason => sprintf('NOSUCHPACKET: %02x (%d), module %s', $pt, $pt, $pm) }) unless(defined($self->modules->{$pm}));
+
+    # if PT == END_OF_STREAM we just return
+    return $self->_finish({ ok => 1, reason => 'end of stream'}, undef) if($pt == $self->END_OF_STREAM);
 
     my $pb = IO::String->new;
     $pb->binmode(1);
@@ -116,11 +121,7 @@ sub next {
         $self->_finish({ ok => 0, reason => $_ });
         $o = undef;
     };
-    if($pt == $self->END_OF_STREAM) {
-        return $self->_finish({ ok => 1, reason => 'end of stream' }, $o);
-    } else {
-        return $o;
-    }
+    return $o;
 }
 
 1;

@@ -60,10 +60,11 @@ sub panelate {
     my $roster = $replay->{roster}->[ $replay->{game}->{recorder}->{index} ];
 
     $panel->{vehicle} = {
-        label => $roster->{vehicle}->{label},
+        label       => $roster->{vehicle}->{label},
         label_short => $roster->{vehicle}->{label_short},
-        icon  => $roster->{vehicle}->{icon},
-        ident => $roster->{vehicle}->{ident},
+        icon        => $roster->{vehicle}->{icon},
+        ident       => $roster->{vehicle}->{ident},
+        i18n        => $roster->{vehicle}->{i18n},
     };
 
     $panel->{map} = (defined($replay->{game}->{map_extra})) ? $replay->{game}->{map_extra} : $self->generate_map_extra($replay);

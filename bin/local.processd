@@ -290,6 +290,13 @@ sub process_job {
     });
 
     if(my $replay = $o->process( ($job->{reprocess}) ? $job->{replayid} : undef)) {
+        if($o->has_error > 0) {
+            my $err = $o->error;
+            $log->debug('Error processing: ', $err);
+            job_error($job, 'Error during parsing: ' . $err);
+            return;
+        }
+        
         $log->debug('no error yet, yay');
 
         if($job->{reprocess}) {
@@ -338,18 +345,18 @@ sub process_job {
                             ? 2
                             : 1;
 
-                    foreach my $type (keys(%{$o->hm_updates})) {
-                        my $d = $o->hm_updates->{$type};
-                        my $upd = {};
-                        foreach my $x (keys(%$d)) {
-                            foreach my $y (keys(%{$d->{$x}})) {
-                                $upd->{sprintf('g.%d.%d.%d.%d', $gid, $bt, $x, $y)} = $d->{$x}->{$y};
-                            }
-                        }
-                        $db->collection(sprintf('hm_%s', $type))->update({ _id => $replay->{game}->{map} }, { 
-                            '$inc' => $upd
-                        }, { upsert => 1 });
-                    }
+                    #foreach my $type (keys(%{$o->hm_updates})) {
+                    #    my $d = $o->hm_updates->{$type};
+                    #    my $upd = {};
+                    #    foreach my $x (keys(%$d)) {
+                    #        foreach my $y (keys(%{$d->{$x}})) {
+                    #            $upd->{sprintf('g.%d.%d.%d.%d', $gid, $bt, $x, $y)} = $d->{$x}->{$y};
+                    #        }
+                    #    }
+                    #    $db->collection(sprintf('hm_%s', $type))->update({ _id => $replay->{game}->{map} }, { 
+                    #        '$inc' => $upd
+                    #    }, { upsert => 1 });
+                    #}
                 }
                 job_status($job, {
                     id      =>  'final',

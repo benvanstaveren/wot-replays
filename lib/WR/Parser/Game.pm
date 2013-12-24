@@ -6,7 +6,7 @@ use WR::Constants qw/nation_id_to_name/;
 
 has 'stream'    => undef;
 
-has 'roster'    => undef;      # the players in the match 
+has '_roster'    => undef;      # the players in the match 
 has 'vehicles'  => sub { {} }; # maps vehicle id to roster entry    
 has 'recorder'  => sub { {} };      
 has 'positions' => sub { {} }; # position recording by vehicle ID
@@ -28,19 +28,37 @@ has 'map_done'  => 0;
 
 has 'arena_period' => 0;
 
+sub roster {
+    my $self = shift;
+    my $v    = shift;
+
+    if($v) { 
+        warn 'roster set with ', scalar(@$v), ' entries via: ', (caller(1))[3], "\n";
+        $self->_roster($v);
+    } else {
+        my $r = $self->_roster;
+        warn 'roster get with ', scalar(@$r), ' entries via: ', (caller(1))[3], "\n";
+        return $self->_roster;
+    }
+}
+
 sub start {
     my $self = shift;
     my $stopping = 0;
     my $status   = 0;
 
-    $self->stream->on('finish' => sub {
-        my ($stream, $status) = (@_);
-        $stopping = 1;
-    });
-
     $self->add_handlers;
 
     $self->emit('replay.size' => $self->stream->len);
+
+    $self->stream->on('finish' => sub {
+        my ($stream, $status) = (@_);
+
+        use Data::Dumper;
+        warn 'stream finished in Game.pm, re-emit using: ', Dumper($status), "\n";
+        $self->emit(finish => $status);
+        $stopping = 1;
+    });
 
     while(!$stopping) {
         if($self->stopping) {
@@ -423,6 +441,8 @@ sub onArenaHandler {
         }
 
         $self->roster($new);
+        use Data::Dumper;
+        warn 'Roster: ', Dumper($new), "\n";
 
         $self->emit('setup.roster' => $new);
         $self->emit('arena.vehicle_list' => {
@@ -501,7 +521,7 @@ sub onArenaHandler {
             id          => $packet->update,
             clock       => $packet->clock,
             ident       => 'arena.avatar_ready',
-            pident      => $self>make_pident($packet, 1),
+            pident      => $self->make_pident($packet, 1),
         });
     } elsif($packet->update_type == 0x08) {
         my $evt = {

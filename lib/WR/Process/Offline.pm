@@ -158,6 +158,8 @@ sub finalize_roster {
     my $teams = [];
     my $plat  = {};
 
+    $self->debug('finalize_roster with: ', Dumper($roster));
+
     foreach my $entry (@$roster) {
         $name_to_vidx->{$entry->{name}} = $i;
         $vid_to_vidx->{$entry->{vehicleID}} = $i;
@@ -223,6 +225,7 @@ sub finalize_roster {
             $newvehicle->{ident} = delete($newvehicle->{_id});
             $newvehicle->{id} = $vid + 0;
             $newvehicle->{icon} = sprintf('%s-%s.png', $vehicle->{country}, $vehicle->{name_lc});
+            $newvehicle->{i18n} = $vehicle->{i18n};
             $newroster->[$idx]->{vehicle} = $newvehicle;
         }
     }
@@ -411,107 +414,115 @@ sub _real_process {
                 $self->error(Dumper($reason));
                 $replay = undef;
             } else {
-                $self->emit('state.streaming.finish' => $game->stream->len);
+                $self->debug('game finish: ', Dumper($reason));
+                try {
+                    $self->emit('state.streaming.finish' => $game->stream->len);
 
-                # finalize the roster
-                $self->finalize_roster($battle_result, $replay, $game->roster);
+                    # finalize the roster
+                    $self->finalize_roster($battle_result, $replay, $game->roster);
 
-                # here's the issue, we have a bunch of packets that we are interested in sitting in
-                # the packets array, but we now need to go and extract em and sort them out by enemy and friendly 
-                # team. 
+                    # here's the issue, we have a bunch of packets that we are interested in sitting in
+                    # the packets array, but we now need to go and extract em and sort them out by enemy and friendly 
+                    # team. 
 
-                # we alter the consumables list, the original consumables list contains numbers only, 
-                # the new one will have refs
-                my $consumables = [];
-                foreach my $tc (keys(%{$game->vcons_initial})) {
-                    if($tc > 0) {
-                        my $a = parse_int_compact_descr($tc);
-                        if(my $c = $self->get_consumable($a->{id})) {
-                            push(@$consumables, $c);
+                    # we alter the consumables list, the original consumables list contains numbers only, 
+                    # the new one will have refs
+                    my $consumables = [];
+                    foreach my $tc (keys(%{$game->vcons_initial})) {
+                        if($tc > 0) {
+                            my $a = parse_int_compact_descr($tc);
+                            if(my $c = $self->get_consumable($a->{id})) {
+                                push(@$consumables, $c);
+                            }
                         }
                     }
-                }
 
-                $replay->{game}->{recorder}->{consumables} = $consumables;
-                $replay->{game}->{recorder}->{ammo} = [];
+                    $replay->{game}->{recorder}->{consumables} = $consumables;
+                    $replay->{game}->{recorder}->{ammo} = [];
 
-                # ammo is a bit different since the array needs to be hashes of { id => typeid, count => count }
-                foreach my $id (keys(%{$game->vshells_initial})) {
-                    my $tc = parse_int_compact_descr($id);
-                    if(my $a = $self->get_component('shells', nation_id_to_name($tc->{country}), $tc->{id})) {
-                        push(@{$replay->{game}->{recorder}->{ammo}}, {
-                            ammo  => $a,
-                            count => $game->vshells_initial->{$id}->{count},
-                        });
-                    }
-                }
-
-                $self->emit('state.generatebanner.start');
-                $self->debug('preparing banner');
-                $self->generate_banner($replay => sub {
-                    my $image = shift;
-
-                    $self->emit('state.generatebanner.finish');
-                        
-                    $replay->{site}->{banner} = $image;
-                    $replay->{game}->{server} = WR::Provider::ServerFinder->new->get_server_by_id($replay->{roster}->[ $replay->{players}->{$replay->{game}->{recorder}->{name}} ]->{player}->{accountDBID} + 0);
-                    $replay->{game}->{recorder}->{index} = $replay->{players}->{$replay->{game}->{recorder}->{name}};
-
-                    my $tc = {};
-                    foreach my $entry (@{$replay->{roster}}) {
-                        next unless(length($entry->{player}->{clanAbbrev}) > 0);
-                        $tc->{$entry->{player}->{clanAbbrev}}++;
+                    # ammo is a bit different since the array needs to be hashes of { id => typeid, count => count }
+                    foreach my $id (keys(%{$game->vshells_initial})) {
+                        my $tc = parse_int_compact_descr($id);
+                        if(my $a = $self->get_component('shells', nation_id_to_name($tc->{country}), $tc->{id})) {
+                            push(@{$replay->{game}->{recorder}->{ammo}}, {
+                                ammo  => $a,
+                                count => $game->vshells_initial->{$id}->{count},
+                            });
+                        }
                     }
 
-                    $replay->{involved} = {
-                        players     => [ keys(%{$replay->{players}}) ],
-                        clans       => [ keys(%$tc) ],
-                        vehicles    => [ map { $_->{vehicle}->{ident} } @{$replay->{roster}} ],
-                    };
+                    $self->emit('state.generatebanner.start');
+                    $self->debug('preparing banner');
+                    $self->generate_banner($replay => sub {
+                        my $image = shift;
 
-                    $self->debug('storing packets for replay');
-                    $self->emit('state.packet.save.start');
+                        $self->emit('state.generatebanner.finish');
+                            
+                        $replay->{site}->{banner} = $image;
+                        $replay->{game}->{server} = WR::Provider::ServerFinder->new->get_server_by_id($replay->{roster}->[ $replay->{players}->{$replay->{game}->{recorder}->{name}} ]->{player}->{accountDBID} + 0);
+                        $replay->{game}->{recorder}->{index} = $replay->{players}->{$replay->{game}->{recorder}->{name}};
 
-                    my $base_path = sprintf('%s/%s', $self->packet_path, $self->hashbucket($replay->{_id} . '', 7));
-                    make_path($base_path) unless(-e $base_path);
-                    my $packet_file = sprintf('%s/%s.json', $base_path, $replay->{_id} . '');
-                    if(my $fh = IO::File->new(sprintf('>%s', $packet_file))) {
-                        my $json = JSON::XS->new();
-                        $fh->print($json->encode($self->packets));
-                        $fh->close;
-                        $self->debug('wrote packets to file');
-                        $replay->{packets} = sprintf('%s/%s.json', $self->hashbucket($replay->{_id} . '', 7), $replay->{_id} . '');
-                        $self->emit('state.packet.save.finish');
-                    } else {
-                        $self->debug('could not write packets to file');
-                        $replay->{packets} = undef;
-                        $self->emit('state.packet.save.finish');
-                    }
+                        my $tc = {};
+                        foreach my $entry (@{$replay->{roster}}) {
+                            next unless(length($entry->{player}->{clanAbbrev}) > 0);
+                            $tc->{$entry->{player}->{clanAbbrev}}++;
+                        }
 
-                    $self->emit('state.wn7.start' => scalar(keys(%{$replay->{players}})));
+                        $replay->{involved} = {
+                            players     => [ keys(%{$replay->{players}}) ],
+                            clans       => [ keys(%$tc) ],
+                            vehicles    => [ map { $_->{vehicle}->{ident} } @{$replay->{roster}} ],
+                        };
 
-                    my $count = 0;
+                        $self->debug('storing packets for replay');
+                        $self->emit('state.packet.save.start');
 
-                    foreach my $player (keys(%{$replay->{players}})) {
-                        my $url = sprintf('http://statterbox.com/api/v1/%s/wn7?server=%s&player=%s', 
-                            '5299a074907e1337e0010000', # yes it's a hardcoded API token :P
-                            $replay->{game}->{server},
-                            lc($player)
-                            );
+                        my $base_path = sprintf('%s/%s', $self->packet_path, $self->hashbucket($replay->{_id} . '', 7));
+                        make_path($base_path) unless(-e $base_path);
+                        my $packet_file = sprintf('%s/%s.json', $base_path, $replay->{_id} . '');
+                        if(my $fh = IO::File->new(sprintf('>%s', $packet_file))) {
+                            my $json = JSON::XS->new();
+                            $fh->print($json->encode($self->packets));
+                            $fh->close;
+                            $self->debug('wrote packets to file');
+                            $replay->{packets} = sprintf('%s/%s.json', $self->hashbucket($replay->{_id} . '', 7), $replay->{_id} . '');
+                            $self->emit('state.packet.save.finish');
+                        } else {
+                            $self->debug('could not write packets to file');
+                            $replay->{packets} = undef;
+                            $self->emit('state.packet.save.finish');
+                        }
 
-                        $self->debug(sprintf('[%s]: %s', $player, $url));
+                        $self->emit('state.wn7.start' => scalar(keys(%{$replay->{players}})));
 
-                        my $roster = $replay->{roster}->[ $replay->{players}->{$player} ];
-                        $self->ua->inactivity_timeout(10);
+                        my $count = 0;
 
-                        if(my $tx = $self->ua->get($url)) {
-                            if(my $res = $tx->success) {
-                                if($res->json->{ok} == 1) {
-                                    if(my $wn7 = $res->json->{data}->{lc($player)}) {
-                                        $roster->{wn7} = { 
-                                            available => Mango::BSON::bson_true,
-                                            data => { overall => $wn7 }
-                                        };
+                        foreach my $player (keys(%{$replay->{players}})) {
+                            my $url = sprintf('http://statterbox.com/api/v1/%s/wn7?server=%s&player=%s', 
+                                '5299a074907e1337e0010000', # yes it's a hardcoded API token :P
+                                $replay->{game}->{server},
+                                lc($player)
+                                );
+
+                            $self->debug(sprintf('[%s]: %s', $player, $url));
+
+                            my $roster = $replay->{roster}->[ $replay->{players}->{$player} ];
+                            $self->ua->inactivity_timeout(10);
+
+                            if(my $tx = $self->ua->get($url)) {
+                                if(my $res = $tx->success) {
+                                    if($res->json->{ok} == 1) {
+                                        if(my $wn7 = $res->json->{data}->{lc($player)}) {
+                                            $roster->{wn7} = { 
+                                                available => Mango::BSON::bson_true,
+                                                data => { overall => $wn7 }
+                                            };
+                                        } else {
+                                            $roster->{wn7} = { 
+                                                available => Mango::BSON::bson_false,
+                                                data => { overall => 0 }
+                                            };
+                                        }
                                     } else {
                                         $roster->{wn7} = { 
                                             available => Mango::BSON::bson_false,
@@ -524,39 +535,37 @@ sub _real_process {
                                         data => { overall => 0 }
                                     };
                                 }
+                                $replay->{wn7} = $roster->{wn7} if($player eq $replay->{game}->{recorder}->{name});
                             } else {
                                 $roster->{wn7} = { 
                                     available => Mango::BSON::bson_false,
                                     data => { overall => 0 }
                                 };
+                                $replay->{wn7} = $roster->{wn7} if($player eq $replay->{game}->{recorder}->{name});
                             }
-                            $replay->{wn7} = $roster->{wn7} if($player eq $replay->{game}->{recorder}->{name});
-                        } else {
-                            $roster->{wn7} = { 
-                                available => Mango::BSON::bson_false,
-                                data => { overall => 0 }
-                            };
-                            $replay->{wn7} = $roster->{wn7} if($player eq $replay->{game}->{recorder}->{name});
+                            $self->emit('state.wn7.progress' => { count => ++$count, total => scalar(keys(%{$replay->{players}})) });
                         }
-                        $self->emit('state.wn7.progress' => { count => ++$count, total => scalar(keys(%{$replay->{players}})) });
-                    }
 
-                    $self->emit('state.wn7.finish' => scalar(keys(%{$replay->{players}})));
+                        $self->emit('state.wn7.finish' => scalar(keys(%{$replay->{players}})));
 
-                    my $wn7p = WR::Provider::WN7->new();
-                    my $roster = $replay->{roster}->[ $replay->{players}->{$replay->{game}->{recorder}->{name}} ];
-                    my $v = $wn7p->calculate({
-                        winrate         => 50,                          # winrate of 50% for per-battle WN7
-                        average_tier    => $roster->{vehicle}->{level}, # tier of player vehicle
-                        battles         => 1,                           # because it is a single battle
-                        destroyed       => $replay->{stats}->{kills},
-                        damage_dealt    => $replay->{stats}->{damageDealt},
-                        spotted         => $replay->{stats}->{spotted},
-                        defense         => $replay->{stats}->{droppedCapturePoints},
+                        my $wn7p = WR::Provider::WN7->new();
+                        my $roster = $replay->{roster}->[ $replay->{players}->{$replay->{game}->{recorder}->{name}} ];
+                        my $v = $wn7p->calculate({
+                            winrate         => 50,                          # winrate of 50% for per-battle WN7
+                            average_tier    => $roster->{vehicle}->{level}, # tier of player vehicle
+                            battles         => 1,                           # because it is a single battle
+                            destroyed       => $replay->{stats}->{kills},
+                            damage_dealt    => $replay->{stats}->{damageDealt},
+                            spotted         => $replay->{stats}->{spotted},
+                            defense         => $replay->{stats}->{droppedCapturePoints},
+                        });
+                        $replay->{wn7}->{data}->{battle} = $v;
                     });
-                    $replay->{wn7}->{data}->{battle} = $v;
-
-                });
+                } catch {
+                    $self->error('process error: ' . $_);
+                    $self->debug('process error: ', $_);
+                    die 'process error: ', $_, "\n";
+                };
             }
         });
 
