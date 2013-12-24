@@ -166,7 +166,7 @@
                 for(y in globalData) {
                     if(globalData[x][y] > max) max = globalData[x][y];
                     var gc = mapGrid.game_to_map_coord([ parseInt(x), 0, parseInt(y) ]);
-                    data.push({ x: gc.x, y: gc.y, count: globalDat[x][y]});
+                    data.push({ x: gc.x, y: gc.y, count: globalData[x][y]});
                 }
             }
 
