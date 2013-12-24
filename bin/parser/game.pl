@@ -2,8 +2,7 @@
 use strict;
 use warnings;
 use FindBin;
-use lib "$FindBin::Bin/../lib";
-use lib "$FindBin::Bin/lib";
+use lib "$FindBin::Bin/../lib", "$FindBin::Bin/../../lib", "$FindBin::Bin/lib";
 use Scalar::Util qw/blessed/;
 use WR::Parser;
 use Data::Dumper;
@@ -23,7 +22,6 @@ $game->on(finish => sub {
     print 'FINISHED: ', Dumper($reason), "\n";
     print Dumper($game->vshells);
     print Dumper($game->vcons);
-    exit(0);
 });
 
 $game->on('game.version' => sub {

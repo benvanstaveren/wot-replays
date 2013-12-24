@@ -103,8 +103,9 @@ sub add_handler {
 
 sub make_pident {
     my $self = shift;
-    my $p    = shift
+    my $p    = shift;
     my $i    = shift || 0;
+    return 'unknown/unknown' unless(defined($p) && ref($p));
 
     return ($i) ? sprintf('%02x/%02x', $p->type, $p->subtype || '') : sprintf('%02x', $p->type);
 }
@@ -414,7 +415,7 @@ sub onArenaHandler {
             $self->vehicles->{$h->{vehicleID}} = $self->rosteridx;
             $self->rosteridx($self->rosteridx + 1);
             if($h->{name} eq $self->recorder->{name}) {
-                $self->emit('recorder.id' => $h->{vehicleID}) 
+                $self->emit('recorder.id' => $h->{vehicleID}); 
                 $self->recorder->{id} = $h->{vehicleID};
             }
         }
@@ -423,10 +424,10 @@ sub onArenaHandler {
 
         $self->emit('setup.roster' => $new);
         $self->emit('arena.vehicle_list' => {
-            clock => $packet->clock,
-            %$new,
+            clock  => $packet->clock,
+            list   => $new,
             pident => $self->make_pident($packet, 1),
-            ident => 'arena.vehicle_list',
+            ident  => 'arena.vehicle_list',
         });
     } elsif($packet->update_type == 0x02) {
         my $entry = $packet->update;
@@ -447,7 +448,7 @@ sub onArenaHandler {
         $self->rosteridx($self->rosteridx + 1);
 
         if($h->{name} eq $self->recorder->{name}) {
-            $self->emit('recorder.id' => $h->{vehicleID}) 
+            $self->emit('recorder.id' => $h->{vehicleID});
             $self->recorder->{id} = $h->{vehicleID};
         }
 
@@ -469,7 +470,7 @@ sub onArenaHandler {
             clock   => $packet->clock,
             pident  => $self->make_pident($packet, 1),
             ident   => 'arena.statistics',
-            %{$packet->update},
+            stats   => $packet->update,
             });
     } elsif($packet->update_type == 0x05) {
         $self->emit('arena.vehicle_statistics' => {

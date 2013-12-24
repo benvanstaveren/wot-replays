@@ -2,8 +2,7 @@
 use strict;
 use warnings;
 use FindBin;
-use lib "$FindBin::Bin/../lib";
-use lib "$FindBin::Bin/lib";
+use lib "$FindBin::Bin/../lib", "$FindBin::Bin/../../lib", "$FindBin::Bin/lib";
 use WR::Parser;
 use Data::Dumper;
 use Try::Tiny qw/try catch/;
