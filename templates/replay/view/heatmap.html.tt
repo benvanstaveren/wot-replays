@@ -160,24 +160,16 @@
             heatmap = heatmapFactory.create(heatmapConfig);
             var max = 0;
             var globalData = [% h.as_json(replay.heatmap) %];
-            var merged = {};
             var data = [];
 
             for(x in globalData) {
-                for(y in globalData[x]) {
-                    if(!merged[x]) merged[x] = {};
-                    if(!merged[x][y]) merged[x][y] = 0;
-                    merged[x][y] += globalData[x][y];
+                for(y in globalData) {
+                    if(globalData[x][y] > max) max = globalData[x][y];
+                    var gc = mapGrid.game_to_map_coord([ parseInt(x), 0, parseInt(y) ]);
+                    data.push({ x: gc.x, y: gc.y, count: globalDat[x][y]});
                 }
             }
 
-            for(x in merged) {
-                for(y in merged) {
-                    if(merged[x][y] > max) max = merged[x][y];
-                }
-                var gc = mapGrid.game_to_map_coord([ parseInt(x), 0, parseInt(y) ]);
-                data.push({ x: gc.x, y: gc.y, count: merged[x][y]});
-            }
             heatmap.store.setDataSet({ max: max, data: data });
         });
     </script>
