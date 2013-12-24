@@ -1,0 +1,1197 @@
+{
+   "shared" : {
+      "_75mm_Gun_Type3" : {
+         "recoil" : {
+            "returnTime" : "0.4",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.36",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 55,
+         "repairCost" : 5,
+         "weight" : 1400,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_75mm_HE_Type_94_424" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.2",
+               "speed" : 683,
+               "gravity" : "9.81",
+               "piercingPower" : "38 38"
+            },
+            "_75mm_AP_Type_1_424" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.8",
+               "speed" : 683,
+               "gravity" : "9.81",
+               "piercingPower" : "90 80"
+            },
+            "_75mm_AP_Type_1_TK_424" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 683,
+               "gravity" : "9.81",
+               "piercingPower" : "112 100"
+            }
+         },
+         "shotDispersionRadius" : "0.41",
+         "impulse" : "0.38",
+         "effects" : "shot_medium_mb",
+         "maxAmmo" : 87,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#japan_vehicles:_75mm_Gun_Type3",
+         "rotationSpeed" : "40.25",
+         "maxHealth" : 110,
+         "level" : 4,
+         "reloadTime" : "4.28571428571429",
+         "price" : 30500,
+         "pitchLimits" : "-17 6"
+      },
+      "_57mm_Gun_Type97" : {
+         "recoil" : {
+            "returnTime" : "0.3",
+            "backoffTime" : "0.05",
+            "amplitude" : "0.04",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.08"
+         },
+         "maxRegenHealth" : 42,
+         "repairCost" : 4,
+         "weight" : 150,
+         "aimingTime" : "2.28",
+         "shots" : {
+            "_57mm_HEAT_Type97" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 355,
+               "gravity" : "9.81",
+               "piercingPower" : "55 55"
+            },
+            "_57mm_AP_Type97" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "1.0",
+               "speed" : 355,
+               "gravity" : "9.81",
+               "piercingPower" : "29.6 25"
+            },
+            "_57mm_HE_Type97" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 355,
+               "gravity" : "9.81",
+               "piercingPower" : "28 28"
+            }
+         },
+         "shotDispersionRadius" : "0.43",
+         "impulse" : "0.26",
+         "effects" : "shot_medium",
+         "maxAmmo" : 92,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#japan_vehicles:_57mm_Gun_Type97",
+         "rotationSpeed" : "43.75",
+         "maxHealth" : 84,
+         "level" : 2,
+         "reloadTime" : "2.28",
+         "price" : 2800,
+         "pitchLimits" : "-12 6"
+      },
+      "_105mm_Rifled_Gun" : {
+         "recoil" : {
+            "returnTime" : "0.24",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.24",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.05"
+         },
+         "maxRegenHealth" : 104,
+         "repairCost" : 8,
+         "weight" : 1150,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_105mm_HEPT_Type75" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.4",
+               "speed" : 1173,
+               "gravity" : "9.81",
+               "piercingPower" : "53 53"
+            },
+            "_105mm_HEAT-T_T384E4" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 1173,
+               "gravity" : "9.81",
+               "piercingPower" : "330 330"
+            },
+            "_105mm_APDS_L28A1" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.6",
+               "speed" : 1478,
+               "gravity" : "9.81",
+               "piercingPower" : "258 248"
+            }
+         },
+         "shotDispersionRadius" : "0.422857142857143",
+         "impulse" : "0.48",
+         "effects" : "shot_main",
+         "maxAmmo" : 72,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#japan_vehicles:_105mm_Rifled_Gun",
+         "rotationSpeed" : "35.0",
+         "maxHealth" : 208,
+         "level" : 10,
+         "reloadTime" : "7.5",
+         "price" : 290000,
+         "pitchLimits" : "-20 10"
+      },
+      "_37mm_Type_100" : {
+         "recoil" : {
+            "returnTime" : "0.26",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.24",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 33,
+         "repairCost" : 2,
+         "weight" : 206,
+         "aimingTime" : "1.7",
+         "shots" : {
+            "_37mm_APHE_Type94" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "1.0",
+               "speed" : 580,
+               "gravity" : "9.81",
+               "piercingPower" : "48.1 38.2"
+            },
+            "_37mm_APHE_Type1" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 580,
+               "gravity" : "9.81",
+               "piercingPower" : "68.7 54.5"
+            },
+            "_37mm_HE_Type4" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 580,
+               "gravity" : "9.81",
+               "piercingPower" : "18 18"
+            }
+         },
+         "shotDispersionRadius" : "0.4",
+         "impulse" : "0.22",
+         "effects" : "shot_small",
+         "maxAmmo" : 106,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#japan_vehicles:_37mm_Type_100",
+         "rotationSpeed" : 40,
+         "maxHealth" : 66,
+         "level" : 3,
+         "reloadTime" : "2.3",
+         "price" : 4400,
+         "pitchLimits" : "-20 15"
+      },
+      "_90mm_Rifled_Gun" : {
+         "recoil" : {
+            "returnTime" : "0.36",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.38",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "3.5",
+            "turretRotation" : "0.12"
+         },
+         "maxRegenHealth" : 85,
+         "repairCost" : 7,
+         "weight" : 1150,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_90mm_AP_M318A1" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.8",
+               "speed" : 853,
+               "gravity" : "9.81",
+               "piercingPower" : "185.9 174.7"
+            },
+            "_90mm_HE_M71" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.2",
+               "speed" : 853,
+               "gravity" : "9.81",
+               "piercingPower" : "45 45"
+            },
+            "_90mm_HEAT_Type70" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 853,
+               "gravity" : "9.81",
+               "piercingPower" : "275 275"
+            }
+         },
+         "shotDispersionRadius" : "0.377142857142857",
+         "impulse" : "0.48",
+         "effects" : "shot_main_mb",
+         "maxAmmo" : 60,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#japan_vehicles:_90mm_Rifled_Gun",
+         "rotationSpeed" : "35.0",
+         "maxHealth" : 170,
+         "level" : 8,
+         "reloadTime" : "7.51142857142857",
+         "price" : 95500,
+         "pitchLimits" : "-19 9"
+      },
+      "_13.2mm_Type93" : {
+         "recoil" : {
+            "returnTime" : "0.1",
+            "backoffTime" : "0.1",
+            "amplitude" : "0",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "1.1",
+            "turretRotation" : "0.12"
+         },
+         "maxRegenHealth" : 17,
+         "repairCost" : 1,
+         "clip" : {
+            "rate" : 450,
+            "count" : 15
+         },
+         "weight" : 38,
+         "aimingTime" : "1.9",
+         "shots" : {
+            "_13.2mm_AP" : {
+               "maxDistance" : 350,
+               "defaultPortion" : "1.0",
+               "speed" : 800,
+               "gravity" : "9.81",
+               "piercingPower" : "23 16"
+            },
+            "_13.2mm_Balle_T.P." : {
+               "maxDistance" : 350,
+               "defaultPortion" : "0.0",
+               "speed" : 1000,
+               "gravity" : "9.81",
+               "piercingPower" : "36 15"
+            }
+         },
+         "shotDispersionRadius" : "0.58",
+         "impulse" : "0.06",
+         "effects" : "shot_auto",
+         "burst" : {
+            "rate" : 450,
+            "count" : 5
+         },
+         "maxAmmo" : 720,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "maxHealth" : 34,
+         "userString" : "#japan_vehicles:_13.2mm_Type93",
+         "rotationSpeed" : "43.75",
+         "level" : 1,
+         "reloadTime" : "5.7",
+         "price" : 1500,
+         "pitchLimits" : "-23 20"
+      },
+      "_37mm_Type_98" : {
+         "recoil" : {
+            "returnTime" : "0.26",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.24",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 30,
+         "repairCost" : 1,
+         "weight" : 192,
+         "aimingTime" : "1.7",
+         "shots" : {
+            "_37mm_APHE_Type94" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "1.0",
+               "speed" : 685,
+               "gravity" : "9.81",
+               "piercingPower" : "40.4 32"
+            },
+            "_37mm_APHE_Type1" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 685,
+               "gravity" : "9.81",
+               "piercingPower" : "59.4 47.1"
+            },
+            "_37mm_HE_Type4" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 685,
+               "gravity" : "9.81",
+               "piercingPower" : "18 18"
+            }
+         },
+         "shotDispersionRadius" : "0.4",
+         "impulse" : "0.22",
+         "effects" : "shot_small",
+         "maxAmmo" : 106,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#japan_vehicles:_37mm_Type_98",
+         "rotationSpeed" : 40,
+         "maxHealth" : 60,
+         "level" : 2,
+         "reloadTime" : "2.3",
+         "price" : 2450,
+         "pitchLimits" : "-20 15"
+      },
+      "_37mm_Type1" : {
+         "recoil" : {
+            "returnTime" : "0.26",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.24",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 33,
+         "repairCost" : 2,
+         "weight" : 223,
+         "aimingTime" : "1.7",
+         "shots" : {
+            "_37mm_AP_Type4" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 785,
+               "gravity" : "9.81",
+               "piercingPower" : "73 58"
+            },
+            "_37mm_APHE_Type1_Kai" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "1.0",
+               "speed" : 785,
+               "gravity" : "9.81",
+               "piercingPower" : "58 46"
+            },
+            "_37mm_HE_Type4_Kai" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 785,
+               "gravity" : "9.81",
+               "piercingPower" : "19 19"
+            }
+         },
+         "shotDispersionRadius" : "0.4",
+         "impulse" : "0.22",
+         "effects" : "shot_small",
+         "maxAmmo" : 106,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#japan_vehicles:_37mm_Type1",
+         "rotationSpeed" : 40,
+         "maxHealth" : 66,
+         "level" : 3,
+         "reloadTime" : "2.3",
+         "price" : 8400,
+         "pitchLimits" : "-20 15"
+      },
+      "_75mm_Gun_Type_99" : {
+         "recoil" : {
+            "returnTime" : "0.6",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.16",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 50,
+         "repairCost" : 5,
+         "weight" : 543,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_75mm_HEAT_Type2_185" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 362,
+               "gravity" : "9.81",
+               "piercingPower" : "100 100"
+            },
+            "_75mm_HE_Type94_185" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.2",
+               "speed" : 453,
+               "gravity" : "9.81",
+               "piercingPower" : "38 38"
+            },
+            "_75mm_APHE_Type1_185" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.8",
+               "speed" : 453,
+               "gravity" : "9.81",
+               "piercingPower" : "70.4 64"
+            }
+         },
+         "shotDispersionRadius" : "0.548571428571429",
+         "impulse" : "0.38",
+         "effects" : "shot_medium",
+         "maxAmmo" : 80,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#japan_vehicles:_75mm_Gun_Type_99",
+         "rotationSpeed" : "41.125",
+         "maxHealth" : 100,
+         "level" : 4,
+         "reloadTime" : "4.28571428571429",
+         "price" : 29000,
+         "pitchLimits" : "-17 6"
+      },
+      "_47mm_Gun_Type1" : {
+         "recoil" : {
+            "returnTime" : "0.36",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.32",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 38,
+         "repairCost" : 1,
+         "weight" : 411,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_47mm_HE_Type94" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 810,
+               "gravity" : "9.81",
+               "piercingPower" : "25 25"
+            },
+            "_47mm_APHE_Type1_TK" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 810,
+               "gravity" : "9.81",
+               "piercingPower" : "122 80.9"
+            },
+            "_47mm_APHE_Type1" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "1.0",
+               "speed" : 810,
+               "gravity" : "9.81",
+               "piercingPower" : "81 69"
+            }
+         },
+         "shotDispersionRadius" : "0.42",
+         "impulse" : "0.24",
+         "effects" : "shot_small",
+         "maxAmmo" : 84,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#japan_vehicles:_47mm_Gun_Type1",
+         "rotationSpeed" : "43.75",
+         "maxHealth" : 76,
+         "level" : 4,
+         "reloadTime" : "2.1",
+         "price" : 21000,
+         "pitchLimits" : "-25 8"
+      },
+      "_37mm_Type_94" : {
+         "recoil" : {
+            "returnTime" : "0.26",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.2",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 27,
+         "repairCost" : 2,
+         "weight" : 185,
+         "aimingTime" : "1.9",
+         "shots" : {
+            "_37mm_APHE_Type94" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "1.0",
+               "speed" : 580,
+               "gravity" : "9.81",
+               "piercingPower" : "32.8 28.3"
+            },
+            "_37mm_APHE_Type1" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 580,
+               "gravity" : "9.81",
+               "piercingPower" : "51.7 41"
+            },
+            "_37mm_HE_Type4" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 580,
+               "gravity" : "9.81",
+               "piercingPower" : "18 18"
+            }
+         },
+         "shotDispersionRadius" : "0.48",
+         "impulse" : "0.26",
+         "effects" : "shot_small",
+         "maxAmmo" : 100,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#japan_vehicles:_37mm_Type_94",
+         "rotationSpeed" : "43.75",
+         "maxHealth" : 54,
+         "level" : 1,
+         "reloadTime" : "2.5",
+         "price" : 2000,
+         "pitchLimits" : "-23 20"
+      },
+      "_90mm_Gun_M3A1" : {
+         "recoil" : {
+            "returnTime" : "0.36",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.38",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "3.5",
+            "turretRotation" : "0.12"
+         },
+         "maxRegenHealth" : 75,
+         "repairCost" : 7,
+         "weight" : 1077,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_90mm_HE_M71" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.2",
+               "speed" : 853,
+               "gravity" : "9.81",
+               "piercingPower" : "45 45"
+            },
+            "_90mm_AP_M82_late" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.8",
+               "speed" : 853,
+               "gravity" : "9.81",
+               "piercingPower" : "155.3 148.2"
+            },
+            "_90mm_HVAP_M304" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 1066,
+               "gravity" : "9.81",
+               "piercingPower" : "243 221"
+            }
+         },
+         "shotDispersionRadius" : "0.377142857142857",
+         "impulse" : "0.48",
+         "effects" : "shot_main_mb",
+         "maxAmmo" : 52,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#japan_vehicles:_90mm_Gun_M3A1",
+         "rotationSpeed" : "35.0",
+         "maxHealth" : 150,
+         "level" : 7,
+         "reloadTime" : "8.16",
+         "price" : 81000,
+         "pitchLimits" : "-17 6"
+      },
+      "_37mm_APX_SA18" : {
+         "recoil" : {
+            "returnTime" : "0.2",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.08",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 27,
+         "repairCost" : 1,
+         "weight" : 100,
+         "aimingTime" : "2.51428571428571",
+         "shots" : {
+            "_37mm_OE_mle._1916" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 600,
+               "gravity" : "9.81",
+               "piercingPower" : "18 18"
+            },
+            "_37mm_FrtPrf1935" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 750,
+               "gravity" : "9.81",
+               "piercingPower" : "46 34"
+            },
+            "_37mm_Odr_mle._1935" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "1.0",
+               "speed" : 600,
+               "gravity" : "9.81",
+               "piercingPower" : "29 22"
+            }
+         },
+         "shotDispersionRadius" : "0.537142857142857",
+         "impulse" : "0.26",
+         "effects" : "shot_small",
+         "maxAmmo" : 237,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#japan_vehicles:_37mm_APX_SA18",
+         "rotationSpeed" : "43.75",
+         "maxHealth" : 54,
+         "level" : 1,
+         "reloadTime" : "2.51428571428571",
+         "price" : "",
+         "pitchLimits" : "-35 20"
+      },
+      "_37mm_Sogekiho" : {
+         "recoil" : {
+            "returnTime" : "0.2",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.1",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 27,
+         "repairCost" : 2,
+         "weight" : 175,
+         "aimingTime" : "1.9",
+         "shots" : {
+            "_37mm_HE_Type12" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 580,
+               "gravity" : "9.81",
+               "piercingPower" : "18 18"
+            },
+            "_37mm_APHE_Type94" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "1.0",
+               "speed" : 580,
+               "gravity" : "9.81",
+               "piercingPower" : "32.8 28.3"
+            },
+            "_37mm_APHE_Ichi_Go" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 580,
+               "gravity" : "9.81",
+               "piercingPower" : "48.6 25.6"
+            }
+         },
+         "shotDispersionRadius" : "0.48",
+         "impulse" : "0.26",
+         "effects" : "shot_small",
+         "maxAmmo" : 100,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#japan_vehicles:_37mm_Sogekiho",
+         "rotationSpeed" : "43.75",
+         "maxHealth" : 54,
+         "level" : 1,
+         "reloadTime" : "2.5",
+         "price" : 1900,
+         "pitchLimits" : "-23 20"
+      },
+      "_37mm_Type_100_1" : {
+         "recoil" : {
+            "returnTime" : "0.26",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.24",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 33,
+         "repairCost" : 2,
+         "weight" : 206,
+         "aimingTime" : "1.7",
+         "shots" : {
+            "_37mm_APHE_Type94" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "1.0",
+               "speed" : 580,
+               "gravity" : "9.81",
+               "piercingPower" : "48.1 38.2"
+            },
+            "_37mm_APHE_Type1" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 580,
+               "gravity" : "9.81",
+               "piercingPower" : "68.7 54.5"
+            },
+            "_37mm_HE_Type4" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 580,
+               "gravity" : "9.81",
+               "piercingPower" : "18 18"
+            }
+         },
+         "shotDispersionRadius" : "0.4",
+         "impulse" : "0.22",
+         "effects" : "shot_small",
+         "maxAmmo" : 106,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#japan_vehicles:_37mm_Type_100_1",
+         "rotationSpeed" : 40,
+         "maxHealth" : 66,
+         "level" : 3,
+         "reloadTime" : "2.3",
+         "price" : 4400,
+         "pitchLimits" : "-20 15",
+         "notInShop" : true
+      },
+      "_75mm_Gun_Type5_M1" : {
+         "recoil" : {
+            "returnTime" : "0.32",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.36",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 65,
+         "repairCost" : 5,
+         "weight" : 1764,
+         "aimingTime" : "2.5",
+         "shots" : {
+            "_75mm_AP_Type_1_TKK_604" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.8",
+               "speed" : 821,
+               "gravity" : "9.81",
+               "piercingPower" : "155 140"
+            },
+            "_75mm_HE_Type_4_K_604" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.2",
+               "speed" : 821,
+               "gravity" : "9.81",
+               "piercingPower" : "38 38"
+            },
+            "_75mm_AP_Type_1_TO_604" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 821,
+               "gravity" : "9.81",
+               "piercingPower" : "186 168"
+            }
+         },
+         "shotDispersionRadius" : "0.41",
+         "impulse" : "0.38",
+         "effects" : "shot_medium",
+         "maxAmmo" : 55,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#japan_vehicles:_75mm_Gun_Type5_M1",
+         "rotationSpeed" : "35.0",
+         "maxHealth" : 130,
+         "level" : 6,
+         "reloadTime" : 5,
+         "price" : 57000,
+         "pitchLimits" : "-20 6.5"
+      },
+      "_90mm_Gun_Type61" : {
+         "recoil" : {
+            "returnTime" : "0.36",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.38",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "3.5",
+            "turretRotation" : "0.12"
+         },
+         "maxRegenHealth" : 85,
+         "repairCost" : 7,
+         "weight" : 1150,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_90mm_AP_M318A1" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.8",
+               "speed" : 914,
+               "gravity" : "9.81",
+               "piercingPower" : "218.7 205.5"
+            },
+            "_90mm_HE_M71" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.2",
+               "speed" : 914,
+               "gravity" : "9.81",
+               "piercingPower" : "45 45"
+            },
+            "_90mm_HEAT_Type70" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 914,
+               "gravity" : "9.81",
+               "piercingPower" : "275 275"
+            }
+         },
+         "shotDispersionRadius" : "0.377142857142857",
+         "impulse" : "0.48",
+         "effects" : "shot_main_mb",
+         "maxAmmo" : 60,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#japan_vehicles:_90mm_Gun_Type61",
+         "rotationSpeed" : "35.0",
+         "maxHealth" : 170,
+         "level" : 9,
+         "reloadTime" : "7.51142857142857",
+         "price" : 160000,
+         "pitchLimits" : "-19 9"
+      },
+      "_75mm_Type5_1" : {
+         "recoil" : {
+            "returnTime" : "0.32",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.36",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 60,
+         "repairCost" : 5,
+         "weight" : 1489,
+         "aimingTime" : "2.5",
+         "shots" : {
+            "_75mm_AP_Type_1_SK_604" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 821,
+               "gravity" : "9.81",
+               "piercingPower" : "155 140"
+            },
+            "_75mm_AP_Type_1_604" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.8",
+               "speed" : 821,
+               "gravity" : "9.81",
+               "piercingPower" : "124 112"
+            },
+            "_75mm_HE_Type_4_604" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.2",
+               "speed" : 821,
+               "gravity" : "9.81",
+               "piercingPower" : "38 38"
+            }
+         },
+         "shotDispersionRadius" : "0.41",
+         "impulse" : "0.38",
+         "effects" : "shot_medium",
+         "maxAmmo" : 55,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#japan_vehicles:_75mm_Type5_1",
+         "rotationSpeed" : "35.0",
+         "maxHealth" : 120,
+         "level" : 5,
+         "reloadTime" : 5,
+         "price" : 38000,
+         "pitchLimits" : "-20 6.5",
+         "notInShop" : true
+      },
+      "_57mm_Gun_Shin" : {
+         "recoil" : {
+            "returnTime" : "0.4",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.18",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.08"
+         },
+         "maxRegenHealth" : 47,
+         "repairCost" : 4,
+         "weight" : 543,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_57mm_APHE_Type1_TK" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 810,
+               "gravity" : "9.81",
+               "piercingPower" : "131 113"
+            },
+            "_57mm_APHE_Type1" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "1.0",
+               "speed" : 810,
+               "gravity" : "9.81",
+               "piercingPower" : "87 75"
+            },
+            "_57mm_HE_Type2" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.2",
+               "speed" : 810,
+               "gravity" : "9.81",
+               "piercingPower" : "29 29"
+            }
+         },
+         "shotDispersionRadius" : "0.43428571428571",
+         "impulse" : "0.26",
+         "effects" : "shot_medium",
+         "maxAmmo" : 92,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#japan_vehicles:_57mm_Gun_Shin",
+         "rotationSpeed" : "43.75",
+         "maxHealth" : 94,
+         "level" : 4,
+         "reloadTime" : "2.28571428571429",
+         "price" : 27500,
+         "pitchLimits" : "-12 6"
+      },
+      "_75mm_Gun_Type5" : {
+         "recoil" : {
+            "returnTime" : "0.32",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.36",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 60,
+         "repairCost" : 5,
+         "weight" : 1489,
+         "aimingTime" : "2.5",
+         "shots" : {
+            "_75mm_AP_Type_1_SK_604" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 821,
+               "gravity" : "9.81",
+               "piercingPower" : "155 140"
+            },
+            "_75mm_AP_Type_1_604" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.8",
+               "speed" : 821,
+               "gravity" : "9.81",
+               "piercingPower" : "124 112"
+            },
+            "_75mm_HE_Type_4_604" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.2",
+               "speed" : 821,
+               "gravity" : "9.81",
+               "piercingPower" : "38 38"
+            }
+         },
+         "shotDispersionRadius" : "0.41",
+         "impulse" : "0.38",
+         "effects" : "shot_medium",
+         "maxAmmo" : 55,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#japan_vehicles:_75mm_Gun_Type5",
+         "rotationSpeed" : "35.0",
+         "maxHealth" : 120,
+         "level" : 5,
+         "reloadTime" : 5,
+         "price" : 42500,
+         "pitchLimits" : "-20 6.5"
+      },
+      "_75mm_Gun_Type5_M1_auto" : {
+         "recoil" : {
+            "returnTime" : "0.32",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.36",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 65,
+         "repairCost" : 5,
+         "weight" : 1764,
+         "aimingTime" : "2.5",
+         "shots" : {
+            "_75mm_AP_Type_1_TKK_604" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.8",
+               "speed" : 821,
+               "gravity" : "9.81",
+               "piercingPower" : "155 140"
+            },
+            "_75mm_HE_Type_4_K_604" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.2",
+               "speed" : 821,
+               "gravity" : "9.81",
+               "piercingPower" : "38 38"
+            },
+            "_75mm_AP_Type_1_TO_604" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 821,
+               "gravity" : "9.81",
+               "piercingPower" : "186 168"
+            }
+         },
+         "shotDispersionRadius" : "0.41",
+         "impulse" : "0.38",
+         "effects" : "shot_medium",
+         "maxAmmo" : 55,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#japan_vehicles:_75mm_Gun_Type5_M1_auto",
+         "rotationSpeed" : "35.0",
+         "maxHealth" : 130,
+         "level" : 6,
+         "reloadTime" : 5,
+         "price" : 62000,
+         "pitchLimits" : "-20 6.5"
+      },
+      "_37mm_Type11" : {
+         "recoil" : {
+            "returnTime" : "0.2",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.1",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 27,
+         "repairCost" : 2,
+         "weight" : 93,
+         "aimingTime" : "1.9",
+         "shots" : {
+            "_37mm_HE_Type12" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 450,
+               "gravity" : "9.81",
+               "piercingPower" : "18 18"
+            },
+            "_37mm_APHE_Type94" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "1.0",
+               "speed" : 450,
+               "gravity" : "9.81",
+               "piercingPower" : "22 15"
+            },
+            "_37mm_APHE_Ichi_Go" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 450,
+               "gravity" : "9.81",
+               "piercingPower" : "32.4 17.1"
+            }
+         },
+         "shotDispersionRadius" : "0.48",
+         "impulse" : "0.26",
+         "effects" : "shot_small",
+         "maxAmmo" : 100,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#japan_vehicles:_37mm_Type11",
+         "rotationSpeed" : "43.75",
+         "maxHealth" : 54,
+         "level" : 1,
+         "reloadTime" : "2.5",
+         "price" : 1800,
+         "pitchLimits" : "-23 20"
+      }
+   },
+   "ids" : {
+      "_75mm_Gun_Type3" : 15,
+      "_57mm_Gun_Type97" : 4,
+      "_105mm_Rifled_Gun" : 22,
+      "_37mm_Type_100" : 11,
+      "_90mm_Rifled_Gun" : 20,
+      "_13.2mm_Type93" : 1,
+      "_37mm_Type_98" : 7,
+      "_37mm_Type1" : 12,
+      "_75mm_Gun_Type_99" : 13,
+      "_47mm_Gun_Type1" : 10,
+      "_37mm_Type_94" : 6,
+      "_90mm_Gun_M3A1" : 19,
+      "_37mm_Sogekiho" : 3,
+      "_37mm_APX_SA18" : 8,
+      "_37mm_Type_100_1" : 5,
+      "_75mm_Gun_Type5_M1" : 17,
+      "_90mm_Gun_Type61" : 21,
+      "_75mm_Type5_1" : "",
+      "_57mm_Gun_Shin" : 14,
+      "_75mm_Gun_Type5" : 16,
+      "_75mm_Gun_Type5_M1_auto" : 18,
+      "_37mm_Type11" : 9
+   }
+}

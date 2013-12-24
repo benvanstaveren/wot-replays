@@ -1,0 +1,166 @@
+{
+   "shared" : {
+      "N9" : {
+         "distance" : 375,
+         "tags" : {},
+         "userString" : "#gb_vehicles:N9",
+         "maxHealth" : 80,
+         "maxRegenHealth" : 48,
+         "repairCost" : "0.5",
+         "level" : 5,
+         "weight" : 40,
+         "price" : 3600
+      },
+      "C45" : {
+         "distance" : 750,
+         "tags" : {},
+         "maxRegenHealth" : 108,
+         "userString" : "#gb_vehicles:C45",
+         "maxHealth" : 180,
+         "repairCost" : "3.5",
+         "level" : 10,
+         "weight" : 40,
+         "price" : 45600,
+         "notInShop" : true
+      },
+      "N19Mk3" : {
+         "distance" : 550,
+         "tags" : {},
+         "userString" : "#gb_vehicles:N19Mk3",
+         "maxHealth" : 140,
+         "maxRegenHealth" : 84,
+         "repairCost" : "3.5",
+         "level" : 8,
+         "weight" : 40,
+         "price" : 22000
+      },
+      "N22Mk2" : {
+         "distance" : 650,
+         "tags" : {},
+         "maxRegenHealth" : 150,
+         "userString" : "#gb_vehicles:N22Mk2",
+         "maxHealth" : 200,
+         "repairCost" : 3,
+         "level" : 9,
+         "weight" : 110,
+         "price" : 33600,
+         "notInShop" : true
+      },
+      "N22" : {
+         "distance" : 700,
+         "tags" : {},
+         "userString" : "#gb_vehicles:N22",
+         "maxHealth" : 140,
+         "maxRegenHealth" : 84,
+         "repairCost" : 3,
+         "level" : 8,
+         "weight" : 40,
+         "price" : 25000
+      },
+      "Alarm_flags" : {
+         "distance" : 90,
+         "tags" : {},
+         "userString" : "#gb_vehicles:Alarm_flags",
+         "maxHealth" : 40,
+         "maxRegenHealth" : 24,
+         "repairCost" : "",
+         "level" : 1,
+         "weight" : 1,
+         "price" : ""
+      },
+      "British_Wireless_set_N19" : {
+         "distance" : 570,
+         "tags" : {},
+         "maxRegenHealth" : 96,
+         "userString" : "#gb_vehicles:British_Wireless_set_N19",
+         "maxHealth" : 160,
+         "repairCost" : 3,
+         "level" : 9,
+         "weight" : 40,
+         "price" : 29400,
+         "notInShop" : true
+      },
+      "N14" : {
+         "distance" : 250,
+         "tags" : {},
+         "userString" : "#gb_vehicles:N14",
+         "maxHealth" : 50,
+         "maxRegenHealth" : 30,
+         "repairCost" : "0.5",
+         "level" : 2,
+         "weight" : 40,
+         "price" : 180
+      },
+      "N19Mk2" : {
+         "distance" : 450,
+         "tags" : {},
+         "userString" : "#gb_vehicles:N19Mk2",
+         "maxHealth" : 120,
+         "maxRegenHealth" : 72,
+         "repairCost" : "3.5",
+         "level" : 7,
+         "weight" : 40,
+         "price" : 21000
+      },
+      "N9A" : {
+         "distance" : 375,
+         "tags" : {},
+         "maxRegenHealth" : 48,
+         "userString" : "#gb_vehicles:N9",
+         "maxHealth" : 80,
+         "repairCost" : "0.5",
+         "level" : 5,
+         "weight" : 40,
+         "price" : 3600,
+         "notInShop" : true
+      },
+      "N19Mk1" : {
+         "distance" : 400,
+         "tags" : {},
+         "userString" : "#gb_vehicles:N19Mk1",
+         "maxHealth" : 100,
+         "maxRegenHealth" : 60,
+         "repairCost" : "0.5",
+         "level" : 6,
+         "weight" : 40,
+         "price" : 15000
+      },
+      "N11" : {
+         "distance" : 350,
+         "tags" : {},
+         "userString" : "#gb_vehicles:N11",
+         "maxHealth" : 60,
+         "maxRegenHealth" : 36,
+         "repairCost" : "0.5",
+         "level" : 3,
+         "weight" : 40,
+         "price" : 600
+      },
+      "C42" : {
+         "distance" : 750,
+         "tags" : {},
+         "userString" : "#gb_vehicles:C42",
+         "maxHealth" : 180,
+         "maxRegenHealth" : 108,
+         "repairCost" : "3.5",
+         "level" : 10,
+         "weight" : 40,
+         "price" : 54000
+      }
+   },
+   "ids" : {
+      "N9" : 15,
+      "C45" : 20,
+      "N19Mk3" : 17,
+      "N22Mk2" : 14,
+      "N22" : 12,
+      "Alarm_flags" : 3,
+      "N14" : 4,
+      "British_Wireless_set_N19" : 2,
+      "N19Mk2" : 8,
+      "N9A" : 21,
+      "N19Mk1" : 9,
+      "N11" : 16,
+      "C42" : 19
+   }
+}

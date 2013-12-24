@@ -26,8 +26,6 @@ print 'processing: ', $f, "\n";
 my $d = read_file($f);
 my $x = $j->decode($d);
 
-die Dumper($x);
-
 foreach my $id (keys(%$x)) {
     next if($id eq 'text');
     my $data = $x->{$id};

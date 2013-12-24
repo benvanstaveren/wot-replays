@@ -1,0 +1,410 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: World Of Tanks\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-06-01 10:00+0300\n"
+"PO-Revision-Date: 2010-06-01 10:00+0300\n"
+"Last-Translator: WoT Translator <noreply@wargaming.net>\n"
+"Language-Team: WoT Team <noreply@wargaming.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "bonuses/item/berths"
+msgstr "bunks in Barracks"
+
+msgid "bonuses/item/creditsFactor"
+msgstr "credits coefficient"
+
+msgid "bonuses/item/freeXPFactor"
+msgstr "Free Experience coefficient"
+
+msgid "bonuses/item/premium"
+msgstr "Premium days"
+
+msgid "bonuses/item/slots"
+msgstr "slots in Garage"
+
+msgid "bonuses/item/tankmenXP"
+msgstr "crew experience"
+
+msgid "bonuses/item/tankmenXPFactor"
+msgstr "crew experience coefficient"
+
+msgid "bonuses/item/xpFactor"
+msgstr "experience coefficient"
+
+msgid "bonuses/items/name"
+msgstr "%(name)s (x%(count)s)"
+
+msgid "bonuses/vehicles/crewLvl"
+msgstr "%d%% crew"
+
+msgid "bonuses/vehicles/name"
+msgstr "%(name)s (%(crew)s)"
+
+msgid "details/conditions/title"
+msgstr "Condition"
+
+msgid "details/conditions/vehicle"
+msgstr "Required vehicles:"
+
+msgid "details/conditions/vehicleDescr"
+msgstr "Vehicles required:"
+
+msgid "details/conditions/vehicleKills"
+msgstr "Destroy:"
+
+msgid "details/conditions/vehiclesOwned"
+msgstr "Vehicles in Garage:"
+
+msgid "details/conditions/vehiclesUnlocked"
+msgstr "Vehicles researched:"
+
+msgid "details/header/activeDuration"
+msgstr "From %(startTime)s to %(finishTime)s"
+
+msgid "details/header/completion/daily"
+msgstr "Missions available for completion per 24 hours: %(count)d."
+
+msgid "details/header/completion/daily/groupByClass"
+msgstr ""
+"Missions available for completion per 24 hours: %(count)d in vehicles of "
+"certain types."
+
+msgid "details/header/completion/daily/groupByLevel"
+msgstr ""
+"Missions available for completion per 24 hours: %(count)d in vehicles of "
+"certain tiers."
+
+msgid "details/header/completion/daily/groupByNation"
+msgstr ""
+"Missions available for completion per 24 hours: %(count)d in vehicles of "
+"certain nationalities."
+
+msgid "details/header/completion/daily/groupByVehicle"
+msgstr ""
+"Missions available for completion per 24 hours: %(count)d in certain "
+"vehicles."
+
+msgid "details/header/completion/single"
+msgstr "Missions available for completion: %(count)d."
+
+msgid "details/header/completion/single/groupByClass"
+msgstr ""
+"Missions available for completion per 24 hours: %(count)d in vehicles of "
+"certain types."
+
+msgid "details/header/completion/single/groupByLevel"
+msgstr ""
+"Missions available for completion per 24 hours: %(count)d in vehicles of "
+"certain tiers."
+
+msgid "details/header/completion/single/groupByNation"
+msgstr ""
+"Missions available for completion per 24 hours: %(count)d in vehicles of "
+"certain nationalities."
+
+msgid "details/header/completion/single/groupByVehicle"
+msgstr ""
+"Missions available for completion per 24 hours: %(count)d in certain "
+"vehicles."
+
+msgid "details/header/completion/unlimited"
+msgstr "Missions available for completion: unlimited."
+
+msgid "details/header/hasNoVehicles"
+msgstr "Mission unavailable: no vehicles of correct type."
+
+msgid "details/header/info/descr_parallel"
+msgstr ""
+"To complete the strategic mission, complete the following missions in any "
+"order."
+
+msgid "details/header/info/descr_serial"
+msgstr ""
+"To complete the strategic mission, complete the following missions "
+"sequentially."
+
+msgid "details/header/info/title"
+msgstr "Condition"
+
+msgid "details/header/tillDate"
+msgstr "Until %(finishTime)s"
+
+msgid "details/modifiers/customization/groupEmblem"
+msgstr "On Emblems of group %(groupName)s until:"
+
+msgid "details/modifiers/customization/vehCamouflage"
+msgstr "On Camouflage for %(vehName)s until:"
+
+msgid "details/modifiers/economics/berthsPrices"
+msgstr "On purchasing bunks in Barracks"
+
+msgid "details/modifiers/economics/camouflagePacket30Cost"
+msgstr "On all types of Camouflage (for 30 days) until:"
+
+msgid "details/modifiers/economics/camouflagePacket7Cost"
+msgstr "On all types of Camouflage (for 7 days) until:"
+
+msgid "details/modifiers/economics/camouflagePacketInfCost"
+msgstr "On all types of permanent Camouflage until:"
+
+msgid "details/modifiers/economics/clanCreationCost"
+msgstr "On creating a clan"
+
+msgid "details/modifiers/economics/creditsDropSkillsCost"
+msgstr "On dropping crew skills for credits"
+
+msgid "details/modifiers/economics/creditsTankmanCost"
+msgstr "On crew training and retraining for credits"
+
+msgid "details/modifiers/economics/emblemPacket30Cost"
+msgstr "On all types of Emblems (for 30 days) until:"
+
+msgid "details/modifiers/economics/emblemPacket7Cost"
+msgstr "On all types of Emblems (for 7 days) until:"
+
+msgid "details/modifiers/economics/emblemPacketInfCost"
+msgstr "On all types of permanent Emblems until:"
+
+msgid "details/modifiers/economics/exchangeRate"
+msgstr "On cost of exchanging gold for credits"
+
+msgid "details/modifiers/economics/exchangeRateForShellsAndEqs"
+msgstr ""
+"On cost of purchasing Premium consumables and Premium shells for credits "
+"until:"
+
+msgid "details/modifiers/economics/freeXPConversionDiscrecity"
+msgstr "On cost of converting XP to Free Experience"
+
+msgid "details/modifiers/economics/freeXPToTManXPRate"
+msgstr "On cost of converting Free Experience to crew XP"
+
+msgid "details/modifiers/economics/goldDropSkillsCost"
+msgstr "On dropping crew skills for gold"
+
+msgid "details/modifiers/economics/goldTankmanCost"
+msgstr "On crew training and retraining for gold"
+
+msgid "details/modifiers/economics/inscriptionPacket30Cost"
+msgstr "On all types of Inscriptions (for 30 days) until:"
+
+msgid "details/modifiers/economics/inscriptionPacket7Cost"
+msgstr "On all types of Inscriptions (for 7 days) until:"
+
+msgid "details/modifiers/economics/inscriptionPacketInfCost"
+msgstr "On all types of permanent Inscriptions until:"
+
+msgid "details/modifiers/economics/paidRemovalCost"
+msgstr "On demounting complex equipment"
+
+msgid "details/modifiers/economics/passportChangeCost"
+msgstr "On replacing crew Personal Data"
+
+msgid "details/modifiers/economics/premiumPacket1"
+msgstr "On purchasing Premium Account for 1 day"
+
+msgid "details/modifiers/economics/premiumPacket180"
+msgstr "On purchasing Premium Account for 180 days"
+
+msgid "details/modifiers/economics/premiumPacket3"
+msgstr "On purchasing Premium Account for 3 days"
+
+msgid "details/modifiers/economics/premiumPacket30"
+msgstr "On purchasing Premium Account for 30 days"
+
+msgid "details/modifiers/economics/premiumPacket360"
+msgstr "On purchasing Premium Account for 360 days"
+
+msgid "details/modifiers/economics/premiumPacket7"
+msgstr "On purchasing Premium Account for 7 days"
+
+msgid "details/modifiers/economics/slotsPrices"
+msgstr "On purchasing slots in the Garage"
+
+msgid "details/modifiers/equipment/credits"
+msgstr "On purchasing consumables %(eqName)s for credits"
+
+msgid "details/modifiers/equipment/creditsPriceMultiplier"
+msgstr "On purchasing consumables for credits until:"
+
+msgid "details/modifiers/equipment/gold"
+msgstr "On purchasing consumables %(eqName)s for gold"
+
+msgid "details/modifiers/equipment/goldPriceMultiplier"
+msgstr "On purchasing consumables for gold until:"
+
+msgid "details/modifiers/optDevice"
+msgstr "On purchasing equipment %(devName)s"
+
+msgid "details/modifiers/optDevice/creditsPriceMultiplier"
+msgstr "On purchasing equipment for credits until:"
+
+msgid "details/modifiers/optDevice/goldPriceMultiplier"
+msgstr "On purchasing equipment for gold until:"
+
+msgid "details/modifiers/shell/credits"
+msgstr "On purchasing shells %(shellName)s for credits"
+
+msgid "details/modifiers/shell/creditsPriceMultiplier"
+msgstr "On purchasing shells for credits until:"
+
+msgid "details/modifiers/shell/gold"
+msgstr "On purchasing shells %(shellName)s for gold"
+
+msgid "details/modifiers/shell/goldPriceMultiplier"
+msgstr "On purchasing shells for gold until:"
+
+msgid "details/modifiers/shell/nation/creditsPriceMultiplier"
+msgstr "On purchasing shells of %(nation)s nation for credits until:"
+
+msgid "details/modifiers/shell/nation/goldPriceMultiplier"
+msgstr "On purchasing shells of %(nation)s nation for gold until:"
+
+msgid "details/modifiers/title/discount"
+msgstr "Event Discounts:"
+
+msgid "details/modifiers/title/selling"
+msgstr "Sale:"
+
+msgid "details/modifiers/vehicle"
+msgstr "On purchasing vehicles:"
+
+msgid "details/modifiers/vehicle/creditsPriceMultiplier"
+msgstr "On purchasing vehicles for credits until:"
+
+msgid "details/modifiers/vehicle/goldPriceMultiplier"
+msgstr "On purchasing vehicles for gold until:"
+
+msgid "details/modifiers/vehicle/nation/creditsPriceMultiplier"
+msgstr "On purchasing vehicles of %(nation)s nation for credits until:"
+
+msgid "details/modifiers/vehicle/nation/goldPriceMultiplier"
+msgstr "On purchasing vehicles of %(nation)s nation for gold until:"
+
+msgid "details/modifiers/vehicle/sell"
+msgstr "On selling vehicles:"
+
+msgid "details/tasks/nextTask"
+msgstr "Mission coming soon"
+
+msgid "details/tasks/strategic"
+msgstr "Part of a mission"
+
+msgid "details/tasks/subTask"
+msgstr "Mission"
+
+msgid "igr/tooltip/battlesLabel"
+msgstr "Battles"
+
+msgid "igr/tooltip/winsLabel"
+msgstr "Victories"
+
+msgid "item/timer/tillFinish"
+msgstr "Finish time"
+
+msgid "item/timer/tillFinish/days"
+msgstr "Finish time"
+
+msgid "item/timer/tillFinish/hours"
+msgstr "Finish time"
+
+msgid "item/timer/tillFinish/longFormat"
+msgstr "%H h %M min"
+
+msgid "item/timer/tillFinish/shortFormat"
+msgstr "%M min"
+
+msgid "item/timer/tillStart"
+msgstr "Will be available"
+
+msgid "item/timer/tillStart/days"
+msgstr "in %d days"
+
+msgid "item/timer/tillStart/hours"
+msgstr "in %H h %M min"
+
+msgid "item/timer/tillStart/min"
+msgstr "in %M min"
+
+msgid "item/type/action"
+msgstr "Event"
+
+msgid "item/type/quest"
+msgstr "Mission"
+
+msgid "item/type/questDaily"
+msgstr "Mission"
+
+msgid "item/type/questStrategic"
+msgstr "Strategic mission"
+
+msgid "postBattle/progressReset"
+msgstr "One of the conditions is not fulfilled. Progress is reset."
+
+msgid "quests/current/nodata"
+msgstr "No current missions or events"
+
+msgid "quests/currentTab/header/checkBox/text"
+msgstr "Hide completed"
+
+msgid "quests/currentTab/header/dropdown/date"
+msgstr "By date"
+
+msgid "quests/currentTab/header/dropdown/time"
+msgstr "By finish time"
+
+msgid "quests/currentTab/header/sort"
+msgstr "Sort:"
+
+msgid "quests/future/nodata"
+msgstr "No missions coming soon"
+
+msgid "quests/list/clickCheckbox"
+msgstr "To view missions, click the “Hide completed” checkbox above."
+
+msgid "quests/list/complete"
+msgstr "All missions completed"
+
+msgid "quests/status/done"
+msgstr "Complete!"
+
+msgid "quests/status/notAvailable"
+msgstr "Unavailable"
+
+msgid "quests/tabs/award/text"
+msgstr "Reward:"
+
+msgid "quests/tabs/current"
+msgstr "Current"
+
+msgid "quests/tabs/future"
+msgstr "Coming Soon"
+
+msgid "quests/tabs/noselected/text"
+msgstr ""
+"Choose a mission or an event\n"
+"from the list on the left to see\n"
+"a full description."
+
+msgid "quests/title"
+msgstr "Missions and Events"
+
+msgid "questsControl/title"
+msgstr ""
+"Missions\n"
+"and Events"
+
+msgid "tooltip/progress/groupBy/body"
+msgstr "Maximum result"
+
+msgid "tooltip/progress/groupBy/header"
+msgstr "Progress in mission completion"
+
+msgid "tooltip/progress/groupBy/note"
+msgstr "Subsequent results"
+
+msgid "tooltip/progress/groupBy/note/level"
+msgstr "tier %s"

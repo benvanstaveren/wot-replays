@@ -1,0 +1,1547 @@
+{
+   "_90mm_Pzgr39_48" : {
+      "icon" : "ap",
+      "damage" : {
+         "armor" : 240,
+         "devices" : 122
+      },
+      "effects" : "mainArmorPiercing",
+      "userString" : "#germany_vehicles:_90mm_Pzgr39_48",
+      "caliber" : 90,
+      "kind" : "ARMOR_PIERCING",
+      "id" : 102,
+      "price" : 300,
+      "isTracer" : true
+   },
+   "_50mm_Pzgr40" : {
+      "icon" : "ap_cr",
+      "damage" : {
+         "armor" : 70,
+         "devices" : 68
+      },
+      "effects" : "mediumAPCR",
+      "userString" : "#germany_vehicles:_50mm_Pzgr40",
+      "caliber" : 50,
+      "kind" : "ARMOR_PIERCING_CR",
+      "id" : 16,
+      "price" : 5,
+      "isTracer" : true
+   },
+   "_105mm_Sprg_K" : {
+      "icon" : "he",
+      "damage" : {
+         "armor" : 410,
+         "devices" : 150
+      },
+      "effects" : "mainHighExplosive",
+      "explosionRadius" : "1.91",
+      "userString" : "#germany_vehicles:_105mm_Sprg_K",
+      "caliber" : 105,
+      "kind" : "HIGH_EXPLOSIVE",
+      "id" : 40,
+      "price" : 128,
+      "isTracer" : true
+   },
+   "_37mm_Pzgr39t" : {
+      "icon" : "ap",
+      "damage" : {
+         "armor" : 40,
+         "devices" : 50
+      },
+      "effects" : "smallArmorPiercing",
+      "userString" : "#germany_vehicles:_37mm_Pzgr39t",
+      "caliber" : 37,
+      "kind" : "ARMOR_PIERCING",
+      "id" : 6,
+      "price" : 14,
+      "isTracer" : true
+   },
+   "_7.92mm_AP" : {
+      "icon" : "ap",
+      "damage" : {
+         "armor" : 8,
+         "devices" : 17
+      },
+      "effects" : "autoArmorPiercing",
+      "userString" : "#germany_vehicles:_7.92mm_AP",
+      "caliber" : "7.92",
+      "kind" : "ARMOR_PIERCING",
+      "id" : 96,
+      "price" : 3,
+      "isTracer" : true
+   },
+   "_105mm_Pzgr.40G" : {
+      "icon" : "ap_cr",
+      "damage" : {
+         "armor" : 390,
+         "devices" : 150
+      },
+      "effects" : "AAAAAAAA",
+      "userString" : "#germany_vehicles:_105mm_Pzgr.40G",
+      "caliber" : 105,
+      "kind" : "ARMOR_PIERCING_CR",
+      "id" : 58,
+      "price" : 10,
+      "isTracer" : true
+   },
+   "_105mm_Gr19" : {
+      "icon" : "he",
+      "damage" : {
+         "armor" : 380,
+         "devices" : 150
+      },
+      "effects" : "mainHighExplosive",
+      "explosionRadius" : "1.91",
+      "userString" : "#germany_vehicles:_105mm_Gr19",
+      "caliber" : 105,
+      "kind" : "HIGH_EXPLOSIVE",
+      "id" : 89,
+      "price" : 650,
+      "isTracer" : true
+   },
+   "_88mm_Pzgr.40" : {
+      "icon" : "ap_cr",
+      "damage" : {
+         "armor" : 220,
+         "devices" : 119
+      },
+      "effects" : "AAAAAAAA",
+      "userString" : "#germany_vehicles:_88mm_Pzgr.40",
+      "caliber" : 88,
+      "kind" : "ARMOR_PIERCING_CR",
+      "id" : 33,
+      "price" : 8,
+      "isTracer" : true
+   },
+   "_47mm_Pzgr39t" : {
+      "icon" : "ap",
+      "damage" : {
+         "armor" : 60,
+         "devices" : 64
+      },
+      "effects" : "smallArmorPiercing",
+      "userString" : "#germany_vehicles:_47mm_Pzgr39t",
+      "caliber" : 47,
+      "kind" : "ARMOR_PIERCING",
+      "id" : 9,
+      "price" : 16,
+      "isTracer" : true
+   },
+   "_105mm_PzGr39L" : {
+      "icon" : "ap",
+      "damage" : {
+         "armor" : 320,
+         "devices" : 150
+      },
+      "effects" : "mainArmorPiercing",
+      "userString" : "#germany_vehicles:_105mm_PzGr39L",
+      "caliber" : 105,
+      "kind" : "ARMOR_PIERCING",
+      "id" : 41,
+      "price" : 1030,
+      "isTracer" : true
+   },
+   "_88mm_Pzgr40_43" : {
+      "icon" : "ap_cr",
+      "damage" : {
+         "armor" : 240,
+         "devices" : 119
+      },
+      "effects" : "AAAAAAAA",
+      "userString" : "#germany_vehicles:_88mm_Pzgr40_43",
+      "caliber" : 88,
+      "kind" : "ARMOR_PIERCING_CR",
+      "id" : 110,
+      "price" : 11,
+      "isTracer" : true
+   },
+   "_105mm_PzGr39L1" : {
+      "icon" : "ap",
+      "damage" : {
+         "armor" : 320,
+         "devices" : 150
+      },
+      "effects" : "mainArmorPiercing",
+      "userString" : "#germany_vehicles:_105mm_PzGr39L1",
+      "caliber" : 105,
+      "kind" : "ARMOR_PIERCING",
+      "id" : 66,
+      "price" : 1030,
+      "isTracer" : true
+   },
+   "_76mm_Pzgr.40r" : {
+      "icon" : "ap_cr",
+      "damage" : {
+         "armor" : 115,
+         "devices" : 105
+      },
+      "effects" : "mediumAPCR",
+      "userString" : "#germany_vehicles:_76mm_Pzgr.40r",
+      "caliber" : 76,
+      "kind" : "ARMOR_PIERCING_CR",
+      "id" : 30,
+      "price" : 7,
+      "isTracer" : true
+   },
+   "_47cm_Pzgr40f" : {
+      "icon" : "ap_cr",
+      "damage" : {
+         "armor" : 52,
+         "devices" : 64
+      },
+      "effects" : "smallAPCR",
+      "userString" : "#germany_vehicles:_47cm_Pzgr40f",
+      "caliber" : 47,
+      "kind" : "ARMOR_PIERCING_CR",
+      "id" : 13,
+      "price" : 2,
+      "isTracer" : true
+   },
+   "_7.92mm_APCR" : {
+      "icon" : "ap_cr",
+      "damage" : {
+         "armor" : 8,
+         "devices" : 17
+      },
+      "effects" : "AAAAAAAA",
+      "userString" : "#germany_vehicles:_7.92mm_APCR",
+      "caliber" : "7.92",
+      "kind" : "ARMOR_PIERCING_CR",
+      "id" : 101,
+      "price" : 1,
+      "isTracer" : true
+   },
+   "_170mm_PaK_K72_SprgG_ausf_46" : {
+      "icon" : "he",
+      "damage" : {
+         "armor" : 1400,
+         "devices" : 228
+      },
+      "effects" : "hugeHighExplosive",
+      "explosionRadius" : "4.45",
+      "userString" : "#germany_vehicles:_170mm_PaK_K72_SprgG_ausf_46",
+      "caliber" : 170,
+      "kind" : "HIGH_EXPLOSIVE",
+      "id" : 92,
+      "price" : 1430,
+      "isTracer" : true
+   },
+   "_20mm_Pzgr39" : {
+      "icon" : "ap",
+      "damage" : {
+         "armor" : 11,
+         "devices" : 27
+      },
+      "effects" : "autoArmorPiercing",
+      "userString" : "#germany_vehicles:_20mm_Pzgr39",
+      "caliber" : 20,
+      "kind" : "ARMOR_PIERCING",
+      "id" : "",
+      "price" : 3,
+      "isTracer" : true
+   },
+   "_128mm_SprG19" : {
+      "icon" : "he",
+      "damage" : {
+         "armor" : 700,
+         "devices" : 180
+      },
+      "effects" : "largeHighExplosive",
+      "explosionRadius" : "2.71",
+      "userString" : "#germany_vehicles:_128mm_SprG19",
+      "caliber" : 128,
+      "kind" : "HIGH_EXPLOSIVE",
+      "id" : 56,
+      "price" : 1055,
+      "isTracer" : true
+   },
+   "_50mm_Sprg.18" : {
+      "icon" : "he",
+      "damage" : {
+         "armor" : 90,
+         "devices" : 68
+      },
+      "effects" : "mediumHighExplosive",
+      "explosionRadius" : "0.52",
+      "userString" : "#germany_vehicles:_50mm_Sprg.18",
+      "caliber" : 50,
+      "kind" : "HIGH_EXPLOSIVE",
+      "id" : 17,
+      "price" : 18,
+      "isTracer" : true
+   },
+   "_37cm_Pzgr40t" : {
+      "icon" : "ap_cr",
+      "damage" : {
+         "armor" : 40,
+         "devices" : 50
+      },
+      "effects" : "smallAPCR",
+      "userString" : "#germany_vehicles:_37cm_Pzgr40t",
+      "caliber" : 37,
+      "kind" : "ARMOR_PIERCING_CR",
+      "id" : 7,
+      "price" : 2,
+      "isTracer" : true
+   },
+   "_37cm_Pzgr40" : {
+      "icon" : "ap_cr",
+      "damage" : {
+         "armor" : 36,
+         "devices" : 50
+      },
+      "effects" : "smallAPCR",
+      "userString" : "#germany_vehicles:_37cm_Pzgr40",
+      "caliber" : 37,
+      "kind" : "ARMOR_PIERCING_CR",
+      "id" : 4,
+      "price" : 2,
+      "isTracer" : true
+   },
+   "_105mmGr39H1A" : {
+      "icon" : "hc",
+      "damage" : {
+         "armor" : 350,
+         "devices" : 150
+      },
+      "effects" : "AAAAAAAAAAAAAAAA",
+      "userString" : "#germany_vehicles:_105mmGr39H1A",
+      "caliber" : 105,
+      "kind" : "HOLLOW_CHARGE",
+      "piercingPowerLossFactorByDistance" : "0.05",
+      "id" : 39,
+      "price" : 10,
+      "isTracer" : true
+   },
+   "_88mm_Sprg.43" : {
+      "icon" : "he",
+      "damage" : {
+         "armor" : 295,
+         "devices" : 119
+      },
+      "effects" : "mainHighExplosive",
+      "explosionRadius" : "1.4",
+      "userString" : "#germany_vehicles:_88mm_Sprg.43",
+      "caliber" : 88,
+      "kind" : "HIGH_EXPLOSIVE",
+      "id" : 73,
+      "price" : 252,
+      "isTracer" : true
+   },
+   "_90mm_Pzgr40_48" : {
+      "icon" : "ap_cr",
+      "damage" : {
+         "armor" : 240,
+         "devices" : 122
+      },
+      "effects" : "AAAAAAAA",
+      "userString" : "#germany_vehicles:_90mm_Pzgr40_48",
+      "caliber" : 90,
+      "kind" : "ARMOR_PIERCING_CR",
+      "id" : 103,
+      "price" : 11,
+      "isTracer" : true
+   },
+   "_105mm_Sprg.18K" : {
+      "icon" : "he",
+      "damage" : {
+         "armor" : 510,
+         "devices" : 150
+      },
+      "effects" : "mainHighExplosive",
+      "explosionRadius" : "1.91",
+      "userString" : "#germany_vehicles:_105mm_Sprg.18K",
+      "caliber" : 105,
+      "kind" : "HIGH_EXPLOSIVE",
+      "id" : 94,
+      "price" : 1211,
+      "isTracer" : true
+   },
+   "_210mm_Sprg18_Ausf_G" : {
+      "icon" : "he_premium",
+      "damage" : {
+         "armor" : 2000,
+         "devices" : 280
+      },
+      "effects" : "hugeHighExplosive",
+      "explosionRadius" : "9.21",
+      "userString" : "#germany_vehicles:_210mm_Sprg18_Ausf_G",
+      "caliber" : 210,
+      "kind" : "HIGH_EXPLOSIVE",
+      "id" : 63,
+      "price" : 20,
+      "isTracer" : true
+   },
+   "_88mm_Pzgr39_1" : {
+      "icon" : "ap",
+      "damage" : {
+         "armor" : 240,
+         "devices" : 119
+      },
+      "effects" : "mainArmorPiercing",
+      "userString" : "#germany_vehicles:_88mm_Pzgr39_1",
+      "caliber" : 88,
+      "kind" : "ARMOR_PIERCING",
+      "id" : 109,
+      "price" : 252,
+      "isTracer" : true
+   },
+   "_88mm_Pzgr39" : {
+      "icon" : "ap",
+      "damage" : {
+         "armor" : 220,
+         "devices" : 119
+      },
+      "effects" : "mainArmorPiercing",
+      "userString" : "#germany_vehicles:_88mm_Pzgr39",
+      "caliber" : 88,
+      "kind" : "ARMOR_PIERCING",
+      "id" : 32,
+      "price" : 252,
+      "isTracer" : true
+   },
+   "_150mm_SprgG_ausf_46" : {
+      "icon" : "he",
+      "damage" : {
+         "armor" : 1100,
+         "devices" : 203
+      },
+      "effects" : "largeHighExplosive",
+      "explosionRadius" : "3.57",
+      "userString" : "#germany_vehicles:_150mm_SprgG_ausf_46",
+      "caliber" : 150,
+      "kind" : "HIGH_EXPLOSIVE",
+      "isTracer" : true,
+      "id" : 82,
+      "price" : 1120,
+      "notInShop" : true
+   },
+   "_150mm_Sprg_L.erz." : {
+      "icon" : "he",
+      "damage" : {
+         "armor" : 350,
+         "devices" : 203
+      },
+      "effects" : "largeHighExplosive",
+      "explosionRadius" : "3.57",
+      "userString" : "#germany_vehicles:_150mm_Sprg_L.erz.",
+      "caliber" : 150,
+      "kind" : "HIGH_EXPLOSIVE",
+      "id" : 53,
+      "price" : 200,
+      "isTracer" : true
+   },
+   "_30mm_Pzgr43" : {
+      "icon" : "ap_cr",
+      "damage" : {
+         "armor" : 30,
+         "devices" : 40
+      },
+      "effects" : "smallAPCR",
+      "userString" : "#germany_vehicles:_30mm_Pzgr43",
+      "caliber" : 30,
+      "kind" : "ARMOR_PIERCING_CR",
+      "id" : 98,
+      "price" : 3,
+      "isTracer" : true
+   },
+   "_88mm_Pzgr.40L" : {
+      "icon" : "ap_cr",
+      "damage" : {
+         "armor" : 240,
+         "devices" : 119
+      },
+      "effects" : "AAAAAAAA",
+      "userString" : "#germany_vehicles:_88mm_Pzgr.40L",
+      "caliber" : 88,
+      "kind" : "ARMOR_PIERCING_CR",
+      "id" : 36,
+      "price" : 11,
+      "isTracer" : true
+   },
+   "_105mm_PzGr39K" : {
+      "icon" : "ap",
+      "damage" : {
+         "armor" : 350,
+         "devices" : 150
+      },
+      "effects" : "mainArmorPiercing",
+      "userString" : "#germany_vehicles:_105mm_PzGr39K",
+      "caliber" : 105,
+      "kind" : "ARMOR_PIERCING",
+      "id" : 38,
+      "price" : 120,
+      "isTracer" : true
+   },
+   "_30mm_Pzgr" : {
+      "icon" : "ap",
+      "damage" : {
+         "armor" : 30,
+         "devices" : 40
+      },
+      "effects" : "smallArmorPiercing",
+      "userString" : "#germany_vehicles:_30mm_Pzgr",
+      "caliber" : 30,
+      "kind" : "ARMOR_PIERCING",
+      "id" : 97,
+      "price" : 32,
+      "isTracer" : true
+   },
+   "_76mm_Pzgr39r" : {
+      "icon" : "ap",
+      "damage" : {
+         "armor" : 115,
+         "devices" : 105
+      },
+      "effects" : "mediumArmorPiercing",
+      "userString" : "#germany_vehicles:_76mm_Pzgr39r",
+      "caliber" : 76,
+      "kind" : "ARMOR_PIERCING",
+      "id" : 29,
+      "price" : 88,
+      "isTracer" : true
+   },
+   "_210mm_Sprg18" : {
+      "icon" : "he",
+      "damage" : {
+         "armor" : 2000,
+         "devices" : 280
+      },
+      "effects" : "hugeHighExplosive",
+      "explosionRadius" : "6.44",
+      "userString" : "#germany_vehicles:_210mm_Sprg18",
+      "caliber" : 210,
+      "kind" : "HIGH_EXPLOSIVE",
+      "id" : 62,
+      "price" : 2080,
+      "isTracer" : true
+   },
+   "_128mm_PzGr43" : {
+      "icon" : "ap_cr",
+      "damage" : {
+         "armor" : 560,
+         "devices" : 180
+      },
+      "effects" : "largeAPCR",
+      "userString" : "#germany_vehicles:_128mm_PzGr43",
+      "caliber" : 128,
+      "kind" : "ARMOR_PIERCING_CR",
+      "id" : 55,
+      "price" : 11,
+      "isTracer" : true
+   },
+   "_105mm_Pzgr.40K" : {
+      "icon" : "ap_cr",
+      "damage" : {
+         "armor" : 390,
+         "devices" : 150
+      },
+      "effects" : "AAAAAAAA",
+      "userString" : "#germany_vehicles:_105mm_Pzgr.40K",
+      "caliber" : 105,
+      "kind" : "ARMOR_PIERCING_CR",
+      "id" : 93,
+      "price" : 1200,
+      "isTracer" : true
+   },
+   "_47mm_Pzgr39f" : {
+      "icon" : "ap",
+      "damage" : {
+         "armor" : 52,
+         "devices" : 64
+      },
+      "effects" : "smallArmorPiercing",
+      "userString" : "#germany_vehicles:_47mm_Pzgr39f",
+      "caliber" : 47,
+      "kind" : "ARMOR_PIERCING",
+      "id" : 12,
+      "price" : 14,
+      "isTracer" : true
+   },
+   "_105mm_Sprg_L1" : {
+      "icon" : "he",
+      "damage" : {
+         "armor" : 420,
+         "devices" : 150
+      },
+      "effects" : "mainHighExplosive",
+      "explosionRadius" : "1.91",
+      "userString" : "#germany_vehicles:_105mm_Sprg_L1",
+      "caliber" : 105,
+      "kind" : "HIGH_EXPLOSIVE",
+      "id" : 68,
+      "price" : 650,
+      "isTracer" : true
+   },
+   "_88mm_Pzgr39L" : {
+      "icon" : "ap",
+      "damage" : {
+         "armor" : 240,
+         "devices" : 119
+      },
+      "effects" : "mainArmorPiercing",
+      "userString" : "#germany_vehicles:_88mm_Pzgr39L",
+      "caliber" : 88,
+      "kind" : "ARMOR_PIERCING",
+      "id" : 35,
+      "price" : 676,
+      "isTracer" : true
+   },
+   "_150mm_SprgG_ausf_45" : {
+      "icon" : "he",
+      "damage" : {
+         "armor" : 950,
+         "devices" : 203
+      },
+      "effects" : "largeHighExplosive",
+      "explosionRadius" : "3.57",
+      "userString" : "#germany_vehicles:_150mm_SprgG_ausf_45",
+      "caliber" : 150,
+      "kind" : "HIGH_EXPLOSIVE",
+      "id" : 74,
+      "price" : 1120,
+      "isTracer" : true
+   },
+   "_170mm_PaK_K72_PzGr45" : {
+      "icon" : "hc",
+      "damage" : {
+         "armor" : 1050,
+         "devices" : 228
+      },
+      "effects" : "AAAAAAAAAAAAAAAA",
+      "userString" : "#germany_vehicles:_170mm_PaK_K72_PzGr45",
+      "caliber" : 170,
+      "kind" : "HOLLOW_CHARGE",
+      "piercingPowerLossFactorByDistance" : "0.05",
+      "id" : 91,
+      "price" : 18,
+      "isTracer" : true
+   },
+   "_150mm_PzGr45" : {
+      "icon" : "ap_cr",
+      "damage" : {
+         "armor" : 850,
+         "devices" : 203
+      },
+      "effects" : "largeAPCR",
+      "userString" : "#germany_vehicles:_150mm_PzGr45",
+      "caliber" : 150,
+      "kind" : "ARMOR_PIERCING_CR",
+      "id" : 81,
+      "price" : 12,
+      "isTracer" : true,
+      "notInShop" : true
+   },
+   "icons" : {
+      "hc" : "HOLLOW_CHARGE.png 0 0",
+      "ap_he" : "ARMOR_PIERCING_HE.png 0 0",
+      "he" : "HIGH_EXPLOSIVE.png 0 0",
+      "ap_cr" : "ARMOR_PIERCING_CR.png 0 0",
+      "he_premium" : "HIGH_EXPLOSIVE_PREMIUM.png 0 0",
+      "ap" : "ARMOR_PIERCING.png 0 0"
+   },
+   "_88mm_Pzgr.40_43" : {
+      "icon" : "ap_cr",
+      "damage" : {
+         "armor" : 240,
+         "devices" : 119
+      },
+      "effects" : "AAAAAAAA",
+      "userString" : "#germany_vehicles:_88mm_Pzgr.40_43",
+      "caliber" : 88,
+      "kind" : "ARMOR_PIERCING_CR",
+      "id" : 72,
+      "price" : 11,
+      "isTracer" : true
+   },
+   "_105mm_Pzgr.40" : {
+      "icon" : "ap_cr",
+      "damage" : {
+         "armor" : 320,
+         "devices" : 150
+      },
+      "effects" : "AAAAAAAA",
+      "userString" : "#germany_vehicles:_105mm_Pzgr.40",
+      "caliber" : 105,
+      "kind" : "ARMOR_PIERCING_CR",
+      "id" : 42,
+      "price" : 12,
+      "isTracer" : true
+   },
+   "_105mm_APCR_M68M2" : {
+      "icon" : "ap_cr",
+      "damage" : {
+         "armor" : 390,
+         "devices" : 150
+      },
+      "effects" : "AAAAAAAA",
+      "userString" : "#usa_vehicles:_105mm_APCR_M68M2",
+      "caliber" : 105,
+      "kind" : "ARMOR_PIERCING_CR",
+      "id" : 106,
+      "price" : 1200,
+      "isTracer" : true
+   },
+   "_150mmGr_39H1A_G" : {
+      "icon" : "hc",
+      "damage" : {
+         "armor" : 750,
+         "devices" : 203
+      },
+      "effects" : "largeHollowCharge",
+      "userString" : "#germany_vehicles:_150mmGr_39H1A_G",
+      "caliber" : 150,
+      "kind" : "HOLLOW_CHARGE",
+      "piercingPowerLossFactorByDistance" : "0.05",
+      "id" : 52,
+      "price" : 12,
+      "isTracer" : true
+   },
+   "_75mm_Sprg.18" : {
+      "icon" : "he",
+      "damage" : {
+         "armor" : 175,
+         "devices" : 100
+      },
+      "effects" : "mediumHighExplosive",
+      "explosionRadius" : "1.06",
+      "userString" : "#germany_vehicles:_75mm_Sprg.18",
+      "caliber" : 75,
+      "kind" : "HIGH_EXPLOSIVE",
+      "id" : 23,
+      "price" : 38,
+      "isTracer" : true
+   },
+   "_20cm_Pzgr40B" : {
+      "icon" : "ap_cr",
+      "damage" : {
+         "armor" : 11,
+         "devices" : 27
+      },
+      "effects" : "AAAAAAAA",
+      "userString" : "#germany_vehicles:_20cm_Pzgr40",
+      "caliber" : 20,
+      "kind" : "ARMOR_PIERCING_CR",
+      "id" : 115,
+      "price" : 1,
+      "isTracer" : true,
+      "notInShop" : true
+   },
+   "_210mm_Gr.18Be" : {
+      "icon" : "ap",
+      "damage" : {
+         "armor" : 1550,
+         "devices" : 280
+      },
+      "effects" : "hugeArmorPiercing",
+      "userString" : "#germany_vehicles:_210mm_Gr.18Be",
+      "caliber" : 210,
+      "kind" : "ARMOR_PIERCING",
+      "id" : 70,
+      "price" : 1930,
+      "isTracer" : true
+   },
+   "_150mm_SprgG36" : {
+      "icon" : "he_premium",
+      "damage" : {
+         "armor" : 1200,
+         "devices" : 203
+      },
+      "effects" : "largeHighExplosive",
+      "explosionRadius" : "5.11",
+      "userString" : "#germany_vehicles:_150mm_SprgG36",
+      "caliber" : 150,
+      "kind" : "HIGH_EXPLOSIVE",
+      "id" : 64,
+      "price" : 13,
+      "isTracer" : true
+   },
+   "_88mm_Pzgr39_43" : {
+      "icon" : "ap",
+      "damage" : {
+         "armor" : 240,
+         "devices" : 119
+      },
+      "effects" : "mainArmorPiercing",
+      "userString" : "#germany_vehicles:_88mm_Pzgr39_43",
+      "caliber" : 88,
+      "kind" : "ARMOR_PIERCING",
+      "id" : 71,
+      "price" : 252,
+      "isTracer" : true
+   },
+   "_105mm_HE_M68M2" : {
+      "icon" : "he",
+      "damage" : {
+         "armor" : 480,
+         "devices" : 150
+      },
+      "effects" : "mainHighExplosive",
+      "explosionRadius" : "1.91",
+      "userString" : "#usa_vehicles:_105mm_HE_M68M2",
+      "caliber" : 105,
+      "kind" : "HIGH_EXPLOSIVE",
+      "id" : 107,
+      "price" : 880,
+      "isTracer" : true
+   },
+   "_47cm_Pzgr40t" : {
+      "icon" : "ap_cr",
+      "damage" : {
+         "armor" : 60,
+         "devices" : 64
+      },
+      "effects" : "smallAPCR",
+      "userString" : "#germany_vehicles:_47cm_Pzgr40t",
+      "caliber" : 47,
+      "kind" : "ARMOR_PIERCING_CR",
+      "id" : 10,
+      "price" : 3,
+      "isTracer" : true
+   },
+   "_47mm_Sprg.18t" : {
+      "icon" : "he",
+      "damage" : {
+         "armor" : 75,
+         "devices" : 64
+      },
+      "effects" : "smallHighExplosive",
+      "explosionRadius" : "0.47",
+      "userString" : "#germany_vehicles:_47mm_Sprg.18t",
+      "caliber" : 47,
+      "kind" : "HIGH_EXPLOSIVE",
+      "id" : 11,
+      "price" : 13,
+      "isTracer" : true
+   },
+   "_75mm_Sprg.18L" : {
+      "icon" : "he",
+      "damage" : {
+         "armor" : 175,
+         "devices" : 100
+      },
+      "effects" : "mediumHighExplosive",
+      "explosionRadius" : "1.06",
+      "userString" : "#germany_vehicles:_75mm_Sprg.18L",
+      "caliber" : 75,
+      "kind" : "HIGH_EXPLOSIVE",
+      "id" : 26,
+      "price" : 98,
+      "isTracer" : true
+   },
+   "_128mm_Pzgr_N4" : {
+      "icon" : "ap",
+      "damage" : {
+         "armor" : 490,
+         "devices" : 180
+      },
+      "effects" : "largeArmorPiercing",
+      "userString" : "#germany_vehicles:_128mm_Pzgr_N4",
+      "caliber" : 128,
+      "kind" : "ARMOR_PIERCING",
+      "id" : 112,
+      "price" : 920,
+      "isTracer" : true
+   },
+   "_105mm_PzGr.40Rot" : {
+      "icon" : "ap_cr",
+      "damage" : {
+         "armor" : 300,
+         "devices" : 150
+      },
+      "effects" : "AAAAAAAA",
+      "userString" : "#germany_vehicles:_105mm_PzGr.40Rot",
+      "caliber" : 105,
+      "kind" : "ARMOR_PIERCING_CR",
+      "id" : 88,
+      "price" : 11,
+      "isTracer" : true
+   },
+   "_75mm_Pzgr39L" : {
+      "icon" : "ap",
+      "damage" : {
+         "armor" : 135,
+         "devices" : 100
+      },
+      "effects" : "mediumArmorPiercing",
+      "userString" : "#germany_vehicles:_75mm_Pzgr39L",
+      "caliber" : 75,
+      "kind" : "ARMOR_PIERCING",
+      "id" : 24,
+      "price" : 109,
+      "isTracer" : true
+   },
+   "_75mm_Pzgr39LTraining" : {
+      "icon" : "ap",
+      "damage" : {
+         "armor" : 160,
+         "devices" : 100
+      },
+      "effects" : "mediumArmorPiercing",
+      "userString" : "#germany_vehicles:_75mm_Pzgr39L",
+      "caliber" : 75,
+      "kind" : "ARMOR_PIERCING",
+      "id" : 100,
+      "price" : 109,
+      "isTracer" : true,
+      "notInShop" : true
+   },
+   "_150mmGr_39H2A_G" : {
+      "icon" : "hc",
+      "damage" : {
+         "armor" : 900,
+         "devices" : 203
+      },
+      "effects" : "largeHollowCharge",
+      "userString" : "#germany_vehicles:_150mmGr_39H2A_G",
+      "caliber" : 150,
+      "kind" : "HOLLOW_CHARGE",
+      "piercingPowerLossFactorByDistance" : "0.05",
+      "id" : 69,
+      "price" : 14,
+      "isTracer" : true
+   },
+   "_75mm_Pzgr.40" : {
+      "icon" : "ap_cr",
+      "damage" : {
+         "armor" : 110,
+         "devices" : 100
+      },
+      "effects" : "mediumAPCR",
+      "userString" : "#germany_vehicles:_75mm_Pzgr.40",
+      "caliber" : 75,
+      "kind" : "ARMOR_PIERCING_CR",
+      "id" : 22,
+      "price" : 7,
+      "isTracer" : true
+   },
+   "_105mm_Sprg_L" : {
+      "icon" : "he",
+      "damage" : {
+         "armor" : 420,
+         "devices" : 150
+      },
+      "effects" : "mainHighExplosive",
+      "explosionRadius" : "1.91",
+      "userString" : "#germany_vehicles:_105mm_Sprg_L",
+      "caliber" : 105,
+      "kind" : "HIGH_EXPLOSIVE",
+      "id" : 43,
+      "price" : 650,
+      "isTracer" : true
+   },
+   "_30mm_M" : {
+      "icon" : "he",
+      "damage" : {
+         "armor" : 40,
+         "devices" : 40
+      },
+      "effects" : "smallHighExplosive",
+      "explosionRadius" : "0.21",
+      "userString" : "#germany_vehicles:_30mm_M",
+      "caliber" : 30,
+      "kind" : "HIGH_EXPLOSIVE",
+      "id" : 99,
+      "price" : 6,
+      "isTracer" : true
+   },
+   "_150mmGr_39H1A_L" : {
+      "icon" : "hc",
+      "damage" : {
+         "armor" : 300,
+         "devices" : 203
+      },
+      "effects" : "largeHollowCharge",
+      "userString" : "#germany_vehicles:_150mmGr_39H1A_L",
+      "caliber" : 150,
+      "kind" : "HOLLOW_CHARGE",
+      "piercingPowerLossFactorByDistance" : "0.05",
+      "id" : 50,
+      "price" : 12,
+      "isTracer" : true
+   },
+   "_37mm_Sprg.18" : {
+      "icon" : "he",
+      "damage" : {
+         "armor" : 42,
+         "devices" : 50
+      },
+      "effects" : "smallHighExplosive",
+      "explosionRadius" : "0.31",
+      "userString" : "#germany_vehicles:_37mm_Sprg.18",
+      "caliber" : 37,
+      "kind" : "HIGH_EXPLOSIVE",
+      "id" : 5,
+      "price" : 6,
+      "isTracer" : true
+   },
+   "_150mm_PzGr43" : {
+      "icon" : "ap",
+      "damage" : {
+         "armor" : 850,
+         "devices" : 203
+      },
+      "effects" : "largeArmorPiercing",
+      "userString" : "#germany_vehicles:_150mm_PzGr43",
+      "caliber" : 150,
+      "kind" : "ARMOR_PIERCING",
+      "id" : 80,
+      "price" : 1260,
+      "isTracer" : true,
+      "notInShop" : true
+   },
+   "_150mm_SprgG31" : {
+      "icon" : "he",
+      "damage" : {
+         "armor" : 1200,
+         "devices" : 203
+      },
+      "effects" : "largeHighExplosive",
+      "explosionRadius" : "3.57",
+      "userString" : "#germany_vehicles:_150mm_SprgG31",
+      "caliber" : 150,
+      "kind" : "HIGH_EXPLOSIVE",
+      "id" : 65,
+      "price" : 1120,
+      "isTracer" : true
+   },
+   "APCNR.erz" : {
+      "icon" : "ap",
+      "damage" : {
+         "armor" : 135,
+         "devices" : 100
+      },
+      "effects" : "mediumArmorPiercing",
+      "userString" : "#germany_vehicles:APCNR.erz",
+      "caliber" : 75,
+      "kind" : "ARMOR_PIERCING",
+      "id" : 28,
+      "price" : 186,
+      "isTracer" : true
+   },
+   "_105mm_HEAT-T_T384E4" : {
+      "icon" : "hc",
+      "damage" : {
+         "armor" : 390,
+         "devices" : 150
+      },
+      "effects" : "AAAAAAAAAAAAAAAA",
+      "userString" : "#usa_vehicles:_105mm_HEAT-T_T384E4",
+      "caliber" : 105,
+      "kind" : "HOLLOW_CHARGE",
+      "piercingPowerLossFactorByDistance" : "0.05",
+      "id" : 108,
+      "price" : 12,
+      "isTracer" : true
+   },
+   "_105mm_Pzgr.40L1" : {
+      "icon" : "ap_cr",
+      "damage" : {
+         "armor" : 320,
+         "devices" : 150
+      },
+      "effects" : "AAAAAAAA",
+      "userString" : "#germany_vehicles:_105mm_Pzgr.40L1",
+      "caliber" : 105,
+      "kind" : "ARMOR_PIERCING_CR",
+      "id" : 67,
+      "price" : 10,
+      "isTracer" : true
+   },
+   "_128mm_PzGr39" : {
+      "icon" : "ap",
+      "damage" : {
+         "armor" : 490,
+         "devices" : 180
+      },
+      "effects" : "largeArmorPiercing",
+      "userString" : "#germany_vehicles:_128mm_PzGr39",
+      "caliber" : 128,
+      "kind" : "ARMOR_PIERCING",
+      "id" : 44,
+      "price" : 1070,
+      "isTracer" : true
+   },
+   "_105mm_Sprg.18G" : {
+      "icon" : "he",
+      "damage" : {
+         "armor" : 510,
+         "devices" : 150
+      },
+      "effects" : "mainHighExplosive",
+      "explosionRadius" : "1.91",
+      "userString" : "#germany_vehicles:_105mm_Sprg.18G",
+      "caliber" : 105,
+      "kind" : "HIGH_EXPLOSIVE",
+      "id" : 59,
+      "price" : 1211,
+      "isTracer" : true
+   },
+   "_20cm_Pzgr40" : {
+      "icon" : "ap_cr",
+      "damage" : {
+         "armor" : 11,
+         "devices" : 27
+      },
+      "effects" : "AAAAAAAA",
+      "userString" : "#germany_vehicles:_20cm_Pzgr40",
+      "caliber" : 20,
+      "kind" : "ARMOR_PIERCING_CR",
+      "id" : 1,
+      "price" : 1,
+      "isTracer" : true
+   },
+   "_170mm_Sprg18" : {
+      "icon" : "he",
+      "damage" : {
+         "armor" : 1400,
+         "devices" : 228
+      },
+      "effects" : "hugeHighExplosive",
+      "explosionRadius" : "4.45",
+      "userString" : "#germany_vehicles:_170mm_Sprg18",
+      "caliber" : 170,
+      "kind" : "HIGH_EXPLOSIVE",
+      "id" : 60,
+      "price" : 1344,
+      "isTracer" : true
+   },
+   "_75mm_APCBC" : {
+      "icon" : "ap",
+      "damage" : {
+         "armor" : 110,
+         "devices" : 100
+      },
+      "effects" : "mainArmorPiercing",
+      "userString" : "#germany_vehicles:_75mm_APCBC",
+      "caliber" : 75,
+      "kind" : "ARMOR_PIERCING",
+      "id" : 18,
+      "price" : 30,
+      "isTracer" : true
+   },
+   "_75mm_Pzgr39" : {
+      "icon" : "ap",
+      "damage" : {
+         "armor" : 110,
+         "devices" : 100
+      },
+      "effects" : "mediumArmorPiercing",
+      "userString" : "#germany_vehicles:_75mm_Pzgr39",
+      "caliber" : 75,
+      "kind" : "ARMOR_PIERCING",
+      "id" : 21,
+      "price" : 70,
+      "isTracer" : true
+   },
+   "_150mm_Sprg" : {
+      "icon" : "he",
+      "damage" : {
+         "armor" : 680,
+         "devices" : 203
+      },
+      "effects" : "largeHighExplosive",
+      "explosionRadius" : "3.57",
+      "userString" : "#germany_vehicles:_150mm_Sprg",
+      "caliber" : 150,
+      "kind" : "HIGH_EXPLOSIVE",
+      "id" : 47,
+      "price" : 505,
+      "isTracer" : true
+   },
+   "_105mm_PzGrRot" : {
+      "icon" : "ap",
+      "damage" : {
+         "armor" : 300,
+         "devices" : 150
+      },
+      "effects" : "mainArmorPiercing",
+      "userString" : "#germany_vehicles:_105mm_PzGrRot",
+      "caliber" : 105,
+      "kind" : "ARMOR_PIERCING",
+      "id" : 87,
+      "price" : 600,
+      "isTracer" : true
+   },
+   "APCNR" : {
+      "icon" : "ap_cr",
+      "damage" : {
+         "armor" : 135,
+         "devices" : 100
+      },
+      "effects" : "mediumAPCR",
+      "userString" : "#germany_vehicles:APCNR",
+      "caliber" : 75,
+      "kind" : "ARMOR_PIERCING_CR",
+      "id" : 27,
+      "price" : 8,
+      "isTracer" : true
+   },
+   "_150mm_SprgG" : {
+      "icon" : "he",
+      "damage" : {
+         "armor" : 950,
+         "devices" : 203
+      },
+      "effects" : "largeHighExplosive",
+      "explosionRadius" : "3.57",
+      "userString" : "#germany_vehicles:_150mm_SprgG",
+      "caliber" : 150,
+      "kind" : "HIGH_EXPLOSIVE",
+      "id" : 51,
+      "price" : 1120,
+      "isTracer" : true
+   },
+   "_150mmGr_39H3A_G" : {
+      "icon" : "hc",
+      "damage" : {
+         "armor" : 750,
+         "devices" : 203
+      },
+      "effects" : "largeHollowCharge",
+      "userString" : "#germany_vehicles:_150mmGr_39H3A_G",
+      "caliber" : 150,
+      "kind" : "HOLLOW_CHARGE",
+      "piercingPowerLossFactorByDistance" : "0.05",
+      "id" : 75,
+      "price" : 15,
+      "isTracer" : true
+   },
+   "_37mm_Sprg.18t" : {
+      "icon" : "he",
+      "damage" : {
+         "armor" : 45,
+         "devices" : 50
+      },
+      "effects" : "smallHighExplosive",
+      "explosionRadius" : "0.31",
+      "userString" : "#germany_vehicles:_37mm_Sprg.18t",
+      "caliber" : 37,
+      "kind" : "HIGH_EXPLOSIVE",
+      "id" : 8,
+      "price" : 8,
+      "isTracer" : true
+   },
+   "_75mm_Pzgr.40L" : {
+      "icon" : "ap_cr",
+      "damage" : {
+         "armor" : 135,
+         "devices" : 100
+      },
+      "effects" : "mediumAPCR",
+      "userString" : "#germany_vehicles:_75mm_Pzgr.40L",
+      "caliber" : 75,
+      "kind" : "ARMOR_PIERCING_CR",
+      "id" : 25,
+      "price" : 7,
+      "isTracer" : true
+   },
+   "_20mm_Pzgr39B" : {
+      "icon" : "ap",
+      "damage" : {
+         "armor" : 11,
+         "devices" : 27
+      },
+      "effects" : "autoArmorPiercing",
+      "userString" : "#germany_vehicles:_20mm_Pzgr39",
+      "caliber" : 20,
+      "kind" : "ARMOR_PIERCING",
+      "id" : 114,
+      "price" : 3,
+      "isTracer" : true,
+      "notInShop" : true
+   },
+   "_37mm_Pzgr36" : {
+      "icon" : "ap",
+      "damage" : {
+         "armor" : 36,
+         "devices" : 50
+      },
+      "effects" : "smallArmorPiercing",
+      "userString" : "#germany_vehicles:_37mm_Pzgr36",
+      "caliber" : 37,
+      "kind" : "ARMOR_PIERCING",
+      "id" : 2,
+      "price" : "",
+      "isTracer" : true
+   },
+   "_90mm_Sprg48" : {
+      "icon" : "he",
+      "damage" : {
+         "armor" : 320,
+         "devices" : 122
+      },
+      "effects" : "mainHighExplosive",
+      "explosionRadius" : "1.46",
+      "userString" : "#germany_vehicles:_90mm_Sprg48",
+      "caliber" : 90,
+      "kind" : "HIGH_EXPLOSIVE",
+      "id" : 104,
+      "price" : 255,
+      "isTracer" : true
+   },
+   "_105mm_PzGr39G" : {
+      "icon" : "ap",
+      "damage" : {
+         "armor" : 390,
+         "devices" : 150
+      },
+      "effects" : "mainArmorPiercing",
+      "userString" : "#germany_vehicles:_105mm_PzGr39G",
+      "caliber" : 105,
+      "kind" : "ARMOR_PIERCING",
+      "id" : 57,
+      "price" : 1245,
+      "isTracer" : true
+   },
+   "_150mm_Sprg_L" : {
+      "icon" : "he",
+      "damage" : {
+         "armor" : 450,
+         "devices" : 203
+      },
+      "effects" : "largeHighExplosive",
+      "explosionRadius" : "3.57",
+      "userString" : "#germany_vehicles:_150mm_Sprg_L",
+      "caliber" : 150,
+      "kind" : "HIGH_EXPLOSIVE",
+      "id" : 49,
+      "price" : 280,
+      "isTracer" : true
+   },
+   "_50mm_Pzgr39" : {
+      "icon" : "ap",
+      "damage" : {
+         "armor" : 70,
+         "devices" : 68
+      },
+      "effects" : "mediumArmorPiercing",
+      "userString" : "#germany_vehicles:_50mm_Pzgr39",
+      "caliber" : 50,
+      "kind" : "ARMOR_PIERCING",
+      "id" : 15,
+      "price" : 30,
+      "isTracer" : true
+   },
+   "_88mm_Sprg.18" : {
+      "icon" : "he",
+      "damage" : {
+         "armor" : 270,
+         "devices" : 119
+      },
+      "effects" : "mainHighExplosive",
+      "explosionRadius" : "1.4",
+      "userString" : "#germany_vehicles:_88mm_Sprg.18",
+      "caliber" : 88,
+      "kind" : "HIGH_EXPLOSIVE",
+      "id" : 34,
+      "price" : 252,
+      "isTracer" : true
+   },
+   "_47mm_Sprg.18f" : {
+      "icon" : "he",
+      "damage" : {
+         "armor" : 62,
+         "devices" : 64
+      },
+      "effects" : "smallHighExplosive",
+      "explosionRadius" : "0.47",
+      "userString" : "#germany_vehicles:_47mm_Sprg.18f",
+      "caliber" : 47,
+      "kind" : "HIGH_EXPLOSIVE",
+      "id" : 14,
+      "price" : 13,
+      "isTracer" : true
+   },
+   "_88mm_Sprg.18L" : {
+      "icon" : "he",
+      "damage" : {
+         "armor" : 295,
+         "devices" : 119
+      },
+      "effects" : "mainHighExplosive",
+      "explosionRadius" : "1.4",
+      "userString" : "#germany_vehicles:_88mm_Sprg.18L",
+      "caliber" : 88,
+      "kind" : "HIGH_EXPLOSIVE",
+      "id" : 37,
+      "price" : 616,
+      "isTracer" : true
+   },
+   "_128mm_SprG18" : {
+      "icon" : "he",
+      "damage" : {
+         "armor" : 630,
+         "devices" : 180
+      },
+      "effects" : "largeHighExplosive",
+      "explosionRadius" : "2.71",
+      "userString" : "#germany_vehicles:_128mm_SprG18",
+      "caliber" : 128,
+      "kind" : "HIGH_EXPLOSIVE",
+      "id" : 46,
+      "price" : 935,
+      "isTracer" : true
+   },
+   "_128mm_PzGr40" : {
+      "icon" : "ap_cr",
+      "damage" : {
+         "armor" : 490,
+         "devices" : 180
+      },
+      "effects" : "largeAPCR",
+      "userString" : "#germany_vehicles:_128mm_PzGr40",
+      "caliber" : 128,
+      "kind" : "ARMOR_PIERCING_CR",
+      "id" : 45,
+      "price" : 12,
+      "isTracer" : true
+   },
+   "_76mm_Sprg.18r" : {
+      "icon" : "he",
+      "damage" : {
+         "armor" : 165,
+         "devices" : 105
+      },
+      "effects" : "mediumHighExplosive",
+      "explosionRadius" : "1.09",
+      "userString" : "#germany_vehicles:_76mm_Sprg.18r",
+      "caliber" : 76,
+      "kind" : "HIGH_EXPLOSIVE",
+      "id" : 31,
+      "price" : 64,
+      "isTracer" : true
+   },
+   "_Gr_38_HL_A" : {
+      "icon" : "hc",
+      "damage" : {
+         "armor" : 110,
+         "devices" : 100
+      },
+      "effects" : "mediumHollowCharge",
+      "userString" : "#germany_vehicles:_Gr_38_HL_A",
+      "caliber" : 75,
+      "kind" : "HOLLOW_CHARGE",
+      "piercingPowerLossFactorByDistance" : "0.05",
+      "id" : 19,
+      "price" : 5,
+      "isTracer" : true
+   },
+   "_150mm_PzGr42" : {
+      "icon" : "ap",
+      "damage" : {
+         "armor" : 750,
+         "devices" : 203
+      },
+      "effects" : "largeArmorPiercing",
+      "userString" : "#germany_vehicles:_150mm_PzGr42",
+      "caliber" : 150,
+      "kind" : "ARMOR_PIERCING",
+      "id" : 76,
+      "price" : 1260,
+      "isTracer" : true
+   },
+   "_128mm_Sprgr_N9" : {
+      "icon" : "he",
+      "damage" : {
+         "armor" : 630,
+         "devices" : 180
+      },
+      "effects" : "largeHighExplosive",
+      "explosionRadius" : "2.71",
+      "userString" : "#germany_vehicles:_128mm_Sprgr_N9",
+      "caliber" : 128,
+      "kind" : "HIGH_EXPLOSIVE",
+      "id" : 113,
+      "price" : 760,
+      "isTracer" : true
+   },
+   "_170mm_Sprg18_Ausf_G" : {
+      "icon" : "he_premium",
+      "damage" : {
+         "armor" : 1400,
+         "devices" : 228
+      },
+      "effects" : "hugeHighExplosive",
+      "explosionRadius" : "6.37",
+      "userString" : "#germany_vehicles:_170mm_Sprg18_Ausf_G",
+      "caliber" : 170,
+      "kind" : "HIGH_EXPLOSIVE",
+      "id" : 61,
+      "price" : 13,
+      "isTracer" : true
+   },
+   "_150mmGr_39H1A" : {
+      "icon" : "hc",
+      "damage" : {
+         "armor" : 680,
+         "devices" : 203
+      },
+      "effects" : "largeHollowCharge",
+      "userString" : "#germany_vehicles:_150mmGr_39H1A",
+      "caliber" : 150,
+      "kind" : "HOLLOW_CHARGE",
+      "piercingPowerLossFactorByDistance" : "0.05",
+      "id" : 48,
+      "price" : 12,
+      "isTracer" : true
+   },
+   "_128mm_PzGr39L" : {
+      "icon" : "ap",
+      "damage" : {
+         "armor" : 560,
+         "devices" : 180
+      },
+      "effects" : "largeArmorPiercing",
+      "userString" : "#germany_vehicles:_128mm_PzGr39L",
+      "caliber" : 128,
+      "kind" : "ARMOR_PIERCING",
+      "id" : 54,
+      "price" : 1260,
+      "isTracer" : true
+   },
+   "_170mm_PaK_K72_PzGr43" : {
+      "icon" : "ap",
+      "damage" : {
+         "armor" : 1050,
+         "devices" : 228
+      },
+      "effects" : "hugeArmorPiercing",
+      "userString" : "#germany_vehicles:_170mm_PaK_K72_PzGr43",
+      "caliber" : 170,
+      "kind" : "ARMOR_PIERCING",
+      "id" : 90,
+      "price" : 2200,
+      "isTracer" : true
+   },
+   "_105mmGr_39H1A_K" : {
+      "icon" : "hc",
+      "damage" : {
+         "armor" : 390,
+         "devices" : 150
+      },
+      "effects" : "largeHollowCharge",
+      "userString" : "#germany_vehicles:_105mmGr_39H1A_K",
+      "caliber" : 105,
+      "kind" : "HOLLOW_CHARGE",
+      "piercingPowerLossFactorByDistance" : "0.05",
+      "id" : 95,
+      "price" : 12,
+      "isTracer" : true
+   },
+   "_88mm_Sprgr.Flak_41" : {
+      "icon" : "he",
+      "damage" : {
+         "armor" : 295,
+         "devices" : 119
+      },
+      "effects" : "mainHighExplosive",
+      "explosionRadius" : "1.4",
+      "userString" : "#germany_vehicles:_88mm_Sprgr.Flak_41",
+      "caliber" : 88,
+      "kind" : "HIGH_EXPLOSIVE",
+      "id" : 111,
+      "price" : 252,
+      "isTracer" : true
+   }
+}
