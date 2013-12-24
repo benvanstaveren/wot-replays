@@ -26,6 +26,8 @@ has 'stopping'  => 0;
 has 'handlers'  => sub { [] };
 has 'map_done'  => 0;
 
+has 'arena_period' => 0;
+
 sub start {
     my $self = shift;
     my $stopping = 0;
@@ -463,6 +465,7 @@ sub onArenaHandler {
             period_length   => $packet->update->[2] + 0.0,
             activities      => $packet->update->[3],
         });
+        $self->arena_period($packet->update->[0]);
     } elsif($packet->update_type == 0x04) {
         # it's not actually the frag list, but statistics, but it only appears once
         $self->emit('setup.fraglist' => $packet->update);
