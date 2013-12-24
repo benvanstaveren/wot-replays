@@ -650,20 +650,20 @@ sub generate_banner {
         my $imagefile;
 
         my %imager_args = (
-            map     => $map->{_id} . '',
-            vehicle => lc($pv),
-            result  => $match_result,
-            map_name => $map->{label},
-            vehicle_name => $res->{roster}->[ $recorder ]->{vehicle}->{label},
-            credits => $res->{stats}->{credits},
-            xp      => $xp,
-            kills   => $res->{stats}->{kills},
-            spotted => $res->{stats}->{spotted},
-            damaged => $res->{stats}->{damaged},
-            player  => $res->{roster}->[ $recorder ]->{player}->{name},
-            clan    => ($res->{roster}->[ $recorder ]->{player}->{clanDBID} > 0) ? $res->{roster}->[ $recorder ]->{player}->{clanAbbrev} : undef,
-            destination => sprintf('%s/%s.jpg', $base_path, $res->{_id} . ''),
-            awards  => $self->stringify_awards($res),
+            map             => $map->{_id} . '',
+            vehicle         => lc($pv),
+            result          => $match_result,
+            map_name        => $map->{label},
+            vehicle_name    => $res->{roster}->[ $recorder ]->{vehicle}->{label},
+            credits         => $res->{stats}->{credits},
+            xp              => $xp,
+            kills           => $res->{stats}->{kills},
+            spotted         => $res->{stats}->{spotted},
+            damaged         => $res->{stats}->{damaged},
+            player          => $res->{roster}->[ $recorder ]->{player}->{name},
+            clan            => ($res->{roster}->[ $recorder ]->{player}->{clanDBID} > 0) ? $res->{roster}->[ $recorder ]->{player}->{clanAbbrev} : undef,
+            destination     => sprintf('%s/%s.jpg', $base_path, $res->{_id} . ''),
+            awards          => $self->stringify_awards($res),
         );
 
         $self->debug('[generate_banner]: generating banner using: ', Dumper({%imager_args}));

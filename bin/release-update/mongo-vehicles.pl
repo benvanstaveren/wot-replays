@@ -21,7 +21,7 @@ use constant NATION_INDICES => {
 die 'Usage: mongo-vehicles.pl <version>', "\n" unless($ARGV[0]);
 my $version = $ARGV[0];
 
-my $text = Data::Localize::Gettext->new(path => sprintf('../etc/res/raw/%s/lang/*_vehicles.po', $version));
+my $text = Data::Localize::Gettext->new(path => sprintf('../../etc/res/raw/%s/lang/*_vehicles.po', $version));
 
 my $mango  = Mango->new('mongodb://localhost:27017/');
 my $db     = $mango->db('wot-replays');
@@ -81,6 +81,10 @@ for my $country (qw/japan china france germany usa ussr uk/) {
         }
 
         $data->{i18n} = $x->{$vid}->{userString};
+
+        warn 'userString: ', $data->{i18n}, "\n";
+        warn 'cat: ', $cat, "\n";
+
         $data->{label} = $text->localize_for(lang => $cat, id => fixed_ident($ident));
         $data->{label_short} = $text->localize_for(lang => $cat, id => fixed_ident(sprintf('%s_short', $ident))) || $data->{label};
         $data->{_id} = sprintf('%s:%s', $country, $vid);
