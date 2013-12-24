@@ -11,7 +11,7 @@ use Data::Dumper;
 die 'Usage: mongo-consumables.pl <version>', "\n" unless($ARGV[0]);
 my $version = $ARGV[0];
 
-my $text = Data::Localize::Gettext->new(path => sprintf('../etc/res/raw/%s/lang/artefacts.po', $version));
+my $text = Data::Localize::Gettext->new(path => sprintf('../../etc/res/raw/%s/lang/artefacts.po', $version));
 
 my $mango  = Mango->new('mongodb://localhost:27017/');
 my $db     = $mango->db('wot-replays');

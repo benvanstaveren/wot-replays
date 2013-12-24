@@ -23,9 +23,6 @@
     </div>
     <div class="col-lg-6 col-md-6">
         [% pv = h.get_recorder_vehicle(replay).vehicle %]
-        <!--
-            [% h.dumper(fitting) %]
-        -->
         <h4>Modules</h4>
         <ul class="list-group">
             <li class="list-group-item">
@@ -58,10 +55,6 @@
             </li>
     </div>
 </div>
-<!--
-    [% h.dumper(replay.game.recorder.consumables) %]
-    [% h.dumper(replay.game.recorder.ammo) %]
--->
 [% IF replay.game.recorder.consumables.defined %]
 <div class="row">
     <div class="col-lg-12 col-md-12">

@@ -49,6 +49,7 @@ foreach my $id (keys(%$x)) {
         name    =>  $id,
         typecomp => $desc,
         label   =>  $text->localize_for(lang => 'artefacts', id => $us),
+        i18n    =>  $data->{userString},
     };
 
     $coll->save($m);

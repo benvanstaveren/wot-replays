@@ -133,7 +133,7 @@ sub add_helpers {
                 sprintf('%d x', $a->{count}),
                 $c->{caliber}, 
                 $kind_map->{$c->{kind}},
-                $c->{label}
+                $self->loc($c->{i18n}),
                 );
         } else {
             $self->app->log->debug('old style ammo');
@@ -638,6 +638,7 @@ sub add_helpers {
         $id = -1 if(length($id) == 0);
 
         if(my $obj = $self->model('wot-replays.data.components')->find_one({ country => $nation, component => $type, component_id => $id + 0 })) {
+            return $self->loc($obj->{i18n}) if(defined($obj->{i18n}));
             return $obj->{label} || sprintf('nodblabel: %d', $id);
         } else {
             return sprintf('nolabel:%s/%s/%d', $nation, $type, $id);
