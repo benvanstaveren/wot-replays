@@ -390,6 +390,7 @@ sub onUpdatePosition {
             points          => $self->distance_to_recorder_points($packet->position),
         };
         $self->emit('player.position' => $update);
+        $self->positions->{$packet->player_id} = $packet->position;
     }
 }
 
