@@ -162,6 +162,7 @@
             var globalData = [% h.as_json(replay.heatmap) %];
             var data = [];
 
+            /* oh this fucks up most browsers... 
             for(x in globalData) {
                 for(y in globalData) {
                     if(globalData[x][y] > max) max = globalData[x][y];
@@ -169,7 +170,7 @@
                     data.push({ x: gc.x, y: gc.y, count: globalData[x][y]});
                 }
             }
-
+            */
             heatmap.store.setDataSet({ max: max, data: data });
         });
     </script>
