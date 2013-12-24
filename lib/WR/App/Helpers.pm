@@ -819,6 +819,7 @@ sub add_helpers {
         my $str  = shift;
         my @args = (@_);
         my $l    = 'site';  # default localizer "language"
+        my $ostr = $str;
 
         # find out if the string is a WoT style userString
         if($str =~ /^#(.*?):(.*)/) {
@@ -830,7 +831,13 @@ sub add_helpers {
             if(my $xlat = $localizer->localize_for(lang => $l, id => $str, args => \@args)) {
                 return $xlat;
             } else {
-                return $str;
+                # okay, stupid WG inconsistency, some tanks have a _short, some don't, so if our str contains _short, retry it 
+                if($str =~ /_short$/) {
+                    $ostr =~ s/_short$//g;
+                    return $self->loc($ostr);
+                } else {
+                    return $str;
+                }
             }
         } else {
             return $str;
