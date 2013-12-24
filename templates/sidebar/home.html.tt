@@ -1,2 +1,3 @@
+[% INCLUDE sidebar/bricks/alert.html.tt %]
 [% INCLUDE sidebar/bricks/donate.html.tt %]
 [% INCLUDE sidebar/bricks/stats.html.tt %]
