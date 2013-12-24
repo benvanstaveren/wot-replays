@@ -298,12 +298,19 @@ sub get_recorder_position {
     return $self->positions->{$self->recorder->{id}};
 }
 
+sub get_player_position {
+    my $self = shift;
+    my $id   = shift;
+
+    return (defined($self->positions->{$id})) ? $self->positions->{$id} : undef;
+}
+
 sub distance {
     my $self = shift;
     my $r = shift;
     my $p = shift;
 
-    return undef unless(defined($r) && defined($p));
+    return -1 unless(defined($r) && defined($p));
 
     sub delta {
         my $a = shift;
@@ -325,6 +332,23 @@ sub distance_to_recorder {
     return $self->distance($self->get_recorder_position, $pos);
 }
 
+sub distance_to_recorder_points {
+    my $self = shift;
+    my $pos  = shift;
+
+    my $dist = $self->distance_to_recorder($pos);
+    return 0 if($dist < 0);
+
+    return ($dist <= 50)
+        ? 0.1
+        : ($dist <= 150) 
+            ? 0.5
+            : ($dist <= 270) 
+                ? 1
+                : ($dist <= 445)
+                    ? 2
+                    : 0;
+}
 
 sub onUpdatePosition {
     my $self = shift;
@@ -341,20 +365,9 @@ sub onUpdatePosition {
             ident           => 'player.position',
             pident          => $self->make_pident($packet, 1),
             distance_t      => $self->distance($packet->position, $self->positions->{$packet->player_id}),
-            distance_r      => $self->distance_to_recorder,
+            distance_r      => $self->distance_to_recorder($packet->position),
+            points          => $self->distance_to_recorder_points($packet->position),
         };
-
-        # to ease heatmap generation, also include a point value for the position update, coincidentally maps to the spotting range frequencies ;)
-        $update->{points} = ($update->{distance_r} <= 50)
-            ? 0.1
-            : ($update->{distance_r} <= 150) 
-                ? 0.5
-                : ($update->{distance_r} <= 270) 
-                    ? 1
-                    : ($update->{distance_r} <= 445)
-                        ? 2
-                        : 0;
-
         $self->emit('player.position' => $update);
     }
 }

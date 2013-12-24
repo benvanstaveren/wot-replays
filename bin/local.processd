@@ -329,7 +329,6 @@ sub process_job {
                         file     => $replay->{file},
                     }
                 });
-
                 if(!$job->{reprocess}) {
                     # heatmap only if we're not reprocessing
                     my $bt = $replay->{game}->{bonus_type};
@@ -342,15 +341,16 @@ sub process_job {
                     foreach my $type (keys(%{$o->hm_updates})) {
                         my $d = $o->hm_updates->{$type};
                         my $upd = {};
-                        foreach my $cell (keys(%$d)) {
-                            $upd->{sprintf('g.%d.%d.%d', $gid, $bt, $cell)} = $d->{$cell};
+                        foreach my $x (keys(%$d)) {
+                            foreach my $y (keys(%{$d->{$x}})) {
+                                $upd->{sprintf('g.%d.%d.%d.%d', $gid, $bt, $x, $y)} = $d->{$x}->{$y};
+                            }
                         }
                         $db->collection(sprintf('hm_%s', $type))->update({ _id => $replay->{game}->{map} }, { 
                             '$inc' => $upd
                         }, { upsert => 1 });
                     }
                 }
-
                 job_status($job, {
                     id      =>  'final',
                     text    =>  'Saving replay',

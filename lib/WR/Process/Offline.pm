@@ -13,7 +13,7 @@ use WR::Provider::Imager;
 use WR::Provider::Panelator;
 use WR::Provider::WN7;
 use WR::Provider::Mapgrid;
-use WR::Constants qw/nation_id_to_name decode_arena_type_id/;
+use WR::Constants qw/nation_id_to_name decode_arena_type_id ARENA_PERIOD_BATTLE/;
 use WR::Util::TypeComp qw/parse_int_compact_descr type_id_to_name/;
 
 use Scalar::Util qw/blessed/;
@@ -50,13 +50,10 @@ has 'hm_updates'        => sub {
     }
 };
 
-has '_lastpos'      => sub { {} };
 has 'player_team'   => 0;
 has 'game'          => undef;
 
-# keyed by team ID since we'll be showing double heatmaps on the overlay
-has 'battleheat'        => sub { [ {}, {} ] };
-has 'arenaperiod'       => 0;
+has 'battleheat'        => sub { {} };
 
 sub _preload {
     my $self = shift;
@@ -353,7 +350,7 @@ sub _real_process {
             $replay->{game}->{opponents}    = (defined($init->{opponents})) ? $init->{opponents} : undef;
         });
         # here's some additional bits and pieces that we are interested in to write packet files
-        for my $event ('player.position', 'player.health', 'player.tank.destroyed', 'player.orientation.hull', 'player.chat', 'arena.period', 'player.tank.damaged', 'arena.initialize', 'cell.attention', 'arena.base_points', 'arena.base_captured') {
+        for my $event ('player.position', 'player.health', 'player.tank.destroyed', 'player.chat', 'arena.period', 'player.tank.damaged', 'arena.initialize', 'cell.attention', 'arena.base_points', 'arena.base_captured', 'arena.avatar_ready') {
             $game->on($event => sub {
                 my ($s, $v) = (@_);
                 $self->add_packet($v);
@@ -363,13 +360,6 @@ sub _real_process {
         $game->on('player.chat' => sub {
             my ($game, $chat) = (@_);
             push(@{$replay->{chat}}, $chat->{text});
-        });
-
-        # these are for the heatmaps, could grab it out of the packets array after we save them to disk
-        # but this is (relatively speaking) a bit easier to handle 
-        $game->on('arena.period' => sub {
-            my ($g, $v) = (@_);
-            $self->arenaperiod($v->{period});
         });
         $game->on('arena.initialize' => sub {
             $self->mapgrid(
@@ -382,17 +372,20 @@ sub _real_process {
         });
         $game->on('player.position' => sub {
             my ($g, $v) = (@_);
-            # convert the position to a cell id, and push for updates
-            $self->_lastpos->{$v->{id}} = $v->{position};
-            $self->hm_updates->{location}->{$self->mapgrid->coord_to_subcell_id($v->{position})}++;
-            $self->battleheat->[ $self->vteam($v->{id}) ]->{location}->{$self->mapgrid->coord_to_subcell_id($v->{position})}++ if($self->arenaperiod == 3);
+
+            my $intx = int(sprintf('%.0f', $v->{position}->[0]));
+            my $inty = int(sprintf('%.0f', $v->{position}->[2]));
+
+            $self->hm_updates->{location}->{$intx}->{$inty} += $v->{points};
+            $self->battleheat->{$intx}->{$inty} += $v->{points} if($g->arena_period == ARENA_PERIOD_BATTLE);
         });
         $game->on('player.tank.destroyed' => sub {
             my ($g, $v) = (@_);
             if(defined($v->{destroyer})) {
-                if(my $dl = $self->_lastpos->{$v->{destroyed}}) {
-                    $self->hm_updates->{deaths}->{$self->mapgrid->coord_to_subcell_id($dl)}++;
-                    $self->battleheat->[ $self->vteam($v->{destroyed}) ]->{deaths}->{$self->mapgrid->coord_to_subcell_id($dl)}++ if($self->arenaperiod == 3);
+                if(my $dl = $g->get_player_position($v->{destroyer})) {
+                    my $intx = int(sprintf('%.0f', $dl->[0]));
+                    my $inty = int(sprintf('%.0f', $dl->[2]));
+                    $self->hm_updates->{deaths}->{$intx}->{$inty}++;
                 }
             }
         });
@@ -400,17 +393,15 @@ sub _real_process {
             my ($g, $v) = (@_);
 
             if(defined($v->{source})) {
-                if(defined($self->_lastpos->{$v->{id}})) {
-                    if(my $dl = $self->_lastpos->{$v->{id}}) {
-                        $self->hm_updates->{damage_r}->{$self->mapgrid->coord_to_subcell_id($dl)}++;
-                        $self->battleheat->[ $self->vteam($v->{id}) ]->{damage_r}->{$self->mapgrid->coord_to_subcell_id($dl)}++ if($self->arenaperiod == 3);
-                    }
+                if(my $dl = $g->get_player_position($v->{id})) {
+                    my $intx = int(sprintf('%.0f', $dl->[0]));
+                    my $inty = int(sprintf('%.0f', $dl->[2]));
+                    $self->hm_updates->{damage_r}->{$intx}->{$inty}++;
                 }
-                if(defined($self->_lastpos->{$v->{source}})) {
-                    if(my $dl = $self->_lastpos->{$v->{source}}) {
-                        $self->hm_updates->{damage_d}->{$self->mapgrid->coord_to_subcell_id($dl)}++;
-                        $self->battleheat->[ $self->vteam($v->{source}) ]->{damage_d}->{$self->mapgrid->coord_to_subcell_id($dl)}++ if($self->arenaperiod == 3);
-                    }
+                if(my $dl = $g->get_player_position($v->{source})) {
+                    my $intx = int(sprintf('%.0f', $dl->[0]));
+                    my $inty = int(sprintf('%.0f', $dl->[2]));
+                    $self->hm_updates->{damage_d}->{$intx}->{$inty}++;
                 }
             }
         });
@@ -582,7 +573,7 @@ sub _real_process {
             $replay->{panel} = $p->panelate($replay);
             $replay->{parser_version} = $self->PARSER_VERSION;
             $replay->{packet_version} = $self->PACKET_VERSION;
-            $replay->{heatmap} = [ $self->battleheat->[1], $self->battleheat->[2] ]; # because fuck WG
+            $replay->{heatmap} = $self->battleheat;
             return $replay;
         }
     } else {
