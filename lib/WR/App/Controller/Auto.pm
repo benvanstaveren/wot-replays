@@ -2,6 +2,7 @@ package WR::App::Controller::Auto;
 use Mojo::Base 'WR::App::Controller';
 use Data::Localize;
 use Data::Localize::Gettext;
+use WR::Localize::Formatter;
 
 sub index {
     my $self = shift;
@@ -35,7 +36,7 @@ sub index {
     my $langpath = $self->app->home->rel_dir(sprintf('lang/%s', $language));
     $language = 'en' unless(-e $langpath);
 
-    my $localizer = Data::Localize::Gettext->new(path => sprintf('%s/*.po', $langpath));
+    my $localizer = Data::Localize::Gettext->new(formatter => WR::Localize::Formatter->new(), path => sprintf('%s/*.po', $langpath));
     $self->stash('i18n_localizer' => $localizer);
 
     return 1;

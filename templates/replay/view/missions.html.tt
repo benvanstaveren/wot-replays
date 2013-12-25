@@ -21,7 +21,7 @@
                                         [% END %]
                                     [% ELSE %]
                                         [% IF bonustype == 'xpFactor' %]
-                                            [% entry.bonuses.$bonustype %]x xp<br/>
+                                            [% h.loc('#missions:mission.bonustype.xpFactor', entry.bonuses.$bonustype) %]
                                         [% ELSIF bonustype == 'creditsFactor' %]
                                             [% entry.bonuses.$bonustype %]x credits<br/>
                                         [% ELSIF bonustype == 'credits' %]
@@ -29,7 +29,7 @@
                                         [% ELSIF bonustype == 'tankmenXPFactor' %]
                                             [% entry.bonuses.$bonustype %]x crew xp<br/>
                                         [% ELSIF bonustype == 'premium' %]
-                                            [% entry.bonuses.$bonustype %] days Premium<br/>
+                                            [% h.loc('#missions:mission.bonustype.premium', entry.bonuses.$bonustype) %]
                                         [% ELSE %]
                                             (unknown bonus type [% bonustype %]) [% entry.bonuses.$bonustype %]<br/>
                                         [% END %]
