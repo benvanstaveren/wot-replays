@@ -108,7 +108,7 @@
         </div>
         <div class="container rounded shadow clearfix">
             <div id="contentMain">[% content %]</div>
-            <div class="clearfix" style="text-align: center; margin: 40px 0px 10px 0px">&copy; 2012, 2013 Scrambled |  <a style="display: inline; text-decoration: underline; padding: 0px" href="/about">[% h.loc('page.footer.about') %]</a> / <a style="display: inline; text-decoration: underline; padding: 0px" href="/credits.html">[% h.loc('page.footer.credits') %]</a> | t: <span id="timing_elapsed">[% IF timing_elapsed.defined %][% h.sprintf('%.4f', timing_elapsed)  %][% ELSE %]-[% END %]</span> [% IF timing_query.defined %]q: <span id="timing_query">[% h.sprintf('%.4f', timing_query) %]</span>[% END %]</div>
+            <div class="clearfix" style="text-align: center; margin: 40px 0px 10px 0px">&copy; 2012, 2013 Scrambled |  <a style="display: inline; text-decoration: underline; padding: 0px" href="/doc/about.html">[% h.loc('page.footer.about') %]</a> / <a style="display: inline; text-decoration: underline; padding: 0px" href="/doc/credits.html">[% h.loc('page.footer.credits') %]</a> | t: <span id="timing_elapsed">[% IF timing_elapsed.defined %][% h.sprintf('%.4f', timing_elapsed)  %][% ELSE %]-[% END %]</span> [% IF timing_query.defined %]q: <span id="timing_query">[% h.sprintf('%.4f', timing_query) %]</span>[% END %]</div>
         </div>
         [% IF hint.defined %]
             <div class="modal fade" id="hintModal">

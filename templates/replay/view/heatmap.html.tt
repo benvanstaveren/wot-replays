@@ -141,7 +141,7 @@
             }
 
             var heatmapConfig = {
-                "radius"    : 24,
+                "radius"    : 32,
                 "visible"   : true,
                 "opacity"   : 40,
                 "element"   : document.getElementById($(mapGrid.getOverlay('viewer')).attr('id')),
