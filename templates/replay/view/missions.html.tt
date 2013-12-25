@@ -46,12 +46,12 @@
             [% FOREACH entry IN replay.mission_panel %]
                 [% IF !entry.is_awarded %]
                     <tr>
-                        <td style="vertical-align: top"><h5>[% entry.name %]<br/><small>[% entry.desc %]</small></h5></td>
+                        <td style="vertical-align: top"><h5>[% entry.name || entry.id %]<br/><small>[% entry.desc %]</small></h5></td>
                         <td style="width: 25%; vertical-align: middle; text-align: center">
                             [% IF entry.progression_key.defined %]
                                 [% entry.progress_current %] / [% entry.progress_max %]
                             [% ELSE %]
-                                Oops, don't know how to handle this condition
+                                Oops, don't know how to handle this condition! 
                             [% END %]
                         </td>
                     </tr>
