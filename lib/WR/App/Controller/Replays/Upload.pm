@@ -25,6 +25,17 @@ sub r_error_redirect {
     return 0;
 }
 
+sub rfrag {
+    my $self = shift;
+    my $a    = [ 'A'..'Z', 'a'..'z', 0..9 ];
+    my $s    = '';
+
+    while(length($s) < 7) {
+        $s .= $a->[int(rand(scalar(@$a)))];
+    }
+    return $s;
+}
+
 sub upload {
     my $self = shift;
 
@@ -32,8 +43,12 @@ sub upload {
         $self->render_later;
         if(my $upload = $self->req->upload('replay')) {
             return $self->r_error(q|That does not look like a replay|) unless($upload->filename =~ /\.wotreplay$/);
+
+            # generate a random fragment 
             my $filename = $upload->filename;
             $filename =~ s/.*\\//g if($filename =~ /\\/);
+
+            $filename = sprintf('%s-%s', $self->rfrag, $filename);
 
             my $hashbucket_size = length($filename);
             $hashbucket_size = 7 if($hashbucket_size > 7);
