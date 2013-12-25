@@ -6,21 +6,11 @@ use Time::HiRes qw/gettimeofday tv_interval/;
 use Filesys::DiskUsage::Fast qw/du/;
 use WR::OpenID;
 
-sub faq {
-    shift->respond(template => 'faq', stash => { page => { title => 'Frequently Asked Questions' } });
-}
-
-sub donate {
-    shift->respond(template => 'donate', stash => { page => { title => 'Why Donate?' } });
-}
-
-sub about {
-    shift->respond(template => 'about', stash => { page => { title => 'About' } });
-}
-
-sub credits {
-    shift->respond(template => 'credits', stash => { page => { title => 'Credits' } });
-}
+sub faq { shift->respond(template => 'faq', stash => { page => { title => 'Frequently Asked Questions' } }); }
+sub donate { shift->respond(template => 'donate', stash => { page => { title => 'Why Donate?' } }); }
+sub about { shift->respond(template => 'about', stash => { page => { title => 'About' } }); }
+sub credits { shift->respond(template => 'credits', stash => { page => { title => 'Credits' } }); }
+sub missions { shift->respond(template => 'missions', stash => { page => { title => 'About Missions' } }); }
 
 sub index {
     my $self    = shift;

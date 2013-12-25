@@ -6,28 +6,35 @@
             [% FOREACH entry IN replay.mission_panel %]
                 [% IF entry.is_awarded %]
                     <tr>
-                        <td style="vertical-align: top"><h5>[% entry.name %]<br/><small>[% entry.desc %]</small></h5></td>
-                        <td style="width: 25%; vertical-align: middle; text-align: center">
-                            [% FOREACH bonustype IN entry.bonuses.keys %]
-                                [% IF bonustype == 'items' %]
-                                    [% FOREACH item IN entry.bonuses.$bonustype %]
-                                        [% h.generate_item_icon_with_count(item) %]
-                                    [% END %]
-                                [% ELSE %]
-                                    [% IF bonustype == 'xpFactor' %]
-                                        [% entry.bonuses.$bonustype %]x xp<br/>
-                                    [% ELSIF bonustype == 'creditsFactor' %]
-                                        [% entry.bonuses.$bonustype %]x credits<br/>
-                                    [% ELSIF bonustype == 'credits' %]
-                                        [% entry.bonuses.$bonustype %] credits<br/>
-                                    [% ELSIF bonustype == 'tankmenXPFactor' %]
-                                        [% entry.bonuses.$bonustype %]x crew xp<br/>
+                        [% IF entry.is_unknown %]
+                            <td style="vertical-align: top"><h5>[% entry.name %]<br/><small>(Unknown mission)</small></h5></td>
+                            <td style="width: 25%; vertical-align: middle; text-align: center">
+                                <a href="/doc/missions">(what's this?)</a>
+                            </td>
+                        [% ELSE %]
+                            <td style="vertical-align: top"><h5>[% entry.name %]<br/><small>[% entry.desc %]</small></h5></td>
+                            <td style="width: 25%; vertical-align: middle; text-align: center">
+                                [% FOREACH bonustype IN entry.bonuses.keys %]
+                                    [% IF bonustype == 'items' %]
+                                        [% FOREACH item IN entry.bonuses.$bonustype %]
+                                            [% h.generate_item_icon_with_count(item) %]
+                                        [% END %]
                                     [% ELSE %]
-                                        (unknown bonus type [% bonustype %]) [% entry.bonuses.$bonustype %]<br/>
+                                        [% IF bonustype == 'xpFactor' %]
+                                            [% entry.bonuses.$bonustype %]x xp<br/>
+                                        [% ELSIF bonustype == 'creditsFactor' %]
+                                            [% entry.bonuses.$bonustype %]x credits<br/>
+                                        [% ELSIF bonustype == 'credits' %]
+                                            [% entry.bonuses.$bonustype %] credits<br/>
+                                        [% ELSIF bonustype == 'tankmenXPFactor' %]
+                                            [% entry.bonuses.$bonustype %]x crew xp<br/>
+                                        [% ELSE %]
+                                            (unknown bonus type [% bonustype %]) [% entry.bonuses.$bonustype %]<br/>
+                                        [% END %]
                                     [% END %]
                                 [% END %]
-                            [% END %]
-                        </td>
+                            </td>
+                        [% END %]
                     </tr>
                 [% END %]
             [% END %]
@@ -52,8 +59,4 @@
             [% END %]
         </tbody>
     </table>
-[% ELSE %]
-<div>
-    <p>Either no missions are active, or we haven't got the mission details in our database. Want to help out with that? Send Scrambled a PM on the WoT forum (EU/NA/Asia)</p>
-</div>
 [% END %]

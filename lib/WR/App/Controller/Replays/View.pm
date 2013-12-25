@@ -128,6 +128,8 @@ sub generate_mission_panel {
             if(defined($doc)) {
                 my $mission = WR::Mission->new(mission => $doc, result => $replay->{stats}->{questsProgress}->{$mission_id});
                 push(@$mission_panel, $mission); # if($mission->is_awarded); 
+            } else {
+                push(@$mission_panel, { name => $doc->{_id}, is_unknown => 1 });
             }
             $end->();
         });

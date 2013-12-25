@@ -1,0 +1,23 @@
+[% WRAPPER wrapper.html.tt %]    
+    <div class="page-header">
+            <h2>About Missions</h2>
+    </div>
+    <h3>Where do you get the data from?</h3>
+    <div class="well well-lg">
+        <p>
+            Using a little mod I put together that uploads mission details to the <a href="http://statterbox.com">Statterbox</a> stats tracker site, from there I use it to generate the list and figure out the bonuses you get from a mission or event.
+        </p>
+    </div>
+    <h3>What does "Unknown Mission" mean?</h3>
+    <div class="well well-lg">
+        <p>
+            Since the mission data is supplied by people that have installed the mod, it means that either none of them have logged in, or nobody has installed the mod yet for the current version of World of Tanks. If you want to help out, please install the mod; it does not cause any slowdowns, and does it's work once after you log in. To be specific, when you see "Synchronising Store", that's when the mod receives the quest details, and uploads them. After that it basically goes to sleep and doesn't do anything after that. 
+        </p>
+    </div>
+    <h3>Installing the mod</h3>
+    <div class="well well-lg">
+        <p>
+            Couldn't be easier. Download the <a href="http://dl.wotreplays.org/mods/missiondumper-0.8.10.zip">zip file here</a>, and extract it to the res_mods folder of your World of Tanks installation. It will do it's thing on the next game restart. 
+        </p>
+    </div>
+[% END %]
