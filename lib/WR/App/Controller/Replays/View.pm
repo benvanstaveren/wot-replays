@@ -3,6 +3,7 @@ use Mojo::Base 'WR::App::Controller';
 use Mango::BSON;
 use WR::Query;
 use WR::Res::Achievements;
+use WR::Provider::Mapgrid;
 use File::Slurp qw/read_file/;
 use Time::HiRes qw/gettimeofday tv_interval/;
 use JSON::XS;
@@ -47,9 +48,33 @@ sub heatmap {
         my ($c, $e, $replay) = @_;
 
         if(defined($replay)) {
+            # generate the data set
+            my $mapgrid = WR::Provider::Mapgrid->new(
+                width       => 768,
+                height      => 768,
+                bounds      => $self->map_boundingbox($replay),
+            );
+            my $max = 0;
+            my $set = []; 
+
+            foreach my $x (keys(%{$replay->{heatmap}})) {
+                foreach my $y (keys(%{$replay->{heatmap}->{$x}})) {
+                    # somewhat normalize these things by multiplying by 10 - e.g. 0.2 -> 2, 0.5 -> 5, 123.999 -> 1239 
+                    my $val = sprintf('%.0f', $replay->{heatmap}->{$x}->{$y} * 10);
+                    $max = $val if($val > $max);
+                    my $coord = $mapgrid->game_to_map_coord([ $x, 0, $y ]);
+                    push(@$set, {
+                        x => int($coord->{x}),
+                        y => int($coord->{y}),
+                        count => $val,
+                    });
+                }
+            }
+
             $self->respond(template => 'replay/view/heatmap', stash => {
                 page        => { title => 'Battle Heatmap' },
                 replay      => $replay,
+                dataset     => { max => $max, data => $set },
             });
         } else {
             $self->respond(template => 'replay/view/nodata', stash => { page => { title => 'Battle Heatmap' }});

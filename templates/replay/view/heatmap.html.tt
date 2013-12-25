@@ -48,10 +48,7 @@
             // find out what game type we're running
             var gameType = '[% replay.game.type %]';
             var positions = [% h.as_json(h.map_positions(replay)) %];
-
-            console.log('pre render');
             mapGrid.render();
-            console.log('post render');
 
             if(gameType == 'ctf') {
                 console.log('base: ', positions.base);
@@ -158,20 +155,7 @@
                 }
             };
             heatmap = heatmapFactory.create(heatmapConfig);
-            var max = 0;
-            var globalData = [% h.as_json(replay.heatmap) %];
-            var data = [];
-
-            /* oh this fucks up most browsers... 
-            for(x in globalData) {
-                for(y in globalData) {
-                    if(globalData[x][y] > max) max = globalData[x][y];
-                    var gc = mapGrid.game_to_map_coord([ parseInt(x), 0, parseInt(y) ]);
-                    data.push({ x: gc.x, y: gc.y, count: globalData[x][y]});
-                }
-            }
-            */
-            heatmap.store.setDataSet({ max: max, data: data });
+            heatmap.store.setDataSet([% h.as_json(dataset) %]);
         });
     </script>
 [% END %]
