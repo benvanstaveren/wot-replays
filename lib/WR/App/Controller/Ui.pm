@@ -75,9 +75,13 @@ sub nginx_post_action {
 
     if(defined($stat) && lc($stat) eq 'ok') {
         my $real_file = substr($file, 1); # because we want to ditch that leading slash
-        $self->model('replays')->update({ file => $real_file }, { '$inc' => { 'site.downloads' => 1 } } => sub {
+        if($real_file =~ /^(mods|patches)/) {
             $self->render(text => 'OK');
-        });
+        } else {
+            $self->model('replays')->update({ file => $real_file }, { '$inc' => { 'site.downloads' => 1 } } => sub {
+                $self->render(text => 'OK');
+            });
+        }
     } else {
         $self->render(text => 'OK');
     }
