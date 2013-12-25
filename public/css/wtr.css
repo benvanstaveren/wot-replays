@@ -1156,6 +1156,8 @@ div.map {
     background: transparent url(//images.wotreplays.org/maps/768//73_asia_korea.png) no-repeat scroll center center; }
   div.map.map_85_winter {
     background: transparent url(//images.wotreplays.org/maps/768//85_winter.png) no-repeat scroll center center; }
+  div.map.map_53_japan {
+    background: transparent url(//images.wotreplays.org/maps/768//53_japan.png) no-repeat scroll center center; }
 
 div.container {
   /*background: #060606 none repeat scroll 0 0;*/
