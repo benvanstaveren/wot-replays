@@ -225,16 +225,6 @@ sub add_helpers {
         return join('.', @parts);
     });
 
-    $self->helper(is_user_authenticated => sub {
-        my $ctrl = shift;
-
-        if(my $openid = $ctrl->session('openid')) {
-            return 1;
-        } else {
-            return 0; # because the verification step will actually create it
-        }
-    });
-
     $self->helper(is_victory => sub {
         my $self = shift;
         my $replay = shift;
@@ -254,15 +244,6 @@ sub add_helpers {
         my $replay = shift;
 
         return ($self->is_victory($replay)) ? 0 : 1;
-    });
-
-    $self->helper(current_user => sub {
-        my $ctrl = shift;
-        if(my $openid = $ctrl->session('openid')) {
-            return $ctrl->stash('current_user') || {};
-        } else {
-            return undef;
-        }
     });
 
     $self->helper(get_replay_stats => sub {
@@ -682,30 +663,6 @@ sub add_helpers {
         return sprintf('%.0f', 100/($a/$b));
     });
 
-    $self->helper(is_own_replay => sub {
-        my $self = shift;
-        my $r = shift;
-	
-        if($self->is_user_authenticated && ( ($self->current_user->{player_name} eq $r->{game}->{recorder}->{name}) && ($self->current_user->{player_server} eq $r->{game}->{server}))) {
-            return 1;
-        } else {
-            return 0;
-        }
-    });
-
-    $self->helper(is_the_boss => sub {
-        my $self = shift;
-        if($self->is_user_authenticated && ( ($self->current_user->{player_name} eq 'Scrambled') && ($self->current_user->{player_server} eq 'sea'))) {
-            return 1;
-        } else {
-            return 0;
-        }
-    });
-
-    $self->helper(user => sub {
-        return shift->current_user;
-    });
-
     $self->helper(map_slug => sub {
         my $self = shift;
         my $replay = shift;
@@ -778,6 +735,7 @@ sub add_helpers {
     $self->helper('get_res' => sub {
         return shift->app->wr_res;
     });
+
     $self->helper(wn7_color => sub {
         my $self = shift;
         my $rating = shift;
@@ -798,52 +756,6 @@ sub add_helpers {
         return 'unavailable';
     });
 
-    # i18n helpers 
-    $self->helper(loc_short => sub {
-        my $self = shift;
-        my $str  = shift;
-
-        # append /short to the string
-        return $self->loc(sprintf('%s/short', $str), @_);
-    });
-
-    $self->helper(loc_desc => sub {
-        my $self = shift;
-        my $str  = shift;
-
-        # append /desc to the string
-        return $self->loc(sprintf('%s/desc', $str), @_);
-    });
-
-    $self->helper(loc => sub {
-        my $self = shift;
-        my $str  = shift;
-        my @args = (@_);
-        my $l    = 'site';  # default localizer "language"
-        my $ostr = $str;
-
-        # find out if the string is a WoT style userString
-        if($str =~ /^#(.*?):(.*)/) {
-            $l   = $1;
-            $str = $2;
-        }
-
-        if(my $localizer = $self->stash('i18n_localizer')) {
-            if(my $xlat = $localizer->localize_for(lang => $l, id => $str, args => \@args)) {
-                return $xlat;
-            } else {
-                # okay, stupid WG inconsistency, some tanks have a _short, some don't, so if our str contains _short, retry it 
-                if($str =~ /_short$/) {
-                    $ostr =~ s/_short$//g;
-                    return $self->loc($ostr);
-                } else {
-                    return $str;
-                }
-            }
-        } else {
-            return $str;
-        }
-    });
 }
 
 1;
