@@ -36,6 +36,8 @@ sub register {
         my $l    = 'site';  # default localizer "language"
         my $ostr = $str;
 
+        $self->app->log->debug('no language string passed, caller: ' . (caller(1))[3]) and return 'no.lang.string.given' unless(defined($str));
+
         # find out if the string is a WoT style userString
         if($str =~ /^#(.*?):(.*)/) {
             $l   = $1;
