@@ -134,7 +134,7 @@ sub add_helpers {
                 sprintf('%d x', $a->{count}),
                 $c->{caliber}, 
                 $kind_map->{$c->{kind}},
-                $self->loc($c->{i18n}),
+                (defined($c->{i18n})) ? $self->loc($c->{i18n}) : $c->{label},
                 );
         } else {
             $self->app->log->debug('old style ammo');
