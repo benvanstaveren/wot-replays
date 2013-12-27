@@ -1,0 +1,5 @@
+// for the WG event admin stuff, eventually we want to be able to have them select a stat, or data item,
+// indicate it's scope (e.g. global, which means for all people in the replay or individual), 
+// and use that to run a match on any given replay to see if it matches 
+
+
