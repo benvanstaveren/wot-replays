@@ -6,8 +6,8 @@
             <p>[% h.loc('sidebar.donate.goal.text') %]</p>
             <p>
                 <div class="progress">
-                    <div class="progress-bar progress-bar-success" style="width: 0%">
-                        <span>$00.00/$60.00</span> 
+                    <div class="progress-bar progress-bar-success" style="width: 8%">
+                        <span>$5.00/$60.00</span> 
                     </div>
                 </div>
             </p>
