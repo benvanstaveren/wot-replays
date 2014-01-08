@@ -13,7 +13,7 @@ sub startup {
 
     my $config = $self->plugin('Config', { file => 'wrapi.conf' });
 
-    $self->secret($config->{app}->{secret}); # same secret as main app? why not
+    $self->secrets([ $config->{app}->{secret} ]); # same secret as main app? why not
     $self->defaults(config => $config);
 
     # set up the mango stuff here
