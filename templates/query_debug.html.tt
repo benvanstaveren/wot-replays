@@ -1,3 +1,4 @@
+[% IF 1 == 0 %]
 [% IF h.is_the_boss %]
 <div class="row">
     <div class="col-lg-6 col-md-6">
@@ -10,4 +11,5 @@
 <pre>[% h.dumper(query_explain) %]</pre>
     </div>
 </div>
+[% END %]
 [% END %]
