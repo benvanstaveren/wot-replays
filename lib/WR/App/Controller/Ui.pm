@@ -90,7 +90,11 @@ sub root_bridge {
                     });
                 });
             }
+        } else {
+            return 1;
         }
+    } else {
+        return 1;
     }
     return undef;
 }
