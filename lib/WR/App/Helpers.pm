@@ -51,6 +51,13 @@ sub add_helpers {
     my $class = shift;
     my $self  = shift; # not really self but the Mojo app
 
+    $self->helper(debug => sub {
+        my $self = shift;
+        my $msg = join(' ', @_);
+
+        $self->app->log->debug($msg);
+    });
+
     ### DB CALLING HELPERS - FIXME FIXME FIXME
     $self->helper(generate_item_icon_with_count => sub {
         my $self = shift;

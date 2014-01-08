@@ -21,7 +21,7 @@
     </td>
     <td class="playerDetails">
         <span data-container="body" data-placement="auto" data-toggle="tooltip" class="bs-tooltip spotted [% IF !details || details.spotted == 0 %]dimmed"[% ELSE %]" title="[% h.loc('replay.battleperformance.spotted') %][% END %]"></span>
-        <span data-container="body" data-placement="auto" data-toggle="tooltip" class="bs-tooltip assist [% IF (details.damageAssistedRadio + details.damageAssistedTrack < 1 %]dimmed[% END %]" 
+        <span data-container="body" data-placement="auto" data-toggle="tooltip" class="bs-tooltip assist [% IF (details.damageAssistedRadio + details.damageAssistedTrack) < 1 %]dimmed[% END %]" 
             title="
                 [% IF details.damageAssistedTrack + details.damageAssistedRadio > 0 %]
                     [% h.loc('replay.battleperformance.assisted', details.damageAssistedRadio + 0, h.percentage_of(ph, details.damageAssistedRadio + 0), details.damageAssistedTrack + 0, h.percentage_of(ph, details.damageAssistedTrack + 0)) %]

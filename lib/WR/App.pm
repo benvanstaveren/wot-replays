@@ -10,7 +10,7 @@ use lib "$FindBin::Bin/../lib";
 use WR;
 use WR::Query;
 use WR::Res;
-use WR::Renderer;
+#use WR::Renderer;
 use WR::App::Helpers;
 
 use Time::HiRes qw/gettimeofday/;
@@ -36,9 +36,13 @@ sub startup {
 
     $self->routes->namespaces([qw/WR::App::Controller/]);
 
-    my $r = $self->routes->bridge('/')->to('ui#root_bridge');
+    #my $r = $self->routes->bridge('/')->to('auto#root_bridge')->name('root_bridge');
+    my $r = $self->routes->bridge('/')->to(cb => sub {
+        my $self = shift;
+        return $self->init_auth();
+    });
 
-    $r->route('/')->to('ui#index', pageid => 'home');
+    $r->route('/')->to('ui#frontpage', pageid => 'home')->name('main_index');
 
     my $doc = $r->under('/doc');
         for(qw/about donate credits missions/) {
@@ -238,8 +242,7 @@ sub startup {
     # in order to mess around with our template paths we need to:
     $self->renderer->paths([]); # clear this out
 
-    my $tt = WR::Renderer->build(
-        mojo => $self,
+    $self->plugin('Mojolicious::Plugin::TtRenderer', {
         template_options => {
             PRE_CHOMP    => 0,
             POST_CHOMP   => 1,
@@ -259,12 +262,11 @@ sub startup {
             RELATIVE => 1,
             ABSOLUTE => 1, # otherwise hypnotoad gets a bit cranky, for some reason
             INCLUDE_PATH => [ $self->app->home->rel_dir('templates') ],
-            COMPILE_DIR  => $self->app->home->rel_dir('tmp/tmplc'),
-            COMPILE_EXT  => '.compiled',
+            COMPILE_DIR  => undef,
+            COMPILE_EXT  => undef,
         },
-    );
+    });
     $self->types->type(csv => 'text/csv; charset=utf-8');
-    $self->renderer->add_handler(tt => $tt);
     $self->renderer->default_handler('tt');
 }
 
