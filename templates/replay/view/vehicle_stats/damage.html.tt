@@ -1,24 +1,24 @@
-<h4>Damage</h4>
+<h4>[% h.loc('replay.damage.title') %]</h4>
 <table class="table table-bordered table-striped">
     <tbody>
         <tr>
-            <td><h5 style="margin: 0px" class="bs-tooltip" data-placement="auto" data-toggle="tooltip" title="Damage dealt directly by the player">Direct</h5></td>
+            <td><h5 style="margin: 0px" class="bs-tooltip" data-placement="auto" data-toggle="tooltip" title="[% h.loc('replay.damage.direct.title') %]">[% h.loc('replay.damage.direct.text') %]</h5></td>
             <td><span class="green">[% replay.stats.damageDealt || '0' %]</span></td>
         </tr>
         <tr>
-            <td><h5 style="margin: 0px" data-toggle="tooltip" data-placement="auto" class="bs-tooltip" title="Damage dealt by allies ([% replay.stats.damageAssistedRadio %] via spotting, [% replay.stats.damageAssistedTrack %] via tracking)">Assist</h5></td>
-            <td><span class="green bs-tooltip" data-placement="auto" data-toggle="tooltip" title="Damage assisted via tracking: [% replay.stats.damageAssistedTrack %], via spotting: [% replay.stats.damageAssistedRadio %]">[% replay.stats.damageAssistedRadio + replay.stats.damageAssistedTrack %]</span></td>
+            <td><h5 style="margin: 0px" data-toggle="tooltip" data-placement="auto" class="bs-tooltip" title="[% h.loc('replay.damage.assist.title', replay.stats.damageAssistedRadio + 0, replay.stats.damageAssistedTrack + 0) %]">[% h.loc('replay.damage.assist.text') %]</h5></td>
+            <td><span class="green bs-tooltip" data-placement="auto" data-toggle="tooltip" title="[% h.loc('replay.damage.assist.title', replay.stats.damageAssistedRadio + 0, replay.stats.damageAssistedTrack + 0) %]">[% replay.stats.damageAssistedRadio + replay.stats.damageAssistedTrack %]</span></td>
         </tr>
         <tr>
-            <td><h5 style="margin: 0px" class="bs-tooltip damagereceiveddetail" data-placement="auto" data-toggle="tooltip" title="Damage done to the player, click for detail view">Received</h5></td>
+            <td><h5 style="margin: 0px" class="bs-tooltip damagereceiveddetail" data-placement="auto" data-toggle="tooltip" title="[% h.loc('replay.damage.received.title') %]">[% h.loc('replay.damage.received.text') %]</h5></td>
             <td>
                 [% totalhealth = h.get_recorder_vehicle(replay).health.total %]
                 [% damageperc  = h.percentage_of(totalhealth, replay.stats.damageReceived) %]
-                <span class="damagereceiveddetail red bs-tooltip" data-placement="auto" data-toggle="tooltip" title="Damage done to the player, click for detail view">[% replay.stats.damageReceived || '0' %] ([% damageperc %]%)</span>
+                <span class="damagereceiveddetail red">[% replay.stats.damageReceived || '0' %] ([% damageperc %]%)</span>
             </td>
         </tr>
         <tr>
-            <td><h5 style="margin: 0px" class="bs-tooltip"  data-placement="auto" data-toggle="tooltip" title="Average damage done per penetrating shot">Damage/Shot</h5></td>
+            <td><h5 style="margin: 0px" class="bs-tooltip"  data-placement="auto" data-toggle="tooltip" title="[% h.loc('replay.damage.average.title') %]">[% h.loc('replay.damage.average.text') %]</h5></td>
             <td>
                 [% IF replay.stats.damageDealt > 0 && replay.stats.pierced > 0 %]
                     [% h.int(replay.stats.damageDealt / replay.stats.pierced) %]

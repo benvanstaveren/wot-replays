@@ -38,7 +38,7 @@ sub generate_vehicle_select {
         while(my $obj = $cursor->next()) {
             push(@{$d->{items}}, {
                 id => $obj->{_id},
-                value => $obj->{label},
+                value => $obj->{i18n},
                 level => $obj->{level},
             });
         }
@@ -128,7 +128,6 @@ sub add_helpers {
         return undef unless(defined($a) && ref($a) eq 'HASH');
 
         if(defined($a->{ammo})) {
-            $self->app->log->debug('new style ammo');
             my $c = $a->{ammo};
             return sprintf('%s %dmm %s %s', 
                 sprintf('%d x', $a->{count}),
@@ -137,7 +136,6 @@ sub add_helpers {
                 (defined($c->{i18n})) ? $self->loc($c->{i18n}) : $c->{label},
                 );
         } else {
-            $self->app->log->debug('old style ammo');
             my $i = $a->{id};
             if(my $c = $self->model('wot-replays.data.components')->find_one({ component => 'shells', _id => $i + 0 })) {
                 return sprintf('%s %dmm %s %s', 
@@ -313,8 +311,6 @@ sub add_helpers {
     });
 
     $self->helper(get_id => sub { return $_[1]->{_id} });
-    $self->helper(res => sub { return shift->app->wr_res });
-
 
     $self->helper(get_battleviewer_icon => sub {
         my $self = shift;
@@ -338,9 +334,7 @@ sub add_helpers {
         return undef unless(defined($a));
 
         if(ref($a)) {
-            # new style
-            $self->app->log->debug('new style consumable');
-            return $a->{label} || $a->{name};
+            return $self->loc($a->{i18n});
         } else {
             $self->app->log->debug('old style consumable');
             my $tc = parse_int_compact_descr($a);
@@ -360,7 +354,8 @@ sub add_helpers {
         while(my $o = $cursor->next()) {
             push(@$list, {
                 id => $o->{numerical_id},
-                label => $o->{label}
+                label => $o->{label},
+                i18n => $o->{i18n}
             });
         }
         return $list;
@@ -460,7 +455,7 @@ sub add_helpers {
         my $replay = shift;
 
         if(defined($replay->{game}->{map_extra})) {
-            return $replay->{game}->{map_extra}->{label};
+            return $self->loc(sprintf('#arenas:%s/name', $replay->{game}->{map_extra}->{ident}));
         } else {
             if(my $obj = $self->model('wot-replays.data.maps')->find_one({ numerical_id => $replay->{game}->{map} })) {
                 return $obj->{label};
@@ -585,7 +580,7 @@ sub add_helpers {
         return if($id == 0);
 
         if(my $obj = $self->model('wot-replays.data.equipment')->find_one({ wot_id => $id })) {
-            return $obj->{label};
+            return $self->loc($obj->{i18n});
         } else {
             return sprintf('nolabel:%d', $id);
         }
@@ -694,18 +689,6 @@ sub add_helpers {
         return Dumper([ shift ]);
     });
 
-    $self->helper(bonus_type_name => sub {
-        return shift->app->wr_res->bonustype->get(shift, 'label_short');
-    });
-
-    $self->helper(crit_component_name => sub {
-        return shift->app->wr_res->components->i18n(shift);
-    });
-
-    $self->helper(crit_tankman_name => sub {
-        return shift->app->wr_res->tankman->i18n(shift);
-    });
-
     $self->helper(short_game_type => sub {
         my $self = shift;
         my $gametype = shift;
@@ -714,8 +697,11 @@ sub add_helpers {
         return lc(substr($long, 0, 3));
     });
 
-    $self->helper(game_type_name => sub {
-        return shift->app->wr_res->gametype->i18n(shift);
+    $self->helper('achievement_name' => sub {
+        my $self = shift;
+        my $str  = shift;
+
+        return $self->loc(sprintf('#achievements:%s', $str));
     });
 
     $self->helper('achievement_is_award' => sub {

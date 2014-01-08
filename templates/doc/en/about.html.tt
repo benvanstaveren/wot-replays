@@ -1,4 +1,3 @@
-[% WRAPPER wrapper.html.tt %]    
     <div class="page-header">
             <h2>About the Site</h2>
     </div>
@@ -29,4 +28,3 @@
             All game related images, logo's, names, descriptions are copyright by Wargaming, and used here to entertain and possibly educate.
         </p>
     </div>
-[% END %]

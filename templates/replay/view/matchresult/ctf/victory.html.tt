@@ -1,1 +1,1 @@
-Victory 
+[% h.loc('replay.result.victory') %]

@@ -1,0 +1,19 @@
+<h4>Donate</h4>
+<div class="well well-sm">
+    <p>
+        As the site gets more popular every day, it also costs me a lot more to run it. Nearly 10.000 page views every day means the hardware expense is getting bigger and bigger. If you use the site and you think it's worth it, please donate your spare change. Please see the <a href="/doc/donate">why donate page</a> for more info.
+    </p>
+    <p>
+        I've set a monthly goal of $60 in donations, this will pay for the server costs, and allow me to spend more time working on the site.
+    </p>
+    <p>
+        <div class="progress">
+            <div class="progress-bar progress-bar-success" style="width: 16%">
+                <span>$10.00/$60.00</span> 
+            </div>
+        </div>
+    </p>
+    <p>
+        [% INCLUDE donatebutton.html.tt %]
+    </p>
+</div>

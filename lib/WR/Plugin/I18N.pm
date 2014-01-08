@@ -11,6 +11,7 @@ sub register {
         my $language = $c->session('lang') || 'en';
         my $langpath = (-e $c->app->home->rel_dir(sprintf('lang/%s', $language))) ? $c->app->home->rel_dir(sprintf('lang/%s', $language)) : $c->home->rel_dir('lang/en');
         $c->stash('i18n_localizer' => Data::Localize::Gettext->new(formatter => WR::Localize::Formatter->new(), path => sprintf('%s/*.po', $langpath)));
+        $c->stash('user_lang' => $language);
     });
 
     $app->helper(loc_short => sub {

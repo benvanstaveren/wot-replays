@@ -1,5 +1,5 @@
-                    [% IF replay.game.recorder.survived %]<span class="green">Yes</span>
-                    [% ELSE %]
-                        [% roster = h.get_roster_by_vid(replay, h.get_recorder_vehicle(replay).stats.killerID) %]
-                        <span class="red">No</span> - killed by <a href="/player/[% replay.game.server %]/[% roster.player.name |uri %]">[% roster.player.name %]</a>
-                    [% END %]
+[% IF replay.game.recorder.survived %]<span class="green">[% h.loc('replay.text.survived.yes') %]</span>
+[% ELSE %]
+    [% roster = h.get_roster_by_vid(replay, h.get_recorder_vehicle(replay).stats.killerID) %]
+    <span class="red">[% h.loc('replay.text.survived.no') %]</span> - [% h.loc('replay.text.killedby') %] <a href="/player/[% replay.game.server %]/[% roster.player.name |uri %]">[% roster.player.name %]</a>
+[% END %]

@@ -1,4 +1,0 @@
-<div>
-    [% INCLUDE sidebar/filter.html.tt %]
-</div>
-[% INCLUDE sidebar/filter.js.tt %]

@@ -1,6 +1,0 @@
-# mission related hooha
-msgid "mission.bonustype.premium"
-msgstr "%0 %quant(%0,day,days) Premium"
-
-msgid "mission.bonustype.xpFactor"
-msgstr "%0x xp"

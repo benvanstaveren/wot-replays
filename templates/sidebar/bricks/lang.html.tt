@@ -1,0 +1,11 @@
+[% lang_brick    = 'sidebar/bricks/' _ user_language _ '/' _ brick _ '.html.tt' %]
+[% default_brick = 'sidebar/bricks/en/' _ brick _ '.html.tt' %]
+<div class="row">
+    <div class="col-lg-12 col-md-12">
+        [% TRY %]
+            [% INCLUDE $lang_brick %]
+        [% CATCH %]
+            [% INCLUDE $default_brick %]
+        [% END %]
+    </div>
+</div>

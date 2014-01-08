@@ -1,4 +1,3 @@
-[% WRAPPER wrapper.html.tt %] 
     <div class="page-header">
         <h2>Credits and Thank You's</h2>
     </div>
@@ -35,4 +34,3 @@
             Thanks also to everyone who's suggested additions or changes to the site; it wouldn't be what it is without you, and a really <b>big</b> thank you to everyone who has donated some spare change, trust me when I say it helps me stay motivated to work on this project!
         </p>
     </div>
-[% END %]

@@ -1,16 +1,2 @@
-[% INCLUDE sidebar/filter.html.tt %]
-[% INCLUDE sidebar/filter.js.tt %]
-<h3>Heatmaps</h3>
-<div class="row">
-    <div class="col-lg-12 col-md-12">
-        <h4>CTF</h4>
-        <a class="btn btn-default" href="/map/[% map_id %]/heatmap/0/">Movement</a>
-        <a class="btn btn-default" href="/map/[% map_id %]/heatmap/0/deaths">Deaths</a>
-        <h4>Assault</h4>
-        <a class="btn btn-default" href="/map/[% map_id %]/heatmap/2/">Movement</a>
-        <a class="btn btn-default" href="/map/[% map_id %]/heatmap/2/deaths">Deaths</a>
-        <h4>Encounter</h4>
-        <a class="btn btn-default" href="/map/[% map_id %]/heatmap/1/">Movement</a>
-        <a class="btn btn-default" href="/map/[% map_id %]/heatmap/1/deaths">Deaths</a>
-    </div>
-</div>
+[% INCLUDE sidebar/bricks/filter.html.tt %]
+[% INCLUDE sidebar/bricks/filter.js.tt %]

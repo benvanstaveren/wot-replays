@@ -1,13 +1,13 @@
 <table class="table table-bordered table-striped team-list">
     <thead>
         <th></th>
-        <th>Tank</th>
-        <th>Player</th>
-        <th>WN7</th>
-        <th>Awards</th>
-        <th>Dmg</th>
-        <th>XP</th>
-        <th class="bs-tooltip" data-toggle="tooltip" data-placement="auto" data-container"body" title="Kills">K</th>
+        <th>[% h.loc('replay.team.tank.text') %]</th>
+        <th>[% h.loc('replay.team.player.text') %]</th>
+        <th>[% h.loc('replay.team.wn7.text') %]</th>
+        <th>[% h.loc('replay.team.awards.text') %]</th>
+        <th class="bs-tooltip" data-toggle="tooltip" data-placement="auto" data-container="body" title="[% h.loc('replay.team.damage.title') %]">[% h.loc('replay.team.damage.text') %]</th>
+        <th class="bs-tooltip" data-toggle="tooltip" data-placement="auto" data-container="body" title="[% h.loc('replay.team.xp.title') %]">[% h.loc('replay.team.xp.text') %]</th>
+        <th class="bs-tooltip" data-toggle="tooltip" data-placement="auto" data-container="body" title="[% h.loc('replay.team.kills.title') %]"">[% h.loc('replay.team.kills.text') %]</th>
     </thead>
     <tbody>
         [% FOREACH vid IN players %]

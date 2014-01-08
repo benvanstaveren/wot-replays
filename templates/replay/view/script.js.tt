@@ -7,7 +7,6 @@
         $('#embedModal').modal({
             show: false,
         });
-        $('.bs-tooltip').tooltip();
         $('.btn-battleviewer').on('click', function() {
             if($(this).hasClass('disabled')) return false;
         });
@@ -25,7 +24,7 @@
             var v = $('textarea#edit-text').val();
             $(this).attr('disabled', true);
             $('textarea#edit-text').attr('disabled', true);
-            $(this).html('Saving...');
+            $(this).html('[% h.loc('text.saving') |ucfirst %]...');
             
             $.getJSON('/replay/[% h.get_id(replay) %]/desc', {
                 desc: v,

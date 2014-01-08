@@ -5,7 +5,7 @@
         [% INCLUDE replay/view/matchresult/reason.html.tt %]
     </span>
 [% ELSIF replay.game.winner == 0 %]
-    <span>Draw</span>
+    <span>[% h.loc('replay.result.draw') %]</span>
 [% ELSE %]
     <span class="red">
         [% mr_inc = 'replay/view/matchresult/' _ replay.game.type _ '/defeat.html.tt' %]

@@ -1,4 +1,4 @@
-<h4>Performance</h4>
+<h4>[% h.loc('replay.battleperformance.title') %]</h4>
 <table class="table table-bordered team-list table-striped">
     <colgroup>
         <col class="vehicleIcon"/>
@@ -17,11 +17,11 @@
         [% cd = h.get_crit_details(details.crits) %]
         [% IF cd.count > 0 %]
             critDetails['[% pid %]'] = {
-                'title': 'Critical Hit Details',
+                'title': '[% h.loc('replay.battleperformance.critdetails.title') %]',
                 'placement': 'right',
                 'container': 'body',
                 'html': true,
-                'content': '<table class="table table-bordered"><thead><th>Damaged</th><th>Destroyed</th><th>Crew</th></thead><tbody><tr><td>' +
+                'content': '<table class="table table-bordered"><thead><th>[% h.loc('text.damaged') |ucfirst %]</th><th>[% h.loc('text.destroyed') |ucfirst %]</th><th>[% h.loc('text.crew') |ucfirst %]</th></thead><tbody><tr><td>' +
 [% FOREACH id IN cd.critical_devices %]
 '<span><img src="[% config.urls.assets %]/icon/crit/[% id %]CriticalSmall.png" style="width: 16px; height: 16px"></span>' +
 [% END %]

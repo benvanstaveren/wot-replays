@@ -2,7 +2,7 @@
 [% fitting = recv.vehicle.fitting || recv.player.vehicleFitting %]
 <div class="row">
     <div class="col-lg-6 col-md-6">
-        <h4>Equipment</h4>
+        <h4>[% h.loc('text.equipment') |ucfirst %]</h4>
         <ul class="list-group">
             [% FOREACH eq IN fitting.optional_devices %]
                 [% IF eq %]
@@ -23,32 +23,32 @@
     </div>
     <div class="col-lg-6 col-md-6">
         [% pv = h.get_recorder_vehicle(replay).vehicle %]
-        <h4>Modules</h4>
+        <h4>[% h.loc('text.modules') |ucfirst %]</h4>
         <ul class="list-group">
             <li class="list-group-item">
-                <span title="Engine" class="equipment-icon rounded" style="background: transparent url([% config.urls.assets %]/icon/components/24x24/engines.png) no-repeat scroll 0 0"></span>
+                <span title="[% h.loc('#item_types:engine/name') %]" class="equipment-icon rounded" style="background: transparent url([% config.urls.assets %]/icon/components/24x24/engines.png) no-repeat scroll 0 0"></span>
                 <span class="equipment-name" title="[% h.component_name(fitting.nation, 'engines', fitting.engine) %]">[% h.component_name(fitting.nation, 'engines', fitting.engine) %]</span>
             </li>
             <li class="list-group-item">
-                <span title="Tracks" class="equipment-icon rounded" style="background: transparent url([% config.urls.assets %]/icon/components/24x24/chassis.png) no-repeat scroll 0 0"></span>
+                <span title="[% h.loc('#item_types:chassis/name') %]" class="equipment-icon rounded" style="background: transparent url([% config.urls.assets %]/icon/components/24x24/chassis.png) no-repeat scroll 0 0"></span>
                 <span class="equipment-name" title="[% h.component_name(fitting.nation, 'chassis', fitting.chassis) %]"> 
                     [% h.component_name(fitting.nation, 'chassis', fitting.chassis) %]
                 </span>
             </li>
             <li class="list-group-item">
-                <span title="Radio" class="equipment-icon rounded" style="background: transparent url([% config.urls.assets %]/icon/components/24x24/radios.png) no-repeat scroll 0 0"></span>
+                <span title="[% h.loc('#item_types:radio/name') %]" class="equipment-icon rounded" style="background: transparent url([% config.urls.assets %]/icon/components/24x24/radios.png) no-repeat scroll 0 0"></span>
                 <span class="equipment-name" title="[% h.component_name(fitting.nation, 'radios', fitting.radio) %]"> 
                     [% h.component_name(fitting.nation, 'radios', fitting.radio) %]
                 </span>
             </li>
             <li class="list-group-item">
-                <span title="Gun" class="equipment-icon rounded" style="background: transparent url([% config.urls.assets %]/icon/components/24x24/guns.png) no-repeat scroll 0 0"></span>
+                <span title="[% h.loc('#item_types:gun/name') %]" class="equipment-icon rounded" style="background: transparent url([% config.urls.assets %]/icon/components/24x24/guns.png) no-repeat scroll 0 0"></span>
                 <span class="equipment-name" title="[% h.component_name(fitting.nation, 'guns', fitting.gun) %]">
                     [% h.component_name(fitting.nation, 'guns', fitting.gun) %]
                 </span>
             </li>
             <li class="list-group-item">
-                <span title="Turret" class="equipment-icon rounded" style="background: transparent url([% config.urls.assets %]/icon/components/24x24/turrets.png) no-repeat scroll 0 0"></span>
+                <span title="[% h.loc('#item_types:turret/name') %]" class="equipment-icon rounded" style="background: transparent url([% config.urls.assets %]/icon/components/24x24/turrets.png) no-repeat scroll 0 0"></span>
                 <span class="equipment-name" title="[% h.component_name(fitting.nation, 'turrets', fitting.turret) %]"> 
                     [% h.component_name(fitting.nation, 'turrets', fitting.turret) %]
                 </span>
@@ -58,7 +58,7 @@
 [% IF replay.game.recorder.consumables.defined %]
 <div class="row">
     <div class="col-lg-12 col-md-12">
-        <h4>Consumables</h4>
+        <h4>[% h.loc('text.consumables') |ucfirst %]</h4>
         <table class="table table-bordered rounded">
             <tbody>
                 <tr>
@@ -89,7 +89,7 @@
 [% IF replay.game.recorder.ammo.defined %]
 <div class="row">
     <div class="col-lg-12 col-md-12">
-        <h4>Ammunition</h4>
+        <h4>[% h.loc('text.ammunition') |ucfirst %]</h4>
         <table class="table table-bordered rounded">
             <tbody>
                 <tr>

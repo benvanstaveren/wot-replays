@@ -1,4 +1,3 @@
-[% WRAPPER wrapper.html.tt %]    
     <div class="page-header">
             <h2>About Missions</h2>
     </div>
@@ -20,4 +19,3 @@
             Couldn't be easier. Download the <a href="http://dl.wotreplays.org/mods/missiondumper-0.8.10.zip">zip file here</a>, and extract it to the res_mods folder of your World of Tanks installation. It will do it's thing on the next game restart. 
         </p>
     </div>
-[% END %]

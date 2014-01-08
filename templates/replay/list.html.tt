@@ -4,9 +4,3 @@
 [% IF replays.size == 0 %]
     <p class="lead">Oops, seems there are no replays that match that filter...</p>
 [% END %]
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('.bs-tooltip').tooltip();
-        $('.bs-popover').popover();
-    });
-</script>

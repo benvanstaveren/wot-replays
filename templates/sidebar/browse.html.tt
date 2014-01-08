@@ -1,2 +1,2 @@
-[% INCLUDE sidebar/filter.html.tt %]
-[% INCLUDE sidebar/filter.js.tt %]
+[% INCLUDE sidebar/bricks/filter.html.tt %]
+[% INCLUDE sidebar/bricks/filter.js.tt %]

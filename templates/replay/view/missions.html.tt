@@ -1,15 +1,15 @@
-<h4>Missions</h4>
+<h4>[% h.loc('replay.missions.title') %]</h4>
 [% IF replay.mission_panel.defined %]
     <table class="table table-bordered table-striped">
-        <thead><th colspan="2">Completed Missions</th></thead>
+        <thead><th colspan="2">[% h.loc('replay.missions.completed') %]</th></thead>
         <tbody>
             [% FOREACH entry IN replay.mission_panel %]
                 [% IF entry.is_awarded %]
                     <tr>
                         [% IF entry.is_unknown %]
-                            <td style="vertical-align: top"><h5>[% entry.name %]<br/><small>(Unknown mission)</small></h5></td>
+                            <td style="vertical-align: top"><h5>[% entry.name %]<br/><small>([% h.loc('replay.missions.unknown') %])</small></h5></td>
                             <td style="width: 25%; vertical-align: middle; text-align: center">
-                                <a href="/doc/missions">(what's this?)</a>
+                                <a href="/doc/missions">([% h.loc('text.whatsthis') %])</a>
                             </td>
                         [% ELSE %]
                             <td style="vertical-align: top"><h5>[% entry.name %]<br/><small>[% entry.desc %]</small></h5></td>
@@ -21,15 +21,15 @@
                                         [% END %]
                                     [% ELSE %]
                                         [% IF bonustype == 'xpFactor' %]
-                                            [% h.loc('#missions:mission.bonustype.xpFactor', entry.bonuses.$bonustype) %]
+                                            [% h.loc('replay.missions.bonustype.xpFactor', entry.bonuses.$bonustype) %]
                                         [% ELSIF bonustype == 'creditsFactor' %]
-                                            [% entry.bonuses.$bonustype %]x credits<br/>
+                                            [% h.loc('replay.missions.bonustype.creditsFactor', entry.bonuses.$bonustype) %]
                                         [% ELSIF bonustype == 'credits' %]
-                                            [% entry.bonuses.$bonustype %] credits<br/>
+                                            [% h.loc('replay.missions.bonustype.credits', entry.bonuses.$bonustype) %]
                                         [% ELSIF bonustype == 'tankmenXPFactor' %]
-                                            [% entry.bonuses.$bonustype %]x crew xp<br/>
+                                            [% h.loc('replay.missions.bonustype.tankmenXPFactor', entry.bonuses.$bonustype) %]
                                         [% ELSIF bonustype == 'premium' %]
-                                            [% h.loc('#missions:mission.bonustype.premium', entry.bonuses.$bonustype) %]
+                                            [% h.loc('replay.missions.bonustype.premium', entry.bonuses.$bonustype) %]
                                         [% ELSE %]
                                             (unknown bonus type [% bonustype %]) [% entry.bonuses.$bonustype %]<br/>
                                         [% END %]
@@ -43,15 +43,15 @@
         </tbody>
     </table>
     <table class="table table-bordered table-striped">
-        <thead><th colspan="2">In Progress</th></thead>
+        <thead><th colspan="2">[% h.loc('replay.missions.inprogress') %]</th></thead>
         <tbody>
             [% FOREACH entry IN replay.mission_panel %]
                 [% IF !entry.is_awarded %]
                     <tr>
                         [% IF entry.is_unknown %]
-                            <td style="vertical-align: top"><h5>[% entry.name %]<br/><small>(Unknown mission)</small></h5></td>
+                            <td style="vertical-align: top"><h5>[% entry.name %]<br/><small>([% h.loc('replay.missions.unknown') %])</small></h5></td>
                             <td style="width: 25%; vertical-align: middle; text-align: center">
-                                <a href="/doc/missions">(what's this?)</a>
+                                <a href="/doc/missions">([% h.loc('text.whatsthis') %])</a>
                             </td>
                         [% ELSE %]
                             <td style="vertical-align: top"><h5>[% entry.name || entry.id %]<br/><small>[% entry.desc %]</small></h5></td>

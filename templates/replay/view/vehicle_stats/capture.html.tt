@@ -1,13 +1,13 @@
-<h4>Capture</h4>
+<h4>[% h.loc('replay.capture.title') %]</h4>
 <table class="table table-bordered table-striped">
     <tbody>
         <tr>
-            <td><h5 style="margin: 0px">Captured</h5></td>
-            <td><span data-placement="auto" data-toggle="tooltip" title="Points captured by the player" class="bs-tooltip [% IF replay.stats.capturePoints > 0 %]green[% END %]">[% replay.stats.capturePoints || '0' %]</span></td>
+            <td><h5 style="margin: 0px">[% h.loc('replay.capture.cap.text') %]</h5></td>
+            <td><span data-placement="auto" data-toggle="tooltip" title="[% h.loc('replay.capture.cap.title') %]" class="bs-tooltip [% IF replay.stats.capturePoints > 0 %]green[% END %]">[% replay.stats.capturePoints || '0' %]</span></td>
         </tr>
         <tr>
-            <td><h5 style="margin: 0px">Defended</h5></td>
-            <td><span data-placement="auto" data-toggle="tooltip" title="Points dropped by the enemy as a result of the player damaging them" class="bs-tooltip [% IF replay.stats.droppedCapturePoints > 0 %]green[% END %]">[% replay.stats.droppedCapturePoints || '0' %]</span></td>
+            <td><h5 style="margin: 0px">[% h.loc('replay.capture.defend.text') %]</h5></td>
+            <td><span data-placement="auto" data-toggle="tooltip" title="[% h.loc('replay.capture.defend.title') %]" class="bs-tooltip [% IF replay.stats.droppedCapturePoints > 0 %]green[% END %]">[% replay.stats.droppedCapturePoints || '0' %]</span></td>
         </tr>
     </tbody>
 </table>

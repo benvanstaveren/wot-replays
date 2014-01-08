@@ -1,54 +1,27 @@
 [% WRAPPER wrapper.html.tt %]
-    <div class="row" style="margin: 30px 0px 10px 0px">
-        <div class="col-lg-3 col-md-3">
-            <div 
-                data-placement="auto"
-                data-toggle="tooltip"
-                title="[% h.get_recorder_vehicle(replay).vehicle.label |html %] on [% h.map_name(replay) |html%]" 
-                style="background: transparent url([% config.urls.assets %]/mapscreen/[% h.map_icon(replay) %]) no-repeat scroll 0 0;"
-                class="rounded-tl bs-tooltip"
-                >
-                <div style="width: 231px; height: 97px; background: transparent url([% config.urls.assets %]/mapscreen/overlay.png) no-repeat scroll 0 0">
-                    <img src="[% config.urls.assets %]/vehicles/100/[% h.get_recorder_vehicle(replay).vehicle.icon %]" style="width: 160px; height: 100px; position: relative; top: 0px; left: 110px"/>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-9 col-md-9">
-            <p class="lead" style="margin-bottom: 5px">
-                    <a data-placement="auto" data-toggle="tooltip" class="bs-tooltip [% IF h.get_replay_stats(replay, 'isPremium') %]premium" style="background-position: center left;"[% END %] href="/player/[% replay.game.server %]/[% replay.game.recorder.name |uri %]/" title="[% replay.game.recorder.name |html %] [% IF h.get_replay_stats(replay, 'isPremium') %](Premium)[% END %]">[% replay.game.recorder.name |truncate(15) |html %]</a> - <a href="/vehicle/[% h.vehicle_link(h.get_recorder_vehicle(replay).vehicle.ident) %]/" data-placement="auto" data-toggle="tooltip" class="bs-tooltip" title="[% h.get_recorder_vehicle(replay).vehicle.label |html %]">[% h.get_recorder_vehicle(replay).vehicle.label_short |html %]</a> - <a href="/map/[% h.map_slug(replay) |uri %]/">[% h.map_name(replay) |html %]</a> ([% h.bonus_type_name(replay.game.bonus_type) %] [% h.game_type_name(replay.game.type) %])</a>
-            </p>
-            <h4 style="padding: 0px; margin: 0px 0px 5px 0px">
-                    <span style="font-weight: normal">Result:</span><span>[% INCLUDE replay/view/matchresult.html.tt %]</span> <span style="margin: 0px 0px 0px 10px; font-weight: normal">Survived:</span><span> [% INCLUDE replay/view/vehicle_stats/survived.html.tt %]</span>
-            </h4>
-            <div class="btn-group btn-group-justified">
-                <a class="bs-tooltip btn btn-default btn-like-replay" href="[% h.get_id(replay) %]" data-toggle="tooltip" data-container="body" data-placement="bottom" title="Like this replay"><span class="badge">[% replay.site.like || '0' %]</span> Like</a>
-                <a class="bs-tooltip btn btn-default btn-save-replay" data-placement="bottom" data-toggle="tooltip" data-container="body" title="Download this replay" href="[% config.urls.replays %]/[% replay.file %]"><span class="badge">[% replay.site.downloads || '0' %]</span> Save</a>
-                <a class="bs-tooltip btn btn-default btn-replay-page" data-placement="bottom" data-toggle="tooltip" data-container="body"  title="Replay Page" href="/replay/[% h.get_id(replay) %].html">Replay Page</a>
-            </div>
-        </div>
-    </div>
+    [% INCLUDE replay/view/header.html.tt context="battleviewer" %]
     <div class="row" style="margin: 10px 0px 0px 0px">
         <div class="pull-left" style="width: 800px; margin: 0px 0px 0px 5px">
             <div id="bv-player"></div>
             <div id="battleviewer-controls">
                 <div class="btn-group btn-group-justified" style="width: 768px; margin: 5px 0px 0px 27px" >
-                    <a href="#" speed="800" class="btn btn-default btn-speed disabled">Glacial</a>
-                    <a href="#" speed="200" class="btn btn-default btn-speed disabled">Slow</a>
-                    <a href="#" speed="100" class="active btn btn-default btn-speed disabled">Real-Time</a>
-                    <a href="#" speed="50" class="btn btn-default btn-speed disabled">Fast</a>
-                    <a href="#" speed="10" class="btn btn-default btn-speed disabled">Ludicrous</a>
+                    <a href="#" speed="800" class="btn btn-default btn-speed disabled">[% h.loc('battleviewer.button.glacial') %]</a>
+                    <a href="#" speed="200" class="btn btn-default btn-speed disabled">[% h.loc('battleviewer.button.slow') %]</a>
+                    <a href="#" speed="100" class="active btn btn-default btn-speed disabled">[% h.loc('battleviewer.button.realtime') %]</a>
+                    <a href="#" speed="50" class="btn btn-default btn-speed disabled">[% h.loc('battleviewer.button.fast') %]</a>
+                    <a href="#" speed="10" class="btn btn-default btn-speed disabled">[% h.loc('battleviewer.button.ludicrous') %]</a>
                 </div>
             </div>
         </div>
         <div class="pull-left" style="width: 330px; margin: 22px 0px 0px 5px"">
             <div class="well text-center" id="load-progress">
-                <p>Packets loading...</p>
+                <p>[% h.loc('battleviewer.packetsloading') %]...</p>
                 <div class="progress">
                     <div class="progress-bar" style="width: 0%"></div>
                 </div>
             </div>
             <div class="well hide text-center" id="arena-period">
-                <div class="alert alert-info">Click to Start</div>
+                <div class="alert alert-info">[% h.loc('battleviewer.clicktostart') %]</div>
             </div>
             <div class="well hide"  id="arena-chat">
                 <div id="chat" style="overflow-y: auto; height: 600px"></div>
@@ -73,7 +46,7 @@
 
         // handlers for loading
         battleViewer.onPacketsError(function(e) {
-            $.bootstrapGrowl('Could not load packet data, try reloading the page', {
+            $.bootstrapGrowl('[% h.loc('battleviewer.packeterror') |js %]', {
                 type: 'danger',
                 allow_dismiss: true
             });
@@ -112,13 +85,13 @@
 
         battleViewer.getArena().onPeriodChange(function(period) {
             if(period.period == 1) { 
-                $('#arena-period div.alert').text('Awaiting players...');
+                $('#arena-period div.alert').text('[% h.loc('battleviewer.period.1') |js %]...');
             } else if(period.period == 2) {
-                $('#arena-period div.alert').text('Countdown...');
+                $('#arena-period div.alert').text('[% h.loc('battleviewer.period.2') |js %]...');
             } else if(period.period == 3) {
-                $('#arena-period div.alert').text('In Battle').removeClass('alert-info').addClass('alert-success');
+                $('#arena-period div.alert').text('[% h.loc('battleviewer.period.3') |js %]').removeClass('alert-info').addClass('alert-success');
             } else if(period.period == 4) {
-                $('#arena-period div.alert').text('After battle...').removeClass('alert-success').addClass('alert-danger');
+                $('#arena-period div.alert').text('[% h.loc('battleviewer.period.4') |js %]...').removeClass('alert-success').addClass('alert-danger');
             }
         });
 

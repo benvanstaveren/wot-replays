@@ -1,1 +1,1 @@
-            Defeat
+[% h.loc('replay.result.defeat') %]        

@@ -8,7 +8,7 @@
 [% END %]
 <tr>
     <td></td>
-    <td class="playerVehicle" style="background: transparent url([% config.urls.assets %]/vehicles/48/[% player.vehicle.icon %]) no-repeat scroll center center" title="[% player.vehicle.label |html %]">
+    <td class="bs-tooltip playerVehicle" style="background: transparent url([% config.urls.assets %]/vehicles/48/[% player.vehicle.icon %]) no-repeat scroll center center" title="[% h.loc(player.vehicle.i18n) %]" data-toggle="tooltip" data-placement="auto" data-container="body">
         <div class="playerHealth">
             [% totalhealth = player.health.total %]
             [% hp = h.percentage_of(totalhealth, player.health.remaining) %]
@@ -26,16 +26,16 @@
         [% END %]
     </td>
     <td class="playerRating">
-        <div title="Player overall WN7" data-placement="auto" data-toggle="tooltip" data-container="body" class="bs-tooltip wn7 [% IF player.wn7.available %][% h.wn7_color(player.wn7.data.overall) %][% ELSE %]notavailable[% END %] rounded" style="padding: 2px; margin: 0px; font-weight: bold; text-align: center">[% IF player.wn7.available %]<a class="wn7 [% h.wn7_color(player.wn7.data.overall) %]" href="http://statterbox.com/[% h.fix_server(replay.game.server) %]/[% player.player.name |uri %]">[% player.wn7.data.overall %]</a>[% ELSE %]-[% END %]</div>
+        <div title="[% h.loc('tooltip.wn7.overall') %]" data-placement="auto" data-toggle="tooltip" data-container="body" class="bs-tooltip wn7 [% IF player.wn7.available %][% h.wn7_color(player.wn7.data.overall) %][% ELSE %]notavailable[% END %] rounded" style="padding: 2px; margin: 0px; font-weight: bold; text-align: center">[% IF player.wn7.available %]<a class="wn7 [% h.wn7_color(player.wn7.data.overall) %]" href="http://statterbox.com/[% h.fix_server(replay.game.server) %]/[% player.player.name |uri %]">[% player.wn7.data.overall %]</a>[% ELSE %]-[% END %]</div>
     </td>
     <td class="playerDetails">
         [% FOREACH award IN player.stats.achievements.nsort %]
             [% IF h.get_achievements.is_battle(award) || h.get_achievements.is_repeatable(award) %]
-                <img src="[% config.urls.assets %]/icon/awards/24/[% h.get_achievements.index_to_idstr(award) %].png" style="height: 24px;" alt="[% h.get_achievements.i18n(h.res.achievements.index_to_idstr(award)) |html %]" title="[% h.get_achievements.i18n(h.get_achievements.index_to_idstr(award)) |html %]"/>
+                <img src="[% config.urls.assets %]/icon/awards/24/[% h.get_achievements.index_to_idstr(award) %].png" style="height: 24px;" title="[% h.achievement_name(h.get_achievements.index_to_idstr(award)) %]" alt="[% h.achievement_name(h.get_achievements.index_to_idstr(award)) %]" class="bs-tooltip" data-placement="auto" data-toggle="tooltip" data-container="body"/>
             [% END %]
         [% END %]
     </td>
     <td class="playerDamage"><span class="green">[% player.stats.damageDealt %]</td>
-    <td class="playerXP"><span class="green" title="Player earned [% player.stats.xp %] xp not including bonuses and premium multipliers">[% player.stats.xp %]</span></td>
+    <td class="playerXP"><span class="green bs-tooltip" data-toggle="tooltip" data-placement="auto" data-container="body" title="[% h.loc('replay.team.xp.earned', player.stats.xp) %]">[% player.stats.xp %]</span></td>
     <td class="playerFrags [% IF player.stats.kills > 0 %]green[% ELSIF player.stats.kills < 0 %]red[% END %]">[% player.stats.kills || '0' %]</td>
 </tr>

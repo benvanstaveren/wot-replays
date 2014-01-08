@@ -44,7 +44,7 @@ sub startup {
 
     my $doc = $r->under('/doc');
         for(qw/about donate credits missions/) {
-            $doc->route(sprintf('/%s', $_))->to('ui#auto', next => $_, pageid => $_);
+            $doc->route(sprintf('/%s', $_))->to('ui#auto', next => 'doc', docfile => $_, pageid => $_);
         }
 
 

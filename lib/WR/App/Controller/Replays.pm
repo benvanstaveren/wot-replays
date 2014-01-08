@@ -64,6 +64,7 @@ sub _real_browse {
         damage      => { 'stats.damageDealt'        => -1 },
         likes       => { 'site.likes'               => -1 },
         downloads   => { 'site.downloads'           => -1 },
+        scouted     => { 'stats.damageAssistedRadio' => -1 },
         };
 
     # yank all the settings out into filter
