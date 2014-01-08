@@ -1,6 +1,7 @@
 package WR::Plugin::Auth;
 use Mojo::Base 'Mojolicious::Plugin';
 use Try::Tiny qw/try catch/;
+use Data::Dumper;
 
 sub register {
     my $self = shift;
@@ -69,7 +70,11 @@ sub register {
         my $set  = shift;
         my $cb   = shift;
 
-        $self->model('wot-replays.accounts')->update({ _id => $self->current_user->{_id} }, { '$set' => $set } => $cb);
+        try {
+            $self->model('wot-replays.accounts')->update({ _id => $self->current_user->{_id} }, { '$set' => $set } => $cb);
+        } catch {
+            $self->app->log->error('update_current_user exception: ' . $_ . ' for user: ' . Dumper($self->current_user));
+        };
     });
 
     $app->helper(is_own_replay => sub {
