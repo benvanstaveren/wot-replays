@@ -95,7 +95,7 @@
                                 <li class="dropdown-header">[% h.loc('nav.profile.header') %]</li>
                                 <li><a href="/profile/replays/type/p/page/1">[% h.loc('nav.profile.replays') %]</a></li>
                                 <li><a href="/profile/uploads/page/1">[% h.loc('nav.profile.uploads') %]</a></li>
-                                <li class="disabled"><a href="/profile/settings">[% h.loc('nav.profile.settings') %]</a></li>
+                                <li><a href="/profile/settings">[% h.loc('nav.profile.settings') %]</a></li>
                                 <li class="divider"></li>
                                 <li><a href="/logout">[% h.loc('nav.profile.signout') %]</a></li>
                             </ul>
