@@ -3,7 +3,7 @@ use Mojo::Base 'WR::App::Controller';
 use WR::Query;
 use Mango::BSON;
 
-sub check {
+sub bridge {
     my $self = shift;
     return 1 if($self->is_user_authenticated);
     $self->redirect_to('/login') and return 0;

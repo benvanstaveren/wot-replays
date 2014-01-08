@@ -36,19 +36,17 @@ sub startup {
 
     $self->routes->namespaces([qw/WR::App::Controller/]);
 
-    #my $r = $self->routes->bridge('/')->to('auto#index');
+    my $r = $self->routes->bridge('/')->to('ui#auto');
 
-    my $r = $self->routes;
-
-    $r->route('/')->to('ui#auto', next => 'index', pageid => 'home');
+    $r->route('/')->to('ui#index', pageid => 'home');
 
     my $doc = $r->under('/doc');
         for(qw/about donate credits missions/) {
-            $doc->route(sprintf('/%s', $_))->to('ui#auto', next => 'doc', docfile => $_, pageid => $_);
+            $doc->route(sprintf('/%s', $_))->to('ui#doc', docfile => $_, pageid => $_);
         }
 
 
-    $r->route('/browse/*filter')->to('replays#auto', next => 'browse', filter_opts => {}, pageid => 'browse', page => { title => 'browse.page.title' }, filter_root => 'browse');
+    $r->route('/browse/*filter')->to('replays#browse', filter_opts => {}, pageid => 'browse', page => { title => 'browse.page.title' }, filter_root => 'browse');
     $r->route('/browse')->to(cb => sub {
         my $self = shift;
         $self->stash('browse_filter_raw' => {
@@ -69,31 +67,31 @@ sub startup {
 
 
     # funky bits
-    $r->route('/upload')->to('replays-upload#auto', next => 'upload', pageid => 'upload');
+    $r->route('/upload')->to('replays-upload#upload', pageid => 'upload');
     $r->route('/postaction')->to('ui#nginx_post_action');
 
     my $xhr = $r->under('/xhr');
-        $xhr->route('/qs')->to('ui#auto', next => 'xhr_qs');
-        $xhr->route('/ds')->to('ui#auto', next => 'xhr_ds');
-        $xhr->route('/du')->to('ui#auto', next => 'xhr_du');
+        $xhr->route('/qs')->to('ui#xhr_qs');
+        $xhr->route('/ds')->to('ui#xhr_ds');
+        $xhr->route('/du')->to('ui#xhr_du');
 
     my $bv = $r->under('/battleviewer/:replay_id');
-        $bv->route('/')->to('replays-view#auto', next => 'battleviewer', pageid => 'battleviewer');
+        $bv->route('/')->to('replays-view#battleviewer', pageid => 'battleviewer');
 
     my $bhm = $r->under('/battleheatmap/:replay_id');
-        $bhm->route('/')->to('replays-view#auto', next => 'heatmap', pageid => 'battleheatmap');
+        $bhm->route('/')->to('replays-view#heatmap', pageid => 'battleheatmap');
 
     my $rb = $r->under('/replay/:replay_id');
-        $rb->route('/')->to('replays-view#auto', next => 'view', pageid => undef)->name('viewreplay');
-        $rb->route('/desc')->to('replays#auto', next => 'desc', pageid => undef);
-        $rb->route('/download')->to('replays-export#auto', next => 'download', pageid => undef);
-        $rb->route('/packets')->to('replays-view#auto', next => 'packets', pageid => undef);
-        $rb->route('/up')->to('replays-rate#auto', next => 'rate_up', pageid => undef);
-        $rb->route('/comparison')->to('replays-view#auto', next => 'comparison', pageid => undef);
-        $bv->route('/battleviewer')->to('replays-view#auto', next => 'battleviewer', pageid => 'battleviewer');
-        $bv->route('/heatmap')->to('replays-view#auto', next => 'heatmap', pageid => 'battleheatmap');
+        $rb->route('/')->to('replays-view#view', pageid => undef)->name('viewreplay');
+        $rb->route('/desc')->to('replays#desc', pageid => undef);
+        $rb->route('/download')->to('replays-export#download', pageid => undef);
+        $rb->route('/packets')->to('replays-view#packets', pageid => undef);
+        $rb->route('/up')->to('replays-rate#rate_up', pageid => undef);
+        $rb->route('/comparison')->to('replays-view#comparison', pageid => undef);
+        $bv->route('/battleviewer')->to('replays-view#battleviewer', pageid => 'battleviewer');
+        $bv->route('/heatmap')->to('replays-view#heatmap', pageid => 'battleheatmap');
 
-    $r->route('/players')->to('player#auto', next => 'index', pageid => 'player');
+    $r->route('/players')->to('player#index', pageid => 'player');
     my $player = $r->under('/player');
         $player->route('/:server/:player_name')->to(cb => sub {
             my $self = shift;
@@ -111,7 +109,7 @@ sub startup {
             $self->redirect_to(sprintf('/player/%s/%s/%s', $self->stash('server'), $self->stash('player_name'), $self->browse_page(1)));
         }, pageid => 'player');
         $player->route('/:server/:player_name/latest')->to('player#latest', pageid => 'player');
-        $player->route('/:server/:player_name/*filter')->to('replays#auto', next => 'browse',
+        $player->route('/:server/:player_name/*filter')->to('replays#browse', next => 'browse',
             page => {
                 title => 'player.page.title',
             },
@@ -130,7 +128,7 @@ sub startup {
 
 
     my $vehicles = $r->under('/vehicles');
-        $vehicles->route('/:country')->to('vehicle#auto', next => 'index', pageid => 'vehicle');
+        $vehicles->route('/:country')->to('vehicle#index', pageid => 'vehicle');
 
     my $vehicle = $r->under('/vehicle');
         $vehicle->route('/:country/:vehicle')->to(cb => sub {
@@ -146,7 +144,7 @@ sub startup {
             });
             $self->redirect_to(sprintf('/vehicle/%s/%s/%s', $self->stash('country'), $self->stash('vehicle'), $self->browse_page(1)));
         }, pageid => 'vehicle');
-        $vehicle->route('/:country/:vehicle/*filter')->to('replays#auto', next => 'browse', 
+        $vehicle->route('/:country/:vehicle/*filter')->to('replays#browse', 
             page => {
                 title => 'vehicle.page.title',
             },
@@ -164,10 +162,10 @@ sub startup {
         );
 
 
-    $r->route('/maps')->to('map#auto', next => 'index', pageid => 'map');
+    $r->route('/maps')->to('map#index', pageid => 'map');
 
     my $heatmaps = $r->under('/heatmaps');
-        $heatmaps->route('/:map_ident')->to('heatmap#auto', next => 'view');
+        $heatmaps->route('/:map_ident')->to('heatmap#view', next => 'view');
 
     my $map = $r->under('/map');
         $map->route('/:map_id')->to(cb => sub {
@@ -185,7 +183,7 @@ sub startup {
             });
             $self->redirect_to(sprintf('/map/%s/%s', $self->stash('map_id'), $self->browse_page(1)));
         }, pageid => 'map');
-        $map->route('/:map_id/*filter')->to('replays#auto', next => 'browse', 
+        $map->route('/:map_id/*filter')->to('replays#browse', 
             page => {
                 title => 'map.page.title',
             },
@@ -220,15 +218,15 @@ sub startup {
     my $openid = $r->under('/openid');
         $openid->any('/return')->to('ui#openid_return');
 
-    my $pb = $r->under('/profile');
-        $pb->route('/replays/type/:type/page/:page')->to('profile#auto', mustauth => 1, next => 'replays', pageid => 'profile');
-        $pb->route('/uploads/page/:page')->to('profile#auto', next => 'uploads', mustauth => 1, pageid => 'profile');
-        $pb->route('/settings')->to('profile#auto', next => 'settings', mustauth => 1, pageid => 'profile');
-        $pb->route('/sl/:lang')->to('profile#auto', next => 'sl', mustauth => 1, pageid => 'profile');
+    my $pb = $r->bridge('/profile')->to('profile#bridge');
+        $pb->route('/replays/type/:type/page/:page')->to('profile#replays', mustauth => 1, pageid => 'profile');
+        $pb->route('/uploads/page/:page')->to('profile#uploads', pageid => 'profile');
+        $pb->route('/settings')->to('profile#settings', pageid => 'profile');
+        $pb->route('/sl/:lang')->to('profile#sl', pageid => 'profile');
 
         my $pbj = $pb->under('/j');
-            $pbj->route('/sr')->to('profile#auto', next => 'sr', pageid => 'profile');
-            $pbj->route('/hr')->to('profile#auto', next => 'hr', pageid => 'profile');
+            $pbj->route('/sr')->to('profile#sr', pageid => 'profile');
+            $pbj->route('/hr')->to('profile#hr', pageid => 'profile');
 
     $self->sessions->default_expiration(86400 * 365); 
     $self->sessions->cookie_name('wrsession');
