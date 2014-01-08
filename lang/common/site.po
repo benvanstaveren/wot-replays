@@ -199,6 +199,16 @@ msgstr "Browse Map"
 msgid "heatmaps.page.title"
 msgstr "Heatmaps"
 
+# other page elements
+msgid "page.about.title"
+msgstr "About the Site"
+
+msgid "page.credits.title"
+msgstr "Additional Credits"
+
+msgid "page.donate.title"
+msgstr "Why Donate"
+
 # misc. button bits
 msgid "button.modal.close.title"
 msgstr "Close this dialog"
