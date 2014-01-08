@@ -1,11 +1,25 @@
 [% WRAPPER wrapper.html.tt %]
     <div class="page-header">
-        <h2>Your Profile - Settings</h2>
+        <h2>[% h.loc('profile.settings.page.title') %]</h2>
     </div>
     <div class="row">
         <div class="col-lg-6 col-md-6">
+            <h4>[% h.loc('profile.settings.language.title') %] ([% user_lang %])</h4>
+            <select name="language" disabled="true" class="disabled">
+                [% FOREACH language IN config.languages %]
+                    <option value="[% language.ident %]" [% IF user_lang == language.ident %]selected[% END %]>[% h.loc(language.label) %]</option>
+                [% END %]
+            </select>
         </div>
         <div class="col-lg-6 col-md-6">
         </div>
     </div>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('select[name="language"]').change(function() {
+                //var l = $(this).val();
+                //document.location.href = '/profile/sl/' + l;
+            });
+        });
+    </script>
 [% END %]

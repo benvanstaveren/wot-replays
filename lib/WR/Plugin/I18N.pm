@@ -8,9 +8,22 @@ sub register {
     $app->hook(before_routes => sub {
         my $c = shift;
 
-        my $language = $c->session('lang') || 'en';
+        my $language = $c->session('language') || 'en';
         my $langpath = (-e $c->app->home->rel_dir(sprintf('lang/%s', $language))) ? $c->app->home->rel_dir(sprintf('lang/%s', $language)) : $c->home->rel_dir('lang/en');
-        $c->stash('i18n_localizer' => Data::Localize::Gettext->new(formatter => WR::Localize::Formatter->new(), path => sprintf('%s/*.po', $langpath)));
+        my $compath = $c->app->home->rel_dir('lang/common');
+        $c->stash('i18n_localizer' => Data::Localize::Gettext->new(formatter => WR::Localize::Formatter->new(), paths => [ sprintf('%s/*.po', $compath), sprintf('%s/*.po', $langpath) ]));
+        $c->stash('user_lang' => $language);
+    });
+
+    $app->helper(set_language => sub {
+        my $c = shift;
+        my $language = shift;
+
+        $c->session(language => $language);
+
+        my $langpath = (-e $c->app->home->rel_dir(sprintf('lang/%s', $language))) ? $c->app->home->rel_dir(sprintf('lang/%s', $language)) : $c->home->rel_dir('lang/en');
+        my $compath = $c->app->home->rel_dir('lang/common');
+        $c->stash('i18n_localizer' => Data::Localize::Gettext->new(formatter => WR::Localize::Formatter->new(), paths => [ sprintf('%s/*.po', $compath), sprintf('%s/*.po', $langpath) ]));
         $c->stash('user_lang' => $language);
     });
 

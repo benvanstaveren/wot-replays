@@ -223,6 +223,8 @@ sub startup {
     my $pb = $r->under('/profile');
         $pb->route('/replays/type/:type/page/:page')->to('profile#auto', mustauth => 1, next => 'replays', pageid => 'profile');
         $pb->route('/uploads/page/:page')->to('profile#auto', next => 'uploads', mustauth => 1, pageid => 'profile');
+        $pb->route('/settings')->to('profile#auto', next => 'settings', mustauth => 1, pageid => 'profile');
+        $pb->route('/sl/:lang')->to('profile#auto', next => 'sl', mustauth => 1, pageid => 'profile');
 
         my $pbj = $pb->under('/j');
             $pbj->route('/sr')->to('profile#auto', next => 'sr', pageid => 'profile');

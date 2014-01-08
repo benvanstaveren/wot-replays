@@ -1,0 +1,1101 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: World Of Tanks\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-06-01 10:00+0300\n"
+"PO-Revision-Date: 2010-06-01 10:00+0300\n"
+"Last-Translator: WoT Translator <noreply@wargaming.net>\n"
+"Language-Team: WoT Team <noreply@wargaming.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "achievement/master1"
+msgstr "Kelas III"
+
+msgid "achievement/master2"
+msgstr "Kelas II"
+
+msgid "achievement/master3"
+msgstr "Kelas I"
+
+msgid "achievement/master4"
+msgstr "Ace Tanker"
+
+msgid "achievement/maxMedalValue"
+msgstr ">%s"
+
+msgid "achievement/rank"
+msgstr "?empty?"
+
+msgid "achievement/rank1"
+msgstr " Kelas I"
+
+msgid "achievement/rank2"
+msgstr " Kelas II"
+
+msgid "achievement/rank3"
+msgstr " Kelas III"
+
+msgid "achievement/rank4"
+msgstr " Kelas IV"
+
+msgid "armorPiercer"
+msgstr "Master Gunner"
+
+msgid "armorPiercer_condition"
+msgstr ""
+"• Hitungan yang terputus akibat meleset, tembakan tidak penetrasi, atau "
+"memantul dilanjutkan di perang berikut dengan tank yang sama.\n"
+"• Setiap tank memiliki hitungan tersendiri. Hanya hitungan terpanjang yang "
+"akan dimasukkan.\n"
+"• Berlaku hanya di Perang Random."
+
+msgid "armorPiercer_descr"
+msgstr "Meraih minimal 5 tembakan penetrasi beruntun pada tank lawan."
+
+msgid "beasthunter"
+msgstr "Hunter"
+
+msgid "beasthunter_condition"
+msgstr ""
+"\t• Aufklärungspanzer Panther\n"
+"\t• PzKpfw V Panther\n"
+"\t• Panther II\n"
+"\t• Panther-M10\n"
+"\t• Jagdpanther\n"
+"\t• Jagdpanther II\n"
+"\t• GW Panther\n"
+"\n"
+"\t• PzKpfw VI Tiger\n"
+"\t• PzKpfw VI Tiger (P)\n"
+"\t• PzKpfw VI Ausf. B Tiger II\n"
+"\t• Jagdtiger\n"
+"\t• 8.8 cm Pak43 JagdTiger\n"
+"\t• GW Tiger\n"
+"\t• GW Tiger (P)\n"
+"\n"
+"\t• Löwe\n"
+"\n"
+"\t• Leopard prototyp A\n"
+"\t• Leopard 1\n"
+"\n"
+"• Hasil total pada seluruh tank akan dimasukkan.\n"
+"• Penghargaan yang baru diterima akan dijumlahkan."
+
+msgid "beasthunter_descr"
+msgstr "Hancurkan 100 tank dari \"keturunan feline,\" termasuk:"
+
+msgid "bombardier"
+msgstr "Bombardier"
+
+msgid "bombardier_condition"
+msgstr ""
+"• Hitungan dari seluruh tank dijumlahkan.\n"
+"• Berlaku hanya di Perang Random."
+
+msgid "bombardier_descr"
+msgstr "Menghancurkan minimal 2 tank musuh dengan satu peluru."
+
+msgid "defender"
+msgstr "Defender"
+
+msgid "defender_condition"
+msgstr ""
+"• Jika dua atau lebih pemain mendapat jumlah poin penguasaan yang sama, "
+"penghargaan diberikan ke pemain yang mendapat lebih banyak XP dalam perang.\n"
+"• Penghargaan hanya diberikan satu kali dalam perang.\n"
+"• Berlaku hanya di Perang Random."
+
+msgid "defender_descr"
+msgstr ""
+"Kurangi point perebutan base lawan terhadap base sekutu hingga 70 atau lebih."
+
+msgid "diehard"
+msgstr "Survivor"
+
+msgid "diehard_condition"
+msgstr ""
+"• Hitungan yang tidak putus dilanjutkan di perang berikut dengan tank yang "
+"sama.\n"
+"• Setiap tank memiliki hitungan tersendiri. Hanya hitungan terpanjang yang "
+"akan dimasukkan.\n"
+"• Pertempuran menggunakan SPG tidak dihitung.\n"
+"• Berlaku hanya di Perang Random."
+
+msgid "diehard_descr"
+msgstr "Selamat hingga 20 pertempuran berurutan dengan tank yang sama."
+
+msgid "evileye"
+msgstr "Patrol Duty"
+
+msgid "evileye_condition"
+msgstr ""
+"• Pemain harus menjadi satu-satunya yang mendeteksi tank musuh saat mereka "
+"terkena damage.\n"
+"• Jika dua atau lebih pemain memiliki jumlah musuh yang dideteksi dan yang "
+"dirusak sama, penghargaan diberikan pada pemain yang mendapat lebih banyak "
+"XP dalam perang.\n"
+"• Penghargaan hanya diberikan satu kali dalam perang.\n"
+"• Berlaku hanya di Perang Random."
+
+msgid "evileye_descr"
+msgstr ""
+"Membantu rekan tim merusak minimal 6 tank musuh dengan mendeteksi lawan."
+
+msgid "globalRating"
+msgstr "Rating Personal"
+
+msgid "globalRating_descr"
+msgstr ""
+"Rating Personal adalah penilaian skill dan experience pemain, berdasarkan:\n"
+"\n"
+"• Kemenangan\n"
+"• Selamat Dalam Perang\n"
+"• Tembakan\n"
+"• Rata-rata Damage Setiap Perang\n"
+"• Rata-rata Experience Setiap Perang\n"
+"\n"
+"Rating Personal diupdate seiring bertambahnya jumlah perang yang diikuti."
+
+msgid "handOfDeath"
+msgstr "Reaper"
+
+msgid "handOfDeath_condition"
+msgstr ""
+"• Hitungan yang tidak putus dilanjutkan di perang berikut dengan tank yang "
+"sama.\n"
+"• Setiap tank memiliki hitungan tersendiri Hanya hitungan terpanjang yang "
+"akan dimasukkan.\n"
+"• Penghargaan ini diberikan pada penyelesaian hitungan berikutnya.\n"
+"• Berlaku hanya di Perang Random."
+
+msgid "handOfDeath_descr"
+msgstr ""
+"Hancurkan 3 tank musuh atau lebih secara beruntun masing-masing menggunakan "
+"satu peluru."
+
+msgid "heroesOfRassenay"
+msgstr "Raseiniai Heroes' Medal"
+
+msgid "heroesOfRassenay_condition"
+msgstr "• Berlaku hanya di Perang Random."
+
+msgid "heroesOfRassenay_descr"
+msgstr ""
+"Menghancurkan setidaknya 14 tank musuh seorang diri dalam satu kali perang."
+
+msgid "heroesOfRassenay_heroInfo"
+msgstr ""
+"Pada Juni 1941, di dekat kota Lithuania town Raseiniai, kurang lebih 20 tank "
+"KV dari Soviet 3rd Mechanized Corps berhadapan dengan penyerangan 6th Panzer "
+"Division, dengan total setidaknya 100 tank. Sebuah tank KV berhasil menahan "
+"laju gerakan Jerman selama sehari penuh sambil dihujani berbagai senjata "
+"antitank, sampai akhirnya KV tersebut kehabisan amunisi dan dilumpuhkan."
+
+msgid "huntsman"
+msgstr "Naydin's Medal"
+
+msgid "huntsman_condition"
+msgstr "• Berlaku hanya di Perang Random."
+
+msgid "huntsman_descr"
+msgstr "Hancurkan seluruh Light Tank musuh (minimal 3) dalam satu kali perang."
+
+msgid "huntsman_heroInfo"
+msgstr ""
+"Sersan Grigoriy Naydin dahulu adalah seorang Komanda BT-7. Pada 25 Juni "
+"1941, di dekat kota Rudishkyay di Lithuania, ia menghancurkan sebuah "
+"Wehrmacht, termasuk 15 tank dan 10 senjata berat milik 19th Mechanized "
+"Corps. Naydin berhasil menahan laju tentara Jerman selama dua hari, "
+"membuatnya memungkinkan untuk mengatur pertahanan di sekitar Vilnius. Untuk "
+"aksinya, ia dinobatkan sebagai Pahlawan Uni Soviet."
+
+msgid "invader"
+msgstr "Invader"
+
+msgid "invader_condition"
+msgstr ""
+"• Penghargaan diberikan atas perebutan base yang sukses, termasuk point yang "
+"hanya bagian dari perebutan base.\n"
+"• Berlaku hanya di Perang Random."
+
+msgid "invader_descr"
+msgstr "Rebut nilai penguasaan base musuh minimal 80 poin."
+
+msgid "invincible"
+msgstr "Invincible"
+
+msgid "invincible_condition"
+msgstr ""
+"• Hitungan yang tidak putus dilanjutkan di perang berikut dengan tank yang "
+"sama.\n"
+"• Setiap tank memiliki hitungan tersendiri. Hanya hitungan terpanjang yang "
+"akan dimasukkan.\n"
+"• Pertempuran menggunakan SPG tidak dihitung.\n"
+"• Berlaku hanya di Perang Random."
+
+msgid "invincible_descr"
+msgstr ""
+"Selamat dari 5 pertempuran beruntun atau lebih tanpa terkena damage "
+"sedikitpun."
+
+msgid "ironMan"
+msgstr "Cool-Headed"
+
+msgid "ironMan_condition"
+msgstr "• Berlaku hanya di Perang Random."
+
+msgid "ironMan_descr"
+msgstr ""
+"Bertahan minimal dari 10 tembakan memantul dan non-penetrasi berurutan dari "
+"musuh."
+
+msgid "kamikaze"
+msgstr "Kamikaze"
+
+msgid "kamikaze_condition"
+msgstr ""
+"• Menghancurkan tank musuh yang memiliki tier lebih tinggi.\n"
+"• Penghargaan hanya diberikan satu kali dalam perang.\n"
+"• Berlaku hanya di Perang Random."
+
+msgid "kamikaze_descr"
+msgstr "Menghancurkan tank musuh dengan menabraknya."
+
+msgid "luckyDevil"
+msgstr "Lucky"
+
+msgid "luckyDevil_condition"
+msgstr "• Berlaku hanya di Perang Random."
+
+msgid "luckyDevil_descr"
+msgstr ""
+"Menjadi saksi mata tank musuh yang ditembak dan hancur oleh sekutunya "
+"sendiri. Anda minimal harus berada 10 meter atau kurang dari tank musuh saat "
+"hancur."
+
+msgid "markOfMastery"
+msgstr "Mastery Badge: \"%(name)s\""
+
+msgid "markOfMasteryContent"
+msgstr ""
+"Penghargaan untuk penguasaan sebuah tank. <br/>Syaratnya, pemain harus "
+"mendapat Experience lebih banyak <br/>dalam perang lebih banyak dari rata-"
+"rata experience tertinggi yang didapat<br/>oleh %(val)s pemain lain yang "
+"bertempur berperang dengan <br/>tipe tank ini selama seminggu terakhir.<br/"
+">Berlaku hanya di Perang Random.<br/><br/><b>Kelas mastery:</b>"
+
+msgid "markOfMasteryContent/1"
+msgstr "50"
+
+msgid "markOfMasteryContent/1/info"
+msgstr "Kelas III:50%"
+
+msgid "markOfMasteryContent/2"
+msgstr "80"
+
+msgid "markOfMasteryContent/2/info"
+msgstr "Kelas II:80%"
+
+msgid "markOfMasteryContent/3"
+msgstr "95"
+
+msgid "markOfMasteryContent/3/info"
+msgstr "Kelas I:95%"
+
+msgid "markOfMasteryContent/4"
+msgstr "99"
+
+msgid "markOfMasteryContent/4/info"
+msgstr "Ace Tanker: 99%"
+
+msgid "mechanicEngineer"
+msgstr "Senior Technical Engineer"
+
+msgid "mechanicEngineer0"
+msgstr "Technical Engineer: Soviet"
+
+msgid "mechanicEngineer0_condition"
+msgstr ""
+"• Modul yang belum diriset tidak mencegah pemain untuk menerima penghargaan."
+
+msgid "mechanicEngineer0_descr"
+msgstr "Meriset semua tank di Tech Tree Soviet."
+
+msgid "mechanicEngineer1"
+msgstr "Technical Engineer: Jerman"
+
+msgid "mechanicEngineer1_condition"
+msgstr ""
+"• Modul yang belum diriset tidak mencegah pemain untuk menerima penghargaan."
+
+msgid "mechanicEngineer1_descr"
+msgstr "Meriset semua tank di Tech Tree Jerman."
+
+msgid "mechanicEngineer2"
+msgstr "Technical Engineer: Amerika"
+
+msgid "mechanicEngineer2_condition"
+msgstr ""
+"• Modul yang belum diriset tidak mencegah pemain untuk menerima penghargaan."
+
+msgid "mechanicEngineer2_descr"
+msgstr "Meriset semua tank di Tech Tree Amerika."
+
+msgid "mechanicEngineer3"
+msgstr "Technical Engineer: China"
+
+msgid "mechanicEngineer3_condition"
+msgstr ""
+"• Modul yang belum diriset tidak mencegah pemain untuk menerima penghargaan."
+
+msgid "mechanicEngineer3_descr"
+msgstr "Meriset semua tank di Tech Tree Cina."
+
+msgid "mechanicEngineer4"
+msgstr "Technical Engineer: Perancis"
+
+msgid "mechanicEngineer4_condition"
+msgstr ""
+"• Modul yang belum diriset tidak mencegah pemain untuk menerima penghargaan."
+
+msgid "mechanicEngineer4_descr"
+msgstr "Meriset semua tank di Tech Tree Perancis."
+
+msgid "mechanicEngineer5"
+msgstr "Technical Engineer: Inggris"
+
+msgid "mechanicEngineer5_condition"
+msgstr ""
+"• Modul yang belum diriset tidak mencegah pemain untuk menerima penghargaan."
+
+msgid "mechanicEngineer5_descr"
+msgstr "Meriset semua tank di Tech Tree Inggris."
+
+msgid "mechanicEngineer6"
+msgstr "Technical Engineer: Jepang"
+
+msgid "mechanicEngineer6_condition"
+msgstr ""
+"• Modul yang belum diriset tidak mencegah pemain untuk menerima penghargaan."
+
+msgid "mechanicEngineer6_descr"
+msgstr "Meriset seluruh tank di Tech Tree Jepang."
+
+msgid "mechanicEngineer_descr"
+msgstr "Meriset semua tank di semua Tech Tree."
+
+msgid "medalAbrams"
+msgstr "Medali Abram %s"
+
+msgid "medalAbrams_descr"
+msgstr ""
+"Untuk jumlah total kemenangan team di mana pemain selamat dalam perang."
+
+msgid "medalAbrams_heroInfo"
+msgstr ""
+"Jenderal Creighton Abrams mengomandani Angkatan Bersenjata Amerika saat "
+"Perang Dunia Dua dan Perang Vietnam, mempunyai reputasi sebagai komandan "
+"yang agresif dan sukses."
+
+msgid "medalBillotte"
+msgstr "Medali Billotte"
+
+msgid "medalBillotte_condition"
+msgstr ""
+"• Bertahan hidup dan memenangkan perang.\n"
+"• Tank musuh yang dihancurkan dihitung setelah seluruh damage diterima.\n"
+"• Berlaku hanya di Perang Random."
+
+msgid "medalBillotte_descr"
+msgstr ""
+"Menghancurkan minimal 2 tank musuh sambil menerima 5 tembakan berbeda dan "
+"kehilangan 80% HP atau lebih."
+
+msgid "medalBillotte_heroInfo"
+msgstr ""
+"Pierre Billotte adalah Kapten Perancis yang menghancurkan 2 PzKpfw IV, 11 "
+"PzKpfw III dan 2 meriam dengan Char B1 bis pada 16 Mei, 1940."
+
+msgid "medalBrothersInArms"
+msgstr "Brothers in Arms"
+
+msgid "medalBrothersInArms_condition"
+msgstr ""
+"• Seluruh anggota peleton harus selamat dalam perang.\n"
+"• Seluruh anggota peleton akan menerima penghargaan."
+
+msgid "medalBrothersInArms_descr"
+msgstr "Setiap anggota peleton harus menghancurkan minimal 3 tank musuh."
+
+msgid "medalBrunoPietro"
+msgstr "Bruno's Medal"
+
+msgid "medalBrunoPietro_condition"
+msgstr ""
+"• Bertahan hidup dan memenangkan perang.\n"
+"• Tank musuh yang dihancurkan dihitung setelah seluruh damage diterima.\n"
+"• Berlaku hanya di Perang Random."
+
+msgid "medalBrunoPietro_descr"
+msgstr ""
+"Menghancurkan 3 atau 4 tank musuh sambil menerima 5 tembakan berbeda dan "
+"kehilangan 80% HP."
+
+msgid "medalBrunoPietro_heroInfo"
+msgstr ""
+"Pietro Bruno adalah seorang pahlawan tank Italia. Karena pengorbanannya yang "
+"besar saat melawan musuh dia dianugerahkan Gold Medal of Military Valor "
+"(Medaglia d'oro al Valore Militare), penghargaan tertinggi Italia."
+
+msgid "medalBurda"
+msgstr "Medali Burda"
+
+msgid "medalBurda_condition"
+msgstr ""
+"• Mengemudikan tank atau Tank Destroyer.\n"
+"• Berlaku hanya di Perang Random."
+
+msgid "medalBurda_descr"
+msgstr "Menghancurkan 5 atau lebih SPG musuh dalam satu kali perang."
+
+msgid "medalBurda_heroInfo"
+msgstr ""
+"Kolonel Alexander Burda dahulu adalah jawara tank Rusia dan seorang Pahlawan "
+"Uni Soviet. Pada 4 Oktober 1941, Burda mengatur penyergapan yang "
+"menghancurkan satu barisan musuh, termasuk sepuluh Medium dan Light Tank, "
+"dua truk dengan senjata antitank dan lima tank infanteri."
+
+msgid "medalCarius"
+msgstr "Medali Carius %s"
+
+msgid "medalCarius_descr"
+msgstr "Untuk jumlah tank musuh yang dihancurkan."
+
+msgid "medalCarius_heroInfo"
+msgstr ""
+"Otto Carius adalah salah satu Pahlawan Tank paling sukses di Perang Dunia 2. "
+"Ia mengomandani tank PzKpfw 38(t), PzKpfw VI Tiger, dan Tank Destroyer "
+"Jagdtiger selama karirnya yang mengagumkan."
+
+msgid "medalCrucialContribution"
+msgstr "Crucial Contribution"
+
+msgid "medalCrucialContribution_condition"
+msgstr "• Seluruh anggota peleton akan menerima penghargaan."
+
+msgid "medalCrucialContribution_descr"
+msgstr "Peleton harus menghancurkan minimal 12 tank musuh."
+
+msgid "medalDeLanglade"
+msgstr "De Langlade's Medal"
+
+msgid "medalDeLanglade_condition"
+msgstr ""
+"• Tank musuh harus berada di dalam lingkaran base.\n"
+"• Tank musuh bisa saja menguasai base dalam waktu bersamaan atau "
+"bergantian.\n"
+"• Berlaku hanya di Perang Random."
+
+msgid "medalDeLanglade_descr"
+msgstr ""
+"Menghancurkan setidaknya 4 tank musuh saat mereka berusaha menguasai base "
+"dalam satu kali perang."
+
+msgid "medalDeLanglade_heroInfo"
+msgstr ""
+"Paul Girot de Langlade adalah Letnan Kolonel militer Perancis selama Perang "
+"Dunia 2. Pada September 1943 dia dipromosikan menjadi Kolonel. De Langlade "
+"bertempur bersama 2nd Tank Division dibawah General Leclerc. 12-13 "
+"September, 1944, tim tempur pimpinan de Langlade menghancurkan Panzerbrigade "
+"112 pada perang Dompaire, Perancis. Hanya 4 dari 45 tank Panther yang "
+"selamat."
+
+msgid "medalDumitru"
+msgstr "Dumitru's award"
+
+msgid "medalDumitru_condition"
+msgstr ""
+"• Mengemudikan tank atau Tank Destroyer.\n"
+"• Berlaku hanya di Perang Random."
+
+msgid "medalDumitru_descr"
+msgstr "Menghancurkan 4 SPG musuh dalam satu kali perang."
+
+msgid "medalDumitru_heroInfo"
+msgstr ""
+"Ion S. Dumitru adalah jagoan tank Rumania. Dia ikut dalam Perang Dunia 2 "
+"hanya selama 25 hari, dimana 5 harinya dia berperang di sisi Jerman, dan "
+"setelah Rumania pindah kubu, selama 20 hari melawan Jerman. Pada 26 Maret "
+"1945, Dumitru berkontribusi akan kehancuran enam Tank Destroyer musuh dan "
+"merebut sederetan senjata 150 mm Howitzer."
+
+msgid "medalEkins"
+msgstr "Medali Ekins %s"
+
+msgid "medalEkins_descr"
+msgstr "Untuk menghancurkan tank musuh tier 8, 9, atau 10."
+
+msgid "medalEkins_heroInfo"
+msgstr ""
+"Joe Ekins adalah seorang penembak meriam di divisi teritorial Inggris "
+"Northamponshire. Sejumlah sumber mengatakan bahwa Joe Ekinslah yang membunuh "
+"Jagoan Tank Jerman terkenal Michael Wittmann."
+
+msgid "medalFadin"
+msgstr "Medali Fadin"
+
+msgid "medalFadin_condition"
+msgstr ""
+"• Diberikan walaupun tank musuh hancur karena kebakaran akibat tembakan "
+"peluru terakhir.\n"
+"• Diberikan untuk menghancurkan tank musuh terakhir dengan peluru terakhir "
+"menggunakan senjata pengisian otomatis dan senjata mesin.\n"
+"• Berlaku hanya di Perang Random."
+
+msgid "medalFadin_descr"
+msgstr "Menghancurkan tank musuh terakhir dengan sisa peluru terakhir."
+
+msgid "medalFadin_heroInfo"
+msgstr ""
+"Pahlawan Uni Soviet, Alexander Fadin adalah Komandan sebuah T-34. Disuport "
+"oleh satu peleton infanteri, Fadin berhasil menaklukkan dan mempertahankan "
+"desa Dashukovka (Ukraina) selama lima jam dengan satu tank. Ia menghancurkan "
+"satu tank, satu SPG, delapan belas sarang senapan mesin, dan kurang lebih 50 "
+"tentara dan pejabat musuh. Krunya juga menembak jatuh sebuah pesawat."
+
+msgid "medalHalonen"
+msgstr "Medali Halonen"
+
+msgid "medalHalonen_condition"
+msgstr ""
+"• Target minimal 2 tier di atas Tank Destroyer pemain.\n"
+"• Berlaku hanya di Perang Random."
+
+msgid "medalHalonen_descr"
+msgstr ""
+"Menghancurkan setidaknya 3 tank atau Tank Destroyer musuh dengan Tank "
+"Destroyer."
+
+msgid "medalHalonen_heroInfo"
+msgstr ""
+"Erkki Halonen, seorang Sersan di pasukan Angkatan Darat Finlandia dan "
+"seorang jawara tank, menghancurkan tiga T-34, dua KV-1, dan dua ISU-152 "
+"dengan StuG III miliknya di pertempuran selama Juni dan Juli 1944."
+
+msgid "medalKay"
+msgstr "Medali Kay %s"
+
+msgid "medalKay_descr"
+msgstr "Untuk mendapatkan status Battle Hero."
+
+msgid "medalKay_heroInfo"
+msgstr ""
+"Douglas Kay, seorang Sersan Angkatan Bersenjata Inggris dan penembak meriam "
+"pada tank Sherman Firefly, berpartisipasi saat Sekutu mendarat di pantai "
+"Normandy dan kemudian meningkatkan popularitas perang tank."
+
+msgid "medalKnispel"
+msgstr "Medali Knispel %s"
+
+msgid "medalKnispel_descr"
+msgstr "Untuk jumlah total damage yang disebabkan dan yang diterima."
+
+msgid "medalKnispel_heroInfo"
+msgstr ""
+"Kurt Knispel, Jagoan Tank Jerman di Perang Dunia 2, berpartisipasi di kedua "
+"Front Barat dan Timur, berperang di dalam tank PzKpfw II, PzKpfw III, PzKpfw "
+"IV, PzKpfw VI Tiger, dan PzKpfw VI Ausf. B Tiger II."
+
+msgid "medalKolobanov"
+msgstr "Medali Kolobanov"
+
+msgid "medalKolobanov_condition"
+msgstr "• Berlaku hanya di Perang Random."
+
+msgid "medalKolobanov_descr"
+msgstr "Seorang diri melawan lima tank musuh dan menang."
+
+msgid "medalKolobanov_heroInfo"
+msgstr ""
+"Kolonel Zinoviy Kolobanov dahulu adalah jagoan tank Soviet yang "
+"menghancurkan 22 tank Jerman, dua senjata dan dua half-track dengan KV-1 "
+"miliknya di pertempuran pada 19 Agustus, 1941."
+
+msgid "medalLafayettePool"
+msgstr "Pool's Medal"
+
+msgid "medalLafayettePool_condition"
+msgstr ""
+"• Dengan tank minimal tier V.\n"
+"• Berlaku hanya di Perang Random."
+
+msgid "medalLafayettePool_descr"
+msgstr "Menghancurkan 10-13 tank musuh dalam satu kali perang."
+
+msgid "medalLafayettePool_heroInfo"
+msgstr ""
+"Lafayatte G. Pool sangatlah dikenal di Amerika sebagai jagoan dari semua "
+"jagoan Tank, dengan menghancurkan total 258 kendaraan lapis baja dan "
+"kendaraan militer."
+
+msgid "medalLavrinenko"
+msgstr "Medali Lavrinenko %s"
+
+msgid "medalLavrinenko_condition"
+msgstr "• Termasuk sampai 100 poin setiap kali perang."
+
+msgid "medalLavrinenko_descr"
+msgstr "Mengurangi jumlah total penguasaan base sekutu."
+
+msgid "medalLavrinenko_heroInfo"
+msgstr ""
+"Dmitry Lavrinenko, seorang Pahlawan Uni Soviet, Letnan dan seorang Jagoan "
+"Tank, yang dikenal sebagai yang terbaik di Soviet, menghancurkan 52 tank di "
+"28 kali peperangan dalam kurun waktu dua bulan."
+
+msgid "medalLeClerc"
+msgstr "Medali Leclerc %s"
+
+msgid "medalLeClerc_condition"
+msgstr ""
+"• Memenangkan perang.\n"
+"• Termasuk seluruh nilai penguasaan base musuh yang didapat dari satu kali "
+"perang."
+
+msgid "medalLeClerc_descr"
+msgstr "Untuk jumlah total nilai penguasaan base musuh."
+
+msgid "medalLeClerc_heroInfo"
+msgstr ""
+"Philippe Leclerc adalah Jenderal dari pasukan Perancis Merdeka saat Perang "
+"Dunia 2 dan salah satu pemimpin di operasi pembebasan Paris."
+
+msgid "medalLehvaslaiho"
+msgstr "Lehväslaiho's medal"
+
+msgid "medalLehvaslaiho_condition"
+msgstr ""
+"• Tank musuh harus minimal 2 tier diatas.\n"
+"• Berlaku hanya di Perang Random."
+
+msgid "medalLehvaslaiho_descr"
+msgstr ""
+"Menghancurkan 2 tank atau Tank Destroyer musuh dengan Medium Tank dalam satu "
+"kali perang."
+
+msgid "medalLehvaslaiho_heroInfo"
+msgstr ""
+"Reino Lehväslaiho adalah Jagoan Tank dari Finlandia yang menghancurkan tujuh "
+"tank dan Tank Destroyer."
+
+msgid "medalNikolas"
+msgstr "Nicols's Medal"
+
+msgid "medalNikolas_condition"
+msgstr ""
+"• Tank musuh harus minimal 2 tier diatas.\n"
+"• Berlaku hanya di Perang Random."
+
+msgid "medalNikolas_descr"
+msgstr ""
+"Menghancurkan 4 tank atau Tank Destroyer musuh dengan Medium Tank dalam satu "
+"kali perang."
+
+msgid "medalNikolas_heroInfo"
+msgstr ""
+"Alfie Nicols adalah seorang penembak meriam Inggris. Selama perang Al "
+"Alamein dia berhasil menghancurkan empat belas tank musuh."
+
+msgid "medalOrlik"
+msgstr "Medali Orlik"
+
+msgid "medalOrlik_condition"
+msgstr ""
+"• Tank musuh harus minimal 2 tier diatas.\n"
+"• Berlaku hanya di Perang Random."
+
+msgid "medalOrlik_descr"
+msgstr ""
+"Menghancurkan tiga atau lebih tank atau Tank Destroyer musuh dengan Light "
+"Tank dalam satu kali perang."
+
+msgid "medalOrlik_heroInfo"
+msgstr ""
+"Roman Edmund Orlik, Sersan tentara AD Polandia, dahulu adalah jagoan tank "
+"yang menghancurkan 13 tank Jerman dengan Tankette TKS miliknya pada "
+"September 1939."
+
+msgid "medalOskin"
+msgstr "Medali Oskin"
+
+msgid "medalOskin_condition"
+msgstr ""
+"• Tank musuh harus minimal 2 tier diatas.\n"
+"• Berlaku hanya di Perang Random."
+
+msgid "medalOskin_descr"
+msgstr ""
+"Menghancurkan 3 tank atau Tank Destroyer musuh dengan Medium Tank dalam satu "
+"kali perang."
+
+msgid "medalOskin_heroInfo"
+msgstr ""
+"Alexander Oskin, seorang Pahlawan Uni Soviet, dahulu adalah komandan tank "
+"yang menghancurkan tiga King Tiger dengan T-34 miliknya selama operasi "
+"pengintaian di wilayah Oglenduv pada 11 Agustus 1944."
+
+msgid "medalPascucci"
+msgstr "Pascucci's Medal"
+
+msgid "medalPascucci_condition"
+msgstr ""
+"• Mengemudikan tank atau Tank Destroyer.\n"
+"• Berlaku hanya di Perang Random."
+
+msgid "medalPascucci_descr"
+msgstr "Menghancurkan 3 SPG musuh dalam satu kali perang."
+
+msgid "medalPascucci_heroInfo"
+msgstr ""
+"Letnan Dua Luigi Arbib Pascucci adalah Komandan tank Italia saat Perang "
+"Dunia 2. Dia berperang dengan Divisi Tank Ariete di Afrika Utara. Pascucci "
+"ikut berpartisipasi dalam Perang Kedua El Alamein, di mana ia mengorbankan "
+"diri menyerang musuh dengan nekat dan frontal demi membuat sisa dari "
+"kompinya bisa lolos dari kepungan."
+
+msgid "medalPoppel"
+msgstr "Medali Popel %s"
+
+msgid "medalPoppel_descr"
+msgstr "Untuk jumlah tank musuh yang dideteksi."
+
+msgid "medalPoppel_heroInfo"
+msgstr ""
+"Letnan Jendral Pasukan Tank Nikolay Popel, adalah pemimpin militer dan "
+"Perwira Politik Soviet, memimpin serangan pada sisi belakang musuh dengan "
+"tank yang direbut saat perang Dubno (Ukraina) saat musim panas 1941."
+
+msgid "medalRadleyWalters"
+msgstr "Radley-Walters's Medal"
+
+msgid "medalRadleyWalters_condition"
+msgstr ""
+"• Dengan tank minimal tier V.\n"
+"• Berlaku hanya di Perang Random."
+
+msgid "medalRadleyWalters_descr"
+msgstr "Menghancurkan 8 atau 9 tank musuh dalam satu kali perang."
+
+msgid "medalRadleyWalters_heroInfo"
+msgstr ""
+"Sydney Valpy Radley-Walters adalah seorang Jagoan Tank Resimen Lapis Baja ke "
+"27 Kanada. Tahun 1944-1945 ia menghancurkan lebih dari 18 tank Jerman dengan "
+"Sherman Fireflynya."
+
+msgid "medalTamadaYoshio"
+msgstr "Tamada Yoshio medal"
+
+msgid "medalTamadaYoshio_condition"
+msgstr ""
+"• Selamat dalam perang.\n"
+"• Tank musuh yang hancur minimal harus 2 tier diatas pemain.\n"
+"• Berlaku hanya di Perang Random."
+
+msgid "medalTamadaYoshio_descr"
+msgstr ""
+"Menghancurkan setidaknya 3 SPG musuh dengan Light Tank dalam satu kali "
+"perang."
+
+msgid "medalTamadaYoshio_heroInfo"
+msgstr ""
+"Kolonel Tamada Yoshio adalah seorang Komandan pemimpin Resimen Lapis Baja ke "
+"4 dari Kwantung. Dalam perang Khalkhyn Gol di malam hari tanggal 2-3 Juli, "
+"1939, ia menghancurkan 4 senapan mesin 122-mm Howitzers, senapan 107-mm, "
+"senjata 76.2-mm, 10 kendaraan lapis baja, 2 kendaraan lapis baja dengan "
+"track, 7 senjata anti-tank, 5 mortar, dan 20 truk musuh."
+
+msgid "medalTarczay"
+msgstr "Tarczay's Medal"
+
+msgid "medalTarczay_condition"
+msgstr ""
+"• Bertahan hidup dan memenangkan perang.\n"
+"• Tank musuh yang dihancurkan dihitung setelah seluruh damage diterima.\n"
+"• Berlaku hanya di Perang Random."
+
+msgid "medalTarczay_descr"
+msgstr ""
+"Menghancurkan 5 tank musuh dan menerima lima tembakan berbeda dan kehilangan "
+"80% HP lebih."
+
+msgid "medalTarczay_heroInfo"
+msgstr ""
+"Ervin Tarczay adalah Jagoan Tank Hungaria. Dia berperang bersama Divisi "
+"Lapis Baja ke 2 Hungaria dan menghancurkan paling tidak sepuluh tank."
+
+msgid "medalWittmann"
+msgstr "Medali Boelter"
+
+msgid "medalWittmann_condition"
+msgstr ""
+"• Target paling tidak minimal tier 4.\n"
+"• Tidak berlaku lagi semenjak 25 September, 2012."
+
+msgid "medalWittmann_descr"
+msgstr ""
+"Menghancurkan 7 atau lebih musuh dengan tank atau Tank Destroyer, atau 10 "
+"atau lebih dengan SPG."
+
+msgid "medalWittmann_heroInfo"
+msgstr ""
+"Johannes Bölter adalah salah satu jagoan tank Jerman yang paling sukses di "
+"Perang Dunia 2. Dia berpartisipasi di operasi-operasi pada invasi atas "
+"Polandia, Perancis, Yunani, Uni Soviet, dan sekaligus mempertahankan "
+"Perancis."
+
+msgid "mousebane"
+msgstr "Mouse Trap"
+
+msgid "mousebane_condition"
+msgstr ""
+"• Hasil total seluruh tank akan dimasukkan.\n"
+"• Penghargaan yang baru diterima akan dijumlahkan."
+
+msgid "mousebane_descr"
+msgstr "Menghancurkan 10 atau lebih tank PzKpfw VIII Maus."
+
+msgid "pattonValley"
+msgstr "Valley of Pattons"
+
+msgid "pattonValley_condition"
+msgstr ""
+"\t• M46 Patton\n"
+"\t• M48A1 Patton III\n"
+"\t• M60\n"
+"\n"
+"• Seri dalam seluruh tank akan dijumlahkan.\n"
+"• Penghargaan yang baru diterima akan dijumlahkan."
+
+msgid "pattonValley_descr"
+msgstr "Menghancurkan 100 tank Patton, termasuk:"
+
+msgid "raider"
+msgstr "Raider"
+
+msgid "raider_condition"
+msgstr ""
+"• Tetap berada di dalam lingkaran base saat mencoba menguasai base.\n"
+"• Penghargaan diberikan bahkan jika tank secara tak sengaja kena tembak atau "
+"rusak.\n"
+"• Berlaku hanya di Perang Random."
+
+msgid "raider_descr"
+msgstr ""
+"Tidak terdeteksi selama perang dan menjadi satu-satunya pemain yang "
+"menguasai base musuh."
+
+msgid "scout"
+msgstr "Scout"
+
+msgid "scout_condition"
+msgstr ""
+"• Memenangkan perang.\n"
+"• Penghargaan hanya diberikan satu kali dalam perang.\n"
+"• Berlaku hanya di Perang Random."
+
+msgid "scout_descr"
+msgstr "Mendeteksi lebih banyak tank musuh dari anggota team (minimal 9)."
+
+msgid "sinai"
+msgstr "The Lion of Sinai"
+
+msgid "sinai_condition"
+msgstr ""
+"\t• IS\n"
+"\t• IS-3\n"
+"\t• IS-4\n"
+"\t• IS-6\n"
+"\t• IS-7\n"
+"\t• IS-8\n"
+"\n"
+"\t• ISU-152\n"
+"\n"
+"\t• Object 261\n"
+"\t• Object 263\n"
+"\t• Object 268\n"
+"\t• Object 704\n"
+"\n"
+"• Hitungan dari seluruh tank dijumlahkan.\n"
+"• Penghargaan yang baru diterima akan dijumlahkan."
+
+msgid "sinai_descr"
+msgstr ""
+"Menghancurkan minimal 100 tank seri IS dan tank yang menggunakan sasisnya, "
+"termasuk:"
+
+msgid "sniper"
+msgstr "Sniper"
+
+msgid "sniper_condition"
+msgstr ""
+"• Tembakan yang tidak penetrasi dihitung.\n"
+"• Tembakan ke sekutu tidak diijinkan.\n"
+"• Jika dua atau lebih pemain memiliki jumlah rasio yang sama, penghargaan "
+"diberikan ke pemain yang lebih banyak mengenai target.\n"
+"• Jika dua pemain atau lebih memiliki rasio kena dan jumlah tembakan yang "
+"sama, penghargaan diberikan ke pemain yang mendapat lebih banyak XP dalam "
+"perang.\n"
+"• Penghargaan hanya diberikan satu kali dalam perang.\n"
+"• Berlaku hanya di Perang Random."
+
+msgid "sniper_descr"
+msgstr ""
+"Meraih paling tidak 85% serangan masuk dari minimal 10 tembakan dengan "
+"potensi damage 1,000 HP atau lebih."
+
+msgid "steelwall"
+msgstr "Steel Wall"
+
+msgid "steelwall_condition"
+msgstr ""
+"• Selamat dalam perang.\n"
+"• Jika dua atau lebih pemain memiliki nilai yang sama, penghargaan diberikan "
+"ke pemain yang menerima tembakan terbanyak.\n"
+"• Jika dua atau lebih pemain mendapat jumlah damage dan tembakan yang sama, "
+"penghargaan diberikan ke pemain yang mendapat lebih banyak XP dalam perang.\n"
+"• Penghargaan hanya diberikan satu kali dalam perang.\n"
+"• Berlaku hanya di Perang Random."
+
+msgid "steelwall_descr"
+msgstr "Menerima setidaknya 1,000 HP damage potensial dan minimal 11 tembakan."
+
+msgid "sturdy"
+msgstr "Spartan"
+
+msgid "sturdy_condition"
+msgstr ""
+"• Selamat dalam perang.\n"
+"• Berlaku hanya di Perang Random."
+
+msgid "sturdy_descr"
+msgstr ""
+"Selamat dari tembakan memantul atau non-penetrasi dari musuh. Tank Anda "
+"harus memiliki sisa HP kurang dari 10%."
+
+msgid "supporter"
+msgstr "Confederate"
+
+msgid "supporter_condition"
+msgstr ""
+"• Target yang akhirnya hancur atau kalah dalam perang dihitung. \n"
+"• Tembakan memantul dan tidak penetrasi tidak dihitung.\n"
+"• Jika dua atau lebih pemain mendapat jumlah tembakan yang sama, penghargaan "
+"diberikan ke pemain yang mendapat lebih banyak XP dalam perang.\n"
+"• Penghargaan hanya diberikan satu kali dalam perang.\n"
+"• Berlaku hanya di Perang Random."
+
+msgid "supporter_descr"
+msgstr "Merusak setidaknya 6 tank musuh atau merusak tracknya."
+
+msgid "tankExpert"
+msgstr "Master Tanker"
+
+msgid "tankExpert0"
+msgstr "Expert: Soviet"
+
+msgid "tankExpert0_descr"
+msgstr ""
+"Menghancurkan setidaknya satu tank dari tiap jenis tank yang ada di Tech "
+"Tree Soviet."
+
+msgid "tankExpert1"
+msgstr "Expert: Jerman"
+
+msgid "tankExpert1_descr"
+msgstr ""
+"Menghancurkan setidaknya satu tank dari tiap jenis tank yang ada di Tech "
+"Tree Jerman."
+
+msgid "tankExpert2"
+msgstr "Expert: Amerika"
+
+msgid "tankExpert2_descr"
+msgstr ""
+"Menghancurkan setidaknya satu tank dari tiap jenis tank yang ada di Tech "
+"Tree Amerika."
+
+msgid "tankExpert3"
+msgstr "Expert: Cina"
+
+msgid "tankExpert3_descr"
+msgstr ""
+"Menghancurkan setidaknya satu tank dari tiap jenis tank yang ada di Tech "
+"Tree Cina."
+
+msgid "tankExpert4"
+msgstr "Expert: Perancis"
+
+msgid "tankExpert4_descr"
+msgstr ""
+"Menghancurkan setidaknya satu tank dari tiap jenis tank yang ada di Tech "
+"Tree Perancis."
+
+msgid "tankExpert5"
+msgstr "Expert: Inggris"
+
+msgid "tankExpert5_descr"
+msgstr ""
+"Menghancurkan setidaknya satu tank dari tiap jenis tank yang ada di Tech "
+"Tree Inggris."
+
+msgid "tankExpert6"
+msgstr "Expert: Jepang"
+
+msgid "tankExpert6_descr"
+msgstr ""
+"Menghancurkan setidaknya satu tank dari tiap jenis tank yang ada di Tech "
+"Tree Jepang."
+
+msgid "tankExpert_descr"
+msgstr ""
+"Menghancurkan setidaknya satu tank dari tiap jenis tank yang ada di dalam "
+"game."
+
+msgid "titleSniper"
+msgstr "Sharpshooter"
+
+msgid "titleSniper_condition"
+msgstr ""
+"• Hitungan akan berakhir jika tembakan meleset.\n"
+"• Setiap tank memiliki hitungan tersendiri yang dilanjutkan di perang "
+"berikut di tank yang sama.\n"
+"• Hanya hitungan terpanjang yang akan dimasukkan.\n"
+"• Berlaku hanya di Perang Random."
+
+msgid "titleSniper_descr"
+msgstr "Mengenai tank musuh 10 kali atau lebih secara berurutan."
+
+msgid "warrior"
+msgstr "Top Gun"
+
+msgid "warrior_condition"
+msgstr ""
+"• Jika beberapa pemain menghancurkan tank dengan jumlah sama, penghargaan "
+"diberikan pada yang mendapat lebih banyak XP dalam perang.\n"
+"• Penghargaan hanya diberikan satu kali dalam perang.\n"
+"• Berlaku hanya di Perang Random."
+
+msgid "warrior_descr"
+msgstr ""
+"Menghancurkan tank musuh lebih banyak (minimal 6) dibanding pemain lain."
+
+msgid "whiteTiger"
+msgstr "White Tiger"
+
+msgid "whiteTiger_condition"
+msgstr "• Tidak berlaku sejak 1 Juli, 2012."
+
+msgid "whiteTiger_descr"
+msgstr "Menghancurkan tank siluman White Tiger."

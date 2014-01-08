@@ -598,3 +598,24 @@ msgstr "In Battle"
 
 msgid "battleviewer.period.4"
 msgstr "After Battle"
+
+msgid "profile.replays.page.title"
+msgstr "Your Profile - Replays"
+
+msgid "profile.replays.hidden"
+msgstr "%1 hidden %quant(%1,replay,replays) featuring you"
+
+msgid "profile.replays.public"
+msgstr "%1 public %quant(%1,replay,replays) featuring you"
+
+msgid "profile.replays.any"
+msgstr "%1 %quant(%1,replay,replays) featuring you"
+
+msgid "profile.uploads.page.title"
+msgstr "Your Profile - Uploads"
+
+msgid "profile.settings.page.title"
+msgstr "Your Profile - Settings"
+
+msgid "profile.settings.language.title"
+msgstr "Language"

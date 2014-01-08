@@ -47,6 +47,22 @@ sub sr {
     });
 }
 
+sub settings {
+    my $self = shift;
+
+    $self->respond(template => 'profile/settings', stash => {
+        page => { title => $self->loc('profile.settings.page.title') }
+    });
+}
+
+sub sl {
+    my $self = shift;
+    my $l = $self->stash('lang');
+
+    $self->set_language($l);
+    $self->settings;
+}
+
 sub replays {
     my $self = shift;
     my $type = $self->stash('type');
@@ -81,7 +97,7 @@ sub replays {
 
             $self->respond(template => 'profile/replays', stash => {
                 page => {
-                    title => 'Your Profile - Replays',
+                    title => $self->loc('profile.replays.page.title'),
                 },
                 maxp => $maxp,
                 type => $type,
@@ -119,7 +135,7 @@ sub uploads {
 
             $self->respond(template => 'profile/uploads', stash => {
                 page => {
-                    title => 'Your Profile - Uploads',
+                    title => $self->loc('profile.uploads.page.title'),
                 },
                 maxp => $maxp,
                 type => $type,

@@ -1,7 +1,15 @@
 <div id="replay-list" data-foo="bar">
     <div class="row">
         <div class="col-lg-12 col-md-12">
-            <h4>[% total_replays %] [% IF type == 'h' %]hidden[% ELSIF type == 'p' %]public[% END %] replay(s) featuring you</h4>
+            <h4>
+                [% IF type == 'h' %]
+                    [% h.loc('profile.replays.hidden', total_replays) %]
+                [% ELSIF type == 'p' %]
+                    [% h.loc('profile.replays.public', total_replays) %]
+                [% ELSE %]
+                    [% h.loc('profile.replays.any', total_replays) %]
+                [% END %]
+            </h4>
         </div>
     </div>
     <div class="row">

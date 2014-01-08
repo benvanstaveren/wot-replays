@@ -1,0 +1,1606 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: World Of Tanks\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-06-01 10:00+0300\n"
+"PO-Revision-Date: 2010-06-01 10:00+0300\n"
+"Last-Translator: WoT Translator <noreply@wargaming.net>\n"
+"Language-Team: WoT Team <noreply@wargaming.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "37mm_OE_mle._1916"
+msgstr "OE mle. 1916"
+
+msgid "AMX38"
+msgstr "AMX 38"
+
+msgid "AMX38_descr"
+msgstr ""
+"Dikembangkan tahun 1937 oleh perusahaan AMX dengan dasar dari Renault R-40. "
+"Tank ini memiliki turret yang lebih besar dari tank sejenisnya dan "
+"dilengkapi dengan mesin diesel. Tahun 1940 dua tank disiapkan untuk uji coba."
+
+msgid "AMX38_short"
+msgstr "AMX 38"
+
+msgid "AMX40"
+msgstr "AMX 40"
+
+msgid "AMX40_descr"
+msgstr ""
+"Pengembangannya dimulai Maret tahun 1940. Awalnya, tank ini direncanakan "
+"memiliki propulsi roda seperti kepompong. Cetak birunya sempat dibuat tapi "
+"pada bulan Juli 1940 pengerjaannya dihentikan."
+
+msgid "AMX40_short"
+msgstr "AMX 40"
+
+msgid "AMX50_Foch"
+msgstr "AMX 50 Foch"
+
+msgid "AMX50_Foch_descr"
+msgstr ""
+"Tank Destroyer dengan basis dari AMX-50. Sebuah prototipe diproduksi tahun "
+"1950. Di tahun 1951 beberapa tank disiapkan untuk diujicoba. Tank ini ikut "
+"dalam layanan militer sampai tahun 1952."
+
+msgid "AMX50_Foch_short"
+msgstr "Foch"
+
+msgid "AMX_105AM"
+msgstr "AMX 13 105 AM mle. 50"
+
+msgid "AMX_105AM_descr"
+msgstr ""
+"SPG dengan basis dari tank AMX-B. Prototipenya dikembangkan dan diujicoba di "
+"tahun 1949. Produksi masalnya diluncurkan di tahun 1955."
+
+msgid "AMX_105AM_short"
+msgstr "AMX 13 AM"
+
+msgid "AMX_12t"
+msgstr "AMX 12 t"
+
+msgid "AMX_12t_descr"
+msgstr ""
+"Desain Light Tank berkecepatan tinggi ini dikembangkan di tahun 1946, tetapi "
+"tidak pernah diproduksi. Tetapi, akhirnya menjadi basis untuk tank terkenal "
+"AMX 13."
+
+msgid "AMX_12t_short"
+msgstr "AMX 12 t"
+
+msgid "AMX_13F3AM"
+msgstr "AMX 13 F3 AM"
+
+msgid "AMX_13F3AM_descr"
+msgstr ""
+"Dikembangkan di akhir tahun 1950 dengan basis dari AMX 13. Tank diproduksi "
+"massal sampai tahun 1960 dan tetap dalam layanan militer di Perancis, "
+"Argentina, Chili, Ekuador, Maroko, dan negara lainnya."
+
+msgid "AMX_13F3AM_short"
+msgstr "AMX 13 F3"
+
+msgid "AMX_13_75"
+msgstr "AMX 13 75"
+
+msgid "AMX_13_75_descr"
+msgstr ""
+"Pengembangannya dimulai tahun 1946 dan diproduksi masal antara tahun 1952 - "
+"1964 di Perancis, dan sampai tahun 1985 di Argentina. Tank ini telah "
+"diekspor ke banyak negara dan tetap aktif dalam layanan militer di beberapa "
+"negara Asia dan Amerika."
+
+msgid "AMX_13_75_short"
+msgstr "AMX 13 75"
+
+msgid "AMX_13_90"
+msgstr "AMX 13 90"
+
+msgid "AMX_13_90_descr"
+msgstr ""
+"Pengembangannya dimulai tahun 1946, dan produksi masalnya diluncurkan tahun "
+"1952. 2000 unit tank pertamanya dilengkapi meriam 75 mm. Tetapi, daya "
+"rusaknya dikembangkan kembali dengan pemasangan meriam 90 mm."
+
+msgid "AMX_13_90_short"
+msgstr "AMX 13 90"
+
+msgid "AMX_50Fosh_155"
+msgstr "AMX 50 Foch (155)"
+
+msgid "AMX_50Fosh_155_descr"
+msgstr ""
+"Tahun 1952, dengan diluncurkannya proyek tank AMX 50 120, Perancis "
+"menghentikan pengembangan Tank Destroyer AMX 50 Foch. Sebuah Tank Destroyer "
+"yang memiliki meriam yang sama 120-mm dianggap tidak terlalu dibutuhkan. "
+"Sempat dicoba untuk mengupgrade meriam menjadi 155 mm, tapi usaha ini "
+"ditinggalkan setelah Perancis mulai mengadopsi perlengkapan standar NATO."
+
+msgid "AMX_50Fosh_155_short"
+msgstr "Foch 155"
+
+msgid "AMX_50_100"
+msgstr "AMX 50 100"
+
+msgid "AMX_50_100_descr"
+msgstr ""
+"Pengembangan Heavy Tank dimulai tahun 1945 di bawah pengaruh dari tradisi "
+"konstruksi tank Jerman. Tahun 1950 sebuah prototipe dengan turret berosilasi "
+"dan meriam 100 mm diproduksi, tetapi tidak pernah diproduksi masal atau "
+"terlihat dalam perang."
+
+msgid "AMX_50_100_short"
+msgstr "AMX 50 100"
+
+msgid "AMX_50_120"
+msgstr "AMX 50 120"
+
+msgid "AMX_50_120_descr"
+msgstr ""
+"Prototipe dari tank AMX-50. Dikembangkan di awal tahun 1950 di bawah "
+"pengaruh tank Soviet IS-3 dan T-10. Tank ini lapisan baja tambahan dan "
+"memiliki meriam 120 mm di turretnya."
+
+msgid "AMX_50_120_short"
+msgstr "AMX 50 120"
+
+msgid "AMX_50_68t"
+msgstr "AMX 50 B"
+
+msgid "AMX_50_68t_descr"
+msgstr ""
+"Tank eksperimental yang terinspirasi dari tradisi tank Jerman dan Perancis. "
+"Melewati masa ujicoba dengan sukses tetapi tidak pernah terlibat dalam "
+"perang dikarenakan standarisasi NATO."
+
+msgid "AMX_50_68t_short"
+msgstr "AMX 50 B"
+
+msgid "AMX_AC_Mle1946"
+msgstr "AMX AC mle. 46"
+
+msgid "AMX_AC_Mle1946_descr"
+msgstr ""
+"Desain Tank Destroyer kelas berat dengan basis dari M4. Pengembangannya "
+"dimulai tahun 1946. Konfigurasi kekuatannya hampir serupa dengan "
+"Jagdpanther. Hanya ada di cetak biru."
+
+msgid "AMX_AC_Mle1946_short"
+msgstr "AMX AC 46"
+
+msgid "AMX_AC_Mle1948"
+msgstr "AMX AC mle. 48"
+
+msgid "AMX_AC_Mle1948_descr"
+msgstr ""
+"Proyek kasar sebuah Tank Destroyer dengan basis AMX 50, dikembangkan tahun "
+"1948. Tank ini memiliki turret yang dapat berputar di belakangnya. Hanya ada "
+"di cetak biru."
+
+msgid "AMX_AC_Mle1948_short"
+msgstr "AMX AC 48"
+
+msgid "AMX_AC_de120_46"
+msgstr "AMX AC Mle. 1946 (old)"
+
+msgid "AMX_AC_de120_46_descr"
+msgstr ""
+"Desain Tank Destroyer kelas berat dengan basis dari M4. Pengembangannya "
+"dimulai tahun 1946. Konfigurasi kekuatannya hampir serupa dengan "
+"Jagdpanther. Hanya ada di cetak biru."
+
+msgid "AMX_AC_de120_46_short"
+msgstr "AC Mle.1946"
+
+msgid "AMX_B_270"
+msgstr "AMX B 270"
+
+msgid "AMX_M4_1945"
+msgstr "AMX M4 mle. 45"
+
+msgid "AMX_M4_1945_descr"
+msgstr ""
+"Pengembangan tank ini dimulai tahun 1945. Awalnya menggunakan suspensi "
+"standard Perancis tapi terbukti kurang cocok dan akhirnya diganti dengan "
+"suspensi Jerman di modifikasi berikutnya."
+
+msgid "AMX_M4_1945_short"
+msgstr "AMX M4 45"
+
+msgid "AMX_Ob_Am105"
+msgstr "AMX 105 AM mle. 47"
+
+msgid "AMX_Ob_Am105_descr"
+msgstr ""
+"Rancangan proyek SPG 105-mm SPG dikembangkan oleh Construction Bureau di "
+"Issy-les-Moulineaux (Paris, Perancis). Draftnya siap pada September 1947. "
+"Tetapi, pengembangannya dihentikan dan proyeknya dibatalkan."
+
+msgid "AMX_Ob_Am105_short"
+msgstr "AMX 105 AM"
+
+msgid "ARL_44"
+msgstr "ARL 44"
+
+msgid "ARL_44_descr"
+msgstr ""
+"Heavy Tank yang dikembangkan dari basis B1-Bis selama Perang Dunia 2. "
+"Kombinasis dari casis tahun 1930 dan turret yang bersenjata lengkap terbukti "
+"kurang sukses. Total 60 tank diproduksi sejak tahun 1946."
+
+msgid "ARL_44_short"
+msgstr "ARL 44"
+
+msgid "ARL_V39"
+msgstr "ARL V39"
+
+msgid "ARL_V39_descr"
+msgstr ""
+"Prototipe dari ARL 40. Tank ini awalnya hendak diciptakan sebagai SPG. "
+"Produksi masalnya direncakanan untuk peluncuran pada tahun 1940 tapi tidak "
+"pernah dimulai."
+
+msgid "ARL_V39_short"
+msgstr "ARL V39"
+
+msgid "Aster_M"
+msgstr "Aster M"
+
+msgid "B1"
+msgstr "B1"
+
+msgid "B1_descr"
+msgstr ""
+"Pengembangan tank ini dimulai tahun 1921. Dikarenakan lamanya ujicoba tank "
+"ini masuk dalam layanan militer di tahun 1934. Total 403 tank dengan 2 "
+"modifikasi standard diproduksi dari tahun 1935 - 1940."
+
+msgid "B1_short"
+msgstr "B1"
+
+msgid "BDR_G1B"
+msgstr "BDR G1 B"
+
+msgid "BDR_G1B_descr"
+msgstr ""
+"Proyek dari sebuah tank baru dikemukakan oleh perusahaan Baudet-Donon-"
+"Rousell di Juli 1938. Tetapi desainnya tidak pernah dikembangkan."
+
+msgid "BDR_G1B_short"
+msgstr "BDR G1 B"
+
+msgid "Bat_Chatillon155"
+msgstr "Bat.-Châtillon 155 58"
+
+msgid "Bat_Chatillon155_55"
+msgstr "Bat.-Châtillon 155 55"
+
+msgid "Bat_Chatillon155_55_descr"
+msgstr ""
+"Rancangan proyek SPG 155-mm SPG dikembangkan tahun 1955. Rencana awalnya "
+"adalah untuk diproduksi dengan casis dari Medium Tank Amerika M47, yang "
+"dieksport ke Perancis. Tetapi casis dari Medium Tank Perancis Batignolles-"
+"Chatillon 25t lebih disukai di antara semuanya. Versi awalnya hanya ada di "
+"cetak biru."
+
+msgid "Bat_Chatillon155_55_short"
+msgstr "B-C 155 55"
+
+msgid "Bat_Chatillon155_descr"
+msgstr ""
+"Prototipe SPG dengan basis dari Batignolles-Chatillon 25t diproduksi tahun "
+"1958. Tidak pernah diproduksi masal."
+
+msgid "Bat_Chatillon155_short"
+msgstr "B-C 155 58"
+
+msgid "Bat_Chatillon25t"
+msgstr "Bat.-Châtillon 25 t"
+
+msgid "Bat_Chatillon25t_descr"
+msgstr ""
+"Tank eksperimental ini adalah lanjutan pengembangan AMX 13. Tank ini sempat "
+"diujicoba, tapi tidak pernah diproduksi masal atau terlihat dalam perang. 2 "
+"tank sempat diproduksi."
+
+msgid "Bat_Chatillon25t_short"
+msgstr "B-C 25 t"
+
+msgid "Berliet_MDP"
+msgstr "Berliet MDP"
+
+msgid "Canon_de_105_DEFA_4767_mod"
+msgstr "105 mm D.E.F.A. 4767 modifié"
+
+msgid "Canon_de_105_court_mle_1934S"
+msgstr "105 mm court mle. 1934 S"
+
+msgid "Canon_de_105_court_mle_1934S_AC"
+msgstr "105 mm AC court mle. 1934 S"
+
+msgid "Canon_de_105_court_mle_1934S_AC_short"
+msgstr ""
+"105 mm AC court\n"
+"mle. 1934 S"
+
+msgid "Canon_de_105_court_mle_1934S_short"
+msgstr ""
+"105 mm court\n"
+"mle. 1934 S"
+
+msgid "Canon_de_105_court_mle_1935B"
+msgstr "105 mm court mle. 1935 B"
+
+msgid "Canon_de_105_court_mle_1935B_short"
+msgstr ""
+"105 mm court\n"
+"mle. 1935 B"
+
+msgid "Canon_de_105_mle_1930_Schneider_AC"
+msgstr "105 mm AC mle. 1930 S"
+
+msgid "Canon_de_105_mle_1930_Schneider_AC_short"
+msgstr ""
+"105 mm AC\n"
+"mle. 1930 S"
+
+msgid "Canon_de_105_mle_1950"
+msgstr "105 mm obusier mle. 1950"
+
+msgid "Canon_de_155mm"
+msgstr "Canon de 155 mm"
+
+msgid "Canon_de_155mm_L_GPF"
+msgstr "Canon de 155 mm mle. 1917 G.P.F."
+
+msgid "Canon_de_155mm_L_GPF_short"
+msgstr ""
+"Canon de 155 mm\n"
+"mle. 1917 G.P.F."
+
+msgid "Canon_de_155mm_de_33_calibres"
+msgstr "Canon de 155 mm de 33 calibres"
+
+msgid "Canon_de_155mm_de_33_calibres_short"
+msgstr ""
+"Canon de 155 mm\n"
+"de 33 calibres"
+
+msgid "Chassis Hotchkiss H35"
+msgstr "H35"
+
+msgid "Chassis_105_leFH18B2"
+msgstr "leFH18B2"
+
+msgid "Chassis_2CBis"
+msgstr "Char 2C bis"
+
+msgid "Chassis_AMX38"
+msgstr "AMX 38 1er prototype"
+
+msgid "Chassis_AMX38_2"
+msgstr "AMX 38 série"
+
+msgid "Chassis_AMX40"
+msgstr "AMX 40"
+
+msgid "Chassis_AMX40_2"
+msgstr "AMX 40 bis"
+
+msgid "Chassis_AMX50_Foch"
+msgstr "AMX 50 Foch"
+
+msgid "Chassis_AMX50_Foch_2"
+msgstr "AMX 50 Foch bis"
+
+msgid "Chassis_AMX_105AM"
+msgstr "AMX 13 105 AM mle. 49"
+
+msgid "Chassis_AMX_105AM_2"
+msgstr "AMX 13 105 AM mle. 55"
+
+msgid "Chassis_AMX_12t"
+msgstr "AMX 12 t 1er prototype"
+
+msgid "Chassis_AMX_12t_2"
+msgstr "AMX 12 t 2e prototype"
+
+msgid "Chassis_AMX_13F3AM"
+msgstr "AMX 13 F3 AM"
+
+msgid "Chassis_AMX_13F3AM_2"
+msgstr "AMX 13 F3 AM bis"
+
+msgid "Chassis_AMX_13_75_2"
+msgstr "AMX 13 Type 1R"
+
+msgid "Chassis_AMX_13_75_3"
+msgstr "AMX 13 Type 2A"
+
+msgid "Chassis_AMX_13_90"
+msgstr "AMX 13 Type 2R"
+
+msgid "Chassis_AMX_13_90_2"
+msgstr "AMX 13 Type 2D"
+
+msgid "Chassis_AMX_50Fosh_155"
+msgstr "Suspension mle.1952"
+
+msgid "Chassis_AMX_50Fosh_155_2"
+msgstr "AMX 50 Foch (155)"
+
+msgid "Chassis_AMX_50_100"
+msgstr "AMX M4 mle. 50"
+
+msgid "Chassis_AMX_50_100_2"
+msgstr "AMX 50 100"
+
+msgid "Chassis_AMX_50_120"
+msgstr "AMX 50 120"
+
+msgid "Chassis_AMX_50_120_2"
+msgstr "AMX 50 120 bis"
+
+msgid "Chassis_AMX_50_68t"
+msgstr "AMX 50 B"
+
+msgid "Chassis_AMX_AC_Mle1946"
+msgstr "AMX AC mle. 46"
+
+msgid "Chassis_AMX_AC_Mle1946_2"
+msgstr "AMX AC mle. 47"
+
+msgid "Chassis_AMX_AC_Mle1948"
+msgstr "AMX AC mle. 48"
+
+msgid "Chassis_AMX_AC_Mle1948_2"
+msgstr "AMX AC mle. 49"
+
+msgid "Chassis_AMX_AC_de120_46"
+msgstr "AMX AC de 100"
+
+msgid "Chassis_AMX_AC_de120_46_2"
+msgstr "AMX AC de 100 Bis"
+
+msgid "Chassis_AMX_M4_1945"
+msgstr "AMX M4 mle. 45"
+
+msgid "Chassis_AMX_M4_1945_2"
+msgstr "AMX M4 mle. 45 bis"
+
+msgid "Chassis_AMX_Ob_Am105"
+msgstr "AMX 105 AM mle. 47"
+
+msgid "Chassis_AMX_Ob_Am105_2"
+msgstr "AMX 105 AM mle. 47 modifié"
+
+msgid "Chassis_ARL_44"
+msgstr "ARL 44"
+
+msgid "Chassis_ARL_44_2"
+msgstr "ARL 44 bis"
+
+msgid "Chassis_ARL_V39"
+msgstr "ARL V39"
+
+msgid "Chassis_ARL_V39_2"
+msgstr "ARL V39 bis"
+
+msgid "Chassis_B1"
+msgstr "B1"
+
+msgid "Chassis_B1_2"
+msgstr "B1 bis"
+
+msgid "Chassis_BDR_G1B"
+msgstr "BDR G1 B"
+
+msgid "Chassis_BDR_G1B_2"
+msgstr "BDR G1 B bis"
+
+msgid "Chassis_Bat_Chatillon155"
+msgstr "Batignolles-Châtillon 155 mle. 58"
+
+msgid "Chassis_Bat_Chatillon155_2"
+msgstr "Batignolles-Châtillon 155 mle. 58"
+
+msgid "Chassis_Bat_Chatillon155_55"
+msgstr "Batignolles-Châtillon 155 mle. 55"
+
+msgid "Chassis_Bat_Chatillon155_55_2"
+msgstr "Batignolles-Châtillon 155 mle. 56"
+
+msgid "Chassis_Bat_Chatillon25t"
+msgstr "Bat Chatillon 25t A"
+
+msgid "Chassis_Bat_Chatillon25t_2"
+msgstr "Batignolles-Châtillon 25 t"
+
+msgid "Chassis_D1_2"
+msgstr "D1"
+
+msgid "Chassis_D1_2_2"
+msgstr "D1 bis"
+
+msgid "Chassis_D2"
+msgstr "D2"
+
+msgid "Chassis_D2_2"
+msgstr "D2 bis"
+
+msgid "Chassis_ELC_AMX"
+msgstr "AMX ELC"
+
+msgid "Chassis_ELC_AMX_2"
+msgstr "AMX ELC bis"
+
+msgid "Chassis_FCM2C"
+msgstr "Char 2C"
+
+msgid "Chassis_FCM_36Pak40"
+msgstr "FCM 36 Pak 40"
+
+msgid "Chassis_FCM_50t"
+msgstr "FCM 50 t"
+
+msgid "Chassis_G1L"
+msgstr "G1L"
+
+msgid "Chassis_Hotchkiss_H35"
+msgstr "H35"
+
+msgid "Chassis_Hotchkiss_H35_2"
+msgstr "H39"
+
+msgid "Chassis_Lorraine155_50"
+msgstr "Lorraine 155 mle. 50"
+
+msgid "Chassis_Lorraine155_50_2"
+msgstr "Lorraine 155 mle. 50 bis"
+
+msgid "Chassis_Lorraine155_51"
+msgstr "Lorraine 155 mle. 51"
+
+msgid "Chassis_Lorraine155_51_2"
+msgstr "Lorraine 155 mle. 51 bis"
+
+msgid "Chassis_Lorraine37_L_AC"
+msgstr "Lorraine 37L AC"
+
+msgid "Chassis_Lorraine39_L_AM"
+msgstr "Lorraine 39L AM"
+
+msgid "Chassis_Lorraine39_L_AM_2"
+msgstr "Lorraine 39L AM bis"
+
+msgid "Chassis_Lorraine40t"
+msgstr "Lorraine 40 t"
+
+msgid "Chassis_Lorraine40t_2"
+msgstr "Lorraine 40 t bis"
+
+msgid "Chassis_RenaultBS"
+msgstr "Renault FT 75 BS"
+
+msgid "Chassis_RenaultBS2"
+msgstr "Renault FT 75 BS bis"
+
+msgid "Chassis_RenaultFT"
+msgstr "M17"
+
+msgid "Chassis_RenaultFT2"
+msgstr "M26/27"
+
+msgid "Chassis_RenaultFT_AC"
+msgstr "Renault FT AC"
+
+msgid "Chassis_RenaultFT_AC_2"
+msgstr "Renault FT AC bis"
+
+msgid "Chassis_RenaultUE57"
+msgstr "Renault UE"
+
+msgid "Chassis_RenaultUE57_2"
+msgstr "Renault UE bis"
+
+msgid "Chassis_S_35CA"
+msgstr "S35 CA"
+
+msgid "Chassis_S_35CA_2"
+msgstr "S35 CA bis"
+
+msgid "Chassis_Somua_Sau_40"
+msgstr "Somua SAu 40"
+
+msgid "Chassis_Somua_Sau_40_2"
+msgstr "Somua SAu 40 bis"
+
+msgid "D1"
+msgstr "D1"
+
+msgid "D1_descr"
+msgstr ""
+"Pengembangannya dimulai tahun 1929. Produksi masalnya diluncurkan tahun "
+"1930, dengan jumlah 160 tank yang diproduksi sampai tahun 1935. 152 tank "
+"berperang untuk Perancis. 18 tank direbut tentara Jerman dan digunakan untuk "
+"sarana latihan."
+
+msgid "D1_short"
+msgstr "D1"
+
+msgid "D2"
+msgstr "D2"
+
+msgid "D2_descr"
+msgstr ""
+"Modifikasi lanjutan dari tank D1. Dikembangkan tahun 1934 oleh perusahaan "
+"Renault. Total 100 tank diproduksi dari tahun 1936 - 1940. Seri keduanya "
+"didesain sebagai D2bis."
+
+msgid "D2_short"
+msgstr "D2"
+
+msgid "Delahaye_103"
+msgstr "Delahaye 103"
+
+msgid "Delahaye_103TT"
+msgstr "Delahaye 103TT"
+
+msgid "Delahaye_135"
+msgstr "Delahaye 135"
+
+msgid "Detroit_Diesel_6V53T"
+msgstr "Detroit Diesel 6V53T"
+
+msgid "Detroit_Diesel_6V53T-S"
+msgstr "Detroit Diesel 6V53T-S"
+
+msgid "Detroit_Diesel_6V53T-S_short"
+msgstr ""
+"Detroit Diesel\n"
+"6V53T-S"
+
+msgid "Detroit_Diesel_6V53T_short"
+msgstr ""
+"Detroit Diesel\n"
+"6V53T"
+
+msgid "ELC_AMX"
+msgstr "ELC AMX"
+
+msgid "ELC_AMX_descr"
+msgstr ""
+"Tahun 1956, Kementrian Pertahanan Perancis meluncurkan proyek ELC (Engin "
+"Leger de Combat). Sasarannya adalah menciptakan kendaraan ringan untuk "
+"transportasi udara. Prototip ELС AMX menampilkan turret yang rendah dan "
+"penempatan kedua kru. Tidak pernah diproduksi massal, atau ikut dalam "
+"layanan militer."
+
+msgid "ELC_AMX_short"
+msgstr "ELC AMX"
+
+msgid "ER_51"
+msgstr "ER 51"
+
+msgid "ER_52"
+msgstr "ER 52"
+
+msgid "ER_53"
+msgstr "ER 53"
+
+msgid "ER_55"
+msgstr "ER 55"
+
+msgid "ER_56"
+msgstr "ER 56"
+
+msgid "FCM_36Pak40"
+msgstr "FCM 36 Pak 40"
+
+msgid "FCM_36Pak40_descr"
+msgstr ""
+"Di tahun 1943 10 tank FCM36 dikonversi menjadi Tank Destroyer. Sebelumnya, "
+"12 tank tipe tersebut dikonversi menjadi SPG 105 mm."
+
+msgid "FCM_36Pak40_short"
+msgstr "FCM36Pak40"
+
+msgid "FCM_50t"
+msgstr "FCM 50 t"
+
+msgid "FCM_50t_descr"
+msgstr ""
+"Pengembangannya dimulai Desember 1945. Tank ini awalnya direncanakan sebagai "
+"pengganti AMX 50t dan gabungan fitur tipikal konstruksi industri tank "
+"Perancis menyerupai inovasi Jerman. Tank ini dilengkapi tambahan kontainer, "
+"perlengkapan bawah air, dan penjinak ranjau."
+
+msgid "FCM_50t_short"
+msgstr "FCM 50 t"
+
+msgid "Fanions_de_signaux"
+msgstr "Signal Flag"
+
+msgid "FuG8f"
+msgstr "Fu.Spr.Ger. \"f\""
+
+msgid "FuG_Spr.D"
+msgstr "Fu.Spr.Ger. \"d\""
+
+msgid "FuG_Spr.F"
+msgstr "Fu.Spr.Ger. \"f\""
+
+msgid "Hispano-Suiza_HS110"
+msgstr "Hispano-Suiza HS 110"
+
+msgid "Hotchkiss_35"
+msgstr "Hotchkiss 35"
+
+msgid "Hotchkiss_35_1"
+msgstr "Hotchkiss 35"
+
+msgid "Hotchkiss_39_1"
+msgstr "Hotchkiss 39"
+
+msgid "Hotchkiss_H35_descr"
+msgstr ""
+"Tank support yang dikembangkan tahun 1934. Produksi masalnya diluncurkan "
+"tahun 1935, dengan total 400 tank. Tahun 1938 sebuah modifikasi baru, H38, "
+"diproduksi. Sekitar 1000 tank H35/H38/H39 diproduksi."
+
+msgid "Hotchkiss_H35_short"
+msgstr "H35"
+
+msgid "Lorraine155_50"
+msgstr "Lorraine 155 mle. 50"
+
+msgid "Lorraine155_50_descr"
+msgstr ""
+"Prototipe SPG yang dikembangkan dari basis tank eksperimental Lorraine 40t "
+"di tahun 1952. Tidak pernah diproduksi masal atau ikut layanan militer."
+
+msgid "Lorraine155_50_short"
+msgstr "Lorr. 155 50"
+
+msgid "Lorraine155_51"
+msgstr "Lorraine 155 mle. 51"
+
+msgid "Lorraine155_51_descr"
+msgstr ""
+"SPG eksperimental dengan basis dari prototipe Medium Tank Char de Bataille "
+"Lorraine 40t. Prototipenya diproduksi tahun 1952, tidak pernah diproduksi "
+"masal atau ikut layanan militer."
+
+msgid "Lorraine155_51_short"
+msgstr "Lorr. 155 51"
+
+msgid "Lorraine39_L_AM"
+msgstr "Lorraine 39L AM"
+
+msgid "Lorraine39_L_AM_descr"
+msgstr ""
+"SPG dengan basis dari Lorraine 37L. Pengembangannya dimulai tepat sebelum "
+"Perang Dunia 2. Hanya ada di cetak biru."
+
+msgid "Lorraine39_L_AM_short"
+msgstr "Lorr. 39L AM"
+
+msgid "Lorraine40t"
+msgstr "Lorraine 40 t"
+
+msgid "Lorraine40t_descr"
+msgstr ""
+"Satu-satunya prototipe diproduks tahun 1952. Tank ini memiliki suspensi yang "
+"unik dan turret berosiliasi. Lolos ujicoba tapi tidak pernah diproduksi "
+"masal."
+
+msgid "Lorraine40t_short"
+msgstr "Lorr. 40 t"
+
+msgid "MATHIS"
+msgstr "MATHIS"
+
+msgid "Maybach_850CV"
+msgstr "Maybach 850 CV"
+
+msgid "Maybach_850CV_short"
+msgstr "Maybach 850 CV"
+
+msgid "Maybach_HL_210_TRM_P30"
+msgstr "Maybach HL 210 TRM P30"
+
+msgid "Maybach_HL_210_TRM_P30_short"
+msgstr ""
+"Maybach HL 210\n"
+"TRM P30"
+
+msgid "Maybach_HL_230"
+msgstr "Maybach HL 230"
+
+msgid "Maybach_HL_230P45"
+msgstr "Maybach HL 230 P45F"
+
+msgid "Maybach_HL_230P45_short"
+msgstr ""
+"Maybach HL 230\n"
+"P45F"
+
+msgid "Maybach_HL_230_TRM_P30"
+msgstr "Maybach HL 230 TRM P30"
+
+msgid "Maybach_HL_230_TRM_P30_short"
+msgstr ""
+"Maybach HL 230\n"
+"TRM P30"
+
+msgid "Maybach_HL_234P45"
+msgstr "Maybach HL 234 P45"
+
+msgid "Maybach_HL_234P45A"
+msgstr "Maybach V-12 ACC"
+
+msgid "Maybach_HL_234P45A_short"
+msgstr "Maybach V-12 ACC"
+
+msgid "Maybach_HL_234P45_short"
+msgstr "Maybach HL 234 P45"
+
+msgid "Maybach_HL_234P50"
+msgstr "Maybach HL 234 P50"
+
+msgid "Maybach_HL_234P50_short"
+msgstr "Maybach HL 234 P50"
+
+msgid "Maybach_HL_295"
+msgstr "Maybach HL 295"
+
+msgid "Maybach_HL_295_F"
+msgstr "Maybach HL 295 F"
+
+msgid "Obusier_de_105mm_mod_1950"
+msgstr "105 mm obusier mle. 1950"
+
+msgid "Obusier_de_105mm_mod_1950_short"
+msgstr ""
+"105 mm obusier\n"
+" mle. 1950"
+
+msgid "Obusier_de_155mm_C_mle.1917"
+msgstr "Obusier de 155 mm C mle. 1917"
+
+msgid "Obusier_de_155mm_C_mle.1917_short"
+msgstr ""
+"Obusier de 155 mm\n"
+"C mle. 1917"
+
+msgid "Obusier_de_155mm_mle.1950"
+msgstr "Obusier de 155 mm mle. 1950"
+
+msgid "Obusier_de_155mm_mle.1950_short"
+msgstr ""
+"Obusier de 155 mm\n"
+"mle. 1950"
+
+msgid "Renault"
+msgstr "Renault"
+
+msgid "RenaultBS"
+msgstr "Renault FT 75 BS"
+
+msgid "RenaultBS_descr"
+msgstr ""
+"Pemesanan pertama SPG dengan basis Renault FT-17 diterima tahun 1917. Tetapi "
+"tidak ada SPG yang terlibat dalam layanan militer sampai akhir Perang Dunia "
+"1. Setelah perang selesai, 39 tank telah diproduksi."
+
+msgid "RenaultBS_short"
+msgstr "FT BS"
+
+msgid "RenaultFT"
+msgstr "Renault FT"
+
+msgid "RenaultFT_AC"
+msgstr "Renault FT AC"
+
+msgid "RenaultFT_AC_descr"
+msgstr ""
+"Banyaknya tank Renault FT di militer Perancis menginspirasikan banyaknya "
+"usaha modifikasi pada tank ini. Satu dari proyeknya menyarankan konversi ke "
+"Tank Destroyer, yang tidak pernah selesai."
+
+msgid "RenaultFT_AC_short"
+msgstr "FT AC"
+
+msgid "RenaultFT_descr"
+msgstr ""
+"Tank ini memasuki layanan militer di tahun 1917, dengan total 3177 tank "
+"diproduksi di akhir Perang Dunia 1 dan totalnya 3800 tank. Di awal Perang "
+"Dunia 1560 tank terlibat dalam layanan militer."
+
+msgid "RenaultFT_short"
+msgstr "FT"
+
+msgid "RenaultUE57"
+msgstr "Renault UE 57"
+
+msgid "RenaultUE57_descr"
+msgstr ""
+"Dikembangkan tahun 1943 di Inggris dengan memasang meriam British 6-Pounder "
+"di casis tank Perancis UE2. Satu prototipe sempat diproduksi."
+
+msgid "RenaultUE57_short"
+msgstr "UE 57"
+
+msgid "Renault_A"
+msgstr "Renault 307"
+
+msgid "Renault_ACL"
+msgstr "Renault ACL"
+
+msgid "Renault_BDR"
+msgstr "Renault BDR"
+
+msgid "Renault_EU"
+msgstr "Renault 85"
+
+msgid "Renault_M26_27"
+msgstr "Renault M26/27"
+
+msgid "Renault_Naeder-FIEUX"
+msgstr "Renault Naeder-FIEUX"
+
+msgid "Renault_Naeder-FIEUX_short"
+msgstr ""
+"Renault\n"
+"Naeder-FIEUX"
+
+msgid "Renault_S4"
+msgstr "Renault S4"
+
+msgid "Renault_S4B"
+msgstr "Renault S4F"
+
+msgid "Renault_S6"
+msgstr "Renault S6"
+
+msgid "Renault_S6Bis"
+msgstr "Renault S6Bis"
+
+msgid "Renault_T12"
+msgstr "Renault T12"
+
+msgid "Renault_T14"
+msgstr "Renault T14"
+
+msgid "Renault_V4"
+msgstr "Renault V4"
+
+msgid "SCR_508"
+msgstr "SCR 508"
+
+msgid "SCR_528"
+msgstr "SCR 528F"
+
+msgid "SCR_619"
+msgstr "SCR 619"
+
+msgid "SOFAM_12GSds"
+msgstr "SOFAM 12 GSdS"
+
+msgid "SOFAM_8Gxb"
+msgstr "SOFAM 8 Gxb"
+
+msgid "SOFAM_Gxb"
+msgstr "SOFAM Gxb"
+
+msgid "S_35CA"
+msgstr "S35 CA"
+
+msgid "S_35CA_descr"
+msgstr ""
+"Proyek desainnya menyarankan pengorvensian tank menjadi Tank Destroyer "
+"dengan memasang meriam 17-Pounder di kokpit terbuka."
+
+msgid "S_35CA_short"
+msgstr "S35 CA"
+
+msgid "Saurer"
+msgstr "Saurer"
+
+msgid "Somua_LM"
+msgstr "Somua LM"
+
+msgid "Somua_S-40"
+msgstr "Somua S-40"
+
+msgid "Somua_S-40Bis"
+msgstr "Somua S-40 Bis"
+
+msgid "Somua_S35_short"
+msgstr "Somua S35"
+
+msgid "Somua_Sau_40"
+msgstr "Somua SAu 40"
+
+msgid "Somua_Sau_40_descr"
+msgstr "Proyek Tank Destroyer dengan basis Somua S35. Hanya ada di cetak biru."
+
+msgid "Somua_Sau_40_short"
+msgstr "SAu 40"
+
+msgid "Sovam_de_150cv"
+msgstr "SOFAM de 150 cv"
+
+msgid "Turret_1_105_leFH18B2"
+msgstr "105leFH18B2"
+
+msgid "Turret_1_28_32Pz38Hf"
+msgstr "Hotchkiss"
+
+msgid "Turret_1_AMX38"
+msgstr "AMX 38"
+
+msgid "Turret_1_AMX40"
+msgstr "AMX 40"
+
+msgid "Turret_1_AMX50_Foch"
+msgstr "AMX 50 Foch"
+
+msgid "Turret_1_AMX_105AM"
+msgstr "AMX 13 105 AM mle. 50"
+
+msgid "Turret_1_AMX_12t"
+msgstr "AMX 12 t"
+
+msgid "Turret_1_AMX_13F3AM"
+msgstr "AMX 13 F3 AM"
+
+msgid "Turret_1_AMX_13_75"
+msgstr "FL 10 Type C"
+
+msgid "Turret_1_AMX_13_90"
+msgstr "FL 10 Type D"
+
+msgid "Turret_1_AMX_50Fosh_155"
+msgstr "AMX 50 Foch (155)"
+
+msgid "Turret_1_AMX_50_100"
+msgstr "AMX 50 100"
+
+msgid "Turret_1_AMX_50_120"
+msgstr "AMX 50 120"
+
+msgid "Turret_1_AMX_50_68t"
+msgstr "AMX 50 B"
+
+msgid "Turret_1_AMX_AC_Mle1946"
+msgstr "AMX AC mle. 46"
+
+msgid "Turret_1_AMX_AC_Mle1948"
+msgstr "AMX AC mle. 48"
+
+msgid "Turret_1_AMX_AC_de120_46"
+msgstr "AMX AC de 100"
+
+msgid "Turret_1_AMX_M4_1945"
+msgstr "ARL 44"
+
+msgid "Turret_1_AMX_Ob_Am105"
+msgstr "AMX 105 AM mle. 47"
+
+msgid "Turret_1_ARL_44"
+msgstr "FCM F1"
+
+msgid "Turret_1_ARL_V39"
+msgstr "ARL V39"
+
+msgid "Turret_1_B1"
+msgstr "B1 APX 1"
+
+msgid "Turret_1_BDR_G1B"
+msgstr "FCM F4"
+
+msgid "Turret_1_Bat_Chatillon155"
+msgstr "Batignolles-Châtillon 155 mle. 58"
+
+msgid "Turret_1_Bat_Chatillon155_55"
+msgstr "Batignolles-Châtillon 155 mle. 55"
+
+msgid "Turret_1_Bat_Chatillon25t"
+msgstr "Batignolles-Châtillon 25 t"
+
+msgid "Turret_1_Bat_Chatillon25t_short"
+msgstr ""
+"Batignolles-Châtillon\n"
+"25 t"
+
+msgid "Turret_1_D1_2"
+msgstr "D1 Berliet"
+
+msgid "Turret_1_D2"
+msgstr "D2 APX 1"
+
+msgid "Turret_1_ELC_AMX"
+msgstr "AMX ELC bis"
+
+msgid "Turret_1_FCM_36Pak40"
+msgstr "FCM 36 Pak 40"
+
+msgid "Turret_1_FCM_50t"
+msgstr "FCM 50 t"
+
+msgid "Turret_1_Hotchkiss_H35"
+msgstr "APX R"
+
+msgid "Turret_1_Lorraine155_50"
+msgstr "Lorraine 155 mle. 50"
+
+msgid "Turret_1_Lorraine155_51"
+msgstr "Lorraine 155 mle. 51"
+
+msgid "Turret_1_Lorraine39_L_AM"
+msgstr "Lorraine 39L AM"
+
+msgid "Turret_1_Lorraine40t"
+msgstr "Lorraine 40 t"
+
+msgid "Turret_1_RenaultBS"
+msgstr "Renault FT 75 BS"
+
+msgid "Turret_1_RenaultFT"
+msgstr "Renault FT Omnibus"
+
+msgid "Turret_1_RenaultFT_AC"
+msgstr "Renault FT AC"
+
+msgid "Turret_1_RenaultUE57"
+msgstr "UE 57"
+
+msgid "Turret_1_S_35CA"
+msgstr "S35 CA"
+
+msgid "Turret_1_Somua_Sau_40"
+msgstr "Somua SAu 40"
+
+msgid "Turret_2_AMX38"
+msgstr "ARL 2C"
+
+msgid "Turret_2_AMX40"
+msgstr "Renault-Balland"
+
+msgid "Turret_2_AMX_105AM"
+msgstr "AMX 105AM B"
+
+msgid "Turret_2_AMX_13F3AM"
+msgstr "Affût 155"
+
+msgid "Turret_2_AMX_M4_1945"
+msgstr "AMX M4 mle. 45"
+
+msgid "Turret_2_AMX_Ob_Am105"
+msgstr "AMX 105 AM mle. 47 modifié"
+
+msgid "Turret_2_ARL_44"
+msgstr "ARL 44"
+
+msgid "Turret_2_B1"
+msgstr "B1 APX 4"
+
+msgid "Turret_2_BDR_G1B"
+msgstr "FCM F1"
+
+msgid "Turret_2_D1_2"
+msgstr "Schneider Tourelle 2"
+
+msgid "Turret_2_D2"
+msgstr "D2 APX 4"
+
+msgid "Turret_2_Hotchkiss_H35"
+msgstr "H35D1"
+
+msgid "Turret_2_Lorraine155_51"
+msgstr "Lorraine 155 mle. 51 bis"
+
+msgid "Turret_2_RenaultFT"
+msgstr "Renault FT Berliet"
+
+msgid "_100mm_FrtPrf1945"
+msgstr "Frt.Prf. mle. 1945"
+
+msgid "_100mm_OE_mle_1930"
+msgstr "OE mle. 1930"
+
+msgid "_100mm_Prf1940"
+msgstr "Prf. mle. 1940"
+
+msgid "_100mm_SA_47"
+msgstr "100 mm SA47"
+
+msgid "_100mm_SA_47_AC"
+msgstr "100 mm AC SA47"
+
+msgid "_105_leFH18B2"
+msgstr "105 leFH18B2"
+
+msgid "_105_leFH18B2_descr"
+msgstr ""
+"Pada Maret 1941, perusahaan Rhenmetall-Borsig memesan 16 tank B1 Bis menjadi "
+"SPG. Pengerjaannya hanya dimulai di akhir tahun 1941 karena kurangnya tank "
+"operasional. Tank memasuki layanan militer tahun 1942."
+
+msgid "_105_leFH18B2_short"
+msgstr "leFH18B2"
+
+msgid "_105mmGr39H1A"
+msgstr "Gr. 39 Hl/B"
+
+msgid "_105mm_APCR_OFL_E1"
+msgstr "OFL-105-E1"
+
+msgid "_105mm_CN_105_57"
+msgstr "105 mm mle. 57 (D. 1504)"
+
+msgid "_105mm_FA_mle_1946"
+msgstr "FA mle. 1946"
+
+msgid "_105mm_FrtPrf1943"
+msgstr "Frt.Prf. mle. 1943"
+
+msgid "_105mm_FrtPrf1946"
+msgstr "Frt.Prf. mle. 1946"
+
+msgid "_105mm_HEAT_OCC_F1"
+msgstr "OCC-105-F1"
+
+msgid "_105mm_HE_OE_F1"
+msgstr "OE-105-F1"
+
+msgid "_105mm_OCO_mle._1936"
+msgstr "OCO mle. 1936"
+
+msgid "_105mm_OCO_mle_1947"
+msgstr "OCO mle. 1947"
+
+msgid "_105mm_OE_mle_1920"
+msgstr "OE mle. 1920"
+
+msgid "_105mm_OE_mle_1924"
+msgstr "OE mle. 1924"
+
+msgid "_105mm_OE_mle_1930"
+msgstr "OE mle. 1930"
+
+msgid "_105mm_OE_mle_1944"
+msgstr "OE mle. 1944"
+
+msgid "_105mm_Prf1940"
+msgstr "Prf. mle. 1940"
+
+msgid "_105mm_Prf1944"
+msgstr "Prf. mle. 1944"
+
+msgid "_105mm_PzGr39K"
+msgstr "Pzgr. 39K"
+
+msgid "_105mm_Sprg_K"
+msgstr "Sprgr. K"
+
+msgid "_105mm_canon_13TR"
+msgstr "105 mm Canon 13TR"
+
+msgid "_105mm_leFH18_L28"
+msgstr "10,5 cm le.F.H. 18 L/28"
+
+msgid "_120mm_FrtPrf1945"
+msgstr "Frt.Prf. mle. 1945"
+
+msgid "_120mm_OE_mle_1930"
+msgstr "OE mle. 1930"
+
+msgid "_120mm_Prf1943"
+msgstr "Prf. mle. 1943"
+
+msgid "_120mm_SA_46"
+msgstr "120 mm SA46"
+
+msgid "_120mm_SA_46_AC"
+msgstr "120 mm AC SA46"
+
+msgid "_13.2mm_Balle_P."
+msgstr "Balle P."
+
+msgid "_13.2mm_Balle_T.P."
+msgstr "Balle T.P."
+
+msgid "_13.2mm_Hotchkiss_mle._1930"
+msgstr "13.2 mm Hotchkiss mle. 1930"
+
+msgid "_13.2mm_Hotchkiss_mle._1930_short"
+msgstr "13.2 mm Hotchkiss"
+
+msgid "_155_OE_mle_1956"
+msgstr "OE mle. 1956"
+
+msgid "_155mm_AP-T_T368"
+msgstr "AP-T T368"
+
+msgid "_155mm_HEAT_T267"
+msgstr "HEAT T267"
+
+msgid "_155mm_HE_T58"
+msgstr "HE T58"
+
+msgid "_155mm_OCO_mle_1944"
+msgstr "OCO mle. 1944"
+
+msgid "_155mm_OE_M101M4"
+msgstr "OE M101M4"
+
+msgid "_155mm_OE_M101M6"
+msgstr "OE M101M6"
+
+msgid "_155mm_OE_mle_1917"
+msgstr "OE mle. 1917"
+
+msgid "_155mm_SA_58_AC"
+msgstr "155 mm AC SA58"
+
+msgid "_17_pdr_Gan_MK.II"
+msgstr "17-pdr AT Gun Mk. II"
+
+msgid "_25mm_Balle_T.P._mle._1928"
+msgstr "Balle T.P. mle. 1928"
+
+msgid "_25mm_Balle_T.P._mle._1934"
+msgstr "Balle T.P. mle. 1934"
+
+msgid "_25mm_Balle_T.P._mle._1934P"
+msgstr "Balle T.P. mle. 1934P"
+
+msgid "_25mm_Balle_T.P._mle._1939P"
+msgstr "Balle T.P. mle. 1939P"
+
+msgid "_25mm_Canon_Raccourci_Mle.1934"
+msgstr "25 mm Canon Raccourci mle. 1934"
+
+msgid "_25mm_Canon_Raccourci_Mle.1934_short"
+msgstr ""
+"25 mm Raccourci\n"
+"mle. 1934"
+
+msgid "_25mm_antichar_SA-L_mle_1934"
+msgstr "25 mm AC SA-L mle. 1934"
+
+msgid "_25mm_antichar_SA-L_mle_1934_short"
+msgstr ""
+"25 mm AC SA-L\n"
+"mle. 1934"
+
+msgid "_25mm_antichar_SA-L_mle_1937"
+msgstr "25 mm AC SA-L mle. 1937"
+
+msgid "_25mm_antichar_SA-L_mle_1937_short"
+msgstr ""
+"25 mm AC SA-L\n"
+"mle. 1937"
+
+msgid "_25mm_automatique_mle_1936"
+msgstr "25 mm automatique mle. 1936"
+
+msgid "_25mm_automatique_mle_1936_short"
+msgstr ""
+"25 mm automatique\n"
+"mle. 1936"
+
+msgid "_2CBis_short"
+msgstr "Char 2C bis"
+
+msgid "_37mm_APX_SA18"
+msgstr "37 mm APX SA18"
+
+msgid "_37mm_FrtPrf1935"
+msgstr "Frt.Prf. mle. 1935"
+
+msgid "_37mm_OE_mle._1916"
+msgstr "OE mle. 1916"
+
+msgid "_37mm_Odr_mle._1932"
+msgstr "ODR mle. 1932"
+
+msgid "_37mm_Odr_mle._1935"
+msgstr "ODR mle. 1935"
+
+msgid "_37mm_Odr_mle._1939"
+msgstr "ODR mle. 1939"
+
+msgid "_37mm_Oe_mle._1932"
+msgstr "OE mle. 1932"
+
+msgid "_37mm_SA38"
+msgstr "37 mm SA38"
+
+msgid "_47mm_Odr_mle._1892"
+msgstr "ODR mle. 1892"
+
+msgid "_47mm_Odr_mle._1932"
+msgstr "ODR mle. 1932"
+
+msgid "_47mm_Odr_mle._1935"
+msgstr "ODR mle. 1935"
+
+msgid "_47mm_Odr_mle_1935_b"
+msgstr "ODR mle. 1935 Bref"
+
+msgid "_47mm_Oe_mle._1932"
+msgstr "OE mle. 1932"
+
+msgid "_47mm_Oe_type_D"
+msgstr "OE type D"
+
+msgid "_47mm_SA-L_Mle.37"
+msgstr "47 mm SA-L mle. 1937"
+
+msgid "_47mm_SA34"
+msgstr "47 mm SA34"
+
+msgid "_47mm_SA35"
+msgstr "47 mm SA35"
+
+msgid "_47mm_SA37"
+msgstr "47 mm SA37"
+
+msgid "_57mm_6_pdr_AT_Gun_Mk_IV"
+msgstr "6-pdr AT Gun Mk. IV"
+
+msgid "_57mm_6_pdr_AT_Gun_Mk_IV_A1"
+msgstr "6 pdr AT Gun Mk IV A1"
+
+msgid "_57mm_6_pdr_AT_Gun_Mk_IV_A1_short"
+msgstr "57 mm Gun MkIV A1"
+
+msgid "_57mm_6_pdr_AT_Gun_Mk_IV_short"
+msgstr "6-pdr AT Gun Mk. IV"
+
+msgid "_6F11SRY"
+msgstr "Baudouin 6F 11 SRY"
+
+msgid "_6pdr_APCR_MK_1T"
+msgstr "APCR Mk. 1T"
+
+msgid "_6pdr_AP_MK_8T"
+msgstr "AP Mk. 8T"
+
+msgid "_75mm_APX"
+msgstr "75 mm APX mle. 1938"
+
+msgid "_75mm_FrtPrf1940"
+msgstr "Frt.Prf. mle. 1940"
+
+msgid "_75mm_FrtPrf1944"
+msgstr "Frt.Prf. mle. 1944"
+
+msgid "_75mm_HE_MK_1T"
+msgstr "HE Mk. 1T"
+
+msgid "_75mm_Long_44"
+msgstr "75 mm SA44"
+
+msgid "_75mm_Long_44_AC"
+msgstr "75 mm AC SA44"
+
+msgid "_75mm_OCO_mle._1926"
+msgstr "OCO mle. 1926"
+
+msgid "_75mm_OE_mle_1915"
+msgstr "OE mle. 1915"
+
+msgid "_75mm_OE_mle_1924"
+msgstr "OE mle. 1924"
+
+msgid "_75mm_Odr_mle.1910"
+msgstr "ODR mle. 1910"
+
+msgid "_75mm_PaK_40_2"
+msgstr "7,5 cm Pak 40/2"
+
+msgid "_75mm_Prf1926"
+msgstr "Prf. mle. 1926"
+
+msgid "_75mm_Prf1930"
+msgstr "Prf. mle. 1930"
+
+msgid "_75mm_Pzgr.40"
+msgstr "Pzgr. 40"
+
+msgid "_75mm_Pzgr39"
+msgstr "Pzgr. 39"
+
+msgid "_75mm_SA32"
+msgstr "75 mm SA32"
+
+msgid "_75mm_SA49_L48"
+msgstr "75 mm SA49"
+
+msgid "_75mm_SA50"
+msgstr "75 mm SA50"
+
+msgid "_75mm_Sprg.18"
+msgstr "Sprgr. 18"
+
+msgid "_76.2_mm_APCBC_Mk.8T"
+msgstr "APCBC Mk. 8T"
+
+msgid "_76.2_mm_AP_Mk.3T"
+msgstr "AP Mk. 3T"
+
+msgid "_76.2_mm_HE_Mk._1T"
+msgstr "HE Mk. 1T"
+
+msgid "_76mm_17_pdr_AT_Gun_MK_II"
+msgstr "17-pdr AT Gun Mk. II"
+
+msgid "_76mm_17_pdr_AT_Gun_MK_II_short"
+msgstr "17-pdr AT Gun Mk. II"
+
+msgid "_76mm_AP_M79"
+msgstr "AP M79"
+
+msgid "_76mm_Gun_M1A1"
+msgstr "76 mm Gun M1A1"
+
+msgid "_76mm_HE_M42A1"
+msgstr "HE M42A1"
+
+msgid "_76mm_HVAP_M93"
+msgstr "HVAP M93"
+
+msgid "_76mm_OCO_mle._1941"
+msgstr "OCO mle. 1941"
+
+msgid "_76mm_OEO_mle._1917"
+msgstr "OEO mle. 1917"
+
+msgid "_76mm_Schneider"
+msgstr "75 mm Blockhaus Schneider"
+
+msgid "_90mm_D914"
+msgstr "90 mm D. 915"
+
+msgid "_90mm_F3"
+msgstr "90 mm F3"
+
+msgid "_90mm_FrtPrf1944"
+msgstr "Frt.Prf. mle. 1944"
+
+msgid "_90mm_OE_mle_1924"
+msgstr "OE mle. 1924"
+
+msgid "_90mm_Prf1941"
+msgstr "Prf. mle. 1941"
+
+msgid "_90mm_canon_DCA_30"
+msgstr "90 mm DCA 30"
+
+msgid "_90mm_canon_DCA_30_CA"
+msgstr "90 mm AC canon DCA 30"
+
+msgid "_90mm_canon_DCA_30_CA_short"
+msgstr ""
+"90 mm AC canon\n"
+"DCA 30"
+
+msgid "_90mm_canon_DCA_45"
+msgstr "90 mm DCA 45"
+
+msgid "_90mm_canon_DCA_45_AC"
+msgstr "90 mm AC DCA 45"
+
+msgid "_Hotchkiss_H35"
+msgstr "Hotchkiss H35"
+
+msgid "_M_107"
+msgstr "HE M107"
