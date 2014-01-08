@@ -14,8 +14,8 @@ sub auto {
 
         if(defined($user)) {
             $c->stash(current_user => $user);
-            $c->stash('current_player_name' => $user->{player_name});
-            $c->stash('current_player_server' => uc($user->{player_server}));
+            $c->stash(current_player_name => $user->{player_name});
+            $c->stash(current_player_server => uc($user->{player_server}));
 
             $c->current_user->{last_clan_check} ||= 0;
 
