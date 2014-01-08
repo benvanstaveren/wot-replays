@@ -46,18 +46,18 @@ sub auto {
                         'last_clan_check' => Mango::BSON::bson_time,
                         'clan'            => $clan,
                     } => sub {
-                        $self->continue;
+                        $c->continue;
                     });
                 });
             } else {
-                $self->continue;
+                $c->continue;
             }
         } else {
             if(defined($c->stash('mustauth')) && ($c->stash('mustauth') == 1)) {
                 # we do want to call the setup end but with a redirect
                 $c->redirect_to('/login');
             } else {
-                $self->continue;
+                $c->continue;
             }
         }
     });
