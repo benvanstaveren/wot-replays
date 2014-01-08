@@ -7,60 +7,91 @@ use Filesys::DiskUsage::Fast qw/du/;
 use WR::OpenID;
 use Mango::BSON;
 
-sub auto {
+sub root_bridge {
     my $self = shift;
+    if(my $o = $self->session('openid')) {
+        if($o =~ /https:\/\/(.*?)\..*\/id\/(\d+)-(.*)\//) {
+            my $server = $1;
+            my $pname = $3;
 
-    $self->auth_setup(sub {
-        my $c = shift;
-        my $user = shift;
+            $server = 'sea' if(lc($server) eq 'asia'); # fuck WG and renaming endpoints
 
-        if(defined($user)) {
-            $c->stash(current_user => $user);
-            $c->stash(current_player_name => $user->{player_name});
-            $c->stash(current_player_server => uc($user->{player_server}));
+            my $user_id   = sprintf('%s-%s', lc($server), lc($pname));
 
-            $c->current_user->{last_clan_check} ||= 0;
-
-            if($c->current_user->{last_clan_check} < Mango::BSON::bson_time( (time() - 86400) * 1000)) {
-                # we need to re-check the users' clan settings, we do that by yoinking statterbox for it
-                 my $url = sprintf('http://statterbox.com/api/v1/%s/clan?server=%s&player=%s', 
-                        '5299a074907e1337e0010000', # yes it's a hardcoded API token :P
-                        lc($c->current_user->{player_server}),
-                        lc($c->current_user->{player_name}),
-                        );
-                $c->ua->get($url => sub {
-                    my ($ua, $tx) = (@_);
-                    my $clan = undef;
-                    
-                    if(my $res = $tx->success) {
-                        if($res->json->{ok} == 1) {
-                            $clan = $res->json->{data}->{lc($c->current_user->{player_name})};
-                        } else {
-                            $clan = undef;
-                        }
-                    } else {
-                        $clan = undef;
-                    }
-                    $c->current_user->{clan} = $clan;
-                    $c->update_current_user({
-                        'last_clan_check' => Mango::BSON::bson_time,
-                        'clan'            => $clan,
-                    } => sub {
-                        $c->continue;
-                    });
+            if($self->req->is_xhr) {
+                $self->app->log->debug('auth_setup: request is XHR');
+                $self->model('wot-replays.accounts')->find_one({ _id => $user_id } => sub {
+                    my ($coll, $err, $user) = (@_);
+                    $self->stash(current_user => $user);
+                    $self->stash(current_player_name => $user->{player_name});
+                    $self->stash(current_player_server => uc($user->{player_server}));
+                    $self->continue;
                 });
             } else {
-                $c->continue;
-            }
-        } else {
-            if(defined($c->stash('mustauth')) && ($c->stash('mustauth') == 1)) {
-                # we do want to call the setup end but with a redirect
-                $c->redirect_to('/login');
-            } else {
-                $c->continue;
+                $self->app->log->debug('auth_setup: request is not XHR');
+                my $last_seen = Mango::BSON::bson_time;
+
+                $self->model('wot-replays.accounts')->update({ 
+                    _id => $user_id 
+                }, {
+                    '$set' => {
+                        player_name     => $pname,
+                        player_server   => lc($server),
+                        last_seen       => $last_seen,
+                    },
+                }, {
+                    upsert => 1,
+                },
+                sub {
+                    my ($coll, $err, $oid) = (@_);
+                    $self->model('wot-replays.accounts')->find_one({ _id => $user_id } => sub {
+                        my ($coll, $err, $user) = (@_);
+
+                        $self->stash(current_user => $user);
+                        $self->stash(current_player_name => $user->{player_name});
+                        $self->stash(current_player_server => uc($user->{player_server}));
+
+                        $self->current_user->{last_clan_check} ||= 0;
+
+                        if($self->current_user->{last_clan_check} < Mango::BSON::bson_time( (time() - 86400) * 1000)) {
+                            $self->app->log->debug('auth_setup: clan check needed');
+                            # we need to re-check the users' clan settings, we do that by yoinking statterbox for it
+                            my $url = sprintf('http://statterbox.com/api/v1/%s/clan?server=%s&player=%s', 
+                                '5299a074907e1337e0010000', # yes it's a hardcoded API token :P
+                                lc($self->current_user->{player_server}),
+                                lc($self->current_user->{player_name}),
+                                );
+                            $self->ua->get($url => sub {
+                                my ($ua, $tx) = (@_);
+                                my $clan = undef;
+                                
+                                if(my $res = $tx->success) {
+                                    if($res->json->{ok} == 1) {
+                                        $clan = $res->json->{data}->{lc($self->current_user->{player_name})};
+                                    } else {
+                                        $clan = undef;
+                                    }
+                                } else {
+                                    $clan = undef;
+                                }
+                                $self->current_user->{clan} = $clan;
+                                $self->model('wot-replays.accounts')->update({ _id => $user_id }, { '$set' => {
+                                    'last_clan_check' => Mango::BSON::bson_time,
+                                    'clan'            => $clan,
+                                }} => sub {
+                                    $self->app->log->debug('auth_setup: clan check results saved, continue');
+                                    $self->continue;
+                                });
+                            });
+                        } else {
+                            $self->app->log->debug('auth_setup: no clan check required, continue');
+                            $self->continue;
+                        }
+                    });
+                });
             }
         }
-    });
+    }
     return undef;
 }
 

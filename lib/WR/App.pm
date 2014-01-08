@@ -25,7 +25,7 @@ sub startup {
 
     my $config = $self->plugin('Config', { file => 'wr.conf' });
 
-    $self->secret($config->{secrets}->{app});
+    $self->secrets([ $config->{secrets}->{app} ]);
     $config->{wot}->{bf_key} = join('', map { chr(hex($_)) } (split(/\s/, $config->{wot}->{bf_key})));
 
     $self->plugin('WR::Plugin::Mango', $config->{mongodb});
@@ -36,7 +36,7 @@ sub startup {
 
     $self->routes->namespaces([qw/WR::App::Controller/]);
 
-    my $r = $self->routes->bridge('/')->to('ui#auto');
+    my $r = $self->routes->bridge('/')->to('ui#root_bridge');
 
     $r->route('/')->to('ui#index', pageid => 'home');
 
@@ -44,7 +44,6 @@ sub startup {
         for(qw/about donate credits missions/) {
             $doc->route(sprintf('/%s', $_))->to('ui#doc', docfile => $_, pageid => $_);
         }
-
 
     $r->route('/browse/*filter')->to('replays#browse', filter_opts => {}, pageid => 'browse', page => { title => 'browse.page.title' }, filter_root => 'browse');
     $r->route('/browse')->to(cb => sub {
