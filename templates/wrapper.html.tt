@@ -90,6 +90,9 @@
                         </ul>
                     </li>
                     [% IF h.is_user_authenticated %]
+                        [% IF h.has_admin_access %]
+                            <li><a href="/admin/">[% h.loc('nav.admin') %]</a></li>
+                        [% END %]
                         <li class="dropdown [% IF pageid == 'profile' %]active[% END %]"><a href="/profile" class="dropdown-toggle" data-toggle="dropdown">[% h.current_user.player_name |html %] <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li class="dropdown-header">[% h.loc('nav.profile.header') %]</li>

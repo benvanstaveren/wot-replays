@@ -10,6 +10,9 @@ msgstr "Browse"
 msgid "nav.upload"
 msgstr "Upload Replay"
 
+msgid "nav.admin"
+msgstr "Admin Panel"
+
 msgid "nav.signin"
 msgstr "Sign In"
 
