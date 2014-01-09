@@ -1,0 +1,5 @@
+[% WRAPPER admin/wrapper.html.tt %]
+    <div class="page-header">
+        <h1>Event Manager</h1>
+    </div>
+[% END %]

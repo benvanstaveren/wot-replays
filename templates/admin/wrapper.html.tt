@@ -1,46 +1,87 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>[% page.title %] - World of Tanks Replays</title>
+        <title>[% h.loc(page.title) %] - Admin - World of Tanks Replays</title>
         <link rel="shortcut icon" href="[% config.urls.static %]/img/favicon.ico"/>
-        <script type="text/javascript" src="[% config.urls.static %]/js/jquery-1.8.3.min.js"></script>
-        <script type="text/javascript" src="[% config.urls.static %]/js/jquery-ui-1.9.2.custom.min.js"></script>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.0/backbone-min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-growl/1.0.0/jquery.bootstrap-growl.min.js"></script>
+
         <script type="text/javascript" src="[% config.urls.static %]/js/jquery.form.js"></script>
         <script type="text/javascript" src="[% config.urls.static %]/js/jquery.timers.js"></script>
-        <script type="text/javascript" src="[% config.urls.static %]/js/jstz.min.js"></script>
-        <script type="text/javascript" src="[% config.urls.static %]/js/jquery.blockUI.js"></script>
-        <script type="text/javascript" src="[% config.urls.static %]/js/flot/jquery.flot.js"></script>
-        <script type="text/javascript" src="[% config.urls.static %]/js/flot/jquery.flot.pie.js"></script>
-        <script type="text/javascript" src="[% config.urls.static %]/js/underscore-min.js"></script>
-        <script type="text/javascript" src="[% config.urls.static %]/js/backbone-min.js"></script>
-        <script type="text/javascript" src="[% config.urls.static %]/js/wr.js"></script>
-        <script type="text/javascript" src="[% config.urls.static %]/js/wr/ui.js"></script>
-        <script type="text/javascript" src="[% config.urls.static %]/js/wr/init.js"></script>
-        <link rel="stylesheet" href="[% config.urls.static %]/css/style.css" type="text/css">
-        <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-        <meta name="keywords" content="[% IF page.keywords %][% page.keywords %], [% END %]world of tanks replays, wot replays, replays"/>
-        [% IF page.description %]
-            <meta name="description" content="[% page.description |html %]"/>
-        [% END %]
-        [% INCLUDE bricks/ga.js.tt %]
-        [% IF notify %]
-            <script type="text/javascript">
-                $(document).ready(function() {
-                    WR.ui.notify({ type: '[% notify.type %]', text: '[% notify.text |js %]', close: [% IF notify.close %]true[% ELSE %]false [% END %], sticky: [% IF notify.sticky %]true[% ELSE %]false[% END %] });
-                });
-            </script>
-        [% END %]
+        <script type="text/javascript" src="[% config.urls.static %]/js/bootstrap-slider.js"></script>
+
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet"/> 
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet"/>
+        <link href="//netdna.bootstrapcdn.com/bootswatch/3.0.1/cyborg/bootstrap.min.css" rel="stylesheet"/>
+
+        <link href="[% config.urls.static %]/css/[% IF config.mode.defined && config.mode == 'dev' %]wtr[% ELSE %]wtr.min[% END %].css" rel="stylesheet"/>
+
+        <script type="text/javascript" src="[% config.urls.static %]/js/wtr.js"></script>
+
+	    <script type="text/javascript">
+            $(document).ready(function() {
+	            [% IF notify.defined %]
+                    var notifyOpts = { 
+                        type: '[% IF notify.type == 'error' %]danger[% ELSE %]info[% END %]',
+                        allow_dismiss: [% IF notify.close %]true[% ELSE %]false[% END %],
+                        offset: { from: 'top', amount: 40 },
+                        delay: [% IF notify.sticky %]200000[% ELSE %]20000[% END %]
+                    };
+                    $.bootstrapGrowl('[% notify.text |js %]', notifyOpts);
+	            [% END %]
+                $('.bs-tooltip').tooltip();
+                $('.bs-popover').popover();
+            });
+        </script>
     </head>
-    <body class="ui">
-        <div style="padding: 15px 0px 15px 0px">
-        <div id="container" class="ui-corner-all" style="margin-bottom: 25px">
-            [% INCLUDE admin/nav.html.tt %]
-            <div class="clear"></div>
+    <body>
+        <div class="navbar navbar-default navbar-shadow">
+            <div class="navbar-header">
+                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse" id="navbar-main">
+                <ul class="nav navbar-nav">
+                    <li class="[% IF pageid == 'admin/home' %]active[% END %]"><a  href="/admin/">Dashboard</a></li>
+                    [% IF h.has_admin_role('events') %]
+                        <li class="[% IF pageid == 'admin/events' %]active[% END %]"><a  href="/admin/events">Event Manager</a></li>
+                    [% END %]
+                    [% IF h.has_admin_role('translator') %]
+                        <li class="[% IF pageid == 'admin/language' %]active[% END %]"><a  href="/admin/language">Language Manager</a></li>
+                    [% END %]
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/">Back to Site</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container rounded shadow clearfix">
             <div id="contentMain">[% content %]</div>
-            [% INCLUDE footer.html.tt %]
-            <div class="clear"></div>
+            <div class="clearfix" style="text-align: center; margin: 40px 0px 10px 0px">&copy; 2012-2014 Scrambled | t: <span id="timing_elapsed">[% IF timing_elapsed.defined %][% h.sprintf('%.4f', timing_elapsed)  %][% ELSE %]-[% END %]</span> [% IF timing_query.defined %]q: <span id="timing_query">[% h.sprintf('%.4f', timing_query) %]</span>[% END %]</div>
         </div>
-        <div class="clear"></div>
-        </div>
+        <!-- Piwik -->
+        <script type="text/javascript"> 
+            var _paq = _paq || [];
+            _paq.push(['trackPageView']);
+            _paq.push(['enableLinkTracking']);
+            (function() {
+                var u=(("https:" == document.location.protocol) ? "https" : "http") + "://piwik.blockstackers.net//";
+                _paq.push(['setTrackerUrl', u+'piwik.php']);
+                _paq.push(['setSiteId', 1]);
+                var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+                g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+            })();
+        </script>
+        <noscript><p><img src="http://piwik.blockstackers.net/piwik.php?idsite=1" style="border:0" alt="" /></p></noscript>
+        <!-- End Piwik Code -->
     </body>
 </html>

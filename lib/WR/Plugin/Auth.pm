@@ -164,18 +164,37 @@ sub register {
         return undef;
     });
 
+    $app->helper('current_user_clan' => sub {
+        my $self = shift;
+
+        if($self->is_user_authenticated) {
+            if(my $clan = $self->current_user->{clan}) {
+                return $clan->{abbreviation};
+            }
+        }
+        return undef;
+    });
+
     $app->helper('has_admin_access' => sub {
         my $self = shift;
 
         return 1 if($self->is_the_boss);
-        if($self->is_user_authenticated) {
-            if(my $clan = $self->current_user->{clan}) {
-                return 1 if($clan->{abbreviation} eq 'WG'); # this is a bit of a hot point, anyone who is in any of the WG clans can admin parts of wotreplays for the cluster they're on
-                                                            # but it may cause issues at some point. 
-                # FIXME FIXME
-                # add ACL check here for translator type people
-            }
-        }
+        return 1 if($self->current_user_clan eq 'WG');
+        # FIXME FIXME
+        # add ACL check here for translator type people
+        return 0;
+    });
+
+    $app->helper('has_admin_role' => sub {
+        my $self = shift;
+        my $role = shift;
+
+        return 1 if($self->is_the_boss);
+
+        # FIXME FIXME
+        # glorious hack
+
+        return 1 if($role eq 'events' && $self->current_user_clan eq 'WG');
         return 0;
     });
 

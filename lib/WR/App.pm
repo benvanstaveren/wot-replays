@@ -231,6 +231,11 @@ sub startup {
             $pbj->route('/sr')->to('profile#sr', pageid => 'profile');
             $pbj->route('/hr')->to('profile#hr', pageid => 'profile');
 
+    my $admin = $r->bridge('/admin')->to('admin#bridge');
+        $admin->route('/')->to('admin#index', pageid => 'admin/home');
+        $admin->route('/events')->to('admin-events#index', pageid => 'admin/events');
+        $admin->route('/language')->to('admin-language#index', pageid => 'admin/language');
+
     $self->sessions->default_expiration(86400 * 365); 
     $self->sessions->cookie_name('wrsession');
     $self->sessions->cookie_domain($config->{urls}->{app_c}) if(!defined($config->{mode}) || $config->{mode} ne 'dev');

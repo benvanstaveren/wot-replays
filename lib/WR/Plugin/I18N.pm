@@ -59,7 +59,7 @@ sub register {
         }
 
         if(my $localizer = $self->stash('i18n_localizer')) {
-            if(my $xlat = $localizer->localize_for(lang => $l, id => $str, args => \@args)) {
+            if(my $xlat = $localizer->localize_for(lang => $l, id => $str, args => [ @args ])) {
                 return $xlat;
             } else {
                 # okay, stupid WG inconsistency, some tanks have a _short, some don't, so if our str contains _short, retry it 
