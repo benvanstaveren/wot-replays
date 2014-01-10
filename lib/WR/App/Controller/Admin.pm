@@ -23,7 +23,7 @@ sub get_replay_count {
 sub get_today_count {
     my $self = shift;
     my $end  = shift;
-    my $now  = (DateTime->now->truncate(to => 'day')->epoch * 1000);
+    my $now  = (DateTime->now(time_zone => 'UTC')->truncate(to => 'day')->epoch * 1000);
 
     $self->model('wot-replays.replays')->find({ 'site.uploaded_at' => { '$gte' => Mango::BSON::bson_time($now) } })->count(sub {
         my ($cursor, $err, $count) = (@_);
@@ -45,7 +45,8 @@ sub index {
         }
 
         $self->respond(template => 'admin/index', stash => {
-            page => { title => $self->loc('admin.index.page.title') }
+            page => { title => $self->loc('admin.index.page.title') },
+            server_time => DateTime->now(time_zone => 'UTC')->strftime('%d/%m/%Y %H:%M:%S UTC'),
         });
     });
 
