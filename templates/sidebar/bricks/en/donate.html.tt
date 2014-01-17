@@ -8,8 +8,8 @@
     </p>
     <p>
         <div class="progress">
-            <div class="progress-bar progress-bar-success" style="width: 32%">
-                <span>$20.00/$60.00</span> 
+            <div class="progress-bar progress-bar-success" style="width: 100%">
+                <span>$60.00/$60.00</span> 
             </div>
         </div>
     </p>
