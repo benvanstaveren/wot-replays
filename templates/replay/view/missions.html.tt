@@ -23,7 +23,7 @@
                                         [% IF bonustype == 'xpFactor' %]
                                             [% h.loc('replay.missions.bonustype.xpFactor', entry.bonuses.$bonustype) %]
                                         [% ELSIF bonustype == 'creditsFactor' %]
-                                            [% h.loc('replay.missions.bonustype.creditsFactor', entry.bonuses.$bonustype) %]
+                                            [% h.loc('replay.missions.bonustype.creditFactor', entry.bonuses.$bonustype) %]
                                         [% ELSIF bonustype == 'credits' %]
                                             [% h.loc('replay.missions.bonustype.credits', entry.bonuses.$bonustype) %]
                                         [% ELSIF bonustype == 'tankmenXPFactor' %]
