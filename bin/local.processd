@@ -248,7 +248,7 @@ sub process_job {
 
         job_status($job, {
             id      =>  'wn7',
-            text    =>  'Fetching WN7 data from Statterbox',
+            text    =>  'Fetching WN8 data from Statterbox',
             type    =>  'progress',
             count   =>  0,
             total   =>  $total,
@@ -268,7 +268,7 @@ sub process_job {
 
         job_status($job, {
             id      =>  'wn7',
-            text    =>  'Fetching WN7 data from Statterbox',
+            text    =>  'Fetching WN8 data from Statterbox',
             type    =>  'progress',
             count   =>  $d->{count},
             total   =>  $d->{total},
@@ -280,7 +280,7 @@ sub process_job {
         my ($o, $total) = (@_);
         job_status($job, {
             id      =>  'wn7',
-            text    =>  'Fetching WN7 data from Statterbox',
+            text    =>  'Fetching WN8 data from Statterbox',
             type    =>  'progress',
             count   =>  $total,
             total   =>  $total,
