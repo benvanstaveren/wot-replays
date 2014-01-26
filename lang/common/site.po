@@ -271,6 +271,15 @@ msgstr "Player WN7 for this battle only"
 msgid "tooltip.team.average.wn7"
 msgstr "Average WN7 for this team"
 
+msgid "tooltip.wn8.overall"
+msgstr "Player overall WN8"
+
+msgid "tooltip.wn8.battle"
+msgstr "Player WN8 for this battle only"
+
+msgid "tooltip.team.average.wn8"
+msgstr "Average WN8 for this team"
+
 # generic text element
 msgid "text.premium"
 msgstr "premium"
@@ -554,6 +563,9 @@ msgstr "Awards"
 
 msgid "replay.team.wn7.text"
 msgstr "WN7"
+
+msgid "replay.team.wn8.text"
+msgstr "WN8"
 
 msgid "replay.team.damage.text"
 msgstr "Dmg"

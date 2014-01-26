@@ -736,6 +736,15 @@ sub add_helpers {
         return shift->app->wr_res;
     });
 
+    $self->helper(rating_color => sub {
+        my $self = shift;
+        my $type = shift;
+        my $rating = shift;
+
+        my $func = sprintf('%s_color', $type);
+        return $self->$func($rating);
+    });
+
     $self->helper(wn7_color => sub {
         my $self = shift;
         my $rating = shift;
@@ -749,6 +758,26 @@ sub add_helpers {
             [ 1500, 1699, 'great' ],
             [ 1700, 1999, 'unicum' ],
             [ 2000, 99999, 'superunicum' ]
+        ];
+        foreach my $entry (@$class_map) {
+            return $entry->[2] if($rating >= $entry->[0] && $rating <= $entry->[1]);
+        }
+        return 'unavailable';
+    });
+
+    $self->helper(wn8_color => sub {
+        my $self = shift;
+        my $rating = shift;
+        my $class_map = [
+            [ 1, 300, 'verybad' ],
+            [ 300, 599, 'bad' ],
+            [ 600, 899, 'belowaverage' ],
+            [ 900, 1249, 'average' ],
+            [ 1250, 1599, 'good' ],
+            [ 1600, 1899, 'verygood' ],
+            [ 1900, 2349, 'great' ],
+            [ 2350, 2899, 'unicum' ],
+            [ 2900, 99999, 'superunicum' ]
         ];
         foreach my $entry (@$class_map) {
             return $entry->[2] if($rating >= $entry->[0] && $rating <= $entry->[1]);

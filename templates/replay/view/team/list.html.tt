@@ -1,9 +1,11 @@
+[% rating = 'wn7' %]
+[% IF replay.panel.wn8.defined %][% rating = 'wn8' %][% END %]
 <table class="table table-bordered table-striped team-list">
     <thead>
         <th></th>
         <th>[% h.loc('replay.team.tank.text') %]</th>
         <th>[% h.loc('replay.team.player.text') %]</th>
-        <th>[% h.loc('replay.team.wn7.text') %]</th>
+        <th>[% h.loc('replay.team.' _ rating _ '.text') %]</th>
         <th>[% h.loc('replay.team.awards.text') %]</th>
         <th class="bs-tooltip" data-toggle="tooltip" data-placement="auto" data-container="body" title="[% h.loc('replay.team.damage.title') %]">[% h.loc('replay.team.damage.text') %]</th>
         <th class="bs-tooltip" data-toggle="tooltip" data-placement="auto" data-container="body" title="[% h.loc('replay.team.xp.title') %]">[% h.loc('replay.team.xp.text') %]</th>

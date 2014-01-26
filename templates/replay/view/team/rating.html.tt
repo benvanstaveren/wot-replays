@@ -1,0 +1,7 @@
+[% IF replay.panel.wn7.defined %]
+    <div title="[% h.loc('tooltip.wn7.overall') %]" data-placement="auto" data-toggle="tooltip" data-container="body" class="bs-tooltip wn7 [% IF player.wn7.available %][% h.wn7_color(player.wn7.data.overall) %][% ELSE %]notavailable[% END %] rounded" style="padding: 2px; margin: 0px; font-weight: bold; text-align: center">[% IF player.wn7.available %]<a class="wn7 [% h.wn7_color(player.wn7.data.overall) %]" href="http://statterbox.com/[% h.fix_server(replay.game.server) %]/[% player.player.name |uri %]">[% player.wn7.data.overall %]</a>[% ELSE %]-[% END %]</div>
+[% ELSIF replay.panel.wn8.defined %]
+    <div title="[% h.loc('tooltip.wn8.overall') %]" data-placement="auto" data-toggle="tooltip" data-container="body" class="bs-tooltip wn8 [% IF player.wn8.available %][% h.wn8_color(player.wn8.data.overall) %][% ELSE %]notavailable[% END %] rounded" style="padding: 2px; margin: 0px; font-weight: bold; text-align: center">[% IF player.wn8.available %]<a class="wn8 [% h.wn8_color(player.wn8.data.overall) %]" href="http://statterbox.com/[% h.fix_server(replay.game.server) %]/[% player.player.name |uri %]">[% player.wn8.data.overall %]</a>[% ELSE %]-[% END %]</div>
+[% ELSE %]
+    <div>-</div>
+[% END %]

@@ -26,7 +26,7 @@
         [% END %]
     </td>
     <td class="playerRating">
-        <div title="[% h.loc('tooltip.wn7.overall') %]" data-placement="auto" data-toggle="tooltip" data-container="body" class="bs-tooltip wn7 [% IF player.wn7.available %][% h.wn7_color(player.wn7.data.overall) %][% ELSE %]notavailable[% END %] rounded" style="padding: 2px; margin: 0px; font-weight: bold; text-align: center">[% IF player.wn7.available %]<a class="wn7 [% h.wn7_color(player.wn7.data.overall) %]" href="http://statterbox.com/[% h.fix_server(replay.game.server) %]/[% player.player.name |uri %]">[% player.wn7.data.overall %]</a>[% ELSE %]-[% END %]</div>
+        [% INCLUDE replay/view/team/rating.html.tt %]
     </td>
     <td class="playerDetails">
         [% FOREACH award IN player.stats.achievements.nsort %]

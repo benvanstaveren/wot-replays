@@ -32,10 +32,6 @@ sub panelate {
     my $self = shift;
     my $replay = shift;
     my $panel = {
-        wn7 => {
-            overall => $replay->{wn7}->{data}->{overall},
-            battle  => $replay->{wn7}->{data}->{battle},
-        },
         file    => $replay->{file},
         spotted => $replay->{stats}->{spotted},
         spotted_damage => $replay->{stats}->{damageAssistedRadio} + $replay->{stats}->{damageAssistedTrack},
@@ -56,6 +52,18 @@ sub panelate {
         bonus_type => $replay->{game}->{bonus_type},
         game_type  => $replay->{game}->{type},
     };
+
+    if(defined($replay->{wn7})) {
+        $panel->{wn7} = {
+            overall => $replay->{wn7}->{data}->{overall},
+            battle  => $replay->{wn7}->{data}->{battle},
+        };
+    } elsif(defined($replay->{wn8})) {
+        $panel->{wn8} = {
+            overall => $replay->{wn8}->{data}->{overall},
+            battle  => $replay->{wn8}->{data}->{battle},
+        };
+    }
 
     my $roster = $replay->{roster}->[ $replay->{game}->{recorder}->{index} ];
 

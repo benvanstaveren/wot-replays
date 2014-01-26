@@ -15,12 +15,7 @@
                     </div>
                 </a>
                 <div class="row">
-                    <div class="col-lg-6 col-md-6"">
-                        <div title="[% h.loc('tooltip.wn7.overall') %]" data-placement="auto" data-toggle="tooltip" class="bs-tooltip wn7 [% IF replay.panel.wn7.overall %][% h.wn7_color(replay.panel.wn7.overall) %][% ELSE %]notavailable[% END %] rounded" style="margin: 2px; font-weight: bold; text-align: center">[% IF replay.panel.wn7.overall %]<a class="wn7 [% h.wn7_color(replay.panel.wn7.overall) %]" href="http://statterbox.com/[% h.fix_server(replay.panel.server) %]/[% replay.panel.name |uri %]">[% replay.panel.wn7.overall %]</a>[% ELSE %]-[% END %]</div>
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                        <div title="[% h.loc('tooltip.wn7.battle') %]" data-placement="auto" data-toggle="tooltip" class="bs-tooltip wn7 [% IF replay.panel.wn7.battle.defined %][% h.wn7_color(replay.panel.wn7.battle) %][% ELSE %]notavailable[% END %] rounded" style="margin: 2px; font-weight: bold; text-align: center">[% IF replay.panel.wn7.battle.defined %][% replay.panel.wn7.battle %][% ELSE %]-[% END %]</div>
-                    </div>
+                    [% INCLUDE replay/panel/rating.html.tt %]
                 </div>
         </div>
         <div class="col-lg-9 col-md-9">

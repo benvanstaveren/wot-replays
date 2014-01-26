@@ -8,6 +8,7 @@
 <li><a href="/heatmaps/erlenberg">[% h.loc('#arenas:13_erlenberg/name') %]</a></li>
 <li><a href="/heatmaps/fishermansbay">[% h.loc('#arenas:36_fishing_bay/name') %]</a></li>
 <li><a href="/heatmaps/fjords">[% h.loc('#arenas:33_fjord/name') %]</a></li>
+<li><a href="/heatmaps/hiddenvillage">[% h.loc('#arenas:53_japan/name') %]</a></li>
 <li><a href="/heatmaps/highway">[% h.loc('#arenas:45_north_america/name') %]</a></li>
 <li><a href="/heatmaps/himmelsdorf">[% h.loc('#arenas:04_himmelsdorf/name') %]</a></li>
 <li><a href="/heatmaps/karelia">[% h.loc('#arenas:01_karelia/name') %]</a></li>

@@ -11,7 +11,6 @@ use WR::Res::Achievements;
 use WR::Provider::ServerFinder;
 use WR::Provider::Imager;
 use WR::Provider::Panelator;
-use WR::Provider::WN7;
 use WR::Provider::Mapgrid;
 use WR::Constants qw/nation_id_to_name decode_arena_type_id ARENA_PERIOD_BATTLE/;
 use WR::Util::TypeComp qw/parse_int_compact_descr type_id_to_name/;
@@ -498,7 +497,7 @@ sub _real_process {
                         my $count = 0;
 
                         foreach my $player (keys(%{$replay->{players}})) {
-                            my $url = sprintf('http://statterbox.com/api/v1/%s/wn7?server=%s&player=%s', 
+                            my $url = sprintf('http://statterbox.com/api/v1/%s/wn8?server=%s&player=%s', 
                                 '5299a074907e1337e0010000', # yes it's a hardcoded API token :P
                                 $replay->{game}->{server},
                                 lc($player)
@@ -513,53 +512,62 @@ sub _real_process {
                                 if(my $res = $tx->success) {
                                     if($res->json->{ok} == 1) {
                                         if(my $wn7 = $res->json->{data}->{lc($player)}) {
-                                            $roster->{wn7} = { 
+                                            $roster->{wn8} = { 
                                                 available => Mango::BSON::bson_true,
                                                 data => { overall => $wn7 }
                                             };
                                         } else {
-                                            $roster->{wn7} = { 
+                                            $roster->{wn8} = { 
                                                 available => Mango::BSON::bson_false,
                                                 data => { overall => 0 }
                                             };
                                         }
                                     } else {
-                                        $roster->{wn7} = { 
+                                        $roster->{wn8} = { 
                                             available => Mango::BSON::bson_false,
                                             data => { overall => 0 }
                                         };
                                     }
                                 } else {
-                                    $roster->{wn7} = { 
+                                    $roster->{wn8} = { 
                                         available => Mango::BSON::bson_false,
                                         data => { overall => 0 }
                                     };
                                 }
-                                $replay->{wn7} = $roster->{wn7} if($player eq $replay->{game}->{recorder}->{name});
+                                $replay->{wn8} = $roster->{wn8} if($player eq $replay->{game}->{recorder}->{name});
                             } else {
-                                $roster->{wn7} = { 
+                                $roster->{wn8} = { 
                                     available => Mango::BSON::bson_false,
                                     data => { overall => 0 }
                                 };
-                                $replay->{wn7} = $roster->{wn7} if($player eq $replay->{game}->{recorder}->{name});
+                                $replay->{wn8} = $roster->{wn8} if($player eq $replay->{game}->{recorder}->{name});
                             }
                             $self->emit('state.wn7.progress' => { count => ++$count, total => scalar(keys(%{$replay->{players}})) });
                         }
 
                         $self->emit('state.wn7.finish' => scalar(keys(%{$replay->{players}})));
 
-                        my $wn7p = WR::Provider::WN7->new();
                         my $roster = $replay->{roster}->[ $replay->{players}->{$replay->{game}->{recorder}->{name}} ];
-                        my $v = $wn7p->calculate({
-                            winrate         => 50,                          # winrate of 50% for per-battle WN7
-                            average_tier    => $roster->{vehicle}->{level}, # tier of player vehicle
-                            battles         => 1,                           # because it is a single battle
-                            destroyed       => $replay->{stats}->{kills},
-                            damage_dealt    => $replay->{stats}->{damageDealt},
-                            spotted         => $replay->{stats}->{spotted},
-                            defense         => $replay->{stats}->{droppedCapturePoints},
-                        });
-                        $replay->{wn7}->{data}->{battle} = $v;
+
+                        # calculate a single battle's data based on the expected v.s. real values
+                        my $url = sprintf('http://statterbox.com/api/v1/%s/calc/wn8?t=%d&frags=%d&damage=%d&spots=%d&defense=%d',
+                            '5299a074907e1337e0010000',
+                            $roster->{vehicle}->{typecomp},
+                            $replay->{stats}->{kills},
+                            $replay->{stats}->{damageDealt},
+                            $replay->{stats}->{spotted},
+                            $replay->{stats}->{droppedCapturePoints}
+                            );
+
+                        $self->debug(sprintf('Getting battle WN8 from: %s', $url));
+            
+                        if(my $tx = $self->ua->get($url)) {
+                            if(my $res = $tx->success) {
+                                $replay->{wn8}->{data}->{battle} = $res->json('/wn8');
+                            } else {
+                                $replay->{wn8}->{data}->{battle} = undef;
+                            }
+                        }
                     });
                 } catch {
                     $self->error('process error: ' . $_);
