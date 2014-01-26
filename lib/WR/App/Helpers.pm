@@ -301,6 +301,13 @@ sub add_helpers {
         my $u    = shift;
         my $r    = shift;
 
+        return 1 if($self->is_the_boss);
+
+        if(!defined($r)) {
+            $r = $u;
+            $u = $self->current_user;
+        }
+
         return 0 unless(defined($u));
         return 0 unless(defined($u->{roles}));
 
