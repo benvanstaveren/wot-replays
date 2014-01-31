@@ -2,8 +2,8 @@
 <div class="row">
     <div class="col-lg-12 col-md-12">
         <h4>[% sidebar.alert.title %]</h4>
-        <div class="well well-lg alert alert-danger">
-            [% sidebar.alert.text |html_line_breaks %]
+        <div class="alert alert-danger">
+            [% sidebar.alert.text |html_line_break %]
         </div>
     </div>
 </div>
