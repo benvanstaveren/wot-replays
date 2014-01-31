@@ -163,6 +163,7 @@ sub process_status {
                     last if($d->{_id} eq $job_id);
                 }
                 $self->render(json => { %$doc, pending => $pending, position => $pos });
+            });
         } else {
             $self->render(json => { status => -1, error => 'No such job ID exists' });
         }
