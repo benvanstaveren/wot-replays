@@ -28,7 +28,7 @@ sub error   { shift->_log('debug', @_) }
 sub _log {
     my $self = shift;
     my $l    = shift;
-    my $m    = join('[', $$, '] ', @_);
+    my $m    = join(' ', '[', $$, '] ', @_);
 
     $self->log->$l($m);
 }
