@@ -84,7 +84,7 @@ handleProcess = function(jobid) {
                     var tb = $('<tbody/>');
                     var row = $('<tr/>');
 
-                    row.append($('<td/>').text('Waiting for free processing slot').addClass('text'));
+                    row.append($('<td/>').text('Waiting for free processing slot: [' + d.position + '/' + d.pending + ']').addClass('text'));
                     row.append($('<td/>').append($('<span/>').addClass('spinner')).addClass('spinner'));
 
                     tb.append(row);

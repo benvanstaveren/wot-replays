@@ -148,7 +148,21 @@ sub process_status {
         my ($coll, $err, $doc) = (@_);
 
         if(defined($doc)) {
-            $self->render(json => $doc);
+            # now find it's position in the queue as well as the total size of the queue
+            my $cursor = $self->model('wot-replays.jobs')->find({
+                ready       => Mango::BSON::bson_true,
+                complete    => Mango::BSON::bson_false,
+            });
+            my $pending = $cursor->count;
+            $cursor->sort(Mango::BSON::bson_doc({ priority => 1, ctime => 1 }));
+            $cursor->all(sub {
+                my ($coll, $err, $docs) = (@_);
+                my $pos = 0;
+                foreach my $d (@$docs) {
+                    $pos++;
+                    last if($d->{_id} eq $job_id);
+                }
+                $self->render(json => { %$doc, pending => $pending, position => $pos });
         } else {
             $self->render(json => { status => -1, error => 'No such job ID exists' });
         }
