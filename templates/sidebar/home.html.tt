@@ -1,2 +1,3 @@
+[% INCLUDE sidebar/bricks/alert.html.tt %]
 [% INCLUDE sidebar/bricks/lang.html.tt brick='donate' %]
 [% INCLUDE sidebar/bricks/stats.html.tt %]

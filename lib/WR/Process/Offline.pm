@@ -143,6 +143,21 @@ sub process {
     return $replay;
 }
 
+sub get_vehicle_from_battleresult_by_accountid {
+    my $self = shift;
+    my $br   = shift;
+    my $id   = shift;
+
+    foreach my $k (keys(%{$br->{vehicles}})) {
+        my $v = $br->{vehicles}->{$k};
+        if($v->{accountDBID} + 0 == $id + 0) {
+            $v->{vehicleID} = $k + 0;
+            return $v;
+        } 
+    }
+    return undef;
+}
+
 sub finalize_roster {
     my $self            = shift;
     my $battle_result   = shift;
@@ -159,12 +174,20 @@ sub finalize_roster {
 
     $self->debug('finalize_roster with: ', Dumper($roster));
 
+    my $alternate_map = {};
+
     foreach my $entry (@$roster) {
+        my $rawv = $self->get_vehicle_from_battleresult_by_accountid($battle_result => $entry->{accountDBID});
+
+        die 'unable to get vehicle from battleresult via account ID', "\n" unless(defined($rawv));
+
+        $entry->{vehicleID} = $rawv->{vehicleID}; # this may break stuff
+
         $name_to_vidx->{$entry->{name}} = $i;
         $vid_to_vidx->{$entry->{vehicleID}} = $i;
+
         push(@{$teams->[$entry->{team} - 1]}, $i);
 
-        my $rawv = $battle_result->{vehicles}->{$entry->{vehicleID}};
         my $newentry = {
             health  =>  {
                 total       => ($rawv->{health} + $rawv->{damageReceived}),
@@ -173,7 +196,7 @@ sub finalize_roster {
             stats => { map { $_ => $rawv->{$_} } (qw/this damageAssistedTrack damageAssistedRadio he_hits pierced kills shots spotted tkills potentialDamageReceived noDamageShotsReceived credits mileage heHitsReceived hits damaged piercedReceived droppedCapturePoints damageReceived killerID damageDealt shotsReceived xp deathReason lifeTime tdamageDealt capturePoints achievements/) },
             player => $entry,
             platoon => (defined($plat->{$rawv->{accountDBID}})) ? $plat->{$rawv->{accountDBID}} : undef,
-            vehicle => { id => $entry->{vehicleID} },
+            vehicle => { id => $entry->{vehicleID} }, # sometimes this doesn't work right, seems to be a database rollover issue
         };
         $newentry->{stats}->{isTeamKiller} = ($rawv->{isTeamKiller}) ? Mango::BSON::bson_true : Mango::BSON::bson_false;
         $typecomps->{$entry->{vehicleID}} = $rawv->{typeCompDescr};
