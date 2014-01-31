@@ -1,0 +1,104 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+use FindBin;
+use lib "$FindBin::Bin/../lib";
+use Getopt::Long;
+use WR::Daemon::Process;
+use Mojo::Log;
+use Parallel::ForkManager;
+
+my $config      = {};
+my $cfile       = undef;
+my $daemon      = undef;
+my $workers     = 4;
+my $stopping    = 0;
+my $max         = 32;
+
+$SIG{TERM} = sub {
+    $stopping = 1;
+};
+
+$SIG{KILL} = sub {
+    $stopping = 1;
+};
+
+GetOptions(
+    'config=s'      => \$cfile,
+    'workers|w=i'   => \$workers,
+    'max|m=i'       => \$max,
+);
+
+die 'Usage: ', $0, ' --config <path to config file> --workers <worker count> --max <max to process>', "\n" unless(defined($cfile));
+
+my $craw = '';
+if(my $fh = IO::File->new($cfile)) {
+    $craw .= $_ while(<$fh>);
+    $fh->close;
+
+    $config = eval($craw);
+
+    die 'Error parsing configuration: ', $@, "\n" if($@);
+} else {
+    die 'Could not open configuration file "', $cfile, '": ', $!, "\n";
+}
+
+my $mango       = Mango->new($config->{mongodb}->{host});
+my $db          = $mango->db($config->{mongodb}->{database});
+
+my $log;
+if(my $lf = $config->{processd}->{logfile}) {
+    $lf = sprintf('%s/../%s', $FindBin::Bin, $config->{processd}->{logfile}) if($lf !~ /^\//);
+    $log = Mojo::Log->new(path => $lf, level => $config->{processd}->{loglevel} || 'warn');
+} else {
+    $log = Mojo::Log->new();
+    # level => $config->{processd}->{loglevel} || 'warn');
+}
+
+# create a pidfile
+my $pidfile = $config->{processd}->{pidfile};
+if(my $fh = IO::File->new(sprintf('>%s', $pidfile))) {
+    $fh->print($$);
+    $fh->close;
+} else {
+    die 'Could not create pidfile: ', $!, "\n";
+}
+
+$log->info('processd starting, pid ' . $$);
+
+sub get_jobs {
+    my $self = shift;
+    my $cursor = $db->collection('jobs')->find({
+        ready       => Mango::BSON::bson_true,
+        complete    => Mango::BSON::bson_false,
+    })->sort(Mango::BSON::bson_doc({ priority => 1, ctime => 1 }));
+
+    $cursor->limit($max);
+
+    my $jobs = $cursor->all;
+
+    foreach my $job (@$jobs) {
+        $log->debug('Job is a reprocess job for ', $job->{replayid}) if($job->{reprocess});
+    }
+
+    return $jobs;
+}
+
+my $pm = Parallel::ForkManager->new($workers);
+
+my $jobs = get_jobs;
+$log->debug('got ' . scalar(@$jobs) . ' jobs');
+if(scalar(@$jobs) > 0) {
+    while(@$jobs) {
+        my $job = shift(@$jobs);
+        next if($job->{locked});
+        $pm->start and next;
+        my $p = WR::Daemon::Process->new(log => $log, config => $config);
+        $p->db->collection('jobs')->update({ _id => $job->{_id} }, { '$set' => { 'status_text' => [], locked => Mango::BSON::bson_true, locked_by => $$, locked_at => Mango::BSON::bson_time } } );
+        $p->process_job($job);
+        $pm->finish;
+    }
+    $pm->wait_all_children;
+} else {
+    sleep(5);
+}
