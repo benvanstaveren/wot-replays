@@ -14,6 +14,7 @@ my $daemon      = undef;
 my $workers     = 4;
 my $stopping    = 0;
 my $max         = 32;
+my $skip_wn7    = 0;
 
 $SIG{TERM} = sub {
     $stopping = 1;
@@ -71,9 +72,12 @@ sub get_jobs {
     my $cursor = $db->collection('jobs')->find({
         ready       => Mango::BSON::bson_true,
         complete    => Mango::BSON::bson_false,
-    })->sort(Mango::BSON::bson_doc({ priority => 1, ctime => 1 }));
+    });
+    my $total = $cursor->count;
 
-    $cursor->limit($max);
+    $skip_wn7 = 1 if($total > $max); 
+    
+    $cursor->sort(Mango::BSON::bson_doc({ priority => 1, ctime => 1 }))->limit($max);
 
     my $jobs = $cursor->all;
 
@@ -93,7 +97,7 @@ if(scalar(@$jobs) > 0) {
         my $job = shift(@$jobs);
         next if($job->{locked});
         $pm->start and next;
-        my $p = WR::Daemon::Process->new(log => $log, config => $config);
+        my $p = WR::Daemon::Process->new(log => $log, config => $config, skip_wn7 => $skip_wn7);
         $p->db->collection('jobs')->update({ _id => $job->{_id} }, { '$set' => { 'status_text' => [], locked => Mango::BSON::bson_true, locked_by => $$, locked_at => Mango::BSON::bson_time } } );
         $p->process_job($job);
         $pm->finish;

@@ -21,6 +21,7 @@ use constant PARSER_VERSION => 0; # yeah
 use constant PACKET_VERSION => 1; # even more yeah
 
 has 'file'          => undef;
+has 'skip_wn7'      => 0;
 has 'mango'         => undef;
 has 'bf_key'        => undef;
 has 'banner_path'   => undef;
@@ -519,26 +520,33 @@ sub _real_process {
 
                         my $count = 0;
 
-                        foreach my $player (keys(%{$replay->{players}})) {
-                            my $url = sprintf('http://statterbox.com/api/v1/%s/wn8?server=%s&player=%s', 
-                                '5299a074907e1337e0010000', # yes it's a hardcoded API token :P
-                                $replay->{game}->{server},
-                                lc($player)
-                                );
+                        if(!$self->skip_wn7) {
+                            foreach my $player (keys(%{$replay->{players}})) {
+                                my $url = sprintf('http://statterbox.com/api/v1/%s/wn8?server=%s&player=%s', 
+                                    '5299a074907e1337e0010000', # yes it's a hardcoded API token :P
+                                    $replay->{game}->{server},
+                                    lc($player)
+                                    );
 
-                            $self->debug(sprintf('[%s]: %s', $player, $url));
+                                $self->debug(sprintf('[%s]: %s', $player, $url));
 
-                            my $roster = $replay->{roster}->[ $replay->{players}->{$player} ];
-                            $self->ua->inactivity_timeout(5); # wait less
+                                my $roster = $replay->{roster}->[ $replay->{players}->{$player} ];
+                                $self->ua->inactivity_timeout(5); # wait less
 
-                            if(my $tx = $self->ua->get($url)) {
-                                if(my $res = $tx->success) {
-                                    if($res->json->{ok} == 1) {
-                                        if(my $wn7 = $res->json->{data}->{lc($player)}) {
-                                            $roster->{wn8} = { 
-                                                available => Mango::BSON::bson_true,
-                                                data => { overall => $wn7 }
-                                            };
+                                if(my $tx = $self->ua->get($url)) {
+                                    if(my $res = $tx->success) {
+                                        if($res->json->{ok} == 1) {
+                                            if(my $wn7 = $res->json->{data}->{lc($player)}) {
+                                                $roster->{wn8} = { 
+                                                    available => Mango::BSON::bson_true,
+                                                    data => { overall => $wn7 }
+                                                };
+                                            } else {
+                                                $roster->{wn8} = { 
+                                                    available => Mango::BSON::bson_false,
+                                                    data => { overall => 0 }
+                                                };
+                                            }
                                         } else {
                                             $roster->{wn8} = { 
                                                 available => Mango::BSON::bson_false,
@@ -551,44 +559,40 @@ sub _real_process {
                                             data => { overall => 0 }
                                         };
                                     }
+                                    $replay->{wn8} = $roster->{wn8} if($player eq $replay->{game}->{recorder}->{name});
                                 } else {
                                     $roster->{wn8} = { 
                                         available => Mango::BSON::bson_false,
                                         data => { overall => 0 }
                                     };
+                                    $replay->{wn8} = $roster->{wn8} if($player eq $replay->{game}->{recorder}->{name});
                                 }
-                                $replay->{wn8} = $roster->{wn8} if($player eq $replay->{game}->{recorder}->{name});
-                            } else {
-                                $roster->{wn8} = { 
-                                    available => Mango::BSON::bson_false,
-                                    data => { overall => 0 }
-                                };
-                                $replay->{wn8} = $roster->{wn8} if($player eq $replay->{game}->{recorder}->{name});
+                                $self->emit('state.wn7.progress' => { count => ++$count, total => scalar(keys(%{$replay->{players}})) });
                             }
-                            $self->emit('state.wn7.progress' => { count => ++$count, total => scalar(keys(%{$replay->{players}})) });
                         }
-
                         $self->emit('state.wn7.finish' => scalar(keys(%{$replay->{players}})));
 
                         my $roster = $replay->{roster}->[ $replay->{players}->{$replay->{game}->{recorder}->{name}} ];
 
-                        # calculate a single battle's data based on the expected v.s. real values
-                        my $url = sprintf('http://statterbox.com/api/v1/%s/calc/wn8?t=%d&frags=%d&damage=%d&spots=%d&defense=%d',
-                            '5299a074907e1337e0010000',
-                            $roster->{vehicle}->{typecomp},
-                            $replay->{stats}->{kills},
-                            $replay->{stats}->{damageDealt},
-                            $replay->{stats}->{spotted},
-                            $replay->{stats}->{droppedCapturePoints}
-                            );
+                        if(!$self->skip_wn7) {
+                            # calculate a single battle's data based on the expected v.s. real values
+                            my $url = sprintf('http://statterbox.com/api/v1/%s/calc/wn8?t=%d&frags=%d&damage=%d&spots=%d&defense=%d',
+                                '5299a074907e1337e0010000',
+                                $roster->{vehicle}->{typecomp},
+                                $replay->{stats}->{kills},
+                                $replay->{stats}->{damageDealt},
+                                $replay->{stats}->{spotted},
+                                $replay->{stats}->{droppedCapturePoints}
+                                );
 
-                        $self->debug(sprintf('Getting battle WN8 from: %s', $url));
-            
-                        if(my $tx = $self->ua->get($url)) {
-                            if(my $res = $tx->success) {
-                                $replay->{wn8}->{data}->{battle} = $res->json('/wn8');
-                            } else {
-                                $replay->{wn8}->{data}->{battle} = undef;
+                            $self->debug(sprintf('Getting battle WN8 from: %s', $url));
+                
+                            if(my $tx = $self->ua->get($url)) {
+                                if(my $res = $tx->success) {
+                                    $replay->{wn8}->{data}->{battle} = $res->json('/wn8');
+                                } else {
+                                    $replay->{wn8}->{data}->{battle} = undef;
+                                }
                             }
                         }
                     });

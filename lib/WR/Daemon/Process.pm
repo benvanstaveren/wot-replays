@@ -9,6 +9,7 @@ use Data::Dumper;
 use Carp qw/cluck/;
 
 has 'config'    => sub { {} };
+has 'skip_wn7'  => 0;
 has 'log'       => undef;
 has 'mango'     => sub { shift->get_mango };
 has 'db'        => sub {
@@ -89,6 +90,7 @@ sub process_job {
         mango           => $self->get_mango,
         file            => $job->{data}->{file},
         log             => $self->log,
+        skip_wn7        => $self->skip_wn7,
         );
 
     $o->on('state.prepare.start' => sub {
