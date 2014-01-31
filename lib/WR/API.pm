@@ -46,7 +46,7 @@ sub startup {
                 }
             my $process = $v1->under('/process');
                 $process->route('/')->to('v1#validate_token', next => 'process_replay');
-                $process->route('/status/:job_id')->to('v1#process_status');
+                $process->route('/status/:job_id')->to('v1#validate_token', next => 'process_status');
             $v1->route('/typecomp')->to('v1#validate_token', next => 'resolve_typecomp');
             
             my $map = $v1->under('/map/:map_ident');
