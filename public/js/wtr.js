@@ -79,3 +79,22 @@ WR.addMessageHandler('growl', function(data) {
     };
     $.bootstrapGrowl(data.text, notifyOpts);
 });
+WR.addMessageHandler('replay.processed', function(data) {
+   var notifyOpts = { 
+        type: 'info',
+        allow_dismiss: true,
+        offset: { from: 'top', amount: 60 },
+        delay: 20000,
+    };
+    $.bootstrapGrowl('A new replay was just uploaded!<br/><a href="' + data.url + '" class="reload-page">show me</a>', notifyOpts);
+    if(WR.pageid == 'home') {
+        $('#queue-count').html('-');
+        $.getJSON('/xhr/qs', {}, function(d) {
+            if(d.ok == 1) {
+                $('#queue-count').html(d.count);
+            } else {
+                $('#queue-count').html('-');
+            }
+        });
+    }
+});
