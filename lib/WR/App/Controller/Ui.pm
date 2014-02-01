@@ -28,12 +28,12 @@ sub frontpage {
             replays         => $replays || [],
             page            => { title => $self->loc('index.page.title') },
             timing_query    => tv_interval($start),
-            sidebar         => {
-                alert       =>  {
-                    title   =>  'Heavy load',
-                    text    =>  q|Due to the Chinese New Year Event currently taking place on the SEA server, the processing queue is quite large, so please be patient while it's being processed|
-                }
-            }
+            #sidebar         => {
+            #    alert       =>  {
+            #        title   =>  'Heavy load',
+            #        text    =>  q|Due to the Chinese New Year Event currently taking place on the SEA server, the processing queue is quite large, so please be patient while it's being processed|
+            #    }
+            #}
         });
     });
     $self->debug('frontpage: bottom');

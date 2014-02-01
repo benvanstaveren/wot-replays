@@ -785,6 +785,16 @@ sub add_helpers {
         return 'unavailable';
     });
 
+    $self->helper('defined_count' => sub {
+        my $self = shift;
+        my $a    = shift;
+        my $c    = 0;
+
+        foreach my $e (@$a) {
+            $c++ if(defined($e));
+        }
+        return $c;
+    });
 }
 
 1;

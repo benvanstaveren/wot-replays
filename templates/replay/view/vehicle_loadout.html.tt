@@ -62,16 +62,22 @@
     [% inscriptions = pv.player.vehicleFitting.inscriptions %]
     <div class="col-lg-6 col-md-6">
         [% IF h.is_the_boss %]
-            <h4>Camouflage</h4>
-            <pre>[% h.dumper(camo) %]</pre>
+            [% IF h.defined_count(camo) > 0 %]
+                <h4>Camouflage</h4>
+                <pre>[% h.dumper(camo) %]</pre>
+            [% END %]
         [% END %]
     </div>
     <div class="col-lg-6 col-md-6">
         [% IF h.is_the_boss %]
-            <h4>Emblems</h4>
-            <pre>[% h.dumper(emblems) %]</pre>
-            <h4>Inscriptions</h4>
-            <pre>[% h.dumper(inscriptions) %]</pre>
+            [% IF h.defined_count(emblems) > 0 %]
+                <h4>Emblems</h4>
+                <pre>[% h.dumper(emblems) %]</pre>
+            [% END %]
+            [% IF h.defined_count(inscriptions) > 0 %]
+                <h4>Inscriptions [% h.defined_count(inscriptions) %]</h4>
+                <pre>[% h.dumper(inscriptions) %]</pre>
+            [% END %]
         [% END %]
     </div>
 </div>
