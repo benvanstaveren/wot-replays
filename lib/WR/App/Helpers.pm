@@ -795,6 +795,45 @@ sub add_helpers {
         }
         return $c;
     });
+
+    $self->helper('get_camo_by_id' => sub {
+        my $self    = shift;
+        my $country = shift;
+        my $id      = shift;
+
+        my $_id = sprintf('camo-%s-%d', $country, $id);
+
+        if(my $camo = $self->model('wot-replays.data.customization')->find_one({ _id => $_id })) {
+            return $camo;
+        } else {
+            return undef;
+        }
+    });
+
+    $self->helper('get_emblem_by_id' => sub {
+        my $self    = shift;
+        my $id      = shift;
+
+        if(my $emblem = $self->model('wot-replays.data.customization')->find_one({ wot_id => $id, type => 'emblem' })) {
+            return $emblem;
+        } else {
+            return undef;
+        }
+    });
+
+    $self->helper('get_inscription_by_id' => sub {
+        my $self    = shift;
+        my $country = shift;
+        my $id      = shift;
+    
+        my $_id = sprintf('inscription-%s-%d', $country, $id);
+
+        if(my $i = $self->model('wot-replays.data.customization')->find_one({ _id => $_id })) {
+            return $i;
+        } else {
+            return undef;
+        }
+    });
 }
 
 1;

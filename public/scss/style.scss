@@ -6,6 +6,14 @@ $text_color_from_theme: #888;
 $base_green: rgb(0, 255, 0);
 $base_red:   rgb(255, 0, 0);
 
+$armor_base_china:      rgb(61, 62, 64);
+$armor_base_france:     rgb(15, 36, 36);
+$armor_base_germany:    rgb(90, 103, 94);
+$armor_base_japan:      rgb(15, 36, 36);
+$armor_base_uk:         rgb(82, 72, 51);
+$armor_base_usa:        rgb(82, 72, 51);
+$armor_base_ussr:       rgb(61, 62, 42);
+
 @import "wn7";
 @import "wn8";
 @import "awards";
@@ -15,7 +23,17 @@ $base_red:   rgb(255, 0, 0);
 @import "battleviewer";
 @import "map";
 
+
 div {
+    &.armor {
+        &.china { background: $armor_base_china none repeat scroll 0 0 }
+        &.france { background: $armor_base_france none repeat scroll 0 0 }
+        &.germany { background: $armor_base_germany none repeat scroll 0 0 }
+        &.japan { background: $armor_base_japan none repeat scroll 0 0 }
+        &.uk { background: $armor_base_uk none repeat scroll 0 0 }
+        &.usa { background: $armor_base_usa none repeat scroll 0 0 }
+        &.ussr { background: $armor_base_ussr none repeat scroll 0 0 }
+    }
     &.shadow {
         @extend %box-shadow;
     }

@@ -1273,6 +1273,20 @@ div.map {
   div.map.map_53_japan {
     background: transparent url(//images.wotreplays.org/maps/768//53_japan.png) no-repeat scroll center center; }
 
+div.armor.china {
+  background: #3d3e40 none repeat scroll 0 0; }
+div.armor.france {
+  background: #0f2424 none repeat scroll 0 0; }
+div.armor.germany {
+  background: #5a675e none repeat scroll 0 0; }
+div.armor.japan {
+  background: #0f2424 none repeat scroll 0 0; }
+div.armor.uk {
+  background: #524833 none repeat scroll 0 0; }
+div.armor.usa {
+  background: #524833 none repeat scroll 0 0; }
+div.armor.ussr {
+  background: #3d3e2a none repeat scroll 0 0; }
 div.container {
   /*background: #060606 none repeat scroll 0 0;*/
   background: rgba(6, 6, 6, 0.95) none repeat scroll 0 0;

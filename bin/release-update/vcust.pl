@@ -28,7 +28,6 @@ foreach my $i (keys(%{$data->{inscriptions}->{$country}->{inscriptions}->{inscri
     my $tex = $data->{inscriptions}->{$country}->{inscriptions}->{inscription}->{$i}->{texName};
     $tex =~ s|gui/maps/vehicles/decals|customization|g;
     $tex =~ s/\.dds/\.png/g;
-
     $tex =~ s/\s+//g;
 
     push(@$storage, {
@@ -36,6 +35,7 @@ foreach my $i (keys(%{$data->{inscriptions}->{$country}->{inscriptions}->{inscri
         wot_id  => $id,
         icon    => $tex,
         type    => 'inscription',
+        i18n    => $data->{inscriptions}->{$country}->{inscriptions}->{inscription}->{$i}->{userString},
     });
 }
 
@@ -52,11 +52,24 @@ foreach my $i (keys(%{$data->{camouflages}})) {
     $id =~ s/\D+//g;
     $id += 0;
 
+    my $desc = $camo->{description};
+    my $group = $camo->{group};
+    my $kind  = $camo->{kind};
+
+    next if(ref($desc));
+
+    $desc =~ s/\s+//g;
+    $group =~ s/\s+//g;
+    $kind =~ s/\s+//g;
+
     push(@$storage, {
         _id => sprintf('camo-%s-%d', $country, $id),
         wot_id => $id,
         icon => $tex,
         type => 'camo',
+        group => $group,
+        kind => $kind,
+        i18n => $desc,
     });
 }
 

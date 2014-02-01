@@ -56,32 +56,6 @@
     </div>
 </div>
 <div class="row">
-    [% pv = h.get_recorder_vehicle(replay) %]
-    [% camo = pv.player.vehicleFitting.camo %]
-    [% emblems = pv.player.vehicleFitting.emblems %]
-    [% inscriptions = pv.player.vehicleFitting.inscriptions %]
-    <div class="col-lg-6 col-md-6">
-        [% IF h.is_the_boss %]
-            [% IF h.defined_count(camo) > 0 %]
-                <h4>Camouflage</h4>
-                <pre>[% h.dumper(camo) %]</pre>
-            [% END %]
-        [% END %]
-    </div>
-    <div class="col-lg-6 col-md-6">
-        [% IF h.is_the_boss %]
-            [% IF h.defined_count(emblems) > 0 %]
-                <h4>Emblems</h4>
-                <pre>[% h.dumper(emblems) %]</pre>
-            [% END %]
-            [% IF h.defined_count(inscriptions) > 0 %]
-                <h4>Inscriptions [% h.defined_count(inscriptions) %]</h4>
-                <pre>[% h.dumper(inscriptions) %]</pre>
-            [% END %]
-        [% END %]
-    </div>
-</div>
-<div class="row">
     <div class="col-lg-6 col-md-6">
         [% IF replay.game.recorder.consumables.defined %]
             <h4>[% h.loc('text.consumables') |ucfirst %]</h4>
@@ -146,6 +120,56 @@
                     </tr>
                 </tbody>
             </table>
+        [% END %]
+    </div>
+</div>
+<div class="row">
+    [% pv = h.get_recorder_vehicle(replay) %]
+    [% camo = pv.player.vehicleFitting.camo %]
+    [% emblems = pv.player.vehicleFitting.emblems %]
+    [% inscriptions = pv.player.vehicleFitting.inscriptions %]
+    <div class="col-lg-6 col-md-6">
+        [% IF h.defined_count(camo) > 0 %]
+            <h4>Camouflage</h4>
+            <table class="table table-bordered rounded">
+                <tbody>
+                [% FOREACH entry IN camo %]
+                    [% IF entry.defined %]
+                        [% c = h.get_camo_by_id(pv.vehicle.country, entry.0) %]
+                        <tr>
+                            <td>[% c.kind |ucfirst %]</td>
+                            <td>[% h.loc(c.i18n) %]</td>
+                        </tr>
+                    [% END %]
+                [% END %]
+                </tbody>
+            </table>
+        [% END %]
+    </div>
+    <div class="col-lg-6 col-md-6">
+        [% IF h.defined_count(emblems) > 0 %]
+            <h4>Emblems</h4>
+            <div class="row">
+                [% FOREACH entry IN emblems %]
+                    [% IF entry.defined %]
+                        [% e = h.get_emblem_by_id(entry.0) %]
+                        <div data-placement="bottom" data-toggle="tooltip" class="col-lg-6 col-md-6 bs-tooltip" title="[% h.loc(e.i18n) |html %]" style="min-height: 64px; background: transparent url([% config.urls.assets %]/[% e.icon %]) no-repeat scroll center center">
+                        </div>
+                    [% END %]
+                [% END %]
+            </div>
+        [% END %]
+        [% IF h.defined_count(inscriptions) > 0 %]
+            <h4>Inscriptions</h4>
+            <div class="row">
+                [% FOREACH entry IN inscriptions %]
+                    [% IF entry.defined %]
+                        [% e = h.get_inscription_by_id(pv.vehicle.country, entry.0) %]
+                        <div data-placement="bottom" data-toggle="tooltip" class="col-lg-6 col-md-6 bs-tooltip" title="[% h.loc(e.i18n) |html %]" style="min-height: 64px; background: transparent url([% config.urls.assets %]/[% e.icon %]) no-repeat scroll center center">
+                        </div>
+                    [% END %]
+                [% END %]
+            </div>
         [% END %]
     </div>
 </div>
