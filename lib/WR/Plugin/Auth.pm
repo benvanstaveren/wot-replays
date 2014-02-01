@@ -177,27 +177,33 @@ sub register {
 
     $app->helper('has_admin_access' => sub {
         my $self = shift;
-
         return 1 if($self->is_the_boss);
         return 1 if($self->current_user_clan eq 'WG');
-        # FIXME FIXME
-        # add ACL check here for translator type people
+        return 1 if($self->has_role('admin'));
         return 0;
     });
 
     $app->helper('has_admin_role' => sub {
         my $self = shift;
         my $role = shift;
+        my $roles_by_clan = {
+            'WG' => [ 'events', 'chatreader' ],
+        };
 
         return 1 if($self->is_the_boss);
 
-        # FIXME FIXME
-        # glorious hack
+        my $roles = $self->current_user->{roles} || [];
+        my $other = $roles_by_clan->{$self->current_user_clan} || [];
 
-        return 1 if($role eq 'events' && $self->current_user_clan eq 'WG');
+        foreach my $r (@$other) {
+            push(@$roles, $r);
+        }
+
+        foreach my $r (@$roles) {
+            return 1 if($r eq $role);
+        }
         return 0;
     });
-
 }        
 
 1;

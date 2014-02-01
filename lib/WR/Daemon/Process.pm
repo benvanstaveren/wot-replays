@@ -266,7 +266,7 @@ sub process_job {
             my $err = $o->error;
             $self->debug('Error processing: ', $err);
             $self->job_error($job, 'Error during parsing: ' . $err);
-            return;
+            return undef;
         }
         
         $self->debug('no error yet, yay');
@@ -286,9 +286,11 @@ sub process_job {
         if(!defined($replay->{game}->{version_numeric}) || (defined($replay->{game}->{version_numeric}) && $replay->{game}->{version_numeric} < $self->config->{wot}->{min_version})) {
             unlink($job->{file});
             $self->job_error($job, 'That replay is from an older version of World of Tanks which we cannot process...');
+            return undef;
         } elsif($replay->{game}->{version_numeric} > $self->config->{wot}->{version_numeric}) {
             unlink($job->{file});
             $self->job_error($job, 'That replay seems to be coming from the test server, we cannot process those yet...');
+            return undef;
         } else {
             if(!$job->{reprocess}) {
                 $replay->{digest} = $job->{_id};
@@ -324,12 +326,15 @@ sub process_job {
                     type    =>  'spinner',
                     done    =>  Mango::BSON::bson_true,
                 });
+                return $replay;
             } else {
                 $self->job_error($job, 'Error saving replay');
+                return undef;
             }
         }
     } else {
         $self->job_error($job, $o->error);
+        return undef;
     }
 }
 

@@ -7,6 +7,7 @@ use Getopt::Long;
 use WR::Daemon::Process;
 use Mojo::Log;
 use Parallel::ForkManager;
+use WR::Thunderpush::Server;
 
 my $config      = {};
 my $cfile       = undef;
@@ -56,6 +57,14 @@ if(my $lf = $config->{processd}->{logfile}) {
     # level => $config->{processd}->{loglevel} || 'warn');
 }
 
+sub get_push {
+    return WR::Thunderpush::Server->new(
+        host    => 'bacon.wotreplays.org:20000',
+        key     => $config->{thunderpush}->{key},
+        secret  => $config->{thunderpush}->{secret},
+    );
+}
+
 # create a pidfile
 my $pidfile = $config->{processd}->{pidfile};
 if(my $fh = IO::File->new(sprintf('>%s', $pidfile))) {
@@ -99,7 +108,11 @@ if(scalar(@$jobs) > 0) {
         $pm->start and next;
         my $p = WR::Daemon::Process->new(log => $log, config => $config, skip_wn7 => $skip_wn7);
         $p->db->collection('jobs')->update({ _id => $job->{_id} }, { '$set' => { 'status_text' => [], locked => Mango::BSON::bson_true, locked_by => $$, locked_at => Mango::BSON::bson_time } } );
-        $p->process_job($job);
+        if(my $r = $p->process_job($job)) {
+            if($r->{site}->{visible}) {
+                get_push->send_to_channel('page.home' => { evt => 'newreplay', data => {} });
+            }
+        }
         $pm->finish;
     }
     $pm->wait_all_children;

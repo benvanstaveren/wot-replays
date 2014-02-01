@@ -10,4 +10,17 @@
             [% INCLUDE sidebar/home.html.tt %]
         </div>
     </div>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            WR.addMessageHandler('newreplay', function(data) {
+               var notifyOpts = { 
+                    type: 'info',
+                    allow_dismiss: true,
+                    offset: { from: 'top', amount: 60 },
+                    delay: 20000,
+                };
+                $.bootstrapGrowl('A new replay was just uploaded!<br/><a href="/" class="reload-page">show me</a>', notifyOpts);
+            });
+        });
+    </script>
 [% END %]

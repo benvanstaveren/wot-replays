@@ -70,7 +70,7 @@ WR.addMessageHandler('growl', function(data) {
     var notifyOpts = { 
         type: (data.type) ? data.type : 'info',
         allow_dismiss: (data.allow_dismiss) ? true : false,
-        offset: { from: 'top', amount: 40 },
+        offset: { from: 'top', amount: 60 },
         delay: (data.sticky) 
             ? 60*1000 
             : (data.delay) 

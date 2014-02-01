@@ -17,12 +17,6 @@ $p->user_count(sub {
     print Dumper($res);
 });
 
-$p->user_present('Scrambled.sea' => sub {
-    my ($p, $res) = (@_);
-
-    print Dumper($res);
-});
-
 $p->channel_list('site' => sub {
     my ($p, $res) = (@_);
 

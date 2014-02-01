@@ -170,6 +170,9 @@
                     [% END %]
                 [% END %]
             </div>
+            [% IF h.is_the_boss %]
+                <pre>[% h.dumper(inscriptions) %]</pre>
+            [% END %]
         [% END %]
     </div>
 </div>
