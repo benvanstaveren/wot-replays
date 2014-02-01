@@ -821,6 +821,12 @@ sub add_helpers {
         }
     });
 
+    $self->helper('get_oid' => sub {
+        my $self = shift;
+        my $oid = Mango::BSON::bson_oid;
+        return $oid . '';
+    });
+
     $self->helper('get_inscription_by_id' => sub {
         my $self    = shift;
         my $country = shift;

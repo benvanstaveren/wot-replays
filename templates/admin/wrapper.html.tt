@@ -16,6 +16,9 @@
         <script type="text/javascript" src="[% config.urls.static %]/js/jquery.timers.js"></script>
         <script type="text/javascript" src="[% config.urls.static %]/js/bootstrap-slider.js"></script>
 
+        <script type="text/javascript" src="http://cdn.sockjs.org/sockjs-0.3.min.js"></script>
+        <script type="text/javascript" src="/js/thunderpush.js"></script>
+
         <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet"/> 
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet"/>
         <link href="//netdna.bootstrapcdn.com/bootswatch/3.0.1/cyborg/bootstrap.min.css" rel="stylesheet"/>
@@ -25,6 +28,18 @@
         <script type="text/javascript" src="[% config.urls.static %]/js/wtr.js"></script>
 
 	    <script type="text/javascript">
+            var thunderChannels = [ 'site', 'admin' ];
+            var thunderOpts = { 
+                log: true,
+                user: '[% h.current_user.player_name |js %].[% h.current_user.player_server |js %]'
+            };
+            Thunder.connect("bacon.wotreplays.org:20000", "[% config.thunderpush.key %]", thunderChannels, thunderOpts);
+            Thunder.listen(function(message) {
+                WR.dispatchMessage(message);
+            });
+
+            WR.pageid = '[% pageid |js %]';
+
             $(document).ready(function() {
 	            [% IF notify.defined %]
                     var notifyOpts = { 
@@ -61,9 +76,21 @@
                     [% IF h.has_admin_role('translator') %]
                         <li class="[% IF pageid == 'admin/language' %]active[% END %]"><a href="/admin/language">Language Manager</a></li>
                     [% END %]
+                    [% IF h.has_admin_role('moderator') %]
+                        <li class="dropdown [% IF pageid == 'admin/moderator' %]active[% END %]"><a href="/admin/moderator" class="dropdown-toggle" data-toggle="dropdown">Moderator Tools<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/admin/moderator/chatreader">Chat Reader</a></li>
+                        </ul>
+                    [% END %]
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="/">Back to Site</a></li>
+                    <li class="dropdown [% IF pageid == 'profile' %]active[% END %]"><a href="/profile" class="dropdown-toggle" data-toggle="dropdown">[% h.current_user.player_name |html %] <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-header">[% h.loc('nav.profile.header') %]</li>
+                            <li><a href="/logout">[% h.loc('nav.profile.signout') %]</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
