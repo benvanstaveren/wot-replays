@@ -32,6 +32,12 @@ sub startup {
         $self->plugin(sprintf('WR::Plugin::%s', $_));
     }
 
+    $self->plugin('WR::Plugin::Thunderpush', {
+        host    => 'bacon.wotreplays.org:20000',
+        key     => $config->{thunderpush}->{key},
+        secret  => $config->{thunderpush}->{secret}
+        });
+
     $self->routes->namespaces([qw/WR::App::Controller/]);
 
     #my $r = $self->routes->bridge('/')->to('auto#root_bridge')->name('root_bridge');

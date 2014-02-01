@@ -1,6 +1,6 @@
 package WR::Plugin::Thunderpush;
 use Mojo::Base 'Mojolicious::Plugin';
-use WR::Thunderpush;
+use WR::Thunderpush::Server;
 
 sub register {
     my $self = shift;
@@ -8,7 +8,7 @@ sub register {
     my $conf = shift;
 
     $app->attr('thunderpush' => sub {
-        WR::Thunderpush->new(
+        WR::Thunderpush::Server->new(
             host    => $conf->{host},
             key     => $conf->{key},
             secret  => $conf->{secret}

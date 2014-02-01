@@ -110,7 +110,7 @@ if(scalar(@$jobs) > 0) {
         $p->db->collection('jobs')->update({ _id => $job->{_id} }, { '$set' => { 'status_text' => [], locked => Mango::BSON::bson_true, locked_by => $$, locked_at => Mango::BSON::bson_time } } );
         if(my $r = $p->process_job($job)) {
             if($r->{site}->{visible}) {
-                get_push->send_to_channel('page.home' => { evt => 'newreplay', data => {} });
+                get_push->send_to_channel('page.home' => { evt => 'replay.processed', data => {} });
             }
         }
         $pm->finish;

@@ -83,6 +83,13 @@ sub process_job {
     my $self = shift;
     my $job = shift;
 
+    if(!$job->{reprocess}) {
+        if($self->db->collection('replays')->find({ digest => $job->{_id} })->count() > 0) {
+            $self->job_error($job, 'Looks like that replay has been uploaded already...');
+            return undef;
+        }
+    }
+
     my $o = WR::Process::Offline->new(
         bf_key          => join('', map { chr(hex($_)) } (split(/\s/, $self->config->{wot}->{bf_key}))),
         banner_path     => $self->config->{paths}->{banners},
