@@ -172,6 +172,17 @@ sub process_status {
     });
 }
 
+sub rfrag {
+    my $self = shift;
+    my $a    = [ 'A'..'Z', 'a'..'z', 0..9 ];
+    my $s    = '';
+
+    while(length($s) < 7) {
+        $s .= $a->[int(rand(scalar(@$a)))];
+    }
+    return $s;
+}
+
 sub process_replay {
     my $self = shift;
     my $adoc = shift;
@@ -182,9 +193,10 @@ sub process_replay {
 
     if(my $upload = $self->req->upload('replay')) {
         $self->render(json => { ok => 0, error => 'not.a.replay.file'}) and return unless($upload->filename =~ /\.wotreplay$/);
-        $self->render(json => { ok => 0, error => 'no.postback.url'}) and return unless(defined($self->req->param('postback')));
+
         my $filename = $upload->filename;
         $filename =~ s/.*\\//g if($filename =~ /\\/);
+        $filename = sprintf('%s-%s', $self->rfrag, $filename);
 
         my $hashbucket_size = length($filename);
         $hashbucket_size = 7 if($hashbucket_size > 7);
@@ -197,13 +209,35 @@ sub process_replay {
 
         my $sha = Digest::SHA1->new();
         $sha->add($upload->asset->slurp);
-        $sha->add($replay_filename);       
         my $digest = $sha->hexdigest;
+        
+        my $prio_map = {
+            'wotreplays.org' => 100,
+        };
+
+        my $api = {
+            via         =>  $adoc->{ident},
+        };
+
+        my $prio = (defined($prio_map->{$adoc->{ident}})) ? $prio_map->{$adoc->{ident}} : 1000;
+
+        if(my $postback = $self->req->param('postback')) {
+            $api->{postback} = $postback;
+            $api->{flags} = {
+                replay      =>  (defined($self->req->param('without-replay'))) ? 0 : 1,
+                packets     =>  (defined($self->req->param('with-packets'))) ? 1 : 0,
+            };
+        } else {
+            $api->{flags} = {
+                replay      => 1, # doesn't have any effect since we don't post back
+                packets     => 1, # doens't have any effect since we don't post back 
+            };
+        }
 
         # set this up as the job id
         $self->model('wot-replays.jobs')->save({
             _id         => $digest,
-            uploader    => undef,                       # these will not show up in any upload logs
+            uploader    => undef,                       # these will not show up in any upload logs for players, but will show on the admin page
             ready       => Mango::BSON::bson_false,
             complete    => Mango::BSON::bson_false,
             status      => 0,
@@ -212,14 +246,8 @@ sub process_replay {
             ctime       => Mango::BSON::bson_time,
             status_text => [ ],
             data        => { },
-            priority    => 100,
-            api         => {
-                postback    =>  $self->req->param('postback'),
-                flags       =>  {
-                    replay      =>  (defined($self->req->param('without-replay'))) ? 0 : 1,
-                    packets     =>  (defined($self->req->param('with-packets'))) ? 1 : 0,
-                }
-            },
+            priority    => 1000,
+            api         => $api,
         } => sub {
             my ($coll, $err, $oid) = (@_);
             if(defined($oid)) {
@@ -242,7 +270,7 @@ sub process_replay {
                     } else {
                         $self->model('wot-replays.jobs')->find({ complete => Mango::BSON::bson_false, ready => Mango::BSON::bson_true })->count(sub {
                             my ($coll, $err, $count) = (@_);
-                            $self->render(json => { ok => 1, queue_position => $count, process_id => $digest });
+                            $self->render(json => { ok => 1, process_id => $digest });
                         });
                     } 
                 });

@@ -63,10 +63,10 @@ sub upload {
 
             my $sha = Digest::SHA1->new();
             $sha->add($upload->asset->slurp);
-            $sha->add($replay_filename);       
             my $digest = $sha->hexdigest;
+            my $prio   = 50;
 
-            my $prio   = ($self->current_user->{player_server} eq 'sea' && $self->current_user->{player_name} eq 'Scrambled') ? 10 : 50;
+            # priority wise, anything that is part of an event should get higher priority than other uploads, but... 
 
             # set this up as the job id
             $self->model('wot-replays.jobs')->save({

@@ -55,65 +55,91 @@
             </li>
     </div>
 </div>
-[% IF replay.game.recorder.consumables.defined %]
 <div class="row">
-    <div class="col-lg-12 col-md-12">
-        <h4>[% h.loc('text.consumables') |ucfirst %]</h4>
-        <table class="table table-bordered rounded">
-            <tbody>
-                <tr>
-                    <td style="width: 33%">
-                        [% IF replay.game.recorder.consumables.0.defined %]
-                            <span title="[% h.consumable_name(replay.game.recorder.consumables.0) %]" class="equipment-icon rounded" [% h.consumable_icon_style(replay.game.recorder.consumables.0) %]></span>
-                            <span class="equipment-name">[% h.consumable_name(replay.game.recorder.consumables.0) %]</span>
-                        [% END %]
-                    </td>
-                    <td style="width: 33%">
-                        [% IF replay.game.recorder.consumables.1.defined %]
-                            <span title="[% h.consumable_name(replay.game.recorder.consumables.1) %]" class="equipment-icon rounded" [% h.consumable_icon_style(replay.game.recorder.consumables.1) %]></span>
-                            <span class="equipment-name">[% h.consumable_name(replay.game.recorder.consumables.1) %]</span>
-                        [% END %]
-                    </td>
-                    <td style="width: 33%">
-                        [% IF replay.game.recorder.consumables.2.defined %]
-                            <span title="[% h.consumable_name(replay.game.recorder.consumables.2) %]" class="equipment-icon rounded" [% h.consumable_icon_style(replay.game.recorder.consumables.2) %]></span>
-                            <span class="equipment-name">[% h.consumable_name(replay.game.recorder.consumables.2) %]</span>
-                        [% END %]
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+    [% pv = h.get_recorder_vehicle(replay) %]
+    [% camo = pv.player.vehicleFitting.camo %]
+    [% emblems = pv.player.vehicleFitting.emblems %]
+    [% inscriptions = pv.player.vehicleFitting.inscriptions %]
+    <div class="col-lg-6 col-md-6">
+        [% IF h.is_the_boss %]
+            <h4>Camouflage</h4>
+            <pre>[% h.dumper(camo) %]</pre>
+        [% END %]
+    </div>
+    <div class="col-lg-6 col-md-6">
+        [% IF h.is_the_boss %]
+            <h4>Emblems</h4>
+            <pre>[% h.dumper(emblems) %]</pre>
+            <h4>Inscriptions</h4>
+            <pre>[% h.dumper(inscriptions) %]</pre>
+        [% END %]
     </div>
 </div>
-[% END %]
-[% IF replay.game.recorder.ammo.defined %]
 <div class="row">
-    <div class="col-lg-12 col-md-12">
-        <h4>[% h.loc('text.ammunition') |ucfirst %]</h4>
-        <table class="table table-bordered rounded">
-            <tbody>
-                <tr>
-                    <td style="width: 33%">
-                        [% IF replay.game.recorder.ammo.0.defined %]
-                            <span title="[% h.ammo_name(replay.game.recorder.ammo.0) %]" class="equipment-icon rounded" [% h.ammo_icon_style(replay.game.recorder.ammo.0) %]></span>
-                            <span class="equipment-name">[% h.ammo_name(replay.game.recorder.ammo.0) %]</span>
-                        [% END %]
-                    </td>
-                    <td style="width: 33%">
-                        [% IF replay.game.recorder.ammo.1.defined %]
-                            <span title="[% h.ammo_name(replay.game.recorder.ammo.1) %]" class="equipment-icon rounded" [% h.ammo_icon_style(replay.game.recorder.ammo.1) %]></span>
-                            <span class="equipment-name">[% h.ammo_name(replay.game.recorder.ammo.1) %]</span>
-                        [% END %]
-                    </td>
-                    <td style="width: 33%">
-                        [% IF replay.game.recorder.ammo.2.defined %]
-                            <span title="[% h.ammo_name(replay.game.recorder.ammo.2) %]" class="equipment-icon rounded" [% h.ammo_icon_style(replay.game.recorder.ammo.2) %]></span>
-                            <span class="equipment-name">[% h.ammo_name(replay.game.recorder.ammo.2) %]</span>
-                        [% END %]
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="col-lg-6 col-md-6">
+        [% IF replay.game.recorder.consumables.defined %]
+            <h4>[% h.loc('text.consumables') |ucfirst %]</h4>
+            <table class="table table-bordered rounded">
+                <tbody>
+                    <tr>
+                        <td>
+                            [% IF replay.game.recorder.consumables.0.defined %]
+                                <span title="[% h.consumable_name(replay.game.recorder.consumables.0) %]" class="equipment-icon rounded" [% h.consumable_icon_style(replay.game.recorder.consumables.0) %]></span>
+                                <span class="equipment-name">[% h.consumable_name(replay.game.recorder.consumables.0) %]</span>
+                            [% END %]
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            [% IF replay.game.recorder.consumables.1.defined %]
+                                <span title="[% h.consumable_name(replay.game.recorder.consumables.1) %]" class="equipment-icon rounded" [% h.consumable_icon_style(replay.game.recorder.consumables.1) %]></span>
+                                <span class="equipment-name">[% h.consumable_name(replay.game.recorder.consumables.1) %]</span>
+                            [% END %]
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            [% IF replay.game.recorder.consumables.2.defined %]
+                                <span title="[% h.consumable_name(replay.game.recorder.consumables.2) %]" class="equipment-icon rounded" [% h.consumable_icon_style(replay.game.recorder.consumables.2) %]></span>
+                                <span class="equipment-name">[% h.consumable_name(replay.game.recorder.consumables.2) %]</span>
+                            [% END %]
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        [% END %]
+    </div>
+    <div class="col-lg-6 col-md-6">
+        [% IF replay.game.recorder.ammo.defined %]
+            <h4>[% h.loc('text.ammunition') |ucfirst %]</h4>
+            <table class="table table-bordered rounded">
+                <tbody>
+                    <tr>
+                        <td>
+                            [% IF replay.game.recorder.ammo.0.defined %]
+                                <span title="[% h.ammo_name(replay.game.recorder.ammo.0) %]" class="equipment-icon rounded" [% h.ammo_icon_style(replay.game.recorder.ammo.0) %]></span>
+                                <span class="equipment-name">[% h.ammo_name(replay.game.recorder.ammo.0) %]</span>
+                            [% END %]
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            [% IF replay.game.recorder.ammo.1.defined %]
+                                <span title="[% h.ammo_name(replay.game.recorder.ammo.1) %]" class="equipment-icon rounded" [% h.ammo_icon_style(replay.game.recorder.ammo.1) %]></span>
+                                <span class="equipment-name">[% h.ammo_name(replay.game.recorder.ammo.1) %]</span>
+                            [% END %]
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            [% IF replay.game.recorder.ammo.2.defined %]
+                                <span title="[% h.ammo_name(replay.game.recorder.ammo.2) %]" class="equipment-icon rounded" [% h.ammo_icon_style(replay.game.recorder.ammo.2) %]></span>
+                                <span class="equipment-name">[% h.ammo_name(replay.game.recorder.ammo.2) %]</span>
+                            [% END %]
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        [% END %]
     </div>
 </div>
-[% END %]
