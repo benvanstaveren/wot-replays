@@ -19,7 +19,7 @@
                     offset: { from: 'top', amount: 60 },
                     delay: 20000,
                 };
-                $.bootstrapGrowl('A new replay was just uploaded!<br/><a href="/" class="reload-page">show me</a>', notifyOpts);
+                $.bootstrapGrowl('A new replay was just uploaded!<br/><a href="' + data.url + '" class="reload-page">show me</a>', notifyOpts);
                 $('#queue-count').html('-');
                 $.getJSON('/xhr/qs', {}, function(d) {
                     if(d.ok == 1) {
