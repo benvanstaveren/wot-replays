@@ -52,11 +52,14 @@
             <div class="navbar-collapse collapse" id="navbar-main">
                 <ul class="nav navbar-nav">
                     <li class="[% IF pageid == 'admin/home' %]active[% END %]"><a  href="/admin/">Dashboard</a></li>
+                    [% IF h.has_admin_role('site') %]
+                        <li class="[% IF pageid == 'admin/site' %]active[% END %]"><a href="/admin/site">Site Manager</a></li>
+                    [% END %]
                     [% IF h.has_admin_role('events') %]
-                        <li class="[% IF pageid == 'admin/events' %]active[% END %]"><a  href="/admin/events">Event Manager</a></li>
+                        <li class="[% IF pageid == 'admin/events' %]active[% END %]"><a href="/admin/events">Event Manager</a></li>
                     [% END %]
                     [% IF h.has_admin_role('translator') %]
-                        <li class="[% IF pageid == 'admin/language' %]active[% END %]"><a  href="/admin/language">Language Manager</a></li>
+                        <li class="[% IF pageid == 'admin/language' %]active[% END %]"><a href="/admin/language">Language Manager</a></li>
                     [% END %]
                 </ul>
                 <ul class="nav navbar-nav navbar-right">

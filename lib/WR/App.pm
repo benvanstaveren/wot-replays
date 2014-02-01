@@ -8,11 +8,9 @@ use FindBin;
 use lib "$FindBin::Bin/../lib";
 
 use WR;
-use WR::Query;
 use WR::Res;
-#use WR::Renderer;
+use WR::Query;
 use WR::App::Helpers;
-
 use Time::HiRes qw/gettimeofday/;
 
 $Template::Stash::PRIVATE = undef;

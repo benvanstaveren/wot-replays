@@ -32,6 +32,17 @@ sub get_today_count {
     });
 }
 
+sub get_upload_queue {
+    my $self = shift;
+    my $end  = shift;
+
+    $self->model('wot-replays.jobs')->find({ complete => Mango::BSON::bson_false, ready => Mango::BSON::bson_true })->sort({ ctime => 1, priority => 1 })->all(sub {
+        my ($c, $err, $docs) = (@_);
+
+        $end->({ key => 'uploads', value => $docs });
+    });
+}
+
 sub index {
     my $self = shift;
 
@@ -45,13 +56,14 @@ sub index {
         }
 
         $self->respond(template => 'admin/index', stash => {
-            page => { title => $self->loc('admin.index.page.title') },
+            page => { title => 'Dashboard' },
             server_time => DateTime->now(time_zone => 'UTC')->strftime('%d/%m/%Y %H:%M:%S UTC'),
         });
     });
 
     $self->get_replay_count($delay->begin(0));
     $self->get_today_count($delay->begin(0));
+    $self->get_upload_queue($delay->begin(0));
 }
 
 1;
