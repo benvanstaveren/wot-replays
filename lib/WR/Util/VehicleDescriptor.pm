@@ -7,15 +7,14 @@ use constant CUSTOMIZATION_EPOCH => 1306886400;
 
 has [qw/descriptor nation vehicle chassis engine fueltank radio turret gun horn/] => undef;
 has [qw/optional_devices/] => sub { [ undef, undef, undef ] };
-has camo => sub { [] };
-has [qw/emblems inscriptions/]=> sub { [ undef, undef, undef, undef ] };
+has [qw/camo emblems inscriptions/] => sub { [] };
 
 sub new {
     my $package = shift;
     my $self    = $package->SUPER::new(@_);
     bless($self, $package);
 
-    die 'Missing descriptor', "\n" unless(defined($self->descriptor));
+    die 'Missing vehicle descriptor', "\n" unless(defined($self->descriptor));
     $self->BUILD;
     return $self;
 }
@@ -71,7 +70,8 @@ sub BUILD {
         if($positions & 15) {
             for my $idx (0..3) {
                 if($positions & 1 << $idx) {
-                    $self->emblems->[$idx] = $self->unpack_id_and_duration(substr($self->descriptor, 0, 6));
+                    my $e = $self->unpack_id_and_duration(substr($self->descriptor, 0, 6));
+                    push(@{$self->emblems}, $e) if(defined($e));
                     $self->descriptor(substr($self->descriptor, 6));
                 }
             }
@@ -81,9 +81,10 @@ sub BUILD {
                 if($positions & 1 << $idx + 4) {
                     (my $t, my $c) = unpack('A6C', substr($self->descriptor, 0, 7));
                     $self->descriptor(substr($self->descriptor, 7));
-                    my $u = $self->unpack_id_and_duration($t);
-                    push(@$u, $c);
-                    $self->inscriptions->[$idx] = $u;
+                    if(my $u = $self->unpack_id_and_duration($t)) {
+                        push(@$u, $c);
+                        push(@{$self->inscriptions}, $u);
+                    }
                 }
             }
         }
@@ -106,8 +107,9 @@ sub unpack_id_and_duration {
     return undef unless(defined($r));
 
     (my $id, my $times) = unpack('S<I<', $r);
-    return undef unless(defined($id) && defined($times));
-    return [ $id, ($times & 16777215) * 60 + CUSTOMIZATION_EPOCH, times >> 24 ];
+    return undef unless(defined($id));
+    $times = 0 unless(defined($times));
+    return [ $id, ($times & 16777215) * 60 + CUSTOMIZATION_EPOCH, $times >> 24 ];
 }
 
 sub to_hash {

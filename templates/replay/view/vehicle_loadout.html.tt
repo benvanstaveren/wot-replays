@@ -165,14 +165,11 @@
                 [% FOREACH entry IN inscriptions %]
                     [% IF entry.defined %]
                         [% e = h.get_inscription_by_id(pv.vehicle.country, entry.0) %]
-                        <div data-placement="bottom" data-toggle="tooltip" class="col-lg-6 col-md-6 bs-tooltip" title="[% h.loc(e.i18n) |html %]" style="min-height: 64px; background: transparent url([% config.urls.assets %]/[% e.icon %]) no-repeat scroll center center">
+                        <div data-placement="bottom" data-toggle="tooltip" class="col-lg-6 col-md-6 bs-tooltip" title="[% h.loc(e.i18n) |html %]" style="min-height: 128px; background: transparent url([% config.urls.assets %]/[% e.icon %]) no-repeat scroll center center">
                         </div>
                     [% END %]
                 [% END %]
             </div>
-            [% IF h.is_the_boss %]
-                <pre>[% h.dumper(inscriptions) %]</pre>
-            [% END %]
         [% END %]
     </div>
 </div>
