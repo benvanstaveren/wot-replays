@@ -11,22 +11,11 @@ my $p = WR::Thunderpush->new(
     secret  => '52ecee0f9c81a5163c010000',
     );
 
-$p->user_count(sub {
+$p->send_to_channel('site' => { evt => 'growl', data => { type => 'info', allow_dismiss => Mojo::JSON->true, delay => 10000, text => join(' ', @ARGV) }  } => sub {
     my ($p, $res) = (@_);
 
     print Dumper($res);
-});
-
-$p->user_present('Scrambled.sea' => sub {
-    my ($p, $res) = (@_);
-
-    print Dumper($res);
-});
-
-$p->channel_list('site' => sub {
-    my ($p, $res) = (@_);
-
-    print Dumper($res);
+    exit(0);
 });
 
 Mojo::IOLoop->start unless Mojo::IOLoop->is_running;

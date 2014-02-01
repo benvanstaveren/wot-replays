@@ -31,6 +31,7 @@ $(document).ready(function() {
         });
         return false;
     });
+
 });
 
 window.WR = {
@@ -47,5 +48,34 @@ window.WR = {
                 color: '#fff'
             } 
         }
-    }
+    },
+    messages: {},
+    addMessageHandler: function(type, handler) {
+        if(!WR.messages[type]) WR.messages[type] = [];
+        WR.messages[type].push(handler);
+    },
+    dispatchMessage: function(message) {
+        if(message.evt) {
+            if(WR.messages[message.evt]) {
+                WR.messages[message.evt].forEach(function(h) {
+                    h(message.data);
+                });
+            }
+        }
+    },
 };
+
+/* default message handling */
+WR.addMessageHandler('growl', function(data) {
+    var notifyOpts = { 
+        type: (data.type) ? data.type : 'info',
+        allow_dismiss: (data.allow_dismiss) ? true : false,
+        offset: { from: 'top', amount: 40 },
+        delay: (data.sticky) 
+            ? 60*1000 
+            : (data.delay) 
+                ? data.delay
+                : 4000
+    };
+    $.bootstrapGrowl(data.text, notifyOpts);
+});

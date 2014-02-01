@@ -43,7 +43,7 @@
             [% END %]
             Thunder.connect("bacon.wotreplays.org:20000", "[% config.thunderpush.key %]", ["site"], thunderOpts);
             Thunder.listen(function(message) {
-                console.log('[THUNDER]: ', message);
+                WR.dispatchMessage(message);
             });
             $(document).ready(function() {
 	            [% IF notify.defined %]
