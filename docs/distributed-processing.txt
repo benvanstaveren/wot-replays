@@ -1,0 +1,15 @@
+Distributed processing scratchpad
+---------------------------------
+
+must-have features:
+
+    -   fail-safe, e.g. if a slave has not processed a replay within a set amount of time
+        (or has not reported progress in a certain amount of time) consider that process job
+        failed, and re-queue it for another slave to work on
+    -   slaves must authenticate using a specific token, and must originate a connection
+        from a specific IP address
+
+protocol:
+    HTTP? Or something custom?
+
+
