@@ -26,6 +26,7 @@ sub validate_token {
                     last;
                 }
             }
+
             if($ho) {
                 $self->res->headers->header('Access-Control-Allow-Origin' => $oh);
                 $self->res->headers->header('Access-Control-Allow-Headers' => '*');

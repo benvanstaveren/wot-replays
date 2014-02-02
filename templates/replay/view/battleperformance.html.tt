@@ -39,8 +39,9 @@
     [% END %]
 
     $(document).ready(function() {
-        $('.bs-popover').each(function(i, e) {
+        $('.bs-popover-cd').each(function(i, e) {
             var pid = $(e).attr('player');
+            console.log('popover for: ', e, ' pid: ', pid);
             $(e).popover(critDetails[pid]);
         });
     });

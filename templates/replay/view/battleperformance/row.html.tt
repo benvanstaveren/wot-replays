@@ -29,7 +29,7 @@
                     [% h.loc('replay.battleperformance.noassist') %]
                 [% END %]
                 "></span>
-        <span player="[% pid %]" class="[% IF cd.count > 0 %]bs-popover[% END %]" title="[% h.loc('replay.battleperformance.critdetail.title') %]" style="padding: 0px; margin: 0px">
+        <span player="[% pid %]" class="[% IF cd.count > 0 %]bs-popover-cd[% END %]" title="[% h.loc('replay.battleperformance.critdetail.title') %]" style="padding: 0px; margin: 0px">
             <span data-container="body" data-placement="auto" data-toggle="tooltip" class="bs-tooltip crits [% IF cd.count == 0 %]dimmed"[% ELSE %] hasdetails" player="[% pid %]" title="[% h.loc('replay.battleperformance.critdetail.text', cd.count) %]"[% END %]>
                 [% IF cd.count > 0 %]
                     <b>[% cd.count %]</b>
