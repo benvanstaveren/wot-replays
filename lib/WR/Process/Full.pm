@@ -1,4 +1,4 @@
-package WR::Process::Offline;
+package WR::Process::Full;
 use Mojo::Base 'Mojo::EventEmitter';
 use Mojo::UserAgent;
 use File::Path qw/make_path/;

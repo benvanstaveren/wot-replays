@@ -785,6 +785,20 @@ sub add_helpers {
         return 'unavailable';
     });
 
+    $self->helper(rating_status => sub {
+        my $self   = shift;
+        my $rating = shift;
+
+        # an undefined rating or a rating < 1 is probably due to a failure in fetching the
+        # rating, so we also return undef and don't show the chiclets; 
+        # returned is the class name 
+
+        return undef if($rating == undef || $rating == 0);
+        return 'above' if($rating >= 1250);
+        return 'below' if($rating < 900);
+        return 'equal';
+    });
+
     $self->helper('defined_count' => sub {
         my $self = shift;
         my $a    = shift;

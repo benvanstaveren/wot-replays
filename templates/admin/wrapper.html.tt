@@ -87,7 +87,6 @@
                     <li><a href="/">Back to Site</a></li>
                     <li class="dropdown [% IF pageid == 'profile' %]active[% END %]"><a href="/profile" class="dropdown-toggle" data-toggle="dropdown">[% h.current_user.player_name |html %] <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li class="dropdown-header">[% h.loc('nav.profile.header') %]</li>
                             <li><a href="/logout">[% h.loc('nav.profile.signout') %]</a></li>
                         </ul>
                     </li>

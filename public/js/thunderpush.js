@@ -32,6 +32,10 @@ var Thunder = new function() {
         this.handlers.push(handler);
     };
 
+    this.subscribe = function(channel) {
+        if(this.socket) this.socket.send("SUBSCRIBE " + channel);
+    };
+
     this.makeConnection = function() {
         var that = this;
 

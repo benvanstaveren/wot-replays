@@ -1,16 +1,74 @@
-<div class="col-lg-6 col-md-6"">
-    [% rating = 'wn7' %]
-    [% IF replay.panel.wn8.defined %][% rating = 'wn8' %][% END %]
-    <div 
-        title="[% h.loc('tooltip.' _ rating _ '.overall') %]" 
-        data-placement="auto" 
-        data-toggle="tooltip" 
-        class="bs-tooltip [% rating %] [% IF replay.panel.$rating.overall %][% h.rating_color(rating, replay.panel.$rating.overall) %][% ELSE %]notavailable[% END %] rounded" style="margin: 2px; font-weight: bold; text-align: center">[% IF replay.panel.$rating.overall %]<a class="[% rating %] [% h.rating_color(rating, replay.panel.$rating.overall) %]" href="http://statterbox.com/[% h.fix_server(replay.panel.server) %]/[% replay.panel.name |uri %]">[% replay.panel.$rating.overall %]</a>[% ELSE %]-[% END %]</div>
-</div>
-<div class="col-lg-6 col-md-6">
-    <div 
-        title="[% h.loc('tooltip.' _ rating _ '.battle') %]" 
-        data-placement="auto" 
-        data-toggle="tooltip" 
-        class="bs-tooltip [% rating %] [% IF replay.panel.$rating.battle.defined %][% h.rating_color(rating, replay.panel.$rating.battle) %][% ELSE %]notavailable[% END %] rounded" style="margin: 2px; font-weight: bold; text-align: center">[% IF replay.panel.$rating.battle.defined %][% replay.panel.$rating.battle %][% ELSE %]-[% END %]</div>
-</div>
+[% IF replay.panel.wn8.defined %]
+    <div class="col-lg-6 col-md-6"">
+        [% IF replay.panel.wn8.overall.defined %]
+            [% class = h.rating_status(replay.panel.wn8.overall) %]
+            [% IF class %]
+                <div 
+                    title="[% h.loc('tooltip.rating.overall.' _ class) %]"
+                    data-placement="auto" 
+                    data-toggle="tooltip" 
+                    class="bs-tooltip rating [% class %] rounded overall"
+                    style="margin: 2px; font-weight: bold; text-align: center; cursor: pointer"
+                    href="http://statterbox.com/[% h.fix_server(replay.panel.server) %]/[% replay.panel.name |uri %]/"
+                    >
+                </div>
+            [% ELSE%]
+                <div 
+                    title="[% h.loc('tooltip.rating.overall.none') %]"
+                    data-placement="auto" 
+                    data-toggle="tooltip" 
+                    class="bs-tooltip rating none rounded"
+                    style="margin: 2px; font-weight: bold; text-align: center"
+                    >
+                </div>
+            [% END %] 
+        [% ELSE %]
+            <div 
+                title="[% h.loc('tooltip.rating.overall.none') %]"
+                data-placement="auto" 
+                data-toggle="tooltip" 
+                class="bs-tooltip rating none rounded"
+                style="margin: 2px; font-weight: bold; text-align: center"
+                >
+            </div>
+        [% END %]
+    </div>
+    <div class="col-lg-6 col-md-6">
+        [% IF replay.panel.wn8.battle.defined %]
+            [% class = h.rating_status(replay.panel.wn8.battle) %]
+            [% IF class %]
+                <div 
+                    title="[% h.loc('tooltip.rating.battle.' _ class) %]"
+                    data-placement="auto" 
+                    data-toggle="tooltip" 
+                    class="bs-tooltip rating [% class %] rounded"
+                    style="margin: 2px; font-weight: bold; text-align: center"
+                    >
+                </div>
+            [% ELSE %]
+                <div 
+                    title="[% h.loc('tooltip.rating.battle.none') %]"
+                    data-placement="auto" 
+                    data-toggle="tooltip" 
+                    class="bs-tooltip rating none rounded"
+                    style="margin: 2px; font-weight: bold; text-align: center"
+                    >
+                </div>
+            [% END %]
+        [% ELSE %]
+            <div 
+                title="[% h.loc('tooltip.rating.battle.none') %]"
+                data-placement="auto" 
+                data-toggle="tooltip" 
+                class="bs-tooltip rating none rounded"
+                style="margin: 2px; font-weight: bold; text-align: center"
+                >
+            </div>
+        [% END %]
+    </div>
+[% ELSE %]
+    <div class="col-lg-12 col-md-12">
+        <div class="well">[% h.loc('tooltip.rating.none') %]</div>
+    </div>
+[% END %]
+

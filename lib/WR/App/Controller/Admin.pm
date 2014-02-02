@@ -43,6 +43,29 @@ sub get_upload_queue {
     });
 }
 
+sub get_online_users {
+    my $self = shift;
+    my $end  = shift;
+
+    $self->app->thunderpush->channel_list('site' => sub {
+        my ($p, $res) = (@_);
+        my $o = [];
+        my $g = 0;
+
+        foreach my $user (@{$res->{response}->{users}}) {
+            if($user =~ /^(anon-|undefined)/) {
+                $g++;
+            } else {
+                push(@$o, $user);
+            }
+        }
+
+        # gotta do it like this
+        $self->stash('guests' => $g + 0); 
+        $end->({ key => 'online_users', value => $o });
+    });
+}
+
 sub index {
     my $self = shift;
 
@@ -61,6 +84,7 @@ sub index {
         });
     });
 
+    $self->get_online_users($delay->begin(0));
     $self->get_replay_count($delay->begin(0));
     $self->get_today_count($delay->begin(0));
     $self->get_upload_queue($delay->begin(0));

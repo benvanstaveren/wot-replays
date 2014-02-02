@@ -31,7 +31,13 @@ $(document).ready(function() {
         });
         return false;
     });
-
+    $('div.rating.overall').on('click', function() {
+        var href = $(this).attr('href');
+        if(href != null && href.length > 0) {
+            document.location = href;
+        }
+        return false;
+    });
 });
 
 window.WR = {

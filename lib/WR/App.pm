@@ -240,6 +240,11 @@ sub startup {
         $admin->route('/events')->to('admin-events#index', pageid => 'admin/events');
         $admin->route('/language')->to('admin-language#index', pageid => 'admin/language');
 
+        my $modtools = $admin->under('/moderator');
+            my $chatreader = $modtools->under('/chatreader');
+                $chatreader->route('/')->to('admin-moderator-chatreader#index');
+                $chatreader->route('/process')->to('admin-moderator-chatreader#process');
+
     $self->sessions->default_expiration(86400 * 365); 
     $self->sessions->cookie_name('wrsession');
     $self->sessions->cookie_domain($config->{urls}->{app_c}) if(!defined($config->{mode}) || $config->{mode} ne 'dev');

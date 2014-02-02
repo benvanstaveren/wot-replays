@@ -262,6 +262,34 @@ msgid "button.battleheatmap.text"
 msgstr "Heatmap"
 
 # generic tooltip texts
+
+msgid "tooltip.rating.none"
+msgstr "Not Available"
+
+msgid "tooltip.rating.battle.none"
+msgstr "No rating was obtained"
+
+msgid "tooltip.rating.battle.above"
+msgstr "Player performed above average in this battle"
+
+msgid "tooltip.rating.battle.below"
+msgstr "Player performed below average in this battle"
+
+msgid "tooltip.rating.battle.equal"
+msgstr "Player performed average in this battle"
+
+msgid "tooltip.rating.overall.none"
+msgstr "No rating was obtained"
+
+msgid "tooltip.rating.overall.above"
+msgstr "Player's overall performance is above average"
+
+msgid "tooltip.rating.overall.below"
+msgstr "Player's overall performance is below average"
+
+msgid "tooltip.rating.overall.equal"
+msgstr "Player's overall performance is average"
+
 msgid "tooltip.wn7.overall"
 msgstr "Player overall WN7"
 

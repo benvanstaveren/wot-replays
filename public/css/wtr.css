@@ -226,6 +226,27 @@ td.wn8.notavailable {
   color: white;
   background: black; }
 
+div.rating {
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0; }
+  div.rating:after {
+    content: "?"; }
+  div.rating.below {
+    color: #e69999;
+    background: #cd3333 none repeat scroll 0 0; }
+  div.rating.below:after {
+    content: "\25BC"; }
+  div.rating.above {
+    color: #afdb5b;
+    background: #6d9521 none repeat scroll 0 0; }
+  div.rating.above:after {
+    content: "\25B2"; }
+  div.rating.equal {
+    color: #ffe558;
+    background: #d7b600 none repeat scroll 0 0; }
+  div.rating.equal:after {
+    content: "="; }
+
 div.award {
   float: left;
   width: 45px;

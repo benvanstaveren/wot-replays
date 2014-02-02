@@ -107,10 +107,24 @@ if(scalar(@$jobs) > 0) {
         next if($job->{locked});
         $pm->start and next;
         my $p = WR::Daemon::Process->new(log => $log, config => $config, skip_wn7 => $skip_wn7);
-        $p->db->collection('jobs')->update({ _id => $job->{_id} }, { '$set' => { 'status_text' => [], locked => Mango::BSON::bson_true, locked_by => $$, locked_at => Mango::BSON::bson_time } } );
-        if(my $r = $p->process_job($job)) {
-            if($r->{site}->{visible}) {
-                get_push->send_to_channel('site' => { evt => 'replay.processed', data => { url => sprintf('%s/replay/%s.html', $config->{urls}->{app}, $r->{_id} . '') } });
+
+        if(defined($job->{type}) && $job->{type} eq 'chatreader') {
+            # ignore the job for the time being, we'll ditch it afterwards anyway
+            $p->db->collection('jobs')->update({ _id => $job->{_id} }, { '$set' => { 'status_text' => [], locked => Mango::BSON::bson_true, locked_by => $$, locked_at => Mango::BSON::bson_time } } );
+            $p->on('message' => sub {
+                my ($p, $text) = (@_);
+                get_push->send_to_channel($job->{channel} => { evt => 'chatreader.message', data => { text => $text } });
+            });
+            $p->on('finished' => sub {
+                get_push->send_to_channel($job->{channel} => { evt => 'chatreader.finished', data => {} });
+            });
+           $p->process_chatreader($job);
+        } else {
+            $p->db->collection('jobs')->update({ _id => $job->{_id} }, { '$set' => { 'status_text' => [], locked => Mango::BSON::bson_true, locked_by => $$, locked_at => Mango::BSON::bson_time } } );
+            if(my $r = $p->process_job($job)) {
+                if($r->{site}->{visible}) {
+                    get_push->send_to_channel('site' => { evt => 'replay.processed', data => { url => sprintf('%s/replay/%s.html', $config->{urls}->{app}, $r->{_id} . '') } });
+                }
             }
         }
         $pm->finish;

@@ -37,7 +37,7 @@
 	    <script type="text/javascript">
             var thunderChannels = [ 'site', 'page.[% pageid %]' ];
             var thunderOpts = { 
-                log: true,
+                log: [% IF config.mode.defined && config.mode == 'dev' %]true[% ELSE %]false[% END %],
                 user: '[% IF h.is_user_authenticated %][% h.current_user.player_name |js %].[% h.current_user.player_server |js %][% ELSE %]anon-[% h.get_oid() %][% END %]'
             };
             Thunder.connect("bacon.wotreplays.org:20000", "[% config.thunderpush.key %]", thunderChannels, thunderOpts);

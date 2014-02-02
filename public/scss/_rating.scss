@@ -1,0 +1,25 @@
+$rating_below: #cd3333;
+$rating_equal: #d7b600;
+$rating_above: #6d9521;
+
+div {
+    &.rating {
+        text-align: center;
+        background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0; 
+        &:after {
+            content: "?";
+        }
+        &.below { color: lighten($rating_below, 25%); background: $rating_below none repeat scroll 0 0; }
+        &.below:after {
+            content: "\25BC";
+        }
+        &.above { color: lighten($rating_above, 25%); background: $rating_above none repeat scroll 0 0; }
+        &.above:after {
+            content: "\25B2";
+        }
+        &.equal { color: lighten($rating_equal, 25%); background: $rating_equal none repeat scroll 0 0; }
+        &.equal:after {
+            content: "=";
+        }
+    }
+}

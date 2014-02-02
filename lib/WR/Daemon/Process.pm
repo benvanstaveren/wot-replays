@@ -1,10 +1,11 @@
 package WR::Daemon::Process;
-use Mojo::Base '-base';
+use Mojo::Base 'Mojo::EventEmitter';
 use Mojo::Log;
 use Mango;
 use Mango::BSON;
 use WR;
-use WR::Process::Offline;
+use WR::Process::Full;
+use WR::Process::ChatReader;
 use Data::Dumper;
 use Carp qw/cluck/;
 
@@ -79,6 +80,32 @@ sub job_status {
     $job->{status_text} = $new; # wonder if this works...
 }
 
+sub process_chatreader {
+    my $self = shift;
+    my $job  = shift;
+
+    # chat reading will have some additional info going on
+    my $o = WR::Process::ChatReader->new(
+        bf_key          => join('', map { chr(hex($_)) } (split(/\s/, $self->config->{wot}->{bf_key}))),
+        file            => $job->{data}->{file},
+        log             => $self->log,
+    );
+
+    # no need for job updates, but we do want to mark it complete 
+
+    $o->on('message' => sub {
+        my ($o, $text) = (@_);
+        $self->emit('message' => $text); 
+    });
+
+    $o->process;
+
+    $self->emit('finished');
+
+    unlink($job->{data}->{file});
+    $self->db->collection('jobs')->remove({ _id => $job->{_id} });
+}
+
 sub process_job {
     my $self = shift;
     my $job = shift;
@@ -90,7 +117,8 @@ sub process_job {
         }
     }
 
-    my $o = WR::Process::Offline->new(
+
+    my $o = WR::Process::Full->new(
         bf_key          => join('', map { chr(hex($_)) } (split(/\s/, $self->config->{wot}->{bf_key}))),
         banner_path     => $self->config->{paths}->{banners},
         packet_path     => $self->config->{paths}->{packets},
