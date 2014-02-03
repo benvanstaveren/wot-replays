@@ -49,7 +49,7 @@ sub startup {
     $r->route('/')->to('ui#frontpage', pageid => 'home')->name('main_index');
 
     my $doc = $r->under('/doc');
-        for(qw/about donate credits missions/) {
+        for(qw/about donate credits missions replayprivacy/) {
             $doc->route(sprintf('/%s', $_))->to('ui#doc', docfile => $_, pageid => $_);
         }
 

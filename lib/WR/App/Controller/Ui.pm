@@ -5,6 +5,7 @@ use Time::HiRes qw/gettimeofday tv_interval/;
 use Filesys::DiskUsage::Fast qw/du/;
 use WR::OpenID;
 use Mango::BSON;
+use Data::Dumper;
 
 sub doc {
     my $self = shift;
@@ -21,8 +22,16 @@ sub frontpage {
     my $replays = [];
 
     $self->debug('frontpage: top');
-    my $cursor = $self->model('replays')->find({ 'site.visible' => Mango::BSON::bson_true })->sort({ 'site.uploaded_at' => -1 })->limit(15)->fields({ panel => 1, site => 1, file => 1 })->all(sub {
-        my ($c, $e, $replays) = (@_);
+
+    # we need to use WR::Query here to get the first page of results
+    my $query = $self->wr_query(
+        sort    => { 'site.uploaded_at' => -1 },
+        perpage => 15,
+        filter  => { },
+        panel   => 1,
+        );
+    $query->page(1 => sub {
+        my ($q, $replays) = (@_);
         $self->debug('frontpage: got cursor');
         $self->respond(template => 'index', stash => {
             replays         => $replays || [],

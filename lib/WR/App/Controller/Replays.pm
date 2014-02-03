@@ -100,8 +100,11 @@ sub _real_browse {
     my $p = $filter->{p};
 
     $query->page($p => sub {
-        my $replays = shift || [];
+        my ($q, $replays) = (@_);
         my $maxp    = $query->maxp;
+
+        $replays ||= [];
+
         $self->respond(
             template => 'browse/index',
             stash => {

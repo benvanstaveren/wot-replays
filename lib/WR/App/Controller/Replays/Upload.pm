@@ -95,7 +95,8 @@ sub upload {
                                 file => $replay_file,
                                 file_base => $replay_file_base,
                                 desc => (defined($desc)) ? $desc : '',
-                                visible => ($hide == 1) ? 0 : 1
+                                visible => ($hide > 0) ? 0 : 1,
+                                privacy => $hide,
                             },
                             ready => Mango::BSON::bson_true,
                         }

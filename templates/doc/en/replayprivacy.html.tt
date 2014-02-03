@@ -1,0 +1,86 @@
+    <div class="page-header">
+            <h2>Replay Privacy Settings</h2>
+    </div>
+    <div class="well well-lg">
+        <p>Replays can have a privacy setting that allows you to control who can see your replay. You are always able to view replays you have recorded.</p>
+        <p>The privacy setting alters for who a replay shows up in browse results, and adds an additional check to see if the person requesting the replay page is actually allowed to view it.</p>
+        <p>Guests (e.g. non-logged in users) are only able to see Public and Unlisted replays.</p>
+        <p>The tables below list the various privacy settings; the &quot;Recorder&quot; is the person who recorded the replay (which would probably be you)</p>
+        <p>Please note that <strong>Clan War</strong> replays are <strong>always</strong> set to <i>Clan</i> level privacy, and their privacy setting can not be changed.</p>
+    </div>
+    <div class="well well-lg">
+        <h4>Public</h4>
+        <table class="table table-bordered">
+            <colgroup>
+                <col style="width: 50%"/>
+                <col style="width: 50%"/>
+            </colgroup>
+            <thead>
+                <th>Browse Results</th>
+                <th>Viewable By</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Anyone</td>
+                    <td>Anyone</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="well well-lg">
+        <h4>Unlisted</h4>
+        <table class="table table-bordered">
+            <colgroup>
+                <col style="width: 50%"/>
+                <col style="width: 50%"/>
+            </colgroup>
+            <thead>
+                <th>Browse Results</th>
+                <th>Viewable By</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Nobody</td>
+                    <td>Anyone</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="well well-lg">
+        <h4>Private</h4>
+        <table class="table table-bordered">
+            <colgroup>
+                <col style="width: 50%"/>
+                <col style="width: 50%"/>
+            </colgroup>
+            <thead>
+                <th>Browse Results</th>
+                <th>Viewable By</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Recorder</td>
+                    <td>Recorder</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="well well-lg">
+        <h4>Clan</h4>
+        <table class="table table-bordered">
+            <colgroup>
+                <col style="width: 50%"/>
+                <col style="width: 50%"/>
+            </colgroup>
+            <thead>
+                <th>Browse Results</th>
+                <th>Viewable By</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Recorder and Recorder's Clan at time of recording</td>
+                    <td>Recorder and Recorder's Clan at time of recording</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
