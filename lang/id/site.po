@@ -1,9 +1,0 @@
-# Indonesian language file for wotreplays.org
-msgid "profile.settings.language.title"
-msgstr "Bahasa"
-
-msgid "button.like.text"
-msgstr "Suka"
-
-msgid "button.save.text"
-msgstr "Unduh"
