@@ -178,7 +178,7 @@ sub register {
     $app->helper('has_admin_access' => sub {
         my $self = shift;
         return 1 if($self->is_the_boss);
-        return 1 if($self->current_user_clan eq 'WG');
+        return 1 if($self->current_user_clan eq 'WG' || $self->current_user_clan eq 'WGNA');
         return 1 if($self->has_role('admin'));
         return 0;
     });
@@ -188,6 +188,7 @@ sub register {
         my $role = shift;
         my $roles_by_clan = {
             'WG' => [ 'events', 'moderator' ],
+            'WGNA' => [ 'events', 'moderator' ],
         };
 
         return 1 if($self->is_the_boss);
