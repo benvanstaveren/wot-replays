@@ -1,0 +1,1626 @@
+msgid "AEC"
+msgstr "2x AEC"
+
+msgid "AEC_A189"
+msgstr "AEC A189"
+
+msgid "AEC_A1909"
+msgstr "AEC A190"
+
+msgid "AEC_Type_179"
+msgstr "AEC Type 179"
+
+msgid "Alarm_flags"
+msgstr "Signal flag"
+
+msgid "Armstrong-Siddeley"
+msgstr "2x Armstrong Siddeley"
+
+msgid "Bedford_V8"
+msgstr "Bedford V8"
+
+msgid "British_Wireless_set_N19"
+msgstr "WS No. 19 Special"
+
+msgid "C42"
+msgstr "SR C42"
+
+msgid "C45"
+msgstr "SR C45"
+
+msgid "Chassis_GB01_Medium_Mark_I"
+msgstr "Vickers Medium Mk. I"
+
+msgid "Chassis_GB01_Medium_Mark_I_2"
+msgstr "Vickers Medium Mk. IA*"
+
+msgid "Chassis_GB03_Cruiser_Mk_I"
+msgstr "A9 Mk. I"
+
+msgid "Chassis_GB03_Cruiser_Mk_I_2"
+msgstr "A9 Mk. II"
+
+msgid "Chassis_GB04_Valentine"
+msgstr "Valentine Mk. I"
+
+msgid "Chassis_GB04_Valentine_2"
+msgstr "Valentine Mk. VI"
+
+msgid "Chassis_GB05_Vickers_Medium_Mk_II"
+msgstr "Vickers Medium Mk. II"
+
+msgid "Chassis_GB05_Vickers_Medium_Mk_II_2"
+msgstr "Vickers Medium Mk. IIA"
+
+msgid "Chassis_GB06_Vickers_Medium_Mk_III"
+msgstr "Vickers Medium А6Е1"
+
+msgid "Chassis_GB06_Vickers_Medium_Mk_III_2"
+msgstr "Vickers Medium А6Е3"
+
+msgid "Chassis_GB07_Matilda"
+msgstr "Matilda Mk. II"
+
+msgid "Chassis_GB07_Matilda_2"
+msgstr "Matilda Mk. IIA"
+
+msgid "Chassis_GB08_Churchill_I"
+msgstr "Churchill I"
+
+msgid "Chassis_GB08_Churchill_I_2"
+msgstr "Churchill III"
+
+msgid "Chassis_GB09_Churchill_VII"
+msgstr "Churchill IV"
+
+msgid "Chassis_GB09_Churchill_VII_2"
+msgstr "Churchill VII"
+
+msgid "Chassis_GB10_Black_Prince"
+msgstr "Black Prince"
+
+msgid "Chassis_GB10_Black_Prince_2"
+msgstr "Black Prince Mk. II"
+
+msgid "Chassis_GB11_Caernarvon"
+msgstr "FV221"
+
+msgid "Chassis_GB11_Caernarvon_2"
+msgstr "FV221A"
+
+msgid "Chassis_GB12_Conqueror"
+msgstr "FV214"
+
+msgid "Chassis_GB12_Conqueror_2"
+msgstr "FV214А"
+
+msgid "Chassis_GB13_FV215b"
+msgstr "FV215"
+
+msgid "Chassis_GB20_Crusader"
+msgstr "Crusader Mk. I"
+
+msgid "Chassis_GB20_Crusader_2"
+msgstr "Crusader Mk. III"
+
+msgid "Chassis_GB21_Cromwell"
+msgstr "A27L"
+
+msgid "Chassis_GB21_Cromwell_2"
+msgstr "A27M"
+
+msgid "Chassis_GB22_Comet"
+msgstr "A34"
+
+msgid "Chassis_GB22_Comet_2"
+msgstr "A34A"
+
+msgid "Chassis_GB23_Centurion"
+msgstr "Centurion Mk. I"
+
+msgid "Chassis_GB23_Centurion_2"
+msgstr "Centurion Mk. III"
+
+msgid "Chassis_GB24_Centurion_Mk3"
+msgstr "Centurion Mk. 7"
+
+msgid "Chassis_GB24_Centurion_Mk3_2"
+msgstr "Centurion Mk. 9"
+
+msgid "Chassis_GB25_Loyd_Carrier"
+msgstr "Loyd Carrier Mk. I"
+
+msgid "Chassis_GB25_Loyd_Carrier_2"
+msgstr "Loyd Carrier Mk. II"
+
+msgid "Chassis_GB26_Birch_Gun"
+msgstr "Birch Gun Mk. I"
+
+msgid "Chassis_GB26_Birch_Gun_2"
+msgstr "Birch Gun Mk. II"
+
+msgid "Chassis_GB27_Sexton"
+msgstr "Sexton"
+
+msgid "Chassis_GB27_Sexton_2"
+msgstr "Sexton II"
+
+msgid "Chassis_GB28_Bishop"
+msgstr "Valentine Mk. II"
+
+msgid "Chassis_GB28_Bishop_2"
+msgstr "Bishop"
+
+msgid "Chassis_GB29_Crusader_5inch"
+msgstr "Crusader Mk. II"
+
+msgid "Chassis_GB29_Crusader_5inch_2"
+msgstr "Crusader 5.5-in. SP"
+
+msgid "Chassis_GB30_FV3805"
+msgstr "FV3805"
+
+msgid "Chassis_GB30_FV3805_2"
+msgstr "FV3806"
+
+msgid "Chassis_GB31_Conqueror_Gun"
+msgstr "Conqueror Gun Carriage"
+
+msgid "Chassis_GB32_Tortoise"
+msgstr "Tortoise"
+
+msgid "Chassis_GB32_Tortoise_2"
+msgstr "Tortoise Mk. 2"
+
+msgid "Chassis_GB39_Universal_CarrierQF2"
+msgstr "Universal Carrier Mk. I"
+
+msgid "Chassis_GB39_Universal_CarrierQF2_2"
+msgstr "Universal Carrier Mk. II"
+
+msgid "Chassis_GB40_Gun_Carrier_Churchill"
+msgstr "Churchill Gun Carrier"
+
+msgid "Chassis_GB40_Gun_Carrier_Churchill_2"
+msgstr "Churchill Gun Carrier Mk. II"
+
+msgid "Chassis_GB42_Valentine_AT"
+msgstr "Valentine AT Mk. I"
+
+msgid "Chassis_GB42_Valentine_AT_2"
+msgstr "Valentine AT Mk. II"
+
+msgid "Chassis_GB48_FV215b_183"
+msgstr "FV215b"
+
+msgid "Chassis_GB51_Excelsior"
+msgstr "Excelsior"
+
+msgid "Chassis_GB57_Alecto"
+msgstr "Alecto Mk. I"
+
+msgid "Chassis_GB57_Alecto_2"
+msgstr "Alecto Mk. IV"
+
+msgid "Chassis_GB58_Cruiser_Mk_III"
+msgstr "Cruiser Mk. III"
+
+msgid "Chassis_GB58_Cruiser_Mk_III_2"
+msgstr "Cruiser Mk. III*"
+
+msgid "Chassis_GB59_Cruiser_Mk_IV"
+msgstr "Cruiser Mk. IV"
+
+msgid "Chassis_GB59_Cruiser_Mk_IV_2"
+msgstr "Cruiser Mk. IVA"
+
+msgid "Chassis_GB60_Covenanter"
+msgstr "Covenanter Mk. I"
+
+msgid "Chassis_GB60_Covenanter_2"
+msgstr "Covenanter Mk. III"
+
+msgid "Chassis_GB63_TOG_II"
+msgstr "TOG II*"
+
+msgid "Chassis_GB68_Matilda_Black_Prince"
+msgstr "Matilda Black Prince"
+
+msgid "Chassis_GB69_Cruiser_Mk_II"
+msgstr "A10 Mk. I"
+
+msgid "Chassis_GB69_Cruiser_Mk_II_2"
+msgstr "A10 Mk. II"
+
+msgid "Chassis_GB70_FV4202_105"
+msgstr "FV4202"
+
+msgid "Chassis_GB71_AT_15A"
+msgstr "AT 15A"
+
+msgid "Chassis_GB72_AT15"
+msgstr "AT 15"
+
+msgid "Chassis_GB72_AT15_2"
+msgstr "AT 15 Mk. II"
+
+msgid "Chassis_GB73_AT2"
+msgstr "AT 2"
+
+msgid "Chassis_GB73_AT2_2"
+msgstr "AT 2 Mk. II"
+
+msgid "Chassis_GB74_AT8"
+msgstr "AT 8"
+
+msgid "Chassis_GB74_AT8_2"
+msgstr "AT 8 Mk. II"
+
+msgid "Chassis_GB75_AT7"
+msgstr "AT 7"
+
+msgid "Chassis_GB75_AT7_2"
+msgstr "AT 7 Mk. II"
+
+msgid "Chassis_GB76_Mk_VIC"
+msgstr "Light Mk. VIC"
+
+msgid "Chassis_GB77_FV304"
+msgstr "FV304"
+
+msgid "Chassis_GB77_FV304_2"
+msgstr "FV304 Mk. II"
+
+msgid "Chassis_GB79_FV206"
+msgstr "FV206"
+
+msgid "Chassis_GB79_FV206_2"
+msgstr "FV207"
+
+msgid "Chassis_Sexton_I"
+msgstr "Sexton I"
+
+msgid "Continental_AVDS-1790-2"
+msgstr "Continental AVDS-1790-2"
+
+msgid "Continental_R-975"
+msgstr "Continental R-975"
+
+msgid "Ford_GAA"
+msgstr "Ford GAA"
+
+msgid "Ford_V8-220"
+msgstr "Ford V8-220"
+
+msgid "Ford_V8-221"
+msgstr "Ford V8-221"
+
+msgid "Ford_V8-239"
+msgstr "Ford V8-239"
+
+msgid "GB01_Medium_Mark_I"
+msgstr "Vickers Medium Mk. I"
+
+msgid "GB01_Medium_Mark_I_descr"
+msgstr ""
+"Tank Inggris pertama yang memiliki meriam di turret yang dapat berputar. "
+"Pengembangannya dimulai tahun 1922 oleh Vickers, dan beberapa lusin telah "
+"diproduksi massal dari tahun 1923 sampai 1925. Tank masuk layanan militer "
+"tahun 1924 sampai 1938."
+
+msgid "GB01_Medium_Mark_I_short"
+msgstr "Medium I"
+
+msgid "GB03_Cruiser_Mk_I"
+msgstr "Cruiser Mk. I"
+
+msgid "GB03_Cruiser_Mk_I_descr"
+msgstr ""
+"Tank jelajah milik Inggris. Pengembangannya dimulai tahun 1934 oleh Vickers. "
+"Total 125 tank diproduksi massal tahun 1936 sampai 1937."
+
+msgid "GB03_Cruiser_Mk_I_short"
+msgstr "Cruiser I"
+
+msgid "GB04_Valentine"
+msgstr "Valentine"
+
+msgid "GB04_Valentine_descr"
+msgstr ""
+"Dikembangkan tahun 1938 oleh Vickers-Armstrong, tank ini adalah salah satu "
+"tank terbaik di kelasnya. Total 8275 tank dengan berbagai modifikasi "
+"diproduksi tahun 1940 sampai 1944."
+
+msgid "GB04_Valentine_short"
+msgstr "Valentine"
+
+msgid "GB05_Vickers_Medium_Mk_II"
+msgstr "Vickers Medium Mk. II"
+
+msgid "GB05_Vickers_Medium_Mk_II_descr"
+msgstr ""
+"Medium Tank Inggris. Dikembangkan dari basis tank Medium Mark I Vickers "
+"tahun 1924-1925 oleh Vickers. Diproduksi massal tahun 1925 sampai 1934 "
+"dengan perkiraan total 100 tank diproduksi."
+
+msgid "GB05_Vickers_Medium_Mk_II_short"
+msgstr "Medium II"
+
+msgid "GB06_Vickers_Medium_Mk_III"
+msgstr "Vickers Medium Mk. III"
+
+msgid "GB06_Vickers_Medium_Mk_III_descr"
+msgstr ""
+"Medium Tank Inggris yang juga dikenal sebagai Vickers \"16-tonners\". Tiga "
+"prototipenya diproduksi tahun 1926 sampai 1931. Menurut beberapa sumber, "
+"tiga tank diproduksi lagi tahun 1933 dan masuk layanan militer tetapi tidak "
+"pernah turun berperang."
+
+msgid "GB06_Vickers_Medium_Mk_III_short"
+msgstr "Medium III"
+
+msgid "GB07_Matilda"
+msgstr "Matilda"
+
+msgid "GB07_Matilda_descr"
+msgstr ""
+"Dikembangkan tahun 1936 sampai 1938. Total 2987 tank diproduksi pada Agustus "
+"1943. Satu-satunya tank Inggris yang tetap dalam layanan militer sampai "
+"Perang Dunia 2."
+
+msgid "GB07_Matilda_short"
+msgstr "Matilda"
+
+msgid "GB08_Churchill_I"
+msgstr "Churchill I"
+
+msgid "GB08_Churchill_I_descr"
+msgstr ""
+"Prototipe A22 dibuat oleh Vauxhall Motors pada musim gugur tahun 1940. "
+"Prototipe pertamanya diproduksi di musim panas tahun 1941. Modifikasi "
+"awalnya tidak memiliki pembatas track, kipas yang berbeda, dan Howitzer 3-"
+"inci pada badan. Total 300 tank Churcill I diproduksi."
+
+msgid "GB08_Churchill_I_short"
+msgstr "Churchill I"
+
+msgid "GB09_Churchill_VII"
+msgstr "Churchill VII"
+
+msgid "GB09_Churchill_VII_descr"
+msgstr ""
+"Modifikasi A22 dengan tambahan armor. Tipe pertama tank ini diproduksi "
+"sesaat sebelum Sekutu mendarat di Normandy. Model ini sekaligus menjadi "
+"basis tank flame-thrower Churcill Crocodile."
+
+msgid "GB09_Churchill_VII_short"
+msgstr "Churchill VII"
+
+msgid "GB10_Black_Prince"
+msgstr "Black Prince"
+
+msgid "GB10_Black_Prince_descr"
+msgstr ""
+"Black Prince diproduksi pada 1943 sampai 1945 dengan basis dari tank "
+"Churcill. Dilengkapi badan yang lebih lebar untuk menopang turret dengan "
+"meriam 17-pounder. Total enam prototipe Black Prince diproduksi tahun 1944 "
+"sampai 1945. Beberapa tank memasuki uji coba tapi tidak pernah berperang."
+
+msgid "GB10_Black_Prince_short"
+msgstr "Black Prince"
+
+msgid "GB11_Caernarvon"
+msgstr "Caernarvon"
+
+msgid "GB11_Caernarvon_descr"
+msgstr ""
+"Pengembangan tank support infanteri ini dimulai tahun 1944. Prototipe "
+"pertamanya siap diuji coba tahun 1952. Total 21 tank diproduksi tetapi tidak "
+"pernah masuk layanan militer. Beberapa diantaranya kemudian dikembangkan "
+"menjadi Heavy Tank Conqueror."
+
+msgid "GB11_Caernarvon_short"
+msgstr "Caernarvon"
+
+msgid "GB12_Conqueror"
+msgstr "Conqueror"
+
+msgid "GB12_Conqueror_descr"
+msgstr ""
+"Dikembangkan tahun 1949 sampai 1952, tank ini awalnya dibuat untuk "
+"menandingi Heavy Tank Soviet. Total 185 tank diproduksi massal tahun 1955 "
+"sampai 1959."
+
+msgid "GB12_Conqueror_short"
+msgstr "Conqueror"
+
+msgid "GB13_FV215b"
+msgstr "FV215b"
+
+msgid "GB13_FV215b_descr"
+msgstr ""
+"Rencana awalnya adalah sebagai Heavy Tank dari basis Conqueror Mk. II. Tidak "
+"seperti model produksinya, modifikasinya kompartemen tempur berada di "
+"belakang. Tidak pernah ada prototipenya."
+
+msgid "GB18_Sherman_II_I_descr"
+msgstr ""
+"Medium Tank Amerika M4A2 dieksport ke Britania Raya di bawah perjanjian, di "
+"mana julukan awalnya adalah Sherman III. Tank beroperasi dengan mesin diesel."
+
+msgid "GB20_Crusader"
+msgstr "Crusader"
+
+msgid "GB20_Crusader_descr"
+msgstr ""
+"Crusader awalnya dikembangkan oleh Nuffield Mechanisations and Aero, Ltd "
+"tahun 1938 sampai 1940. Lebih dari 5300 tank diproduksi massal tahun 1941 "
+"sampai 1943. Kebanyakan digunakan pada kampanye Afrika Utara tahun 1941-1942."
+
+msgid "GB20_Crusader_short"
+msgstr "Crusader"
+
+msgid "GB21_Cromwell"
+msgstr "Cromwell"
+
+msgid "GB21_Cromwell_descr"
+msgstr ""
+"Cromwell dikembangkan thaun 1941-1942 oleh BRC&W. Total 1070 tank diproduksi "
+"massal pada akhir 1943 sampai 1945. Kebanyakan digunakan oleh Inggris pada "
+"kampanye Eropa Barat tahun 1944-1945."
+
+msgid "GB21_Cromwell_short"
+msgstr "Cromwell"
+
+msgid "GB22_Comet"
+msgstr "Comet"
+
+msgid "GB22_Comet_descr"
+msgstr ""
+"Pengembangan lanjutan dari tank jelajah Cromwell, tank Inggris ini terlihat "
+"saat Perang Dunia 2. Total 1186 tank diproduksi dari September 1944 sampai "
+"akhi 1945."
+
+msgid "GB22_Comet_short"
+msgstr "Comet"
+
+msgid "GB23_Centurion"
+msgstr "Centurion Mk. I"
+
+msgid "GB23_Centurion_descr"
+msgstr ""
+"Pengembangan Centurion dimulai tahun 1943. Didesain sebagai \"tank universal"
+"\" untuk menggantikan tank infanteri dan jelajah yang ada, memasuki layanan "
+"tahun 1947. Total 100 tank seri ini diproduksi tahun 1945 sampai 1946."
+
+msgid "GB23_Centurion_short"
+msgstr "Centurion I"
+
+msgid "GB24_Centurion_Mk3"
+msgstr "Centurion Mk. 7/1"
+
+msgid "GB24_Centurion_Mk3_descr"
+msgstr ""
+"Versi pengembangan dari Centurion ini dikembangkan oleh Leyland Motors dan "
+"memiliki badan yang lebih kuat, desain kabin lebih baik, tanki bensin lebih "
+"besar, dan tambahan armor."
+
+msgid "GB24_Centurion_Mk3_short"
+msgstr "Centurion 7/1"
+
+msgid "GB25_Loyd_Carrier"
+msgstr "Loyd Gun Carriage"
+
+msgid "GB25_Loyd_Carrier_descr"
+msgstr ""
+"Sebuah proposal untuk memasang senjata 76.2-mm pada casis truk artileri Loyd "
+"Carrier. Dikembangkan mulai tahun 1940 sampai 1941. Tidak ada prototipe yang "
+"pernah diproduksi."
+
+msgid "GB25_Loyd_Carrier_short"
+msgstr "Loyd GC"
+
+msgid "GB26_Birch_Gun"
+msgstr "Birch Gun"
+
+msgid "GB26_Birch_Gun_descr"
+msgstr ""
+"SPG pertama yang didesain di Britania Raya. Pengembangannya dimulai tahun "
+"1923. Prototipenya dibuat dengan menggunakan basis dari Vickers Medium Mark "
+"II pada tahun 1925. Beberapa prototipenya diproduksi dan diujicoba mulai "
+"tahun 1925. Proyeknya dibatalkan tahun 1928 karena pemerintah Britania "
+"merasa kurang tertarik."
+
+msgid "GB26_Birch_Gun_short"
+msgstr "Birch Gun"
+
+msgid "GB27_Sexton"
+msgstr "Sexton II"
+
+msgid "GB27_Sexton_descr"
+msgstr ""
+"Modifikasi dari tank Grizzly, dengan meriam howitzer British 25-pounder. "
+"Produksi massalnya dilaksanakan di Montreal Locomotive Works di Kanada, "
+"dengan 2,150 tank diproduksi dari tahun 1943 hingga 1945."
+
+msgid "GB27_Sexton_short"
+msgstr "Sexton II"
+
+msgid "GB28_Bishop"
+msgstr "Bishop"
+
+msgid "GB28_Bishop_descr"
+msgstr ""
+"Dikembangkan oleh Birmigham Carriage and Wagon pada bulan Juni tahun 1941 "
+"dengan menggunakan basis dari tank suport infanteri Valentine II. Mulai "
+"tahun 1942 sampai 1943, total 149 SPG diproduksi. Secara umum tank ini "
+"dinilai kurang berhasil. Kemudian tank ini digunakan hanya untuk latihan "
+"mulai tahun 1943."
+
+msgid "GB28_Bishop_short"
+msgstr "Bishop"
+
+msgid "GB29_Crusader_5inch"
+msgstr "Crusader 5.5-in. SP"
+
+msgid "GB29_Crusader_5inch_descr"
+msgstr ""
+"Sebuah modifikasi dari Crusader dengan meriam 140-mm howitzer. Setelah "
+"Perang Dunia II sebuah prototipenya selesai dibuat. Tetapi, tank ini tidak "
+"pernah diproduksi massal atau terlihat dalam layanan militer."
+
+msgid "GB29_Crusader_5inch_short"
+msgstr "Crusader SP"
+
+msgid "GB30_FV3805"
+msgstr "FV3805"
+
+msgid "GB30_FV3805_descr"
+msgstr ""
+"Sebuah modifikasi dari Centurion dengan meriam 140-mm howitzer. Total 2 "
+"prototipe dibuat tahun 1956. Pengembangan FV3805 dihentikan tahun 1960. "
+"Tidak pernah terlihat dalam layanan militer."
+
+msgid "GB30_FV3805_short"
+msgstr "FV3805"
+
+msgid "GB31_Conqueror_Gun"
+msgstr "Conqueror Gun Carriage"
+
+msgid "GB31_Conqueror_Gun_descr"
+msgstr ""
+"Sebuah proposal untuk memasang meriam 234-mm howitzer pada casis Conqueror. "
+"Hanya ada di cetak biru."
+
+msgid "GB31_Conqueror_Gun_short"
+msgstr "ConquerorGC"
+
+msgid "GB32_Tortoise"
+msgstr "Tortoise"
+
+msgid "GB32_Tortoise_descr"
+msgstr ""
+"Pengembangan tank tempur ini dimulai di Britania Raya tahun 1942. Desainnya "
+"difinalisasi pada Februari 1944, dan telah dipesan 25 buah tank. Tetapi, "
+"sampai musim gugur tahun 1947 hanya lima tank yang diproduksi."
+
+msgid "GB39_Universal_CarrierQF2"
+msgstr "Universal Carrier 2-pdr"
+
+msgid "GB39_Universal_CarrierQF2_descr"
+msgstr ""
+"Universal Carrier dikembangkan selama periode perang dan merupakan salah "
+"satu kendaraan lapis baja beroda utama yang digunakan tentara British "
+"Commonwealth. Total 90,000 tank diproduksi dari tahun 1937 hingga 1945. "
+"Versi dari Universal Carrier digunakan juga untuk transportasi personnel dan "
+"perlengkapan, seperti dudukan senapan, dan untuk tujuan pengintaian. Tahun "
+"1940, sebuah variannya dikembangkan dengan memasang senjata anti-tank 40-mm."
+
+msgid "GB39_Universal_CarrierQF2_short"
+msgstr "UC 2-pdr"
+
+msgid "GB40_Gun_Carrier_Churchill"
+msgstr "Churchill Gun Carrier"
+
+msgid "GB40_Gun_Carrier_Churchill_descr"
+msgstr ""
+"Tank ini dikembangkan berbasis dari tank Churchill. Kabin dengan senjata 3-"
+"inci diletakkan di depan. Awalnya, ada 100 tank yang dipesan. Kemudian, "
+"berkurang menjadi 24 tank. Pada akhirnya, total 50 tank diproduksi pada "
+"tahun 1941 hingga 1942. Tetapi, tidak pernah terlihat dalam perang."
+
+msgid "GB40_Gun_Carrier_Churchill_short"
+msgstr "Churchill GC"
+
+msgid "GB42_Valentine_AT"
+msgstr "Valentine AT"
+
+msgid "GB42_Valentine_AT_descr"
+msgstr ""
+"Tank Destroyer eksperimental ini memiliki senapan yang didudukkan di tengah "
+"badan tank di balik pelindung. Prototipenya sempat dibuat, tapi "
+"pengerjaannya dihentikan saat sebuah Tank Destroyer baru dikembangkan, "
+"berbasis tank Valentine dan memasang 17-pounder."
+
+msgid "GB48_FV215b_183"
+msgstr "FV215b (183)"
+
+msgid "GB48_FV215b_183_descr"
+msgstr ""
+"Self-propelled gun ini dilengkapi komponen Mk.II Conqueror. Meriam tank ini "
+"dipasang pada turret yang bergerak fleksibel di belakang. Proyeknya "
+"dibatalkan setelah contohnya telah dibuat."
+
+msgid "GB48_FV215b_183_short"
+msgstr "FV215b 183"
+
+msgid "GB51_Excelsior"
+msgstr "Excelsior"
+
+msgid "GB51_Excelsior_descr"
+msgstr ""
+"Akhir tahun 1942, persenjataan tank Churchill dinilai tidak mencukupi. Tank-"
+"tank baru, A31, A32, dan A33 dikembangkan sebagai tank infanteri baru. A33 "
+"dikembangkan oleh English Electric Company. LMS Company berpartisipasi dalam "
+"pengembangan suspensi untuk tank baru. Dua tank, yang saling berbeda, "
+"diproduksi. A33 diatur untuk masuk produksi, tapi pada tahun 1943 keputusan "
+"produksi massal Churcill dikembalikan, dan pemesanan A33 tidak "
+"diikutsertakan."
+
+msgid "GB57_Alecto"
+msgstr "Alecto"
+
+msgid "GB57_Alecto_descr"
+msgstr ""
+"Tank Destroyer, dikembangkan tahun 1944–1945 dengan basis dari Light Tank "
+"Tetrarch. Proyeknya dibatalkan saat Perang Dunia 2 berakhir."
+
+msgid "GB58_Cruiser_Mk_III"
+msgstr "Cruiser Mk. III"
+
+msgid "GB58_Cruiser_Mk_III_descr"
+msgstr ""
+"Tank ini dikembangkan dengan mengupgrade dua prototipe tank M1931 Christie "
+"yang dibeli Inggris tahun 1936. Awalnya direncanakan sebagai tank gerak "
+"cepat, armor yang ringan untuk mendobrak barisan. Versi modifikasinya sukses "
+"dan menjadi basis dari tank jelajah lainnya. 65 tank tank tipe ini "
+"diproduksi. Terlihat dalam perang di Peranci dan Afrika Utara tahun "
+"1940-1941."
+
+msgid "GB58_Cruiser_Mk_III_short"
+msgstr "Cruiser III"
+
+msgid "GB59_Cruiser_Mk_IV"
+msgstr "Cruiser Mk. IV"
+
+msgid "GB59_Cruiser_Mk_IV_descr"
+msgstr ""
+"Versi modifikasi dari tank jelajah Mk. III dengan tambahan armor. Cruiser "
+"Mk. IV berperang di Perancis tahun 1940 dan di awal kampanye Afrika Utara. "
+"Tank terakhir tipe ini terlihat dalam perang di musim dingin tahun "
+"1941-1942. Total 655 tank diproduksi massal."
+
+msgid "GB59_Cruiser_Mk_IV_short"
+msgstr "Cruiser IV"
+
+msgid "GB60_Covenanter"
+msgstr "Covenanter"
+
+msgid "GB60_Covenanter_descr"
+msgstr ""
+"Tank jelajah baru yang dilengkapi inovasi mesin piston, radiator pendingin "
+"di bagian depan, dan teknis pengelasan muktahir. Tank dipesan untuk produksi "
+"pada 17 April 1939. Total 1771 tank dengan 4 varian diproduksi massal. Tank "
+"Covenanter kebanyakan hanya dipakai untuk latihan."
+
+msgid "GB60_Covenanter_short"
+msgstr "Covenanter"
+
+msgid "GB63_TOG_II"
+msgstr "TOG II*"
+
+msgid "GB63_TOG_II_descr"
+msgstr ""
+"Dikembangkan sebagai cabang militer. Awalnya, persenjataannya ditempatkan di "
+"bagian depan dan samping. Tetapi kemudian diputuskan untuk memasang turret. "
+"Tahun 1943, saat TOG 2* selesai dan siap untuk uji coba, sudah terlampau "
+"kuno. Tidak pernah masuk layanan militer."
+
+msgid "GB68_Matilda_Black_Prince"
+msgstr "Matilda Black Prince"
+
+msgid "GB68_Matilda_Black_Prince_descr"
+msgstr ""
+"Tank ini dilengkapi dengan senjata 6-pon dipasang di turret A27. Hanya satu "
+"prototipe yang diproduksi, setelah pengembangannya dihentikan karena "
+"komplikasi masalah turret. Tank tidak pernah masuk layanan militer."
+
+msgid "GB68_Matilda_Black_Prince_short"
+msgstr "Matilda BP"
+
+msgid "GB69_Cruiser_Mk_II"
+msgstr "Cruiser Mk. II"
+
+msgid "GB69_Cruiser_Mk_III_descr"
+msgstr ""
+"A10 Cruiser Mk. II awalnya adalah pengembangan dari modifikasi A9. A10 "
+"memiliki armor tambahan dan tidak memiliki turret senjata mesin. Sebuah "
+"prototipenya dibuat pada Juli 1937 dan diadopsi untuk layanan militer. Total "
+"175 tank dipesan pada 1938-1939, dan diproduksi pada September 1930. Tank "
+"terlihat dalam perang di Perancis (1940), Yunani (1941) dan Afrika Utara "
+"(1941)."
+
+msgid "GB69_Cruiser_Mk_II_short"
+msgstr "Cruiser II"
+
+msgid "GB70_FV4202_105"
+msgstr "FV4202"
+
+msgid "GB70_FV4202_105_descr"
+msgstr ""
+"Tank eksperimental dengan basis dari Medium Tank Centurion. Tank "
+"dikembangkan tahun 1956 sampai 1959. Tidak pernah diproduksi massal. "
+"Keputusan teknis dan inovasinya diimplementasikan pada FV4202 menjadi basis "
+"FV4201 Chieftain."
+
+msgid "GB70_FV4202_105_short"
+msgstr "FV4202"
+
+msgid "GB71_AT_15A"
+msgstr "AT 15A"
+
+msgid "GB71_AT_15A_descr"
+msgstr ""
+"Tank tempur untuk mendobrak garis pertahanan lawan. Proyek desainnya "
+"disiapkan pada 5 Oktober 1943. Tidak ada prototipe yang dibuat. Tetapi "
+"proyeknya menjadi basis dari Heavy Tank A39 Tortoise."
+
+msgid "GB72_AT15"
+msgstr "AT 15"
+
+msgid "GB72_AT15_descr"
+msgstr ""
+"Tank tempur yang dirancang untuk menembus benteng pertahanan. Desain "
+"proyeknya sudah siap pada musim gugur 1943, tapi tidak ada prototipe yang "
+"dibuat. Meskipun begitu, proyeknya menjadi basis dari proyek tank tempur "
+"kelas berat A39 Tortoise."
+
+msgid "GB73_AT2"
+msgstr "AT 2"
+
+msgid "GB73_AT2_descr"
+msgstr ""
+"Didesain sebagai tank tempur untuk menembus garis pertahanan musuh. "
+"Desainnya selesai pada 15 Mei, 1943. Tidak ada prototipenya, tapi proyeknya "
+"menjadi dasar dari proyek tank tempur kelas berat, A39 Tortoise."
+
+msgid "GB74_AT8"
+msgstr "AT 8"
+
+msgid "GB74_AT8_descr"
+msgstr ""
+"Tank yang dirancang sebagai tank pendobrak serangan. Desain proyeknya "
+"berevolusi dari proyek AT-7, dan kedua proyek dikirimkan bersamaan. Tidak "
+"ada prototipe yang dibuat karena A39 Tortoise lebih diutamakan."
+
+msgid "GB75_AT7"
+msgstr "AT 7"
+
+msgid "GB75_AT7_descr"
+msgstr ""
+"Dirancang sebagai tank tempur pendobrak serangan, desainnya diselesaikan "
+"pada 10 Juni, 1943. Tidak ada prototipe yang dibuat. Tetapi, sebagian "
+"komponen dan bagian dari AT7 digunakan pada A39 Tortoise."
+
+msgid "GB76_Mk_VIC"
+msgstr "Light Mk. VIC"
+
+msgid "GB76_Mk_VIC_descr"
+msgstr ""
+"Sebuah modifikasi dari Light Tank Mk.VI dengan tambahan persenjataan "
+"(senapan mesin Besa 15-mm). Diproduksi mulai Desember 1939 sampai Juli 1940. "
+"Awalnya, tank ini didesain untuk layanan di koloni-koloni. Total 130 Mk. VIС "
+"diproduksi."
+
+msgid "GB76_Mk_VIC_short"
+msgstr "Light VIC"
+
+msgid "GB77_FV304"
+msgstr "FV304"
+
+msgid "GB77_FV304_descr"
+msgstr ""
+"Prototipe SPG kecil yang dikembangkan oleh Vickers. Pengembangannya dimulai "
+"tahun 1947. Tetapi, prototipenya tidak diproduksi sampai tahun 1953. Desain "
+"SPG ini sudah lawas pada saat itu, dan proyeknya dibatalkan."
+
+msgid "GB77_FV304_short"
+msgstr "FV304"
+
+msgid "GB78_Sexton_I"
+msgstr "Sexton I"
+
+msgid "GB78_Sexton_I_descr"
+msgstr ""
+"Tahun 1943 Montreal Locomotive Works memulai produksi massal SPG Sexton, "
+"yang dikembangkan dari basis RAM II. Total 2150 tank diproduksi pada tahun "
+"1945, 125 diantaranya didesain sebagai Sexton I."
+
+msgid "GB79_FV206"
+msgstr "FV207"
+
+msgid "GB79_FV206_descr"
+msgstr ""
+"Varian SPG pada basis dari A45 Conqueror. Awalnya direncanakan untuk "
+"memasang meriam 105-mm, 140-mm, atau 152-mm howitzer pada kabin tertutup "
+"baja. Tank ini hanya ada di cetak biru."
+
+msgid "GB79_FV206_short"
+msgstr "FV207"
+
+msgid "GMC_6-71_Mk10"
+msgstr "GMC 6004 6-71S"
+
+msgid "GMC_6-71_Mk11"
+msgstr "GMC 6004 6-71A"
+
+msgid "Leyland"
+msgstr "2x Leyland E164"
+
+msgid "Leyland_V6"
+msgstr "2x Leyland E165"
+
+msgid "Liberty_MkIII"
+msgstr "Liberty Mk. III"
+
+msgid "Liberty_MkIV"
+msgstr "Liberty Mk. IV"
+
+msgid "MTU_V12_Diesel"
+msgstr "MTU V12 Diesel"
+
+msgid "Meadows"
+msgstr "Meadows"
+
+msgid "Meadows_DAV"
+msgstr "Meadows D.A.V."
+
+msgid "Meadows_DAV_MkI"
+msgstr "Meadows D.A.V. O.C."
+
+msgid "Meadows_DAV_MkIII"
+msgstr "Meadows DAV Mk. III"
+
+msgid "Meadows_ESTB"
+msgstr "Meadows E.S.T.L."
+
+msgid "Meadows_HOP"
+msgstr "Meadows H.O.P."
+
+msgid "Meadows_HOP_OC"
+msgstr "Meadows H.O.P. O.C."
+
+msgid "N11"
+msgstr "WS No. 11"
+
+msgid "N14"
+msgstr "WS No. 14"
+
+msgid "N19A"
+msgstr "Wireless Set No.19 Mk. II"
+
+msgid "N19Mk1"
+msgstr "WS No. 19 Mk. I"
+
+msgid "N19Mk2"
+msgstr "WS No. 19 Mk. II"
+
+msgid "N19Mk3"
+msgstr "WS No. 19 Mk. III"
+
+msgid "N19_HP"
+msgstr "N19 HP"
+
+msgid "N22"
+msgstr "WS No. 22"
+
+msgid "N22Mk2"
+msgstr "N22 Mk. II"
+
+msgid "N49A"
+msgstr "WS No. 49A"
+
+msgid "N9"
+msgstr "WS No. 9"
+
+msgid "Nuffield_liberty"
+msgstr "Nuffield liberty"
+
+msgid "Nuffield_liberty_MKII"
+msgstr "Nuffield Liberty Mk. II"
+
+msgid "Nuffield_liberty_MKIV"
+msgstr "Nuffield Liberty Mk. III"
+
+msgid "Nuffield_liberty_MKV"
+msgstr "Nuffield Liberty Mk. V"
+
+msgid "OQF_17pdr_Gun_Mk_VII"
+msgstr "OQF 17-pdr Gun Mk. VII"
+
+msgid "OQF_25pdr_Gun_Mk_II"
+msgstr "Q.F. 25-Pr. Gun/How."
+
+msgid "OQF_3pdr_Gun"
+msgstr "OQF 3-pdr Gun Mk. II"
+
+msgid "OQF_77mm_AT_Gun_MkII"
+msgstr "OQF 77 mm AT Gun Mk. II"
+
+msgid "OQF_77mm_Gun_MkII"
+msgstr "OQF 77 mm Gun Mk. II"
+
+msgid "Paxman_Ricardo"
+msgstr "Paxman 12TP"
+
+msgid "QF_2pdr_Littlejohn"
+msgstr "QF 2-pdr Mk. X-B"
+
+msgid "QF_6_pounder_8cwt_Mk_I"
+msgstr "QF 6-pdr 8 cwt Mk. I"
+
+msgid "QF_6_pounder_8cwt_Mk_II"
+msgstr "QF 6-pdr 8 cwt Mk. II"
+
+msgid "QF_6_pounder_8cwt_Mk_II_AT"
+msgstr "QF 6-pdr 8 cwt AT Gun Mk. II"
+
+msgid "QF_6_pounder_8cwt_Mk_I_AT"
+msgstr "QF 6-pdr 8 cwt AT Gun Mk. I"
+
+msgid "QF_6_pounder_Mk_III"
+msgstr "QF 6-pdr Mk. III"
+
+msgid "QF_6_pounder_Mk_III_AT"
+msgstr "QF 6-pdr AT Gun Mk. III"
+
+msgid "QF_6_pounder_Mk_II_AT"
+msgstr "QF 6-pdr AT Gun Mk. II"
+
+msgid "QF_6_pounder_Mk_IV_AT"
+msgstr "QF 6-pdr AT Gun Mk. IV"
+
+msgid "QF_6_pounder_Mk_V"
+msgstr "QF 6-pdr Gun Mk. V"
+
+msgid "QF_6_pounder_Mk_VA"
+msgstr "QF 6-pdr Mk. V A"
+
+msgid "QF_6_pounder_Mk_V_AT"
+msgstr "QF 6-pdr AT Gun Mk. V"
+
+msgid "Rolls_Royce_Griffon"
+msgstr "Rolls-Royce Griffon"
+
+msgid "Rolls_Royce_Meteor_M300"
+msgstr "Rolls-Royce Meteor M300"
+
+msgid "Rolls_Royce_Meteorite_V8"
+msgstr "Rolls-Royce Meteorite V8"
+
+msgid "Rolls_Royse_Meteor"
+msgstr "Rolls-Royce Meteor"
+
+msgid "Rolls_Royse_Meteor_M120"
+msgstr "Rolls-Royce Meteor M120"
+
+msgid "Rolls_Royse_Meteor_Mk12"
+msgstr "Rolls-Royce Meteor Mk. 12"
+
+msgid "Rolls_Royse_Meteor_MkIV"
+msgstr "Rolls-Royce Meteor Mk. IVB"
+
+msgid "Rolls_Royse_Meteor_MkIVC"
+msgstr "Rolls-Royce Meteor Mk. IVC"
+
+msgid "Rolls_Royse_Meteor_MkIVD"
+msgstr "Rolls-Royce Meteor M120A"
+
+msgid "Rolls_Royse_Meteor_MkV"
+msgstr "Rolls-Royce Meteor Mk. V"
+
+msgid "Rolls_Royse_Phantom"
+msgstr "Rolls-Royce Phantom"
+
+msgid "Rolls_Royse_Phantom_II"
+msgstr "2x Rolls-Royce Phantom II"
+
+msgid "Sunbeam_Amazon"
+msgstr "Sunbeam Amazon"
+
+msgid "Turret_1_GB01_Medium_Mark_I"
+msgstr "Vickers Medium Mk. I"
+
+msgid "Turret_1_GB03_Cruiser_Mk_I"
+msgstr "Cruiser Mk. I"
+
+msgid "Turret_1_GB04_Valentine"
+msgstr "Valentine Mk. I"
+
+msgid "Turret_1_GB05_Vickers_Medium_Mk_II"
+msgstr "Vickers Medium Mk. II*"
+
+msgid "Turret_1_GB06_Vickers_Medium_Mk_III"
+msgstr "Vickers Medium А6Е1"
+
+msgid "Turret_1_GB07_Matilda"
+msgstr "Matilda Mk. IIA"
+
+msgid "Turret_1_GB08_Churchill_I"
+msgstr "Churchill I"
+
+msgid "Turret_1_GB09_Churchill_VII"
+msgstr "Churchill IV"
+
+msgid "Turret_1_GB10_Black_Prince"
+msgstr "А22F"
+
+msgid "Turret_1_GB11_Caernarvon"
+msgstr "Black Prince"
+
+msgid "Turret_1_GB12_Conqueror"
+msgstr "Centurion Mk. III"
+
+msgid "Turret_1_GB13_FV215b"
+msgstr "FV215"
+
+msgid "Turret_1_GB16_Stuart_VI"
+msgstr "M23"
+
+msgid "Turret_1_GB20_Crusader"
+msgstr "Crusader Mk. I"
+
+msgid "Turret_1_GB21_Cromwell"
+msgstr "Cromwell Mk. I"
+
+msgid "Turret_1_GB22_Comet"
+msgstr "Cromwell Mk. IV"
+
+msgid "Turret_1_GB23_Centurion"
+msgstr "Centurion Mk. I"
+
+msgid "Turret_1_GB24_Centurion_Mk3"
+msgstr "Centurion Mk. 7"
+
+msgid "Turret_1_GB25_Loyd_Carrier"
+msgstr "Loyd Gun Carriage"
+
+msgid "Turret_1_GB27_Sexton"
+msgstr "Sexton II"
+
+msgid "Turret_1_GB30_FV3805"
+msgstr "FV3805"
+
+msgid "Turret_1_GB32_Tortoise"
+msgstr "Tortoise"
+
+msgid "Turret_1_GB34_RAM"
+msgstr "RAM"
+
+msgid "Turret_1_GB39_Universal_CarrierQF2"
+msgstr "Universal Carrier 2-pdr"
+
+msgid "Turret_1_GB40_Gun_Carrier_Churchill"
+msgstr "Churchill Gun Carrier"
+
+msgid "Turret_1_GB42_Valentine_AT"
+msgstr "Valentine AT"
+
+msgid "Turret_1_GB48_FV215b_183"
+msgstr "FV215b"
+
+msgid "Turret_1_GB57_Alecto"
+msgstr "Alecto"
+
+msgid "Turret_1_GB58_Cruiser_Mk_III"
+msgstr "Cruiser Mk. III"
+
+msgid "Turret_1_GB59_Cruiser_Mk_IV"
+msgstr "Cruiser Mk. IV"
+
+msgid "Turret_1_GB60_Covenanter"
+msgstr "Covenanter Mk. I"
+
+msgid "Turret_1_GB63_TOG_II"
+msgstr "TOG II*"
+
+msgid "Turret_1_GB68_Matilda_Black_Prince"
+msgstr "Matilda Black Prince"
+
+msgid "Turret_1_GB69_Cruiser_Mk_II"
+msgstr "A10E1"
+
+msgid "Turret_1_GB70_FV4202_105"
+msgstr "FV4202"
+
+msgid "Turret_1_GB71_AT_15A"
+msgstr "AT 15A"
+
+msgid "Turret_1_GB72_AT15"
+msgstr "AT 15"
+
+msgid "Turret_1_GB73_AT2"
+msgstr "AT 2"
+
+msgid "Turret_1_GB74_AT8_2"
+msgstr "AT 8"
+
+msgid "Turret_1_GB75_AT7"
+msgstr "AT 7"
+
+msgid "Turret_1_GB76_Mk_VIC"
+msgstr "Light Mk. VIC"
+
+msgid "Turret_1_GB77_FV304"
+msgstr "FV304"
+
+msgid "Turret_1_Sexton_I"
+msgstr "Sexton I"
+
+msgid "Turret_2_GB01_Medium_Mark_I"
+msgstr "Vickers Medium Mk. IA*"
+
+msgid "Turret_2_GB03_Cruiser_Mk_I"
+msgstr "Cruiser Mk. III"
+
+msgid "Turret_2_GB04_Valentine"
+msgstr "Valentine Mk. XI"
+
+msgid "Turret_2_GB05_Vickers_Medium_Mk_II"
+msgstr "Vickers Medium Mk. II**"
+
+msgid "Turret_2_GB06_Vickers_Medium_Mk_III"
+msgstr "Vickers Medium А6Е3"
+
+msgid "Turret_2_GB07_Matilda"
+msgstr "Matilda Mk. IIA*"
+
+msgid "Turret_2_GB08_Churchill_I"
+msgstr "Churchill III"
+
+msgid "Turret_2_GB09_Churchill_VII"
+msgstr "Churchill VII"
+
+msgid "Turret_2_GB10_Black_Prince"
+msgstr "Black Prince"
+
+msgid "Turret_2_GB11_Caernarvon"
+msgstr "Centurion Mk. II"
+
+msgid "Turret_2_GB12_Conqueror"
+msgstr "Conqueror Mk. II"
+
+msgid "Turret_2_GB16_Stuart_VI"
+msgstr "M44"
+
+msgid "Turret_2_GB20_Crusader"
+msgstr "Crusader Mk. III"
+
+msgid "Turret_2_GB21_Cromwell"
+msgstr "Cromwell Mk. IV"
+
+msgid "Turret_2_GB22_Comet"
+msgstr "Comet Mk. I"
+
+msgid "Turret_2_GB23_Centurion"
+msgstr "Centurion Mk. III"
+
+msgid "Turret_2_GB24_Centurion_Mk3"
+msgstr "Centurion Mk. 9"
+
+msgid "Turret_2_GB26_Birch_Gun"
+msgstr "Birch Gun"
+
+msgid "Turret_2_GB51_Excelsior"
+msgstr "Excelsior"
+
+msgid "Turret_2_GB58_Cruiser_Mk_III"
+msgstr "Cruiser Mk. III*"
+
+msgid "Turret_2_GB59_Cruiser_Mk_IV"
+msgstr "Cruiser Mk. IVA"
+
+msgid "Turret_2_GB60_Covenanter"
+msgstr "Covenanter Mk. IV CS"
+
+msgid "Turret_2_GB69_Cruiser_Mk_II"
+msgstr "Cruiser Mk. II"
+
+msgid "Vauxhall_Bedford_Twin_Six"
+msgstr "Bedford Twin-Six"
+
+msgid "Vickers-Armstrong"
+msgstr "Armstrong Siddeley V8"
+
+msgid "Vickers-Armstrong_MkII"
+msgstr "Armstrong Siddeley V8 SC"
+
+msgid "Wright_Continental_R-975C1"
+msgstr "Wright Continental R-975C1"
+
+msgid "Wright_Continental_R-975C4"
+msgstr "Wright Continental R-975C4"
+
+msgid "Wright_Continental_R-975EC2_A"
+msgstr "Wright (Continental) R975 EC2"
+
+msgid "Wright_Continental_R-975EC2_A_short"
+msgstr ""
+"Wright (Continental)\n"
+"R975 EC2"
+
+msgid "_105mm_APCR_L7"
+msgstr "APDS L-28"
+
+msgid "_105mm_AP_L7"
+msgstr "AP L7"
+
+msgid "_105mm_Gun_L7"
+msgstr "105 mm Royal Ordnance L7A1"
+
+msgid "_105mm_HESH_L7"
+msgstr "HESH-T L-37"
+
+msgid "_105mm_HE_L7"
+msgstr "HESH-T L-35"
+
+msgid "_105mm_Howitzer_M2A1"
+msgstr "105 mm Howitzer M2A1"
+
+msgid "_120mm_AP-T_L1A1"
+msgstr "AP-T L1"
+
+msgid "_120mm_APDS_L1A1"
+msgstr "APDS L1"
+
+msgid "_120mm_AT_Gun_L1A1"
+msgstr "120 mm AT Gun L1A1"
+
+msgid "_120mm_Gun_L1A1"
+msgstr "120 mm Gun L1A1"
+
+msgid "_120mm_HEAT-T_L1A1"
+msgstr "HEAT-T L1A1"
+
+msgid "_120mm_HE_L1A1"
+msgstr "HESH-T L1"
+
+msgid "_13pdr_Gun"
+msgstr "Q.F. 13-Pr. Mk. III"
+
+msgid "_13pdr_HE"
+msgstr "HE Mk. III"
+
+msgid "_15mm_AP_W_Mk1"
+msgstr "AP W Mk. 1"
+
+msgid "_15mm_AP_W_Mk1T"
+msgstr "AP W Mk. 1T"
+
+msgid "_15mm_Machine_gun_BESA"
+msgstr "15 mm Machine Gun BESA"
+
+msgid "_17pdr_APC_Mk4T"
+msgstr "APDS 17-Pr. Mk. 1T"
+
+msgid "_17pdr_AP_Mk3T"
+msgstr "APCBC 17-Pr. Mk. 8T"
+
+msgid "_17pdr_HE_Mk1T"
+msgstr "HE 17-Pr. Mk. 1T"
+
+msgid "_17pdr_OQF_AT"
+msgstr "OQF 17-pdr AT Gun Mk. VII"
+
+msgid "_183mm_AP_Mk1"
+msgstr "AP Mk. 1"
+
+msgid "_183mm_AT_Gun"
+msgstr "183 mm L4"
+
+msgid "_183mm_HESH"
+msgstr "HESH Mk. 1"
+
+msgid "_183mm_HE_Mk1"
+msgstr "HE Mk. 1"
+
+msgid "_18_pdr_SPG_Gun"
+msgstr "Q.F. 18-Pr."
+
+msgid "_18pdr_AP_Mk_1T"
+msgstr "AP-T Mk. 1T"
+
+msgid "_18pdr_HE_Mk_1C"
+msgstr "HE Mk. 1C"
+
+msgid "_20pdr_APC_Mk2"
+msgstr "APC Mk. 2"
+
+msgid "_20pdr_AP_Mk1"
+msgstr "AP Mk. 1"
+
+msgid "_20pdr_AT_Gun_Type_A"
+msgstr "OQF 20-pdr AT Gun Type A Barrel"
+
+msgid "_20pdr_AT_Gun_Type_B"
+msgstr "OQF 20-pdr AT Gun Type B Barrel"
+
+msgid "_20pdr_Gun_Type_A"
+msgstr "OQF 20-pdr Gun Type A Barrel"
+
+msgid "_20pdr_Gun_Type_B"
+msgstr "OQF 20-pdr Gun Type B Barrel"
+
+msgid "_20pdr_HE_Mk3"
+msgstr "HE Mk. 3"
+
+msgid "_25pdr_AP_Mk_1T"
+msgstr "AP-T Mk. 1T"
+
+msgid "_25pdr_AP_Mk_1T_SC"
+msgstr "AP-T Mk. 1T S.C."
+
+msgid "_25pdr_AT_Field_Gun"
+msgstr "Q.F. 25-Pr. AT Gun/How. Mk. III"
+
+msgid "_25pdr_Field_Gun"
+msgstr "Q.F. 25-Pr. Gun/How. Mk. II"
+
+msgid "_25pdr_HE_Mk_1D"
+msgstr "HE Mk. 1D"
+
+msgid "_2pdr_APCNR_Mk.1"
+msgstr "APCNR Mk. 1"
+
+msgid "_2pdr_APCNR_Mk.2"
+msgstr "APCNR Mk. 2"
+
+msgid "_2pdr_APSV_Mk.1"
+msgstr "APSV Mk. 1"
+
+msgid "_2pdr_APSV_Mk.2"
+msgstr "APSV Mk. 2"
+
+msgid "_2pdr_AP_Mk.1T"
+msgstr "AP Mk. 1T"
+
+msgid "_2pdr_AP_Mk.IXBT"
+msgstr "APCBC Mk. IXBT"
+
+msgid "_2pdr_AT_Gun_Mk_IX"
+msgstr "QF 2-pdr AT Gun Mk. IX"
+
+msgid "_2pdr_Gun_Mk_IX"
+msgstr "QF 2-pdr Mk. IX"
+
+msgid "_2pdr_Gun_Mk_X"
+msgstr "QF 2-pdr Mk. X"
+
+msgid "_2pdr_HE_Mk.2"
+msgstr "HE Mk. 2"
+
+msgid "_3.7inch_AP"
+msgstr "AP Mk. 1T"
+
+msgid "_3.7inch_APCR"
+msgstr "APCR Mk. 2T"
+
+msgid "_3.7inch_AT_Howitzer"
+msgstr "3.7-inch AT Howitzer"
+
+msgid "_3.7inch_HE"
+msgstr "HE Mk. 1C"
+
+msgid "_3.7inch_HEAT_Mk.1"
+msgstr "HEAT Mk. 1"
+
+msgid "_3.7inch_HEAT_Mk1"
+msgstr "HEAT Mk. 1"
+
+msgid "_3.7inch_HE_Mk.3"
+msgstr "HE Mk. 3"
+
+msgid "_3.7inch_HE_Mk3"
+msgstr "HE Mk. 3"
+
+msgid "_3.7inch_Howitzer"
+msgstr "3.7-inch Howitzer"
+
+msgid "_3.7inch_QF_AA_MK_1"
+msgstr "QF 3.7-inch AT Gun"
+
+msgid "_32-pounder_AT_Gun_OQF"
+msgstr "OQF 32-pdr AT Gun"
+
+msgid "_32pdr_APCR_MkII"
+msgstr "APDS Mk. 2T"
+
+msgid "_32pdr_AP_MkI"
+msgstr "AP Mk. 1"
+
+msgid "_32pdr_HE_MkI"
+msgstr "HE Mk. 1A"
+
+msgid "_3inch_20_cwt_MkIII_AT_Gun"
+msgstr "3-inch 20 cwt AT Gun Mk. III"
+
+msgid "_3inch_AP"
+msgstr "AP Mk. 2T"
+
+msgid "_3inch_APCR"
+msgstr "APCR Mk. 1T"
+
+msgid "_3inch_HE"
+msgstr "HE Mk. 2B"
+
+msgid "_3pdr_gun_Hotchkiss"
+msgstr "OQF 3-pdr Gun Mk. I"
+
+msgid "_4.5inch_HE_Mk_13"
+msgstr "HE Mk. XIII"
+
+msgid "_4.5inch_SPG_Howitzer"
+msgstr "Q.F. 4.5-in. Howitzer"
+
+msgid "_40mm_AP"
+msgstr "AP Mk. I"
+
+msgid "_40mm_APCR"
+msgstr "APCR Mk. II"
+
+msgid "_40mm_APHV"
+msgstr "APHV Mk. 1T"
+
+msgid "_40mm_Bofors_MkI"
+msgstr "QF 40 mm Mk. VI Bofors"
+
+msgid "_40mm_HE"
+msgstr "HE Mk. I"
+
+msgid "_40mm_Mk2T"
+msgstr "HE Mk. 2T"
+
+msgid "_40mm_Pom_Pom"
+msgstr "40 mm Pom-Pom"
+
+msgid "_40mm_SAP"
+msgstr "SAP Mk. 1T"
+
+msgid "_47mm_3pdrAP"
+msgstr "QF AP Mk. IIIT"
+
+msgid "_47mm_3pdrAPCR"
+msgstr "QF APDS Mk. I"
+
+msgid "_47mm_3pdrHE"
+msgstr "QF HE Mk. IT"
+
+msgid "_47mm_APCR_MkI"
+msgstr "APCR Mk. I"
+
+msgid "_47mm_AP_MkI"
+msgstr "AP Mk. I"
+
+msgid "_47mm_HE_MkI"
+msgstr "HE Mk. I"
+
+msgid "_5.5inch_HE_Mk_4"
+msgstr "HE 80-lb Mk. 3"
+
+msgid "_5.5inch_HE_Mk_5"
+msgstr "HE 80-lb Mk. 4"
+
+msgid "_5.5inch_SPG_Gun"
+msgstr "B.L. 5.5-in. Gun"
+
+msgid "_6inch_AP"
+msgstr "AP Mk. V"
+
+msgid "_6inch_HE"
+msgstr "HE Mk. V"
+
+msgid "_6inch_HE_Mk_6"
+msgstr "HE Mk. VI"
+
+msgid "_6inch_SPG_Gun"
+msgstr "Q.F. 6-in. Gun Mk. V"
+
+msgid "_6pdr_APCR_MK_1T"
+msgstr "APCR Mk. 1T"
+
+msgid "_6pdr_AP_MK_1T"
+msgstr "AP Mk. 1T"
+
+msgid "_6pdr_AP_Steel_HSCT"
+msgstr "Steel Shell HSCT"
+
+msgid "_6pdr_AP_Steel_NF"
+msgstr "Steel Shell NF"
+
+msgid "_6pdr_HE_Common"
+msgstr "Common Shell"
+
+msgid "_6pdr_HE_MK_10T"
+msgstr "HE Mk. 10T"
+
+msgid "_7.2inch_HE"
+msgstr "HE Mk. 1D"
+
+msgid "_7.2inch_HE_Mk_2"
+msgstr "HE Mk. 2D"
+
+msgid "_7.2inch_SPG_Howitzer"
+msgstr "B.L. 7.2-in. Howitzer Mk. 6"
+
+msgid "_75mm_APCR_HV_Mk3"
+msgstr "APCR HV Mk. 3"
+
+msgid "_75mm_APCR_Mk3"
+msgstr "APCR Mk. 3"
+
+msgid "_75mm_AP_HV_Mk1"
+msgstr "AP HV Mk. 1"
+
+msgid "_75mm_AP_Mk1"
+msgstr "AP Mk. 1"
+
+msgid "_75mm_AT_Gun_Mk_V"
+msgstr "75 mm AT Gun Mk. V"
+
+msgid "_75mm_Gun_Mk_V"
+msgstr "75 mm Gun Mk. V"
+
+msgid "_75mm_Gun_Vickers_HV"
+msgstr "75 mm Vickers HV"
+
+msgid "_75mm_HEAT_M66"
+msgstr "HEAT M66"
+
+msgid "_75mm_HE_HV_Mk2"
+msgstr "HE HV Mk. 2"
+
+msgid "_75mm_HE_Mk2"
+msgstr "HE Mk. 2"
+
+msgid "_75mm_Howitzer_M3"
+msgstr "75 mm Howitzer M3"
+
+msgid "_76mm_Gun_M1A2"
+msgstr "76 mm Gun M1A2"
+
+msgid "_76mm_HEAT_MkI"
+msgstr "HEAT Mk. I"
+
+msgid "_76mm_HE_MkI"
+msgstr "HE Mk. I"
+
+msgid "_76mm_Howitzer_MkI"
+msgstr "OQF 3-inch Howitzer Mk. I"
+
+msgid "_77mm_APCBC_Mk8T"
+msgstr "APCBC 77 mm Mk. 8T"
+
+msgid "_77mm_APDS_Mk1T"
+msgstr "APDS 77 mm Mk. 1T"
+
+msgid "_77mm_HE_Mk1T"
+msgstr "HE 77 mm Mk. 1T"
+
+msgid "_9.2inch_HE_Mk_18"
+msgstr "HE Mk. 18"
+
+msgid "_9.2inch_HE_Mk_19"
+msgstr "HE Mk. 19"
+
+msgid "_9.2inch_SPG_Howitzer"
+msgstr "B.L. 9.2-in. Howitzer Mk. II"

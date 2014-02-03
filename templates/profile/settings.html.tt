@@ -4,7 +4,7 @@
     </div>
     <div class="row">
         <div class="col-lg-6 col-md-6">
-            <h4>[% h.loc('profile.settings.language.title') %] ([% user_lang %])</h4>
+            <h4>[% h.loc('profile.settings.language.title') %]</h4>
             <select name="language" disabled="true" class="disabled">
                 [% FOREACH language IN config.languages %]
                     <option value="[% language.ident %]" [% IF user_lang == language.ident %]selected[% END %]>[% h.loc(language.label) %]</option>

@@ -1,0 +1,448 @@
+msgid "ammoBay/name"
+msgstr "Ammo Rack"
+
+msgid "chassis/desc"
+msgstr "?empty?"
+
+msgid "chassis/name"
+msgstr "Suspensi"
+
+msgid "chassis/tags"
+msgstr "?empty?"
+
+msgid "engine/desc"
+msgstr "?empty?"
+
+msgid "engine/name"
+msgstr "Mesin"
+
+msgid "engine/tags"
+msgstr "?empty?"
+
+msgid "equipment/desc"
+msgstr "?empty?"
+
+msgid "equipment/name"
+msgstr "Item Konsumsi"
+
+msgid "equipment/tags"
+msgstr "?empty?"
+
+msgid "fuelTank/name"
+msgstr "Tangki Bensin"
+
+msgid "fuel_tank/desc"
+msgstr "?empty?"
+
+msgid "fuel_tank/name"
+msgstr "Tangki Bensin"
+
+msgid "fuel_tank/tags"
+msgstr "?empty?"
+
+msgid "gun/desc"
+msgstr "?empty?"
+
+msgid "gun/name"
+msgstr "Senjata"
+
+msgid "gun/tags"
+msgstr "?empty?"
+
+msgid "optionalDevice/desc"
+msgstr "?empty?"
+
+msgid "optionalDevice/name"
+msgstr "Perlengkapan"
+
+msgid "optionalDevice/tags"
+msgstr "?empty?"
+
+msgid "radio/desc"
+msgstr "?empty?"
+
+msgid "radio/name"
+msgstr "Radio"
+
+msgid "radio/tags"
+msgstr "?empty?"
+
+msgid "shell/dimension/inch"
+msgstr "\""
+
+msgid "shell/dimension/mm"
+msgstr "mm"
+
+msgid "shell/dimension/sm"
+msgstr "cm"
+
+msgid "shell/kinds/ARMOR_PIERCING"
+msgstr "Armor-Piercing"
+
+msgid "shell/kinds/ARMOR_PIERCING_CR"
+msgstr "APCR"
+
+msgid "shell/kinds/ARMOR_PIERCING_HE"
+msgstr "AP High-Explosive"
+
+msgid "shell/kinds/HIGH_EXPLOSIVE"
+msgstr "High-Explosive"
+
+msgid "shell/kinds/HOLLOW_CHARGE"
+msgstr "High-Explosive Anti-Tank"
+
+msgid "shell/kindsAbbreviation/ARMOR_PIERCING"
+msgstr "AP"
+
+msgid "shell/kindsAbbreviation/ARMOR_PIERCING_CR"
+msgstr "APCR"
+
+msgid "shell/kindsAbbreviation/ARMOR_PIERCING_HE"
+msgstr "APHE"
+
+msgid "shell/kindsAbbreviation/HIGH_EXPLOSIVE"
+msgstr "HE"
+
+msgid "shell/kindsAbbreviation/HOLLOW_CHARGE"
+msgstr "HEAT"
+
+msgid "shell/name"
+msgstr "%(caliber)s%(dimension)s %(kind)s %(name)s"
+
+msgid "shot/desc"
+msgstr "?empty?"
+
+msgid "shot/name"
+msgstr "Peluru"
+
+msgid "shot/tags"
+msgstr "?empty?"
+
+msgid "surveyingDevice/name"
+msgstr "Observation Device"
+
+msgid "tankman/Skill_not_be_used"
+msgstr ""
+"Skill dan kemampuan tertentu bisa berhenti aktif jika tanker mengganti tank."
+
+msgid "tankman/roles/commander"
+msgstr "Komandan"
+
+msgid "tankman/roles/driver"
+msgstr "Pengemudi"
+
+msgid "tankman/roles/gunner"
+msgstr "Penembak"
+
+msgid "tankman/roles/loader"
+msgstr "Pengisi"
+
+msgid "tankman/roles/radioman"
+msgstr "Operator Radio"
+
+msgid "tankman/skills/brotherhood"
+msgstr "Brothers in Arms"
+
+msgid "tankman/skills/brotherhood_descr"
+msgstr ""
+"<shortDesc>Meningkatkan kualifikasi utama dan juga semua skill untuk seluruh "
+"kru.</shortDesc> Kemampuan lebih efektif jika dikombinasikan dengan Improved "
+"Ventilation, Extra Combat Ration, Chocolate, Case of Cola, Pudding and Tea, "
+"Strong Coffee, Improved Combat Rations."
+
+msgid "tankman/skills/camouflage"
+msgstr "Camouflage"
+
+msgid "tankman/skills/camouflage_descr"
+msgstr ""
+"<shortDesc>Mengurangi visibilitas tank.</shortDesc> Ditentukan oleh rata-"
+"rata persentase seluruh kru. Skill kumulatif dengan efek dari kamuflase dan "
+"Camouflage Net."
+
+msgid "tankman/skills/commander_eagleEye"
+msgstr "Recon"
+
+msgid "tankman/skills/commander_eagleEye_descr"
+msgstr ""
+"<shortDesc>Menambah Jarak Pandang Maksimum.</shortDesc> Efek akan meningkat "
+"seiring peningkatan persentase. Skill lebih efektif jika Alat Observasi "
+"rusak, atau digabungkan dengan Situational Awareness, Coated Optics, dan "
+"Binocular Telescope."
+
+msgid "tankman/skills/commander_expert"
+msgstr "Eagle Eye"
+
+msgid "tankman/skills/commander_expert_descr"
+msgstr ""
+"<shortDesc>Kemampuan Komandan mengidentifikasi modul yang terkena damage "
+"kritikal target tank dalam jarak pandang.</shortDesc> Efektif baik dalam "
+"mode tembakan langsung atau tidak langsung."
+
+msgid "tankman/skills/commander_sixthSense"
+msgstr "Sixth Sense"
+
+msgid "tankman/skills/commander_sixthSense_descr"
+msgstr ""
+"<shortDesc>Skill Komandan mengidentifikasi apakah tank telah terdeteksi oleh "
+"musuh atau tidak.</shortDesc>"
+
+msgid "tankman/skills/commander_tutor"
+msgstr "Mentor"
+
+msgid "tankman/skills/commander_tutor_descr"
+msgstr ""
+"<shortDesc>Memberikan tambahan Experience untuk semua kru kecuali Komandan.</"
+"shortDesc>"
+
+msgid "tankman/skills/commander_universalist"
+msgstr "Jack of All Trades"
+
+msgid "tankman/skills/commander_universalist_descr"
+msgstr ""
+"<shortDesc>Skill Komandan untuk menguasai seluruh kualifikasi utama dan "
+"menggantikan kru-kru yang terluka.</shortDesc> Hanya kualifikasi utama yang "
+"bisa digantikan. Efek penggantian akan semakin berkurang jika semakin banyak "
+"kru yang digantikan."
+
+msgid "tankman/skills/driver_badRoadsKing"
+msgstr "Off-Road Driving"
+
+msgid "tankman/skills/driver_badRoadsKing_descr"
+msgstr ""
+"<shortDesc>Mengurangi resistensi pada medan yang dilalui.</shortDesc> Efek "
+"akan meningkat seiring peningkatan persentase. Resistensi yang rendah akan "
+"menambah akselerasi dan manuver. Skill akan lebih efektif jika digabungkan "
+"dengan Additional Grousers."
+
+msgid "tankman/skills/driver_rammingMaster"
+msgstr "Controlled Impact"
+
+msgid "tankman/skills/driver_rammingMaster_descr"
+msgstr ""
+"<shortDesc>Mengurangi damage yang diterima dan menambah damage ke tank lawan "
+"saat menabraknya.</shortDesc> Skill hanya efektif jika tank Anda sedang "
+"bergerak. Skill tidak berfungsi antara dua tank sekutu."
+
+msgid "tankman/skills/driver_smoothDriving"
+msgstr "Smooth Ride"
+
+msgid "tankman/skills/driver_smoothDriving_descr"
+msgstr ""
+"<shortDesc>Menambahkan akurasi saat menembak sambil berjalan.</shortDesc> "
+"Skill tidak efektif saat tank diam atau hanya berputar di tempat. Skill akan "
+"lebih efektif jika digabungkan dengan Vertical Stabilizer."
+
+msgid "tankman/skills/driver_tidyPerson"
+msgstr "Preventative Maintenance"
+
+msgid "tankman/skills/driver_tidyPerson_descr"
+msgstr ""
+"<shortDesc>Mengurangi kemungkinan mesin terbakar dengan mencegah kebocoran "
+"gas atau minyak di kompartemen mesin.</shortDesc> Kemampuan akan lebih "
+"efektif jika digabungkan dengan Automatic Fire Extinguishers."
+
+msgid "tankman/skills/driver_virtuoso"
+msgstr "Clutch Braking"
+
+msgid "tankman/skills/driver_virtuoso_descr"
+msgstr ""
+"<shortDesc>Menambahkan kecepatan rotasi tank.</shortDesc> Skill lebih "
+"efektif jika digabungkan dengan Additional Grousers, Lend-Lease Oil, Quality "
+"Oil, Removed Speed Governor, 100-octane Gasoline, dan 105-octane Gasoline."
+
+msgid "tankman/skills/fire_fighting"
+msgstr "Firefighting"
+
+msgid "tankman/skills/fire_fighting_descr"
+msgstr ""
+"<shortDesc>Kemampuan memadamkan api lebih cepat.</shortDesc> Efek Skill "
+"ditentukan oleh rata-rata persentase seluruh kru."
+
+msgid "tankman/skills/gunner_gunsmith"
+msgstr "Armorer"
+
+msgid "tankman/skills/gunner_gunsmith_descr"
+msgstr ""
+"<shortDesc>Menambah akurasi pada meriam yang rusak.</shortDesc> Jika dua "
+"Penembak memiliki skill ini, hanya persentase yang tertinggi yang akan "
+"efektif. Skill akan lebih efektif jika digabungkan dengan Vertical "
+"Stabilizer."
+
+msgid "tankman/skills/gunner_rancorous"
+msgstr "Designated Target"
+
+msgid "tankman/skills/gunner_rancorous_descr"
+msgstr ""
+"<shortDesc>Memungkinan tank musuh yang ditarget terlihat lebih lama 2 detik."
+"</shortDesc> Skill efektif baik dalam tembakan langsung atau tidak langsung "
+"Jika dua Penembak memiliki kemampuan yang sama, efeknya tidak akan kumulatif."
+
+msgid "tankman/skills/gunner_smoothTurret"
+msgstr "Snap Shot"
+
+msgid "tankman/skills/gunner_smoothTurret_descr"
+msgstr ""
+"<shortDesc>Meningkatkan akurasi selama turret bergerak.</shortDesc> Jika dua "
+"Penembak memiliki skill ini, hanya persentase yang tertinggi yang akan "
+"efektif. Skill akan lebih efektif jika digabungkan dengan Vertical "
+"Stabilizer."
+
+msgid "tankman/skills/gunner_sniper"
+msgstr "Deadeye"
+
+msgid "tankman/skills/gunner_sniper_descr"
+msgstr ""
+"<shortDesc>Menambahkan kemungkinan untuk menyebabkan damage pada modul dan "
+"kru tank lawan. </shortDesc> Hanya efektif dengan peluru AP, APCR, dan "
+"peluru HEAT. Jika dua Penembak memiliki kemampuan yang sama, efeknya tidak "
+"kumulatif."
+
+msgid "tankman/skills/gunner_woodHunter"
+msgstr "Woodhunter"
+
+msgid "tankman/skills/gunner_woodHunter_descr"
+msgstr ""
+"<shortDesc>Kemampuan yang menambahkan Jarak Pandang Maksimum tanpa terhalang "
+"pohon dan semak-semak sebanyak 1 meter.</shortDesc> Kemampuan baru akan "
+"aktif setelah mencapai 100%. Jika dua Penembak memiliki kemampuan yang sama, "
+"efeknya tidak akan kumulatif."
+
+msgid "tankman/skills/loader_desperado"
+msgstr "Adrenaline Rush"
+
+msgid "tankman/skills/loader_desperado_descr"
+msgstr ""
+"<shortDesc>Meningkatkan kecepatan pengisian peluru saat tank memiliki kurang "
+"dari 10% HP.</shortDesc> Jika dua Pengisi memiliki kemampuan yang sama, "
+"efeknya tidak akan kumulatif. Skill akan lebih efektif jika digabungkan "
+"dengan Gun Rammer."
+
+msgid "tankman/skills/loader_intuition"
+msgstr "Intuition"
+
+msgid "tankman/skills/loader_intuition_descr"
+msgstr ""
+"<shortDesc>Memberikan kesempatan untuk kru Pengisi mengganti tipe peluru, "
+"meskipun meriam sudah terisi atau sedang proses mengisi.</shortDesc> "
+"Pengisian peluru baru langsung dilanjutkan dari titik saat dihentikan. Jika "
+"dua Pengisi memiliki kemampuan ini, efeknya bertambah."
+
+msgid "tankman/skills/loader_pedant"
+msgstr "Safe Stowage"
+
+msgid "tankman/skills/loader_pedant_descr"
+msgstr ""
+"<shortDesc>Menambahkan durabilitas rak amunisi: peluru tidak akan "
+"bersentuhan di rak. </shortDesc> Jika dua Pengisi memiliki skill yang sama, "
+"efeknya tidak akan kumulatif. Skill akan lebih efektif jika digabungkan "
+"dengan \"Wet\" Ammo Rack."
+
+msgid "tankman/skills/main"
+msgstr "Skill Utama"
+
+msgid "tankman/skills/radioman_finder"
+msgstr "Situational Awareness"
+
+msgid "tankman/skills/radioman_finder_descr"
+msgstr ""
+"<shortDesc>Menambah Jarak Pandang.</shortDesc> Jika dua Operator Radio "
+"memiliki skill ini, hanya persentase yang tertinggi yang akan efektif. Skill "
+"akan lebih efektif jika digabungkan dengan Recon, Coated Optics dan "
+"Binocular Telescope."
+
+msgid "tankman/skills/radioman_inventor"
+msgstr "Signal Boosting"
+
+msgid "tankman/skills/radioman_inventor_descr"
+msgstr ""
+"<shortDesc>Menambah Jarak Sinyal.</shortDesc> Jika dua Operator Radio "
+"memiliki skill ini, hanya persentase yang tertinggi yang akan efektif."
+
+msgid "tankman/skills/radioman_lastEffort"
+msgstr "Call for Vengeance"
+
+msgid "tankman/skills/radioman_lastEffort_descr"
+msgstr ""
+"<shortDesc>Memungkinkan Operator Radio yang masih hidup saat tank hancur "
+"untuk melaporkan lokasi lawan selama 2 detik.</shortDesc> Jika dua Operator "
+"Radio memiliki kemampuan ini, efeknya tidak akan kumulatif."
+
+msgid "tankman/skills/radioman_retransmitter"
+msgstr "Relaying"
+
+msgid "tankman/skills/radioman_retransmitter_descr"
+msgstr ""
+"<shortDesc>Menambahkan Jarak Sinyal komunikasi sekutu selama dalam radius "
+"radio.</shortDesc> Jika dua Operator Radio memiliki skill ini, hanya "
+"persentase yang tertinggi yang akan efektif."
+
+msgid "tankman/skills/repair"
+msgstr "Repairs"
+
+msgid "tankman/skills/repair_descr"
+msgstr ""
+"<shortDesc>Meningkatkan kecepatan perbaikan modul tank.</shortDesc> Efek "
+"Skill ditentukan oleh rata-rata persentase seluruh kru. Skill akan lebih "
+"efektif jika digabungkan dengan Toolbox."
+
+msgid "tankman/skills/type/perk"
+msgstr "Kemampuan. Mulai memiliki efek setelah mencapai 100%."
+
+msgid "tankman/skills/type/perk_common"
+msgstr "Kemampuan. Mulai memiliki efek setelah<br/>seluruh kru mencapai 100%."
+
+msgid "tankman/skills/type/skill"
+msgstr ""
+"Skill. Mulai memiliki efek setelah latihan dimulai.<br/>Efek meningkat "
+"seiring kenaikan persentase."
+
+msgid "track/name"
+msgstr "Track"
+
+msgid "turret/desc"
+msgstr "?empty?"
+
+msgid "turret/name"
+msgstr "Turret"
+
+msgid "turret/tags"
+msgstr "?empty?"
+
+msgid "turretRotator/name"
+msgstr "Turret"
+
+msgid "vehicle/desc"
+msgstr "?empty?"
+
+msgid "vehicle/name"
+msgstr "Tank"
+
+msgid "vehicle/tags/at-spg/desc"
+msgstr "?empty?"
+
+msgid "vehicle/tags/at-spg/name"
+msgstr "Tank Destroyer"
+
+msgid "vehicle/tags/heavy_tank/desc"
+msgstr "?empty?"
+
+msgid "vehicle/tags/heavy_tank/name"
+msgstr "Heavy Tank"
+
+msgid "vehicle/tags/light_tank/desc"
+msgstr "?empty?"
+
+msgid "vehicle/tags/light_tank/name"
+msgstr "Light Tank"
+
+msgid "vehicle/tags/medium_tank/desc"
+msgstr "?empty?"
+
+msgid "vehicle/tags/medium_tank/name"
+msgstr "Medium Tank"
+
+msgid "vehicle/tags/spg/desc"
+msgstr "?empty?"
+
+msgid "vehicle/tags/spg/name"
+msgstr "SPG"

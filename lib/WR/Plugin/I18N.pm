@@ -9,9 +9,20 @@ sub register {
         my $c = shift;
 
         my $language = $c->session('language') || 'en';
-        my $langpath = (-e $c->app->home->rel_dir(sprintf('lang/%s', $language))) ? $c->app->home->rel_dir(sprintf('lang/%s', $language)) : $c->home->rel_dir('lang/en');
-        my $compath = $c->app->home->rel_dir('lang/common');
-        $c->stash('i18n_localizer' => Data::Localize::Gettext->new(formatter => WR::Localize::Formatter->new(), paths => [ sprintf('%s/*.po', $compath), sprintf('%s/*.po', $langpath) ]));
+
+        # set up the paths 
+        my $paths = [
+            sprintf('%s/*.po', $c->app->home->rel_dir('lang/site/common')),
+            sprintf('%s/*.po', $c->app->home->rel_dir('lang/wg/common')),
+        ];
+
+        if($language ne 'en') {
+            push(@$paths, 
+                sprintf('%s/*.po', $c->app->home->rel_dir(sprintf('lang/site/%s', $language))),
+                sprintf('%s/*.po', $c->app->home->rel_dir(sprintf('lang/wg/%s', $language))),
+            );
+        }
+        $c->stash('i18n_localizer' => Data::Localize::Gettext->new(formatter => WR::Localize::Formatter->new(), paths => $paths));
         $c->stash('user_lang' => $language);
     });
 
@@ -21,9 +32,18 @@ sub register {
 
         $c->session(language => $language);
 
-        my $langpath = (-e $c->app->home->rel_dir(sprintf('lang/%s', $language))) ? $c->app->home->rel_dir(sprintf('lang/%s', $language)) : $c->home->rel_dir('lang/en');
-        my $compath = $c->app->home->rel_dir('lang/common');
-        $c->stash('i18n_localizer' => Data::Localize::Gettext->new(formatter => WR::Localize::Formatter->new(), paths => [ sprintf('%s/*.po', $compath), sprintf('%s/*.po', $langpath) ]));
+        my $paths = [
+            sprintf('%s/*.po', $c->app->home->rel_dir('lang/site/common')),
+            sprintf('%s/*.po', $c->app->home->rel_dir('lang/wg/common')),
+        ];
+
+        if($language ne 'en') {
+            push(@$paths, 
+                sprintf('%s/*.po', $c->app->home->rel_dir(sprintf('lang/site/%s', $language))),
+                sprintf('%s/*.po', $c->app->home->rel_dir(sprintf('lang/wg/%s', $language))),
+            );
+        }
+        $c->stash('i18n_localizer' => Data::Localize::Gettext->new(formatter => WR::Localize::Formatter->new(), paths => $paths));
         $c->stash('user_lang' => $language);
     });
 
