@@ -187,7 +187,7 @@ sub register {
         my $self = shift;
         my $role = shift;
         my $roles_by_clan = {
-            'WG' => [ 'events', 'chatreader' ],
+            'WG' => [ 'events', 'moderator' ],
         };
 
         return 1 if($self->is_the_boss);
