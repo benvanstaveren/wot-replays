@@ -186,7 +186,7 @@ HeatmapViewer.prototype = {
             } else {
                 if(d.data.count == 0) {
                     me.trigger('nodata');
-                    if(me.rendered) me.getMapGrod().hideLoader();
+                    if(me.rendered) me.getMapGrid().hideLoader();
                 } else {
                     var max = 0;
                     var hmd = [];
