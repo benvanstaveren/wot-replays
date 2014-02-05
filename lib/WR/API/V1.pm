@@ -111,7 +111,7 @@ sub map_heatmap_data {
                     }
                     $self->render(json => { ok => 1, data => { set => $real_data, count => $pc } });
                 } else {
-                    $self->render(json => { ok => 0, error => 'db.error', 'db.error' => $e });
+                    $self->render(json => { ok => 0, error => 'db.error', 'db.error' => sprintf('Map with id %d gpid %d not found', $d->{numerical_id}, $gpid) });
                 }
             });
         } else {
