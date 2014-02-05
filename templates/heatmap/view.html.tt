@@ -20,7 +20,6 @@
                     "radius"    : 32,
                     "visible"   : true,
                     "opacity"   : 40,
-                    "element"   : document.getElementById($(mapGrid.getOverlay('viewer')).attr('id')),
                     "gradient"  : {
                         0.30        : 'rgb(0,0,255)',
                         0.50        : 'rgb(0,255,255)',
