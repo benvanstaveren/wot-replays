@@ -20,13 +20,25 @@
         </div>
         <div class="col-lg-9 col-md-9">
             <div class="row">
-                <div class="col-lg-9 col-md-9">
+                <div class="col-lg-8 col-md-8">
                     <p class="lead">
                         <a data-placement="auto" data-toggle="tooltip" class="bs-tooltip [% IF replay.panel.premium %]premium[% END %]" href="/player/[% replay.panel.server %]/[% replay.panel.name |uri %]/" title="[% replay.panel.name |html %] [% IF replay.panel.premium %](Premium)[% END %]">[% replay.panel.name |truncate(15) |html %]</a> - <a href="/vehicle/[% h.vehicle_link(replay.panel.vehicle.ident) %]/" data-placement="auto" title="[% replay.panel.vehicle.label |html %]" data-toggle="tooltip" class="bs-tooltip">[% IF replay.panel.vehicle.i18n.defined %][% h.loc(replay.panel.vehicle.i18n _ '_short') %][% ELSE %][% replay.panel.vehicle.label_short |html %][% END %]</a> - <a href="/map/[% replay.panel.map.slug |uri %]/" data-toggle="tooltip" class="bs-tooltip" title="[% replay.panel.map.label |html %]" data-placement="auto">[% replay.panel.map.label |html %]</a> 
                     </p>
                 </div>
-                <div class="col-lg-3 col-md-3 text-right">
-                    <p class="text-right">([% h.loc_short('#bonustype:' _ replay.panel.bonus_type) %] [% h.loc_short('#gametype:' _ replay.panel.game_type) %])</p>
+                <div class="col-lg-4 col-md-4 text-right" style="padding-top: 2px">
+                    <span class="label label-default">[% h.loc_short('#bonustype:' _ replay.panel.bonus_type) %]</span>
+                    <span class="label label-default">[% h.loc_short('#gametype:' _ replay.panel.game_type) %]</span>
+                    [% IF !replay.site.visible %]
+                        [% IF replay.site.privacy == 1 %]
+                            <span class="label label-default">Unlisted</span>
+                        [% ELSIF replay.site.privacy == 2 %]
+                            <span class="label label-danger">Private</span>
+                        [% ELSIF replay.site.privacy == 3 %]
+                            <span class="label label-warning">Clan</span>
+                        [% END %]
+                    [% ELSE %]
+                        <span class="label label-primary">Public</span>
+                    [% END %]
                 </div>
             </div>
             <div class="row">
