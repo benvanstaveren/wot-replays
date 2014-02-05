@@ -255,7 +255,7 @@ sub process_job {
 
         $self->job_status($job, {
             id      =>  'wn7',
-            text    =>  'Fetching WN7 data from Statterbox',
+            text    =>  'Fetching WN8 data from Statterbox',
             type    =>  'progress',
             count   =>  0,
             total   =>  $total,
@@ -275,7 +275,7 @@ sub process_job {
 
         $self->job_status($job, {
             id      =>  'wn7',
-            text    =>  'Fetching WN7 data from Statterbox',
+            text    =>  'Fetching WN8 data from Statterbox',
             type    =>  'progress',
             count   =>  $d->{count},
             total   =>  $d->{total},
@@ -287,7 +287,7 @@ sub process_job {
         my ($o, $total) = (@_);
         $self->job_status($job, {
             id      =>  'wn7',
-            text    =>  'Fetching WN7 data from Statterbox',
+            text    =>  'Fetching WN8 data from Statterbox',
             type    =>  'progress',
             count   =>  $total,
             total   =>  $total,
@@ -333,6 +333,12 @@ sub process_job {
                 $replay->{site}->{privacy} = $job->{data}->{privacy};
                 $replay->{site}->{description} = (defined($job->{data}->{desc}) && length($job->{data}->{desc}) > 0) ? $job->{data}->{desc} : undef;
                 $replay->{file} = $job->{data}->{file_base}; 
+
+                # fix privacy for clan war replays
+                if($replay->{game}->{bonus_type} == 5) {
+                    $replay->{site}->{visible} = Mango::BSON::bson_false;
+                    $replay->{site}->{privacy} = 3;
+                }
             }
 
             # don't bother with the packets, we'll send them out as an event stream later after we store them in the database(?)

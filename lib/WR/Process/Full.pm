@@ -582,10 +582,10 @@ sub _real_process {
                             my $url = sprintf('http://statterbox.com/api/v1/%s/calc/wn8?t=%d&frags=%d&damage=%d&spots=%d&defense=%d',
                                 '5299a074907e1337e0010000',
                                 $roster->{vehicle}->{typecomp},
-                                $replay->{stats}->{kills},
-                                $replay->{stats}->{damageDealt},
-                                $replay->{stats}->{spotted},
-                                $replay->{stats}->{droppedCapturePoints}
+                                $replay->{stats}->{kills} + 0,
+                                $replay->{stats}->{damageDealt} + 0,
+                                $replay->{stats}->{spotted} + 0,
+                                $replay->{stats}->{droppedCapturePoints} + 0
                                 );
 
                             $self->debug(sprintf('Getting battle WN8 from: %s', $url));
