@@ -1,0 +1,12 @@
+<div class="col-lg-6 col-md-6">
+    <div 
+        class="rating none rounded"
+        style="margin: 2px; font-weight: bold; text-align: center"
+        ></div>
+</div>
+<div class="col-lg-6 col-md-6">
+    <div 
+        class="rating none rounded"
+        style="margin: 2px; font-weight: bold; text-align: center"
+        ></div>
+</div>

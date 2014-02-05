@@ -21,6 +21,14 @@ span {
         &.great { color: $wn8_great }
         &.unicum { color: $wn8_unicum }
         &.superunicum { color: $wn8_superunicum }
+        &.none {
+            text-align: center;
+            color: white;
+            background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0; 
+            &:after {
+                content: "?";
+            }
+        }
     }
 }
 
@@ -36,6 +44,14 @@ a {
         &.unicum { color: lighten($wn8_unicum, 25%); background: $wn8_unicum none repeat scroll 0 0 }
         &.superunicum { color: lighten($wn8_superunicum, 25%); background: $wn8_superunicum none repeat scroll 0 0 }
         &.notavailable { color: white; background: black }
+        &.none {
+            text-align: center;
+            color: white;
+            background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0; 
+            &:after {
+                content: "?";
+            }
+        }
     }
 }
 
@@ -51,6 +67,14 @@ div {
         &.unicum { color: lighten($wn8_unicum, 25%); background: $wn8_unicum none repeat scroll 0 0 }
         &.superunicum { color: lighten($wn8_superunicum, 25%); background: $wn8_superunicum none repeat scroll 0 0 }
         &.notavailable { color: white; background: black }
+        &.none {
+            text-align: center;
+            color: white;
+            background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0; 
+            &:after {
+                content: "?";
+            }
+        }
     }
 }
 
@@ -66,5 +90,13 @@ td {
         &.unicum { color: lighten($wn8_unicum, 25%); background: $wn8_unicum none repeat scroll 0 0 }
         &.superunicum { color: lighten($wn8_superunicum, 25%); background: $wn8_superunicum none repeat scroll 0 0 }
         &.notavailable { color: white; background: black }
+        &.none {
+            text-align: center;
+            color: white;
+            background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0; 
+            &:after {
+                content: "?";
+            }
+        }
     }
 }
