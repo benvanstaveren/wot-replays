@@ -27,6 +27,17 @@
             <div class="col-lg-12 col-md-12">
                 <h4 style="padding: 0px; margin: 0px 0px 5px 0px">
                         <span style="font-weight: normal">[% h.loc('replay.text.result') %]:</span><span>[% INCLUDE replay/view/matchresult.html.tt %]</span> <span style="margin: 0px 0px 0px 10px; font-weight: normal">[% h.loc('replay.text.survived') %]:</span><span> [% INCLUDE replay/view/vehicle_stats/survived.html.tt %]</span>
+                        [% IF !replay.site.visible %]
+                            [% IF replay.site.privacy == 1 %]
+                                <span class="pull-right label label-default">Unlisted</span>
+                            [% ELSIF replay.site.privacy == 2 %]
+                                <span class="pull-right label label-danger">Private</span>
+                            [% ELSIF replay.site.privacy == 3 %]
+                                <span class="pull-right label label-warning">Clan</span>
+                            [% END %]
+                        [% ELSE %]
+                            <span class="label label-primary">Public</span>
+                        [% END %]
                 </h4>
                 <div class="btn-group btn-group-justified">
                     [% button_template = "replay/view/buttons_" _ context _ ".html.tt" %]

@@ -21,7 +21,7 @@ sub is_allowed_to_view {
     my $self   = shift;
     my $replay = shift;
 
-    return 1 if($replay->{site}->{visible} && $replay->{site}->{privacy} == 0);
+    return 1 if($replay->{site}->{visible});
     return 1 if($replay->{site}->{privacy} == 1); # anyone can see these as long as they have a link
 
     # the next ones require users to be logged in
@@ -37,7 +37,7 @@ sub is_allowed_to_view {
         return 0 unless(defined($self->current_user->{clan}));
         return 1 if( 
             ($replay->{game}->{server} eq $self->current_user->{player_server}) &&
-            ($replay->{game}->{clan} eq $self->current_user->{clan}->{abbreviation})
+            ($replay->{game}->{recorder}->{clan} eq $self->current_user->{clan}->{abbreviation})
         );
         return 0;
     }

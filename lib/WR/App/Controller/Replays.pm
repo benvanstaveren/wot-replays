@@ -17,7 +17,6 @@ sub desc {
                 if($self->is_own_replay($d)) {
                     $self->model('wot-replays.replays')->update({ _id => Mango::BSON::bson_oid($self->stash('replay_id')) }, { '$set' => { 'site.description' => $self->req->param('desc') }} => sub {
                         my ($c, $e, $d) = (@_);
-
                         $self->render(json => { ok => 1 });
                     });
                 } else {
