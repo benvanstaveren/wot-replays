@@ -189,7 +189,7 @@ HeatmapViewer.prototype = {
                     d.data.set.forEach(function(data) {
                         data.value = data.value * 10;
                         if(data.value > max) max = data.value;
-                        var gc = this.getMapGrid().game_to_map_coord([ data.x, data.y ]);
+                        var gc = me.getMapGrid().game_to_map_coord([ data.x, data.y ]);
                         hmd.push({ x: gc.x, y: gc.y, count: data.value });
                     });
                     var dataset = { max: max, data: hmd };
