@@ -36,7 +36,7 @@
                                 <span class="pull-right label label-warning">Clan</span>
                             [% END %]
                         [% ELSE %]
-                            <span class="label label-primary">Public</span>
+                            <span class="pull-right label label-primary">Public</span>
                         [% END %]
                 </h4>
                 <div class="btn-group btn-group-justified">
