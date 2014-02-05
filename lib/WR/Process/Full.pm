@@ -47,6 +47,7 @@ has 'hm_updates'        => sub {
         'deaths'            =>  {},
         'damage_d'          =>  {},
         'damage_r'          =>  {},
+        'killshot'          =>  {},
     }
 };
 
@@ -402,19 +403,30 @@ sub _real_process {
         $game->on('player.position' => sub {
             my ($g, $v) = (@_);
 
+            return unless($g->arena_period == ARENA_PERIOD_BATTLE);
+
             my $intx = int(sprintf('%.0f', $v->{position}->[0]));
             my $inty = int(sprintf('%.0f', $v->{position}->[2]));
 
             $self->hm_updates->{location}->{$intx}->{$inty} += $v->{points};
-            $self->battleheat->{$intx}->{$inty} += $v->{points} if($g->arena_period == ARENA_PERIOD_BATTLE);
+            $self->battleheat->{$intx}->{$inty} += $v->{points};
         });
         $game->on('player.tank.destroyed' => sub {
             my ($g, $v) = (@_);
+
+            # we need to record the death as the location of the player
+            if(my $dl = $g->get_player_position($v->{id})) {
+                my $intx = int(sprintf('%.0f', $dl->[0]));
+                my $inty = int(sprintf('%.0f', $dl->[2]));
+                $self->hm_updates->{deaths}->{$intx}->{$inty}++;
+            }
+
+            # now record the location of the destroyer, 
             if(defined($v->{destroyer})) {
                 if(my $dl = $g->get_player_position($v->{destroyer})) {
                     my $intx = int(sprintf('%.0f', $dl->[0]));
                     my $inty = int(sprintf('%.0f', $dl->[2]));
-                    $self->hm_updates->{deaths}->{$intx}->{$inty}++;
+                    $self->hm_updates->{killshot}->{$intx}->{$inty}++;
                 }
             }
         });

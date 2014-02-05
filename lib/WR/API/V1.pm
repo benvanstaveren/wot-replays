@@ -97,21 +97,19 @@ sub map_heatmap_data {
         my ($c, $e, $d) = (@_);
         if(defined($d)) {
             $self->app->log->debug(sprintf('map_heatmap_data: collection: wot-replays.hm_%s with _id: %d for gpid %d', $hmtype, $d->{numerical_id}, $gpid));
-            $self->model(sprintf('wot-replays.hm_%s', $hmtype))->find_one({ _id => $d->{numerical_id}} => sub {
+            $self->model(sprintf('wot-replays.hm_%s', $hmtype))->find_one({ _id => sprintf('%d_%d', $d->{numerical_id}, $gpid)} => sub {
                 my ($c, $e, $hmd) = (@_);
                 if(defined($hmd)) {
-                    my $data = $hmd->{'g'}->{$gpid}; # gameplay id 
-                    my $real_data = {};
+                    my $real_data = [];
                     my $pc = 0;
-                    use Data::Dumper;
-                    $self->app->log->debug('map_heatmap_data: HMD: ' . Dumper($data));
-                    foreach my $t (@$bt) {
-                        foreach my $cell (keys(%{$data->{$t}})) {
-                            $real_data->{$cell} += $data->{$t}->{$cell}; 
+                    foreach my $x (keys(%{$bt})) {
+                        next if($x eq '_id'});
+                        foreach my $y (keys(%{$bt->{$x}})) {
+                            push(@$real_data, { x => $x, y => $y, value => $bt->{$x}->{$y} });
                             $pc++;
                         }
                     }
-                    $self->render(json => { ok => 1, data => { set => [ map { { cell => $_, value => $real_data->{$_} } } (keys(%$real_data)) ], count => $pc } });
+                    $self->render(json => { ok => 1, data => { set => $real_data, count => $pc } });
                 } else {
                     $self->render(json => { ok => 0, error => 'db.error', 'db.error' => $e });
                 }

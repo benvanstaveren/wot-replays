@@ -368,6 +368,24 @@ sub process_job {
                     type    =>  'spinner',
                     done    =>  Mango::BSON::bson_true,
                 });
+
+                # store the heatmap updates
+                foreach my $type (keys(%{$o->hm_updates})) {
+                    my $data = $o->hm_updates->{$type};
+                    my $upd  = {};
+                    foreach my $x (keys(%$data)) {
+                        warn 'x: ', $x, "\n";
+                        foreach my $y (keys(%{$data->{$x}})) {
+                            warn 'y: ', $y, "\n";
+                            $upd->{sprintf('%d.%d', $x, $y)} += $data->{$x}->{$y};
+                        }
+                    }
+                    warn 'update: ', Dumper($upd);
+                    $self->db->collection(sprintf('hm_%s', $type))->update({
+                        _id     => sprintf('%d_%d', $replay->{game}->{map}, $replay->{game}->{bonus_type}),
+                    }, { '$inc' => $upd }, { upsert => 1 });
+                }
+
                 return $replay;
             } else {
                 $self->job_error($job, 'Error saving replay');

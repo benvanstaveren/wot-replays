@@ -29,7 +29,7 @@
                             <label class="col-lg-2">Privacy Setting <a href="/doc/replayprivacy" class="bs-tooltip" title="More info...">(?)</a></label>
                             <div class="col-lg-10">
                                 <select name="hide">
-                                    <option value="0">Public</option>
+                                    <option selected="true" value="0">Public</option>
                                     <option value="1">Unlisted</option>
                                     <option value="2">Private</option>
                                     <option [% IF !h.current_user.clan.defined %]disabled="true"[% END %] value="3">Clan</option>
