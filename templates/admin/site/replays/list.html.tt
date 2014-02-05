@@ -1,0 +1,109 @@
+<div id="replay-list">
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <h4>[% total_replays %] replays</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>player</th>
+                    <th>server</th>
+                    <th>map</th>
+                    <th>vehicle</th>
+                    <th>w/l</th>
+                    <th>surv.</th>
+                    <th>kills</th>
+                    <th>damaged</th>
+                    <th>spotted</th>
+                    <th>xp</th>
+                    <th>credits</th>
+                    <th>version</th>
+                    <th>links</th>
+                    <th>privacy</th>
+                </tr>
+            </thead>
+            <tbody>
+                [% FOREACH replay IN replays %]
+                    <tr>
+                        <td>[% replay.game.recorder.name %]</td>
+                        <td>[% replay.game.server %]</td>
+                        <td>[% replay.panel.map.label %]</td>
+                        <td>[% replay.panel.vehicle.label %]</td>
+                        <td>
+                            [% IF replay.panel.winner == 0 %]
+                                draw
+                            [% ELSIF replay.panel.team == replay.panel.winner %]
+                                <span class="green">victory</span>
+                            [% ELSE %]
+                                <span class="red">defeat</span>
+                            [% END %]
+                        </td>
+                        <td>
+                            [% IF recv.player.survived.defined %]
+                                [% IF recv.player.survived %]yes[% ELSE %]no[% END %]
+                            [% ELSE %]
+                                [% IF replay.panel.survived %]yes[% ELSE %]no[% END %]
+                            [% END %]
+                        </td>
+                        <td>[% replay.panel.killed + 0 %]</td>
+                        <td>[% replay.panel.damaged + 0 %]</td>
+                        <td>[% replay.panel.spotted + 0 %]</td>
+                        <td>[% replay.panel.xp + 0 %]</td>
+                        <td>[% replay.panel.credits + 0 %]</td>
+                        <td>[% h.wot_version(replay.panel.version) %]</td>
+                        <td><a href="/replay/[% replay.panel.id %].html">view</a></td>
+                        <td>
+                            [% IF replay.site.visible %]
+                                public
+                            [% ELSE %]
+                                [% IF replay.site.privacy == 1 %]
+                                    unlisted
+                                [% ELSIF replay.site.privacy == 2 %]
+                                    private
+                                [% ELSIF replay.site.privacy == 3 %]
+                                    clan
+                                [% END %]
+                            [% END %]
+                        </td>
+                    </tr>
+                [% END %]
+            </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <ul class="pagination pagination-sm">
+                <li [% IF p == 1 %]class="disabled"[% END %]><a href="/admin/site/replays/page/1">&laquo;</a></li>
+                <li [% IF p == 1 %]class="disabled"[% END %]><a href="/admin/site/replays/page/[% p - 1 %]">&lt;</a></li>
+                [% start = p - 10 %]
+                [% IF start < 1 %]
+                    [% start = 1 %]
+                [% END %]
+                [% cpage = start %]
+                [% cmax  = p + 10 %]
+                [% IF cmax > maxp %]
+                    [% cmax = maxp + 1 %]
+                [% END %]
+                [% WHILE cpage < cmax %]
+                    [% IF cpage == p %]
+                        <li class="active"><a href="/admin/site/replays/page/[% cpage %]">[% cpage %]</a></li>
+                    [% ELSE %]
+                        <li><a href="/admin/site/replays/page/[% cpage %]">[% cpage %]</a></li>
+                    [% END %]
+                    [% cpage = cpage + 1 %]
+                [% END %]
+                [% IF p < maxp %]
+                    <li><a href="/admin/site/replays/page/[% p + 1 %]">&gt;</a></li>
+                    <li><a href="/admin/site/replays/page/[% maxp %]">&raquo;</a></li>
+                [% ELSE %]
+                    <li class="disabled"><a href="/admin/site/replays/page/[% p + 1 %]">&gt;</a></li>
+                    <li class="disabled"><a href="/admin/site/replays/page/[% maxp %]">&raquo;</a></li>
+                [% END %]
+            </ul>
+        </div>
+    </div>
+</div>
