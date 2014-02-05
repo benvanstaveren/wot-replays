@@ -1,117 +1,3 @@
-/* base wn7 colors */
-/* this should really be loop-able somehow...*/
-span.wn7.verybad {
-  color: black; }
-span.wn7.bad {
-  color: #5e0000; }
-span.wn7.belowaverage {
-  color: #cd3333; }
-span.wn7.average {
-  color: #d7b600; }
-span.wn7.good {
-  color: #6d9521; }
-span.wn7.verygood {
-  color: #4c762e; }
-span.wn7.great {
-  color: #4a92b7; }
-span.wn7.unicum {
-  color: #83579d; }
-span.wn7.superunicum {
-  color: #5a3175; }
-
-a.wn7.verybad {
-  color: #404040;
-  background: black none repeat scroll 0 0; }
-a.wn7.bad {
-  color: #de0000;
-  background: #5e0000 none repeat scroll 0 0; }
-a.wn7.belowaverage {
-  color: #e69999;
-  background: #cd3333 none repeat scroll 0 0; }
-a.wn7.average {
-  color: #ffe558;
-  background: #d7b600 none repeat scroll 0 0; }
-a.wn7.good {
-  color: #afdb5b;
-  background: #6d9521 none repeat scroll 0 0; }
-a.wn7.verygood {
-  color: #8ac262;
-  background: #4c762e none repeat scroll 0 0; }
-a.wn7.great {
-  color: #a5c9db;
-  background: #4a92b7 none repeat scroll 0 0; }
-a.wn7.unicum {
-  color: #bfa6ce;
-  background: #83579d none repeat scroll 0 0; }
-a.wn7.superunicum {
-  color: #9c66bf;
-  background: #5a3175 none repeat scroll 0 0; }
-a.wn7.notavailable {
-  color: white;
-  background: black; }
-
-div.wn7.verybad {
-  color: #404040;
-  background: black none repeat scroll 0 0; }
-div.wn7.bad {
-  color: #de0000;
-  background: #5e0000 none repeat scroll 0 0; }
-div.wn7.belowaverage {
-  color: #e69999;
-  background: #cd3333 none repeat scroll 0 0; }
-div.wn7.average {
-  color: #ffe558;
-  background: #d7b600 none repeat scroll 0 0; }
-div.wn7.good {
-  color: #afdb5b;
-  background: #6d9521 none repeat scroll 0 0; }
-div.wn7.verygood {
-  color: #8ac262;
-  background: #4c762e none repeat scroll 0 0; }
-div.wn7.great {
-  color: #a5c9db;
-  background: #4a92b7 none repeat scroll 0 0; }
-div.wn7.unicum {
-  color: #bfa6ce;
-  background: #83579d none repeat scroll 0 0; }
-div.wn7.superunicum {
-  color: #9c66bf;
-  background: #5a3175 none repeat scroll 0 0; }
-div.wn7.notavailable {
-  color: white;
-  background: black; }
-
-td.wn7.verybad {
-  color: #404040;
-  background: black none repeat scroll 0 0; }
-td.wn7.bad {
-  color: #de0000;
-  background: #5e0000 none repeat scroll 0 0; }
-td.wn7.belowaverage {
-  color: #e69999;
-  background: #cd3333 none repeat scroll 0 0; }
-td.wn7.average {
-  color: #ffe558;
-  background: #d7b600 none repeat scroll 0 0; }
-td.wn7.good {
-  color: #afdb5b;
-  background: #6d9521 none repeat scroll 0 0; }
-td.wn7.verygood {
-  color: #8ac262;
-  background: #4c762e none repeat scroll 0 0; }
-td.wn7.great {
-  color: #a5c9db;
-  background: #4a92b7 none repeat scroll 0 0; }
-td.wn7.unicum {
-  color: #bfa6ce;
-  background: #83579d none repeat scroll 0 0; }
-td.wn7.superunicum {
-  color: #9c66bf;
-  background: #5a3175 none repeat scroll 0 0; }
-td.wn7.notavailable {
-  color: white;
-  background: black; }
-
 /* base wn8 colors */
 /* this should really be loop-able somehow...*/
 span.wn8.verybad {
@@ -132,6 +18,12 @@ span.wn8.unicum {
   color: #83579d; }
 span.wn8.superunicum {
   color: #5a3175; }
+span.wn8.none {
+  text-align: center;
+  color: white;
+  background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0; }
+  span.wn8.none:after {
+    content: "?"; }
 
 a.wn8.verybad {
   color: #404040;
@@ -163,6 +55,12 @@ a.wn8.superunicum {
 a.wn8.notavailable {
   color: white;
   background: black; }
+a.wn8.none {
+  text-align: center;
+  color: white;
+  background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0; }
+  a.wn8.none:after {
+    content: "?"; }
 
 div.wn8.verybad {
   color: #404040;
@@ -194,6 +92,12 @@ div.wn8.superunicum {
 div.wn8.notavailable {
   color: white;
   background: black; }
+div.wn8.none {
+  text-align: center;
+  color: white;
+  background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0; }
+  div.wn8.none:after {
+    content: "?"; }
 
 td.wn8.verybad {
   color: #404040;
@@ -225,6 +129,12 @@ td.wn8.superunicum {
 td.wn8.notavailable {
   color: white;
   background: black; }
+td.wn8.none {
+  text-align: center;
+  color: white;
+  background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0; }
+  td.wn8.none:after {
+    content: "?"; }
 
 div.rating {
   text-align: center;

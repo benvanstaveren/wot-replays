@@ -66,6 +66,19 @@ sub pr {
     });
 }
 
+sub setting {
+    my $self = shift;
+    my $s    = $self->req->param('setting');
+    my $v    = $self->req->param('value');
+
+    $self->render_later;
+    $self->model('wot-replays.accounts')->update({ _id => $self->current_user->{_id} }, {
+        '$set' => { sprintf('settings.%s', $s) => $v }
+    } => sub {
+        $self->render(json => { ok => 1 });
+    });
+}
+
 sub sr {
     my $self = shift;
     my $id = Mango::BSON::bson_oid($self->req->param('id'));

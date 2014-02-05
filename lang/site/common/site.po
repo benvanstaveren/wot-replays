@@ -684,3 +684,6 @@ msgstr "Your Profile - Settings"
 
 msgid "profile.settings.language.title"
 msgstr "Language"
+
+msgid "profile.settings.ratings.title"
+msgstr "Ratings in Panel"

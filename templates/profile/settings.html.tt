@@ -3,7 +3,7 @@
         <h2>[% h.loc('profile.settings.page.title') %]</h2>
     </div>
     <div class="row">
-        <div class="col-lg-6 col-md-6">
+        <div class="col-lg-4 col-md-4">
             <h4>[% h.loc('profile.settings.language.title') %]</h4>
             <select name="language" disabled="true" class="disabled">
                 [% FOREACH language IN config.languages %]
@@ -11,11 +11,29 @@
                 [% END %]
             </select>
         </div>
-        <div class="col-lg-6 col-md-6">
+        <div class="col-lg-4 col-md-4">
+            <h4>[% h.loc('profile.settings.ratings.title') %]</h4>
+            <select name="ratings">
+                <option value="simplified">Display Simplified Ratings</option>
+                <option value="wn8">Display WN8 Ratings</option>
+                <option value="none">Don't display any ratings</option>
+            </select>
+        </div>
+        <div class="col-lg-4 col-md-4">
         </div>
     </div>
     <script type="text/javascript">
         $(document).ready(function() {
+            $('select[name="ratings"]').val('[% h.current_user.settings.display.ratings || 'simplified' %]').change(function() {
+                if($(this).hasClass('disabled')) return;
+                $(this).addClass('disabled');
+                $.getJSON('/profile/j/setting', {
+                    setting: 'display.ratings', 
+                    value  : $(this).val()
+                }, function(d) {
+                    $(this).removeClass('disabled');
+                });
+            });
             $('select[name="language"]').change(function() {
                 //var l = $(this).val();
                 //document.location.href = '/profile/sl/' + l;
