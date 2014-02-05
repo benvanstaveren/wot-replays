@@ -181,7 +181,8 @@ HeatmapViewer.prototype = {
         var me  = this;
         $.getJSON(url, { 't': this.apitoken, '_': new Date().getTime() }, function(d) {
             if(d.ok == 0) {
-                me.trigger('onError', { code: d.error, text: d[d.error] });
+                if(me.rendered) me.getMapGrid().hideLoader();
+                me.trigger('error', { code: d.error, text: d[d.error] });
             } else {
                 if(d.data.count == 0) {
                     me.trigger('nodata');
