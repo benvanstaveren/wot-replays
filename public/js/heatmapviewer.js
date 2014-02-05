@@ -160,10 +160,6 @@ HeatmapViewer.prototype = {
     getMode: function() {
         return this._mode;
     },
-    setRadius: function(newRadius) {
-        this.getHeatmap().set('radius', newRadius);
-        this.getHeatmap().store.setDataSet(this._currentSet);
-    },
     loadHeatmapData: function() {
         var url = this.api_url + '/map/' + this.ident + '/heatmap/' + this.getType() + '/' + this.getMode() + '/';
 
@@ -191,8 +187,10 @@ HeatmapViewer.prototype = {
                     var max = 0;
                     var hmd = [];
                     d.data.set.forEach(function(data) {
+                        data.value = data.value * 10;
                         if(data.value > max) max = data.value;
-                        hmd.push({ x: data.x, y: data.y, count: data.value });
+                        var gc = this.getMapGrid().game_to_map_coord([ data.x, data.y ]);
+                        hmd.push({ x: gc.x, y: gc.y, count: data.value });
                     });
                     var dataset = { max: max, data: hmd };
                     me._setDataSet(dataset, url);
