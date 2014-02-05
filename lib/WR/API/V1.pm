@@ -103,7 +103,7 @@ sub map_heatmap_data {
                     my $real_data = [];
                     my $pc = 0;
                     foreach my $x (keys(%{$bt})) {
-                        next if($x eq '_id'});
+                        next if($x eq '_id');
                         foreach my $y (keys(%{$bt->{$x}})) {
                             push(@$real_data, { x => $x, y => $y, value => $bt->{$x}->{$y} });
                             $pc++;
