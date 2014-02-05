@@ -88,7 +88,7 @@ sub map_details {
 sub map_heatmap_data {
     my $self      = shift;
     my $map_ident = $self->stash('map_ident');
-    my $gpid      = { 'ctf' => 0, 'domination' => 1, 'assault' => 2 }->{$self->stash('game_type')};
+    my $gpid      = $self->stash('game_type');
     my $hmtype    = $self->stash('heatmap_type');
     my $bt        = [ split(/,/, $self->stash('bonus_types')) ];
 
@@ -97,7 +97,7 @@ sub map_heatmap_data {
         my ($c, $e, $d) = (@_);
         if(defined($d)) {
             $self->app->log->debug(sprintf('map_heatmap_data: collection: wot-replays.hm_%s with _id: %d for gpid %d', $hmtype, $d->{numerical_id}, $gpid));
-            $self->model(sprintf('wot-replays.hm_%s', $hmtype))->find_one({ _id => sprintf('%d_%d', $d->{numerical_id}, $gpid)} => sub {
+            $self->model(sprintf('wot-replays.hm_%s', $hmtype))->find_one({ _id => sprintf('%d_%s', $d->{numerical_id}, $gpid)} => sub {
                 my ($c, $e, $hmd) = (@_);
                 if(defined($hmd)) {
                     my $real_data = [];
@@ -111,7 +111,7 @@ sub map_heatmap_data {
                     }
                     $self->render(json => { ok => 1, data => { set => $real_data, count => $pc } });
                 } else {
-                    $self->render(json => { ok => 0, error => 'db.error', 'db.error' => sprintf('Map with id %d gpid %d not found', $d->{numerical_id}, $gpid) });
+                    $self->render(json => { ok => 0, error => 'db.error', 'db.error' => sprintf('Map with id %d gpid %s not found', $d->{numerical_id}, $gpid) });
                 }
             });
         } else {
