@@ -35,6 +35,9 @@
                     delay: 40000,
                     allow_dismiss: true
                 });
+                $('#detail-container').removeClass('hide');
+                if(this.mapModeCount > 1) $('select[name="mode"]').removeClass('disabled').prop('disabled', false);
+                $('select[name="type"]').removeClass('disabled').prop('disabled', false);
             });
 
             heatmapViewer.onNoData(function(e) {
