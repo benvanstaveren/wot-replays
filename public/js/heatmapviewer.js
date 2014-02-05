@@ -192,8 +192,7 @@ HeatmapViewer.prototype = {
                     var hmd = [];
                     d.data.set.forEach(function(data) {
                         if(data.value > max) max = data.value;
-                        var gc = me.getMapGrid().getSubCellCenterCoordinatesBySubCellID(data.cell);
-                        hmd.push({ x: gc.x, y: gc.y, count: data.count });
+                        hmd.push({ x: data.x, y: data.y, count: data.value });
                     });
                     var dataset = { max: max, data: hmd };
                     me._setDataSet(dataset, url);
