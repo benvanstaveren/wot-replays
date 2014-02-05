@@ -26,14 +26,14 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-lg-2">Hide replay by default</label>
+                            <label class="col-lg-2">Privacy Setting <a href="/doc/replayprivacy" class="bs-tooltip" title="More info...">(?)</a></label>
                             <div class="col-lg-10">
-                                <div class="radio">
-                                    <label><input type="radio" name="hide" value="0" id="replayHide" checked/> No, do not hide replay</label>
-                                </div>
-                                <div class="radio">
-                                    <label><input type="radio" name="hide" value="0" id="replayHide"/> Yes, hide replay</label>
-                                </div>
+                                <select name="hide">
+                                    <option value="0">Public</option>
+                                    <option value="1">Unlisted</option>
+                                    <option value="2">Private</option>
+                                    <option [% IF !h.current_user.clan.defined %]disabled="true"[% END %] value="3">Clan</option>
+                                </select>
                             </div>
                         </div>
                     </fieldset>

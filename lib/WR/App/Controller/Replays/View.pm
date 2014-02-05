@@ -17,6 +17,33 @@ sub load_replay {
     $self->model('wot-replays.replays')->find_one({ _id => Mango::BSON::bson_oid($self->stash('replay_id')) } => $cb);
 }
 
+sub is_allowed_to_view {
+    my $self   = shift;
+    my $replay = shift;
+
+    return 1 if($replay->{site}->{visible} && $replay->{site}->{privacy} == 0);
+    return 1 if($replay->{site}->{privacy} == 1); # anyone can see these as long as they have a link
+
+    # the next ones require users to be logged in
+    return 0 unless $self->is_user_authenticated;
+
+    if($replay->{site}->{privacy} == 2) {
+        return 1 if( 
+            ($replay->{game}->{server} eq $self->current_user->{player_server}) &&
+            ($replay->{game}->{recorder}->{name} eq $self->current_user->{player_name})
+        );
+        return 0;
+    } elsif($replay->{site}->{privacy} == 3) {
+        return 0 unless(defined($self->current_user->{clan}));
+        return 1 if( 
+            ($replay->{game}->{server} eq $self->current_user->{player_server}) &&
+            ($replay->{game}->{clan} eq $self->current_user->{clan}->{abbreviation})
+        );
+        return 0;
+    }
+    return 0; # should never get here
+}
+
 sub battleviewer {
     my $self = shift;
 
@@ -27,12 +54,16 @@ sub battleviewer {
 
         if(defined($replay)) {
             # construct packet url
-            my $packet_url = sprintf('%s/%s', $self->stash('config')->{urls}->{packets}, $replay->{packets});
-            $self->respond(template => 'replay/view/battleviewer', stash => {
-                page        => { title => 'Battle Viewer' },
-                packet_url  => $packet_url,
-                replay      => $replay,
-            });
+            if($self->is_allowed_to_view($replay)) {
+                my $packet_url = sprintf('%s/%s', $self->stash('config')->{urls}->{packets}, $replay->{packets});
+                $self->respond(template => 'replay/view/battleviewer', stash => {
+                    page        => { title => 'Battle Viewer' },
+                    packet_url  => $packet_url,
+                    replay      => $replay,
+                });
+            } else {
+                $self->respond(template => 'replay/view/denied', stash => { page => { title => $self->loc('page.replay.denied.title') }});
+            }
         } else {
             $self->respond(template => 'replay/view/nopackets', stash => { page => { title => 'Battle Viewer' }});
         }
@@ -48,6 +79,11 @@ sub heatmap {
         my ($c, $e, $replay) = @_;
 
         if(defined($replay)) {
+            unless($self->is_allowed_to_view($replay)) {
+                $self->respond(template => 'replay/view/denied', stash => { page => { title => $self->loc('page.replay.denied.title') }});
+                return;
+            }
+
             # generate the data set
             my $mapgrid = WR::Provider::Mapgrid->new(
                 width       => 768,
@@ -247,6 +283,10 @@ sub view {
         my ($c, $e, $replay) = (@_);
 
         if(defined($replay)) {
+            unless($self->is_allowed_to_view($replay)) {
+                $self->respond(template => 'replay/view/denied', stash => { page => { title => $self->loc('page.replay.denied.title') }});
+                return;
+            }
             $self->actual_view_replay($replay, $start);
         } else {
             $self->redirect_to('/');

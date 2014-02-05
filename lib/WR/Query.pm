@@ -10,6 +10,10 @@ has 'coll'    => undef;
 has 'perpage' => 15;
 has 'filter'  => sub { {} };
 has 'sort'    => sub { {} };
+
+# user doing the query
+has 'user'    => undef;
+
 has '_query'  => sub { return shift->_build_query };
 has '_res'    => undef;
 has 'total'   => 0;
@@ -48,7 +52,7 @@ sub exec {
             my ($c, $e, $count) = (@_);
             $self->total($count);
             $self->_res($c);
-            $self->debug('exec fetched result, stored');
+            $self->debug('exec fetched result, stored, have ', $count, ' docs');
             $cb->($c);
         });
     }
@@ -67,6 +71,12 @@ sub page {
     my $self = shift;
     my $page = shift || 1;
     my $cb   = shift;
+    my $as_cursor = 0;
+
+    if(ref($page) eq 'HASH') {
+        $as_cursor = (defined($page->{as_cursor}) && $page->{as_cursor} > 0) ? 1 : 0;
+        $page      = $page->{page} || 1;
+    }
 
     my $offset = ($page - 1) * $self->perpage;
 
@@ -76,8 +86,11 @@ sub page {
         $cursor->skip($offset);
         $cursor->limit($self->perpage);
 
+        $self->debug('page: skip: ', $offset, ' limit: ', $self->perpage);
+
         # if we're doing panels...
         if($self->panel) {
+            $self->debug('doing panel');
             $cursor->fields({
                 panel => 1,
                 site  => 1,
@@ -85,15 +98,19 @@ sub page {
             });
         }
 
-        $cursor->all(sub {
-            my ($c, $e, $d) = (@_);
+        if($as_cursor) {
+            $cb->($self, $cursor);
+        } else {
+            $cursor->all(sub {
+                my ($c, $e, $d) = (@_);
 
-            if($e) {
-                $cb->(undef);
-            } else {
-                $cb->($d);
-            }
-        });
+                if($e) {
+                    $cb->($self, undef);
+                } else {
+                    $cb->($self, $d);
+                }
+            });
+        }
     });
 }
 
@@ -109,6 +126,34 @@ sub fixargs {
     }
 }
 
+# these fragments are combined in an '$or' statement for the visible and privacy level settings
+sub _privacy_public {
+    my $self = shift;
+    return {
+        'site.visible' => Mango::BSON::bson_true,
+    };
+}
+
+sub _privacy_recorder {
+    my $self = shift;
+    return {
+        'site.visible'       => Mango::BSON::bson_false,
+        'site.privacy'       => 2,
+        'game.recorder.name' => $self->user->{player_name},
+        'game.server'        => $self->user->{player_server},
+    };
+}
+
+sub _privacy_clan {
+    my $self = shift;
+    return {
+        'site.visible'       => Mango::BSON::bson_false,
+        'site.privacy'       => 3,
+        'game.server'        => $self->user->{player_server},
+        'game.recorder.clan' => $self->user->{clan}->{abbreviation},
+    };
+}
+
 sub _build_query {
     my $self = shift;
     my %args = (
@@ -116,14 +161,9 @@ sub _build_query {
         playerinv => 0,
         vehiclepov => 0,
         vehicleinv => 0,
-        tier_min => 1,
-        tier_max => 10,
         %{ $self->filter },
         );
-
-    my $query = {
-        'site.visible' => Mango::BSON::bson_true,
-    };
+    my $query = {};
 
     foreach my $key (keys(%args)) {
         delete($args{$key}) if($args{$key} eq '*');
@@ -131,7 +171,12 @@ sub _build_query {
 
     my $ors = [];
 
-    $query->{version} = $args{'version'} if($args{'version'});
+    my $priv = [
+        $self->_privacy_public,
+    ];
+
+    push(@$priv, $self->_privacy_recorder) if(defined($self->user) && defined($self->user->{player_name}));
+    push(@$priv, $self->_privacy_clan) if(defined($self->user) && defined($self->user->{clan}));
 
     if($args{'player'}) {
         if($args{'playerpov'} > 0) {
@@ -172,18 +217,15 @@ sub _build_query {
         }
     }
 
-    $query->{'game.recorder.vehicle.tier'} = {
-        '$gte' => $args{tier_min} + 0,
-        '$lte' => $args{tier_max} + 0,
-    };
-
+    if(defined($args{'tier_min'}) || defined($args{'tier_max'})) {
+        $query->{'game.recorder.vehicle.tier'} = {
+            '$gte' => (defined($args{'tier_min'})) ? $args{tier_min} + 0 : 1,
+            '$lte' => (defined($args{'tier_max'})) ? $args{tier_max} + 0 : 10,
+        };
+    }
 
     $query->{'game.type'} = $args{'matchmode'} if($args{'matchmode'} && $args{'matchmode'} ne '');
     $query->{'game.bonus_type'} = $args{'matchtype'} + 0 if($args{'matchtype'} && $args{'matchtype'} ne '');
-
-    # if the wn7 flag is set we need to use min and max to obtain it
-    $query->{'wn7.data.overall'} = { '$gte' => $args{wn7} } if(defined($args{'wn7'}));
-    $query->{'wn7.data.battle'} = { '$gte' => $args{wn7_battle} } if(defined($args{'wn7_battle'}));
 
     # finalize the query
     if(scalar(@$ors) > 1) {
@@ -191,7 +233,9 @@ sub _build_query {
             push(@{$query->{'$and'}}, { '$or' => $or });
         }
     } elsif(scalar(@$ors) > 0) {
-        $query->{'$or'} = shift(@$ors);
+        $query->{'$or'} = [ shift(@$ors), @$priv ]
+    } else {
+        $query->{'$or'} = $priv;
     }
 
     $self->debug('[_build_query]: built query: ', Dumper($query));

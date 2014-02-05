@@ -18,7 +18,45 @@ sub hr {
         my ($c, $e, $d) = (@_);
 
         if($d) {
-            $self->model('wot-replays.replays')->update({ _id => $id }, { '$set' => { 'site.visible' => Mango::BSON::bson_false }} => sub {
+            $self->model('wot-replays.replays')->update({ _id => $id }, { '$set' => { 'site.visible' => Mango::BSON::bson_false, 'site.privacy' => 1 }} => sub {
+                my ($c, $e, $d) = (@_);
+                $self->render(json => { ok => 1 });
+            });
+        } else {
+            $self->render(json => { ok => 0, error => 'Replay does not exist, or it is not yours' });
+        }
+    });
+}
+
+sub cr {
+    my $self = shift;
+    my $id = Mango::BSON::bson_oid($self->req->param('id'));
+
+    $self->render_later;
+    $self->model('wot-replays.replays')->find_one({ _id => $id, 'game.recorder.name' => $self->current_user->{player_name}, 'game.server' => $self->current_user->{player_server} } => sub {
+        my ($c, $e, $d) = (@_);
+
+        if($d) {
+            $self->model('wot-replays.replays')->update({ _id => $id }, { '$set' => { 'site.visible' => Mango::BSON::bson_false, 'site.privacy' => 3 }} => sub {
+                my ($c, $e, $d) = (@_);
+                $self->render(json => { ok => 1 });
+            });
+        } else {
+            $self->render(json => { ok => 0, error => 'Replay does not exist, or it is not yours' });
+        }
+    });
+}
+
+sub pr {
+    my $self = shift;
+    my $id = Mango::BSON::bson_oid($self->req->param('id'));
+
+    $self->render_later;
+    $self->model('wot-replays.replays')->find_one({ _id => $id, 'game.recorder.name' => $self->current_user->{player_name}, 'game.server' => $self->current_user->{player_server} } => sub {
+        my ($c, $e, $d) = (@_);
+
+        if($d) {
+            $self->model('wot-replays.replays')->update({ _id => $id }, { '$set' => { 'site.visible' => Mango::BSON::bson_false, 'site.privacy' => 2 }} => sub {
                 my ($c, $e, $d) = (@_);
                 $self->render(json => { ok => 1 });
             });
@@ -37,7 +75,7 @@ sub sr {
         my ($c, $e, $d) = (@_);
 
         if($d) {
-            $self->model('wot-replays.replays')->update({ _id => $id }, { '$set' => { 'site.visible' => Mango::BSON::bson_true }} => sub {
+            $self->model('wot-replays.replays')->update({ _id => $id }, { '$set' => { 'site.visible' => Mango::BSON::bson_true, 'site.privacy' => 0 }} => sub {
                 my ($c, $e, $d) = (@_);
                 $self->render(json => { ok => 1 });
             });
@@ -75,8 +113,15 @@ sub replays {
 
     if($type eq 'p') {  
         $query->{'site.visible'} = Mango::BSON::bson_true;
-    } elsif($type eq 'h') {
+    } elsif($type eq 'u') {
         $query->{'site.visible'} = Mango::BSON::bson_false;
+        $query->{'site.privacy'} = 1;
+    } elsif($type eq 'pr') {
+        $query->{'site.visible'} = Mango::BSON::bson_false;
+        $query->{'site.privacy'} = 2;
+    } elsif($type eq 'c') {
+        $query->{'site.visible'} = Mango::BSON::bson_false;
+        $query->{'site.privacy'} = 3;
     }
 
     $self->render_later;

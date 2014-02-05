@@ -265,6 +265,9 @@ sub finalize_roster {
         tier    => $replay->{roster}->[ $replay->{players}->{$replay->{game}->{recorder}->{name}} ]->{vehicle}->{level},
         ident   => $replay->{roster}->[ $replay->{players}->{$replay->{game}->{recorder}->{name}} ]->{vehicle}->{ident},
     };
+
+    my $clan = $replay->{roster}->[ $replay->{players}->{$replay->{game}->{recorder}->{name}} ]->{player}->{clanAbbrev};
+    $replay->{game}->{recorder}->{clan} = (length($clan) > 0) ? $clan : undef;
 }
 
 sub is_friendly {

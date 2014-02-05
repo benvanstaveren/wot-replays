@@ -330,6 +330,7 @@ sub process_job {
             if(!$job->{reprocess}) {
                 $replay->{digest} = $job->{_id};
                 $replay->{site}->{visible} = Mango::BSON::bson_false if($job->{data}->{visible} < 1);
+                $replay->{site}->{privacy} = $job->{data}->{privacy};
                 $replay->{site}->{description} = (defined($job->{data}->{desc}) && length($job->{data}->{desc}) > 0) ? $job->{data}->{desc} : undef;
                 $replay->{file} = $job->{data}->{file_base}; 
             }
