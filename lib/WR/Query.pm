@@ -150,7 +150,7 @@ sub _privacy_clan {
         'site.visible'       => Mango::BSON::bson_false,
         'site.privacy'       => 3,
         'game.server'        => $self->user->{player_server},
-        'game.clan'          => $self->user->{clan}->{abbreviation},
+        'game.recorder.clan' => $self->user->{clan}->{abbreviation},
     };
 }
 
@@ -175,7 +175,7 @@ sub _build_query {
         $self->_privacy_public,
     ];
 
-    push(@$priv, $self->_privacy_recorder) if(defined($self->user));
+    push(@$priv, $self->_privacy_recorder) if(defined($self->user) && defined($self->user->{player_name}));
     push(@$priv, $self->_privacy_clan) if(defined($self->user) && defined($self->user->{clan}));
 
     if($args{'player'}) {

@@ -234,6 +234,8 @@ sub startup {
         my $pbj = $pb->under('/j');
             $pbj->route('/sr')->to('profile#sr', pageid => 'profile');
             $pbj->route('/hr')->to('profile#hr', pageid => 'profile');
+            $pbj->route('/pr')->to('profile#pr', pageid => 'profile');
+            $pbj->route('/cr')->to('profile#cr', pageid => 'profile');
 
     my $admin = $r->bridge('/admin')->to('admin#bridge');
         $admin->route('/')->to('admin#index', pageid => 'admin/home');

@@ -31,8 +31,8 @@
                                 <select name="hide">
                                     <option value="0">Public</option>
                                     <option value="1">Unlisted</option>
-                                    <option disabled="true" value="2">Private</option>
-                                    <option disabled="true" value="3">Clan</option>
+                                    <option value="2">Private</option>
+                                    <option [% IF !h.current_user.clan.defined %]disabled="true"[% END %] value="3">Clan</option>
                                 </select>
                             </div>
                         </div>

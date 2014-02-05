@@ -175,6 +175,15 @@ msgstr "Recorded Replays Only"
 msgid "sidebar.filter.player.involvedonly"
 msgstr "Involved Replays Only"
 
+msgid "page.replay.denied.title"
+msgstr "Access Denied"
+
+msgid "replay.view.denied.header"
+msgstr "Access Denied"
+
+msgid "replay.view.denied.text"
+msgstr "You are not allowed to view this replay"
+
 # index elements
 msgid "index.page.title" 
 msgstr "Home"
