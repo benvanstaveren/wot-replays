@@ -16,7 +16,7 @@
                 <col style="width: 50%"/>
             </colgroup>
             <thead>
-                <th>Browse Results</th>
+                <th>Shows Up In Browse Results For</th>
                 <th>Viewable By</th>
             </thead>
             <tbody>
@@ -35,7 +35,7 @@
                 <col style="width: 50%"/>
             </colgroup>
             <thead>
-                <th>Browse Results</th>
+                <th>Shows Up In Browse Results For</th>
                 <th>Viewable By</th>
             </thead>
             <tbody>
@@ -54,7 +54,7 @@
                 <col style="width: 50%"/>
             </colgroup>
             <thead>
-                <th>Browse Results</th>
+                <th>Shows Up In Browse Results For</th>
                 <th>Viewable By</th>
             </thead>
             <tbody>
@@ -73,7 +73,7 @@
                 <col style="width: 50%"/>
             </colgroup>
             <thead>
-                <th>Browse Results</th>
+                <th>Shows Up In Browse Results For</th>
                 <th>Viewable By</th>
             </thead>
             <tbody>

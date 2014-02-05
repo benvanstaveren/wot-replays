@@ -215,6 +215,9 @@ msgstr "Heatmaps"
 msgid "page.about.title"
 msgstr "About the Site"
 
+msgid "page.replayprivacy.title"
+msgstr "Replay Privacy"
+
 msgid "page.credits.title"
 msgstr "Additional Credits"
 
