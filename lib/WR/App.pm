@@ -242,9 +242,13 @@ sub startup {
         $admin->route('/events')->to('admin-events#index', pageid => 'admin/events');
         $admin->route('/language')->to('admin-language#index', pageid => 'admin/language');
 
+        my $site = $admin->under('/site');
+            my $replays = $site->under('/replays');
+                $replays->route('/page/:page')->to('admin-site#replays', pageid => 'admin/site');
+
         my $modtools = $admin->under('/moderator');
             my $chatreader = $modtools->under('/chatreader');
-                $chatreader->route('/')->to('admin-moderator-chatreader#index');
+                $chatreader->route('/')->to('admin-moderator-chatreader#index', pageid => 'admin/moderator');
                 $chatreader->route('/process')->to('admin-moderator-chatreader#process');
 
     $self->sessions->default_expiration(86400 * 365); 
