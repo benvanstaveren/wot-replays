@@ -1,4 +1,4 @@
-<div class="well well-sm [% IF replay.site.description.defined %]bs-popover[% END %]" [% IF replay.site.description.defined %]title="Replay Description" data-toggle="popover" data-trigger="hover" data-content="[% replay.site.description |html %]" data-container="body" data-placement="left"[% END %]>
+<div class="well well-sm [% IF replay.site.description.defined %]bs-popover[% END %]" [% IF replay.site.description.defined %]title="Replay Description" data-toggle="popover" data-trigger="hover" data-content="<div class='foo'>[% replay.site.description |html %]</div>" data-html="true" data-container="body" data-placement="left"[% END %]>
     <div class="row">
         <div class="col-lg-3 col-md-3">
                 <a href="/replay/[% replay.panel.id %].html">

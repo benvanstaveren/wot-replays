@@ -1,9 +1,9 @@
 [% WRAPPER wrapper.html.tt %]
     <div class="page-header">
-        <h2>[% h.loc('index.page.header') %]</h2>
+        <h2>[% h.loc('index.page.header') %] <span class="spinner hide" id="frontpage-spinner"></span></h2>
     </div>
     <div class="row">
-        <div class="col-lg-9 col-md-9">
+        <div class="col-lg-9 col-md-9" id="replay-list">
             [% INCLUDE replay/list.html.tt %]
         </div>
         <div class="col-lg-3 col-md-3">

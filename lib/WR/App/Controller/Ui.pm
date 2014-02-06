@@ -32,8 +32,11 @@ sub frontpage {
         );
     $query->page(1 => sub {
         my ($q, $replays) = (@_);
-        $self->debug('frontpage: got cursor');
-        $self->respond(template => 'index', stash => {
+
+        # the template has to be altered depending on how we request it
+        my $template = ($self->req->is_xhr) ? 'replay/list' : 'index';
+
+        $self->respond(template => $template, stash => {
             replays         => $replays || [],
             page            => { title => $self->loc('index.page.title') },
             timing_query    => tv_interval($start),

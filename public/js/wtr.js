@@ -102,5 +102,9 @@ WR.addMessageHandler('replay.processed', function(data) {
                 $('#queue-count').html('-');
             }
         });
+        $('#frontpage-spinner').removeClass('hide');
+        $('#replay-list').load('/', function() {
+            $('#frontpage-spinner').addClass('hide');
+        });
     }
 });
