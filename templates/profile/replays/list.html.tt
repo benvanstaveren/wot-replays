@@ -67,7 +67,8 @@
                         <td>[% replay.panel.credits + 0 %]</td>
                         <td>[% h.wot_version(replay.panel.version) %]</td>
                         <td><a href="/replay/[% replay.panel.id %].html">view</a></td>
-                        <td>
+                        <td style="text-align: center">
+                            <span class="spinner small hide" data-replayid="[% replay.panel.id %]"></span>
                             <select name="replay-action-[% replay.panel.id %]" data-replayid="[% replay.panel.id %]" class="replay-action">
                                 <option value="0" [% IF replay.site.visible %]selected[% END %]>public</option>
                                 <option value="1" [% IF replay.site.privacy == 1 %]selected[% END %]>unlisted</option>
@@ -117,7 +118,9 @@
 <script type="text/javascript">
     $(document).ready(function() {
         $('select.replay-action').change(function() {
+            $(this).addClass('hide');
             var id = $(this).attr('data-replayid');
+            $('span[data-replayid="' + id + '"]').removeClass('hide');
             var s  = $(this).val();
             var u  = '';
 
@@ -130,12 +133,15 @@
             } else {
                 u = '/profile/j/cr';
             }
+            var select = this;
             $.getJSON(u, { id: id }, function(d) {
                 if(d.ok == 1) {
                     document.location.href = '/profile/replays/type/[% type %]/page/[% p %]' 
                 } else {
                     alert(d.error);
                 }
+                $(select).removeClass('hide');
+                $('span[data-replayid="' + id + '"]').addClass('hide');
             });
         });
         $('select[name="type"]').val('[% type %]').change(function() {

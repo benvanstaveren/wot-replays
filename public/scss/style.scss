@@ -177,6 +177,11 @@ span {
         height: 24px;
         display: inline-block;
         background: transparent url(#{$static_base}/img/spinner.gif) no-repeat scroll center center;
+        &.small {
+            width: 16px;
+            height: 16px;
+            background: transparent url(#{$static_base}/img/spinner_small.gif) no-repeat scroll center center;
+        }
     }
     &.equipment-icon {
         width: 24px;

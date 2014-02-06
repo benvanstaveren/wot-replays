@@ -1320,6 +1320,10 @@ span.spinner {
   height: 24px;
   display: inline-block;
   background: transparent url(/img/spinner.gif) no-repeat scroll center center; }
+  span.spinner.small {
+    width: 16px;
+    height: 16px;
+    background: transparent url(/img/spinner_small.gif) no-repeat scroll center center; }
 span.equipment-icon {
   width: 24px;
   height: 24px;
@@ -1383,3 +1387,6 @@ div#progressModal div.progress {
 
 .dark {
   color: #666; }
+
+div.bs-popover div.foo {
+  max-width: 175px; }
