@@ -17,9 +17,9 @@
                 container   : $('#map-container'),
                 apitoken    : '[% config.secrets.apitoken %]',
                 heatmap     : { 
-                    "radius"    : 32,
+                    "radius"    : [% config.heatmap.radius %],
                     "visible"   : true,
-                    "opacity"   : 40,
+                    "opacity"   : [% config.heatmap.opacity %],
                     "gradient"  : {
                         0.30        : 'rgb(0,0,255)',
                         0.50        : 'rgb(0,255,255)',
