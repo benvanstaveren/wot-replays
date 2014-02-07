@@ -1,11 +1,11 @@
 [% WRAPPER wrapper.html.tt %]
     <div class="page-header">
-        <h1>[% h.loc('players.page.header') %]</h1>
+        <h1>[% h.loc('clans.page.header') %]</h1>
     </div>
     <div class="row">
         <div class="col-lg-4 col-md-4">
             <h4>Search</h4>
-            <form action="/players" method="post" role="form">
+            <form action="/clans" method="post" role="form">
                 <div class="form-group">
                     <label class="control-label">Query</label>
                     <input type="text" name="q" value="[% query |html %]" class="form-control">
@@ -26,12 +26,14 @@
             <h4>Results</h4>
             <table class="table table-bordered table-striped">
                 <thead>
-                    <th>Player</th>
+                    <th>Clan Name</th>
+                    <th>Clan Ticker</th>
                 </thead>
                 <tbody>
                     [% FOREACH entry IN search_results %]
                         <tr>
-                            <td><a href="/player/[% server %]/[% entry.nickname |uri %]">[% entry.nickname |html %]</a></td>
+                            <td><a href="/clan/[% server %]/[% entry.abbreviation |url%]">[% entry.name |html %]</a></td>
+                            <td><a href="/clan/[% server %]/[% entry.abbreviation |url%]">[% entry.abbreviation |html %]</a></td>
                         </tr>
                     [% END %]
                 </tbody>

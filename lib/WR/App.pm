@@ -98,7 +98,45 @@ sub startup {
         $bv->route('/battleviewer')->to('replays-view#battleviewer', pageid => 'battleviewer');
         $bv->route('/heatmap')->to('replays-view#heatmap', pageid => 'battleheatmap');
 
-    $r->route('/players')->to('player#index', pageid => 'player');
+    $r->route('/clans')->to('clan#index', pageid => 'clan', page => { title => 'clans.page.title' });
+    my $clan = $r->under('/clan');
+        $clan->route('/:server/:clanticker')->to(cb => sub {
+            my $self = shift;
+            $self->stash('browse_filter_raw' => {
+                p => 1,
+                vehiclepov => 1,
+                map => '*',
+                server => '*',
+                matchmode => '*',
+                matchtype => '*',
+                sort => 'upload',
+                playerpov => 1, 
+                playerinv => 0,
+            });
+            $self->redirect_to(sprintf('/clan/%s/%s/%s', $self->stash('server'), $self->stash('clanticker'), $self->browse_page(1)));
+        }, pageid => 'clan');
+
+        $clan->route('/:server/:clanticker/*filter')->to('replays#browse', next => 'browse',
+            page => {
+                title => 'clan.page.title',
+                title_args => [ 'clanticker' ],
+            },
+            pageid => 'clan',
+            filter_opts => {
+                base_query => sub {
+                    my $self = shift;
+                    return { 'clan' => $self->stash('clanticker'), 'server' => $self->stash('server') };
+                },
+                filter_root => sub {
+                    my $self = shift;
+                    return sprintf('clan/%s/%s', $self->stash('server'), $self->stash('clanticker'));
+                }
+            }
+        );
+
+
+
+    $r->route('/players')->to('player#index', pageid => 'player', page => { title => 'players.page.title' });
     my $player = $r->under('/player');
         $player->route('/:server/:player_name')->to(cb => sub {
             my $self = shift;
@@ -119,6 +157,7 @@ sub startup {
         $player->route('/:server/:player_name/*filter')->to('replays#browse', next => 'browse',
             page => {
                 title => 'player.page.title',
+                title_args => [ 'player_name' ],
             },
             pageid => 'player',
             filter_opts => {

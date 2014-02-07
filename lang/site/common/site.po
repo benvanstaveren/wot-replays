@@ -16,6 +16,12 @@ msgstr "Admin Panel"
 msgid "nav.signin"
 msgstr "Sign In"
 
+msgid "nav.players"
+msgstr "Players"
+
+msgid "nav.clans"
+msgstr "Clans"
+
 msgid "nav.maps"
 msgstr "Maps"
 
@@ -191,6 +197,20 @@ msgstr "Home"
 msgid "index.page.header"
 msgstr "Newest Replays"
 
+# players elements
+msgid "players.page.title"
+msgstr "Search Players"
+
+msgid "players.page.header"
+msgstr "Search Players"
+
+# clan elements
+msgid "clans.page.title"
+msgstr "Search Clans"
+
+msgid "clans.page.header"
+msgstr "Search Clans"
+
 # browse elements
 msgid "browse.page.title"
 msgstr "Browse Replays"
@@ -201,7 +221,10 @@ msgstr "Browse Vehicle"
 
 # player page elements
 msgid "player.page.title"
-msgstr "Browse Player"
+msgstr "Browse Player - %0"
+
+msgid "clan.page.title"
+msgstr "Browse Clan - %0"
 
 # map page elements
 msgid "map.page.title"

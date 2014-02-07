@@ -854,6 +854,18 @@ sub add_helpers {
             return undef;
         }
     });
+   
+    $self->helper('make_args' => sub {
+        my $self = shift;
+        my $args = shift || [];
+        my $res  = [];
+
+        foreach my $a (@$args) {
+            push(@$res, $self->stash($a));
+        }
+        return $res;
+    });
+ 
 }
 
 1;

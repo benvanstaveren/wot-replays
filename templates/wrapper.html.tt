@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>[% h.loc(page.title) %] - World of Tanks Replays</title>
+        <title>[% h.loc(page.title, h.make_args(page.title_args)) %] - World of Tanks Replays</title>
         <link rel="shortcut icon" href="[% config.urls.static %]/img/favicon.ico"/>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
         <meta name="keywords" content="[% IF page.keywords %][% page.keywords %], [% END %]world of tanks replays, wot replays, replays"/>
@@ -73,6 +73,8 @@
                 <ul class="nav navbar-nav">
                     <li class="[% IF pageid == 'home' %]active[% END %]"><a  href="/">[% h.loc('nav.home') %]</a></li>
                     <li class="[% IF pageid == 'browse' %]active[% END %]"><a href="/browse">[% h.loc('nav.browse') %]</a></li>
+                    <li class="[% IF pageid == 'player' %]active[% END %]"><a href="/players/">[% h.loc('nav.players') %]</a></li>
+                    <li class="[% IF pageid == 'clan' %]active[% END %]"><a href="/clans/">[% h.loc('nav.clans') %]</a></li>
                     <li class="[% IF pageid == 'map' %]active[% END %]"><a href="/maps/">[% h.loc('nav.maps') %]</a></li>
                     <li class="dropdown [% IF pageid == 'vehicle' %]active[% END %]"><a class="dropdown-toggle" data-toggle="dropdown" href="/vehicles/">[% h.loc('nav.vehicles') %] <b class="caret"></b></a>
                         <ul class="dropdown-menu">

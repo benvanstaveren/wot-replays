@@ -194,6 +194,8 @@ sub _build_query {
         }
     }
 
+    $query->{'game.recorder.clan'} = $args{'clan'} if($args{'clan'}); # keep the privacy settings intact
+
     if($args{'server'}) {
         if(ref($args{'server'}) eq 'ARRAY') {
             $query->{'game.server'} = { '$in' => $args{'server'} };

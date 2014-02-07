@@ -66,9 +66,11 @@ sub register {
     $app->helper(loc => sub {
         my $self = shift;
         my $str  = shift;
-        my @args = (@_);
+        my $args = shift;
         my $l    = 'site';  # default localizer "language"
         my $ostr = $str;
+
+        $args = [ $args, @_ ] if(ref($args) ne 'ARRAY');
 
         $self->app->log->debug('no language string passed, caller: ' . (caller(1))[3]) and return 'no.lang.string.given' unless(defined($str));
 
@@ -79,7 +81,7 @@ sub register {
         }
 
         if(my $localizer = $self->stash('i18n_localizer')) {
-            if(my $xlat = $localizer->localize_for(lang => $l, id => $str, args => [ @args ])) {
+            if(my $xlat = $localizer->localize_for(lang => $l, id => $str, args => $args)) {
                 return $xlat;
             } else {
                 # okay, stupid WG inconsistency, some tanks have a _short, some don't, so if our str contains _short, retry it 
