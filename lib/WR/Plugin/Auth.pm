@@ -177,8 +177,14 @@ sub register {
 
     $app->helper('has_admin_access' => sub {
         my $self = shift;
+
         return 1 if($self->is_the_boss);
-        return 1 if($self->current_user_clan eq 'WG' || $self->current_user_clan eq 'WGNA');
+
+        foreach my $clan (@{$self->stash('config')->{admin}->{clans}}) {
+            if(defined($self->current_user->{clan})) {
+                return 1 if($clan eq $self->current_user->{clan}->{abbreviation});
+            }
+        }
         return 1 if($self->has_role('admin'));
         return 0;
     });
