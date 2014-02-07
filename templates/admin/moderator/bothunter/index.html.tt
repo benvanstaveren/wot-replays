@@ -1,0 +1,80 @@
+[% WRAPPER admin/wrapper.html.tt %]
+    <div class="page-header">
+        <h1>Bot Hunter</h1>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <p>
+                The bot hunter uses a simple analysis of the overall stats of a player to determine a score; a score ranges from <strong>0</strong> (not a bot, unless it's a really smart one) to <strong>100</strong> (most definitely a bot, maybe a really, really bad player). The score is based on K/D ratio, damage ratio, win rate, and accuracy. Scores over 50% are worthy of concern and further detailed investigation.
+            </p>
+            <p>
+                Type one player name per line in the textbox below, select the proper server, and click 'Analyze'.
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6 col-md-6">
+            <h4>Player Names</h4>
+            <textarea class="form-control" rows="5" name="pnames"></textarea>
+        </div>
+        <div class="col-lg-6 col-md-6">
+            <h4>Server</h4>
+            <select name="server">
+                <option value="asia">Asia</option>
+                <option value="na">North America</option>
+                <option value="eu">Europe</option>
+            </select>
+            <div style="margin-top: 10px"><button class="analyze btn btn-primary" type="button">Analyze</button></div>
+        </div>
+    </div>
+    <div class="row results hide">
+        <div class="col-lg-12 col-md-12">
+            <h4>Results</h4>
+            <table class="table table-bordered table-striped">
+                <colgroup>
+                    <col/>
+                    <col style="width: 300px"/>
+                </colgroup>
+                <thead>
+                    <th>Player</th>
+                    <th>Score</th>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('button.btn.analyze').on('click', function() {
+                $('div.row.results').removeClass('hide');
+                $('div.row.results table tbody').empty();
+                var names = $('textarea').val().split(/\n/);
+                names.forEach(function(name) {
+                    $('div.row.results table tbody').append(
+                        $('<tr/>').append(
+                            $('<td/>').html(name),
+                            $('<td/>').addClass('text-center').attr('player', name).html( $('<span/>').addClass('spinner'))
+                        )
+                    );
+                    $.getJSON('/admin/moderator/bothunter/process', { server: $('select[name="server"]').val(), name: name }, function(d) {
+                        if(d.score == -1) {
+                            $('td[player="' + d.player + '"]').html('ERROR');
+                        } else {
+                            $('td[player="' + d.player + '"]').html(d.score);
+                            if(d.score <= 25) {
+                                $('td[player="' + d.player + '"]').css({ 'color': 'green' });
+                            } else if(d.score <= 50) {
+                                $('td[player="' + d.player + '"]').css({ 'color': 'orange' });
+                            } else if(d.score <= 90) {
+                                $('td[player="' + d.player + '"]').css({ 'color': 'red' });
+                            } else {
+                                $('td[player="' + d.player + '"]').css({ 'color': 'red', 'font-weight': 'bold' });
+                            }
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+[% END %]

@@ -83,6 +83,7 @@
                         <li class="dropdown [% IF pageid == 'admin/moderator' %]active[% END %]"><a href="/admin/moderator" class="dropdown-toggle" data-toggle="dropdown">Moderator Tools<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="/admin/moderator/chatreader">Chat Reader</a></li>
+                            <li><a href="/admin/moderator/bothunter">Bot Hunter</a></li>
                         </ul>
                     [% END %]
                 </ul>

@@ -290,6 +290,9 @@ sub startup {
             my $chatreader = $modtools->under('/chatreader');
                 $chatreader->route('/')->to('admin-moderator-chatreader#index', pageid => 'admin/moderator');
                 $chatreader->route('/process')->to('admin-moderator-chatreader#process');
+            my $bothunter = $modtools->under('/bothunter');
+                $bothunter->route('/')->to('admin-moderator-bothunter#index', pageid => 'admin/moderator');
+                $bothunter->route('/process')->to('admin-moderator-bothunter#process');
 
     $self->sessions->default_expiration(86400 * 365); 
     $self->sessions->cookie_name('wrsession');
