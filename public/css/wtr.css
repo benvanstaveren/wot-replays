@@ -788,22 +788,22 @@ div.award {
       height: 16px;
       background: transparent url(//images.wotreplays.org/icon/awards/16/whiteTiger.png) no-repeat scroll center center; }
 
-div.rounded {
+div.rounded, div.team-row h3.xp, div.team-row h3.frags, div.team-row h3.damage {
   -moz-border-top-right-radius: 4px;
   -webkit-border-top-right-radius: 4px;
   border-top-right-radius: 4px; }
 
-div.rounded, div.rounded-tl {
+div.rounded, div.team-row h3.xp, div.team-row h3.frags, div.team-row h3.damage, div.rounded-tl {
   -moz-border-top-left-radius: 4px;
   -webkit-border-top-left-radius: 4px;
   border-top-left-radius: 4px; }
 
-div.rounded {
+div.rounded, div.team-row h3.xp, div.team-row h3.frags, div.team-row h3.damage {
   -moz-border-bottom-right-radius: 4px;
   -webkit-border-bottom-right-radius: 4px;
   border-bottom-right-radius: 4px; }
 
-div.rounded {
+div.rounded, div.team-row h3.xp, div.team-row h3.frags, div.team-row h3.damage {
   -moz-border-bottom-left-radius: 4px;
   -webkit-border-bottom-left-radius: 4px;
   border-bottom-left-radius: 4px; }
@@ -1256,26 +1256,60 @@ td.playerName {
     text-align: center;
     width: 40%; }
 
-td.playerVehicle {
-  text-align: center;
-  width: 80px; }
-  td.playerVehicle div.playerHealth {
-    width: 98%;
+div.team-row h4.player-name {
+  margin: 0px 0px 5px 0px; }
+  div.team-row h4.player-name a {
+    color: #888888;
+    text-decoration: none; }
+div.team-row h4.player-clan {
+  margin: 0px 0px 5px 0px; }
+  div.team-row h4.player-clan a {
+    color: #333;
+    text-decoration: none; }
+div.team-row div.playerVehicle {
+  border: rgba(0, 0, 0, 0.5) 1px solid;
+  height: 64px;
+  width: 64px; }
+  div.team-row div.playerVehicle div.playerHealth {
+    width: 64px;
     margin: 0px auto;
     height: 10px;
     background: rgba(0, 0, 0, 0.3) none repeat scroll 0 0;
     position: relative;
-    top: 20px; }
-    td.playerVehicle div.playerHealth div.health {
+    top: 54px;
+    left: 0px; }
+    div.team-row div.playerVehicle div.playerHealth div.health {
       background: rgba(0, 254, 0, 0.3) none repeat scroll 0 0;
       height: 10px; }
-    td.playerVehicle div.playerHealth div.healthnumbers {
+    div.team-row div.playerVehicle div.playerHealth div.healthnumbers {
       color: #fff;
       font-size: 0.6em;
       font-family: monospace;
       text-align: center;
       position: relative;
       top: -10px; }
+div.team-row h3.xp, div.team-row h3.frags, div.team-row h3.damage {
+  width: 64px;
+  height: 64px;
+  margin: 0px auto;
+  text-align: center;
+  vertical-align: center;
+  background: rgba(0, 0, 0, 0.1) none repeat scroll 0 0;
+  border: rgba(0, 0, 0, 0.1) 1px solid; }
+  div.team-row h3.xp span, div.team-row h3.frags span, div.team-row h3.damage span {
+    position: relative;
+    top: 28%;
+    cursor: default; }
+  div.team-row h3.xp.green, div.team-row h3.frags.green, div.team-row h3.damage.green {
+    background: rgba(0, 128, 0, 0.1) none repeat scroll 0 0;
+    border: rgba(0, 128, 0, 0.1) none repeat scroll 0 0; }
+    div.team-row h3.xp.green:hover, div.team-row h3.frags.green:hover, div.team-row h3.damage.green:hover {
+      background: rgba(0, 255, 0, 0.1) none repeat scroll 0 0; }
+div.team-row.died h3.xp.green, div.team-row.died h3.frags.green, div.team-row.died h3.damage.green {
+  background: rgba(128, 0, 0, 0.1) none repeat scroll 0 0;
+  border: rgba(128, 0, 0, 0.1) none repeat scroll 0 0; }
+  div.team-row.died h3.xp.green:hover, div.team-row.died h3.frags.green:hover, div.team-row.died h3.damage.green:hover {
+    background: rgba(255, 0, 0, 0.1) none repeat scroll 0 0; }
 
 td.playerDetails {
   width: 160px; }

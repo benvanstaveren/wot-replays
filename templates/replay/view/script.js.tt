@@ -13,7 +13,12 @@
         $('.btn-battleheatmap').on('click', function() {
             if($(this).hasClass('disabled')) return false;
         });
+        var hash = document.location.hash;
+        if(hash != null && hash != undefined && hash.length > 0) {
+            $('#replay-tabs a[href="' + hash + '"]').tab('show');
+        }
     });
+
     [% IF h.is_own_replay(replay) %]
         $('a#edit-desc-link').click(function() {
             $('#desc-show').hide();

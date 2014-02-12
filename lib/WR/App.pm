@@ -40,7 +40,6 @@ sub startup {
 
     $self->routes->namespaces([qw/WR::App::Controller/]);
 
-    #my $r = $self->routes->bridge('/')->to('auto#root_bridge')->name('root_bridge');
     my $r = $self->routes->bridge('/')->to(cb => sub {
         my $self = shift;
         return $self->init_auth();

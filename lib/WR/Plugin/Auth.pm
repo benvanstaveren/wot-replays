@@ -66,21 +66,16 @@ sub register {
                 my $user_id   = sprintf('%s-%s', lc($server), lc($pname));
 
                 if($self->req->is_xhr) {
-                    $self->debug('request is XHR, loading user');
                     $self->model('wot-replays.accounts')->find_one({ _id => $user_id } => sub {
                         my ($coll, $err, $user) = (@_);
                         $self->stash(current_user => $user);
                         $self->stash(current_player_name => $user->{player_name});
                         $self->stash(current_player_server => uc($user->{player_server}));
-                        $self->debug('user loaded, continue');
                         $self->continue;
                     });
-                    $self->debug('post-load');
                 } else {
-                    $self->debug('request is not XHR');
                     my $last_seen = Mango::BSON::bson_time;
 
-                    $self->debug('updating user with last seen');
                     $self->model('wot-replays.accounts')->update({ 
                         _id => $user_id 
                     }, {
@@ -94,12 +89,8 @@ sub register {
                     },
                     sub {
                         my ($coll, $err, $oid) = (@_);
-                        $self->debug('user updated');
-                        $self->debug('loading user');
                         $self->model('wot-replays.accounts')->find_one({ _id => $user_id } => sub {
                             my ($coll, $err, $user) = (@_);
-
-                            $self->debug('user loaded');
 
                             $self->stash(current_user           => $user);
                             $self->stash(current_player_name    => $user->{player_name});
@@ -108,59 +99,53 @@ sub register {
                             $self->current_user->{last_clan_check} ||= 0;
 
                             if($self->current_user->{last_clan_check} < Mango::BSON::bson_time( (time() - 86400) * 1000)) {
-                                $self->debug('clan check needed');
-                                # we need to re-check the users' clan settings, we do that by yoinking statterbox for it
-                                my $url = sprintf('http://statterbox.com/api/v1/%s/clan?server=%s&player=%s', 
-                                    '5299a074907e1337e0010000', # yes it's a hardcoded API token :P
-                                    lc($self->current_user->{player_server}),
-                                    lc($self->current_user->{player_name}),
-                                    );
-                                $self->debug('fetching from ', $url);
-                                $self->ua->get($url => sub {
-                                    my ($ua, $tx) = (@_);
-                                    my $clan = undef;
+                                my $url = 'http://api.statterbox.com/wot/account/clan';
+                                my $server = lc($self->current_user->{player_server});
+                                my $name   = $self->current_user->{player_name};
 
-                                    $self->debug('url fetched');
+                                $server = 'asia' if($server eq 'sea');
+
+                                # lookups by name are expensive, but hey... caching 4tw
+                                my $form = {
+                                    application_id => $self->stash('config')->{statterbox}->{server},
+                                    name           => lc($name),
+                                    cluster        => $server,
+                                    fields         => 'abbreviation,name,emblems'
+                                };
+                                $self->ua->post($url => form => $form, sub {
+                                    my ($ua, $tx) = (@_);
+
+                                    my $clan;
                                     
                                     if(my $res = $tx->success) {
-                                        if($res->json->{ok} == 1) {
-                                            $self->debug('have clan data');
+                                        if($res->json('/status') eq 'ok') {
                                             $clan = $res->json->{data}->{lc($self->current_user->{player_name})};
                                         } else {
-                                            $self->debug('no clan data');
                                             $clan = undef;
                                         }
                                     } else {
-                                        $self->debug('request failed');
                                         $clan = undef;
                                     }
                                     $self->current_user->{clan} = $clan;
-                                    $self->debug('updating user for clan');
                                     $self->model('wot-replays.accounts')->update({ _id => $user_id }, { '$set' => {
                                         'last_clan_check' => Mango::BSON::bson_time,
                                         'clan'            => $clan,
                                     }} => sub {
-                                        $self->debug('clan check results saved, continue');
                                         $self->continue;
                                     });
                                 });
                             } else {
-                                $self->debug('no clan check required, continue');
                                 $self->continue;
                             }
                         });
                     });
-                    $self->debug('post last-seen update');
                 }
             } else {
-                $self->debug('openid does not match regex');
                 return 1;
             }
         } else {
-            $self->debug('no openid in session');
             return 1;
         }
-        $self->debug('init_auth bottom');
         return undef;
     });
 

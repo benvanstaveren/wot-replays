@@ -348,21 +348,6 @@ sub actual_view_replay {
 
     my $ah = { map { $_ => 1 } @{$replay->{stats}->{achievements}} };
 
-    my $total_wn7 = [];
-    my $wn7_count = [];
-    my $avg_wn7   = [];
-
-    foreach my $roster (@{$replay->{roster}}) {
-        my $team = $roster->{player}->{team} - 1;
-        $wn7_count->[$team]++;
-        $total_wn7->[$team] += $roster->{wn7}->{data}->{overall};
-    }
-
-    $avg_wn7->[0] = (($wn7_count->[0] > 0) && $total_wn7->[0] > 0) ? sprintf('%.0f', $total_wn7->[0] / $wn7_count->[0]) : undef;
-    $avg_wn7->[1] = (($wn7_count->[1] > 0) && $total_wn7->[1] > 0) ? sprintf('%.0f', $total_wn7->[1] / $wn7_count->[1]) : undef;
-
-    $self->stash('team_avg_wn7' => $avg_wn7);
-
     foreach my $e (@{$replay->{stats}->{dossierPopUps}}) {
         $dossier_popups->{$e->[0]} = $e->[1]; # id, count
         next if($achievements->is_battle($e->[0])); # don't want the battle awards to be in other awards

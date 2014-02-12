@@ -33,11 +33,11 @@ sub roster {
     my $v    = shift;
 
     if($v) { 
-        warn 'roster set with ', scalar(@$v), ' entries via: ', (caller(1))[3], "\n";
+        warn 'roster set with ', (defined($v)) ? scalar(@$v) : '*** NONE ***', ' entries via: ', (caller(1))[3], "\n";
         $self->_roster($v);
     } else {
         my $r = $self->_roster;
-        warn 'roster get with ', scalar(@$r), ' entries via: ', (caller(1))[3], "\n";
+        warn 'roster get with ', (defined($r)) ? scalar(@$r) : '*** NONE ***' , ' entries via: ', (caller(1))[3], "\n";
         return $self->_roster;
     }
 }

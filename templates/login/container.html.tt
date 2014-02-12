@@ -15,10 +15,10 @@
         <a id="ru" type="button" class="btn btn-primary btn-lg btn-block" href="/login/ru">Russia</a>
     </div>
     <div class="col-lg-4 col-md-4">
-        <a id="vn" type="button" class="btn btn-default btn-lg btn-block" href="/login">Vietnam</a>
+        &nbsp;
     </div>
     <div class="col-lg-4 col-md-4">
-        <a id="kr" type="button" class="btn btn-default btn-lg btn-block" href="/login">Korea</a>
+        <a id="kr" type="button" class="btn btn-primary btn-lg btn-block" href="/login/kr">Korea</a>
     </div>
 </div>
 <script type="text/javascript">
