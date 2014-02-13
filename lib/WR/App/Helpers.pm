@@ -302,15 +302,15 @@ sub add_helpers {
 
     $self->helper(is_old_version => sub {
         my $self = shift;
-        my $r    = shift;
+        my $version = shift;
 
-        $r =~ s/\D+//g;
-        $r += 0;
-        if($self->stash('config')->{wot}->{version_numeric} > $r) {
-            return 1;
-        } else {
-            return 0;
+        if($version !~ /^\d+$/) {
+            # new style numeric version
+            $version = $self->wot_version_string_to_numeric($version);
         }
+
+        my $v = ($version < $self->config->{wot}->{version_numeric}) ? 1 : 0;
+        return $v;
     });
 
     $self->helper('hashbucket' => sub {
