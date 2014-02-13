@@ -77,7 +77,7 @@
                     if(d.ok && d.ok == 1) {
                         $('#frm-upload').addClass('hide');
                         $('#chat-output-row').removeClass('hide');
-                        Thunder.subscribe(d.channel);
+                        Statterpush.subscribe(d.channel);
                         WR.addMessageHandler('chatreader.message', function(data) {
                             $('#chat-output').append( $('<div/>').html(data.text) );
                         });
