@@ -51,7 +51,7 @@ sub get_online_users {
         my $o = [];
         my $g = 0;
 
-        foreach my $user (@{$res->{response}->{users}}) {
+        foreach my $user (@{$res->{data}->{users}}) {
             if($user =~ /^(anon-|undefined)/) {
                 $g++;
             } else {
