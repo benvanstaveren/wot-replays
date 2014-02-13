@@ -36,7 +36,7 @@ sub process {
         while(length($filename) < 32) {
             $filename .= $alpha->[int(rand(scalar(@$alpha)))];
         }
-        my $channel = sprintf('chatreader-%s', $filename);
+        my $channel = sprintf('cr_%s', $filename);
         my $replay_file = sprintf('%s/%s.wotreplay', $directory, $filename);
 
         $upload->asset->move_to($replay_file);

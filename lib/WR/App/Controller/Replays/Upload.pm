@@ -106,7 +106,7 @@ sub upload {
                         if($err) {
                             $self->render(json => { ok => 0, error => $_ });
                         } else {
-                            $self->app->statterpush->send_to_channel('page.home' => { evt => 'replay.upload', data => {} } => sub {
+                            $self->app->statterpush->send_to_channel('page.home' => Mojo::JSON->new->encode({ evt => 'replay.upload', data => {} }) => sub {
                                 my ($p, $r) = (@_);
                                 $self->render(json => { ok => 1, jid => $digest });
                             });
