@@ -83,6 +83,7 @@ sub upload {
                 priority    => $prio,
             } => sub {
                 my ($coll, $err, $oid) = (@_);
+
                 if(defined($oid)) {
                     $upload->asset->move_to($replay_file);
 
@@ -104,7 +105,7 @@ sub upload {
                         my ($coll, $err, $oid) = (@_);
 
                         if($err) {
-                            $self->render(json => { ok => 0, error => $_ });
+                            $self->render(json => { ok => 0, error => $_, oid => $oid });
                         } else {
                             $self->app->statterpush->send_to_channel('page.home' => Mojo::JSON->new->encode({ evt => 'replay.upload', data => {} }) => sub {
                                 my ($p, $r) = (@_);

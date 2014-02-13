@@ -27,7 +27,7 @@ sub safe_unpickle {
     my $res  = undef;
 
     try {
-        $res = WR::Util::Pickle->new(data => $pd)->unpickle;
+        $res = WR::Util::PyPickle->new(data => $pd)->unpickle;
     } catch {
         $res = undef;
     };

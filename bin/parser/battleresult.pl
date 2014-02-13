@@ -13,12 +13,11 @@ use constant WOT_BF_KEY     => join('', map { chr(hex($_)) } (split(/\s/, WOT_BF
 
 my $parser = WR::Parser->new(bf_key => WOT_BF_KEY, file => $ARGV[0], cb_gun_shot_count => sub { return 3 } );
 
-if($parser->num_blocks < 2) {
-    print 'Incomplete replay? Dumping blocks', "\n";
-    for(my $b = 0; $b < $parser->num_blocks; $b++) {
-        print Dumper($parser->get_block($b + 1));
-    }
-} else {
+print 'Replay version: ', $parser->version, "\n";
+
+if($parser->has_battle_result) {
     my $u = $parser->get_battle_result;
     print Dumper($u);
+} else {
+    print 'Incomplete replay? Block count: ', $parser->num_blocks, "\n";
 }

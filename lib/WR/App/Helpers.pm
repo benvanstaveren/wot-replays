@@ -804,6 +804,8 @@ sub add_helpers {
         my $a    = shift;
         my $c    = 0;
 
+        return 0 unless(defined($a));
+
         foreach my $e (@$a) {
             $c++ if(defined($e));
         }

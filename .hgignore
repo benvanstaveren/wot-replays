@@ -16,6 +16,6 @@ data/*
 ./wrapi.conf
 bin/*.txt
 wrapi.development.conf
-bannerserver.conf
-bannerserver.development.conf
 *.pyc
+lib/WR/Parser/Private/*
+
