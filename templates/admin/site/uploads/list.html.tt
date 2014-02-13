@@ -1,0 +1,100 @@
+<div id="replay-list">
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <h4>[% total_uploads %] uploads</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <table class="table table-bordered table-striped">
+            <colgroup>
+                <col style="width: 20%"/>
+                <col style="width: 40%"/>
+                <col style="width: 15%"/>
+                <col style="width: 35%"/>
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>Upload Date</th>
+                    <th>Upload File</th>
+                    <th>Uploader</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                [% FOREACH upload IN uploads %]
+                    <tr>
+                        <td>
+                            [% h.strftime('%d/%m/%Y %H:%M:%S', upload.ctime) %] UTC
+                        </td>
+                        <td>
+                            [% IF upload.data.file_base.defined %]
+                                [% h.basename(upload.data.file_base) %]
+                            [% ELSE %]
+                                (chatreader) [% upload.file %]
+                            [% END %]
+                        </td>
+                        <td>
+                            [% upload.uploader.player_name %]<br/>
+                            [% upload.uploader.player_server %]
+                        </td>
+                        <td>
+                            [% IF upload.complete %]
+                                [% IF upload.status == 1 %]
+                                    <div class="well well-sm">
+                                        PROCESSED OK<br/>
+                                        <a href="[% config.urls.app %]/replay/[% upload.replayid %].html">replay page</a> | <a href="[% config.urls.replays %]/[% upload.data.file_base %]">replay file</a>
+                                    </div>
+                                [% ELSE %]
+                                    <div class="alert well-sm alert-danger">
+                                        PROCESS ERROR<br/>
+                                        [% upload.error %]
+                                    </div>
+                                [% END %]
+                            [% ELSE %]
+                                [% IF upload.ready && !upload.locked %]
+                                    Pending Processing 
+                                [% ELSIF upload.ready && upload.locked %]
+                                    Processing 
+                                [% END %]
+                            [% END %]
+                        </td>
+                    </tr>
+                [% END %]
+            </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <ul class="pagination pagination-sm">
+                <li [% IF p == 1 %]class="disabled"[% END %]><a href="/admin/site/uploads/page/1">&laquo;</a></li>
+                <li [% IF p == 1 %]class="disabled"[% END %]><a href="/admin/site/uploads/page/[% p - 1 %]">&lt;</a></li>
+                [% start = p - 10 %]
+                [% IF start < 1 %]
+                    [% start = 1 %]
+                [% END %]
+                [% cpage = start %]
+                [% cmax  = p + 10 %]
+                [% IF cmax > maxp %]
+                    [% cmax = maxp + 1 %]
+                [% END %]
+                [% WHILE cpage < cmax %]
+                    [% IF cpage == p %]
+                        <li class="active"><a href="/admin/site/uploads/page/[% cpage %]">[% cpage %]</a></li>
+                    [% ELSE %]
+                        <li><a href="/admin/site/uploads/page/[% cpage %]">[% cpage %]</a></li>
+                    [% END %]
+                    [% cpage = cpage + 1 %]
+                [% END %]
+                [% IF p < maxp %]
+                    <li><a href="/admin/site/uploads/page/[% p + 1 %]">&gt;</a></li>
+                    <li><a href="/admin/site/uploads/page/[% maxp %]">&raquo;</a></li>
+                [% ELSE %]
+                    <li class="disabled"><a href="/admin/site/uploads/page/[% p + 1 %]">&gt;</a></li>
+                    <li class="disabled"><a href="/admin/site/uploads/page/[% maxp %]">&raquo;</a></li>
+                [% END %]
+            </ul>
+        </div>
+    </div>
+</div>

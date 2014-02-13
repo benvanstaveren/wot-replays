@@ -34,4 +34,33 @@ sub replays {
     });
 }
 
+sub uploads {
+    my $self = shift;
+    my $page = $self->stash('page');
+
+    $self->render_later;
+
+    my $cursor = $self->model('wot-replays.jobs')->find();
+    $cursor->count(sub {
+        my ($cursor, $e, $count) = (@_);
+        my $maxp   = int($count/50);
+        $maxp++ if($maxp * 50 < $count);
+
+        $cursor->skip( ($page - 1) * 50 );
+        $cursor->limit(50);
+        $cursor->sort({ 'ctime' => -1 });
+
+        $cursor->all(sub {
+            my ($c, $e, $docs) = (@_);
+
+            $self->respond(template => 'admin/site/uploads', stash => {
+                page => { title => 'Site - Uploads' },
+                maxp => $maxp,
+                p    => $page,
+                uploads => $docs,
+            });
+        });
+    });
+}
+
 1;

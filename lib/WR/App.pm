@@ -283,6 +283,8 @@ sub startup {
         my $site = $admin->under('/site');
             my $replays = $site->under('/replays');
                 $replays->route('/page/:page')->to('admin-site#replays', pageid => 'admin/site');
+            my $uploads = $site->under('/uploads');
+                $uploads->route('/page/:page')->to('admin-site#uploads', pageid => 'admin/site');
 
         my $modtools = $admin->under('/moderator');
             my $chatreader = $modtools->under('/chatreader');

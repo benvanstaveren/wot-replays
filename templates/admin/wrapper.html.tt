@@ -71,6 +71,7 @@
                         <li class="dropdown [% IF pageid == 'admin/site' %]active[% END %]"><a href="/admin/site" class="dropdown-toggle" data-toggle="dropdown">Site Tools<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="/admin/site/replays/page/1">Replays</a></li>
+                            <li><a href="/admin/site/uploads/page/1">Uploads</a></li>
                         </ul>
                     [% END %]
                     [% IF h.has_admin_role('events') %]
