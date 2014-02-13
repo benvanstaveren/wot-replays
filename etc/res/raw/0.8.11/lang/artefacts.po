@@ -1,13 +1,23 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: World Of Tanks\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-06-01 10:00+0300\n"
+"PO-Revision-Date: 2010-06-01 10:00+0300\n"
+"Last-Translator: WoT Translator <noreply@wargaming.net>\n"
+"Language-Team: WoT Team <noreply@wargaming.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
 msgid "afterburning/descr"
-msgstr "+15% untuk tenaga mesin selama satu menit"
+msgstr "+15% to engine power for one minute"
 
 msgid "afterburning/name"
 msgstr "Engine Power Boost"
 
 msgid "aimingStabilizer/descr"
-msgstr ""
-"+20% akurasi\n"
-"selama pergerakan dan perputaran turret"
+msgstr "+20% to accuracy during movement and turret rotation"
 
 msgid "aimingStabilizer_Mk1/name"
 msgstr "Vertical Stabilizer Mk 1"
@@ -17,68 +27,68 @@ msgstr "Vertical Stabilizer Mk 2"
 
 msgid "antifragmentationLining_heavy/descr"
 msgstr ""
-"+30% perlindungan lapis baja dari tabrakan dan ledakan.\n"
-"+30% perlindungan untuk kru dari cedera"
+"+30% to armor protection from ramming and explosions \n"
+"+30% to protection of the crew from injuries"
 
 msgid "antifragmentationLining_heavy/name"
 msgstr "Heavy Spall Liner"
 
 msgid "antifragmentationLining_light/descr"
 msgstr ""
-"+20% perlindungan lapis baja dari tabrakan dan ledakan.\n"
-"+20% perlindungan untuk kru dari cedera"
+"+20% to armor protection from ramming and explosions \n"
+"+20% to protection of the crew from injuries"
 
 msgid "antifragmentationLining_light/name"
 msgstr "Light Spall Liner"
 
 msgid "antifragmentationLining_medium/descr"
 msgstr ""
-"+25% perlindungan lapis baja dari tabrakan dan ledakan.\n"
-"+25% perlindungan untuk kru dari cedera"
+"+25% to armor protection from ramming and explosions \n"
+"+25% to protection of the crew from injuries"
 
 msgid "antifragmentationLining_medium/name"
 msgstr "Medium Spall Liner"
 
 msgid "antifragmentationLining_superheavy/descr"
 msgstr ""
-"+50% perlindungan lapis baja dari tabrakan dan ledakan.\n"
-"+50% perlindungan untuk kru dari cedera"
+"+50% to armor protection from ramming and explosions \n"
+"+50% to protection of the crew from injuries"
 
 msgid "antifragmentationLining_superheavy/name"
 msgstr "Superheavy Spall Liner"
 
 msgid "autoExtinguishers/always"
-msgstr "+10% perlindungan dari kebakaran."
+msgstr "+10% to fire protection."
 
 msgid "autoExtinguishers/descr"
-msgstr "Automatic fire extinguishing di tank Anda."
+msgstr "Automatic fire extinguishing in your vehicle."
 
 msgid "autoExtinguishers/name"
 msgstr "Automatic Fire Extinguisher"
 
 msgid "autoExtinguishers/onUse"
-msgstr "automatic fire extinguishing di tank Anda. Hanya satu kali pemakaian."
+msgstr "automatic fire extinguishing in your vehicle. Single use only."
 
 msgid "autoExtinguishers/restriction"
 msgstr "?empty?"
 
 msgid "camouflageNet/descr"
-msgstr "Mengurangi kemungkinan terdeteksi saat tank diam"
+msgstr "Reduces detection chance when the vehicle is stationary"
 
 msgid "camouflageNet/name"
 msgstr "Camouflage Net"
 
 msgid "carbonDioxide/descr"
-msgstr "+50% ketahanan tangki bensin"
+msgstr "+50% to fuel tank durability"
 
 msgid "carbonDioxide/name"
-msgstr "Isi Tangki dengan CO2"
+msgstr "Fill Tanks with CO2"
 
 msgid "chocolate/always"
-msgstr "+10% untuk semua skill dan kemampuan kru dalam perang."
+msgstr "+10% to all crew skills and perks for the course of the battle."
 
 msgid "chocolate/descr"
-msgstr "+10% untuk semua skill dan kemampuan kru."
+msgstr "+10% to all crew skills and perks."
 
 msgid "chocolate/name"
 msgstr "Chocolate"
@@ -87,19 +97,19 @@ msgid "chocolate/onUse"
 msgstr "?empty?"
 
 msgid "chocolate/restriction"
-msgstr "Terbatas: Tank Jerman."
+msgstr "Restricted: German vehicles."
 
 msgid "coatedOptics/descr"
-msgstr "+10% untuk jarak pandang, hingga jarak 500 m"
+msgstr "+10% to view range, up to a range of 500 m"
 
 msgid "coatedOptics/name"
 msgstr "Coated Optics"
 
 msgid "cocacola/always"
-msgstr "+10% untuk semua skill dan kemampuan kru dalam perang."
+msgstr "+10% to all crew skills and perks for the course of the battle."
 
 msgid "cocacola/descr"
-msgstr "+10% untuk semua skill dan kemampuan kru."
+msgstr "+10% to all crew skills and perks."
 
 msgid "cocacola/name"
 msgstr "Case of Cola"
@@ -108,10 +118,10 @@ msgid "cocacola/onUse"
 msgstr "?empty?"
 
 msgid "cocacola/restriction"
-msgstr "Terbatas: Tank Amerika."
+msgstr "Restricted: U.S. vehicles."
 
 msgid "enhancedAimDrives/descr"
-msgstr "+10% untuk kecepatan membidik"
+msgstr "+10% to aiming speed"
 
 msgid "enhancedAimDrives/name"
 msgstr "Enhanced Gun Laying Drive"
@@ -121,40 +131,36 @@ msgstr "Enhanced Belleville Washers"
 
 msgid "enhancedHorizontal_elastic_elements/descr"
 msgstr ""
-"+10% kapasitas angkut suspensi\n"
-"+20% durabilitas suspensi\n"
-" -50% mengurangi damage hull yang disebabkan kerusakan suspensi saat terjadi "
-"impact"
+"+10% to suspension load capacity\n"
+"+20% to suspension durability\n"
+" -50% to hull damage caused by suspension damage during impact"
 
 msgid "enhancedHorizontal_elastic_elements/name"
 msgstr "Enhanced Horizontal Leaf Springs"
 
 msgid "enhancedHorizontal_springs/descr"
 msgstr ""
-"+10% kapasitas angkut suspensi\n"
-"+20% durabilitas suspensi\n"
-" -50% mengurangi damage hull yang disebabkan kerusakan suspensi saat terjadi "
-"impact"
+"+10% to suspension load capacity\n"
+"+20% to suspension durability\n"
+" -50% to hull damage caused by suspension damage during impact"
 
 msgid "enhancedHorizontal_springs/name"
 msgstr "Enhanced Coil Springs Class 1"
 
 msgid "enhancedHorizontal_springs_class2/descr"
 msgstr ""
-"+10% kapasitas angkut suspensi\n"
-"+20% durabilitas suspensi\n"
-" -50% mengurangi damage hull yang disebabkan kerusakan suspensi saat terjadi "
-"impact"
+"+10% to suspension load capacity\n"
+"+20% to suspension durability\n"
+" -50% to hull damage caused by suspension damage during impact"
 
 msgid "enhancedHorizontal_springs_class2/name"
 msgstr "Enhanced Coil Springs Class 2"
 
 msgid "enhancedHorizontal_springs_class3/descr"
 msgstr ""
-"+10% kapasitas angkut suspensi\n"
-"+20% durabilitas suspensi\n"
-" -50% mengurangi damage hull yang disebabkan kerusakan suspensi saat terjadi "
-"impact"
+"+10% to suspension load capacity\n"
+"+20% to suspension durability\n"
+" -50% to hull damage caused by suspension damage during impact"
 
 msgid "enhancedHorizontal_springs_class3/name"
 msgstr "Enhanced Coil Springs Class 3"
@@ -170,30 +176,27 @@ msgstr "Enhanced Springs"
 
 msgid "enhancedSprings_class2/descr"
 msgstr ""
-"+10% kapasitas angkut suspensi\n"
-"+20% durabilitas suspensi\n"
-" -50% mengurangi damage hull yang disebabkan kerusakan suspensi saat terjadi "
-"impact"
+"+10% to suspension load capacity\n"
+"+20% to suspension durability\n"
+" -50% to hull damage caused by suspension damage during impact"
 
 msgid "enhancedSprings_class2/name"
 msgstr "Enhanced Leaf Springs 2 Class"
 
 msgid "enhancedSprings_class3/descr"
 msgstr ""
-"+10% kapasitas angkut suspensi\n"
-"+20% durabilitas suspensi\n"
-" -50% mengurangi damage hull yang disebabkan kerusakan suspensi saat terjadi "
-"impact"
+"+10% to suspension load capacity\n"
+"+20% to suspension durability\n"
+" -50% to hull damage caused by suspension damage during impact"
 
 msgid "enhancedSprings_class3/name"
 msgstr "Enhanced Leaf Springs 3 Class"
 
 msgid "enhancedSuspension/descr"
 msgstr ""
-"+10% kapasitas angkut suspensi\n"
-"+20% durabilitas suspensi\n"
-" -50% mengurangi damage hull yang disebabkan kerusakan suspensi saat terjadi "
-"impact"
+"+10% to suspension load capacity\n"
+"+20% to suspension durability\n"
+" -50% to hull damage caused by suspension damage during impact"
 
 msgid "enhancedSuspension_Christie/name"
 msgstr "Enhanced Christie Suspension"
@@ -215,55 +218,52 @@ msgstr "Enhanced Torsion Bars 5+ t Class"
 
 msgid "enhancedVertical_elastic_elements/descr"
 msgstr ""
-"+10% kapasitas angkut suspensi\n"
-"+20% durabilitas suspensi\n"
-" -50% mengurangi damage hull yang disebabkan kerusakan suspensi saat terjadi "
-"impact"
+"+10% to suspension load capacity\n"
+"+20% to suspension durability\n"
+" -50% to hull damage caused by suspension damage during impact"
 
 msgid "enhancedVertical_elastic_elements/name"
 msgstr "Enhanced Vertical Leaf Springs"
 
 msgid "enhancedVertical_springs/descr"
 msgstr ""
-"+10% kapasitas angkut suspensi\n"
-"+20% durabilitas suspensi\n"
-" -50% mengurangi damage hull yang disebabkan kerusakan suspensi saat terjadi "
-"impact"
+"+10% to suspension load capacity\n"
+"+20% to suspension durability\n"
+" -50% to hull damage caused by suspension damage during impact"
 
 msgid "enhancedVertical_springs/name"
 msgstr "Enhanced Vertical Coil Springs 1 Class"
 
 msgid "enhancedVertical_springs_class2/descr"
 msgstr ""
-"+10% kapasitas angkut suspensi\n"
-"+20% durabilitas suspensi\n"
-" -50% mengurangi damage hull yang disebabkan kerusakan suspensi saat terjadi "
-"impact"
+"+10% to suspension load capacity\n"
+"+20% to suspension durability\n"
+" -50% to hull damage caused by suspension damage during impact"
 
 msgid "enhancedVertical_springs_class2/name"
 msgstr "Enhanced Vertical Coil Springs 2 Class"
 
 msgid "enhancedVertical_springs_class3/descr"
 msgstr ""
-"+10% kapasitas angkut suspensi\n"
-"+20% durabilitas suspensi\n"
-" -50% mengurangi damage hull yang disebabkan kerusakan suspensi saat terjadi "
-"impact"
+"+10% to suspension load capacity\n"
+"+20% to suspension durability\n"
+" -50% to hull damage caused by suspension damage during impact"
 
 msgid "enhancedVertical_springs_class3/name"
 msgstr "Enhanced Vertical Coil Springs 3 Class"
 
 msgid "filterCyclone/descr"
-msgstr "+50% untuk ketahanan mesin"
+msgstr "+50% to engine durability"
 
 msgid "filterCyclone/name"
 msgstr "Cyclone Filter"
 
 msgid "gasoline100/always"
-msgstr "+5% untuk tenaga mesin dan kecepatan putaran turret dalam perang."
+msgstr ""
+"+5% to engine power and turret traverse speed for the course of the battle."
 
 msgid "gasoline100/descr"
-msgstr "+5% untuk tenaga mesin dan kecepatan putaran turret."
+msgstr "+5% to engine power and turret traverse speed."
 
 msgid "gasoline100/name"
 msgstr "100-octane Gasoline"
@@ -272,13 +272,14 @@ msgid "gasoline100/onUse"
 msgstr "?empty?"
 
 msgid "gasoline100/restriction"
-msgstr "Terbatas: Bensin mesin Jerman, Amerika, Inggris dan Perancis."
+msgstr "Restricted: German, U.S., U.K., and French gasoline engines."
 
 msgid "gasoline105/always"
-msgstr "+10% untuk tenaga mesin dan kecepatan putaran turret dalam perang."
+msgstr ""
+"+10% to engine power and turret traverse speed for the course of the battle."
 
 msgid "gasoline105/descr"
-msgstr "+10% untuk tenaga mesin dan kecepatan putaran turret."
+msgstr "+10% to engine power and turret traverse speed."
 
 msgid "gasoline105/name"
 msgstr "105-octane Gasoline"
@@ -287,12 +288,12 @@ msgid "gasoline105/onUse"
 msgstr "?empty?"
 
 msgid "gasoline105/restriction"
-msgstr "Terbatas: Bensin mesin Jerman, Amerika, Inggris dan Perancis."
+msgstr "Restricted: German, U.S., U.K., and French gasoline engines."
 
 msgid "grousers/descr"
 msgstr ""
-"+10% performa di atas tanah lunak,\n"
-"+5% performa di atas tanah biasa"
+"+10% to performance on soft ground,\n"
+"+5% to performance on moderately soft ground"
 
 msgid "grousers/name"
 msgstr "Additional Grousers"
@@ -301,22 +302,22 @@ msgid "handExtinguishers/always"
 msgstr "?empty?"
 
 msgid "handExtinguishers/descr"
-msgstr "Fire extinguishing di tank Anda."
+msgstr "Fire extinguishing in your vehicle."
 
 msgid "handExtinguishers/name"
 msgstr "Manual Fire Extinguisher"
 
 msgid "handExtinguishers/onUse"
-msgstr "fire extinguishing di tank Anda. Hanya satu kali pemakaian."
+msgstr "fire extinguishing in your vehicle. Single use only."
 
 msgid "handExtinguishers/restriction"
 msgstr "?empty?"
 
 msgid "hotCoffee/always"
-msgstr "+10% untuk semua skill dan kemampuan kru dalam perang."
+msgstr "+10% to all crew skills and perks for the course of the battle."
 
 msgid "hotCoffee/descr"
-msgstr "+10% untuk semua skill dan kemampuan kru."
+msgstr "+10% to all crew skills and perks."
 
 msgid "hotCoffee/name"
 msgstr "Strong Coffee"
@@ -325,10 +326,10 @@ msgid "hotCoffee/onUse"
 msgstr "?empty?"
 
 msgid "hotCoffee/restriction"
-msgstr "Terbatas: Tank Perancis."
+msgstr "Restricted: French vehicles."
 
 msgid "improvedVentilation/descr"
-msgstr "+5% untuk skill utama seluruh kru"
+msgstr "+5% to all crew skills"
 
 msgid "improvedVentilation_class1/name"
 msgstr "Improved Ventilation Class 1"
@@ -343,43 +344,43 @@ msgid "largeCaliberHowitzerRammer/name"
 msgstr "Large-Caliber Artillery-Shell Rammer"
 
 msgid "largeCaliberTankRammer/name"
-msgstr "Large-caliber Tank Gun Rammer"
+msgstr "Large-Сaliber Tank Gun Rammer"
 
 msgid "largeMedkit/always"
-msgstr "+15% perlindungan pada kru dari luka-luka."
+msgstr "+15% to protection of the crew from injuries."
 
 msgid "largeMedkit/descr"
-msgstr "Perawatan untuk semua kru yang terluka."
+msgstr "Treatment of all injured crew members."
 
 msgid "largeMedkit/name"
 msgstr "Large First Aid Kit"
 
 msgid "largeMedkit/onUse"
-msgstr "perawatan luka seluruh kru. Hanya satu kali pemakaian."
+msgstr "treatment of all injured crew members. Single use only."
 
 msgid "largeMedkit/restriction"
 msgstr "?empty?"
 
 msgid "largeRepairkit/always"
-msgstr "+10% perbaikan modul."
+msgstr "+10% to speed of module repairs."
 
 msgid "largeRepairkit/descr"
-msgstr "Memperbaiki seluruh modul yang rusak."
+msgstr "Repair of all damaged modules."
 
 msgid "largeRepairkit/name"
 msgstr "Large Repair Kit"
 
 msgid "largeRepairkit/onUse"
-msgstr "Perbaikan kerusakan seluruh modul. Hanya satu kali pemakaian."
+msgstr "Repair of all damaged modules. Single use only."
 
 msgid "largeRepairkit/restriction"
 msgstr "?empty?"
 
 msgid "lendLeaseOil/always"
-msgstr "+5% untuk tenaga mesin dalam perang."
+msgstr "+5% to engine power for the course of the battle."
 
 msgid "lendLeaseOil/descr"
-msgstr "+5% untuk tenaga mesin."
+msgstr "+5% to engine power."
 
 msgid "lendLeaseOil/name"
 msgstr "Lend-Lease Oil"
@@ -388,19 +389,19 @@ msgid "lendLeaseOil/onUse"
 msgstr "?empty?"
 
 msgid "lendLeaseOil/restriction"
-msgstr "Terbatas: Tank Rusia."
+msgstr "Restricted: U.S.S.R. vehicles."
 
 msgid "mediumCaliberHowitzerRammer/name"
-msgstr "Medium-Caliber Artillery-Shell Rammer"
+msgstr "Medium-Caliber Artillery Shell Rammer"
 
 msgid "mediumCaliberTankRammer/name"
 msgstr "Medium-Caliber Tank Gun Rammer"
 
 msgid "qualityOil/always"
-msgstr "+5% untuk tenaga mesin dalam perang."
+msgstr "+5% to engine power for the course of the battle."
 
 msgid "qualityOil/descr"
-msgstr "+5% untuk tenaga mesin."
+msgstr "+5% to engine power."
 
 msgid "qualityOil/name"
 msgstr "Quality Oil"
@@ -409,16 +410,16 @@ msgid "qualityOil/onUse"
 msgstr "?empty?"
 
 msgid "qualityOil/restriction"
-msgstr "Terbatas: Tank Cina dan Jepang."
+msgstr "Restricted: Chinese and Japanese vehicles."
 
 msgid "rammer/descr"
-msgstr "-10% waktu mengisi"
+msgstr "-10% to loading time"
 
 msgid "ration/always"
-msgstr "+10% untuk semua skill dan kemampuan kru dalam perang."
+msgstr "+10% to all crew skills and perks for the course of the battle."
 
 msgid "ration/descr"
-msgstr "+10% untuk semua skill dan kemampuan kru."
+msgstr "+10% to all crew skills and perks."
 
 msgid "ration/name"
 msgstr "Extra Combat Rations"
@@ -427,13 +428,13 @@ msgid "ration/onUse"
 msgstr "?empty?"
 
 msgid "ration/restriction"
-msgstr "Terbatas: Tank Rusia."
+msgstr "Restricted: U.S.S.R. vehicles."
 
 msgid "ration_china/always"
-msgstr "+10% untuk semua skill dan kemampuan kru dalam perang."
+msgstr "+10% to all crew skills and perks for the course of the battle."
 
 msgid "ration_china/descr"
-msgstr "+10% untuk semua skill dan kemampuan kru."
+msgstr "+10% to all crew skills and perks."
 
 msgid "ration_china/name"
 msgstr "Improved Combat Rations"
@@ -442,13 +443,13 @@ msgid "ration_china/onUse"
 msgstr "?empty?"
 
 msgid "ration_china/restriction"
-msgstr "Terbatas: Tank Cina."
+msgstr "Restricted: Chinese vehicles."
 
 msgid "ration_japan/always"
-msgstr "+10% untuk semua skill dan kemampuan kru dalam perang."
+msgstr "+10% to all crew skills and perks for the course of the battle."
 
 msgid "ration_japan/descr"
-msgstr "+10% untuk semua skill dan kemampuan kru."
+msgstr "+10% to all crew skills and perks."
 
 msgid "ration_japan/name"
 msgstr "Onigiri"
@@ -457,13 +458,13 @@ msgid "ration_japan/onUse"
 msgstr "?empty?"
 
 msgid "ration_japan/restriction"
-msgstr "Terbatas: Tank Jepang."
+msgstr "Restricted: Japanese vehicles."
 
 msgid "ration_uk/always"
-msgstr "+10% untuk semua skill dan kemampuan kru dalam perang."
+msgstr "+10% to all crew skills and perks for the course of the battle."
 
 msgid "ration_uk/descr"
-msgstr "+10% untuk semua skill dan kemampuan kru."
+msgstr "+10% to all crew skills and perks."
 
 msgid "ration_uk/name"
 msgstr "Pudding and Tea"
@@ -472,35 +473,34 @@ msgid "ration_uk/onUse"
 msgstr "?empty?"
 
 msgid "ration_uk/restriction"
-msgstr "Terbatas: Tank Inggris."
+msgstr "Restricted: U.K. vehicles."
 
 msgid "removedRpmLimiter/always"
 msgstr "?empty?"
 
 msgid "removedRpmLimiter/descr"
-msgstr "+10% untuk tenaga mesin tapi merusak mesin."
+msgstr "+10% to engine power but damages the engine."
 
 msgid "removedRpmLimiter/name"
 msgstr "Removed Speed Governor"
 
 msgid "removedRpmLimiter/onUse"
-msgstr ""
-"+10% untuk tenaga mesin tetapi akan merusak mesin. Beberapa kali pemakaian."
+msgstr "+10% to engine power but damages the engine. Multiple use."
 
 msgid "removedRpmLimiter/restriction"
-msgstr "Terbatas: Tank Rusia dan Cina."
+msgstr "Restricted: U.S.S.R. and Chinese vehicles."
 
 msgid "smallMedkit/always"
 msgstr "?empty?"
 
 msgid "smallMedkit/descr"
-msgstr "Perawatan untuk kru yang terluka."
+msgstr "Treatment of an injured crew member."
 
 msgid "smallMedkit/name"
 msgstr "Small First Aid Kit"
 
 msgid "smallMedkit/onUse"
-msgstr "perawatan luka untuk kru. Hanya satu kali pemakaian."
+msgstr "treatment of an injured crew member. Single use only."
 
 msgid "smallMedkit/restriction"
 msgstr "?empty?"
@@ -509,35 +509,33 @@ msgid "smallRepairkit/always"
 msgstr "?empty?"
 
 msgid "smallRepairkit/descr"
-msgstr "Memperbaiki sebuah modul atau dua track yang rusak."
+msgstr "Repair of a damaged module or two damaged tracks."
 
 msgid "smallRepairkit/name"
 msgstr "Small Repair Kit"
 
 msgid "smallRepairkit/onUse"
-msgstr ""
-"memperbaiki modul yang rusak atau dua track yang rusak. Hanya satu kali "
-"pemakaian."
+msgstr "repair of a damaged module or two damaged tracks. Single use only."
 
 msgid "smallRepairkit/restriction"
 msgstr "?empty?"
 
 msgid "stereoscope/descr"
 msgstr ""
-"+25% jarak pandang pada tank yang diam,\n"
-"hingga 500 m"
+"+25% to view range for a stationary vehicle,\n"
+"up to 500 m"
 
 msgid "stereoscope/name"
 msgstr "Binocular Telescope"
 
 msgid "toolbox/descr"
-msgstr "+25% kecepatan reparasi"
+msgstr "+25% to repair speed"
 
 msgid "toolbox/name"
 msgstr "Toolbox"
 
 msgid "wetCombatPack/descr"
-msgstr "+50% ketahanan rak amunisi"
+msgstr "+50% ammo rack durability"
 
 msgid "wetCombatPack_class1/name"
 msgstr "\"Wet\" Ammo Rack Class 1"

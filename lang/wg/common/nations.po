@@ -15,6 +15,3 @@ msgstr "U.S.A."
 
 msgid "ussr"
 msgstr "U.S.S.R."
-
-msgid "china"
-msgstr "China"

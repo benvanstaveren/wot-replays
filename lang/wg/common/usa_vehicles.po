@@ -1,15 +1,3 @@
-msgid ""
-msgstr ""
-"Project-Id-Version: World Of Tanks\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-01 10:00+0300\n"
-"PO-Revision-Date: 2010-06-01 10:00+0300\n"
-"Last-Translator: WoT Translator <noreply@wargaming.net>\n"
-"Language-Team: WoT Team <noreply@wargaming.net>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-
 msgid "AN-ARC-27"
 msgstr "AN/GRC-7"
 
@@ -21,6 +9,9 @@ msgstr "AN/VRC-12"
 
 msgid "AN-VRC-7"
 msgstr "AN/VRC-7"
+
+msgid "AN_GRC_8"
+msgstr "AN/GRC-8"
 
 msgid "AN_PRC_10"
 msgstr "AN/PRC-10"
@@ -167,9 +158,6 @@ msgstr "T18E2"
 msgid "Chassis_T1_E6"
 msgstr "Vickers E"
 
-msgid "Chassis_T1_M1921"
-msgstr "M1921"
-
 msgid "Chassis_T21"
 msgstr "VVSS T48M1A1"
 
@@ -260,6 +248,9 @@ msgstr "T95HVSS"
 msgid "Chassis_T95_2"
 msgstr "T95HVSSM2"
 
+msgid "Chassis_T95_E6"
+msgstr "T95E6"
+
 msgid "Continental AV-1790-3"
 msgstr "Continental AV-1790-3"
 
@@ -267,6 +258,14 @@ msgid "Continental AV-1790-3_short"
 msgstr ""
 "Continental\n"
 "AV-1790-3"
+
+msgid "Continental_AOI-1195-5"
+msgstr "Continental AOI-1195-5"
+
+msgid "Continental_AOI-1195-5_short"
+msgstr ""
+"Continental\n"
+"AOI-1195-5"
 
 msgid "Continental_AOI-628-1"
 msgstr "Continental AOI-628-1"
@@ -529,6 +528,9 @@ msgstr "Ford GAF V8"
 
 msgid "Ford_GAN"
 msgstr "Ford GAN"
+
+msgid "Ford_GAN_T"
+msgstr "Ford GAN No. 17"
 
 msgid "GMC_6046"
 msgstr "GMC 6046"
@@ -868,6 +870,9 @@ msgstr ""
 "prototype was started in 1957, and in 1959 the order for production of the "
 "first tank was placed with Chrysler."
 
+msgid "M62T80"
+msgstr "T23E3"
+
 msgid "M6A2E1"
 msgstr "M6A2E1"
 
@@ -1026,10 +1031,13 @@ msgid "SCR_528"
 msgstr "SCR 528"
 
 msgid "SCR_528A1"
-msgstr "SCR 528A1"
+msgstr "SCR 528AM"
 
 msgid "SCR_528R1"
-msgstr "SCR 528 A"
+msgstr "SCR 528A"
+
+msgid "SCR_528T"
+msgstr "SCR 528T"
 
 msgid "SCR_538"
 msgstr "SCR 538"
@@ -1197,6 +1205,16 @@ msgstr "T23"
 
 msgid "T23D51080"
 msgstr "T23D51080"
+
+msgid "T23E3"
+msgstr "T23E3"
+
+msgid "T23E3_descr"
+msgstr ""
+"Development of the tank started in April 1943. The prototype was "
+"manufactured in August 1944. Unlike its predecessor T23, this variant "
+"featured a torsion-bar suspension. The vehicle never entered mass production "
+"nor saw service."
 
 msgid "T23T80"
 msgstr "T23T80"
@@ -1506,6 +1524,18 @@ msgstr ""
 msgid "T95"
 msgstr "T95"
 
+msgid "T95_E6"
+msgstr "T95E6"
+
+msgid "T95_E6_descr"
+msgstr ""
+"Some military analysts deemed the experimental tanks of the T95 series to be "
+"undergunned. In order to increase the tank's firepower, a new, heavier "
+"turret, designated T96, was to be mounted on the hull. This would allow "
+"replacement of the 105-mm gun with a 120-mm gun. However, development proved "
+"unsuccessful, and the project was canceled on July 7th, 1960. Only one dummy "
+"vehicle was built."
+
 msgid "T95_descr"
 msgstr ""
 "Development of this vehicle started in 1943, with 25 vehicles planned for "
@@ -1514,8 +1544,8 @@ msgstr ""
 msgid "T99E2"
 msgstr "T99E2"
 
-msgid "Torsion_barT80"
-msgstr "Torsion bar T80"
+msgid "Torsion_bar_T80"
+msgstr "T23E3"
 
 msgid "Turret_1_M103"
 msgstr "M89"
@@ -1630,6 +1660,9 @@ msgstr "T92"
 
 msgid "Turret_1_T95"
 msgstr "T95"
+
+msgid "Turret_1_T95_E6"
+msgstr "T95E6"
 
 msgid "Turret_2_M103"
 msgstr "T140"
@@ -1807,9 +1840,6 @@ msgstr ""
 msgid "Wright_R-975EC2"
 msgstr "Wright R-975EC2"
 
-msgid "Wright_R-975EC2A1"
-msgstr "Wright R-975EC2"
-
 msgid "_105mm_APCR_M68M2"
 msgstr "APDS-T M392"
 
@@ -1927,6 +1957,9 @@ msgstr "120 mm Gun M58"
 msgid "_120mm_Gun_T122"
 msgstr "120 mm Gun T122"
 
+msgid "_120mm_Gun_T123E6"
+msgstr "120 mm Gun T123E6"
+
 msgid "_120mm_Gun_T179"
 msgstr "120 mm Gun T179"
 
@@ -1974,9 +2007,6 @@ msgstr "155 mm Gun M1A1"
 
 msgid "_155mm_Gun_M46"
 msgstr "155 mm Gun M46"
-
-msgid "_155mm_Gun_T7"
-msgstr "155 mm Gun T7"
 
 msgid "_155mm_HEAT_M167"
 msgstr "HEAT M167"
@@ -2247,6 +2277,9 @@ msgid "_76mm_Gun_M1918"
 msgstr "3-inch Gun T9"
 
 msgid "_76mm_Gun_M1A1"
+msgstr "76 mm Gun M1A1"
+
+msgid "_76mm_Gun_M1A1T"
 msgstr "76 mm Gun M1A1"
 
 msgid "_76mm_Gun_M1A2"
