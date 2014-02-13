@@ -31,7 +31,10 @@
                                         [% ELSIF bonustype == 'premium' %]
                                             [% h.loc('replay.missions.bonustype.premium', entry.bonuses.$bonustype) %]
                                         [% ELSE %]
-                                            (unknown bonus type [% bonustype %]) [% entry.bonuses.$bonustype %]<br/>
+                                            (unknown bonus type [% bonustype %])
+                                            <!-- 
+                                                h.dumper(entry.bonuses.$bonustype) 
+                                            -->
                                         [% END %]
                                     [% END %]
                                 [% END %]
