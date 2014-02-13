@@ -47,7 +47,7 @@ sub get_online_users {
     my $self = shift;
     my $end  = shift;
 
-    $self->app->thunderpush->channel_list('site' => sub {
+    $self->app->statterpush->channel_list('site' => sub {
         my ($p, $res) = (@_);
         my $o = [];
         my $g = 0;
