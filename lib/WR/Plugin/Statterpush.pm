@@ -8,8 +8,9 @@ sub register {
     my $conf = shift;
 
     $app->attr('statterpush' => sub {
-        WR::Statterpush::Server->new(token => $conf->{token}, group => 'wotreplays', host => 'api.statterbox.com');
+        WR::Statterpush::Server->new(token => $conf->{token}, group => $conf->{group}, host => 'api.statterbox.com');
     });
+    $app->log->info('Registered Statterpush plugin using token: ' . $conf->{token} . ' and group ' . $conf->{group});
 }
 
 1;

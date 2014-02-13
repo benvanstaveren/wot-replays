@@ -17,7 +17,7 @@
         <script type="text/javascript" src="[% config.urls.static %]/js/bootstrap-slider.js"></script>
 
         <script type="text/javascript" src="http://cdn.sockjs.org/sockjs-0.3.min.js"></script>
-        <script type="text/javascript" src="/js/thunderpush.js"></script>
+        <script type="text/javascript" src="http://api.statterbox.com/statterpush.js"></script>
 
         <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet"/> 
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet"/>
@@ -31,10 +31,10 @@
             var thunderChannels = [ 'site', 'admin' ];
             var thunderOpts = { 
                 log: true,
-                user: '[% h.current_user.player_name |js %].[% h.current_user.player_server |js %]'
+                user: '[% IF h.is_user_authenticated %][% h.current_user.player_name |js %].[% h.current_user.player_server |js %][% ELSE %]anon-[% h.get_oid() %][% END %]'
             };
-            Thunder.connect("bacon.wotreplays.org:20000", "[% config.thunderpush.key %]", thunderChannels, thunderOpts);
-            Thunder.listen(function(message) {
+            Statterpush.connect('[% config.statterbox.web %]', 'wotreplays', thunderChannels, thunderOpts);
+            Statterpush.listen(function(message) {
                 WR.dispatchMessage(message);
             });
 

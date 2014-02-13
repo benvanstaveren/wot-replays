@@ -34,6 +34,7 @@ sub startup {
 
     $self->plugin('WR::Plugin::Statterpush', {
         token => $config->{statterbox}->{server},
+        group => 'wotreplays',
     });
 
     $self->routes->namespaces([qw/WR::App::Controller/]);
