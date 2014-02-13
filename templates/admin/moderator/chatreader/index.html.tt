@@ -46,6 +46,8 @@
         </div>
     </div>
     <script type="text/javascript">
+        window.WR_CR_session = null;
+
         $(document).ready(function() {
             $('#frm-upload').ajaxForm({
                 clearForm: true,
@@ -77,13 +79,17 @@
                     if(d.ok && d.ok == 1) {
                         $('#frm-upload').addClass('hide');
                         $('#chat-output-row').removeClass('hide');
-                        Statterpush.subscribe(d.channel);
+
+                        WR_CR_session = d.channel;
+
                         WR.addMessageHandler('chatreader.message', function(data) {
-                            $('#chat-output').append( $('<div/>').html(data.text) );
+                            if(data.session == WR_CR_session) $('#chat-output').append( $('<div/>').html(data.text) );
                         });
                         WR.addMessageHandler('chatreader.finished', function(data) {
-                            $('#processing-display').addClass('hide');
-                            $('#reset-container').removeClass('hide');
+                            if(data.session == WR_CR_session) {
+                                $('#processing-display').addClass('hide');
+                                $('#reset-container').removeClass('hide');
+                            }
                         });
                     } else {
                         if(d.error) {

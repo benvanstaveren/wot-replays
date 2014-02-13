@@ -114,10 +114,10 @@ if(scalar(@$jobs) > 0) {
             $p->db->collection('jobs')->update({ _id => $job->{_id} }, { '$set' => { 'status_text' => [], locked => Mango::BSON::bson_true, locked_by => $$, locked_at => Mango::BSON::bson_time } } );
             $p->on('message' => sub {
                 my ($p, $text) = (@_);
-                get_push->send_to_channel($job->{channel} => Mojo::JSON->new->decode({ evt => 'chatreader.message', data => { text => $text } }));
+                get_push->send_to_channel('admin' => Mojo::JSON->new->decode({ evt => 'chatreader.message', data => { session => $job->{channel}, text => $text } }));
             });
             $p->on('finished' => sub {
-                get_push->send_to_channel($job->{channel} => Mojo::JSON->new->decode({ evt => 'chatreader.finished', data => {} }));
+                get_push->send_to_channel('admin' => Mojo::JSON->new->decode({ evt => 'chatreader.finished', data => { session => $job->{channel} } }));
             });
            $p->process_chatreader($job);
         } else {
