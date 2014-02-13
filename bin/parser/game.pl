@@ -110,6 +110,7 @@ $game->on('setup.map' => sub {
     my ($game, $v) = (@_);
     print '[SETUP.MAP]: ', $v, "\n";
 });
+    
 
 $game->on('0x08' => sub {
     my ($game, $v) = (@_);

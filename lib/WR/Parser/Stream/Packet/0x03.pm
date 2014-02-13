@@ -1,14 +1,14 @@
 package WR::Parser::Stream::Packet::0x03;
 use Mojo::Base 'WR::Parser::Stream::Packet';
 
-# unsure what this packet is; the payload consists of 
-# an uint32 that keeps changing, followed by what seems to be a fixed
-# sequence of 07 09 00 00 00 00 00 00 - probably 2 uint32's or 4 uint16's
+# unsure what this packet is; the payload consists of 12 bytes
+has 'player_id'         => sub { return shift->read(0, 4, 'L<') };
+has 'unknown'           => sub { return shift->read(4, 8, 'L<L<') };
 
 sub BUILD {
     my $self = shift;
 
-    $self->enable;
+    $self->enable($_) for(qw/player_id unknown/);
 
     return $self;
 }

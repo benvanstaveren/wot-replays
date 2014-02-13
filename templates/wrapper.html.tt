@@ -22,7 +22,7 @@
         <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-growl/1.0.0/jquery.bootstrap-growl.min.js"></script>
 
         <script type="text/javascript" src="http://cdn.sockjs.org/sockjs-0.3.min.js"></script>
-        <script type="text/javascript" src="/js/thunderpush.js"></script>
+        <script type="text/javascript" src="http://api.statterbox.com/statterpush.js"></script>
 
         <script type="text/javascript" src="[% config.urls.static %]/js/jquery.form.js"></script>
         <script type="text/javascript" src="[% config.urls.static %]/js/jquery.timers.js"></script>
@@ -40,8 +40,8 @@
                 log: [% IF config.mode.defined && config.mode == 'dev' %]true[% ELSE %]false[% END %],
                 user: '[% IF h.is_user_authenticated %][% h.current_user.player_name |js %].[% h.current_user.player_server |js %][% ELSE %]anon-[% h.get_oid() %][% END %]'
             };
-            Thunder.connect("bacon.wotreplays.org:20000", "[% config.thunderpush.key %]", thunderChannels, thunderOpts);
-            Thunder.listen(function(message) {
+            Statterpush.connect('[% config.statterbox.web %]', 'wotreplays', thunderChannels, thunderOpts);
+            Statterpush.listen(function(message) {
                 WR.dispatchMessage(message);
             });
             WR.pageid = '[% pageid |js %]';

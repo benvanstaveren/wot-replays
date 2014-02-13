@@ -12,9 +12,8 @@ my $p = WR::Statterpush::Server->new(
     group       => 'wotreplays',
     );
 
-$p->send_to_channel(
+$p->user_count(
     'site',
-    Mojo::JSON->new->encode({ evt => 'growl', data => { type => 'info', allow_dismiss => Mojo::JSON->true, delay => 10000, text => join(' ', @ARGV) } }),
     sub {
         my ($sp, $res) = (@_);
 

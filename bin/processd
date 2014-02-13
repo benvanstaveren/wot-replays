@@ -7,7 +7,7 @@ use Getopt::Long;
 use WR::Daemon::Process;
 use Mojo::Log;
 use Parallel::ForkManager;
-use WR::Thunderpush::Server;
+use WR::Statterpush::Server;
 
 my $config      = {};
 my $cfile       = undef;
@@ -58,10 +58,10 @@ if(my $lf = $config->{processd}->{logfile}) {
 }
 
 sub get_push {
-    return WR::Thunderpush::Server->new(
-        host    => 'bacon.wotreplays.org:20000',
-        key     => $config->{thunderpush}->{key},
-        secret  => $config->{thunderpush}->{secret},
+    return WR::Statterpush::Server->new(
+        host    => 'api.statterbox.com',
+        token   => $config->{statterbox}->{server},
+        group   => 'wotreplays',
     );
 }
 

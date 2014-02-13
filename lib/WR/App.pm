@@ -32,11 +32,9 @@ sub startup {
         $self->plugin(sprintf('WR::Plugin::%s', $_));
     }
 
-    $self->plugin('WR::Plugin::Thunderpush', {
-        host    => 'bacon.wotreplays.org:20000',
-        key     => $config->{thunderpush}->{key},
-        secret  => $config->{thunderpush}->{secret}
-        });
+    $self->plugin('WR::Plugin::Statterpush', {
+        token => $config->{statterbox}->{server},
+    });
 
     $self->routes->namespaces([qw/WR::App::Controller/]);
 
