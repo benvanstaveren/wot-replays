@@ -49,7 +49,7 @@
                             [% h.strftime('%d/%m/%Y %H:%M:%S', upload.ctime) %] UTC
                         </td>
                         <td>
-                            [% h.basename(upload.data.file_base) %]
+                            [% h.basename(upload.data.file_base) || upload.data.file_base _ ' (no basename)' %]
                         </td>
                         <td>
                             [% IF upload.ready && !upload.locked %]

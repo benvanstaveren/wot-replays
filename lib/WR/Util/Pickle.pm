@@ -8,7 +8,6 @@ has 'fh'        =>  sub { my $self = shift; IO::String->new($self->data) };
 
 use Scalar::Util qw/refaddr/;
 
-use WR::Util::Pickle::None;
 use WR::Util::Pickle::Class;
 
 # this is a ghetto implementation of an unpickler, it expects a string of data in the 'data' attribute
@@ -133,7 +132,7 @@ sub handle_STOP {
 
 sub handle_PERSID           { warn 'PERSID unhandled' }
 sub handle_BINPERSID        { warn 'BINPERSID unhandled' }
-sub handle_NONE             { shift->push(WR::Util::Pickle::None->new()) }
+sub handle_NONE             { shift->push(undef) }
 sub handle_NEWFALSE         { shift->push(Mango::BSON::bson_false) }
 sub handle_NEWTRUE          { shift->push(Mango::BSON::bson_true) }
 
