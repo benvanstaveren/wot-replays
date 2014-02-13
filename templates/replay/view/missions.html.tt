@@ -33,7 +33,7 @@
                                         [% ELSE %]
                                             (unknown bonus type [% bonustype %])
                                             <!-- 
-                                                h.dumper(entry.bonuses.$bonustype) 
+                                                [% h.dumper(entry.bonuses.$bonustype) %]
                                             -->
                                         [% END %]
                                     [% END %]
