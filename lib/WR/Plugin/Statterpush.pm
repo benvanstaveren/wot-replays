@@ -8,7 +8,7 @@ sub register {
     my $conf = shift;
 
     $app->attr('statterpush' => sub {
-        WR::Statterpush::Server->new(token => $conf->{token});
+        WR::Statterpush::Server->new(token => $conf->{token}, group => 'wotreplays', host => 'api.statterbox.com');
     });
 }
 

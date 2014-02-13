@@ -15,7 +15,6 @@ sub get_replay_count {
 
     $self->model('wot-replays.replays')->find()->count(sub {
         my ($cursor, $err, $count) = (@_);
-
         $end->({ key => 'total', value => $count });
     });
 }
