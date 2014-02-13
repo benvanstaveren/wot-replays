@@ -12,6 +12,8 @@ sub send_to_channel {
     my $message = shift;
     my $cb      = shift;
 
+    warn 'send_to_channel: ', $channel, ' message: ', $message, "\n";
+
     if(!defined($cb)) {
         return $self->ua->post(sprintf('http://api.statterbox.com/push/%s/%s/send_to_channel', $self->token, $self->group) => form => { channel => $channel, message => $message });
     }
