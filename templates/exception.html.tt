@@ -1,0 +1,18 @@
+[% WRAPPER wrapper.html.tt %]
+    <div class="page-header">
+        <h1>Oh hell, someone stop it!</h1>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <div class="alert alert-danger">
+                <p>Something in the backend went <em>kaboom</em> in an interesting way. This is either due to Scrambled writing code whilst sleepy, or the server is busy falling over.</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <div style="width: 800px; height: 369px; margin: 0px auto; background: transparent url(/img/500.png) no-repeat scroll center center">
+            </div>
+        </dov>
+    </div>
+[% END %]

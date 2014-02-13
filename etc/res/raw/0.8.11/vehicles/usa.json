@@ -1,0 +1,595 @@
+{
+   "T28" : {
+      "userString" : "#usa_vehicles:T28",
+      "level" : 8,
+      "shortUserString" : "#usa_vehicles:T28_short",
+      "price" : 2580000,
+      "id" : 32,
+      "description" : "#usa_vehicles:T28_descr",
+      "tags" : "AT-SPG heavyAT-SPG largeCaliberTankRammer_user wetCombatPack_class2_user enhancedVertical_springs_class3_user"
+   },
+   "T71" : {
+      "userString" : "#usa_vehicles:T71",
+      "level" : 7,
+      "price" : 1400000,
+      "id" : 61,
+      "description" : "#usa_vehicles:T71_descr",
+      "tags" : "lightTank scout wetCombatPack_class1_user aimingStabilizer_Mk1_user enhancedTorsions1t_user"
+   },
+   "T49" : {
+      "userString" : "#usa_vehicles:T49",
+      "level" : 5,
+      "price" : 400000,
+      "id" : 41,
+      "description" : "#usa_vehicles:T49_descr",
+      "tags" : "AT-SPG lightAT-SPG noImprovedVentilation wetCombatPack_class1_user mediumCaliberTankRammer_user"
+   },
+   "M5_Stuart" : {
+      "userString" : "#usa_vehicles:M5_Stuart",
+      "level" : 4,
+      "shortUserString" : "#usa_vehicles:M5_Stuart_short",
+      "price" : 143000,
+      "id" : 20,
+      "description" : "#usa_vehicles:M5_Stuart_descr",
+      "tags" : "lightTank wetCombatPack_class1_user enhancedVertical_springs_class2_user"
+   },
+   "M8A1" : {
+      "userString" : "#usa_vehicles:M8A1",
+      "level" : 4,
+      "price" : 130000,
+      "id" : 40,
+      "description" : "#usa_vehicles:M8A1_descr",
+      "tags" : "AT-SPG lightAT-SPG noImprovedVentilation wetCombatPack_class1_user mediumCaliberTankRammer_user enhancedVertical_springs_user"
+   },
+   "M53_55" : {
+      "userString" : "#usa_vehicles:M53_55",
+      "level" : 9,
+      "price" : 3550000,
+      "id" : 63,
+      "description" : "#usa_vehicles:M53_55_descr",
+      "tags" : "SPG mediumSPG largeCaliberHowitzerRammer_user improvedVentilation_class2_user wetCombatPack_class2_user enhancedTorsions5t_user"
+   },
+   "M22_Locust" : {
+      "userString" : "#usa_vehicles:M22_Locust",
+      "level" : 3,
+      "shortUserString" : "#usa_vehicles:M22_Locust_short",
+      "price" : 900,
+      "id" : 206,
+      "description" : "#usa_vehicles:M22_Locust_descr",
+      "tags" : "lightTank wetCombatPack_class1_user enhancedVertical_springs_user"
+   },
+   "T28_Prototype" : {
+      "userString" : "#usa_vehicles:T28_Prototype",
+      "level" : 8,
+      "shortUserString" : "#usa_vehicles:T28_Prototype_short",
+      "price" : 2650000,
+      "id" : 44,
+      "description" : "#usa_vehicles:T28_Prototype_descr",
+      "tags" : "AT-SPG heavyAT-SPG largeCaliberTankRammer_user wetCombatPack_class2_user noImprovedVentilation enhancedHorizontal_springs_class3_user"
+   },
+   "T29" : {
+      "userString" : "#usa_vehicles:T29",
+      "level" : 7,
+      "price" : 1450300,
+      "id" : 15,
+      "description" : "#usa_vehicles:T29_descr",
+      "tags" : "heavyTank aimingStabilizer_Mk2_user largeCaliberTankRammer_user wetCombatPack_class2_user enhancedTorsions5t_user"
+   },
+   "T18" : {
+      "userString" : "#usa_vehicles:T18",
+      "level" : 2,
+      "price" : 3000,
+      "id" : 24,
+      "description" : "#usa_vehicles:T18_descr",
+      "tags" : "AT-SPG lightAT-SPG improvedVentilation_class1_user enhancedVertical_springs_user enhancedVertical_springs_user"
+   },
+   "M4A3E8_Sherman" : {
+      "userString" : "#usa_vehicles:M4A3E8_Sherman",
+      "level" : 6,
+      "shortUserString" : "#usa_vehicles:M4A3E8_Sherman_short",
+      "price" : 930500,
+      "id" : 5,
+      "description" : "#usa_vehicles:M4A3E8_Sherman_descr",
+      "tags" : "mediumTank aimingStabilizer_Mk1_user mediumCaliberTankRammer_user wetCombatPack_class1_user enhancedHorizontal_springs_class2_user"
+   },
+   "M12" : {
+      "userString" : "#usa_vehicles:M12",
+      "level" : 7,
+      "price" : 1400000,
+      "id" : 31,
+      "description" : "#usa_vehicles:M12_descr",
+      "tags" : "SPG mediumSPG mediumCaliberHowitzerRammer_user wetCombatPack_class1_user enhancedVertical_springs_class2_user"
+   },
+   "T82" : {
+      "userString" : "#usa_vehicles:T82",
+      "level" : 3,
+      "price" : 30000,
+      "id" : 25,
+      "description" : "#usa_vehicles:T82_descr",
+      "tags" : "AT-SPG lightAT-SPG mediumCaliberTankRammer_user wetCombatPack_class1_user enhancedVertical_springs_user"
+   },
+   "M6A2E1" : {
+      "userString" : "#usa_vehicles:M6A2E1",
+      "level" : 8,
+      "price" : 7500,
+      "id" : 205,
+      "description" : "#usa_vehicles:M6A2E1_descr",
+      "tags" : "heavyTank largeCaliberTankRammer_user wetCombatPack_class1_user aimingStabilizer_Mk2_user enhancedVertical_springs_class3_user",
+      "notInShop" : true
+   },
+   "T92" : {
+      "userString" : "#usa_vehicles:T92",
+      "level" : 10,
+      "price" : 6100000,
+      "id" : 33,
+      "description" : "#usa_vehicles:T92_descr",
+      "tags" : "SPG heavySPG largeCaliberHowitzerRammer_user wetCombatPack_class2_user improvedVentilation_class3_user noImprovedVentilation enhancedTorsions5t_user"
+   },
+   "T7_Combat_Car" : {
+      "description" : "#usa_vehicles:T7_Combat_Car_descr",
+      "tags" : "lightTank",
+      "userString" : "#usa_vehicles:T7_Combat_Car",
+      "level" : 2,
+      "shortUserString" : "#usa_vehicles:T7_Combat_Car_short",
+      "id" : 215,
+      "price" : 750,
+      "notInShop" : true
+   },
+   "M7_med" : {
+      "userString" : "#usa_vehicles:M7_med",
+      "level" : 5,
+      "shortUserString" : "#usa_vehicles:M7_med_short",
+      "price" : 355000,
+      "id" : 21,
+      "description" : "#usa_vehicles:M7_med_descr",
+      "tags" : "mediumTank mediumCaliberTankRammer_user wetCombatPack_class1_user enhancedVertical_springs_class2_user"
+   },
+   "M37" : {
+      "userString" : "#usa_vehicles:M37",
+      "level" : 4,
+      "price" : 130000,
+      "id" : 18,
+      "description" : "#usa_vehicles:M37_descr",
+      "tags" : "SPG mediumSPG mediumCaliberHowitzerRammer_user wetCombatPack_class1_user enhancedTorsions1t_user"
+   },
+   "M2_med" : {
+      "userString" : "#usa_vehicles:M2_med",
+      "level" : 3,
+      "shortUserString" : "#usa_vehicles:M2_med_short",
+      "price" : 31000,
+      "id" : 19,
+      "description" : "#usa_vehicles:M2_med_descr",
+      "tags" : "mediumTank mediumCaliberTankRammer_user wetCombatPack_class1_user enhancedVertical_springs_class2_user"
+   },
+   "M46_Patton" : {
+      "userString" : "#usa_vehicles:M46_Patton",
+      "level" : 9,
+      "shortUserString" : "#usa_vehicles:M46_Patton_short",
+      "price" : 3450000,
+      "id" : 35,
+      "description" : "#usa_vehicles:M46_Patton_descr",
+      "tags" : "mediumTank aimingStabilizer_Mk1_user mediumCaliberTankRammer_user wetCombatPack_class1_user patton"
+   },
+   "M24_Chaffee" : {
+      "userString" : "#usa_vehicles:M24_Chaffee",
+      "level" : 5,
+      "shortUserString" : "#usa_vehicles:M24_Chaffee_short",
+      "price" : 687550,
+      "id" : 38,
+      "description" : "#usa_vehicles:M24_Chaffee_descr",
+      "tags" : "lightTank scout wetCombatPack_class1_user mediumCaliberTankRammer_user aimingStabilizer_Mk1_user enhancedTorsions1t_user"
+   },
+   "T34_hvy" : {
+      "userString" : "#usa_vehicles:T34_hvy",
+      "level" : 8,
+      "price" : 12000,
+      "id" : 11,
+      "description" : "#usa_vehicles:T34_hvy_descr",
+      "tags" : "heavyTank aimingStabilizer_Mk2_user largeCaliberTankRammer_user wetCombatPack_class2_user enhancedTorsions5t_user"
+   },
+   "M41" : {
+      "userString" : "#usa_vehicles:M41",
+      "level" : 5,
+      "price" : 405000,
+      "id" : 16,
+      "description" : "#usa_vehicles:M41_descr",
+      "tags" : "SPG mediumSPG mediumCaliberHowitzerRammer_user wetCombatPack_class1_user enhancedTorsions1t_user"
+   },
+   "T32" : {
+      "userString" : "#usa_vehicles:T32",
+      "level" : 8,
+      "price" : 2610000,
+      "id" : 17,
+      "description" : "#usa_vehicles:T32_descr",
+      "tags" : "heavyTank aimingStabilizer_Mk2_user largeCaliberTankRammer_user wetCombatPack_class2_user enhancedTorsions5t_user"
+   },
+   "T40" : {
+      "userString" : "#usa_vehicles:T40",
+      "level" : 4,
+      "price" : 125000,
+      "id" : 30,
+      "description" : "#usa_vehicles:T40_descr",
+      "tags" : "AT-SPG mediumAT-SPG noImprovedVentilation wetCombatPack_class1_user mediumCaliberTankRammer_user enhancedVertical_springs_class2_user"
+   },
+   "M7_Priest" : {
+      "userString" : "#usa_vehicles:M7_Priest",
+      "level" : 3,
+      "price" : 47000,
+      "id" : 14,
+      "description" : "#usa_vehicles:M7_Priest_descr",
+      "tags" : "SPG mediumSPG mediumCaliberHowitzerRammer_user wetCombatPack_class1_user enhancedVertical_springs_class2_user"
+   },
+   "MTLS-1G14" : {
+      "userString" : "#usa_vehicles:MTLS-1G14",
+      "level" : 3,
+      "price" : 1250,
+      "id" : 203,
+      "description" : "#usa_vehicles:MTLS-1G14_descr",
+      "tags" : "lightTank enhancedVertical_springs_user",
+      "notInShop" : true
+   },
+   "M18_Hellcat" : {
+      "userString" : "#usa_vehicles:M18_Hellcat",
+      "level" : 6,
+      "shortUserString" : "#usa_vehicles:M18_Hellcat_short",
+      "price" : 950000,
+      "id" : 45,
+      "description" : "#usa_vehicles:M18_Hellcat_descr",
+      "tags" : "AT-SPG mediumAT-SPG mediumCaliberTankRammer_user wetCombatPack_class1_user noImprovedVentilation enhancedTorsions1t_user"
+   },
+   "M3_Grant" : {
+      "userString" : "#usa_vehicles:M3_Grant",
+      "level" : 4,
+      "price" : 126000,
+      "id" : 12,
+      "description" : "#usa_vehicles:M3_Grant_descr",
+      "tags" : "mediumTank mediumCaliberTankRammer_user wetCombatPack_class1_user enhancedVertical_springs_class2_user"
+   },
+   "M60" : {
+      "userString" : "#usa_vehicles:M60",
+      "level" : 10,
+      "price" : 22500,
+      "id" : 62,
+      "description" : "#usa_vehicles:M60_descr",
+      "tags" : "mediumTank special aimingStabilizer_Mk1_user mediumCaliberTankRammer_user wetCombatPack_class1_user patton",
+      "notInShop" : true
+   },
+   "T69" : {
+      "userString" : "#usa_vehicles:T69",
+      "level" : 8,
+      "shortUserString" : "#usa_vehicles:T69_short",
+      "price" : 2403000,
+      "id" : 57,
+      "description" : "#usa_vehicles:T69_descr",
+      "tags" : "mediumTank aimingStabilizer_Mk1_user wetCombatPack_class1_user enhancedTorsions3t_user"
+   },
+   "M2_lt" : {
+      "userString" : "#usa_vehicles:M2_lt",
+      "level" : 2,
+      "shortUserString" : "#usa_vehicles:M2_lt_short",
+      "price" : 3400,
+      "id" : 7,
+      "description" : "#usa_vehicles:M2_lt_descr",
+      "tags" : "lightTank enhancedVertical_springs_user"
+   },
+   "Ram-II" : {
+      "userString" : "#usa_vehicles:Ram-II",
+      "level" : 5,
+      "price" : 1750,
+      "id" : 202,
+      "description" : "#usa_vehicles:Ram-II_descr",
+      "tags" : "mediumTank mediumCaliberTankRammer_user wetCombatPack_class1_user enhancedVertical_springs_class2_user"
+   },
+   "M4_Sherman" : {
+      "userString" : "#usa_vehicles:M4_Sherman",
+      "level" : 5,
+      "shortUserString" : "#usa_vehicles:M4_Sherman_short",
+      "price" : 350500,
+      "id" : 4,
+      "description" : "#usa_vehicles:M4_Sherman_descr",
+      "tags" : "mediumTank mediumCaliberTankRammer_user wetCombatPack_class1_user enhancedVertical_springs_class2_user"
+   },
+   "M40M43" : {
+      "userString" : "#usa_vehicles:M40M43",
+      "level" : 8,
+      "price" : 2700000,
+      "id" : 29,
+      "description" : "#usa_vehicles:M40M43_descr",
+      "tags" : "SPG mediumSPG largeCaliberHowitzerRammer_user wetCombatPack_class2_user enhancedHorizontal_springs_class3_user"
+   },
+   "T26_E4_SuperPershing" : {
+      "userString" : "#usa_vehicles:T26_E4_SuperPershing",
+      "level" : 8,
+      "shortUserString" : "#usa_vehicles:T26_E4_SuperPershing_short",
+      "price" : 7200,
+      "id" : 52,
+      "description" : "#usa_vehicles:T26_E4_SuperPershing_descr",
+      "tags" : "mediumTank aimingStabilizer_Mk1_user mediumCaliberTankRammer_user wetCombatPack_class1_user enhancedTorsions3t_user"
+   },
+   "M10_Wolverine" : {
+      "userString" : "#usa_vehicles:M10_Wolverine",
+      "level" : 5,
+      "shortUserString" : "#usa_vehicles:M10_Wolverine_short",
+      "price" : 415000,
+      "id" : 27,
+      "description" : "#usa_vehicles:M10_Wolverine_descr",
+      "tags" : "AT-SPG mediumAT-SPG mediumCaliberTankRammer_user wetCombatPack_class1_user noImprovedVentilation enhancedVertical_springs_class2_user"
+   },
+   "M103" : {
+      "userString" : "#usa_vehicles:M103",
+      "level" : 9,
+      "price" : 3640000,
+      "id" : 37,
+      "description" : "#usa_vehicles:M103_descr",
+      "tags" : "heavyTank aimingStabilizer_Mk2_user largeCaliberTankRammer_user wetCombatPack_class2_user enhancedTorsions5t_user"
+   },
+   "T20" : {
+      "userString" : "#usa_vehicles:T20",
+      "level" : 7,
+      "price" : 1340000,
+      "id" : 6,
+      "description" : "#usa_vehicles:T20_descr",
+      "tags" : "mediumTank aimingStabilizer_Mk1_user mediumCaliberTankRammer_user wetCombatPack_class1_user enhancedHorizontal_springs_class2_user"
+   },
+   "T21" : {
+      "userString" : "#usa_vehicles:T21",
+      "level" : 6,
+      "price" : 900000,
+      "id" : 59,
+      "description" : "#usa_vehicles:T21_descr",
+      "tags" : "lightTank scout wetCombatPack_class1_user mediumCaliberTankRammer_user aimingStabilizer_Mk1_user enhancedTorsions1t_user"
+   },
+   "T95_E6" : {
+      "userString" : "#usa_vehicles:T95_E6",
+      "level" : 10,
+      "price" : 22500,
+      "id" : 218,
+      "description" : "#usa_vehicles:T95_E6_descr",
+      "tags" : "mediumTank secret special aimingStabilizer_Mk1_user largeCaliberTankRammer_user wetCombatPack_class1_user enhancedTorsions3t_user",
+      "notInShop" : true
+   },
+   "T23" : {
+      "userString" : "#usa_vehicles:T23",
+      "level" : 8,
+      "price" : 2103000,
+      "id" : 9,
+      "description" : "#usa_vehicles:T23_descr",
+      "tags" : "mediumTank secret aimingStabilizer_Mk1_user mediumCaliberTankRammer_user wetCombatPack_class1_user enhancedTorsions3t_user",
+      "notInShop" : true
+   },
+   "T25_AT" : {
+      "userString" : "#usa_vehicles:T25_AT",
+      "level" : 7,
+      "shortUserString" : "#usa_vehicles:T25_AT_short",
+      "price" : 1327000,
+      "id" : 36,
+      "description" : "#usa_vehicles:T25_AT_descr",
+      "tags" : "AT-SPG mediumAT-SPG mediumCaliberTankRammer_user wetCombatPack_class1_user enhancedVertical_springs_class2_user"
+   },
+   "Sexton_I" : {
+      "userString" : "#usa_vehicles:Sexton_I",
+      "level" : 3,
+      "price" : 1250,
+      "id" : 211,
+      "description" : "#usa_vehicles:Sexton_I_descr",
+      "tags" : "SPG mediumSPG secret mediumCaliberHowitzerRammer_user wetCombatPack_class1_user enhancedVertical_springs_class2_user",
+      "notInShop" : true
+   },
+   "Sherman_Jumbo" : {
+      "userString" : "#usa_vehicles:Sherman_Jumbo",
+      "level" : 6,
+      "shortUserString" : "#usa_vehicles:Sherman_Jumbo_short",
+      "price" : 975000,
+      "id" : 39,
+      "description" : "#usa_vehicles:Sherman_Jumbo_descr",
+      "tags" : "mediumTank aimingStabilizer_Mk1_user mediumCaliberTankRammer_user wetCombatPack_class1_user enhancedVertical_springs_class2_user"
+   },
+   "T1_Cunningham" : {
+      "userString" : "#usa_vehicles:T1_Cunningham",
+      "level" : 1,
+      "shortUserString" : "#usa_vehicles:T1_Cunningham_short",
+      "price" : "",
+      "id" : 2,
+      "description" : "#usa_vehicles:T1_Cunningham_descr",
+      "tags" : "lightTank"
+   },
+   "M36_Slagger" : {
+      "userString" : "#usa_vehicles:M36_Slagger",
+      "level" : 6,
+      "shortUserString" : "#usa_vehicles:M36_Slagger_short",
+      "price" : 884200,
+      "id" : 28,
+      "description" : "#usa_vehicles:M36_Slagger_descr",
+      "tags" : "AT-SPG mediumAT-SPG mediumCaliberTankRammer_user wetCombatPack_class1_user noImprovedVentilation enhancedVertical_springs_class2_user"
+   },
+   "T25_2" : {
+      "userString" : "#usa_vehicles:T25_2",
+      "level" : 7,
+      "shortUserString" : "#usa_vehicles:T25_2_short",
+      "price" : 1364000,
+      "id" : 43,
+      "description" : "#usa_vehicles:T25_2_descr",
+      "tags" : "AT-SPG mediumAT-SPG mediumCaliberTankRammer_user wetCombatPack_class1_user noImprovedVentilation"
+   },
+   "M3_Stuart" : {
+      "userString" : "#usa_vehicles:M3_Stuart",
+      "level" : 3,
+      "price" : 37500,
+      "id" : 1,
+      "description" : "#usa_vehicles:M3_Stuart_descr",
+      "tags" : "lightTank wetCombatPack_class1_user enhancedVertical_springs_user"
+   },
+   "T30" : {
+      "userString" : "#usa_vehicles:T30",
+      "level" : 9,
+      "price" : 3550000,
+      "id" : 10,
+      "description" : "#usa_vehicles:T30_descr",
+      "tags" : "AT-SPG heavyAT-SPG largeCaliberTankRammer_user wetCombatPack_class2_user enhancedTorsions5t_user"
+   },
+   "T110" : {
+      "userString" : "#usa_vehicles:T110",
+      "level" : 10,
+      "price" : 6100000,
+      "id" : 42,
+      "description" : "#usa_vehicles:T110_descr",
+      "tags" : "heavyTank aimingStabilizer_Mk2_user largeCaliberTankRammer_user wetCombatPack_class2_user enhancedTorsions5t_user"
+   },
+   "T23E3" : {
+      "userString" : "#usa_vehicles:T23E3",
+      "level" : 7,
+      "price" : 7000,
+      "id" : 46,
+      "description" : "#usa_vehicles:T23E3_descr",
+      "tags" : "mediumTank secret aimingStabilizer_Mk1_user mediumCaliberTankRammer_user wetCombatPack_class1_user enhancedTorsions3t_user",
+      "notInShop" : true
+   },
+   "M4A2E4" : {
+      "description" : "#usa_vehicles:M4A2E4_descr",
+      "tags" : "mediumTank mediumCaliberTankRammer_user wetCombatPack_class1_user enhancedTorsions3t_user disabledInRoaming",
+      "userString" : "#usa_vehicles:M4A2E4",
+      "level" : 5,
+      "shortUserString" : "#usa_vehicles:M4A2E4_short",
+      "id" : 204,
+      "price" : 1500,
+      "notInShop" : true
+   },
+   "M48A1" : {
+      "userString" : "#usa_vehicles:M48A1",
+      "level" : 10,
+      "shortUserString" : "#usa_vehicles:M48A1_short",
+      "price" : 6100000,
+      "id" : 55,
+      "description" : "#usa_vehicles:M48A1_descr",
+      "tags" : "mediumTank aimingStabilizer_Mk1_user mediumCaliberTankRammer_user wetCombatPack_class1_user patton"
+   },
+   "T2_med" : {
+      "userString" : "#usa_vehicles:T2_med",
+      "level" : 2,
+      "shortUserString" : "#usa_vehicles:T2_med_short",
+      "price" : 3500,
+      "id" : 22,
+      "description" : "#usa_vehicles:T2_med_descr",
+      "tags" : "mediumTank mediumCaliberTankRammer_user"
+   },
+   "T110E3" : {
+      "userString" : "#usa_vehicles:T110E3",
+      "level" : 10,
+      "price" : 6100000,
+      "id" : 54,
+      "description" : "#usa_vehicles:T110E3_descr",
+      "tags" : "AT-SPG heavyAT-SPG antifragmentationLining_superheavy_user largeCaliberTankRammer_user wetCombatPack_class2_user enhancedTorsions5t_user"
+   },
+   "M44" : {
+      "userString" : "#usa_vehicles:_M44",
+      "level" : 6,
+      "price" : 920000,
+      "id" : 64,
+      "description" : "#usa_vehicles:_M44_descr",
+      "tags" : "SPG mediumSPG mediumCaliberHowitzerRammer_user wetCombatPack_class1_user enhancedTorsions3t_user"
+   },
+   "M6" : {
+      "userString" : "#usa_vehicles:M6",
+      "level" : 6,
+      "price" : 885000,
+      "id" : 3,
+      "description" : "#usa_vehicles:M6_descr",
+      "tags" : "heavyTank mediumCaliberTankRammer_user wetCombatPack_class1_user enhancedVertical_springs_class3_user"
+   },
+   "Pershing" : {
+      "userString" : "#usa_vehicles:Pershing",
+      "level" : 8,
+      "shortUserString" : "#usa_vehicles:Pershing_short",
+      "price" : 2403000,
+      "id" : 23,
+      "description" : "#usa_vehicles:Pershing_descr",
+      "tags" : "mediumTank aimingStabilizer_Mk1_user mediumCaliberTankRammer_user wetCombatPack_class1_user enhancedTorsions3t_user"
+   },
+   "T1_E6" : {
+      "description" : "#usa_vehicles:T1_E6_descr",
+      "tags" : "lightTank",
+      "userString" : "#usa_vehicles:T1_E6",
+      "level" : 2,
+      "shortUserString" : "#usa_vehicles:T1_E6_short",
+      "id" : 209,
+      "price" : 750,
+      "notInShop" : true
+   },
+   "T2_lt" : {
+      "userString" : "#usa_vehicles:T2_lt",
+      "level" : 2,
+      "shortUserString" : "#usa_vehicles:T2_lt_short",
+      "price" : 750,
+      "id" : 201,
+      "description" : "#usa_vehicles:T2_lt_descr",
+      "tags" : "lightTank"
+   },
+   "T54E1" : {
+      "userString" : "#usa_vehicles:T54E1",
+      "level" : 9,
+      "price" : 3600000,
+      "id" : 60,
+      "description" : "#usa_vehicles:T54E1_descr",
+      "tags" : "mediumTank aimingStabilizer_Mk1_user wetCombatPack_class1_user enhancedTorsions3t_user"
+   },
+   "T1_hvy" : {
+      "userString" : "#usa_vehicles:T1_hvy",
+      "level" : 5,
+      "shortUserString" : "#usa_vehicles:T1_hvy_short",
+      "price" : 435000,
+      "id" : 13,
+      "description" : "#usa_vehicles:T1_hvy_descr",
+      "tags" : "heavyTank mediumCaliberTankRammer_user wetCombatPack_class1_user enhancedVertical_springs_class3_user"
+   },
+   "M4A3E8_Sherman_training" : {
+      "description" : "#usa_vehicles:M4A3E8_Sherman_descr",
+      "tags" : "mediumTank secret aimingStabilizer_Mk1_user mediumCaliberTankRammer_user wetCombatPack_class1_user enhancedHorizontal_springs_class2_user",
+      "userString" : "#usa_vehicles:M4A3E8_Sherman",
+      "level" : 6,
+      "shortUserString" : "#usa_vehicles:M4A3E8_Sherman_short",
+      "id" : 212,
+      "price" : 930500,
+      "notInShop" : true
+   },
+   "T57" : {
+      "userString" : "#usa_vehicles:T57",
+      "level" : 2,
+      "price" : 3300,
+      "id" : 8,
+      "description" : "#usa_vehicles:T57_descr",
+      "tags" : "SPG lightSPG mediumCaliberHowitzerRammer_user wetCombatPack_class1_user enhancedVertical_springs_user"
+   },
+   "T57_58" : {
+      "userString" : "#usa_vehicles:T57_58",
+      "level" : 10,
+      "shortUserString" : "#usa_vehicles:T57_58_short",
+      "price" : 6100000,
+      "id" : 58,
+      "description" : "#usa_vehicles:T57_58_descr",
+      "tags" : "heavyTank aimingStabilizer_Mk2_user wetCombatPack_class2_user enhancedTorsions5t_user"
+   },
+   "T14" : {
+      "userString" : "#usa_vehicles:T14",
+      "level" : 5,
+      "price" : 1500,
+      "id" : "",
+      "description" : "#usa_vehicles:T14_descr",
+      "tags" : "heavyTank mediumCaliberTankRammer_user wetCombatPack_class1_user enhancedVertical_springs_class2_user"
+   },
+   "T110E4" : {
+      "userString" : "#usa_vehicles:T110E4",
+      "level" : 10,
+      "price" : 6100000,
+      "id" : 51,
+      "description" : "#usa_vehicles:T110E4_descr",
+      "tags" : "AT-SPG heavyAT-SPG largeCaliberTankRammer_user wetCombatPack_class2_user enhancedTorsions5t_user"
+   },
+   "T95" : {
+      "userString" : "#usa_vehicles:T95",
+      "level" : 9,
+      "price" : 3500000,
+      "id" : 34,
+      "description" : "#usa_vehicles:T95_descr",
+      "tags" : "AT-SPG heavyAT-SPG antifragmentationLining_superheavy_user largeCaliberTankRammer_user wetCombatPack_class2_user enhancedHorizontal_springs_class3_user"
+   }
+}

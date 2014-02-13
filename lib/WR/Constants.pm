@@ -6,26 +6,26 @@ our @ISA = qw(Exporter);
 
 use constant NATION_NAMES => [(qw/ussr germany usa china france uk japan/)];
 use constant NATION_INDICES => {
-    ussr => 0,
-    germany => 1,
-    usa => 2,
-    china => 3,
-    france => 4,
-    uk => 5,
-    japan => 6
+    ussr        => 0,
+    germany     => 1,
+    usa         => 2,
+    china       => 3,
+    france      => 4,
+    uk          => 5,
+    japan       => 6
 };
     
 sub nation_id_to_name { return __PACKAGE__->NATION_NAMES->[shift]; }
 
 use constant GAMEPLAY_NAMES => [(qw/ctf domination assault escort ctf2 domination2 assault2/)];
 use constant GAMEPLAY_INDICES => {
-    ctf => 0,
-    domination => 1,
-    assault => 2,
-    escort => 3,
-    ctf2 => 4,
+    ctf         => 0,
+    domination  => 1,
+    assault     => 2,
+    nations     => 3,
+    ctf2        => 4,
     domination2 => 5,
-    assault2 => 6
+    assault2    => 6
     };
 
 sub gameplay_id_to_name { return __PACKAGE__->GAMEPLAY_NAMES->[shift]; }

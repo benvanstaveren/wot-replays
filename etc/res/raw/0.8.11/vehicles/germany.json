@@ -1,0 +1,792 @@
+{
+   "JagdTiger" : {
+      "userString" : "#germany_vehicles:JagdTiger",
+      "level" : 9,
+      "price" : 3450000,
+      "id" : 31,
+      "description" : "#germany_vehicles:JagdTiger_descr",
+      "tags" : "AT-SPG heavyAT-SPG beast antifragmentationLining_superheavy_user enhancedTorsions5t_user largeCaliberTankRammer_user wetCombatPack_class2_user"
+   },
+   "Grille" : {
+      "userString" : "#germany_vehicles:Grille",
+      "level" : 5,
+      "shortUserString" : "#germany_vehicles:Grille_short",
+      "price" : 400000,
+      "id" : 22,
+      "description" : "#germany_vehicles:Grille_descr",
+      "tags" : "SPG lightSPG enhancedSprings_user mediumCaliberHowitzerRammer_user wetCombatPack_class1_user"
+   },
+   "Ltraktor" : {
+      "userString" : "#germany_vehicles:Ltraktor",
+      "level" : 1,
+      "shortUserString" : "#germany_vehicles:Ltraktor_short",
+      "price" : "",
+      "id" : 12,
+      "description" : "#germany_vehicles:Ltraktor_descr",
+      "tags" : "lightTank"
+   },
+   "Pz_Sfl_IVc" : {
+      "userString" : "#germany_vehicles:Pz_Sfl_IVc",
+      "level" : 5,
+      "shortUserString" : "#germany_vehicles:Pz_Sfl_IVc_short",
+      "price" : 380000,
+      "id" : 63,
+      "description" : "#germany_vehicles:Pz_Sfl_IVc_descr",
+      "tags" : "AT-SPG mediumAT-SPG noImprovedVentilation enhancedTorsions3t_user wetCombatPack_class1_user mediumCaliberTankRammer_user"
+   },
+   "Auf_Panther" : {
+      "userString" : "#germany_vehicles:Auf_Panther",
+      "level" : 7,
+      "shortUserString" : "#germany_vehicles:Auf_Panther_short",
+      "price" : 1360000,
+      "id" : 56,
+      "description" : "#germany_vehicles:Auf_Panther_descr",
+      "tags" : "lightTank scout beast enhancedTorsions3t_user mediumCaliberTankRammer_user wetCombatPack_class1_user aimingStabilizer_Mk1_user"
+   },
+   "PzI_ausf_C" : {
+      "userString" : "#germany_vehicles:PzI_ausf_C",
+      "level" : 3,
+      "shortUserString" : "#germany_vehicles:PzI_ausf_C_short",
+      "price" : 45800,
+      "id" : 49,
+      "description" : "#germany_vehicles:PzI_ausf_C_descr",
+      "tags" : "lightTank enhancedSprings_user"
+   },
+   "PzIII_training" : {
+      "description" : "#germany_vehicles:PzIII_descr",
+      "tags" : "mediumTank secret enhancedTorsions3t_user grousers_user mediumCaliberTankRammer_user wetCombatPack_class1_user",
+      "userString" : "#germany_vehicles:PzIII",
+      "level" : 4,
+      "shortUserString" : "#germany_vehicles:PzIII_short",
+      "id" : 226,
+      "price" : 138000,
+      "notInShop" : true
+   },
+   "Panther_M10" : {
+      "userString" : "#germany_vehicles:Panther_M10",
+      "level" : 7,
+      "shortUserString" : "#germany_vehicles:Panther_M10_short",
+      "price" : 5750,
+      "id" : 225,
+      "description" : "#germany_vehicles:Panther_M10_descr",
+      "tags" : "mediumTank beast enhancedTorsions5t_user mediumCaliberTankRammer_user wetCombatPack_class1_user"
+   },
+   "Ferdinand" : {
+      "userString" : "#germany_vehicles:Ferdinand",
+      "level" : 8,
+      "price" : 2570000,
+      "id" : 30,
+      "description" : "#germany_vehicles:Ferdinand_descr",
+      "tags" : "AT-SPG heavyAT-SPG enhancedLongitudinalTorsions_user largeCaliberTankRammer_user wetCombatPack_class2_user"
+   },
+   "JagdPanther" : {
+      "userString" : "#germany_vehicles:JagdPanther",
+      "level" : 7,
+      "shortUserString" : "#germany_vehicles:JagdPanther_short",
+      "price" : 1345000,
+      "id" : 15,
+      "description" : "#germany_vehicles:JagdPanther_descr",
+      "tags" : "AT-SPG mediumAT-SPG beast enhancedTorsions5t_user mediumCaliberTankRammer_user wetCombatPack_class1_user"
+   },
+   "G100_Gtraktor_Krupp" : {
+      "description" : "#germany_vehicles:G100_Gtraktor_Krupp_descr",
+      "tags" : "mediumTank secret wetCombatPack_class1_user",
+      "userString" : "#germany_vehicles:G100_Gtraktor_Krupp",
+      "level" : 3,
+      "shortUserString" : "#germany_vehicles:G100_Gtraktor_Krupp_short",
+      "id" : 233,
+      "price" : 950,
+      "notInShop" : true
+   },
+   "PzVIB_Tiger_II" : {
+      "userString" : "#germany_vehicles:PzVIB_Tiger_II",
+      "level" : 8,
+      "shortUserString" : "#germany_vehicles:PzVIB_Tiger_II_short",
+      "price" : 2450000,
+      "id" : 20,
+      "description" : "#germany_vehicles:PzVIB_Tiger_II_descr",
+      "tags" : "heavyTank beast enhancedTorsions5t_user largeCaliberTankRammer_user wetCombatPack_class2_user aimingStabilizer_Mk2_user"
+   },
+   "Panther_II" : {
+      "userString" : "#germany_vehicles:Panther_II",
+      "level" : 8,
+      "shortUserString" : "#germany_vehicles:Panther_II_short",
+      "price" : 2390000,
+      "id" : 33,
+      "description" : "#germany_vehicles:Panther_II_descr",
+      "tags" : "mediumTank beast enhancedTorsions5t_user mediumCaliberTankRammer_user wetCombatPack_class1_user aimingStabilizer_Mk1_user"
+   },
+   "VK3001P" : {
+      "userString" : "#germany_vehicles:VK3001P",
+      "level" : 6,
+      "shortUserString" : "#germany_vehicles:VK3001P_short",
+      "price" : 920000,
+      "id" : 28,
+      "description" : "#germany_vehicles:VK3001P_descr",
+      "tags" : "mediumTank enhancedLongitudinalTorsions_user mediumCaliberTankRammer_user wetCombatPack_class1_user"
+   },
+   "DickerMax" : {
+      "userString" : "#germany_vehicles:DickerMax",
+      "level" : 6,
+      "shortUserString" : "#germany_vehicles:DickerMax_short",
+      "price" : 3200,
+      "id" : 223,
+      "description" : "#germany_vehicles:DickerMax_descr",
+      "tags" : "AT-SPG mediumAT-SPG enhancedTorsions5t_user mediumCaliberTankRammer_user wetCombatPack_class1_user noImprovedVentilation"
+   },
+   "VK3601H" : {
+      "userString" : "#germany_vehicles:VK3601H",
+      "level" : 6,
+      "shortUserString" : "#germany_vehicles:VK3601H_short",
+      "price" : 935000,
+      "id" : "09",
+      "description" : "#germany_vehicles:VK3601H_descr",
+      "tags" : "heavyTank mediumCaliberTankRammer_user wetCombatPack_class1_user"
+   },
+   "G_E" : {
+      "userString" : "#germany_vehicles:G_E",
+      "level" : 10,
+      "shortUserString" : "#germany_vehicles:G_E_short",
+      "price" : 6100000,
+      "id" : 36,
+      "description" : "#germany_vehicles:G_E_descr",
+      "tags" : "SPG heavySPG antifragmentationLining_superheavy_user largeCaliberHowitzerRammer_user improvedVentilation_class3_user wetCombatPack_class2_user noImprovedVentilation"
+   },
+   "PzIII" : {
+      "userString" : "#germany_vehicles:PzIII",
+      "level" : 4,
+      "shortUserString" : "#germany_vehicles:PzIII_short",
+      "price" : 138000,
+      "id" : 17,
+      "description" : "#germany_vehicles:PzIII_descr",
+      "tags" : "mediumTank enhancedTorsions3t_user grousers_user mediumCaliberTankRammer_user wetCombatPack_class1_user"
+   },
+   "E-100" : {
+      "userString" : "#germany_vehicles:E-100",
+      "level" : 10,
+      "shortUserString" : "#germany_vehicles:E-100_short",
+      "price" : 6100000,
+      "id" : 37,
+      "description" : "#germany_vehicles:E-100_descr",
+      "tags" : "heavyTank antifragmentationLining_superheavy_user largeCaliberTankRammer_user wetCombatPack_class2_user aimingStabilizer_Mk2_user enhancedBelwillWashers_user"
+   },
+   "GW_Tiger_P" : {
+      "userString" : "#germany_vehicles:GW_Tiger_P",
+      "level" : 8,
+      "shortUserString" : "#germany_vehicles:GW_Tiger_P_short",
+      "price" : 2650000,
+      "id" : 60,
+      "description" : "#germany_vehicles:GW_Tiger_P_descr",
+      "tags" : "SPG heavySPG beast largeCaliberHowitzerRammer_user wetCombatPack_class2_user enhancedLongitudinalTorsions_user"
+   },
+   "PzIII_IV" : {
+      "userString" : "#germany_vehicles:PzIII_IV",
+      "level" : 5,
+      "shortUserString" : "#germany_vehicles:PzIII_IV_short",
+      "price" : 315000,
+      "id" : 25,
+      "description" : "#germany_vehicles:PzIII_IV_descr",
+      "tags" : "mediumTank enhancedLevers_user grousers_user wetCombatPack_class1_user mediumCaliberTankRammer_user"
+   },
+   "VK7201" : {
+      "description" : "#germany_vehicles:VK7201_descr",
+      "tags" : "heavyTank secret special antifragmentationLining_superheavy_user enhancedTorsions5t_user largeCaliberTankRammer_user wetCombatPack_class2_user aimingStabilizer_Mk2_user",
+      "userString" : "#germany_vehicles:VK7201",
+      "level" : 10,
+      "shortUserString" : "#germany_vehicles:VK7201_short",
+      "id" : 229,
+      "price" : 22500,
+      "notInShop" : true
+   },
+   "E50_Ausf_M" : {
+      "userString" : "#germany_vehicles:E50_Ausf_M",
+      "level" : 10,
+      "shortUserString" : "#germany_vehicles:E50_Ausf_M_short",
+      "price" : 6100000,
+      "id" : 48,
+      "description" : "#germany_vehicles:E50_Ausf_M_descr",
+      "tags" : "mediumTank enhancedBelwillWashers_user mediumCaliberTankRammer_user wetCombatPack_class1_user aimingStabilizer_Mk1_user"
+   },
+   "PzIV_Hydro" : {
+      "description" : "#germany_vehicles:PzIV_Hydro_descr",
+      "tags" : "mediumTank enhancedLevers_user grousers_user mediumCaliberTankRammer_user wetCombatPack_class1_user",
+      "userString" : "#germany_vehicles:PzIV_Hydro",
+      "level" : 5,
+      "shortUserString" : "#germany_vehicles:PzIV_Hydro_short",
+      "id" : 215,
+      "price" : 2500,
+      "notInShop" : true
+   },
+   "T-15" : {
+      "userString" : "#germany_vehicles:T-15",
+      "level" : 3,
+      "shortUserString" : "#germany_vehicles:T-15_short",
+      "price" : 900,
+      "id" : 214,
+      "description" : "#germany_vehicles:T-15_descr",
+      "tags" : "lightTank enhancedSprings_user wetCombatPack_class1_user"
+   },
+   "PzV_training" : {
+      "description" : "#germany_vehicles:PzV_descr",
+      "tags" : "mediumTank secret enhancedTorsions5t_user mediumCaliberTankRammer_user wetCombatPack_class1_user",
+      "userString" : "#germany_vehicles:PzV",
+      "level" : 7,
+      "shortUserString" : "#germany_vehicles:PzV_short",
+      "id" : 228,
+      "price" : 80000,
+      "notInShop" : true
+   },
+   "PzIV" : {
+      "userString" : "#germany_vehicles:PzIV",
+      "level" : 5,
+      "shortUserString" : "#germany_vehicles:PzIV_short",
+      "price" : 373000,
+      "id" : "",
+      "description" : "#germany_vehicles:PzIV_descr",
+      "tags" : "mediumTank enhancedLevers_user grousers_user mediumCaliberTankRammer_user wetCombatPack_class1_user"
+   },
+   "PanzerJager_I" : {
+      "userString" : "#germany_vehicles:PanzerJager_I",
+      "level" : 2,
+      "shortUserString" : "#germany_vehicles:PanzerJager_I_short",
+      "price" : 3200,
+      "id" : 14,
+      "description" : "#germany_vehicles:PanzerJager_I_descr",
+      "tags" : "AT-SPG lightAT-SPG"
+   },
+   "VK3001H" : {
+      "userString" : "#germany_vehicles:VK3001H",
+      "level" : 5,
+      "shortUserString" : "#germany_vehicles:VK3001H_short",
+      "price" : 410000,
+      "id" : 10,
+      "description" : "#germany_vehicles:VK3001H_descr",
+      "tags" : "heavyTank enhancedTorsions3t_user grousers_user mediumCaliberTankRammer_user wetCombatPack_class1_user"
+   },
+   "G20_Marder_II" : {
+      "userString" : "#germany_vehicles:G20_Marder_II",
+      "level" : 3,
+      "shortUserString" : "#germany_vehicles:G20_Marder_II_short",
+      "price" : 42000,
+      "id" : 26,
+      "description" : "#germany_vehicles:G20_Marder_II_descr",
+      "tags" : "AT-SPG lightAT-SPG enhancedSprings_user wetCombatPack_class1_user"
+   },
+   "Leopard1" : {
+      "userString" : "#germany_vehicles:Leopard1",
+      "level" : 10,
+      "shortUserString" : "#germany_vehicles:Leopard1_short",
+      "price" : 6100000,
+      "id" : 57,
+      "description" : "#germany_vehicles:Leopard1_descr",
+      "tags" : "mediumTank beast enhancedTorsions3t_user mediumCaliberTankRammer_user wetCombatPack_class1_user aimingStabilizer_Mk1_user"
+   },
+   "Pz38t" : {
+      "userString" : "#germany_vehicles:Pz38t",
+      "level" : 3,
+      "shortUserString" : "#germany_vehicles:Pz38t_short",
+      "price" : 33000,
+      "id" : 13,
+      "description" : "#germany_vehicles:Pz38t_descr",
+      "tags" : "lightTank enhancedSprings_user"
+   },
+   "PzVIB_Tiger_II_training" : {
+      "description" : "#germany_vehicles:PzVIB_Tiger_II_descr",
+      "tags" : "heavyTank secret enhancedTorsions5t_user largeCaliberTankRammer_user wetCombatPack_class2_user aimingStabilizer_Mk2_user",
+      "userString" : "#germany_vehicles:PzVIB_Tiger_II",
+      "level" : 8,
+      "shortUserString" : "#germany_vehicles:PzVIB_Tiger_II_short",
+      "id" : 227,
+      "price" : 50000,
+      "notInShop" : true
+   },
+   "T-25" : {
+      "userString" : "#germany_vehicles:T-25",
+      "level" : 5,
+      "shortUserString" : "#germany_vehicles:T-25_short",
+      "price" : 1500,
+      "id" : 213,
+      "description" : "#germany_vehicles:T-25_descr",
+      "tags" : "mediumTank enhancedSprings_user mediumCaliberTankRammer_user wetCombatPack_class1_user"
+   },
+   "PzVI_Tiger_P" : {
+      "userString" : "#germany_vehicles:PzVI_Tiger_P",
+      "level" : 7,
+      "shortUserString" : "#germany_vehicles:PzVI_Tiger_P_short",
+      "price" : 1395000,
+      "id" : 42,
+      "description" : "#germany_vehicles:PzVI_Tiger_P_descr",
+      "tags" : "heavyTank beast enhancedLongitudinalTorsions_user largeCaliberTankRammer_user wetCombatPack_class2_user"
+   },
+   "B-1bis_captured" : {
+      "description" : "#germany_vehicles:B-1bis_captured_descr",
+      "tags" : "heavyTank wetCombatPack_class2_user enhancedSprings_class3_user",
+      "userString" : "#germany_vehicles:B-1bis_captured",
+      "level" : 4,
+      "shortUserString" : "#germany_vehicles:B-1bis_captured_short",
+      "id" : 204,
+      "price" : 1250,
+      "notInShop" : true
+   },
+   "VK2801" : {
+      "userString" : "#germany_vehicles:VK2801",
+      "level" : 6,
+      "shortUserString" : "#germany_vehicles:VK2801_short",
+      "price" : 945000,
+      "id" : 39,
+      "description" : "#germany_vehicles:VK2801_descr",
+      "tags" : "lightTank scout enhancedTorsions1t_user mediumCaliberTankRammer_user wetCombatPack_class1_user"
+   },
+   "G_Tiger" : {
+      "userString" : "#germany_vehicles:G_Tiger",
+      "level" : 9,
+      "shortUserString" : "#germany_vehicles:G_Tiger_short",
+      "price" : 3600000,
+      "id" : 34,
+      "description" : "#germany_vehicles:G_Tiger_descr",
+      "tags" : "SPG heavySPG beast largeCaliberHowitzerRammer_user wetCombatPack_class2_user enhancedTorsions5t_user"
+   },
+   "PzII_Luchs" : {
+      "userString" : "#germany_vehicles:PzII_Luchs",
+      "level" : 4,
+      "shortUserString" : "#germany_vehicles:PzII_Luchs_short",
+      "price" : 155000,
+      "id" : 24,
+      "description" : "#germany_vehicles:PzII_Luchs_descr",
+      "tags" : "lightTank scout enhancedTorsions1t_user"
+   },
+   "RhB_Waffentrager" : {
+      "userString" : "#germany_vehicles:RhB_Waffentrager",
+      "level" : 8,
+      "shortUserString" : "#germany_vehicles:RhB_Waffentrager_short",
+      "price" : 2400000,
+      "id" : 65,
+      "description" : "#germany_vehicles:RhB_Waffentrager_descr",
+      "tags" : "AT-SPG mediumAT-SPG noImprovedVentilation enhancedSprings_class2_user wetCombatPack_class1_user largeCaliberTankRammer_user"
+   },
+   "Pz_II_AusfG" : {
+      "userString" : "#germany_vehicles:Pz_II_AusfG",
+      "level" : 3,
+      "shortUserString" : "#germany_vehicles:Pz_II_AusfG_short",
+      "price" : 39700,
+      "id" : 51,
+      "description" : "#germany_vehicles:Pz_II_AusfG_descr",
+      "tags" : "lightTank"
+   },
+   "E-50" : {
+      "userString" : "#germany_vehicles:E-50",
+      "level" : 9,
+      "shortUserString" : "#germany_vehicles:E-50_short",
+      "price" : 3450000,
+      "id" : 40,
+      "description" : "#germany_vehicles:E-50_descr",
+      "tags" : "mediumTank enhancedBelwillWashers_user mediumCaliberTankRammer_user wetCombatPack_class1_user aimingStabilizer_Mk1_user"
+   },
+   "PzIII_A" : {
+      "userString" : "#germany_vehicles:PzIII_A",
+      "level" : 3,
+      "shortUserString" : "#germany_vehicles:PzIII_A_short",
+      "price" : 35000,
+      "id" : 19,
+      "description" : "#germany_vehicles:PzIII_A_descr",
+      "tags" : "lightTank grousers_user"
+   },
+   "VK3002M" : {
+      "userString" : "#germany_vehicles:VK3002M",
+      "level" : 6,
+      "shortUserString" : "#germany_vehicles:VK3002M_short",
+      "price" : 915000,
+      "id" : 62,
+      "description" : "#germany_vehicles:VK3002M_descr",
+      "tags" : "mediumTank enhancedTorsions3t_user mediumCaliberTankRammer_user wetCombatPack_class1_user"
+   },
+   "VK4502P" : {
+      "userString" : "#germany_vehicles:VK4502P",
+      "level" : 9,
+      "shortUserString" : "#germany_vehicles:VK4502P_short",
+      "price" : 3598000,
+      "id" : 29,
+      "description" : "#germany_vehicles:VK4502P_descr",
+      "tags" : "heavyTank antifragmentationLining_superheavy_user enhancedLongitudinalTorsions_user largeCaliberTankRammer_user wetCombatPack_class2_user aimingStabilizer_Mk2_user"
+   },
+   "Marder_III" : {
+      "userString" : "#germany_vehicles:Marder_III",
+      "level" : 4,
+      "shortUserString" : "#germany_vehicles:Marder_III_short",
+      "price" : 125000,
+      "id" : 44,
+      "description" : "#germany_vehicles:Marder_III_descr",
+      "tags" : "AT-SPG lightAT-SPG enhancedSprings_user mediumCaliberTankRammer_user wetCombatPack_class1_user"
+   },
+   "Bison_I" : {
+      "userString" : "#germany_vehicles:Bison_I",
+      "level" : 3,
+      "shortUserString" : "#germany_vehicles:Bison_I_short",
+      "price" : 48500,
+      "id" : 11,
+      "description" : "#germany_vehicles:Bison_I_descr",
+      "tags" : "SPG lightSPG mediumCaliberHowitzerRammer_user wetCombatPack_class1_user"
+   },
+   "PzV_PzIV_ausf_Alfa" : {
+      "description" : "#germany_vehicles:PzV_PzIV_ausf_Alfa_descr",
+      "tags" : "mediumTank enhancedTorsions5t_user mediumCaliberTankRammer_user wetCombatPack_class1_user disabledInRoaming",
+      "userString" : "#germany_vehicles:PzV_PzIV_ausf_Alfa",
+      "level" : 6,
+      "shortUserString" : "#germany_vehicles:PzV_PzIV_ausf_Alfa_short",
+      "id" : 211,
+      "price" : 1500,
+      "notInShop" : true
+   },
+   "StuGIII" : {
+      "userString" : "#germany_vehicles:StuGIII",
+      "level" : 5,
+      "shortUserString" : "#germany_vehicles:StuGIII_short",
+      "price" : 422000,
+      "id" : "04",
+      "description" : "#germany_vehicles:StuGIII_descr",
+      "tags" : "AT-SPG mediumAT-SPG enhancedTorsions3t_user grousers_user wetCombatPack_class1_user mediumCaliberTankRammer_user"
+   },
+   "PzI" : {
+      "userString" : "#germany_vehicles:PzI",
+      "level" : 2,
+      "shortUserString" : "#germany_vehicles:PzI_short",
+      "price" : 3600,
+      "id" : 50,
+      "description" : "#germany_vehicles:PzI_descr",
+      "tags" : "lightTank"
+   },
+   "Hetzer" : {
+      "userString" : "#germany_vehicles:Hetzer",
+      "level" : 4,
+      "shortUserString" : "#germany_vehicles:Hetzer_short",
+      "price" : 127000,
+      "id" : "07",
+      "description" : "#germany_vehicles:Hetzer_descr",
+      "tags" : "AT-SPG lightAT-SPG enhancedSprings_user mediumCaliberTankRammer_user wetCombatPack_class1_user improvedVentilation_class1_user"
+   },
+   "PzIV_schmalturm" : {
+      "userString" : "#germany_vehicles:PzIV_schmalturm",
+      "level" : 6,
+      "shortUserString" : "#germany_vehicles:PzIV_schmalturm_short",
+      "price" : 3750,
+      "id" : 224,
+      "description" : "#germany_vehicles:PzIV_schmalturm_descr",
+      "tags" : "mediumTank enhancedLevers_user grousers_user mediumCaliberTankRammer_user wetCombatPack_class1_user"
+   },
+   "E-25" : {
+      "userString" : "#germany_vehicles:E-25",
+      "level" : 7,
+      "price" : 6700,
+      "id" : 217,
+      "description" : "#germany_vehicles:E-25_descr",
+      "tags" : "AT-SPG mediumAT-SPG enhancedBelwillWashers_user  mediumCaliberTankRammer_user wetCombatPack_class1_user"
+   },
+   "Lowe" : {
+      "userString" : "#germany_vehicles:Lowe",
+      "level" : 8,
+      "price" : 12500,
+      "id" : 212,
+      "description" : "#germany_vehicles:Lowe_descr",
+      "tags" : "heavyTank beast antifragmentationLining_superheavy_user enhancedTorsions5t_user largeCaliberTankRammer_user wetCombatPack_class2_user aimingStabilizer_Mk2_user"
+   },
+   "DW_II" : {
+      "userString" : "#germany_vehicles:DW_II",
+      "level" : 4,
+      "shortUserString" : "#germany_vehicles:DW_II_short",
+      "price" : 170000,
+      "id" : 52,
+      "description" : "#germany_vehicles:DW_II_descr",
+      "tags" : "heavyTank enhancedTorsions3t_user grousers_user mediumCaliberTankRammer_user wetCombatPack_class2_user"
+   },
+   "Nashorn" : {
+      "userString" : "#germany_vehicles:Nashorn",
+      "level" : 6,
+      "shortUserString" : "#germany_vehicles:Nashorn_short",
+      "price" : 905000,
+      "id" : 46,
+      "description" : "#germany_vehicles:Nashorn_descr",
+      "tags" : "AT-SPG mediumAT-SPG noImprovedVentilation enhancedLevers_user grousers_user wetCombatPack_class1_user mediumCaliberTankRammer_user"
+   },
+   "JagdTiger_SdKfz_185" : {
+      "userString" : "#germany_vehicles:JagdTiger_SdKfz_185",
+      "level" : 8,
+      "shortUserString" : "#germany_vehicles:JagdTiger_SdKfz_185_short",
+      "price" : 10000,
+      "id" : 216,
+      "description" : "#germany_vehicles:JagdTiger_SdKfz_185_descr",
+      "tags" : "AT-SPG heavyAT-SPG beast antifragmentationLining_superheavy_user enhancedTorsions5t_user largeCaliberTankRammer_user wetCombatPack_class2_user"
+   },
+   "H39_captured" : {
+      "description" : "#germany_vehicles:H39_captured_descr",
+      "tags" : "lightTank disabledInRoaming",
+      "userString" : "#germany_vehicles:H39_captured",
+      "level" : 2,
+      "shortUserString" : "#germany_vehicles:H39_captured_short",
+      "id" : 205,
+      "price" : 750,
+      "notInShop" : true
+   },
+   "E-75" : {
+      "userString" : "#germany_vehicles:E-75",
+      "level" : 9,
+      "shortUserString" : "#germany_vehicles:E-75_short",
+      "price" : 3480000,
+      "id" : 38,
+      "description" : "#germany_vehicles:E-75_descr",
+      "tags" : "heavyTank antifragmentationLining_superheavy_user largeCaliberTankRammer_user wetCombatPack_class2_user aimingStabilizer_Mk2_user enhancedBelwillWashers_user"
+   },
+   "VK3002DB_V1" : {
+      "userString" : "#germany_vehicles:VK3002DB_V1",
+      "level" : 6,
+      "shortUserString" : "#germany_vehicles:VK3002DB_V1_short",
+      "price" : 910000,
+      "id" : 55,
+      "description" : "#germany_vehicles:VK3002DB_V1_descr",
+      "tags" : "mediumTank enhancedSuspension_Christie_user mediumCaliberTankRammer_user wetCombatPack_class1_user"
+   },
+   "Waffentrager_IV" : {
+      "userString" : "#germany_vehicles:Waffentrager_IV",
+      "level" : 9,
+      "shortUserString" : "#germany_vehicles:Waffentrager_IV_short",
+      "price" : 3400000,
+      "id" : 64,
+      "description" : "#germany_vehicles:Waffentrager_IV_descr",
+      "tags" : "AT-SPG mediumAT-SPG noImprovedVentilation enhancedLevers_user grousers_user wetCombatPack_class1_user largeCaliberTankRammer_user"
+   },
+   "Pz35t" : {
+      "userString" : "#germany_vehicles:Pz35t",
+      "level" : 2,
+      "shortUserString" : "#germany_vehicles:Pz35t_short",
+      "price" : 3600,
+      "id" : "03",
+      "description" : "#germany_vehicles:Pz35t_descr",
+      "tags" : "lightTank enhancedSprings_user"
+   },
+   "VK2001DB" : {
+      "userString" : "#germany_vehicles:VK2001DB",
+      "level" : 4,
+      "shortUserString" : "#germany_vehicles:VK2001DB_short",
+      "price" : 157000,
+      "id" : 53,
+      "description" : "#germany_vehicles:VK2001DB_descr",
+      "tags" : "mediumTank enhancedSprings_class2_user mediumCaliberTankRammer_user wetCombatPack_class1_user"
+   },
+   "Indien_Panzer" : {
+      "userString" : "#germany_vehicles:Indien_Panzer",
+      "level" : 8,
+      "shortUserString" : "#germany_vehicles:Indien_Panzer_short",
+      "price" : 2420000,
+      "id" : 54,
+      "description" : "#germany_vehicles:Indien_Panzer_descr",
+      "tags" : "mediumTank enhancedSprings_class2_user mediumCaliberTankRammer_user wetCombatPack_class1_user aimingStabilizer_Mk1_user"
+   },
+   "JagdPantherII" : {
+      "userString" : "#germany_vehicles:JagdPantherII",
+      "level" : 8,
+      "shortUserString" : "#germany_vehicles:JagdPantherII_short",
+      "price" : 2570000,
+      "id" : 45,
+      "description" : "#germany_vehicles:JagdPantherII_descr",
+      "tags" : "AT-SPG mediumAT-SPG beast enhancedTorsions5t_user largeCaliberTankRammer_user wetCombatPack_class2_user"
+   },
+   "PzV" : {
+      "userString" : "#germany_vehicles:PzV",
+      "level" : 7,
+      "shortUserString" : "#germany_vehicles:PzV_short",
+      "price" : 1380000,
+      "id" : "05",
+      "description" : "#germany_vehicles:PzV_descr",
+      "tags" : "mediumTank beast enhancedTorsions5t_user mediumCaliberTankRammer_user wetCombatPack_class1_user"
+   },
+   "VK3002DB" : {
+      "userString" : "#germany_vehicles:VK3002DB",
+      "level" : 7,
+      "shortUserString" : "#germany_vehicles:VK3002DB_short",
+      "price" : 1369000,
+      "id" : 16,
+      "description" : "#germany_vehicles:VK3002DB_descr",
+      "tags" : "mediumTank enhancedTorsions3t_user mediumCaliberTankRammer_user wetCombatPack_class1_user"
+   },
+   "PzII" : {
+      "userString" : "#germany_vehicles:PzII",
+      "level" : 2,
+      "shortUserString" : "#germany_vehicles:PzII_short",
+      "price" : 3000,
+      "id" : "08",
+      "description" : "#germany_vehicles:PzII_descr",
+      "tags" : "lightTank enhancedSprings_user"
+   },
+   "Wespe" : {
+      "userString" : "#germany_vehicles:Wespe",
+      "level" : 3,
+      "shortUserString" : "#germany_vehicles:Wespe_short",
+      "price" : 48000,
+      "id" : 23,
+      "description" : "#germany_vehicles:Wespe_descr",
+      "tags" : "SPG lightSPG enhancedSprings_user mediumCaliberHowitzerRammer_user wetCombatPack_class1_user"
+   },
+   "Pz_Sfl_IVb" : {
+      "userString" : "#germany_vehicles:Pz_Sfl_IVb",
+      "level" : 4,
+      "shortUserString" : "#germany_vehicles:Pz_Sfl_IVb_short",
+      "price" : 150000,
+      "id" : 61,
+      "description" : "#germany_vehicles:Pz_Sfl_IVb_descr",
+      "tags" : "SPG mediumSPG enhancedLevers_user grousers_user mediumCaliberHowitzerRammer_user wetCombatPack_class1_user"
+   },
+   "Hummel" : {
+      "userString" : "#germany_vehicles:Hummel",
+      "level" : 6,
+      "shortUserString" : "#germany_vehicles:Hummel_short",
+      "price" : 930000,
+      "id" : "01",
+      "description" : "#germany_vehicles:Hummel_descr",
+      "tags" : "SPG mediumSPG enhancedLevers_user grousers_user mediumCaliberHowitzerRammer_user wetCombatPack_class1_user"
+   },
+   "VK1602" : {
+      "userString" : "#germany_vehicles:VK1602",
+      "level" : 5,
+      "shortUserString" : "#germany_vehicles:VK1602_short",
+      "price" : 355000,
+      "id" : 21,
+      "description" : "#germany_vehicles:VK1602_descr",
+      "tags" : "lightTank scout enhancedTorsions1t_user"
+   },
+   "GW_Mk_VIe" : {
+      "userString" : "#germany_vehicles:GW_Mk_VIe",
+      "level" : 2,
+      "shortUserString" : "#germany_vehicles:GW_Mk_VIe_short",
+      "price" : 3500,
+      "id" : 59,
+      "description" : "#germany_vehicles:GW_Mk_VIe_descr",
+      "tags" : "SPG lightSPG mediumCaliberHowitzerRammer_user wetCombatPack_class1_user"
+   },
+   "Sturer_Emil" : {
+      "userString" : "#germany_vehicles:Sturer_Emil",
+      "level" : 7,
+      "shortUserString" : "#germany_vehicles:Sturer_Emil_short",
+      "price" : 1300000,
+      "id" : 43,
+      "description" : "#germany_vehicles:Sturer_Emil_descr",
+      "tags" : "AT-SPG heavyAT-SPG noImprovedVentilation enhancedTorsions5t_user largeCaliberTankRammer_user wetCombatPack_class1_user"
+   },
+   "VK4502A" : {
+      "userString" : "#germany_vehicles:VK4502A",
+      "level" : 8,
+      "shortUserString" : "#germany_vehicles:VK4502A_short",
+      "price" : 2435000,
+      "id" : 41,
+      "description" : "#germany_vehicles:VK4502A_descr",
+      "tags" : "heavyTank enhancedLongitudinalTorsions_user largeCaliberTankRammer_user wetCombatPack_class2_user aimingStabilizer_Mk2_user"
+   },
+   "PzII_J" : {
+      "description" : "#germany_vehicles:PzII_J_descr",
+      "tags" : "lightTank enhancedTorsions1t_user",
+      "userString" : "#germany_vehicles:PzII_J",
+      "level" : 3,
+      "shortUserString" : "#germany_vehicles:PzII_J_short",
+      "id" : 202,
+      "price" : 1000,
+      "notInShop" : true
+   },
+   "Waffentrager_E100" : {
+      "userString" : "#germany_vehicles:Waffentrager_E100",
+      "level" : 10,
+      "shortUserString" : "#germany_vehicles:Waffentrager_E100_short",
+      "price" : 6100000,
+      "id" : 66,
+      "description" : "#germany_vehicles:Waffentrager_E100_descr",
+      "tags" : "AT-SPG heavyAT-SPG noImprovedVentilation antifragmentationLining_superheavy_user wetCombatPack_class2_user enhancedBelwillWashers_user"
+   },
+   "G_Panther" : {
+      "userString" : "#germany_vehicles:G_Panther",
+      "level" : 7,
+      "shortUserString" : "#germany_vehicles:G_Panther_short",
+      "price" : 1380000,
+      "id" : 35,
+      "description" : "#germany_vehicles:G_Panther_descr",
+      "tags" : "SPG mediumSPG beast mediumCaliberHowitzerRammer_user wetCombatPack_class1_user enhancedTorsions5t_user"
+   },
+   "Pro_Ag_A" : {
+      "userString" : "#germany_vehicles:Pro_Ag_A",
+      "level" : 9,
+      "shortUserString" : "#germany_vehicles:Pro_Ag_A_short",
+      "price" : 3450000,
+      "id" : 58,
+      "description" : "#germany_vehicles:Pro_Ag_A_descr",
+      "tags" : "mediumTank beast enhancedTorsions3t_user mediumCaliberTankRammer_user wetCombatPack_class1_user aimingStabilizer_Mk1_user"
+   },
+   "PzV_PzIV" : {
+      "description" : "#germany_vehicles:PzV_PzIV_descr",
+      "tags" : "mediumTank enhancedTorsions5t_user mediumCaliberTankRammer_user wetCombatPack_class1_user",
+      "userString" : "#germany_vehicles:PzV_PzIV",
+      "level" : 6,
+      "shortUserString" : "#germany_vehicles:PzV_PzIV_short",
+      "id" : 201,
+      "price" : 3000,
+      "notInShop" : true
+   },
+   "Maus" : {
+      "userString" : "#germany_vehicles:Maus",
+      "level" : 10,
+      "shortUserString" : "#germany_vehicles:Maus_short",
+      "price" : 6100000,
+      "id" : 27,
+      "description" : "#germany_vehicles:Maus_descr",
+      "tags" : "heavyTank antifragmentationLining_superheavy_user largeCaliberTankRammer_user wetCombatPack_class2_user aimingStabilizer_Mk2_user"
+   },
+   "PzVI" : {
+      "userString" : "#germany_vehicles:PzVI",
+      "level" : 7,
+      "shortUserString" : "#germany_vehicles:Tiger_short",
+      "price" : 1390000,
+      "id" : "02",
+      "description" : "#germany_vehicles:PzVI_descr",
+      "tags" : "heavyTank beast enhancedTorsions5t_user largeCaliberTankRammer_user wetCombatPack_class2_user"
+   },
+   "JagdPz_E100" : {
+      "userString" : "#germany_vehicles:JagdPz_E100",
+      "level" : 10,
+      "shortUserString" : "#germany_vehicles:JagdPz_E100_short",
+      "price" : 6100000,
+      "id" : 47,
+      "description" : "#germany_vehicles:JagdPz_E100_descr",
+      "tags" : "AT-SPG heavyAT-SPG antifragmentationLining_superheavy_user largeCaliberTankRammer_user wetCombatPack_class2_user enhancedBelwillWashers_user"
+   },
+   "Sturmpanzer_II" : {
+      "userString" : "#germany_vehicles:Sturmpanzer_II",
+      "level" : 4,
+      "shortUserString" : "#germany_vehicles:Sturmpanzer_II_short",
+      "price" : 156000,
+      "id" : 18,
+      "description" : "#germany_vehicles:Sturmpanzer_II_descr",
+      "tags" : "SPG lightSPG enhancedSprings_user grousers_user mediumCaliberHowitzerRammer_user wetCombatPack_class1_user"
+   },
+   "JagdPzIV" : {
+      "userString" : "#germany_vehicles:JagdPzIV",
+      "level" : 6,
+      "shortUserString" : "#germany_vehicles:JagdPzIV_short",
+      "price" : 910500,
+      "id" : "06",
+      "description" : "#germany_vehicles:JagdPzIV_descr",
+      "tags" : "AT-SPG mediumAT-SPG enhancedLevers_user grousers_user mediumCaliberTankRammer_user wetCombatPack_class1_user"
+   },
+   "S35_captured" : {
+      "userString" : "#germany_vehicles:S35_captured",
+      "level" : 3,
+      "shortUserString" : "#germany_vehicles:S35_captured_short",
+      "price" : 1000,
+      "id" : 203,
+      "description" : "#germany_vehicles:S35_captured_descr",
+      "tags" : "mediumTank"
+   },
+   "Pz38_NA" : {
+      "userString" : "#germany_vehicles:Pz38_NA",
+      "level" : 4,
+      "shortUserString" : "#germany_vehicles:Pz38_NA_short",
+      "price" : 145000,
+      "id" : 32,
+      "description" : "#germany_vehicles:Pz38_NA_descr",
+      "tags" : "lightTank scout enhancedSprings_user"
+   }
+}

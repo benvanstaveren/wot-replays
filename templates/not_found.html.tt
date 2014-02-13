@@ -1,0 +1,14 @@
+[% WRAPPER wrapper.html.tt %]
+    <div class="page-header">
+        <h1>Huh... it never used to do that...</h1>
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-md-3" style="min-height: 189px; background: transparent url(/img/404.png) no-repeat scroll center center"></div>
+        <div class="col-lg-9 col-md-9">
+            <div class="alert alert-danger">
+                <p>Whatever it is you were looking for, it's not here anymore...</p>
+                <p>You either followed a dead link, or Scrambled got it in his head to move things around.</p>
+            </div>
+        </div>
+    </div>
+[% END %]

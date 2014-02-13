@@ -10,5 +10,9 @@
     "assault": {
         "label": "Assault",
         "description": "Win the match by attacking or defending the bas or killing all opponents"
+    },
+    "nations" {
+        "label": "Confrontation"
+        "description": "",
     }
 }
