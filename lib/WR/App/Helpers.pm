@@ -793,7 +793,7 @@ sub add_helpers {
         # rating, so we also return undef and don't show the chiclets; 
         # returned is the class name 
 
-        return undef if($rating == undef || $rating == 0);
+        return undef if(!defined($rating) || (defined($rating) && $rating == 0));
         return 'above' if($rating >= 1250);
         return 'below' if($rating < 900);
         return 'equal';
