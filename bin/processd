@@ -48,7 +48,8 @@ if(my $fh = IO::File->new($cfile)) {
 
 my $mango       = Mango->new($config->{mongodb}->{host});
 my $db          = $mango->db($config->{mongodb}->{database});
-my $push        = WR::Statterpush::Server->new(host => 'api.statterbox.com', token => $config->{statterbox}->{server}, group => 'wotreplays');
+
+sub get_push { return WR::Statterpush::Server->new(host => 'api.statterbox.com', token => $config->{statterbox}->{server}, group => 'wotreplays') };
 
 my $log;
 if(my $lf = $config->{processd}->{logfile}) {
@@ -107,17 +108,17 @@ if(scalar(@$jobs) > 0) {
             $p->db->collection('jobs')->update({ _id => $job->{_id} }, { '$set' => { 'status_text' => [], locked => Mango::BSON::bson_true, locked_by => $$, locked_at => Mango::BSON::bson_time } } );
             $p->on('message' => sub {
                 my ($p, $text) = (@_);
-                $push->send_to_channel('admin' => Mojo::JSON->new->encode({ evt => 'chatreader.message', data => { session => $job->{channel}, text => $text } }));
+                get_push->send_to_channel('admin' => Mojo::JSON->new->encode({ evt => 'chatreader.message', data => { session => $job->{channel}, text => $text } }));
             });
             $p->on('finished' => sub {
-                $push->send_to_channel('admin' => Mojo::JSON->new->encode({ evt => 'chatreader.finished', data => { session => $job->{channel} } }));
+                get_push->send_to_channel('admin' => Mojo::JSON->new->encode({ evt => 'chatreader.finished', data => { session => $job->{channel} } }));
             });
            $p->process_chatreader($job);
         } else {
             $p->db->collection('jobs')->update({ _id => $job->{_id} }, { '$set' => { 'status_text' => [], locked => Mango::BSON::bson_true, locked_by => $$, locked_at => Mango::BSON::bson_time } } );
             if(my $r = $p->process_job($job)) {
                 if($r->{site}->{visible}) {
-                    $push->send_to_channel('site' => Mojo::JSON->new->encode({ evt => 'replay.processed', data => { url => sprintf('%s/replay/%s.html', $config->{urls}->{app}, $r->{_id} . '') } }));
+                    get_push->send_to_channel('site' => Mojo::JSON->new->encode({ evt => 'replay.processed', data => { url => sprintf('%s/replay/%s.html', $config->{urls}->{app}, $r->{_id} . '') } }));
                 }
             }
         }
