@@ -92,9 +92,9 @@ sub page {
         if($self->panel) {
             $self->debug('doing panel');
             $cursor->fields({
-                panel => 1,
-                site  => 1,
-                file  => 1,
+                panel   => 1,
+                site    => 1,
+                file    => 1,
             });
         }
 

@@ -117,7 +117,6 @@ sub process_job {
         }
     }
 
-
     my $o = WR::Process::Full->new(
         bf_key          => join('', map { chr(hex($_)) } (split(/\s/, $self->config->{wot}->{bf_key}))),
         banner_path     => $self->config->{paths}->{banners},
@@ -317,12 +316,12 @@ sub process_job {
             type    =>  'spinner',
             done    =>  Mango::BSON::bson_false,
         });
-        
-        if(!defined($replay->{game}->{version_numeric}) || (defined($replay->{game}->{version_numeric}) && $replay->{game}->{version_numeric} < $self->config->{wot}->{min_version})) {
+       
+        if($replay->{version} < $self->config->{wot}->{min_version}) {
             unlink($job->{file});
             $self->job_error($job, 'That replay is from an older version of World of Tanks which we cannot process...');
             return undef;
-        } elsif($replay->{game}->{version_numeric} > $self->config->{wot}->{version_numeric}) {
+        } elsif($replay->{version} > $self->config->{wot}->{version_numeric}) {
             unlink($job->{file});
             $self->job_error($job, 'That replay seems to be coming from the test server, we cannot process those yet...');
             return undef;

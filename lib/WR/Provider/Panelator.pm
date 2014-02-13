@@ -40,7 +40,7 @@ sub panelate {
         damage_dealt => $replay->{stats}->{damageDealt},
         survived => $replay->{game}->{recorder}->{survived},
         server => $replay->{game}->{server},
-        version => $replay->{game}->{version},
+        version => $replay->{version} || $replay->{game}->{version}, # fallback in case of re-paneling
         credits => $replay->{stats}->{credits},
         xp => $replay->{stats}->{xp},
         multiplier => $replay->{stats}->{dailyXPFactor10} / 10,

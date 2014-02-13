@@ -8,7 +8,6 @@ sub version_to_numeric {
 
     # you would imagine that a simple , separator would work, but... WG fucked up. Again.
     my @ver = split(/\,/, $v);
-    shift(@ver);
     my @wgfix = ();
     while(@ver) {
         my $a = shift(@ver);
@@ -21,7 +20,7 @@ sub version_to_numeric {
         }
     }
 
-    return $wgfix[0] * 10000 + $wgfix[1] * 100 + $wgfix[2];
+    return $wgfix[0] * 1000000 + $wgfix[1] * 10000 + $wgfix[2] * 100 + $wgfix[3];
 }
 
 sub new {

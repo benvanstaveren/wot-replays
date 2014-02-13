@@ -225,9 +225,50 @@ sub add_helpers {
         my $self = shift;
         my $version = shift;
 
-        my @parts = split(/, /, $version);
-        pop(@parts); # drop the last 0
-        return join('.', @parts);
+        if($version =~ /^\d+$/) {
+            # new style numeric version
+            return $self->wot_version_numeric_to_string($version);
+
+        } else {
+            # old style version, we want to ensure we split this properly for temporary 0.8.11 ones
+            return $self->wot_version_numeric_to_string($self->wot_version_string_to_numeric($version));
+        }
+    });
+
+    $self->helper(wot_version_string_to_numeric => sub {
+        my $self = shift;
+        my $v    = shift;
+
+        my @ver = split(/\,/, $v);
+        my @wgfix = ();
+        while(@ver) {
+            my $a = shift(@ver);
+            $a =~ s/^\s+//g;
+            $a =~ s/\s+$//g; # ffffuck
+            if($a =~ /\s+/) {
+                push(@wgfix, (split(/\s+/, $a)));
+            } else {
+                push(@wgfix, $a);
+            }
+        }
+
+        return $wgfix[0] * 1000000 + $wgfix[1] * 10000 + $wgfix[2] * 100 + $wgfix[3];
+    });
+
+    $self->helper(wot_version_numeric_to_string => sub {
+        my $self = shift;
+        my $v    = shift;
+        my @ver  = ();
+
+        push(@ver, int($v / 1000000));
+        $v -= $ver[-1] * 1000000;
+        push(@ver, int($v / 10000));
+        $v -= $ver[-1] * 10000;
+        push(@ver, int($v / 100));
+        $v -= $ver[-1] * 100;
+        push(@ver, $v);
+
+        return sprintf('%d.%d.%d', (@ver[0..3]));
     });
 
     $self->helper(is_victory => sub {

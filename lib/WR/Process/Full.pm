@@ -610,6 +610,9 @@ sub _real_process {
                                 }
                             }
                         }
+
+                        # here's some extra bits that we'll be using, game.version and game.version_n can be fucked
+                        $replay->{version} = $parser->version;
                     });
                 } catch {
                     $self->error('process error: ' . $_);
