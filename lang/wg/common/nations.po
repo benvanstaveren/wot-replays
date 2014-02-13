@@ -1,3 +1,6 @@
+msgid "china"
+msgstr "China"
+
 msgid "france"
 msgstr "France"
 
