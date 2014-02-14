@@ -5,7 +5,6 @@ use IO::String;
 
 has 'data'      =>  undef;
 has 'fh'        =>  sub { my $self = shift; IO::String->new($self->data) };
-has 'debug'     =>  0;
 
 use Scalar::Util qw/refaddr/;
 
@@ -100,14 +99,6 @@ sub marker      {
     die 'IndexError', "\n"; 
 }
 
-sub _d {
-    my $self = shift;
-    my $what = shift;
-    my $mark = shift;
-
-    warn $what, "\t", '(mark at ', $mark, ')', "\n";
-}
-
 sub readline {
     my $self = shift;
     my $b;
@@ -132,7 +123,6 @@ sub load {
         if(my $protoname = $self->PICKLE_OPS_REVERSE->{$buf}) {
             my $m = sprintf('handle_%s', $protoname);
             if($self->can($m)) {
-                warn $protoname, "\n" if($self->debug);
                 $self->$m();
             } else {
                 die 'UnhandledOperation ', $protoname, "\n";
