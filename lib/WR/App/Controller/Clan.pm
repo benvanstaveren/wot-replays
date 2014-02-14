@@ -24,8 +24,11 @@ sub index {
         $self->ua->post($url => sub {
             my ($ua, $tx) = (@_);
             if(my $res = $tx->success) {
-                $self->stash(search_results => $res->json('/result')) if($res->json('/ok') == 1);
+                $self->stash(search_results => $res->json('/data')) if($res->json('/status') eq 'ok');
+            } else {
+                $self->stash(search_results => []);
             }
+
             $self->stash('query' => $q, server => $s);
             $self->respond(template => 'clan/index');
         });
