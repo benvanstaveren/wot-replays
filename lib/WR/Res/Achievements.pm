@@ -76,6 +76,8 @@ sub new {
     return $self;
 }
 
+sub is_single { return !shift->is_repeatable(@_) }
+
 sub is_battle {
     my $self = shift;
     my $idx  = shift;
