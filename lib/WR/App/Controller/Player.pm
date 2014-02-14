@@ -12,6 +12,7 @@ sub index {
     my $s    = $self->req->param('s'); 
 
     $self->render_later;
+
     $s = 'asia' if($s eq 'sea');
 
     if(defined($q) && defined($s)) {
