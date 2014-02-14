@@ -32,7 +32,7 @@
                 <tbody>
                     [% FOREACH entry IN search_results %]
                         <tr>
-                            <td><a href="/player/[% server %]/[% entry.nickname |uri %]">[% entry.nickname |html %]</a></td>
+                            <td><a href="/player/[% IF server == 'asia' %]sea[% ELSE %][% server %][% END %]/[% entry.nickname |uri %]">[% entry.nickname |html %]</a></td>
                         </tr>
                     [% END %]
                 </tbody>

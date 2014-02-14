@@ -33,8 +33,8 @@
                 <tbody>
                     [% FOREACH entry IN search_results %]
                         <tr>
-                            <td><a href="/clan/[% server %]/[% entry.abbreviation |url%]">[% entry.name |html %]</a></td>
-                            <td><a href="/clan/[% server %]/[% entry.abbreviation |url%]">[% entry.abbreviation |html %]</a></td>
+                            <td><a href="/clan/[% IF server == 'asia' %]sea[% ELSE %][% server %][% END %]/[% entry.abbreviation |url%]">[% entry.name |html %]</a></td>
+                            <td><a href="/clan/[% IF server == 'asia' %]sea[% ELSE %][% server %][% END %]/[% entry.abbreviation |url%]">[% entry.abbreviation |html %]</a></td>
                         </tr>
                     [% END %]
                 </tbody>
