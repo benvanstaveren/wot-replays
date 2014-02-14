@@ -5,9 +5,11 @@ use WR::Res::Achievements;
 
 my $a = WR::Res::Achievements->new;
 
-for my $i (qw/64 79/) {
-    print 'id ',$i, ' is: ', $a->index_to_idstr($i), "\n";
-    for my $c (qw/is_award is_class is_repeatable is_battle/) {
-        print $c, ': ', $a->$c($i), "\n";
-    }
+my @l = ();
+foreach my $e (@{$a->achievements}) {
+    next unless(defined($e));
+    push(@l, $e->{name});
 }
+
+print join(' ', sort(@l)), "\n";
+

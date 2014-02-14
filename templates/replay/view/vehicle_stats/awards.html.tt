@@ -23,4 +23,13 @@
     [% IF awardcount < 1 %]
         <p>[% h.loc('replay.awards.noawards') %]</p>
     [% END %]
+    <!--
+        AWARDS
+
+        [% h.dumper(replay.stats.achievements) %]
+
+        [% h.dumper(other_awards) %]
+
+        [% h.dumper(replay.stats.dossierPopUps) %]
+    -->
 </div>
