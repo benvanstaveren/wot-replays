@@ -17,7 +17,7 @@ use constant NATION_INDICES => {
     
 sub nation_id_to_name { return __PACKAGE__->NATION_NAMES->[shift]; }
 
-use constant GAMEPLAY_NAMES => [(qw/ctf domination assault escort ctf2 domination2 assault2/)];
+use constant GAMEPLAY_NAMES => [(qw/ctf domination assault nations ctf2 domination2 assault2/)];
 use constant GAMEPLAY_INDICES => {
     ctf         => 0,
     domination  => 1,
