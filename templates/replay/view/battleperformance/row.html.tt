@@ -13,7 +13,7 @@
     </td>
     <td data-container="body" class="playerName bs-tooltip" data-placement="auto" data-toggle="tooltip" title="[% roster.player.name |html %][% IF roster.player.clanDBID > 0 %][[% roster.player.clanAbbrev %]][% END %]">
         [% IF roster.player.clanDBID > 0 %]
-            [% roster.player.name |truncate(15) |html %]
+            [% roster.player.name |html %]
             [% IF roster.player.clanDBID > 0 %]<span class="clan">[[% roster.player.clanAbbrev %]]</span>[% END %]
         [% ELSE %]
             [% roster.player.name |truncate(20) |html %]

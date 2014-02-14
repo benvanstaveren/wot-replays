@@ -1,4 +1,5 @@
 <h4>[% h.loc('replay.battleperformance.title') %]</h4>
+<div class="well">
 <table class="table table-bordered team-list table-striped">
     <colgroup>
         <col class="vehicleIcon"/>
@@ -9,6 +10,7 @@
         [% INCLUDE replay/view/battleperformance/list.html.tt %]
     </tbody>
 </table>
+</div>
 <script type="text/javascript">
     var critDetails = {};
 

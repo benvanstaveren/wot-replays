@@ -29,6 +29,11 @@ div.award {
                 height: 16px;
                 @include award($award, 16);
             }
+            &.big {
+                width: 64px;
+                height: 64px;
+                @include award($award, 64);
+            }
         }
     }
 }

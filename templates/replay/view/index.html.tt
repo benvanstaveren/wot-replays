@@ -1,11 +1,12 @@
 [% WRAPPER wrapper.html.tt %]
     [% INCLUDE replay/view/header.html.tt context="index" %]
-    <div class="row" style="margin: 10px 0px 0px 0px">
+    <div class="row replay-view" style="margin: 25px 0px 0px 0px">
         <div class="col-lg-12 col-md-12">
             <ul class="nav nav-tabs" id="replay-tabs">
-                <li class="active"><a href="#vehicle-stats" data-toggle="tab">[% h.loc('replay.nav.statistics') %]</a></li>
-                <li><a href="#vehicle-loadout" data-toggle="tab">[% h.loc('replay.nav.loadout') %]</a></li>
+                <li class="active"><a href="#vehicle-stats" data-toggle="tab">[% h.loc('replay.nav.overview') %]</a></li>
+                <li><a href="#missions" data-toggle="tab">[% h.loc('replay.nav.missions') %]</a></li>
                 <li><a href="#teams" data-toggle="tab">[% h.loc('replay.nav.teams') %]</a></li>
+                <li><a href="#vehicle-loadout" data-toggle="tab">[% h.loc('replay.nav.loadout') %]</a></li>
                 <li class="[% IF replay.chat.size < 1 %]disabled [% END %]"><a href="#battle-chat" data-toggle="tab">[% h.loc('replay.nav.chat') %]</a></li>
                 <li class="disabled"><a href="#comparison" data-toggle="tab">[% h.loc('replay.nav.comparison') %]</a></li>
             </ul>
@@ -13,14 +14,25 @@
                 <div id="vehicle-stats" class="tab-pane fade in active">
                     <div class="row">
                         <div class="col-lg-6 col-md-6">
-                            [% INCLUDE replay/view/battleperformance.html.tt %]
-                            [% INCLUDE replay/view/missions.html.tt %]
-                        </div>
-                        <div class="col-lg-6 col-md-6">
-                            [% INCLUDE replay/view/vehicle_stats.html.tt %]
                             [% INCLUDE replay/view/desc.html.tt %]
                         </div>
+                        <div class="col-lg-6 col-md-6">
+                            [% INCLUDE replay/view/vehicle_stats/awards.html.tt %]
+                        </div>
                     </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12">
+                            [% INCLUDE replay/view/vehicle_stats.html.tt %]
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12">
+                            [% INCLUDE replay/view/battleperformance.html.tt %]
+                        </div>
+                    </div>
+                </div>
+                <div id="missions" class="tab-pane fade">
+                    [% INCLUDE replay/view/missions.html.tt %]
                 </div>
                 <div id="vehicle-loadout" class="tab-pane fade">
                     [% INCLUDE replay/view/vehicle_loadout.html.tt %]

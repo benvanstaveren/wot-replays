@@ -1,4 +1,5 @@
 <h4>[% h.loc('replay.capture.title') %]</h4>
+<div class="well">
 <table class="table table-bordered table-striped">
     <tbody>
         <tr>
@@ -11,3 +12,4 @@
         </tr>
     </tbody>
 </table>
+</div>
