@@ -12,7 +12,7 @@
                 </div>
                 <div class="form-group">
                     <label class="control-label">Server</label>
-                    <select name="s">
+                    <select name="s" class="form-control">
                         <option [% IF server == 'sea' || server == 'asia' %]selected="true"[% END %]value="sea">Asia</option>
                         <option [% IF server == 'na' %]selected="true"[% END %] value="na">North America</option>
                         <option [% IF server == 'eu' %]selected="true"[% END %] value="eu"Europe</option>
