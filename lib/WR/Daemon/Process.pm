@@ -6,9 +6,12 @@ use Mango::BSON;
 use WR;
 use WR::Process::Full;
 use WR::Process::ChatReader;
+use Time::HiRes;
 use Data::Dumper;
 use Carp qw/cluck/;
 
+has 'start'     => sub { [ Time::HiRes::gettimeofday ] };
+has 'elapsed'   => sub { Time::HiRes::tv_interval(shift->start) };
 has 'config'    => sub { {} };
 has 'skip_wn7'  => 0;
 has 'log'       => undef;
@@ -43,6 +46,7 @@ sub job_error {
     $self->db->collection('jobs')->update({ _id => $job->{_id} }, {
         '$set' => {
             complete => Mango::BSON::bson_true,
+            elapsed  => $self->elapsed,
             status   => -1,
             error    => $error,
         }
@@ -110,6 +114,8 @@ sub process_chatreader {
 sub process_job {
     my $self = shift;
     my $job = shift;
+
+
 
     if(!$job->{reprocess}) {
         if($self->db->collection('replays')->find({ digest => $job->{_id} })->count() > 0) {
@@ -366,6 +372,7 @@ sub process_job {
                         replayid => $replay->{_id},
                         banner   => $replay->{site}->{banner},
                         file     => $replay->{file},
+                        elapsed  => $self->elapsed,
                     }
                 });
                 $self->debug('updated job status: ', $oid);

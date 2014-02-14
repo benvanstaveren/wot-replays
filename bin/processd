@@ -9,6 +9,10 @@ use Mojo::Log;
 use Parallel::ForkManager;
 use WR::Statterpush::Server;
 use Mojo::JSON;
+use Time::HiRes;
+use Time::HiRes;
+use Time::HiRes;
+use Time::HiRes;
 
 my $config      = {};
 my $cfile       = undef;
