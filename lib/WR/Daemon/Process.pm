@@ -47,6 +47,7 @@ sub job_error {
             error    => $error,
         }
     });
+    $self->debug('job error: ', Dumper($error));
 }
 
 sub job_status {
@@ -78,6 +79,7 @@ sub job_status {
     });
 
     $job->{status_text} = $new; # wonder if this works...
+    $self->debug('job status: ', Dumper($job->{status_text}));
 }
 
 sub process_chatreader {
