@@ -26,10 +26,10 @@ msgid "assault/desc"
 msgstr "Win the match by attacking or defending the base or killing all opponents"
 
 msgid "nations"
-msgstr "Confrontation"
+msgstr "Nations"
 
 msgid "nations/short"
-msgstr "Confrontation"
+msgstr "Nations"
 
 msgid "nations/desc"
 msgstr "Win the match by capturing the base or killing all opponents"
