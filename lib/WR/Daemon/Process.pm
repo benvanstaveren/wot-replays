@@ -10,8 +10,8 @@ use Time::HiRes;
 use Data::Dumper;
 use Carp qw/cluck/;
 
-has 'start'     => sub { [ Time::HiRes::gettimeofday ] };
-has 'elapsed'   => sub { Time::HiRes::tv_interval(shift->start) };
+has '_start'    => sub { [ Time::HiRes::gettimeofday ] };
+has 'elapsed'   => sub { Time::HiRes::tv_interval(shift->_start) };
 has 'config'    => sub { {} };
 has 'skip_wn7'  => 0;
 has 'log'       => undef;
@@ -85,6 +85,17 @@ sub job_status {
     $job->{status_text} = $new; # wonder if this works...
 }
 
+sub start {
+    my $self = shift;
+    my $job  = shift;
+
+    $self->_start;
+
+    $self->db->collection('jobs')->update({ _id => $job->{_id} }, {
+        '$set' => { 'stime' => Mango::BSON::bson_time },
+    });
+}
+
 sub process_chatreader {
     my $self = shift;
     my $job  = shift;
@@ -115,7 +126,7 @@ sub process_job {
     my $self = shift;
     my $job = shift;
 
-    $self->start;
+    $self->start($job);
 
     if(!$job->{reprocess}) {
         if($self->db->collection('replays')->find({ digest => $job->{_id} })->count() > 0) {

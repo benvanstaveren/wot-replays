@@ -42,20 +42,20 @@
                             [% IF upload.complete %]
                                 [% IF upload.status == 1 %]
                                     <div class="well well-sm">
-                                        <h4>PROCESSED OK <span class="pull-right">[% IF upload.elapsed.defined %][% h.sprintf('%.4f', upload.elapsed) %][% ELSE %]-[% END %]</span></h4>
+                                        <h5 style="margin: 0px 0px 5px 0px">PROCESSED OK <span class="pull-right">[% IF upload.elapsed.defined %][% h.sprintf('%.4f', upload.elapsed) %][% ELSE %]-[% END %]</span></h5>
                                         <a href="[% config.urls.app %]/replay/[% upload.replayid %].html">replay page</a> | <a href="[% config.urls.replays %]/[% upload.data.file_base %]">replay file</a>
                                     </div>
                                 [% ELSE %]
                                     <div class="alert well-sm alert-danger">
-                                        <h4>PROCESS ERROR <span class="pull-right">[% IF upload.elapsed.defined %][% h.sprintf('%.4f', upload.elapsed) %][% ELSE %]-[% END %]</span></h4>
+                                        <h5 style="margin: 0px 0px 5px 0px">PROCESS ERROR <span class="pull-right">[% IF upload.elapsed.defined %][% h.sprintf('%.4f', upload.elapsed) %][% ELSE %]-[% END %]</span></h5>
                                         [% upload.error %]
                                     </div>
                                 [% END %]
                             [% ELSE %]
                                 [% IF upload.ready && !upload.locked %]
-                                    Pending Processing 
+                                    <h5>PENDING <span class="pull-right">[% h.time_diff(upload.ctime) %]</span></h5>
                                 [% ELSIF upload.ready && upload.locked %]
-                                    Processing 
+                                    <h5>PROCESSING <span class="pull-right">[% h.time_diff(upload.stime) %]</span></h5>
                                 [% END %]
                             [% END %]
                         </td>

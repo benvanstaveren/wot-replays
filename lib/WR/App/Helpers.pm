@@ -908,7 +908,14 @@ sub add_helpers {
         }
         return $res;
     });
- 
+
+    $self->helper(time_diff => sub {
+        my $self = shift;
+        my $then = shift;
+        my $now  = Mango::BSON::bson_time;
+
+        return sprintf('%.2f', ($now - $then) / 1000);
+    });
 }
 
 1;
