@@ -21,20 +21,6 @@ use constant END_OF_STREAM => 0xffffffff;
 sub stop { shift->stopping(1) }
 sub cancel { shift->stopping(1) }
 
-sub safe_unpickle {
-    my $self = shift;
-    my $pd   = shift;
-    my $res  = undef;
-
-    try {
-        $res = WR::Util::PyPickle->new(data => $pd)->unpickle;
-    } catch {
-        $res = undef;
-    };
-
-    return $res;
-}
-
 sub new {
     my $package = shift;
     my $self    = $package->SUPER::new(@_);

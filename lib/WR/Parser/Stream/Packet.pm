@@ -1,6 +1,6 @@
 package WR::Parser::Stream::Packet;
 use Mojo::Base '-base';
-use WR::Util::PyPickle;
+use WR::Util::Pickle;
 use Data::Dumper;
 use Try::Tiny qw/try catch/;
 
@@ -168,7 +168,7 @@ sub safe_unpickle {
     my $p    = undef;
 
     try {
-        $p = WR::Util::PyPickle->new(data => $data)->unpickle;
+        $p = WR::Util::Pickle->new(data => $data)->unpickle;
     } catch {
         my $e = $_;
         chomp($e);

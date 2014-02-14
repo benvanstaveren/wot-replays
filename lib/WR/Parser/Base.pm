@@ -9,7 +9,7 @@ use JSON::XS;
 use WR::Parser::Unpack;
 use WR::Parser::Stream;
 use WR::Parser::Game;
-use WR::Util::PyPickle;
+use WR::Util::Pickle;
 
 has 'file' => undef;
 has 'fh'   => sub {
@@ -149,8 +149,7 @@ sub has_battle_result {
     warn 'base has_battle_result', "\n";
 
     try {
-        $self->get_battle_result;
-        $rv = 1;
+        $rv = (defined($self->get_battle_result)) ? 1 : 0;
     } catch {
         warn 'err: ', $_, "\n";
     };
@@ -158,13 +157,20 @@ sub has_battle_result {
     return $rv;
 }
 
+sub get_battle_result_raw {
+    my $self = shift;
+    return $self->get_block($self->pickle_block);
+}
+
 sub get_battle_result {
     my $self = shift;
 
     return $self->_battle_result if(defined($self->_battle_result));
-    my $p = WR::Util::PyPickle->new(data => $self->get_block($self->pickle_block));
+    my $p = WR::Util::Pickle->new(debug => 1, data => $self->get_block($self->pickle_block));
     try {
         $self->_battle_result($p->unpickle);
+    } catch {
+        warn 'get_battle_result unpickle error: ', $_, "\n";
     };
     return $self->_battle_result;
 }
