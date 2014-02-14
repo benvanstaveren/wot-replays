@@ -10,7 +10,7 @@ has 'path' => sub {
     # yes, this is still ghetto as all fuck
     return (-e '/home/ben/projects/wot-replays/site')
         ? '/home/ben/projects/wot-replays/site/etc/res'
-        : '/home/wotreplay/wot-replays/site/etc/res';
+        : '/home/wotreplay/wot-replays/etc/res';
 };
 
 
