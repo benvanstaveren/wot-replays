@@ -1,5 +1,6 @@
 package WR::Plugin::I18N;
 use Mojo::Base 'Mojolicious::Plugin';
+use Data::Localize::Gettext;
 
 sub register {
     my $self = shift;

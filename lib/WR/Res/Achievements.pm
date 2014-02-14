@@ -1,122 +1,96 @@
 package WR::Res::Achievements;
 use Mojo::Base '-base';
-use WR::Localize;
+use Mojo::JSON;
+use File::Slurp qw/read_file/;
+use Data::Dumper;
 
-has 'record_names'                  => sub { return shift->_build_record_names };
-has 'achievements'                  => sub { return shift->_build_achievements };
-has 'achievements_by_single'        => sub { return shift->_build_achievements_by_single };
-has 'achievements_by_class'         => sub { return shift->_build_achievements_by_class };
-has 'achievements_by_battle'        => sub { return shift->_build_achievements_by_battle };
-has 'achievements_by_repeatable'    => sub { return shift->_build_achievements_by_repeatable };
-has '_l'                            => sub { return WR::Localize->new(type => 'achievements') };
-
-sub i18n { 
-    my $self = shift;
-    my $l = $self->_l();
-
-    return $l->i18n(@_);
-}
-
-sub _build_achievements {
+has 'path' => sub {
     my $self = shift;
 
-    my $i = 0;
-    my $h = {};
-    foreach my $r (@{$self->record_names}) {
-        $h->{$i} = $r;
-        $i++;
+    # yes, this is still ghetto as all fuck
+    return (-e '/home/ben/projects/wot-replays/site')
+        ? '/home/ben/projects/wot-replays/site/etc/res'
+        : '/home/wotreplay/wot-replays/site/etc/res';
+};
+
+
+has achievements                => sub { [] };
+has achievements_reverse        => sub { {} };
+has achievements_by_type        => sub {
+    my $self = shift;
+    my $h    = [];
+    my $i    = 0;
+
+    foreach my $a (@{$self->achievements}) {
+        next unless(defined($a));
+        $h->[$i++] = $a->{type};
     }
     return $h;
-}
-
-sub _build_record_names {
-    # decompiled from dossiers/_init_.pyc 
-    return ['reserved', 'xp', 'maxXP', 'battlesCount', 'wins', 'losses', 'survivedBattles', 'lastBattleTime', 'battleLifeTime', 'winAndSurvived', 'battleHeroes', 'frags', 'maxFrags', 'frags8p', 'fragsBeast', 'shots', 'hits', 'spotted', 'damageDealt', 'damageReceived', 'treesCut', 'capturePoints', 'droppedCapturePoints', 'sniperSeries', 'maxSniperSeries', 'invincibleSeries', 'maxInvincibleSeries', 'diehardSeries', 'maxDiehardSeries', 'killingSeries', 'maxKillingSeries', 'piercingSeries', 'maxPiercingSeries', 'vehTypeFrags', 'warrior', 'invader', 'sniper', 'defender', 'steelwall', 'supporter', 'scout', 'medalKay', 'medalCarius', 'medalKnispel', 'medalPoppel', 'medalAbrams', 'medalLeClerc', 'medalLavrinenko', 'medalEkins', 'medalWittmann', 'medalOrlik', 'medalOskin', 'medalHalonen', 'medalBurda', 'medalBillotte', 'medalKolobanov', 'medalFadin', 'tankExpert', 'titleSniper', 'invincible', 'diehard', 'raider', 'handOfDeath', 'armorPiercer', 'kamikaze', 'lumberjack', 'beasthunter', 'mousebane', 'creationTime', 'maxXPVehicle', 'maxFragsVehicle', 'vehDossiersCut', 'evileye', 'medalRadleyWalters', 'medalLafayettePool', 'medalBrunoPietro', 'medalTarczay', 'medalPascucci', 'medalDumitru', 'markOfMastery', 'company/xp', 'company/battlesCount', 'company/wins', 'company/losses', 'company/survivedBattles', 'company/frags', 'company/shots', 'company/hits', 'company/spotted', 'company/damageDealt', 'company/damageReceived', 'company/capturePoints', 'company/droppedCapturePoints', 'clan/xp', 'clan/battlesCount', 'clan/wins', 'clan/losses', 'clan/survivedBattles', 'clan/frags', 'clan/shots', 'clan/hits', 'clan/spotted', 'clan/damageDealt', 'clan/damageReceived', 'clan/capturePoints', 'clan/droppedCapturePoints', 'medalLehvaslaiho', 'medalNikolas', 'fragsSinai', 'sinai', 'heroesOfRassenay', 'mechanicEngineer', 'tankExpert0', 'tankExpert1', 'tankExpert2', 'tankExpert3','tankExpert4', 'tankExpert5', 'tankExpert6', 'tankExpert7', 'tankExpert8', 'tankExpert9', 'tankExpert10', 'tankExpert11', 'tankExpert12', 'tankExpert13', 'tankExpert14', 'mechanicEngineer0', 'mechanicEngineer1', 'mechanicEngineer2', 'mechanicEngineer3', 'mechanicEngineer4', 'mechanicEngineer5', 'mechanicEngineer6', 'mechanicEngineer7', 'mechanicEngineer8', 'mechanicEngineer9', 'mechanicEngineer10', 'mechanicEngineer11', 'mechanicEngineer12', 'mechanicEngineer13', 'mechanicEngineer14', 'rareAchievements', 'medalBrothersInArms', 'medalCrucialContribution', 'medalDeLanglade', 'medalTamadaYoshio', 'bombardier', 'huntsman', 'alaric', 'sturdy', 'ironMan', 'luckyDevil', 'fragsPatton', 'pattonValley'];
-}
-
-sub _build_achievements_by_repeatable {
+};
+has achievements_by_group       => sub {
     my $self = shift;
+    my $h    = [];
+    my $i    = 0;
 
-    return { 
-        map { $_ => 1 }
-        (qw/warrior invader sniper defender steelwall supporter scout evileye medalWittmann medalOrlik medalOskin medalHalonen medalBurda
-            medalBillotte medalKolobanov medalFadin medalRadleyWalters medalLafayettePool medalBrunoPietro medalTarczay medalPascucci medalDumitru
-            medalLehvaslaiho medalNikolas heroesOfRassenay medalCrucialContribution medalBrothersInArms medalDeLanglade medalTamadaYoshio kamikaze
-            raider mousebane beasthunter sinai pattonValley bombardier huntsman alaric sturdy ironMan luckyDevil titleSniper invincible diehard
-            handOfDeath armorPiercer/)
+    foreach my $a (@{$self->achievements}) {
+        next unless(defined($a) && defined($a->{group}));
+        $h->[$i++] = $a->{group};
     }
+    return $h;
+};
+
+sub new {
+    my $package = shift;
+    my $self    = $package->SUPER::new(@_);
+    
+    bless($self, $package);
+
+    my $groups = Mojo::JSON->new->decode(read_file(sprintf('%s/achievementgroups.json', $self->path)));
+    my $achievements = Mojo::JSON->new->decode(read_file(sprintf('%s/achievements.json', $self->path)));
+    my $types = {};
+    foreach my $idx (keys(%$achievements)) {
+        next if($achievements->{$idx}->[0] !~ /^achievement/);
+        my $name = $achievements->{$idx}->[1];
+
+        my $type = $groups->{$name}->{type};
+        my $sec  = $groups->{$name}->{section};
+
+        $self->achievements->[$idx] = {
+            name    => $name,
+            type    => $type,
+            section => $sec,
+        };
+        $self->achievements_reverse->{$name} = $idx;
+        $types->{$type}++ if(defined($type) && length($type) > 0);
+    }
+
+    foreach my $t (keys(%$types)) {
+        no strict 'refs';
+        *{"${package}::is_${t}"} = sub {
+            my ($self, $idx) = (@_);
+            return ($self->achievements->[$idx]->{type} eq $t) ? 1 : 0;
+        } unless($package->can("is_${t}"));
+        use strict 'refs';
+    }
+
+    return $self;
 }
 
-sub _build_achievements_by_single {
+sub is_battle {
     my $self = shift;
+    my $idx  = shift;
 
-    # from common/dossiers/achievements.pyc
-    return { 
-        map { $_ => 1 }
-        (qw/tankExpert tankExpert0 tankExpert1 tankExpert2 tankExpert3 tankExpert4 tankExpert5 tankExpert6 tankExpert7 tankExpert8
-            tankExpert9 tankExpert10 tankExpert11 tankExpert12 tankExpert13 tankExpert14 mechanicEngineer mechanicEngineer0 mechanicEngineer1
-            mechanicEngineer2 mechanicEngineer3 mechanicEngineer4 mechanicEngineer5 mechanicEngineer6 mechanicEngineer7 mechanicEngineer8
-            mechanicEngineer9 mechanicEngineer10 mechanicEngineer11 mechanicEngineer12 mechanicEngineer13 mechanicEngineer14/)
-    }
+    return ($self->is_award($idx) && $self->achievements->[$idx]->{section} eq 'battle') ? 1 : 0;
 }
 
 sub is_award {
     my $self = shift;
     my $idx  = shift;
 
-    return ($self->is_battle($idx) || $self->is_class($idx) || $self->is_repeatable($idx) || $self->is_single($idx)) ? 1 : 0;
-}
-
-sub _build_achievements_by_class {
-    my $self = shift;
-
-    # from common/dossiers/achievements.pyc
-    return { 
-        map { $_ => 1 }
-        (qw/medalKay medalCarius medalKnispel medalPoppel medalAbrams medalLeClerc medalLavrinenko medalEkins markOfMastery/)
-    }
-}
-
-sub _build_achievements_by_battle {
-    my $self = shift;
-
-    # from common/dossiers/achievements.pyc
-    return { 
-        map { $_ => 1 }
-        (qw/warrior invader sniper defender steelwall supporter scout evileye/)
-    }
-}
-
-sub is_class {
-    my $self = shift;
-    my $idx  = shift;
-    my $n    = $self->index_to_idstr($idx);
-
-    return (defined($self->achievements_by_class->{$n})) ? 1 : 0;
-}
-
-sub is_battle {
-    my $self = shift;
-    my $idx  = shift;
-    my $n    = $self->index_to_idstr($idx);
-
-    return (defined($self->achievements_by_battle->{$n})) ? 1 : 0;
-}
-
-sub is_single {
-    my $self = shift;
-    my $idx  = shift;
-    my $n    = $self->index_to_idstr($idx);
-
-    return (defined($self->achievements_by_single->{$n})) ? 1 : 0;
-}
-
-sub is_repeatable {
-    my $self = shift;
-    my $idx  = shift;
-    my $n    = $self->index_to_idstr($idx);
-
-    return (defined($self->achievements_by_repeatable->{$n})) ? 1 : 0;
+    return (defined($self->achievements->[$idx])) 
+        ? 1 
+        : 0
+    ;
 }
 
 sub index_to_idstr {
@@ -125,7 +99,7 @@ sub index_to_idstr {
     
     $idx += 0;
 
-    return (defined($self->achievements->{$idx})) ? $self->achievements->{$idx} : $idx;
+    return (defined($self->achievements->[$idx])) ? $self->achievements->[$idx]->{name} : 'no_' .$idx;
 }
 
 1;

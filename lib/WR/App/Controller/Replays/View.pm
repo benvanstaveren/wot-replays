@@ -348,7 +348,6 @@ sub actual_view_replay {
 
     foreach my $e (@{$replay->{stats}->{dossierPopUps}}) {
         $dossier_popups->{$e->[0]} = $e->[1]; # id, count
-        next if($achievements->is_battle($e->[0])); # don't want the battle awards to be in other awards
         next if(defined($ah->{$e->[0]})); # if they were given in battle, keep them there
 
         if($achievements->is_class($e->[0])) {
