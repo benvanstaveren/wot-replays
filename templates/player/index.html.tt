@@ -23,7 +23,7 @@
                 [% IF error.defined && h.is_the_boss %]
                 <div class="alert alert-danger">
                     <pre>
-                        [% error %]
+                        [% h.dumper(error) %]
                     </pre>
                 </div>
                 [% END %]
