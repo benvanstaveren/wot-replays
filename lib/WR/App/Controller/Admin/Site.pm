@@ -49,7 +49,7 @@ sub uploads {
         $cursor->skip( ($page - 1) * 50 );
         $cursor->limit(50);
         $cursor->sort({ 'ctime' => -1, 'priority' => -1 });
-        $cursor->fields({ ctime => 1, error => 1, file => 1, data => 1, uploader => 1, status => 1, replayid => 1 });
+        #$cursor->fields({ ctime => 1, error => 1, file => 1, data => 1, uploader => 1, status => 1, replayid => 1 });
 
         $cursor->all(sub {
             my ($c, $e, $docs) = (@_);
