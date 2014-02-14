@@ -21,7 +21,7 @@ sub index {
             cluster        => $s,
             search         => $q,
         };
-        $self->ua->post($url => sub {
+        $self->ua->post($url => form => $form => sub {
             my ($ua, $tx) = (@_);
             if(my $res = $tx->success) {
                 $self->stash(search_results => $res->json('/data')) if($res->json('/status') eq 'ok');
