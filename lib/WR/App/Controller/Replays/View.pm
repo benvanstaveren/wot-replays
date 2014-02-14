@@ -6,8 +6,6 @@ use WR::Res::Achievements;
 use WR::Provider::Mapgrid;
 use File::Slurp qw/read_file/;
 use Time::HiRes qw/gettimeofday tv_interval/;
-use JSON::XS;
-use Text::CSV_XS;
 use WR::Mission;
 
 sub load_replay {

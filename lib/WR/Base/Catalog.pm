@@ -1,7 +1,7 @@
 package WR::Base::Catalog;
 use Mojo::Base '-base';
 use File::Slurp;
-use JSON::XS qw(decode_json);
+use Mojo::JSON;
 use Try::Tiny;
 use Scalar::Util qw/blessed/;
 
@@ -27,7 +27,7 @@ sub _build_catalog {
     my $cat = {};
 
     try {
-        $cat = decode_json($content);
+        $cat = Mojo::JSON->new->decode($content);
     } catch {
         die __PACKAGE__, ': catalog decoding error for ', $catfile, ': ', $_, "\n";
     };

@@ -5,7 +5,7 @@ use Digest::SHA1 qw/sha1_hex/;
 use Try::Tiny qw/try catch/;
 use boolean;
 use Data::Dumper;
-use JSON::XS;
+use Mojo::JSON;
 use WR::Parser::Unpack;
 use WR::Parser::Stream;
 use WR::Parser::Game;
@@ -46,7 +46,7 @@ sub decode_block {
     return $self->_decoded_blocks->[$block] if(defined($self->_decoded_blocks->[$block]));
 
     if(my $d = $self->get_block($block)) {
-        $self->_decoded_blocks->[$block] = JSON::XS->new()->decode($d);
+        $self->_decoded_blocks->[$block] = Mojo::JSON->new()->decode($d);
         return $self->_decoded_blocks->[$block]; 
     } else {
         return undef;

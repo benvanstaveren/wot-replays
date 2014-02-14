@@ -7,7 +7,6 @@ use Scalar::Util qw/blessed/;
 use WR::Parser;
 use Data::Dumper;
 use Try::Tiny qw/try catch/;
-use JSON::XS;
 
 $| = 1;
 

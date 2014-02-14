@@ -519,7 +519,7 @@ sub _real_process {
                         make_path($base_path) unless(-e $base_path);
                         my $packet_file = sprintf('%s/%s.json', $base_path, $replay->{_id} . '');
                         if(my $fh = IO::File->new(sprintf('>%s', $packet_file))) {
-                            my $json = JSON::XS->new();
+                            my $json = Mojo::JSON->new();
                             $fh->print($json->encode($self->packets));
                             $fh->close;
                             $self->debug('wrote packets to file');

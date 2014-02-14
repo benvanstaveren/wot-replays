@@ -177,7 +177,7 @@ sub handle_BININT {
     
     $self->fh->read(my $t, 4);
     $self->bread($self->bread + 4);
-    $self->push(unpack('i', $t));
+    $self->push(unpack('i', $t) + 0);
 }
 
 sub handle_BININT1 {
@@ -185,7 +185,7 @@ sub handle_BININT1 {
     
     $self->fh->read(my $t, 1);
     $self->bread($self->bread + 1);
-    $self->push(unpack('C', $t));
+    $self->push(unpack('C', $t) + 0);
 }
 
 sub handle_BININT2 {
@@ -193,7 +193,7 @@ sub handle_BININT2 {
 
     $self->fh->read(my $t, 2);
     $self->bread($self->bread + 2);
-    $self->push(unpack('S', $t));
+    $self->push(unpack('S', $t) + 0);
 }
 
 sub handle_LONG {
@@ -219,7 +219,7 @@ sub handle_LONG1 {
         }
     }
 
-    $self->push(unpack('l<', $b));
+    $self->push(unpack('l<', $b) + 0);
 }
 
 sub handle_LONG4 {
@@ -238,7 +238,7 @@ sub handle_LONG4 {
             $b .= "\x00";
         }
     }
-    $self->push(unpack('l<', $b));
+    $self->push(unpack('l<', $b) + 0);
 }
 
 sub handle_FLOAT {
@@ -253,7 +253,7 @@ sub handle_BINFLOAT {
 
     $self->fh->read(my $t, 8);
     $self->bread($self->bread + 8);
-    $self->push(unpack('d>', $t));
+    $self->push(unpack('d>', $t) + 0);
 }
 
 sub handle_PROTO {
@@ -446,15 +446,23 @@ sub handle_APPENDS {
     $self->pop; # and we pop the marker off teh stack
 }
 
+sub _unbox { 
+    my $self = shift;
+    my $v    = shift;
+
+    return $v if(ref($v));
+    $v =~ s/^'//g;
+    $v =~ s/'$//g;
+    return $v;
+}
+
 sub handle_SETITEM {
     my $self = shift;
     my $v = $self->pop;
     my $k = $self->pop;
 
-    # not sure we should do this... 
-    $k =~ s/'//g;
-
-    $self->stack->[-1]->{$k} = $v;
+    # apparently python wraps this stuff in single quotes, so we want to undo that
+    $self->stack->[-1]->{$self->_unbox($k)} = $self->_unbox($v);
 }
 
 sub handle_SETITEMS {

@@ -1,7 +1,6 @@
 package WR::API::V1;
 use Mojo::Base 'Mojolicious::Controller';
 use File::Path qw/make_path/;
-use JSON::XS;
 use Mango::BSON;
 use Scalar::Util qw/blessed/;
 use Try::Tiny qw/try catch/;

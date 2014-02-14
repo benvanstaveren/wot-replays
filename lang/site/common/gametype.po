@@ -5,7 +5,7 @@ msgid "ctf/short"
 msgstr "CTF"
 
 msgid "ctf/desc"
-msgstr "description": "Win the match by capturing the enemy base or killing all opponents"
+msgstr "Win the match by capturing the enemy base or killing all opponents"
 
 msgid "domination"
 msgstr "Encounter"
@@ -14,7 +14,7 @@ msgid "domination/short"
 msgstr "Encounter"
 
 msgid "domination/desc"
-msgstr "Win the match by capturing the base base or killing all opponents"
+msgstr "Win the match by capturing the base or killing all opponents"
 
 msgid "assault"
 msgstr "Assault"
@@ -24,3 +24,12 @@ msgstr "Assault"
 
 msgid "assault/desc"
 msgstr "Win the match by attacking or defending the base or killing all opponents"
+
+msgid "nations/desc"
+msgstr "Win the match by capturing the base or killing all opponents"
+
+msgid "nations"
+msgstr "Confrontation"
+
+msgid "nations/short"
+msgstr "Confrontation"

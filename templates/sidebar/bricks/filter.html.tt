@@ -81,6 +81,7 @@
                         <option value="ctf">[% h.loc('#gametype:ctf') %]</option>
                         <option value="domination">[% h.loc('#gametype:domination') %]</option>
                         <option value="assault">[% h.loc('#gametype:assault') %]</option>
+                        <option value="nations">[% h.loc('#gametype:nations') %]</option>
                     </select>
                 </div>
             </div>
