@@ -17,6 +17,7 @@ my $workers     = 4;
 my $stopping    = 0;
 my $max         = 32;
 my $skip_wn7    = 0;
+my $ls          = undef;
 
 $SIG{TERM} = sub {
     $stopping = 1;
@@ -30,6 +31,7 @@ GetOptions(
     'config=s'      => \$cfile,
     'workers|w=i'   => \$workers,
     'max|m=i'       => \$max,
+    'log-stdout!'   => \$ls,
 );
 
 die 'Usage: ', $0, ' --config <path to config file> --workers <worker count> --max <max to process>', "\n" unless(defined($cfile));
@@ -52,12 +54,11 @@ my $db          = $mango->db($config->{mongodb}->{database});
 sub get_push { return WR::Statterpush::Server->new(host => 'api.statterbox.com', token => $config->{statterbox}->{server}, group => 'wotreplays') };
 
 my $log;
-if(my $lf = $config->{processd}->{logfile}) {
+if(my $lf = $config->{processd}->{logfile} && !$ls) {
     $lf = sprintf('%s/../%s', $FindBin::Bin, $config->{processd}->{logfile}) if($lf !~ /^\//);
     $log = Mojo::Log->new(path => $lf, level => $config->{processd}->{loglevel} || 'warn');
 } else {
-    $log = Mojo::Log->new();
-    # level => $config->{processd}->{loglevel} || 'warn');
+    $log = Mojo::Log->new(level => 'debug');
 }
 
 # create a pidfile
