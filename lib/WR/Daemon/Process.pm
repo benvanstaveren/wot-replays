@@ -115,7 +115,7 @@ sub process_job {
     my $self = shift;
     my $job = shift;
 
-
+    $self->start;
 
     if(!$job->{reprocess}) {
         if($self->db->collection('replays')->find({ digest => $job->{_id} })->count() > 0) {
