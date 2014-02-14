@@ -79,7 +79,6 @@ sub job_status {
     });
 
     $job->{status_text} = $new; # wonder if this works...
-    $self->debug('job status: ', Dumper($job->{status_text}));
 }
 
 sub process_chatreader {
@@ -136,6 +135,7 @@ sub process_job {
             type    =>  'spinner',
             done    =>  Mango::BSON::bson_false,
         });
+        $self->debug('state.prepare.start');
     });
     $o->on('state.prepare.finish' => sub {
         $self->job_status($job, {
@@ -144,6 +144,7 @@ sub process_job {
             type    =>  'spinner',
             done    =>  Mango::BSON::bson_true,
         });
+        $self->debug('state.prepare.finish');
     });
     $o->on('state.streaming.start' => sub {
         my ($o, $total) = (@_);
@@ -157,6 +158,7 @@ sub process_job {
             perc    =>  0,
             done    =>  Mango::BSON::bson_false,
         });
+        $self->debug('state.streaming.start');
     });
     $o->on('state.streaming.progress' => sub {
         my ($o, $d) = (@_);
@@ -189,6 +191,7 @@ sub process_job {
             perc    =>  100,
             done    =>  Mango::BSON::bson_true,
         });
+        $self->debug('state.streaming.finish');
     });
     $o->on('state.generatebanner.start' => sub {
         $self->job_status($job, {
@@ -197,6 +200,7 @@ sub process_job {
             type    => 'spinner',
             done    =>  Mango::BSON::bson_false,
         });
+        $self->debug('state.generatebanner.start');
     });
     $o->on('state.generatebanner.finish' => sub {
         $self->job_status($job, {
@@ -205,6 +209,7 @@ sub process_job {
             type    => 'spinner',
             done    =>  Mango::BSON::bson_true,
         });
+        $self->debug('state.generatebanner.finish');
     });
     $o->on('state.packet.save.start' => sub {
         my ($o, $total) = (@_);
@@ -218,6 +223,7 @@ sub process_job {
             perc    => 0,
             done    =>  Mango::BSON::bson_false,
         });
+        $self->debug('state.packet.save.start');
     });
     $o->on('state.packet.save.progress' => sub {
         my ($o, $d) = (@_);
@@ -250,6 +256,7 @@ sub process_job {
             perc    =>  100,
             done    =>  Mango::BSON::bson_true,
         });
+        $self->debug('state.packet.save.finish');
     });
     $o->on('state.wn7.start' => sub {
         my ($o, $total) = (@_);
@@ -263,6 +270,7 @@ sub process_job {
             perc    =>  0,
             done    =>  Mango::BSON::bson_false,
         });
+        $self->debug('state.wn7.start');
     });
     $o->on('state.wn7.progress' => sub {
         my ($o, $d) = (@_);
@@ -295,6 +303,7 @@ sub process_job {
             perc    =>  100,
             done    =>  Mango::BSON::bson_true,
         });
+        $self->debug('state.wn7.finish');
     });
 
     if(my $replay = $o->process( ($job->{reprocess}) ? $job->{replayid} : undef)) {
@@ -321,14 +330,17 @@ sub process_job {
        
         if($replay->{version} < $self->config->{wot}->{min_version}) {
             unlink($job->{file});
+            $self->debug('replay version < min_version');
             $self->job_error($job, 'That replay is from an older version of World of Tanks which we cannot process...');
             return undef;
         } elsif($replay->{version} > $self->config->{wot}->{version_numeric}) {
+            $self->debug('replay version > min_version');
             unlink($job->{file});
             $self->job_error($job, 'That replay seems to be coming from the test server, we cannot process those yet...');
             return undef;
         } else {
             if(!$job->{reprocess}) {
+                $self->debug('job is not reprocess');
                 $replay->{digest} = $job->{_id};
                 $replay->{site}->{visible} = Mango::BSON::bson_false if($job->{data}->{visible} < 1);
                 $replay->{site}->{privacy} = $job->{data}->{privacy};
@@ -337,13 +349,16 @@ sub process_job {
 
                 # fix privacy for clan war replays
                 if($replay->{game}->{bonus_type} == 5) {
+                    $self->debug('fix CW privacy');
                     $replay->{site}->{visible} = Mango::BSON::bson_false;
                     $replay->{site}->{privacy} = 3;
                 }
             }
 
             # don't bother with the packets, we'll send them out as an event stream later after we store them in the database(?)
+            $self->debug('preparing to store replay');
             if(my $oid = $self->mango->db('wot-replays')->collection('replays')->save($replay)) {
+                $self->debug('got replay oid: ', $oid);
                 $self->db->collection('jobs')->update({ _id => $job->{_id} }, {
                     '$set' => {
                         complete => Mango::BSON::bson_true,
@@ -353,6 +368,7 @@ sub process_job {
                         file     => $replay->{file},
                     }
                 });
+                $self->debug('updated job status: ', $oid);
                 if(!$job->{reprocess}) {
                     # heatmap only if we're not reprocessing
                     my $bt = $replay->{game}->{bonus_type};
@@ -386,6 +402,7 @@ sub process_job {
 
                 return $replay;
             } else {
+                $self->debug('error saving replay');
                 $self->job_error($job, 'Error saving replay');
                 return undef;
             }
