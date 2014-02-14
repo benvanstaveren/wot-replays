@@ -20,6 +20,13 @@
                 <div class="form-group">
                     <button class="btn btn-default" type="submit"><i class="fa fa-search"></i> Search</button>
                 </div>
+                [% IF error.defined && h.is_the_boss %]
+                <div class="alert alert-danger">
+                    <pre>
+                        [% error %]
+                    </pre>
+                </div>
+                [% END %]
             </form>
         </div>
         <div class="col-lg-8 col-md-8 [% IF !search_results.defined %]hide[% END %]">
