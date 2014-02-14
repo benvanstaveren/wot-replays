@@ -13,21 +13,14 @@
                 <div class="form-group">
                     <label class="control-label">Server</label>
                     <select name="s" class="form-control">
-                        <option value="sea">Asia</option>
-                        <option value="na">North America</option>
-                        <option value="eu"Europe</option>
+                        <option [% IF server == 'sea' || server == 'asia' %]selected="true"[% END %]value="sea">Asia</option>
+                        <option [% IF server == 'na' %]selected="true"[% END %] value="na">North America</option>
+                        <option [% IF server == 'eu' %]selected="true"[% END %] value="eu"Europe</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <button class="btn btn-default" type="submit"><i class="fa fa-search"></i> Search</button>
                 </div>
-                [% IF error.defined && h.is_the_boss %]
-                <div class="alert alert-danger">
-                    <pre>
-                        [% h.dumper(error) %]
-                    </pre>
-                </div>
-                [% END %]
             </form>
         </div>
         <div class="col-lg-8 col-md-8 [% IF !search_results.defined %]hide[% END %]">

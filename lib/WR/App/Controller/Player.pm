@@ -30,7 +30,7 @@ sub index {
             } else {
                 $self->stash(search_results => []);
             }
-            $self->stash('query' => $q, server => $s);
+            $self->stash(query => $q, server => $s);
             $self->respond(template => 'player/index');
         });
     } else {

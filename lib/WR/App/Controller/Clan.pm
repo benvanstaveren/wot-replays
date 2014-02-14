@@ -25,11 +25,11 @@ sub index {
             my ($ua, $tx) = (@_);
             if(my $res = $tx->success) {
                 $self->stash(search_results => $res->json('/data')) if($res->json('/status') eq 'ok');
+                $self->stash(error => $res->json('/error')) if($res->json('/status') ne 'ok');
             } else {
                 $self->stash(search_results => []);
             }
-
-            $self->stash('query' => $q, server => $s);
+            $self->stash(query => $q, server => $s);
             $self->respond(template => 'clan/index');
         });
     } else {
