@@ -42,12 +42,12 @@
                             [% IF upload.complete %]
                                 [% IF upload.status == 1 %]
                                     <div class="well well-sm">
-                                        PROCESSED OK<br/>
+                                        PROCESSED OK [% IF upload.elapsed %]([% upload.elapsed %])[% ELSE %](-)[% END %]<br/>
                                         <a href="[% config.urls.app %]/replay/[% upload.replayid %].html">replay page</a> | <a href="[% config.urls.replays %]/[% upload.data.file_base %]">replay file</a>
                                     </div>
                                 [% ELSE %]
                                     <div class="alert well-sm alert-danger">
-                                        PROCESS ERROR<br/>
+                                        PROCESS ERROR [% IF upload.elapsed %]([% upload.elapsed %])[% ELSE %](-)[% END %]<br/>
                                         [% upload.error %]
                                     </div>
                                 [% END %]
