@@ -12,15 +12,16 @@ sub index {
     my $s    = $self->req->param('s'); 
 
     $self->render_later;
+    $s = 'asia' if($s eq 'sea');
 
     if(defined($q) && defined($s)) {
-        my $url = sprintf('http://statterbox.com/api/v1/%s/search/player?s=%s&q=%s', 
-            $self->stash('config')->{secrets}->{statterbox},
-            $s,
-            $q
-        );
-
-        $self->ua->get($url => sub {
+        my $url = 'http://api.statterbox.com/wot/account/list';
+        my $form = {
+            application_id => $self->config->{statterbox}->{server},
+            cluster        => $s,
+            search         => $q,
+        };
+        $self->ua->post($url => sub {
             my ($ua, $tx) = (@_);
             if(my $res = $tx->success) {
                 $self->stash(search_results => $res->json('/result')) if($res->json('/ok') == 1);
