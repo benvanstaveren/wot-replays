@@ -6,7 +6,6 @@ use lib "$FindBin::Bin/../lib";
 use lib "$FindBin::Bin/lib";
 use WR::Parser;
 use WR::Util::Pickle;
-use WR::Util::PyPickle;
 use WR::Util::VehicleDescriptor;
 use WR::Util::ItemTypes;
 use Data::Dumper;

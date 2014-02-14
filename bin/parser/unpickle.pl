@@ -3,7 +3,7 @@ use strict;
 use warnings;
 use lib 'lib/';
 
-use WR::Util::PyPickle;
+use WR::Util::Pickle;
 use Data::Dumper;
 use IO::File;
 
@@ -17,6 +17,6 @@ while(my $bread = $fh->read(my $tbuf, 1024)) {
 
 $fh->close;
 
-print Dumper(WR::Util::PyPickle->new(data => $buf)->unpickle);
+print Dumper(WR::Util::Pickle->new(data => $buf)->unpickle);
     
 
