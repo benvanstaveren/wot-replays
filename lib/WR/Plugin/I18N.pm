@@ -96,10 +96,12 @@ sub register {
 
         if(my $localizer = $self->stash('i18n_localizer')) {
             if(my $xlat = $localizer->localize_for(lang => $l, id => $str, args => $args)) {
+                $self->error('WR::Plugin::I18N: localisation for root: ', $l, ' str: ', $str, ' did not give a translation');
                 return $xlat;
             } else {
                 if($l ne 'site') {
                     # okay, stupid WG inconsistency, some tanks have a _short, some don't, so if our str contains _short, retry it 
+                    $self->error('WR::Plugin::I18N: localisation for root: ', $l, ' str: ', $str, ' did not give a translation, trying to see if WG was stupid');
                     if($str =~ /_short$/) {
                         $ostr =~ s/_short$//g;
                         return $self->loc($ostr);
@@ -111,6 +113,7 @@ sub register {
                 }
             }
         } else {
+            $self->error('WR::Plugin::I18N: no localizer in stash');
             return $ostr;
         }
     });
