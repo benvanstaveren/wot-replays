@@ -36,7 +36,7 @@ sub register {
         my $c = shift;
 
         my $language = $c->session('language') || 'en';
-        $c->app->log->info('before_routes: language: ' . $language . ' paths: ' . join(', ', @{$c->config('i18n_language_paths')->{$language}}));
+        $c->app->log->debug('before_routes: language: ' . $language . ' paths: ' . join(', ', @{$c->config('i18n_language_paths')->{$language}}));
         $c->stash('i18n_localizer' => $c->get_localizer_for($language));
         $c->stash('user_lang' => $language);
     });
@@ -101,16 +101,16 @@ sub register {
                 $self->error('WR::Plugin::I18N: localisation for ', $self->stash('user_lang'), ' root: ', $l, ' str: ', $str, ' did not give a translation') if($self->is_the_boss && !defined($xlat));
                 if($l ne 'site') {
                     # okay, stupid WG inconsistency, some tanks have a _short, some don't, so if our str contains _short, retry it 
-                    $self->error('WR::Plugin::I18N: localisation for ', $self->stash('user_lang'), ' root: ', $l, ' str: ', $str, ' did not give a translation, trying to see if WG was stupid');
+                    $self->error('WR::Plugin::I18N: localisation for ', $self->stash('user_lang'), ' root: ', $l, ' str: ', $str, ' did not give a translation, trying to see if WG was stupid') if($self->is_the_boss);
                     if($str =~ /_short$/) {
                         $ostr =~ s/_short$//g;
                         return $self->loc($ostr);
                     } else {
-                        $self->error('WR::Plugin::I18N: apparently WG is not stupid');
+                        $self->error('WR::Plugin::I18N: apparently WG is not stupid') if($self->is_the_boss);
                         return $ostr;
                     }
                 } else {
-                    $self->error('WR::Plugin::I18N: root: ', $l, ' str: ', $str, ' will return ', $ostr) if($self->is_the_boss && !defined($xlat));
+                    $self->error('WR::Plugin::I18N: root: ', $l, ' str: ', $str, ' will return ', $ostr) if($self->is_the_boss);
                     return $ostr;
                 }
             }
