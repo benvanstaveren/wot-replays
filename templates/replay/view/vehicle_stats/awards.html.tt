@@ -18,8 +18,8 @@
                 [% title = h.achievement_name(h.get_achievements.index_to_idstr(award.type)) %]
             [% END %]
             <div data-toggle="tooltip" data-placement="bottom" data-container="body" class="bs-tooltip award big [% h.get_achievements.index_to_idstr(award.type) %][% IF award.class_suffix %][% award.class_suffix %][% END %]" title="[% title |html %]"></div>
+            [% awardcount = awardcount + 1 %]
         [% END %]
-        [% awardcount = awardcount + 1 %]
     [% END %]
     [% IF awardcount < 1 %]
         <p>[% h.loc('replays.overview.awards.noawards') %]</p>
