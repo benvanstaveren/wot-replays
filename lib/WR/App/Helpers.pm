@@ -66,6 +66,13 @@ sub add_helpers {
         $self->app->log->debug($msg);
     });
 
+    $self->helper(error => sub {
+        my $self = shift;
+        my $msg = join(' ', @_);
+
+        $self->app->log->error($msg);
+    });
+
     ### DB CALLING HELPERS - FIXME FIXME FIXME
     $self->helper(generate_item_icon_with_count => sub {
         my $self = shift;
