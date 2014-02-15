@@ -1,6 +1,7 @@
-[% FOREACH replay IN replays %]
-    [% INCLUDE replay/panel.html.tt %]
-[% END %]
 [% IF replays.size == 0 %]
-    <p class="lead">Oops, seems there are no replays that match that filter...</p>
+    <p class="lead">[% h.loc('browse.error.noreplays') %]</p>
+[% ELSE %]
+    [% FOREACH replay IN replays %]
+        [% INCLUDE replay/panel.html.tt %]
+    [% END %]
 [% END %]

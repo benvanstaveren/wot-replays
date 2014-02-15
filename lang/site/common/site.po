@@ -1,47 +1,191 @@
-# English language file for wotreplays.org
+msgid "bonustype.1"
+msgstr "Random Battle"
 
-# navbar elements
-msgid "nav.home"
+msgid "bonustype.1.short"
+msgstr "Random"
+
+msgid "bonustype.2"
+msgstr "Training Room Battle"
+
+msgid "bonustype.2.short"
+msgstr "Training"
+
+msgid "bonustype.3"
+msgstr "Company Battle"
+
+msgid "bonustype.3.short"
+msgstr "Company"
+
+msgid "bonustype.4"
+msgstr "Tournament Battle"
+
+msgid "bonustype.4.short"
+msgstr "Tournament"
+
+msgid "bonustype.5"
+msgstr "Clan Battle"
+
+msgid "bonustype.5.short"
+msgstr "Clan"
+
+msgid "bonustype.6"
+msgstr "Tutorial Battle"
+
+msgid "bonustype.6.short"
+msgstr "Tutorial"
+
+msgid "bonustype.7"
+msgstr "Team Battle"
+
+msgid "bonustype.7.short"
+msgstr "Team"
+
+msgid "browse.error.noreplays"
+msgstr "Oops, seems there are no replays that match that filter..."
+
+msgid "browse.page.title"
+msgstr "Browse Replays"
+
+msgid "clan.page.title"
+msgstr "Browse Clan - %0"
+
+msgid "clans.button.search.label"
+msgstr "Search"
+
+msgid "clans.heading.results"
+msgstr "Results"
+
+msgid "clans.heading.search"
+msgstr "Search"
+
+msgid "clans.label.clan.name"
+msgstr "Clan Name"
+
+msgid "clans.label.clan.ticker"
+msgstr "Clan Ticker"
+
+msgid "clans.label.query"
+msgstr "Query"
+
+msgid "clans.label.server"
+msgstr "Server"
+
+msgid "clans.page.header"
+msgstr "Search Clans"
+
+msgid "clans.page.title"
+msgstr "Search Clans"
+
+msgid "credits.heading"
+msgstr "credits"
+
+msgid "credits.tooltip"
+msgstr "Earned %0 credits including premium and mission bonuses"
+
+msgid "footer.about"
+msgstr "about the site"
+
+msgid "footer.credits"
+msgstr "additional credits"
+
+msgid "gametype.assault"
+msgstr "Assault"
+
+msgid "gametype.assault.desc"
+msgstr "Win the match by attacking or defending the base or killing all opponents"
+
+msgid "gametype.assault.short"
+msgstr "Assault"
+
+msgid "gametype.ctf"
+msgstr "CTF"
+
+msgid "gametype.ctf.desc"
+msgstr "Win the match by capturing the enemy base or killing all opponents"
+
+msgid "gametype.ctf.short"
+msgstr "CTF"
+
+msgid "gametype.domination"
+msgstr "Encounter"
+
+msgid "gametype.domination.desc"
+msgstr "Win the match by capturing the base or killing all opponents"
+
+msgid "gametype.domination.short"
+msgstr "Encounter"
+
+msgid "gametype.nations"
+msgstr "Nations"
+
+msgid "gametype.nations.desc"
+msgstr "Win the match by capturing the base or killing all opponents"
+
+msgid "gametype.nations.short"
+msgstr "Nations"
+
+msgid "heatmaps.page.title"
+msgstr "Heatmaps &raquo; %0"
+
+msgid "index.page.header"
+msgstr "Newest Replays"
+
+msgid "index.page.title"
 msgstr "Home"
 
-msgid "nav.browse"
-msgstr "Browse"
+msgid "map.page.title"
+msgstr "Browse Map - %0"
 
-msgid "nav.upload"
-msgstr "Upload Replay"
+msgid "maps.page.header"
+msgstr "Maps"
+
+msgid "maps.page.title"
+msgstr "Maps"
+
+msgid "nations.china"
+msgstr "China"
+
+msgid "nations.france"
+msgstr "France"
+
+msgid "nations.germany"
+msgstr "Germany"
+
+msgid "nations.japan"
+msgstr "Japan"
+
+msgid "nations.uk"
+msgstr "U.K."
+
+msgid "nations.usa"
+msgstr "U.S.A."
+
+msgid "nations.ussr"
+msgstr "U.S.S.R."
 
 msgid "nav.admin"
 msgstr "Admin Panel"
 
-msgid "nav.signin"
-msgstr "Sign In"
+msgid "nav.blog"
+msgstr "News and Updates"
 
-msgid "nav.players"
-msgstr "Players"
+msgid "nav.browse"
+msgstr "Browse"
 
 msgid "nav.clans"
 msgstr "Clans"
 
-msgid "nav.maps"
-msgstr "Maps"
-
-msgid "nav.vehicles"
-msgstr "Vehicles"
-
-msgid "nav.blog"
-msgstr "News and Updates"
-
-msgid "nav.tools"
-msgstr "Tools"
-
 msgid "nav.heatmaps"
 msgstr "Heatmaps"
 
-msgid "nav.tools.issuetracker"
-msgstr "Issue Tracker"
+msgid "nav.home"
+msgstr "Home"
 
-msgid "nav.tools.wiki"
-msgstr "Wiki"
+msgid "nav.maps"
+msgstr "Maps"
+
+msgid "nav.players"
+msgstr "Players"
 
 msgid "nav.profile.header"
 msgstr "Your Profile"
@@ -49,260 +193,98 @@ msgstr "Your Profile"
 msgid "nav.profile.replays"
 msgstr "Replays"
 
-msgid "nav.profile.uploads"
-msgstr "Uploads"
-
 msgid "nav.profile.settings"
 msgstr "Settings"
 
 msgid "nav.profile.signout"
 msgstr "Sign Out"
 
-# footer bits
-msgid "page.footer.credits"
-msgstr "additional credits"
+msgid "nav.profile.uploads"
+msgstr "Uploads"
 
-msgid "page.footer.about"
-msgstr "about the site"
+msgid "nav.signin"
+msgstr "Sign In"
 
-# various sidebar elements
-msgid "sidebar.status.header"
-msgstr "Status"
+msgid "nav.tools"
+msgstr "Tools"
 
-msgid "sidebar.status.pending"
-msgstr "pending processing"
+msgid "nav.tools.issuetracker"
+msgstr "Issue Tracker"
 
-msgid "sidebar.status.datasize"
-msgstr "data size"
+msgid "nav.tools.wiki"
+msgstr "Wiki"
 
-msgid "sidebar.status.indexsize"
-msgstr "index size"
+msgid "nav.upload"
+msgstr "Upload Replay"
 
-msgid "sidebar.status.diskusage"
-msgstr "disk usage"
+msgid "nav.vehicles"
+msgstr "Vehicles"
 
-# sidebar filter elements
-msgid "sidebar.filter.header"
-msgstr "Filter"
+msgid "player.page.title"
+msgstr "Browse Player - %0"
 
-msgid "sidebar.filter.button.filter"
-msgstr "Filter"
+msgid "players.button.search.label"
+msgstr "Search"
 
-msgid "sidebar.filter.button.reset"
-msgstr "Reset"
+msgid "players.heading.results"
+msgstr "Results"
 
-msgid "sidebar.filter.vehicle.title"
-msgstr "Vehicle"
+msgid "players.heading.search"
+msgstr "Search"
 
-msgid "sidebar.filter.vehicle.all"
-msgstr "All vehicles"
-
-msgid "sidebar.filter.tier.title"
-msgstr "Tier"
-
-msgid "sidebar.filter.map.title"
-msgstr "Map"
-
-msgid "sidebar.filter.map.all"
-msgstr "All maps"
-
-msgid "sidebar.filter.server.title"
-msgstr "Server"
-
-msgid "sidebar.filter.server.all"
-msgstr "All servers"
-
-msgid "sidebar.filter.server.na"
-msgstr "North America"
-
-msgid "sidebar.filter.server.eu"
-msgstr "Europe"
-
-msgid "sidebar.filter.server.sea"
-msgstr "Asia"
-
-msgid "sidebar.filter.server.ru"
-msgstr "Russia"
-
-msgid "sidebar.filter.server.vn"
-msgstr "Vietnam"
-
-msgid "sidebar.filter.server.kr"
-msgstr "Korea"
-
-msgid "sidebar.filter.matchmode.title"
-msgstr "Match Mode"
-
-msgid "sidebar.filter.matchmode.all"
-msgstr "All modes"
-
-msgid "sidebar.filter.matchtype.title"
-msgstr "Match Type"
-
-msgid "sidebar.filter.matchtype.all"
-msgstr "All types"
-
-msgid "sidebar.filter.sorting.title"
-msgstr "Sorting"
-
-msgid "sidebar.filter.sorting.upload"
-msgstr "Upload Date"
-
-msgid "sidebar.filter.sorting.matchtime"
-msgstr "Match Time"
-
-msgid "sidebar.filter.sorting.xp"
-msgstr "Base XP Earned"
-
-msgid "sidebar.filter.sorting.credits"
-msgstr "Base Credits Earned"
-
-msgid "sidebar.filter.sorting.damage"
-msgstr "Direct Damage Done"
-
-msgid "sidebar.filter.sorting.scouted"
-msgstr "Scouting Damage Done"
-
-msgid "sidebar.filter.sorting.likes"
-msgstr "Likes"
-
-msgid "sidebar.filter.sorting.downloads"
-msgstr "Downloads"
-
-msgid "sidebar.filter.player.title"
+msgid "players.label.player"
 msgstr "Player"
 
-msgid "sidebar.filter.player.all"
-msgstr "All Replays"
+msgid "players.label.query"
+msgstr "Query"
 
-msgid "sidebar.filter.player.recordedonly"
-msgstr "Recorded Replays Only"
-
-msgid "sidebar.filter.player.involvedonly"
-msgstr "Involved Replays Only"
-
-msgid "page.replay.denied.title"
-msgstr "Access Denied"
-
-msgid "replay.view.denied.header"
-msgstr "Access Denied"
-
-msgid "replay.view.denied.text"
-msgstr "You are not allowed to view this replay"
-
-# index elements
-msgid "index.page.title" 
-msgstr "Home"
-
-msgid "index.page.header"
-msgstr "Newest Replays"
-
-# players elements
-msgid "players.page.title"
-msgstr "Search Players"
+msgid "players.label.server"
+msgstr "Server"
 
 msgid "players.page.header"
 msgstr "Search Players"
 
-# clan elements
-msgid "clans.page.title"
-msgstr "Search Clans"
+msgid "players.page.title"
+msgstr "Search Players"
 
-msgid "clans.page.header"
-msgstr "Search Clans"
+msgid "privacy.clan"
+msgstr "Clan"
 
-# browse elements
-msgid "browse.page.title"
-msgstr "Browse Replays"
+msgid "privacy.private"
+msgstr "Private"
 
-# vehicle page elements
-msgid "vehicle.page.title"
-msgstr "Browse Vehicle"
+msgid "privacy.public"
+msgstr "Public"
 
-# player page elements
-msgid "player.page.title"
-msgstr "Browse Player - %0"
+msgid "privacy.unlisted"
+msgstr "Unlisted"
 
-msgid "clan.page.title"
-msgstr "Browse Clan - %0"
+msgid "result.defeat"
+msgstr "defeat"
 
-# map page elements
-msgid "map.page.title"
-msgstr "Browse Map"
+msgid "result.draw"
+msgstr "draw"
 
-# heatmap page elements
-msgid "heatmaps.page.title"
-msgstr "Heatmaps"
+msgid "result.heading"
+msgstr "result"
 
-# other page elements
-msgid "page.about.title"
-msgstr "About the Site"
+msgid "result.victory"
+msgstr "victory"
 
-msgid "page.replayprivacy.title"
-msgstr "Replay Privacy"
+msgid "server.eu"
+msgstr "Europe"
 
-msgid "page.credits.title"
-msgstr "Additional Credits"
+msgid "server.kr"
+msgstr "Korea"
 
-msgid "page.donate.title"
-msgstr "Why Donate"
+msgid "server.na"
+msgstr "North America"
 
-# misc. button bits
-msgid "button.modal.close.title"
-msgstr "Close this dialog"
+msgid "server.ru"
+msgstr "Russia"
 
-msgid "button.replay.title"
-msgstr "View replay statistics page"
-
-msgid "button.replay.text"
-msgstr "Replay Page"
-
-msgid "button.modal.close.text"
-msgstr "Close"
-
-msgid "button.like.text"
-msgstr "Like"
-
-msgid "button.like.title"
-msgstr "Like this replay"
-
-msgid "button.save.text"
-msgstr "Save"
-
-msgid "button.save.title"
-msgstr "Download this replay"
-
-msgid "button.view.text"
-msgstr "View"
-
-msgid "button.view.title"
-msgstr "View this replay"
-
-msgid "button.embed.text"
-msgstr "Embed"
-
-msgid "button.embed.title"
-msgstr "Generate UBB code to embed this replay on a forum"
-
-msgid "button.battleviewer.text"
-msgstr "Battle Viewer"
-
-msgid "button.battleviewer.title"
-msgstr "Replay this battle on a virtual mini-map"
-
-msgid "button.battleheatmap.title"
-msgstr "View the heatmap for this battle"
-
-msgid "button.battleheatmap.text"
-msgstr "Heatmap"
-
-# generic tooltip texts
-
-msgid "tooltip.rating.none"
-msgstr "Not Available"
-
-msgid "tooltip.rating.battle.none"
-msgstr "No rating was obtained"
+msgid "server.sea"
+msgstr "Asia"
 
 msgid "tooltip.rating.battle.above"
 msgstr "Player performed above average in this battle"
@@ -313,8 +295,11 @@ msgstr "Player performed below average in this battle"
 msgid "tooltip.rating.battle.equal"
 msgstr "Player performed average in this battle"
 
-msgid "tooltip.rating.overall.none"
+msgid "tooltip.rating.battle.none"
 msgstr "No rating was obtained"
+
+msgid "tooltip.rating.none"
+msgstr "Not Available"
 
 msgid "tooltip.rating.overall.above"
 msgstr "Player's overall performance is above average"
@@ -325,388 +310,66 @@ msgstr "Player's overall performance is below average"
 msgid "tooltip.rating.overall.equal"
 msgstr "Player's overall performance is average"
 
-msgid "tooltip.wn7.overall"
-msgstr "Player overall WN7"
-
-msgid "tooltip.wn7.battle"
-msgstr "Player WN7 for this battle only"
+msgid "tooltip.rating.overall.none"
+msgstr "No rating was obtained"
 
 msgid "tooltip.team.average.wn7"
 msgstr "Average WN7 for this team"
 
-msgid "tooltip.wn8.overall"
-msgstr "Player overall WN8"
+msgid "tooltip.team.average.wn8"
+msgstr "Average WN8 for this team"
+
+msgid "tooltip.wn7.battle"
+msgstr "Player WN7 for this battle only"
+
+msgid "tooltip.wn7.overall"
+msgstr "Player overall WN7"
 
 msgid "tooltip.wn8.battle"
 msgstr "Player WN8 for this battle only"
 
-msgid "tooltip.team.average.wn8"
-msgstr "Average WN8 for this team"
+msgid "tooltip.wn8.overall"
+msgstr "Player overall WN8"
 
-# generic text element
-msgid "text.premium"
-msgstr "premium"
+msgid "vehicle.page.title"
+msgstr "Browse Vehicle - %0"
 
-msgid "text.edit"
-msgstr "edit"
+msgid "vehicleclass.h"
+msgstr "Heavy Tank"
 
-msgid "text.equipment"
-msgstr "equipment"
+msgid "vehicleclass.h.plural"
+msgstr "Heavy Tanks"
 
-msgid "text.ammunition"
-msgstr "ammunition"
+msgid "vehicleclass.l"
+msgstr "Light Tank"
 
-msgid "text.modules"
-msgstr "modules"
+msgid "vehicleclass.l.plural"
+msgstr "Light Tanks"
 
-msgid "text.description"
-msgstr "description"
+msgid "vehicleclass.m"
+msgstr "Medium Tank"
 
-msgid "text.base"
-msgstr "base"
+msgid "vehicleclass.m.plural"
+msgstr "Medium Tanks"
 
-msgid "text.daily"
-msgstr "daily"
+msgid "vehicleclass.s"
+msgstr "SPG"
 
-msgid "text.saving"
-msgstr "saving"
+msgid "vehicleclass.s.plural"
+msgstr "SPGs"
 
-msgid "text.damaged"
-msgstr "damaged"
+msgid "vehicleclass.t"
+msgstr "Tank Destroyer"
 
-msgid "text.destroyed"
-msgstr "destroyed"
+msgid "vehicleclass.t.plural"
+msgstr "Tank Destroyers"
 
-msgid "text.crew"
-msgstr "crew"
+msgid "vehicles.page.title"
+msgstr "Vehicles &raquo; %0"
 
-msgid "text.whatsthis"
-msgstr "what's this?"
+msgid "xp.heading"
+msgstr "xp"
 
-msgid "text.earned"
-msgstr "earned"
+msgid "xp.tooltip"
+msgstr "Earned %0 xp including premium and mission bonuses"
 
-msgid "text.subtotal"
-msgstr "subtotal"
-
-msgid "text.penalty"
-msgstr "penalty"
-
-msgid "text.event"
-msgstr "event"
-
-msgid "text.mission"
-msgstr "mission"
-
-msgid "text.ammo"
-msgstr "ammo"
-
-msgid "text.consumables"
-msgstr "consumables"
-
-msgid "text.repair"
-msgstr "repair"
-
-msgid "text.compensation"
-msgstr "compensation"
-
-# replay page elements
-msgid "replay.text.result"
-msgstr "Result"
-
-msgid "replay.text.survived"
-msgstr "Survived"
-
-msgid "replay.text.survived.yes"
-msgstr "Yes"
-
-msgid "replay.text.survived.no"
-msgstr "No"
-
-msgid "replay.text.killedby"
-msgstr "killed by"
-
-msgid "replay.game.finishreason.0"
-msgstr "unknown"
-
-msgid "replay.game.finishreason.1.0"
-msgstr "all enemies killed"
-
-msgid "replay.game.finishreason.1.1"
-msgstr "all friendlies killed"
-
-msgid "replay.game.finishreason.2"
-msgstr "base captured"
-
-msgid "replay.game.finishreason.3"
-msgstr "timeout"
-
-msgid "replay.game.finishreason.4"
-msgstr "failure"
-
-msgid "replay.game.finishreason.5"
-msgstr "technical"
-
-msgid "replay.result.defeat"
-msgstr "Defeat"
-
-msgid "replay.result.draw"
-msgstr "Draw"
-
-msgid "replay.result.victory"
-msgstr "Victory"
-
-msgid "replay.nav.statistics"
-msgstr "Statistics"
-
-msgid "replay.nav.loadout"
-msgstr "Loadout"
-
-msgid "replay.nav.teams"
-msgstr "Teams"
-
-msgid "replay.nav.chat"
-msgstr "Chat"
-
-msgid "replay.nav.comparison"
-msgstr "Comparison"
-
-msgid "replay.modal.embed.title"
-msgstr "Embed Replay"
-
-msgid "replay.modal.embed.text"
-msgstr "In order to embed this replay, use the supplied BBcode below"
-
-msgid "replay.battleperformance.title"
-msgstr "Performance"
-
-msgid "replay.battleperformance.spotted"
-msgstr "Player spotted this vehicle"
-
-msgid "replay.battleperformance.assisted"
-msgstr "Team members assisted %1 points (%2%) of damage due to spotting, and %3 points (%4%) of damage due to tracking"
-
-msgid "replay.battleperformance.noassist"
-msgstr "No assisted damage done"
-
-msgid "replay.battleperformance.critdetail.title"
-msgstr "Critical Hit Details"
-
-msgid "replay.battleperformance.critdetail.text"
-msgstr "Player made %0 %quant(%0,critical hit,critical hits), click for details"
-
-msgid "replay.battleperformance.teamdamage"
-msgstr "Player did %1 points (%2%) of damage to a team member"
-
-msgid "replay.battleperformance.damage"
-msgstr "Player did %1 points (%2%) of damage"
-
-msgid "replay.battleperformance.teamkill"
-msgstr "Player got the killing blow on this team member"
-
-msgid "replay.battleperformance.kill"
-msgstr "Player got the killing blow on this enemy"
-
-msgid "replay.missions.title"
-msgstr "Missions"
-
-msgid "replay.missions.completed"
-msgstr "Completed Missions"
-
-msgid "replay.missions.inprogress"
-msgstr "In Progress"
-
-msgid "replay.missions.bonustype.premium"
-msgstr "%0 %quant(%0,day,days) Premium"
-
-msgid "replay.missions.bonustype.xpFactor"
-msgstr "%0x xp"
-
-msgid "replay.missions.bonustype.creditFactor"
-msgstr "%0x credits"
-
-msgid "replay.missions.bonustype.credits"
-msgstr "%0 credits"
-
-msgid "replay.missions.bonustype.tankmenXPFactor"
-msgstr "%0x crew xp"
-
-msgid "replay.missions.unknown"
-msgstr "Unknown mission"
-
-msgid "replay.awards.title"
-msgstr "Awards"
-
-msgid "replay.awards.noawards"
-msgstr "No badges or medals awarded"
-
-msgid "replay.awards.masterybadge"
-msgstr "Mastery Badge"
-
-msgid "replay.damage.title"
-msgstr "Damage"
-
-msgid "replay.damage.direct.title"
-msgstr "Damage done directly by the player"
-
-msgid "replay.damage.direct.text"
-msgstr "Direct"
-
-msgid "replay.damage.assist.title"
-msgstr "Team members contributed %1 points of damage via spotting, %2 points of damage via tracking"
-
-msgid "replay.damage.assist.text"
-msgstr "Assisted"
-
-msgid "replay.damage.received.title"
-msgstr "Damage done to the player"
-
-msgid "replay.damage.received.text"
-msgstr "Received"
-
-msgid "replay.damage.average.title"
-msgstr "Average damage done per penetrating shot"
-
-msgid "replay.damage.average.text"
-msgstr "Damage/Shot"
-
-msgid "replay.shots.title"
-msgstr "Shots"
-
-msgid "replay.shots.fired"
-msgstr "Fired"
-
-msgid "replay.shots.hits"
-msgstr "Hits"
-
-msgid "replay.shots.penetrations"
-msgstr "Penetrations"
-
-msgid "replay.shots.misses"
-msgstr "Misses"
-
-msgid "replay.capture.title"
-msgstr "Capture"
-
-msgid "replay.capture.cap.title"
-msgstr "Base points captured"
-
-msgid "replay.capture.cap.text"
-msgstr "Captured"
-
-msgid "replay.capture.defend.title"
-msgstr "Base points dropped from enemy players"
-
-msgid "replay.capture.defend.text"
-msgstr "Defended"
-
-msgid "replay.earnings.xp.title"
-msgstr "XP Earnings"
-
-msgid "replay.earnings.freexp.title"
-msgstr "Free XP Earnings"
-
-msgid "replay.earnings.credits.title"
-msgstr "Credit Earnings"
-
-msgid "replay.nodescription"
-msgstr "No description"
-
-msgid "replay.team.title"
-msgstr "Team %1"
-
-msgid "replay.team.tank.text"
-msgstr "Tank"
-
-msgid "replay.team.player.text"
-msgstr "Player"
-
-msgid "replay.team.awards.text"
-msgstr "Awards"
-
-msgid "replay.team.wn7.text"
-msgstr "WN7"
-
-msgid "replay.team.wn8.text"
-msgstr "WN8"
-
-msgid "replay.team.damage.text"
-msgstr "Dmg"
-
-msgid "replay.team.damage.title"
-msgstr "Damage"
-
-msgid "replay.team.xp.text"
-msgstr "XP"
-
-msgid "replay.team.xp.title"
-msgstr "Experience"
-
-msgid "replay.team.kills.text"
-msgstr "K"
-
-msgid "replay.team.kills.title"
-msgstr "Kills"
-
-msgid "replay.team.xp.earned"
-msgstr "Player earned %1 base xp"
-
-msgid "battleviewer.button.glacial"
-msgstr "Glacial"
-
-msgid "battleviewer.button.slow"
-msgstr "Slow"
-
-msgid "battleviewer.button.realtime"
-msgstr "Real-Time"
-
-msgid "battleviewer.button.fast"
-msgstr "Fast"
-
-msgid "battleviewer.button.ludicrous"
-msgstr "Ludicrous"
-
-msgid "battleviewer.packetsloading"
-msgstr "Packets Loading"
-
-msgid "battleviewer.packeterror"
-msgstr "Could not load packet data, try reloading the page"
-
-msgid "battleviewer.clicktostart"
-msgstr "Click to start"
-
-msgid "battleviewer.period.1"
-msgstr "Awaiting Players"
-
-msgid "battleviewer.period.2"
-msgstr "Countdown"
-
-msgid "battleviewer.period.3"
-msgstr "In Battle"
-
-msgid "battleviewer.period.4"
-msgstr "After Battle"
-
-msgid "profile.replays.page.title"
-msgstr "Your Profile - Replays"
-
-msgid "profile.replays.hidden"
-msgstr "%1 hidden %quant(%1,replay,replays) featuring you"
-
-msgid "profile.replays.public"
-msgstr "%1 public %quant(%1,replay,replays) featuring you"
-
-msgid "profile.replays.any"
-msgstr "%1 %quant(%1,replay,replays) featuring you"
-
-msgid "profile.uploads.page.title"
-msgstr "Your Profile - Uploads"
-
-msgid "profile.settings.page.title"
-msgstr "Your Profile - Settings"
-
-msgid "profile.settings.language.title"
-msgstr "Language"
-
-msgid "profile.settings.ratings.title"
-msgstr "Ratings in Panel"

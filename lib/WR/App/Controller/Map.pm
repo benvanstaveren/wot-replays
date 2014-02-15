@@ -12,7 +12,7 @@ sub index {
             template => 'map/index',
             stash => {
                 map_list => $map_list,
-                page => { title => 'Maps' },
+                page => { title => 'maps.page.title' },
             },
         );
     });
@@ -32,9 +32,6 @@ sub heatmap {
                 map_name => $m_obj->{label},
                 map_ident => $m_obj->{_id},
                 pageid => 'heatmap',
-                page => {
-                    title => sprintf('Maps &raquo; %s &raquo; Heatmap', $m_obj->{label}),
-                },
             }
         );
     });

@@ -18,13 +18,10 @@ sub view {
                 template => 'heatmap/view',
                 stash    => {
                     map_id      => $map->{numerical_id},
-                    map_name    => $map->{label},
+                    map_name    => $self->loc($map->{i18n}),
                     map_ident   => $map->{_id},
                     modes       => $modes,
                     pageid => 'heatmap',
-                    page => {
-                        title => sprintf('%s &raquo; %s', $self->loc('heatmaps.page.title'), $self->loc($map->{i18n})),
-                    },
                 }
             );
         }

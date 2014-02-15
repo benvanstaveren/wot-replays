@@ -1,6 +1,6 @@
 [% WRAPPER wrapper.html.tt %]
     <div class="page-header">
-        <h1>Vehicles</h1>
+        <h2>[% h.loc(page.title, h.make_args(page.title_args)) %]</h2>
     </div>
     [% INCLUDE vehicle/list.html.tt %]
     <script type="text/javascript">

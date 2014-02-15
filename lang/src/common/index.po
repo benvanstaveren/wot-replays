@@ -1,0 +1,6 @@
+msgid "index.page.title" 
+msgstr "Home"
+
+msgid "index.page.header"
+msgstr "Newest Replays"
+

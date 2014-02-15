@@ -1,0 +1,45 @@
+msgid "tooltip.rating.none"
+msgstr "Not Available"
+
+msgid "tooltip.rating.battle.none"
+msgstr "No rating was obtained"
+
+msgid "tooltip.rating.battle.above"
+msgstr "Player performed above average in this battle"
+
+msgid "tooltip.rating.battle.below"
+msgstr "Player performed below average in this battle"
+
+msgid "tooltip.rating.battle.equal"
+msgstr "Player performed average in this battle"
+
+msgid "tooltip.rating.overall.none"
+msgstr "No rating was obtained"
+
+msgid "tooltip.rating.overall.above"
+msgstr "Player's overall performance is above average"
+
+msgid "tooltip.rating.overall.below"
+msgstr "Player's overall performance is below average"
+
+msgid "tooltip.rating.overall.equal"
+msgstr "Player's overall performance is average"
+
+msgid "tooltip.wn7.overall"
+msgstr "Player overall WN7"
+
+msgid "tooltip.wn7.battle"
+msgstr "Player WN7 for this battle only"
+
+msgid "tooltip.team.average.wn7"
+msgstr "Average WN7 for this team"
+
+msgid "tooltip.wn8.overall"
+msgstr "Player overall WN8"
+
+msgid "tooltip.wn8.battle"
+msgstr "Player WN8 for this battle only"
+
+msgid "tooltip.team.average.wn8"
+msgstr "Average WN8 for this team"
+

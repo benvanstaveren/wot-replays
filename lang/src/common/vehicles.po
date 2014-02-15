@@ -1,0 +1,3 @@
+msgid "vehicles.page.title"
+msgstr "Vehicles &raquo; %0"
+

@@ -1,0 +1,2 @@
+msgid "player.page.title"
+msgstr "Browse Player - %0"

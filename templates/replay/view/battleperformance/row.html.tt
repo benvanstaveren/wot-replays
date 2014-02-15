@@ -11,13 +11,15 @@
             <div class="healthnumbers">[% roster.health.remaining %]/[% roster.health.total %]</div>
         </div>
     </td>
-    <td data-container="body" class="playerName bs-tooltip" data-placement="auto" data-toggle="tooltip" title="[% roster.player.name |html %][% IF roster.player.clanDBID > 0 %][[% roster.player.clanAbbrev %]][% END %]">
+    <td class="playerName"> 
         [% IF roster.player.clanDBID > 0 %]
             [% roster.player.name |html %]
             [% IF roster.player.clanDBID > 0 %]<span class="clan">[[% roster.player.clanAbbrev %]]</span>[% END %]
         [% ELSE %]
             [% roster.player.name |truncate(20) |html %]
         [% END %]
+        <br/>
+        <span style="color: #444">[% IF roster.vehicle.i18n.defined %][% h.loc(roster.vehicle.i18n) %][% ELSE %][% roster.vehicle.label %][% END %]</span>
     </td>
     <td class="playerDetails">
         <span data-container="body" data-placement="auto" data-toggle="tooltip" class="bs-tooltip spotted [% IF !details || details.spotted == 0 %]dimmed"[% ELSE %]" title="[% h.loc('replay.battleperformance.spotted') %][% END %]"></span>
@@ -30,7 +32,7 @@
                 [% END %]
                 "></span>
         <span player="[% pid %]" class="[% IF cd.count > 0 %]bs-popover-cd[% END %]" title="[% h.loc('replay.battleperformance.critdetail.title') %]" style="padding: 0px; margin: 0px">
-            <span data-container="body" data-placement="auto" data-toggle="tooltip" class="bs-tooltip crits [% IF cd.count == 0 %]dimmed"[% ELSE %] hasdetails" player="[% pid %]" title="[% h.loc('replay.battleperformance.critdetail.text', cd.count) %]"[% END %]>
+            <span data-container="body" data-placement="left" data-toggle="tooltip" class="bs-tooltip crits [% IF cd.count == 0 %]dimmed"[% ELSE %] hasdetails" player="[% pid %]" title="[% h.loc('replay.battleperformance.critdetail.text', cd.count) %]"[% END %]>
                 [% IF cd.count > 0 %]
                     <b>[% cd.count %]</b>
                 [% END %]

@@ -1,5 +1,139 @@
 [% WRAPPER admin/wrapper.html.tt %]
+    [% bseq = 1 %]
     <div class="page-header">
         <h1>Language Manager</h1>
     </div>
+    <div class="row">
+        <div class="col-lg-3 col-md-3">
+            <h3>Sections</h3>
+            <ul class="nav nav-pills nav-stacked">
+                [% FOREACH entry IN sections %]
+                    <li [% IF entry.id == section && section.defined %]class="active"[% END %]><a href="[% IF entry.id.defined %]/admin/language/[% lang %]/[% entry.id %]/[% ELSE %]#[% END %]">[% entry.title %]</a>
+                    [% IF entry.children.defined %]
+                        <ul class="nav nav-pills nav-stacked" style="padding-left: 25px">
+                            [% FOREACH child IN entry.children %]
+                                <li [% IF child.id == section %]class="active"[% END %]><a href="/admin/language/[% lang %]/[% child.id %]/">[% child.title %]</a>
+                                [% IF child.children.defined %]
+                                    <ul class="nav nav-pills nav-stacked" style="padding-left: 25px">
+                                    [% FOREACH subchild IN child.children %]
+                                        <li [% IF subchild.id == section %]class="active"[% END %]><a href="/admin/language/[% lang %]/[% subchild.id %]/">[% subchild.title %]</a>
+                                    [% END %]
+                                    </ul>
+                                [% END %]
+                                </li>
+                            [% END %]
+                        </ul>
+                    [% END %]
+                    </li>
+                [% END %]
+            </ul>
+            [% IF h.is_the_boss %]
+                <button style="margin-top: 50px" id="btn-publish" class="btn btn-danger btn-block">Publish</button>
+            [% END %]
+        </div>
+        <div class="col-lg-9 col-md-9">
+            [% IF section.defined %]
+                <h3>Editing Section <button class="btn-primary btn-sm pull-right save-all">Save All</button></h3>
+                [% FOREACH string IN common.keys.sort %]
+                    <div class="well well-sm">
+                        <form id="frm-[% string %]" class"form">
+                            <fieldset><legend>[% string %] <button type="button" role="button" class="btn btn-default btn-xs pull-right save-string" id="btn-save-[% bseq %]" data-bseq="[% bseq %]" data-string="[% string %]">Save</button><span class="spinner small pull-right hide" id="spinner-[% bseq %]"></span></legend>
+                            [% IF lang != 'common' %]
+                                <div class="form-group">
+                                    <label class="control-label">Original</label>
+                                    <pre>[% common.$string %]</pre>
+                                </div>
+                            [% END %]
+                            <div class="form-group">
+                                <label class="control-label">Translation</label>
+                                <input type="text" name="[% string %]" value="[% export.$string %]" class="form-control string"/>
+                            </div>
+                        </form>
+                    </div>
+                    [% bseq = bseq + 1 %]
+                [% END %]
+                [% IF h.is_the_boss && lang == 'common' %]
+                    <div class="well well-sm" style="margin-top: 50px">
+                        <form id="frm-new-string" class"form">
+                            <fieldset><legend>New String <button type="button" role="button" class="btn btn-default btn-xs pull-right new-string" id="btn-save-[% bseq %]" data-bseq="[% bseq %]"">Save</button><span class="spinner small pull-right hide" id="spinner-[% bseq %]"></span></legend>
+                            <div class="form-group">
+                                <label class="control-label">String</label>
+                                <input type="text" name="new-string" value="" class="form-control string"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Value</label>
+                                <input type="text" name="new-value" value="" class="form-control string"/>
+                            </div>
+                        </form>
+                    </div>
+                [% END %]
+            [% ELSE %]
+                <pre>
+                    [% h.dumper(sections) %]
+                </pre>
+            [% END %]
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            [% IF h.is_the_boss && lang == 'common' %]
+                $('button#btn-publish').on('click', function() {
+                    $.getJSON('/admin/language/[% lang %]/publish', {}, function() {
+                        alert('Published');
+                    });
+                });
+                $('button.new-string').on('click', function() {
+                    var string = $('input[name="new-string"]').val();
+                    var value  = $('input[name="new-value"]').val();
+                    var bseq   = $(this).attr('data-bseq');
+                    $('#btn-save-' + bseq).addClass('hide');
+                    $('#spinner-' + bseq).removeClass('hide');
+                    $.ajax({
+                        url: '/admin/language/[% lang %]/[% section %]/single', 
+                        data: { path: string, value: value },
+                        type: 'POST',
+                        dataType: 'json',
+                        complete: function() {
+                            $('#btn-save-' + bseq).removeClass('hide');
+                            $('#spinner-' + bseq).addClass('hide');
+                            document.location.reload();
+                        }
+                    });
+                    return false;
+                });
+            [% END %]
+
+            $('button.save-all').on('click', function() {
+                var strings = {};
+
+                $('input.string').each(function(i, e) {
+                    strings[$(e).attr('name')] = $(e).val();
+                });
+                $.ajax({
+                    url: '/admin/language/[% lang %]/[% section %]/all', 
+                    data: { strings: strings },
+                    type: 'POST',
+                    dataType: 'json',
+                });
+                return false;
+            });
+            $('button.save-string').on('click', function() {
+                var string = $(this).attr('data-string');
+                var bseq   = $(this).attr('data-bseq');
+                $('#btn-save-' + bseq).addClass('hide');
+                $('#spinner-' + bseq).removeClass('hide');
+                $.ajax({
+                    url: '/admin/language/[% lang %]/[% section %]/single', 
+                    data: { path: string, value: $('input[name="' + string + '"]').val() },
+                    type: 'POST',
+                    dataType: 'json',
+                    complete: function() {
+                        $('#btn-save-' + bseq).removeClass('hide');
+                        $('#spinner-' + bseq).addClass('hide');
+                    }
+                });
+                return false;
+            });
+        });
+    </script>
 [% END %]

@@ -1,0 +1,3 @@
+msgid "heatmaps.page.title"
+msgstr "Heatmaps &raquo; %0"
+

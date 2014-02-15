@@ -605,7 +605,11 @@ sub add_helpers {
         my ($c, $n) = split(/:/, $v, 2);
 
         if(my $obj = $self->model('wot-replays.data.vehicles')->find_one({ _id => $v })) {
-            return $obj->{label};
+            if(defined($obj->{i18n})) {
+                return $self->loc($obj->{i18n});
+            } else {
+                return $obj->{label};
+            }
         } else {
             return sprintf('nolabel:%s', $v);
         }
@@ -904,7 +908,27 @@ sub add_helpers {
         my $res  = [];
 
         foreach my $a (@$args) {
-            push(@$res, $self->stash($a));
+            if($a =~ /l:(.*?):(.*)/) {
+                my $root = $1;
+                my $key  = $2;
+
+                push(@$res, $self->loc(sprintf('%s.%s', $root, $self->stash($key))));
+            } elsif($a =~ /^d:(.*?):(.*?):(.*?):(.*)/) {
+                my $coll = $1;
+                my $field = $2;
+                my $_v   = $3;
+                my $val = $self->stash($_v);
+                my $rfield = $4;
+                # here's the issue we'll have, this is all blocking... 
+                warn 'make_args: d: coll: ', $coll, ' field: ', $field, ' val: ', $val, ' rfield: ', $rfield, "\n";
+                if(my $r = $self->model(sprintf('wot-replays.%s', $coll))->find_one({ $field => $val })) {
+                    push(@$res, $self->loc($r->{$rfield}));
+                } else {
+                    push(@$res, 'd:failed');
+                }
+            } else {
+                push(@$res, $self->stash($a));
+            }
         }
         return $res;
     });
