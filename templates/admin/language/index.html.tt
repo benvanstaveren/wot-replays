@@ -12,7 +12,7 @@
                     [% IF entry.children.defined %]
                         <ul class="nav nav-pills nav-stacked" style="padding-left: 25px">
                             [% FOREACH child IN entry.children %]
-                                <li [% IF child.id == section %]class="active"[% END %]><a href="/admin/language/[% lang %]/[% child.id %]/">[% child.title %]</a>
+                                <li [% IF child.id == section %]class="active"[% END %]><a href="[% IF child.id.defined %]/admin/language/[% lang %]/[% child.id %]/[% ELSE %]#[% END %]">[% child.title %]</a>
                                 [% IF child.children.defined %]
                                     <ul class="nav nav-pills nav-stacked" style="padding-left: 25px">
                                     [% FOREACH subchild IN child.children %]
@@ -32,7 +32,7 @@
             [% END %]
         </div>
         <div class="col-lg-9 col-md-9">
-            [% IF section.defined %]
+            [% IF section.defined && section != '--' %]
                 <h3>Editing Section <button class="btn-primary btn-sm pull-right save-all">Save All</button></h3>
                 [% FOREACH string IN common.keys.sort %]
                     <div class="well well-sm">

@@ -102,7 +102,7 @@ sub settings {
     my $self = shift;
 
     $self->respond(template => 'profile/settings', stash => {
-        page => { title => $self->loc('profile.settings.page.title') }
+        page => { title => 'profile.replays.settings.title' },
     });
 }
 
@@ -154,14 +154,12 @@ sub replays {
             my ($c, $e, $docs) = (@_);
 
             $self->respond(template => 'profile/replays', stash => {
-                page => {
-                    title => $self->loc('profile.replays.page.title'),
-                },
                 maxp => $maxp,
                 type => $type,
                 p    => $page,
                 replays => $docs,
                 total_replays => $count,
+                page => { title => 'profile.replays.page.title' },
             });
         });
     });
@@ -192,13 +190,11 @@ sub uploads {
             my ($c, $e, $docs) = (@_);
 
             $self->respond(template => 'profile/uploads', stash => {
-                page => {
-                    title => $self->loc('profile.uploads.page.title'),
-                },
                 maxp => $maxp,
                 type => $type,
                 p    => $page,
                 uploads => $docs,
+                page => { title => 'profile.uploads.page.title' },
             });
         });
     });

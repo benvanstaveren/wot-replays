@@ -84,7 +84,7 @@ sub register {
 
         $args = [ $args, @_ ] if(ref($args) ne 'ARRAY');
 
-        $self->app->log->debug('no language string passed, caller: ' . (caller(1))[3]) and return 'no.lang.string.given' unless(defined($str));
+        $self->app->log->error('no language string passed, caller: ' . (caller(1))[3]) and return 'no.lang.string.given' unless(defined($str));
 
         # find out if the string is a WoT style userString
         if($str =~ /^#(.*?):(.*)/) {
@@ -98,26 +98,20 @@ sub register {
             if(my $xlat = $localizer->localize_for(lang => $l, id => $str, args => $args)) {
                 return $xlat;
             } else {
-                if(my $l ne 'site') {
+                if($l ne 'site') {
                     # okay, stupid WG inconsistency, some tanks have a _short, some don't, so if our str contains _short, retry it 
                     if($str =~ /_short$/) {
                         $ostr =~ s/_short$//g;
                         return $self->loc($ostr);
                     } else {
-                        return $str;
+                        return $ostr;
                     }
                 } else {
-                    # it wasn't in site.po, and not in any of WG's files either, so let's take the first element of our string and see if
-                    # it's in there by any chance
-                    if(my $piece = (split(/\./, $ostr))[0]) {
-                        return $self->loc(sprintf('#%s:%s', $piece, $ostr));
-                    } else {
-                        return $str;
-                    }
+                    return $ostr;
                 }
             }
         } else {
-            return $str;
+            return $ostr;
         }
     });
 }

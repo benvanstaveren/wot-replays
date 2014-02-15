@@ -22,17 +22,17 @@
         <span style="color: #444">[% IF roster.vehicle.i18n.defined %][% h.loc(roster.vehicle.i18n) %][% ELSE %][% roster.vehicle.label %][% END %]</span>
     </td>
     <td class="playerDetails">
-        <span data-container="body" data-placement="auto" data-toggle="tooltip" class="bs-tooltip spotted [% IF !details || details.spotted == 0 %]dimmed"[% ELSE %]" title="[% h.loc('replay.battleperformance.spotted') %][% END %]"></span>
+        <span data-container="body" data-placement="auto" data-toggle="tooltip" class="bs-tooltip spotted [% IF !details || details.spotted == 0 %]dimmed"[% ELSE %]" title="[% h.loc('replays.overview.battleperformance.spotted') %][% END %]"></span>
         <span data-container="body" data-placement="auto" data-toggle="tooltip" class="bs-tooltip assist [% IF (details.damageAssistedRadio + details.damageAssistedTrack) < 1 %]dimmed[% END %]" 
             title="
                 [% IF details.damageAssistedTrack + details.damageAssistedRadio > 0 %]
-                    [% h.loc('replay.battleperformance.assisted', details.damageAssistedRadio + 0, h.percentage_of(ph, details.damageAssistedRadio + 0), details.damageAssistedTrack + 0, h.percentage_of(ph, details.damageAssistedTrack + 0)) %]
+                    [% h.loc('replays.overview.battleperformance.assisted', details.damageAssistedRadio + 0, h.percentage_of(ph, details.damageAssistedRadio + 0), details.damageAssistedTrack + 0, h.percentage_of(ph, details.damageAssistedTrack + 0)) %]
                 [% ELSE %]
-                    [% h.loc('replay.battleperformance.noassist') %]
+                    [% h.loc('replays.overview.battleperformance.noassist') %]
                 [% END %]
                 "></span>
-        <span player="[% pid %]" class="[% IF cd.count > 0 %]bs-popover-cd[% END %]" title="[% h.loc('replay.battleperformance.critdetail.title') %]" style="padding: 0px; margin: 0px">
-            <span data-container="body" data-placement="left" data-toggle="tooltip" class="bs-tooltip crits [% IF cd.count == 0 %]dimmed"[% ELSE %] hasdetails" player="[% pid %]" title="[% h.loc('replay.battleperformance.critdetail.text', cd.count) %]"[% END %]>
+        <span player="[% pid %]" class="[% IF cd.count > 0 %]bs-popover-cd[% END %]" title="[% h.loc('replays.overview.battleperformance.critdetail.title') %]" style="padding: 0px; margin: 0px">
+            <span data-container="body" data-placement="left" data-toggle="tooltip" class="bs-tooltip crits [% IF cd.count == 0 %]dimmed"[% ELSE %] hasdetails" player="[% pid %]" title="[% h.loc('replays.overview.battleperformance.critdetail.text', cd.count) %]"[% END %]>
                 [% IF cd.count > 0 %]
                     <b>[% cd.count %]</b>
                 [% END %]
@@ -40,9 +40,9 @@
         </span>
         <span data-container="body" data-placement="auto" data-toggle="tooltip" class="damage bs-tooltip  
             [% IF roster.player.team == replay.game.recorder.team %]
-                [% IF details.hits + details.he_hits == 0 %]dimmed[% ELSE %][% END %]" title="[% h.loc('replay.battleperformance.teamdamage', details.damageDealt + 0, h.percentage_of(ph, details.damageDealt + 0)) %]"
+                [% IF details.hits + details.he_hits == 0 %]dimmed[% ELSE %][% END %]" title="[% h.loc('replays.overview.battleperformance.teamdamage', details.damageDealt + 0, h.percentage_of(ph, details.damageDealt + 0)) %]"
             [% ELSE %]
-                [% IF details.hits + details.he_hits == 0 %]dimmed[% ELSE %][% END %]" title="[% h.loc('replay.battleperformance.damage', details.damageDealt + 0, h.percentage_of(ph, details.damageDealt + 0)) %]"
+                [% IF details.hits + details.he_hits == 0 %]dimmed[% ELSE %][% END %]" title="[% h.loc('replays.overview.battleperformance.damage', details.damageDealt + 0, h.percentage_of(ph, details.damageDealt + 0)) %]"
             [% END %]>
             [% IF details.hits + details.he_hits > 0 %]
             <b>[% details.hits + details.he_hits %]</b> 
@@ -50,9 +50,9 @@
         </span>
         <span data-container="body" data-placement="auto" data-toggle="tooltip" class="bs-tooltip 
             [% IF roster.player.team == replay.game.recorder.team %]
-                teamkill [% IF !h.was_killed_by_recorder(replay, roster.stats.killerID) %]dimmed"[% ELSE %]" title="[% h.loc('replay.battleperformance.teamkill') %]"[% END %]
+                teamkill [% IF !h.was_killed_by_recorder(replay, roster.stats.killerID) %]dimmed"[% ELSE %]" title="[% h.loc('replays.overview.battleperformance.teamkill') %]"[% END %]
             [% ELSE %]
-                kill [% IF !details || !h.was_killed_by_recorder(replay, roster.stats.killerID) %]dimmed"[% ELSE %]" title="[% h.loc('replay.battleperformance.kill') %]"[% END %]
+                kill [% IF !details || !h.was_killed_by_recorder(replay, roster.stats.killerID) %]dimmed"[% ELSE %]" title="[% h.loc('replays.overview.battleperformance.kill') %]"[% END %]
             [% END %]></span>
     </td>
 </tr>

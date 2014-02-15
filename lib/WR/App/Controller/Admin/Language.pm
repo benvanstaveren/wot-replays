@@ -47,6 +47,15 @@ has 'layout' => sub {
                     ],
                 },
                 { title => 'Heatmaps',  id => 'heatmaps' },
+                { title => 'Upload Form',  id => 'upload' },
+                { 
+                    title => 'Player Profile',
+                    children => [
+                        { id => 'profile-replays', title => 'Replays' },
+                        { id => 'profile-uploads', title => 'Uploads' },
+                        { id => 'profile-settings', title => 'Settings' },
+                    ],
+                },
             ],
         },
         { 
@@ -54,10 +63,31 @@ has 'layout' => sub {
             title => 'Browse Filter',
         },
         { 
-            id => 'replay', 
+            id => '#', 
             title => 'Replays',
             children => [
                 { id => 'panel', title => 'Panel' },
+                { id => 'replay-header', title => 'Page Header' },
+                { id => 'replay-nav', title => 'Page Navigation' },
+                { id => 'replay-battleviewer', title => 'Battle Viewer' },
+                { id => 'replay-heatmap', title => 'Battle Heatmap' },
+                { 
+                    title => 'Page Tabs' ,
+                    children => [
+                        { id => 'replay-overview', title => 'Overview' },
+                        { id => 'replay-earnings', title => 'Earnings' },
+                        { id => 'replay-missions', title => 'Missions' },
+                        { id => 'replay-teams', title => 'Teams' },
+                        { id => 'replay-loadout', title => 'Loadout' },
+                        { id => 'replay-chat', title => 'Chat' },
+                    ],
+                },
+                { 
+                    title => 'Modals' ,
+                    children => [
+                        { id => 'replay-modal-embed', title => 'Embed' },
+                    ],
+                },
             ],
         },
         {
@@ -68,8 +98,11 @@ has 'layout' => sub {
                 { id => 'nations', title => 'Nations' },
                 { id => 'server', title => 'Server Names' },
                 { id => 'vehicleclass', title => 'Vehicle Class' },
+                { id => 'camokinds', title => 'Camouflage Types' },
+                { id => 'critdetails', title => 'Crit Detail Types' },
                 { id => 'privacy', title => 'Privacy Settings' },
                 { id => 'tooltip', title => 'Tooltips' },
+                { id => 'language', title => 'Languages' },
             ],
         },
     ]
@@ -185,6 +218,9 @@ sub save_all {
             my $v  = $args->{$key};
 
             $v =~ s/"/&quot;/g;
+            $v =~ s/\&/&amp;/g;
+            $v =~ s/\</&lt;/g;
+            $v =~ s/\>/&gt;/g;
 
             $set->{$rk} = $args->{$key} unless($v =~ /[<>]/); # don't accept html...
         }
@@ -222,7 +258,9 @@ sub save_single {
         foreach my $key (sort(keys(%$export))) {
             my $v = $export->{$key};
             $v =~ s/"/&quot;/g;
-            next if ($v =~ /[<>]/); # don't accept html...
+            $v =~ s/\&/&amp;/g;
+            $v =~ s/\</&lt;/g;
+            $v =~ s/\>/&gt;/g;
             $fh->print(sprintf('msgid "%s"', $key), "\n");
             $fh->print(sprintf('msgstr "%s"', $v), "\n");
             $fh->print("\n");

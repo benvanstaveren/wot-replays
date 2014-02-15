@@ -1,14 +1,14 @@
-<h4>[% h.loc('replay.capture.title') %]</h4>
+<h4>[% h.loc('replays.overview.capture.title') %]</h4>
 <div class="well">
 <table class="table table-bordered table-striped">
     <tbody>
         <tr>
-            <td><h5 style="margin: 0px">[% h.loc('replay.capture.cap.text') %]</h5></td>
-            <td><span data-placement="auto" data-toggle="tooltip" title="[% h.loc('replay.capture.cap.title') %]" class="bs-tooltip [% IF replay.stats.capturePoints > 0 %]green[% END %]">[% replay.stats.capturePoints || '0' %]</span></td>
+            <td><h5 style="margin: 0px">[% h.loc('replays.overview.capture.cap.text') %]</h5></td>
+            <td><span data-placement="auto" data-toggle="tooltip" title="[% h.loc('replays.overview.capture.cap.title') %]" class="bs-tooltip [% IF replay.stats.capturePoints > 0 %]green[% END %]">[% replay.stats.capturePoints || '0' %]</span></td>
         </tr>
         <tr>
-            <td><h5 style="margin: 0px">[% h.loc('replay.capture.defend.text') %]</h5></td>
-            <td><span data-placement="auto" data-toggle="tooltip" title="[% h.loc('replay.capture.defend.title') %]" class="bs-tooltip [% IF replay.stats.droppedCapturePoints > 0 %]green[% END %]">[% replay.stats.droppedCapturePoints || '0' %]</span></td>
+            <td><h5 style="margin: 0px">[% h.loc('replays.overview.capture.defend.text') %]</h5></td>
+            <td><span data-placement="auto" data-toggle="tooltip" title="[% h.loc('replays.overview.capture.defend.title') %]" class="bs-tooltip [% IF replay.stats.droppedCapturePoints > 0 %]green[% END %]">[% replay.stats.droppedCapturePoints || '0' %]</span></td>
         </tr>
     </tbody>
 </table>

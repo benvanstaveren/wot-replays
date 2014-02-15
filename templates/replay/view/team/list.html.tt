@@ -3,13 +3,13 @@
 <table class="table table-bordered table-striped team-list">
     <thead>
         <th></th>
-        <th>[% h.loc('replay.team.tank.text') %]</th>
-        <th>[% h.loc('replay.team.player.text') %]</th>
-        <th>[% h.loc('replay.team.' _ rating _ '.text') %]</th>
-        <th>[% h.loc('replay.team.awards.text') %]</th>
-        <th class="bs-tooltip" data-toggle="tooltip" data-placement="auto" data-container="body" title="[% h.loc('replay.team.damage.title') %]">[% h.loc('replay.team.damage.text') %]</th>
-        <th class="bs-tooltip" data-toggle="tooltip" data-placement="auto" data-container="body" title="[% h.loc('replay.team.xp.title') %]">[% h.loc('replay.team.xp.text') %]</th>
-        <th class="bs-tooltip" data-toggle="tooltip" data-placement="auto" data-container="body" title="[% h.loc('replay.team.kills.title') %]"">[% h.loc('replay.team.kills.text') %]</th>
+        <th>[% h.loc('replays.team.tank.text') %]</th>
+        <th>[% h.loc('replays.team.player.text') %]</th>
+        <th>[% h.loc('replays.team.' _ rating _ '.text') %]</th>
+        <th>[% h.loc('replays.team.awards.text') %]</th>
+        <th class="bs-tooltip" data-toggle="tooltip" data-placement="auto" data-container="body" title="[% h.loc('replays.team.damage.title') %]">[% h.loc('replays.team.damage.text') %]</th>
+        <th class="bs-tooltip" data-toggle="tooltip" data-placement="auto" data-container="body" title="[% h.loc('replays.team.xp.title') %]">[% h.loc('replays.team.xp.text') %]</th>
+        <th class="bs-tooltip" data-toggle="tooltip" data-placement="auto" data-container="body" title="[% h.loc('replays.team.kills.title') %]"">[% h.loc('replays.team.kills.text') %]</th>
     </thead>
     <tbody>
         [% FOREACH vid IN players %]

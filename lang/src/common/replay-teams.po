@@ -1,0 +1,38 @@
+msgid "replays.team.title"
+msgstr "Team %1"
+
+msgid "replays.team.tank.text"
+msgstr "Tank"
+
+msgid "replays.team.player.text"
+msgstr "Player"
+
+msgid "replays.team.awards.text"
+msgstr "Awards"
+
+msgid "replays.team.wn7.text"
+msgstr "WN7"
+
+msgid "replays.team.wn8.text"
+msgstr "WN8"
+
+msgid "replays.team.damage.text"
+msgstr "Dmg"
+
+msgid "replays.team.damage.title"
+msgstr "Damage"
+
+msgid "replays.team.xp.text"
+msgstr "XP"
+
+msgid "replays.team.xp.title"
+msgstr "Experience"
+
+msgid "replays.team.kills.text"
+msgstr "K"
+
+msgid "replays.team.kills.title"
+msgstr "Kills"
+
+msgid "replays.team.xp.earned"
+msgstr "Player earned %1 base xp"

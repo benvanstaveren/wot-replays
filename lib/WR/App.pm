@@ -81,10 +81,10 @@ sub startup {
         $xhr->route('/du')->to('ui#xhr_du');
 
     my $bv = $r->under('/battleviewer/:replay_id');
-        $bv->route('/')->to('replays-view#battleviewer', pageid => 'battleviewer');
+        $bv->route('/')->to('replays-view#battleviewer', pageid => 'battleviewer', page => { title => 'replay.battleviewer.page.title' });
 
     my $bhm = $r->under('/battleheatmap/:replay_id');
-        $bhm->route('/')->to('replays-view#heatmap', pageid => 'battleheatmap');
+        $bhm->route('/')->to('replays-view#heatmap', pageid => 'battleheatmap', page => { title => 'replay.heatmap.page.title' });
 
     my $rb = $r->under('/replay/:replay_id');
         $rb->route('/')->to('replays-view#view', pageid => undef)->name('viewreplay');
@@ -93,8 +93,8 @@ sub startup {
         $rb->route('/packets')->to('replays-view#packets', pageid => undef);
         $rb->route('/up')->to('replays-rate#rate_up', pageid => undef);
         $rb->route('/comparison')->to('replays-view#comparison', pageid => undef);
-        $bv->route('/battleviewer')->to('replays-view#battleviewer', pageid => 'battleviewer');
-        $bv->route('/heatmap')->to('replays-view#heatmap', pageid => 'battleheatmap');
+        $bv->route('/battleviewer')->to('replays-view#battleviewer', pageid => 'battleviewer', page => { title => 'replay.battleviewer.page.title' });
+        $bv->route('/heatmap')->to('replays-view#heatmap', pageid => 'battleheatmap', page => { title => 'replay.heatmap.page.title' });
 
     $r->route('/clans')->to('clan#index', pageid => 'clan', page => { title => 'clans.page.title' });
     my $clan = $r->under('/clan');
@@ -264,9 +264,9 @@ sub startup {
         $openid->any('/return')->to('ui#openid_return');
 
     my $pb = $r->bridge('/profile')->to('profile#bridge');
-        $pb->route('/replays/type/:type/page/:page')->to('profile#replays', mustauth => 1, pageid => 'profile');
-        $pb->route('/uploads/page/:page')->to('profile#uploads', pageid => 'profile');
-        $pb->route('/settings')->to('profile#settings', pageid => 'profile');
+        $pb->route('/replays/type/:type/page/:page')->to('profile#replays', mustauth => 1, pageid => 'profile', page => { title => 'profile.replays.page.title' });
+        $pb->route('/uploads/page/:page')->to('profile#uploads', pageid => 'profile', page => { title => 'profile.uploads.page.title' });
+        $pb->route('/settings')->to('profile#settings', pageid => 'profile', page => { title => 'profile.settings.page.title' });
         $pb->route('/sl/:lang')->to('profile#sl', pageid => 'profile');
 
         my $pbj = $pb->under('/j');
@@ -283,7 +283,7 @@ sub startup {
         my $language = $admin->under('/language');
             $language->route('/')->to('admin-language#index', pageid => 'admin/language');
             my $langroot = $language->bridge('/:lang')->to('admin-language#language_bridge');
-                $langroot->route('/')->to('admin-language#index', pageid => 'admin/language');
+                $langroot->route('/')->to('admin-language#index', pageid => 'admin/language', section => '--');
                 $langroot->route('/publish')->to('admin-language#publish', pageid => 'admin/language');
                 my $section = $langroot->under('/:section');
                     $section->route('/')->to('admin-language#section', pageid => 'admin/language');
@@ -330,6 +330,11 @@ sub startup {
                     my $text = shift;
                     $text =~ s/\\t/<br\/><span style="margin-left: 20px"><\/span>/g;
                     return $text;
+                },
+                'ucfirste' => sub {
+                    my $text = shift;
+
+                    return join(' ', map { ucfirst($_) } (split(/\s/, $text)));
                 },
             },
             RELATIVE => 1,

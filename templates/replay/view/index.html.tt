@@ -10,7 +10,6 @@
                 <li><a href="#teams" data-toggle="tab">[% h.loc('replay.nav.teams') %]</a></li>
                 <li><a href="#vehicle-loadout" data-toggle="tab">[% h.loc('replay.nav.loadout') %]</a></li>
                 <li class="[% IF replay.chat.size < 1 %]disabled [% END %]"><a href="#battle-chat" data-toggle="tab">[% h.loc('replay.nav.chat') %]</a></li>
-                <li class="disabled"><a href="#comparison" data-toggle="tab">[% h.loc('replay.nav.comparison') %]</a></li>
             </ul>
             <div class="tab-content">
                 <div id="vehicle-stats" class="tab-pane fade in active">
@@ -49,11 +48,25 @@
                     <div id="comparison-display">Loading...</div>
                 </div>
                 <div id="battle-chat" class="tab-pane fade">
-                    [% FOREACH message IN replay.chat %]
-                        <div style="padding: 2px;">
-                            [% message %]
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12">
+                            <h4>[% h.loc('replay.chat.heading') %]</h4>
+                            <div class="well well-lg">
+                                [% FOREACH message IN replay.chat %]
+                                    [% parsed = h.parse_message(message) %]
+                                    <div class="row">
+                                        <div class="col-lg-3 col-md-3" style="color: [% parsed.base %]; border-right: #aaa 1px solid">
+                                            [% parsed.name.name %][% IF parsed.name.clan.defined %][[% parsed.name.clan %]][% END %]
+                                            <span class="pull-right" style="margin-right: 10px;">[% parsed.name.vehicle %]</span>
+                                        </div>
+                                        <div class="col-lg-9 col-md-9" style="color: [% parsed.base %]">
+                                            [% parsed.message %]
+                                        </div>
+                                    </div>
+                                [% END %]
+                            </div>
                         </div>
-                    [% END %]
+                    </div>
                 </div>
             </div>
         </div>
@@ -78,7 +91,7 @@
                     </p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default bs-tooltip" title="[% h.loc('button.modal.close.title') %]" data-dismiss="modal">[% h.loc('button.modal.close.text') %]</button>
+                    <button type="button" class="btn btn-default bs-tooltip" title="[% h.loc('replay.modal.embed.button.close.title') %]" data-dismiss="modal">[% h.loc('replay.modal.embed.button.close.text') %]</button>
                 </div>
             </div>
         </div>

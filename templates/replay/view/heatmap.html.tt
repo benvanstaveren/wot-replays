@@ -1,5 +1,8 @@
 [% WRAPPER wrapper.html.tt %]
     [% INCLUDE replay/view/header.html.tt context="heatmap" %]
+    <div class="page-header">
+        <h2>[% h.loc('replay.battleviewer.page.title') %]</h2>
+    </div>
     <div class="row" style="margin: 10px 0px 0px 0px">
         <div class="col-lg-12 col-md-12">
             <div id="battle-heatmap"></div>

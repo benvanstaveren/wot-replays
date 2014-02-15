@@ -2,47 +2,47 @@
     <tbody>
         <tr>
             <td style="width: 16%">
-                <h6 style="padding: 0px; margin: 5px 0px 0px 0px">[% h.loc('#panel:result.heading') %]:</h6>
+                <h6 style="padding: 0px; margin: 5px 0px 0px 0px">[% h.loc('panel.result.heading') %]:</h6>
             </td>
             <td style="width: 16%">
                 <span class="value fw">
                     [% IF replay.panel.winner == 0 %]
-                        [% h.loc('#panel:result.draw') %]
+                        [% h.loc('panel.result.draw') %]
                     [% ELSIF replay.panel.team == replay.panel.winner %]
-                        <span class="green">[% h.loc('#panel:result.victory') %]</span>
+                        <span class="green">[% h.loc('panel.result.victory') %]</span>
                     [% ELSE %]
-                        <span class="red">[% h.loc('#panel:result.defeat') %]</span>
+                        <span class="red">[% h.loc('panel.result.defeat') %]</span>
                     [% END %]
                 </span>
             </td>
             <td style="width: 16%">
-                <h6 style="padding: 0px; margin: 5px 0px 0px 0px">[% h.loc('#panel:xp.heading') %]:</h6>
+                <h6 style="padding: 0px; margin: 5px 0px 0px 0px">[% h.loc('panel.xp.heading') %]:</h6>
             </td>
             <td  style="width: 16%">
-                <span data-toggle="tooltip" data-placement="auto" title="[% h.loc('#panel:xp.tooltip', replay.panel.xp) %]" class="bs-tooltip value fw">[% replay.panel.xp || '0' |truncate(5) %] [% IF replay.panel.multiplier > 1 %](x[% replay.panel.multiplier %])[% END %]</span>
+                <span data-toggle="tooltip" data-placement="auto" title="[% h.loc('panel.xp.tooltip', replay.panel.xp) %]" class="bs-tooltip value fw">[% replay.panel.xp || '0' |truncate(5) %] [% IF replay.panel.multiplier > 1 %](x[% replay.panel.multiplier %])[% END %]</span>
             </td>
             <td style="width: 16%">
-                <h6 style="padding: 0px; margin: 5px 0px 0px 0px">[% h.loc('#panel:credits.heading') %]:</h6>
+                <h6 style="padding: 0px; margin: 5px 0px 0px 0px">[% h.loc('panel.credits.heading') %]:</h6>
             </td>
             <td style="width: 16%">
-                <span class="bs-tooltip value fw" data-placement="auto" data-toggle="tooltip" title="[% h.loc('#panel:credits.tooltip', replay.panel.credits) %]" >[% replay.panel.credits || '0' |truncate(5)%]</span>
+                <span class="bs-tooltip value fw" data-placement="auto" data-toggle="tooltip" title="[% h.loc('panel.credits.tooltip', replay.panel.credits) %]" >[% replay.panel.credits || '0' |truncate(5)%]</span>
             </td>
         </tr>
         <tr>
             <td> 
-                <h6 style="padding: 0px; margin: 5px 0px 0px 0px">spotted:</h6>
+                <h6 style="padding: 0px; margin: 5px 0px 0px 0px">[% h.loc('panel.spotted.heading') %]:</h6>
             </td>
             <td>
                 <span class="value fw">[% replay.panel.spotted || '0' %] / <span class="green value fw">[% replay.panel.spotted_damage || '0' %]</span>
             </td>
             <td>
-                <h6 style="padding: 0px; margin: 5px 0px 0px 0px">damaged:</h6>
+                <h6 style="padding: 0px; margin: 5px 0px 0px 0px">[% h.loc('panel.damaged.heading') %]:</h6>
             </td>
             <td>
                 <span class="value fw">[% replay.panel.damaged || '0' %] / <span class="green value fw">[% replay.panel.damage_dealt || '0' %]</span>
             </td>
             <td>
-                <h6 style="padding: 0px; margin: 5px 0px 0px 0px">killed:</h6>
+                <h6 style="padding: 0px; margin: 5px 0px 0px 0px">[% h.loc('panel.killed.heading') %]:</h6>
             </td>
             <td>
                <span class="value fw">[% replay.panel.killed || '0' %]</span>
@@ -50,28 +50,28 @@
         </tr>
         <tr>
             <td>
-                <h6 style="padding: 0px; margin: 5px 0px 0px 0px">survived:</h6>
+                <h6 style="padding: 0px; margin: 5px 0px 0px 0px">[% h.loc('panel.survived.heading') %]:</h6>
             </td>
             <td>
                 <span class="value fw">
                     [% IF replay.panel.survived %]
-                        <span class="green">yes</span>
+                        <span class="green">[% h.loc('panel.survived.yes') %]</span>
                     [% ELSE %]
-                        <span class="red">no</span>
+                        <span class="red">[% h.loc('panel.survived.no') %]</span>
                     [% END %]
                 </span>
             </td>
             <td>
-                <h6 style="padding: 0px; margin: 5px 0px 0px 0px">server:</h6>
+                <h6 style="padding: 0px; margin: 5px 0px 0px 0px">[% h.loc('panel.server.heading') %]:</h6>
             </td>
             <td>
                 <span class="value fw">[% replay.panel.server |upper %]</span>
             </td>
             <td>
-                <h6 style="padding: 0px; margin: 5px 0px 0px 0px">version:</h6>
+                <h6 style="padding: 0px; margin: 5px 0px 0px 0px">[% h.loc('panel.version.heading') %]:</h6>
             </td>
             <td>
-               <span class="value fw bs-tooltip" data-placement="auto" data-toggle="tooltip" title="[% IF !h.is_old_version(replay.panel.version) %]Current version[% ELSE %]Incompatible version[% END %]" style="color: #6[% IF !h.is_old_version(replay.panel.version) %]66[% ELSE %]00[% END %]">[% h.wot_version(replay.panel.version) %]</span>
+               <span class="value fw bs-tooltip" data-placement="auto" data-toggle="tooltip" title="[% IF !h.is_old_version(replay.panel.version) %][% h.loc('panel.version.current') %][% ELSE %][% h.loc('panel.version.incompatible') %][% END %]" style="color: #6[% IF !h.is_old_version(replay.panel.version) %]66[% ELSE %]00[% END %]">[% h.wot_version(replay.panel.version) %]</span>
             </td>
         </tr>
     </tbody>

@@ -11,8 +11,16 @@ use WR::Constants qw/nation_id_to_name gameplay_id_to_name/;
 use WR::Util::TypeComp qw/parse_int_compact_descr type_id_to_name/;
 use Data::Dumper;
 use DateTime;
+use Mojo::Util qw/encode decode/;
 
 use constant ROMAN_NUMERALS => [qw(0 I II III IV V VI VII VIII IX X)];
+
+# this module is basically a collection of miscellaneous junk that's been slopped in
+# over time, some of it isn't used anymore, some of it is, some of it leaks memory,
+# most of it is butt-ugly. 
+#
+# beware. dragons, and such.
+
 
 # there are a few helpers that still make database calls, these need to be
 # replaced with "better" solutions since blocking DB calls can really mess
@@ -939,6 +947,40 @@ sub add_helpers {
         my $now  = Mango::BSON::bson_time;
 
         return sprintf('%.2f', ($now - $then) / 1000);
+    });
+
+    $self->helper('parse_message' => sub {
+        my $self = shift;
+        my $m    = shift;
+
+        # here's the deal, when mods are involved, this may or may not come out hideously fucked, so we want to use some dom magic here
+        my $dom = Mojo::DOM->new($m);
+
+        my @parts = ();
+        my $base_color = $dom->find('font')->first->attr('color');
+        $dom->children->each(sub {
+            push(@parts, shift->text);
+        });
+
+        my $name    = shift(@parts);
+        my $message = shift(@parts);
+
+        $name =~ s/://g;
+
+        my $n = {};
+
+        if($name =~ /(.*)\[(.*)\]\s+\((.*)\)/) {
+            $n = { name => $1, clan => $2, vehicle => $3 };
+        } elsif($name =~ /(.*)\s+\((.*)\)/) {
+            $n = { name => $1, clan => undef, vehicle => $2 };
+        } else {
+            $n = { name => $name, clan => undef, vehicle => undef };
+        }
+
+        # yurk
+        $n->{vehicle} = decode('UTF-8', $n->{vehicle}) if(defined($n->{vehicle}));
+        return { base => $base_color, name => $n, message => $message };
+
     });
 }
 

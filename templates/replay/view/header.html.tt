@@ -20,13 +20,13 @@
                 </p>
             </div>
             <div class="col-lg-4 col-md-4 text-right">
-                <p class="lead text-right" style="margin-bottom: 5px">([% h.loc('#bonustype:' _ replay.game.bonus_type) %], [% h.loc('#gametype:' _ replay.game.type) %])</a></p>
+                <p class="lead text-right" style="margin-bottom: 5px">([% h.loc('bonustype.' _ replay.game.bonus_type) %], [% h.loc('gametype.' _ replay.game.type) %])</a></p>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-12 col-md-12">
                 <h4 style="padding: 0px; margin: 0px 0px 5px 0px">
-                        <span style="font-weight: normal">[% h.loc('replay.text.result') %]:</span><span>[% INCLUDE replay/view/matchresult.html.tt %]</span> <span style="margin: 0px 0px 0px 10px; font-weight: normal">[% h.loc('replay.text.survived') %]:</span><span> [% INCLUDE replay/view/vehicle_stats/survived.html.tt %]</span>
+                        <span style="font-weight: normal">[% h.loc('replay.header.result') %]:</span><span>[% INCLUDE replay/view/matchresult.html.tt %]</span> <span style="margin: 0px 0px 0px 10px; font-weight: normal">[% h.loc('replay.header.survived') %]:</span><span> [% INCLUDE replay/view/vehicle_stats/survived.html.tt %]</span>
                         [% IF !replay.site.visible %]
                             [% IF replay.site.privacy == 1 %]
                                 <span class="pull-right label label-default">[% h.loc('privacy.unlisted') %]</span>

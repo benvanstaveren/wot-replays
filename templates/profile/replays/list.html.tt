@@ -2,10 +2,14 @@
     <div class="row">
         <div class="col-lg-12 col-md-12">
             <h4>
-                [% IF type == 'h' %]
-                    [% h.loc('profile.replays.hidden', total_replays) %]
+                [% IF type == 'u' %]
+                    [% h.loc('profile.replays.unlisted', total_replays) %]
                 [% ELSIF type == 'p' %]
                     [% h.loc('profile.replays.public', total_replays) %]
+                [% ELSIF type == 'c' %]
+                    [% h.loc('profile.replays.clan', total_replays) %]
+                [% ELSIF type == 'pr' %]
+                    [% h.loc('profile.replays.private', total_replays) %]
                 [% ELSE %]
                     [% h.loc('profile.replays.any', total_replays) %]
                 [% END %]
@@ -17,10 +21,10 @@
             <table class="table table-bordered table-striped">
             <thead>
                 <tr>
-                    <th>map</th>
-                    <th>vehicle</th>
-                    <th>w/l</th>
-                    <th>surv.</th>
+                    <th>[% h.loc('profile.replays.heading.map') %]</th>
+                    <th>[% h.loc('profile.replays.heading.vehicle') %]</th>
+                    <th>[% h.loc('profile.replays.heading.wl') %]</th>
+                    <th>[% h.loc('profile.replays.heading.survived') %]</th>
                     <th>kills</th>
                     <th>damaged</th>
                     <th>spotted</th>
@@ -31,10 +35,10 @@
                     <th>
                         <select name="type" style="width: 100%">
                             <option value="*">all</option>
-                            <option value="p">public</option>
-                            <option value="u">unlisted</option>
-                            <option value="pr">private</option>
-                            <option value="c">clan</option>
+                            <option value="p">[% h.loc('privacy.public') |lower %]</option>
+                            <option value="u">[% h.loc('privacy.unlisted') |lower %]</option>
+                            <option value="pr">[% h.loc('privacy.private') |lower %]</option>
+                            <option value="c">[% h.loc('privacy.clan') |lower %]</option>
                         </select>
                     </th>
                 </tr>
@@ -42,22 +46,22 @@
             <tbody>
                 [% FOREACH replay IN replays %]
                     <tr>
-                        <td>[% replay.panel.map.label %]</td>
-                        <td>[% replay.panel.vehicle.label %]</td>
+                        <td>[% h.loc('#arenas:' _ replay.panel.map.ident _ '/name') %]</td>
+                        <td>[% h.loc(replay.panel.vehicle.i18n) %]</td>
                         <td>
                             [% IF replay.panel.winner == 0 %]
-                                draw
+                                [% h.loc('profile.replays.draw') %]
                             [% ELSIF replay.panel.team == replay.panel.winner %]
-                                <span class="green">victory</span>
+                                <span class="green">[% h.loc('profile.replays.victory') %]</span>
                             [% ELSE %]
-                                <span class="red">defeat</span>
+                                <span class="red">[% h.loc('profile.replays.defeat') %]</span>
                             [% END %]
                         </td>
                         <td>
                             [% IF recv.player.survived.defined %]
-                                [% IF recv.player.survived %]yes[% ELSE %]no[% END %]
+                                [% IF recv.player.survived %][% h.loc('profile.replays.survived.yes') %][% ELSE %][% h.loc('profile.replays.survived.no') %][% END %]
                             [% ELSE %]
-                                [% IF replay.panel.survived %]yes[% ELSE %]no[% END %]
+                                [% IF replay.panel.survived %][% h.loc('profile.replays.survived.yes') %][% ELSE %][% h.loc('profile.replays.survived.no') %][% END %]
                             [% END %]
                         </td>
                         <td>[% replay.panel.killed + 0 %]</td>
@@ -66,14 +70,14 @@
                         <td>[% replay.panel.xp + 0 %]</td>
                         <td>[% replay.panel.credits + 0 %]</td>
                         <td>[% h.wot_version(replay.panel.version) %]</td>
-                        <td><a href="/replay/[% replay.panel.id %].html">view</a></td>
+                        <td><a href="/replay/[% replay.panel.id %].html">[% h.loc('profile.replays.view') %]</a></td>
                         <td style="text-align: center">
                             <span class="spinner small hide" data-replayid="[% replay.panel.id %]"></span>
                             <select name="replay-action-[% replay.panel.id %]" data-replayid="[% replay.panel.id %]" class="replay-action">
-                                <option value="0" [% IF replay.site.visible %]selected[% END %]>public</option>
-                                <option value="1" [% IF replay.site.privacy == 1 %]selected[% END %]>unlisted</option>
-                                <option value="2" [% IF replay.site.privacy == 2 %]selected[% END %]>private</option>
-                                <option value="3" [% IF replay.site.privacy == 3 %]selected[% END %]>clan</option>
+                                <option value="0" [% IF replay.site.visible %]selected[% END %]>[% h.loc('privacy.public') |lower %]</option>
+                                <option value="1" [% IF replay.site.privacy == 1 %]selected[% END %]>[% h.loc('privacy.unlisted') |lower %]</option>
+                                <option value="2" [% IF replay.site.privacy == 2 %]selected[% END %]>[% h.loc('privacy.private') |lower %]</option>
+                                <option value="3" [% IF replay.site.privacy == 3 %]selected[% END %]>[% h.loc('privacy.clan') |lower %]</option>
                             </select>
                         </td>
                     </tr>

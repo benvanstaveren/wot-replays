@@ -9,9 +9,9 @@
             </colgroup>
             <thead>
                 <tr>
-                    <th>Upload Date</th>
-                    <th>Upload File</th>
-                    <th>Status</th>
+                    <th>[% h.loc('profile.uploads.upload.date') %]</th>
+                    <th>[% h.loc('profile.uploads.upload.file') %]</th>
+                    <th>[% h.loc('profile.uploads.upload.status') %]</th>
                 </tr>
             </thead>
             <tbody>
@@ -27,20 +27,20 @@
                             [% IF upload.complete %]
                                 [% IF upload.status == 1 %]
                                     <div class="well well-sm">
-                                        PROCESSED OK<br/>
-                                        <a href="[% config.urls.app %]/replay/[% upload.replayid %].html">replay page</a> | <a href="[% config.urls.replays %]/[% upload.data.file_base %]">replay file</a>
+                                        [% h.loc('profile.uploads.process.ok') %]<br/>
+                                        <a href="[% config.urls.app %]/replay/[% upload.replayid %].html">[% h.loc('profile.uploads.replay.page') %]</a> | <a href="[% config.urls.replays %]/[% upload.data.file_base %]">[% h.loc('profile.uploads.replay.file') %]</a>
                                     </div>
                                 [% ELSE %]
                                     <div class="alert well-sm alert-danger">
-                                        PROCESS ERROR<br/>
+                                        [% h.loc('profile.uploads.process.error') %]<br/>
                                         [% upload.error %]
                                     </div>
                                 [% END %]
                             [% ELSE %]
                                 [% IF upload.ready && !upload.locked %]
-                                    Pending Processing <a class="status-view" href="[% h.get_id(upload) %]">(view status)</a>
+                                    [% h.loc('profile.uploads.process.pending') %] <a class="status-view" href="[% h.get_id(upload) %]">([% h.loc('profile.uploads.status.view') %])</a>
                                 [% ELSIF upload.ready && upload.locked %]
-                                    Processing <a class="status-view" href="[% h.get_id(upload) %]">(view status)</a>
+                                    [% h.loc('profile.uploads.process.processing') %] <a class="status-view" href="[% h.get_id(upload) %]">([% h.loc('profile.uploads.status.view') %])</a>
                                 [% END %]
                             [% END %]
                         </td>

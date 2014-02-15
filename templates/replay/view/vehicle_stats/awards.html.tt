@@ -1,4 +1,4 @@
-<h4>[% h.loc('replay.awards.title') %]</h4>
+<h4>[% h.loc('replays.overview.awards.title') %]</h4>
 <div class="well">
 <div class="heroawardlist clearfix">
     [% awardcount = 0 %]
@@ -22,7 +22,7 @@
         [% awardcount = awardcount + 1 %]
     [% END %]
     [% IF awardcount < 1 %]
-        <p>[% h.loc('replay.awards.noawards') %]</p>
+        <p>[% h.loc('replays.overview.awards.noawards') %]</p>
     [% END %]
 </div>
 </div>

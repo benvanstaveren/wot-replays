@@ -1,16 +1,16 @@
-<h4>[% h.loc('text.description') |ucfirst %][% IF h.is_own_replay(replay) %] <small>(<a href="#edit-desc" id="edit-desc-link">[% h.loc('text.edit') %]</a>)</small>[% END %]</h4>
+<h4>[% h.loc('replays.overview.description') |ucfirst %][% IF h.is_own_replay(replay) %] <small>(<a href="#edit-desc" id="edit-desc-link">[% h.loc('replays.overview.description.edit') %]</a>)</small>[% END %]</h4>
 <div class="well">
     <div id="desc-show">
         [% IF replay.site.description && replay.site.description.length > 0 %]
             [% replay.site.description |html|html_line_break %]
         [% ELSE %]
-            [% h.loc('replay.nodescription') %]
+            [% h.loc('replays.overview.description.none') %]
         [% END %]
     </div>
     [% IF h.is_own_replay(replay) %]
         <div class="hide" id="desc-edit">
             <textarea id="edit-text" style="resize: none; width: 100%; min-height: 75px">[% replay.site.description.replace('<br.*?>', "\n") %]</textarea>
-            <button class="btn btn-primary btn-sm" id="edit-save">[% h.loc('button.save.text') %]</button>
+            <button class="btn btn-primary btn-sm" id="edit-save">[% h.loc('replays.overview.description.button.save') %]</button>
         </div>
     [% END %]
 </div>

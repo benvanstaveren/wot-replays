@@ -1,3 +1,21 @@
 msgid "heatmaps.page.title"
 msgstr "Heatmaps &raquo; %0"
 
+msgid "heatmaps.options.heading"
+msgstr "Options"
+
+msgid "heatmaps.options.matchtype"
+msgstr "Match Type"
+
+msgid "heatmaps.options.heatmaptype"
+msgstr "Heatmap Type"
+
+msgid "heatmaps.options.locations"
+msgstr "Locations"
+
+msgid "heatmaps.options.damage"
+msgstr "Damage Received"
+
+msgid "heatmaps.options.deaths"
+msgstr "Deaths"
+

@@ -55,7 +55,6 @@ sub battleviewer {
             if($self->is_allowed_to_view($replay)) {
                 my $packet_url = sprintf('%s/%s', $self->stash('config')->{urls}->{packets}, $replay->{packets});
                 $self->respond(template => 'replay/view/battleviewer', stash => {
-                    page        => { title => 'Battle Viewer' },
                     packet_url  => $packet_url,
                     replay      => $replay,
                 });
@@ -106,7 +105,6 @@ sub heatmap {
             }
 
             $self->respond(template => 'replay/view/heatmap', stash => {
-                page        => { title => 'Battle Heatmap' },
                 replay      => $replay,
                 dataset     => { max => $max, data => $set },
             });

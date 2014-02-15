@@ -1,0 +1,18 @@
+msgid "profile.settings.language.title"
+msgstr "Language"
+
+msgid "profile.settings.page.title"
+msgstr "Profile &raquo; Settings"
+
+msgid "profile.settings.ratings.none"
+msgstr "Do not display ratings"
+
+msgid "profile.settings.ratings.simplified"
+msgstr "Display simplified ratings"
+
+msgid "profile.settings.ratings.title"
+msgstr "Display ratings in panel"
+
+msgid "profile.settings.ratings.wn8"
+msgstr "Display WN8 ratings"
+
