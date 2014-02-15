@@ -1,0 +1,29 @@
+msgid "vehicleclass.l"
+msgstr "Light Tank"
+
+msgid "vehicleclass.m"
+msgstr "Medium Tank"
+
+msgid "vehicleclass.h"
+msgstr "Heavy Tank"
+
+msgid "vehicleclass.t"
+msgstr "Tank Destroyer"
+
+msgid "vehicleclass.s"
+msgstr "SPG"
+
+msgid "vehicleclass.l.plural"
+msgstr "Light Tanks"
+
+msgid "vehicleclass.m.plural"
+msgstr "Medium Tanks"
+
+msgid "vehicleclass.h.plural"
+msgstr "Heavy Tanks"
+
+msgid "vehicleclass.t.plural"
+msgstr "Tank Destroyers"
+
+msgid "vehicleclass.s.plural"
+msgstr "SPGs"

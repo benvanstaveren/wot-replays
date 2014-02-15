@@ -21,8 +21,8 @@
 
     [% IF h.is_own_replay(replay) %]
         $('a#edit-desc-link').click(function() {
-            $('#desc-show').hide();
-            $('#desc-edit').show();
+            $('#desc-show').addClass('hide');
+            $('#desc-edit').removeClass('hide');
             return false;
         });
         $('button#edit-save').click(function() {
@@ -43,8 +43,8 @@
                         width: '760px',
                         allow_dismiss: true,
                     });
-                    $('#desc-show').show();
-                    $('#desc-edit').hide();
+                    $('#desc-show').removeClass('hide');
+                    $('#desc-edit').addClass('hide');
                 }
             });
             return false;

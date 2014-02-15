@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-md-6 col-lg-6">
         <div class="row">
-            <div class="col-lg-12 col-md-12"><h4>[% h.loc('replay.team.title', 1) %]</h4></div>
+            <div class="col-lg-12 col-md-12"><h4>[% h.loc('replays.team.title', 1) %]</h4></div>
         </div>
         <div class="row">
             <div class="col-lg-12 col-md-12">
@@ -11,7 +11,7 @@
     </div>
     <div class="col-md-6 col-lg-6">
         <div class="row">
-            <div class="col-lg-12 col-md-12"><h4>[% h.loc('replay.team.title',2) %]</h4></div>
+            <div class="col-lg-12 col-md-12"><h4>[% h.loc('replays.team.title',2) %]</h4></div>
         </div>
         <div class="row">
             <div class="col-lg-12 col-md-12">

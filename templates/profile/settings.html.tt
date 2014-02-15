@@ -4,20 +4,30 @@
     </div>
     <div class="row">
         <div class="col-lg-4 col-md-4">
-            <h4>[% h.loc('profile.settings.language.title') %]</h4>
-            <select name="language" disabled="true" class="disabled">
-                [% FOREACH language IN config.languages %]
-                    <option value="[% language.ident %]" [% IF user_lang == language.ident %]selected[% END %]>[% h.loc(language.label) %]</option>
-                [% END %]
-            </select>
+            <div class="panel panel-default">
+                <div class="panel-heading">[% h.loc('profile.settings.language.title') %]</div>
+                <div class="panel-body">
+                    <select name="language" class="form-control">
+                        [% FOREACH language IN config.languages %]
+                            <option value="[% language.ident %]" [% IF user_lang == language.ident %]selected[% END %]>[% h.loc('language.' _ language.ident) %]</option>
+                        [% END %]
+                    </select>
+                    <span class="spinner small hide" id="spinner-language"></span>
+                </div>
+            </div>
         </div>
         <div class="col-lg-4 col-md-4">
-            <h4>[% h.loc('profile.settings.ratings.title') %]</h4>
-            <select name="ratings">
-                <option value="simplified">Display Simplified Ratings</option>
-                <option value="wn8">Display WN8 Ratings</option>
-                <option value="none">Don't display any ratings</option>
-            </select>
+            <div class="panel panel-default">
+                <div class="panel-heading">[% h.loc('profile.settings.ratings.title') %]</div>
+                <div class="panel-body">
+                    <select name="ratings" class="form-control">
+                        <option value="simplified">[% h.loc('profile.settings.ratings.simplified') %]</option>
+                        <option value="wn8">[% h.loc('profile.settings.ratings.wn8') %]</option>
+                        <option value="none">[% h.loc('profile.settings.ratings.none') %]</option>
+                    </select>
+                    <span class="spinner hide" id="spinner-ratings"></span>
+                </div>
+            </div>
         </div>
         <div class="col-lg-4 col-md-4">
         </div>
@@ -27,16 +37,20 @@
             $('select[name="ratings"]').val('[% h.current_user.settings.display.ratings || 'simplified' %]').change(function() {
                 if($(this).hasClass('disabled')) return;
                 $(this).addClass('disabled');
+                $('#spinner-ratings').removeClass('hide');
+                $('select[name="ratings"]').addClass('hide');
                 $.getJSON('/profile/j/setting', {
                     setting: 'display.ratings', 
                     value  : $(this).val()
                 }, function(d) {
+                    $('#spinner-ratings').addClass('hide');
+                    $('select[name="ratings"]').removeClass('hide');
                     $(this).removeClass('disabled');
                 });
             });
             $('select[name="language"]').change(function() {
-                //var l = $(this).val();
-                //document.location.href = '/profile/sl/' + l;
+                var l = $(this).val();
+                document.location.href = '/profile/sl/' + l;
             });
         });
     </script>

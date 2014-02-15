@@ -1,12 +1,13 @@
-<h4>[% h.loc('replay.shots.title') %]</h4>
+<h4>[% h.loc('replays.overview.shots.title') %]</h4>
+<div class="well">
 <table class="table table-bordered table-striped">
     <tbody>
         <tr>
-            <td><h5 style="margin: 0px">[% h.loc('replay.shots.fired') %]</h5></td>
+            <td><h5 style="margin: 0px">[% h.loc('replays.overview.shots.fired') %]</h5></td>
             <td><span>[% replay.stats.shots || '0' %]</span></td>
         </tr>
         <tr>
-            <td><h5 style="margin: 0px;">[% h.loc('replay.shots.hits') %]</h5></td>
+            <td><h5 style="margin: 0px;">[% h.loc('replays.overview.shots.hits') %]</h5></td>
             <td>
                 [% accuracy = h.percentage_of(replay.stats.shots, replay.stats.hits) %]
                 <span title="Total hits">[% replay.stats.hits || '0' %]</span> 
@@ -14,7 +15,7 @@
             </td>
         </tr>
         <tr>
-            <td><h5 style="margin: 0px;">[% h.loc('replay.shots.penetrations') %]</h5></td>
+            <td><h5 style="margin: 0px;">[% h.loc('replays.overview.shots.penetrations') %]</h5></td>
             <td>
                 [% penperc = h.percentage_of(replay.stats.hits, replay.stats.pierced) %]
                 <span title="Penetrating hits">[% replay.stats.pierced || '0' %]</span>
@@ -22,8 +23,9 @@
             </td>
         </tr>
         <tr>
-            <td><h5 style="margin: 0px">[% h.loc('replay.shots.misses') %]</h5></td>
+            <td><h5 style="margin: 0px">[% h.loc('replays.overview.shots.misses') %]</h5></td>
             <td>[% replay.stats.shots - replay.stats.hits || '0' %]</td>
         </tr>
     </tbody>
 </table>
+</div>

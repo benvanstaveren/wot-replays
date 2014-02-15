@@ -2,28 +2,42 @@ package WR::Plugin::I18N;
 use Mojo::Base 'Mojolicious::Plugin';
 use Data::Localize::Gettext;
 
-sub register {
+sub get_paths {
     my $self = shift;
-    my $app  = shift;
+    my %args = (@_);
+    my $app  = $args{using};
+    my $lang = $args{for};
+
+    # wargaming language file set
+    my $wg_path = sprintf('%s/*.po', $app->home->rel_dir(sprintf('lang/wg/%s', $lang)));
+
+    # for each language, read the site/<lang> folder for the appropriate files 
+    my $common_path = sprintf('%s/*.po', $app->home->rel_dir(sprintf('lang/site/%s', $lang)));
+
+    return ($common_path, $wg_path);
+}
+
+sub register {
+    my $self  = shift;
+    my $app   = shift;
+
+    my $g = {};
+
+    # during registration we want to set up the paths for each language that's configured
+    $g->{'common'} = [ $self->get_paths(for => 'common', using => $app) ];
+    $g->{'en'}     = $g->{common};
+
+    foreach my $language (@{$app->config->{i18n}->{languages}}) {
+        $g->{$language} = [ $g->{'common'}, $self->get_paths(for => $language, using => $app) ];
+    }
+    $app->config('i18n_language_paths' => $g);
 
     $app->hook(before_routes => sub {
         my $c = shift;
 
         my $language = $c->session('language') || 'en';
-
-        # set up the paths 
-        my $paths = [
-            sprintf('%s/*.po', $c->app->home->rel_dir('lang/site/common')),
-            sprintf('%s/*.po', $c->app->home->rel_dir('lang/wg/common')),
-        ];
-
-        if($language ne 'en') {
-            push(@$paths, 
-                sprintf('%s/*.po', $c->app->home->rel_dir(sprintf('lang/site/%s', $language))),
-                sprintf('%s/*.po', $c->app->home->rel_dir(sprintf('lang/wg/%s', $language))),
-            );
-        }
-        $c->stash('i18n_localizer' => Data::Localize::Gettext->new(formatter => WR::Localize::Formatter->new(), paths => $paths));
+        $c->app->log->debug('before_routes: language: ' . $language . ' paths: ' . join(', ', @{$c->config('i18n_language_paths')->{$language}}));
+        $c->stash('i18n_localizer' => $c->get_localizer_for($language));
         $c->stash('user_lang' => $language);
     });
 
@@ -32,19 +46,7 @@ sub register {
         my $language = shift;
 
         $c->session(language => $language);
-
-        my $paths = [
-            sprintf('%s/*.po', $c->app->home->rel_dir('lang/site/common')),
-            sprintf('%s/*.po', $c->app->home->rel_dir('lang/wg/common')),
-        ];
-
-        if($language ne 'en') {
-            push(@$paths, 
-                sprintf('%s/*.po', $c->app->home->rel_dir(sprintf('lang/site/%s', $language))),
-                sprintf('%s/*.po', $c->app->home->rel_dir(sprintf('lang/wg/%s', $language))),
-            );
-        }
-        $c->stash('i18n_localizer' => Data::Localize::Gettext->new(formatter => WR::Localize::Formatter->new(), paths => $paths));
+        $c->stash('i18n_localizer' => $c->get_localizer_for($language));
         $c->stash('user_lang' => $language);
     });
 
@@ -64,37 +66,52 @@ sub register {
         return $self->loc(sprintf('%s/desc', $str), @_);
     });
 
+    $app->helper(get_localizer_for => sub {
+        my $self = shift;
+        my $lang = shift;
+
+        return Data::Localize::Gettext->new(formatter => WR::Localize::Formatter->new(), paths => $self->config('i18n_language_paths')->{$lang});
+    });
+
     $app->helper(loc => sub {
         my $self = shift;
         my $str  = shift;
         my $args = shift;
-        my $l    = 'site';  # default localizer "language"
+        my $l    = 'site';  # default localizer "language", here to ensure that anything that doesn't get the #whatever:foo prefix treatment is picked up normally
         my $ostr = $str;
+
+        return $str if(defined($self->config->{loc_disabled}));
 
         $args = [ $args, @_ ] if(ref($args) ne 'ARRAY');
 
-        $self->app->log->debug('no language string passed, caller: ' . (caller(1))[3]) and return 'no.lang.string.given' unless(defined($str));
+        $self->app->log->error('no language string passed, caller: ' . (caller(1))[3]) and return 'no.lang.string.given' unless(defined($str));
 
         # find out if the string is a WoT style userString
         if($str =~ /^#(.*?):(.*)/) {
             $l   = $1;
             $str = $2;
+        } else {
+            $str = lc($str);
         }
 
         if(my $localizer = $self->stash('i18n_localizer')) {
             if(my $xlat = $localizer->localize_for(lang => $l, id => $str, args => $args)) {
                 return $xlat;
             } else {
-                # okay, stupid WG inconsistency, some tanks have a _short, some don't, so if our str contains _short, retry it 
-                if($str =~ /_short$/) {
-                    $ostr =~ s/_short$//g;
-                    return $self->loc($ostr);
+                if($l ne 'site') {
+                    # okay, stupid WG inconsistency, some tanks have a _short, some don't, so if our str contains _short, retry it 
+                    if($str =~ /_short$/) {
+                        $ostr =~ s/_short$//g;
+                        return $self->loc($ostr);
+                    } else {
+                        return $ostr;
+                    }
                 } else {
-                    return $str;
+                    return $ostr;
                 }
             }
         } else {
-            return $str;
+            return $ostr;
         }
     });
 }

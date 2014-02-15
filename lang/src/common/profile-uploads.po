@@ -1,0 +1,32 @@
+msgid "profile.uploads.page.title"
+msgstr "Profile &raquo; Uploads"
+
+msgid "profile.uploads.upload.date"
+msgstr "Upload Date"
+
+msgid "profile.uploads.upload.file"
+msgstr "File"
+
+msgid "profile.uploads.upload.status"
+msgstr "Status"
+
+msgid "profile.uploads.replay.file"
+msgstr "replay file"
+
+msgid "profile.uploads.replay.page"
+msgstr "replay page"
+
+msgid "profile.uploads.status.view"
+msgstr "view status"
+
+msgid "profile.uploads.process.ok"
+msgstr "PROCESSED OK"
+
+msgid "profile.uploads.process.error"
+msgstr "PROCESS ERROR"
+
+msgid "profile.uploads.process.pending"
+msgstr "PENDING"
+
+msgid "profile.uploads.process.processing"
+msgstr "PROCESSING"

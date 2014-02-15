@@ -1,0 +1,20 @@
+msgid "replay.loadout.inscriptions.heading"
+msgstr "Inscriptions"
+
+msgid "replay.loadout.emblems.heading"
+msgstr "Emblems"
+
+msgid "replay.loadout.camouflage.heading"
+msgstr "Camouflage"
+
+msgid "replay.loadout.ammunition.heading"
+msgstr "Ammunition"
+
+msgid "replay.loadout.modules.heading"
+msgstr "Modules"
+
+msgid "replay.loadout.consumables.heading"
+msgstr "Consumables"
+
+msgid "replay.loadout.equipment.heading"
+msgstr "Equipment"

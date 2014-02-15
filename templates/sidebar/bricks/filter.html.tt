@@ -63,12 +63,11 @@
                         <h5>[% h.loc('sidebar.filter.server.title') %]</h5>
                         <select name="server" class="form-control">
                             <option value="*">-- [% h.loc('sidebar.filter.server.all') %]</option>
-                            <option value="na">[% h.loc('sidebar.filter.server.na') %]</option>
-                            <option value="eu">[% h.loc('sidebar.filter.server.eu') %]</option>
-                            <option value="ru">[% h.loc('sidebar.filter.server.ru') %]</option>
-                            <option value="sea">[% h.loc('sidebar.filter.server.sea') %]</option>
-                            <option value="vn">[% h.loc('sidebar.filter.server.vn') %]</option>
-                            <option value="kr">[% h.loc('sidebar.filter.server.kr') %]</option>
+                            <option value="na">[% h.loc('server.na') %]</option>
+                            <option value="eu">[% h.loc('server.eu') %]</option>
+                            <option value="ru">[% h.loc('server.ru') %]</option>
+                            <option value="sea">[% h.loc('server.sea') %]</option>
+                            <option value="kr">[% h.loc('server.kr') %]</option>
                         </select>
                     </div>
                 </div>
@@ -78,10 +77,10 @@
                     <h5>[% h.loc('sidebar.filter.matchmode.title') %]</h5>
                     <select name="matchmode" class="form-control">
                         <option value="*">-- [% h.loc('sidebar.filter.matchmode.all') %]</option>
-                        <option value="ctf">[% h.loc('#gametype:ctf') %]</option>
-                        <option value="domination">[% h.loc('#gametype:domination') %]</option>
-                        <option value="assault">[% h.loc('#gametype:assault') %]</option>
-                        <option value="nations">[% h.loc('#gametype:nations') %]</option>
+                        <option value="ctf">[% h.loc('gametype.ctf') %]</option>
+                        <option value="domination">[% h.loc('gametype.domination') %]</option>
+                        <option value="assault">[% h.loc('gametype.assault') %]</option>
+                        <option value="nations">[% h.loc('gametype.nations') %]</option>
                     </select>
                 </div>
             </div>
@@ -90,13 +89,13 @@
                     <h5>[% h.loc('sidebar.filter.matchtype.title') %]</h5>
                     <select name="matchtype" class="form-control">
                         <option value="*">-- [% h.loc('sidebar.filter.matchtype.all') %]</option>
-                        <option value="1">[% h.loc('#bonustype:1') %]</option>
-                        <option value="2">[% h.loc('#bonustype:2') %]</option>
-                        <option value="3">[% h.loc('#bonustype:3') %]</option>
-                        <option value="4">[% h.loc('#bonustype:4') %]</option>
-                        <option value="5">[% h.loc('#bonustype:5') %]</option>
-                        <option value="6">[% h.loc('#bonustype:6') %]</option>
-                        <option value="7">[% h.loc('#bonustype:7') %]</option>
+                        <option value="1">[% h.loc('bonustype.1') %]</option>
+                        <option value="2">[% h.loc('bonustype.2') %]</option>
+                        <option value="3">[% h.loc('bonustype.3') %]</option>
+                        <option value="4">[% h.loc('bonustype.4') %]</option>
+                        <option value="5">[% h.loc('bonustype.5') %]</option>
+                        <option value="6">[% h.loc('bonustype.6') %]</option>
+                        <option value="7">[% h.loc('bonustype.7') %]</option>
                     </select>
                 </div>
             </div>

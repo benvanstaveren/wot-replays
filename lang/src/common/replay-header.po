@@ -1,0 +1,89 @@
+msgid "replay.game.finishreason.0"
+msgstr "unknown"
+
+msgid "replay.game.finishreason.1.0"
+msgstr "all enemies killed"
+
+msgid "replay.game.finishreason.1.1"
+msgstr "all friendlies killed"
+
+msgid "replay.game.finishreason.2"
+msgstr "base captured"
+
+msgid "replay.game.finishreason.3"
+msgstr "timeout"
+
+msgid "replay.game.finishreason.4"
+msgstr "failure"
+
+msgid "replay.game.finishreason.5"
+msgstr "technical"
+
+msgid "replay.header.killedby"
+msgstr "killed by"
+
+msgid "replay.header.result"
+msgstr "Result"
+
+msgid "replay.header.survived"
+msgstr "Survived"
+
+msgid "replay.header.survived.no"
+msgstr "No"
+
+msgid "replay.header.survived.yes"
+msgstr "Yes"
+
+msgid "replay.result.defeat"
+msgstr "Defeat"
+
+msgid "replay.result.draw"
+msgstr "Draw"
+
+msgid "replay.result.victory"
+msgstr "Victory"
+
+msgid "replay.button.replay.title"
+msgstr "View replay statistics page"
+
+msgid "replay.button.replay.label"
+msgstr "Replay Page"
+
+msgid "replay.button.modal.close.label"
+msgstr "Close"
+
+msgid "replay.button.like.label"
+msgstr "Like"
+
+msgid "replay.button.like.title"
+msgstr "Like this replay"
+
+msgid "replay.button.save.label"
+msgstr "Save"
+
+msgid "replay.button.save.title"
+msgstr "Download this replay"
+
+msgid "replay.button.view.label"
+msgstr "View"
+
+msgid "replay.button.view.title"
+msgstr "View this replay"
+
+msgid "replay.button.embed.label"
+msgstr "Embed"
+
+msgid "replay.button.embed.title"
+msgstr "Generate UBB code to embed this replay on a forum"
+
+msgid "replay.button.battleviewer.label"
+msgstr "Battle Viewer"
+
+msgid "replay.button.battleviewer.title"
+msgstr "Replay this battle on a virtual mini-map"
+
+msgid "replay.button.battleheatmap.title"
+msgstr "View the heatmap for this battle"
+
+msgid "replay.button.battleheatmap.label"
+msgstr "Heatmap"

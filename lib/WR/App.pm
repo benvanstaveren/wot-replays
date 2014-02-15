@@ -81,10 +81,10 @@ sub startup {
         $xhr->route('/du')->to('ui#xhr_du');
 
     my $bv = $r->under('/battleviewer/:replay_id');
-        $bv->route('/')->to('replays-view#battleviewer', pageid => 'battleviewer');
+        $bv->route('/')->to('replays-view#battleviewer', pageid => 'battleviewer', page => { title => 'replay.battleviewer.page.title' });
 
     my $bhm = $r->under('/battleheatmap/:replay_id');
-        $bhm->route('/')->to('replays-view#heatmap', pageid => 'battleheatmap');
+        $bhm->route('/')->to('replays-view#heatmap', pageid => 'battleheatmap', page => { title => 'replay.heatmap.page.title' });
 
     my $rb = $r->under('/replay/:replay_id');
         $rb->route('/')->to('replays-view#view', pageid => undef)->name('viewreplay');
@@ -93,8 +93,8 @@ sub startup {
         $rb->route('/packets')->to('replays-view#packets', pageid => undef);
         $rb->route('/up')->to('replays-rate#rate_up', pageid => undef);
         $rb->route('/comparison')->to('replays-view#comparison', pageid => undef);
-        $bv->route('/battleviewer')->to('replays-view#battleviewer', pageid => 'battleviewer');
-        $bv->route('/heatmap')->to('replays-view#heatmap', pageid => 'battleheatmap');
+        $bv->route('/battleviewer')->to('replays-view#battleviewer', pageid => 'battleviewer', page => { title => 'replay.battleviewer.page.title' });
+        $bv->route('/heatmap')->to('replays-view#heatmap', pageid => 'battleheatmap', page => { title => 'replay.heatmap.page.title' });
 
     $r->route('/clans')->to('clan#index', pageid => 'clan', page => { title => 'clans.page.title' });
     my $clan = $r->under('/clan');
@@ -172,7 +172,7 @@ sub startup {
 
 
     my $vehicles = $r->under('/vehicles');
-        $vehicles->route('/:country')->to('vehicle#index', pageid => 'vehicle');
+        $vehicles->route('/:country')->to('vehicle#index', pageid => 'vehicle', page => { title => 'vehicles.page.title', title_args => [ 'l:nations:country' ] });
 
     my $vehicle = $r->under('/vehicle');
         $vehicle->route('/:country/:vehicle')->to(cb => sub {
@@ -190,7 +190,8 @@ sub startup {
         }, pageid => 'vehicle');
         $vehicle->route('/:country/:vehicle/*filter')->to('replays#browse', 
             page => {
-                title => 'vehicle.page.title',
+                title       => 'vehicle.page.title',
+                title_args  => [ 'd:data.vehicles:name:vehicle:i18n' ],
             },
             pageid => 'vehicle',
             filter_opts => {
@@ -209,7 +210,7 @@ sub startup {
     $r->route('/maps')->to('map#index', pageid => 'map');
 
     my $heatmaps = $r->under('/heatmaps');
-        $heatmaps->route('/:map_ident')->to('heatmap#view', next => 'view');
+        $heatmaps->route('/:map_ident')->to('heatmap#view', next => 'view', page => { title => 'heatmaps.page.title', title_args => [ 'map_name' ] });
 
     my $map = $r->under('/map');
         $map->route('/:map_id')->to(cb => sub {
@@ -230,6 +231,7 @@ sub startup {
         $map->route('/:map_id/*filter')->to('replays#browse', 
             page => {
                 title => 'map.page.title',
+                title_args => [ 'map_name' ],
             },
             pageid => 'map',
             filter_opts => {
@@ -241,8 +243,7 @@ sub startup {
 
                     $self->model('wot-replays.data.maps')->find_one({ slug => $slug } => sub {
                         my ($coll, $err, $doc) = (@_);
-
-                        warn 'gonna return ', $doc->{numerical_id}, ' from: ', $slug, "\n";
+                        $self->stash('map_name' => $self->loc($doc->{i18n}));
                         $cb->({ map => $doc->{numerical_id }});
                     });
                 },
@@ -263,9 +264,9 @@ sub startup {
         $openid->any('/return')->to('ui#openid_return');
 
     my $pb = $r->bridge('/profile')->to('profile#bridge');
-        $pb->route('/replays/type/:type/page/:page')->to('profile#replays', mustauth => 1, pageid => 'profile');
-        $pb->route('/uploads/page/:page')->to('profile#uploads', pageid => 'profile');
-        $pb->route('/settings')->to('profile#settings', pageid => 'profile');
+        $pb->route('/replays/type/:type/page/:page')->to('profile#replays', mustauth => 1, pageid => 'profile', page => { title => 'profile.replays.page.title' });
+        $pb->route('/uploads/page/:page')->to('profile#uploads', pageid => 'profile', page => { title => 'profile.uploads.page.title' });
+        $pb->route('/settings')->to('profile#settings', pageid => 'profile', page => { title => 'profile.settings.page.title' });
         $pb->route('/sl/:lang')->to('profile#sl', pageid => 'profile');
 
         my $pbj = $pb->under('/j');
@@ -278,7 +279,16 @@ sub startup {
     my $admin = $r->bridge('/admin')->to('admin#bridge');
         $admin->route('/')->to('admin#index', pageid => 'admin/home');
         $admin->route('/events')->to('admin-events#index', pageid => 'admin/events');
-        $admin->route('/language')->to('admin-language#index', pageid => 'admin/language');
+
+        my $language = $admin->under('/language');
+            $language->route('/')->to('admin-language#index', pageid => 'admin/language');
+            my $langroot = $language->bridge('/:lang')->to('admin-language#language_bridge');
+                $langroot->route('/')->to('admin-language#index', pageid => 'admin/language', section => '--');
+                $langroot->route('/publish')->to('admin-language#publish', pageid => 'admin/language');
+                my $section = $langroot->under('/:section');
+                    $section->route('/')->to('admin-language#section', pageid => 'admin/language');
+                    $section->route('/single')->via(qw/POST/)->to('admin-language#save_single');
+                    $section->route('/all')->via(qw/POST/)->to('admin-language#save_all');
 
         my $site = $admin->under('/site');
             my $replays = $site->under('/replays');
@@ -320,6 +330,11 @@ sub startup {
                     my $text = shift;
                     $text =~ s/\\t/<br\/><span style="margin-left: 20px"><\/span>/g;
                     return $text;
+                },
+                'ucfirste' => sub {
+                    my $text = shift;
+
+                    return join(' ', map { ucfirst($_) } (split(/\s/, $text)));
                 },
             },
             RELATIVE => 1,

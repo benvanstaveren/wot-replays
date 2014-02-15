@@ -1,0 +1,23 @@
+msgid "players.button.search.label"
+msgstr "Search"
+
+msgid "players.heading.search"
+msgstr "Search"
+
+msgid "players.label.query"
+msgstr "Query"
+
+msgid "players.label.server"
+msgstr "Server"
+
+msgid "players.page.header"
+msgstr "Search Players"
+
+msgid "players.page.title"
+msgstr "Search Players"
+
+msgid "players.heading.results"
+msgstr "Results"
+
+msgid "players.label.player"
+msgstr "Player"

@@ -38,7 +38,7 @@ sub frontpage {
 
         $self->respond(template => $template, stash => {
             replays         => $replays || [],
-            page            => { title => $self->loc('index.page.title') },
+            page            => { title => 'index.page.title' },
             timing_query    => tv_interval($start),
             #sidebar         => {
             #    alert       =>  {

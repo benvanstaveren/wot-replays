@@ -36,6 +36,6 @@
         [% END %]
     </td>
     <td class="playerDamage"><span class="green">[% player.stats.damageDealt %]</td>
-    <td class="playerXP"><span class="green bs-tooltip" data-toggle="tooltip" data-placement="auto" data-container="body" title="[% h.loc('replay.team.xp.earned', player.stats.xp) %]">[% player.stats.xp %]</span></td>
+    <td class="playerXP"><span class="green bs-tooltip" data-toggle="tooltip" data-placement="auto" data-container="body" title="[% h.loc('replays.team.xp.earned', player.stats.xp) %]">[% player.stats.xp %]</span></td>
     <td class="playerFrags [% IF player.stats.kills > 0 %]green[% ELSIF player.stats.kills < 0 %]red[% END %]">[% player.stats.kills || '0' %]</td>
 </tr>

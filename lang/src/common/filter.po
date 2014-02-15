@@ -1,0 +1,80 @@
+msgid "sidebar.filter.header"
+msgstr "Filter"
+
+msgid "sidebar.filter.button.filter"
+msgstr "Filter"
+
+msgid "sidebar.filter.button.reset"
+msgstr "Reset"
+
+msgid "sidebar.filter.vehicle.title"
+msgstr "Vehicle"
+
+msgid "sidebar.filter.vehicle.all"
+msgstr "All vehicles"
+
+msgid "sidebar.filter.tier.title"
+msgstr "Tier"
+
+msgid "sidebar.filter.map.title"
+msgstr "Map"
+
+msgid "sidebar.filter.map.all"
+msgstr "All maps"
+
+msgid "sidebar.filter.server.title"
+msgstr "Server"
+
+msgid "sidebar.filter.server.all"
+msgstr "All servers"
+
+msgid "sidebar.filter.matchmode.title"
+msgstr "Match Mode"
+
+msgid "sidebar.filter.matchmode.all"
+msgstr "All modes"
+
+msgid "sidebar.filter.matchtype.title"
+msgstr "Match Type"
+
+msgid "sidebar.filter.matchtype.all"
+msgstr "All types"
+
+msgid "sidebar.filter.sorting.title"
+msgstr "Sorting"
+
+msgid "sidebar.filter.sorting.upload"
+msgstr "Upload Date"
+
+msgid "sidebar.filter.sorting.matchtime"
+msgstr "Match Time"
+
+msgid "sidebar.filter.sorting.xp"
+msgstr "Base XP Earned"
+
+msgid "sidebar.filter.sorting.credits"
+msgstr "Base Credits Earned"
+
+msgid "sidebar.filter.sorting.damage"
+msgstr "Direct Damage Done"
+
+msgid "sidebar.filter.sorting.scouted"
+msgstr "Scouting Damage Done"
+
+msgid "sidebar.filter.sorting.likes"
+msgstr "Likes"
+
+msgid "sidebar.filter.sorting.downloads"
+msgstr "Downloads"
+
+msgid "sidebar.filter.player.title"
+msgstr "Player"
+
+msgid "sidebar.filter.player.all"
+msgstr "All Replays"
+
+msgid "sidebar.filter.player.recordedonly"
+msgstr "Recorded Replays Only"
+
+msgid "sidebar.filter.player.involvedonly"
+msgstr "Involved Replays Only"

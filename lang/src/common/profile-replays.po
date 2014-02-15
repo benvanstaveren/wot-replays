@@ -1,0 +1,68 @@
+msgid "profile.replays.page.title"
+msgstr "Profile &raquo; Replays"
+
+msgid "profile.replays.unlisted"
+msgstr "%1 hunlisted %quant(%1,replay,replays) featuring you"
+
+msgid "profile.replays.public"
+msgstr "%1 public %quant(%1,replay,replays) featuring you"
+
+msgid "profile.replays.clan"
+msgstr "%1 public %quant(%1,replay,replays) featuring you"
+
+msgid "profile.replays.private"
+msgstr "%1 public %quant(%1,replay,replays) featuring you"
+
+msgid "profile.replays.any"
+msgstr "%1 %quant(%1,replay,replays) featuring you"
+
+msgid "profile.replays.heading.map"
+msgstr "map"
+
+msgid "profile.replays.heading.vehicle"
+msgstr "vehicle"
+
+msgid "profile.replays.heading.wl"
+msgstr "w/l"
+
+msgid "profile.replays.heading.survived"
+msgstr "survived"
+
+msgid "profile.replays.heading.kills"
+msgstr "kills"
+
+msgid "profile.replays.heading.damaged"
+msgstr "damaged"
+
+msgid "profile.replays.heading.spotted"
+msgstr "spotted"
+
+msgid "profile.replays.heading.xp"
+msgstr "xp"
+
+msgid "profile.replays.heading.credits"
+msgstr "credits"
+
+msgid "profile.replays.heading.version"
+msgstr "version"
+
+msgid "profile.replays.heading.links"
+msgstr "links"
+
+msgid "profile.replays.victory"
+msgstr "victory"
+
+msgid "profile.replays.defeat"
+msgstr "defeat"
+
+msgid "profile.replays.draw"
+msgstr "draw"
+
+msgid "profile.replays.survived.yes"
+msgstr "yes"
+
+msgid "profile.replays.survived.no"
+msgstr "no"
+
+msgid "profile.replays.view"
+msgstr "view"

@@ -2,7 +2,7 @@
 [% fitting = recv.vehicle.fitting || recv.player.vehicleFitting %]
 <div class="row">
     <div class="col-lg-6 col-md-6">
-        <h4>[% h.loc('text.equipment') |ucfirst %]</h4>
+        <h4>[% h.loc('replay.loadout.equipment.heading') |ucfirst %]</h4>
         <ul class="list-group">
             [% FOREACH eq IN fitting.optional_devices %]
                 [% IF eq %]
@@ -23,7 +23,7 @@
     </div>
     <div class="col-lg-6 col-md-6">
         [% pv = h.get_recorder_vehicle(replay).vehicle %]
-        <h4>[% h.loc('text.modules') |ucfirst %]</h4>
+        <h4>[% h.loc('replay.loadout.modules.heading') |ucfirst %]</h4>
         <ul class="list-group">
             <li class="list-group-item">
                 <span title="[% h.loc('#item_types:engine/name') %]" class="equipment-icon rounded" style="background: transparent url([% config.urls.assets %]/icon/components/24x24/engines.png) no-repeat scroll 0 0"></span>
@@ -58,7 +58,7 @@
 <div class="row">
     <div class="col-lg-6 col-md-6">
         [% IF replay.game.recorder.consumables.defined %]
-            <h4>[% h.loc('text.consumables') |ucfirst %]</h4>
+            <h4>[% h.loc('replay.loadout.consumables.heading') |ucfirst %]</h4>
             <table class="table table-bordered rounded">
                 <tbody>
                     <tr>
@@ -91,7 +91,7 @@
     </div>
     <div class="col-lg-6 col-md-6">
         [% IF replay.game.recorder.ammo.defined %]
-            <h4>[% h.loc('text.ammunition') |ucfirst %]</h4>
+            <h4>[% h.loc('replay.loadout.ammunition.heading') |ucfirst %]</h4>
             <table class="table table-bordered rounded">
                 <tbody>
                     <tr>
@@ -130,14 +130,14 @@
     [% inscriptions = pv.player.vehicleFitting.inscriptions %]
     <div class="col-lg-6 col-md-6">
         [% IF h.defined_count(camo) > 0 %]
-            <h4>Camouflage</h4>
+            <h4>[% h.loc('replay.loadout.camouflage.heading') %]</h4>
             <table class="table table-bordered rounded">
                 <tbody>
                 [% FOREACH entry IN camo %]
                     [% IF entry.defined %]
                         [% c = h.get_camo_by_id(pv.vehicle.country, entry.0) %]
                         <tr>
-                            <td>[% c.kind |ucfirst %]</td>
+                            <td>[% h.loc('camouflage.' _ c.kind) |ucfirst %]</td>
                             <td>[% h.loc(c.i18n) %]</td>
                         </tr>
                     [% END %]
@@ -148,7 +148,7 @@
     </div>
     <div class="col-lg-6 col-md-6">
         [% IF h.defined_count(emblems) > 0 %]
-            <h4>Emblems</h4>
+            <h4>[% h.loc('replay.loadout.emblems.heading') %]</h4>
             <div class="row">
                 [% FOREACH entry IN emblems %]
                     [% IF entry.defined %]
@@ -160,7 +160,7 @@
             </div>
         [% END %]
         [% IF h.defined_count(inscriptions) > 0 %]
-            <h4>Inscriptions</h4>
+            <h4>[% h.loc('replay.loadout.inscriptions.heading') %]</h4>
             <div class="row">
                 [% FOREACH entry IN inscriptions %]
                     [% IF entry.defined %]

@@ -55,7 +55,6 @@ sub battleviewer {
             if($self->is_allowed_to_view($replay)) {
                 my $packet_url = sprintf('%s/%s', $self->stash('config')->{urls}->{packets}, $replay->{packets});
                 $self->respond(template => 'replay/view/battleviewer', stash => {
-                    page        => { title => 'Battle Viewer' },
                     packet_url  => $packet_url,
                     replay      => $replay,
                 });
@@ -106,7 +105,6 @@ sub heatmap {
             }
 
             $self->respond(template => 'replay/view/heatmap', stash => {
-                page        => { title => 'Battle Heatmap' },
                 replay      => $replay,
                 dataset     => { max => $max, data => $set },
             });
@@ -314,11 +312,11 @@ sub actual_view_replay {
         $replay->{game}->{recorder}->{name},
         $self->get_recorder_vehicle($replay)->{vehicle}->{label},
         $self->map_name($replay),
-        $self->app->wr_res->gametype->i18n($replay->{game}->{type})
+        $self->loc(sprintf('#gametype:%s', $replay->{game}->{type}))
         );
 
     my $description = sprintf('This is a replay of a %s match fought by %s, using the %s vehicle, on map %s', 
-        $self->app->wr_res->gametype->i18n($replay->{game}->{type}), 
+        lc($self->loc(sprintf('#gametype:%s', $replay->{game}->{type}))),
         $replay->{game}->{recorder}->{name}, 
         $self->get_recorder_vehicle($replay)->{vehicle}->{label},
         $self->map_name($replay),

@@ -25,6 +25,17 @@ $armor_base_ussr:       rgb(61, 62, 42);
 
 
 div {
+    &.row.replay-view {
+        h4 { margin: 15px 0px 10px 0px }
+    }
+    &.heroawardlist {
+        min-height: 64px;
+    }
+    &#desc-show {
+        min-height: 64px;
+        max-height: 64px;
+        overflow-y: auto;
+    }
     &.armor {
         &.china { background: $armor_base_china none repeat scroll 0 0 }
         &.france { background: $armor_base_france none repeat scroll 0 0 }
@@ -215,7 +226,7 @@ span {
         padding: 0px 0px 0px 5px;
     }
     &.clan {
-        color: #333;
+        color: #eee;
     }
     &.green {
         color: darken($base_green, 10%);

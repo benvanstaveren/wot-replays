@@ -33,14 +33,14 @@
                 log: true,
                 user: '[% IF h.is_user_authenticated %][% h.current_user.player_name |js %].[% h.current_user.player_server |js %][% ELSE %]anon-[% h.get_oid() %][% END %]'
             };
-            Statterpush.connect('[% config.statterbox.web %]', 'wotreplays', thunderChannels, thunderOpts);
-            Statterpush.listen(function(message) {
-                WR.dispatchMessage(message);
-            });
-
             WR.pageid = '[% pageid |js %]';
 
             $(document).ready(function() {
+                Statterpush.connect('[% config.statterbox.web %]', 'wotreplays', thunderChannels, thunderOpts);
+                Statterpush.listen(function(message) {
+                    WR.dispatchMessage(message);
+                });
+
 	            [% IF notify.defined %]
                     var notifyOpts = { 
                         type: '[% IF notify.type == 'error' %]danger[% ELSE %]info[% END %]',

@@ -133,6 +133,7 @@ HeatmapViewer.prototype = {
             'ctf': 'CTF',
             'assault': 'Assault',
             'domination': 'Encounter',
+            'nations': 'Nations',
         };
         $(select).empty();
         this.config.modes.forEach(function(mode) {

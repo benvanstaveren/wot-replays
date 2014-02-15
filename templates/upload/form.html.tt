@@ -1,6 +1,6 @@
 [% WRAPPER wrapper.html.tt %]
     <div class="page-header">
-        <h1>Upload Replay</h1>
+        <h2>[% h.loc('upload.page.title') %]</h2>
     </div>
     <div class="row">
         <div class="col-lg-12 col-md-12">
@@ -8,31 +8,31 @@
                 <form class="form-horizontal" id="frm-upload" action="/upload" method="post" enctype="multipart/form-data">
                     <input name="a" type="hidden" value="save"/>
                     <fieldset>
-                        <legend>Replay File</legend>
+                        <legend>[% h.loc('upload.legend.file') %]</legend>
                         <div class="form-group">
-                            <label class="col-lg-2" for="replayFile">Replay File</label>
+                            <label class="col-lg-2" for="replayFile">[% h.loc('upload.legend.file') %]</label>
                             <div class="col-lg-10">
                                 <input type="file" name="replay" id="replayFile" class="form-control"/>
                             </div>
                         </div>
                     </fieldset>
                     <fieldset>
-                        <legend>Replay Details</legend>
+                        <legend>[% h.loc('upload.legend.details') %]</legend>
                         <div class="form-group">
-                            <label class="col-lg-2" for="replayDescription">Description (optional)</label>
+                            <label class="col-lg-2" for="replayDescription">[% h.loc('upload.description') %] ([% h.loc('upload.optional') %])</label>
                             <div class="col-lg-10">
                                 <textarea class="form-control" rows="5" id="replayDescription" name="description">[% description %]</textarea>
-                                <span class="help-block">HTML is not allowed, only plain text</span>
+                                <span class="help-block">[% h.loc('upload.description.help') %]</span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-lg-2">Privacy Setting <a href="/doc/replayprivacy" class="bs-tooltip" title="More info...">(?)</a></label>
+                            <label class="col-lg-2">[% h.loc('upload.privacy') %] <a href="/doc/replayprivacy" class="bs-tooltip" title="[% h.loc('upload.privacy.tooltip') %]">(?)</a></label>
                             <div class="col-lg-10">
                                 <select name="hide">
-                                    <option selected="true" value="0">Public</option>
-                                    <option value="1">Unlisted</option>
-                                    <option value="2">Private</option>
-                                    <option [% IF !h.current_user.clan.defined %]disabled="true"[% END %] value="3">Clan</option>
+                                    <option selected="true" value="0">[% h.loc('privacy.public') %]</option>
+                                    <option value="1">[% h.loc('privacy.unlisted') %]</option>
+                                    <option value="2">[% h.loc('privacy.private') %]</option>
+                                    <option [% IF !h.current_user.clan.defined %]disabled="true"[% END %] value="3">[% h.loc('privacy.clan') %]</option>
                                 </select>
                             </div>
                         </div>
@@ -40,7 +40,7 @@
                     <fieldset>
                         <div class="form-group">
                             <div class="col-lg-offset-2 col-lg-10">
-                                <button class="btn btn-primary" type="submit">Upload Replay</button>
+                                <button class="btn btn-primary" type="submit">[% h.loc('upload.button.upload') %]</button>
                             </div>
                         </div>
                     </fieldset>
@@ -52,7 +52,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Replay Uploading...</h4>
+                    <h4 class="modal-title">[% h.loc('upload.modal.upload.header') %]</h4>
                 </div>
                 <div class="modal-body">
                     <div class="progress">
@@ -68,13 +68,13 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Processing Replay</h4>
+                    <h4 class="modal-title">[% h.loc('upload.modal.process.header') %]</h4>
                 </div>
                 <div class="modal-body">
                     <div class="process-log" style="min-height: 250px"></div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" id="process-background">Close and process in background</button>
+                    <button type="button" class="btn btn-default" id="process-background">[% h.loc('upload.modal.process.button.close') %]</button>
                 </div>
             </div>
         </div>
@@ -83,19 +83,19 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Processing Complete</h4>
+                    <h4 class="modal-title">[% h.loc('upload.modal.complete.header') %]</h4>
                 </div>
                 <div class="modal-body">
-                    <p class="lead">Links</p>
+                    <p class="lead">[% h.loc('upload.modal.complete.links') |ucfirst %]</p>
                     <div>
                         <table class="table table-bordered">
                             <tbody>
-                                <tr><td><b>Replay Page</b></td><td id="replay-page-link"></td></tr>
-                                <tr><td><b>Replay File</b></td><td id="replay-file-link"></td></tr>
+                                <tr><td><b>[% h.loc('upload.modal.complete.replay.page') |ucfirste %]</b></td><td id="replay-page-link"></td></tr>
+                                <tr><td><b>[% h.loc('upload.modal.complete.replay.file') |ucfirste %]</b></td><td id="replay-file-link"></td></tr>
                             </tbody>
                         </table>
                     </div>
-                    <p class="lead">Banner</p>
+                    <p class="lead">[% h.loc('upload.modal.complete.banner') %]</p>
                     <div>
                         <div id="banner-available">
                             <div style="width: 545px; height: 98px; margin: 0px auto">
@@ -106,15 +106,16 @@
                             </div>
                         </div>
                         <div id="banner-unavailable">
-                            <p>
+                            <div class="alert alert-danger">
+                                [% h.loc('upload.modal.complete.banner.error') %]
                                 There was an error generating the banner, we'll get around to re-generating it soon, and you will be able to find it using the 'Embed' button on the replay page.
-                            </p>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="close-and-view" href="">Close & View</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="close-and-view" href="">[% h.loc('upload.modal.complete.button.closeview') %]</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">[% h.loc('upload.modal.complete.button.close') %]</button>
                 </div>
             </div>
         </div>

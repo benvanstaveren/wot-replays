@@ -1,0 +1,20 @@
+msgid "nations.china"
+msgstr "China"
+
+msgid "nations.france"
+msgstr "France"
+
+msgid "nations.germany"
+msgstr "Germany"
+
+msgid "nations.japan"
+msgstr "Japan"
+
+msgid "nations.uk"
+msgstr "U.K."
+
+msgid "nations.usa"
+msgstr "U.S.A."
+
+msgid "nations.ussr"
+msgstr "U.S.S.R."

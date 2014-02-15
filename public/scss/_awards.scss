@@ -21,13 +21,18 @@ div.award {
         top: 25px;
         left: 26px;
     }
-    @each $award in alaric armorPiercer armoredFist battleHeroes beasthunter bombardier defender diehard diehardSeries evileye fragsBeast fragsPatton fragsSinai geniusForWar geniusForWarMedal handOfDeath heroesOfRassenay huntsman invader invincible invincibleSeries ironMan kamikaze killingSeries kingOfTheHill luckyDevil lumberjack mainGun markOfMastery maxDiehardSeries maxInvincibleSeries maxKillingSeries maxPiercingSeries maxSniperSeries maxTacticalBreakthroughSeries mechanicEngineer mechanicEngineer0 mechanicEngineer1 mechanicEngineer10 mechanicEngineer11 mechanicEngineer12 mechanicEngineer13 mechanicEngineer14 mechanicEngineer2 mechanicEngineer3 mechanicEngineer4 mechanicEngineer5 mechanicEngineer6 mechanicEngineer7 mechanicEngineer8 mechanicEngineer9 mechanicEngineerStrg medalAbrams medalBillotte medalBrothersInArms medalBrunoPietro medalBurda medalCarius medalCrucialContribution medalDeLanglade medalDumitru medalEkins medalFadin medalHalonen medalKay medalKnispel medalKolobanov medalLafayettePool medalLavrinenko medalLeClerc medalLehvaslaiho medalNikolas medalOrlik medalOskin medalPascucci medalPoppel medalRadleyWalters medalTamadaYoshio medalTarczay medalWittmann mousebane pattonValley piercingSeries raider scout sinai sniper sniper2 sniperSeries steelwall sturdy supporter tacticalBreakthrough tacticalBreakthroughSeries tankExpert tankExpert0 tankExpert1 tankExpert10 tankExpert11 tankExpert12 tankExpert13 tankExpert14 tankExpert2 tankExpert3 tankExpert4 tankExpert5 tankExpert6 tankExpert7 tankExpert8 tankExpert9 tankExpertStrg titleSniper warrior wolfAmongSheep wolfAmongSheepMedal {
+    @each $award in alaric armorPiercer armoredFist battleHeroes beasthunter bombardier defender diehard diehardSeries evileye fragsBeast fragsPatton fragsSinai geniusForWar geniusForWarMedal handOfDeath heroesOfRassenay huntsman invader invincible invincibleSeries ironMan kamikaze killingSeries kingOfTheHill luckyDevil lumberjack mainGun markOfMastery1 markOfMastery2 markOfMastery3 markOfMastery4 maxDiehardSeries maxInvincibleSeries maxKillingSeries maxPiercingSeries maxSniperSeries maxTacticalBreakthroughSeries mechanicEngineer mechanicEngineer0 mechanicEngineer1 mechanicEngineer10 mechanicEngineer11 mechanicEngineer12 mechanicEngineer13 mechanicEngineer14 mechanicEngineer2 mechanicEngineer3 mechanicEngineer4 mechanicEngineer5 mechanicEngineer6 mechanicEngineer7 mechanicEngineer8 mechanicEngineer9 mechanicEngineerStrg medalAbrams medalBillotte medalBrothersInArms medalBrunoPietro medalBurda medalCarius medalCrucialContribution medalDeLanglade medalDumitru medalEkins medalFadin medalHalonen medalKay medalKnispel medalKolobanov medalLafayettePool medalLavrinenko medalLeClerc medalLehvaslaiho medalNikolas medalOrlik medalOskin medalPascucci medalPoppel medalRadleyWalters medalTamadaYoshio medalTarczay medalWittmann mousebane pattonValley piercingSeries raider scout sinai sniper sniper2 sniperSeries steelwall sturdy supporter tacticalBreakthrough tacticalBreakthroughSeries tankExpert tankExpert0 tankExpert1 tankExpert10 tankExpert11 tankExpert12 tankExpert13 tankExpert14 tankExpert2 tankExpert3 tankExpert4 tankExpert5 tankExpert6 tankExpert7 tankExpert8 tankExpert9 tankExpertStrg titleSniper warrior wolfAmongSheep wolfAmongSheepMedal {
         &.#{$award} {
             @include award($award, 48);
             &.small {
                 width: 16px;
                 height: 16px;
                 @include award($award, 16);
+            }
+            &.big {
+                width: 64px;
+                height: 64px;
+                @include award($award, 64);
             }
         }
     }

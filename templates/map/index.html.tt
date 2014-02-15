@@ -1,6 +1,6 @@
 [% WRAPPER wrapper.html.tt %]
     <div class="page-header">
-        <h1>Maps</h1>
+        <h1>[% h.loc('maps.page.header') %]</h1>
     </div>
     <div class="row clearfix">
         <div class="col-md-12 col-lg-12">

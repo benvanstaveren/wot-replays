@@ -1,0 +1,18 @@
+msgid "replay.nav.chat"
+msgstr "Chat"
+
+msgid "replay.nav.earnings"
+msgstr "Earnings"
+
+msgid "replay.nav.loadout"
+msgstr "Loadout"
+
+msgid "replay.nav.missions"
+msgstr "Missions"
+
+msgid "replay.nav.overview"
+msgstr "Overview"
+
+msgid "replay.nav.teams"
+msgstr "Teams"
+

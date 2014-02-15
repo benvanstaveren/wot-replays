@@ -41,17 +41,17 @@
                 log: false,
                 user: '[% IF h.is_user_authenticated %][% h.current_user.player_name |js %].[% h.current_user.player_server |js %][% ELSE %]anon-[% h.get_oid() %][% END %]'
             };
-            Statterpush.connect('[% config.statterbox.web %]', 'wotreplays', thunderChannels, thunderOpts);
-            Statterpush.listen(function(message) {
-                WR.dispatchMessage(message);
-            });
             WR.pageid = '[% pageid |js %]';
             $(document).ready(function() {
+                Statterpush.connect('[% config.statterbox.web %]', 'wotreplays', thunderChannels, thunderOpts);
+                Statterpush.listen(function(message) {
+                    WR.dispatchMessage(message);
+                });
 	            [% IF notify.defined %]
                     var notifyOpts = { 
                         type: '[% IF notify.type == 'error' %]danger[% ELSE %]info[% END %]',
                         allow_dismiss: [% IF notify.close %]true[% ELSE %]false[% END %],
-                        offset: { from: 'top', amount: 40 },
+                        offset: { from: 'top', amount: 60 },
                         delay: [% IF notify.sticky %]200000[% ELSE %]20000[% END %]
                     };
                     $.bootstrapGrowl('[% notify.text |js %]', notifyOpts);
@@ -79,13 +79,13 @@
                     <li class="[% IF pageid == 'map' %]active[% END %]"><a href="/maps/">[% h.loc('nav.maps') %]</a></li>
                     <li class="dropdown [% IF pageid == 'vehicle' %]active[% END %]"><a class="dropdown-toggle" data-toggle="dropdown" href="/vehicles/">[% h.loc('nav.vehicles') %] <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="/vehicles/china">[% h.loc('#nations:china') %]</a></li>
-                            <li><a href="/vehicles/france">[% h.loc('#nations:france') %]</a></li>
-                            <li><a href="/vehicles/germany">[% h.loc('#nations:germany') %]</a></li>
-                            <li><a href="/vehicles/japan">[% h.loc('#nations:japan') %]</a></li>
-                            <li><a href="/vehicles/uk">[% h.loc('#nations:uk') %]</a></li>
-                            <li><a href="/vehicles/usa">[% h.loc('#nations:usa') %]</a></li>
-                            <li><a href="/vehicles/ussr">[% h.loc('#nations:ussr') %]</a></li>
+                            <li><a href="/vehicles/china">[% h.loc('nations.china') %]</a></li>
+                            <li><a href="/vehicles/france">[% h.loc('nations.france') %]</a></li>
+                            <li><a href="/vehicles/germany">[% h.loc('nations.germany') %]</a></li>
+                            <li><a href="/vehicles/japan">[% h.loc('nations.japan') %]</a></li>
+                            <li><a href="/vehicles/uk">[% h.loc('nations.uk') %]</a></li>
+                            <li><a href="/vehicles/usa">[% h.loc('nations.usa') %]</a></li>
+                            <li><a href="/vehicles/ussr">[% h.loc('nations.ussr') %]</a></li>
                         </ul>
                     </li>
                     <li class="dropdown [% IF pageid == 'heatmap' %]active[% END %]"><a class="dropdown-toggle" data-toggle="dropdown" href="/heatmaps/">[% h.loc('nav.heatmaps') %] <b class="caret"></b></a>
@@ -127,7 +127,7 @@
         </div>
         <div class="container rounded shadow clearfix">
             <div id="contentMain">[% content %]</div>
-            <div class="clearfix" style="text-align: center; margin: 40px 0px 10px 0px">&copy; 2012-2014 Scrambled |  <a style="display: inline; text-decoration: underline; padding: 0px" href="/doc/about.html">[% h.loc('page.footer.about') %]</a> | <a style="display: inline; text-decoration: underline; padding: 0px" href="/doc/credits.html">[% h.loc('page.footer.credits') %]</a> | t: <span id="timing_elapsed">[% IF timing_elapsed.defined %][% h.sprintf('%.4f', timing_elapsed)  %][% ELSE %]-[% END %]</span> [% IF timing_query.defined %]q: <span id="timing_query">[% h.sprintf('%.4f', timing_query) %]</span>[% END %]</div>
+            <div class="clearfix" style="text-align: center; margin: 40px 0px 10px 0px">&copy; 2012-2014 Scrambled |  <a style="display: inline; text-decoration: underline; padding: 0px" href="/doc/about.html">[% h.loc('footer.about') %]</a> | <a style="display: inline; text-decoration: underline; padding: 0px" href="/doc/credits.html">[% h.loc('footer.credits') %]</a> | t: <span id="timing_elapsed">[% IF timing_elapsed.defined %][% h.sprintf('%.4f', timing_elapsed)  %][% ELSE %]-[% END %]</span> [% IF timing_query.defined %]q: <span id="timing_query">[% h.sprintf('%.4f', timing_query) %]</span>[% END %]</div>
         </div>
         [% IF hint.defined %]
             <div class="modal fade" id="hintModal">
