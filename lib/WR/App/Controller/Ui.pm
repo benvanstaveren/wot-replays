@@ -40,12 +40,12 @@ sub frontpage {
             replays         => $replays || [],
             page            => { title => 'index.page.title' },
             timing_query    => tv_interval($start),
-            #sidebar         => {
-            #    alert       =>  {
-            #        title   =>  'Heavy load',
-            #        text    =>  q|Due to the Chinese New Year Event currently taking place on the SEA server, the processing queue is quite large, so please be patient while it's being processed|
-            #    }
-            #}
+            sidebar         => {
+                alert       =>  {
+                    title   =>  'Big Update',
+                    text    =>  q|A big update was pushed just now that includes a lot of work done on making the site translateable into more languages; if you see any odd texts in a format like <em>foo.bar.baz</em>, please let me know what page it's on so I can fix it.|
+                }
+            }
         });
     });
     $self->debug('frontpage: bottom');
