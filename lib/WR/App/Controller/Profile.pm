@@ -102,7 +102,7 @@ sub settings {
     my $self = shift;
 
     $self->respond(template => 'profile/settings', stash => {
-        page => { title => 'profile.replays.settings.title' },
+        page => { title => 'profile.settings.page.title' },
     });
 }
 
