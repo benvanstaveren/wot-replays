@@ -84,7 +84,7 @@ sub register {
 
         $args = [ $args, @_ ] if(ref($args) ne 'ARRAY');
 
-        $self->app->log->error('no language string passed, caller: ' . (caller(1))[3]) and return 'no.lang.string.given' unless(defined($str));
+        $self->app->log->error('no language string passed, caller: ' . (caller(0))[3]) and return 'no.lang.string.given' unless(defined($str));
 
         # find out if the string is a WoT style userString
         if($str =~ /^#(.*?):(.*)/) {
@@ -96,9 +96,9 @@ sub register {
 
         if(my $localizer = $self->stash('i18n_localizer')) {
             if(my $xlat = $localizer->localize_for(lang => $l, id => $str, args => $args)) {
-                $self->error('WR::Plugin::I18N: localisation for ', $self->stash('user_lang'), ' root: ', $l, ' str: ', $str, ' did not give a translation') unless(defined($xlat));
                 return $xlat;
             } else {
+                $self->error('WR::Plugin::I18N: localisation for ', $self->stash('user_lang'), ' root: ', $l, ' str: ', $str, ' did not give a translation') if($self->is_the_boss && !defined($xlat));
                 if($l ne 'site') {
                     # okay, stupid WG inconsistency, some tanks have a _short, some don't, so if our str contains _short, retry it 
                     $self->error('WR::Plugin::I18N: localisation for ', $self->stash('user_lang'), ' root: ', $l, ' str: ', $str, ' did not give a translation, trying to see if WG was stupid');
@@ -106,9 +106,11 @@ sub register {
                         $ostr =~ s/_short$//g;
                         return $self->loc($ostr);
                     } else {
+                        $self->error('WR::Plugin::I18N: apparently WG is not stupid');
                         return $ostr;
                     }
                 } else {
+                    $self->error('WR::Plugin::I18N: root: ', $l, ' str: ', $str, ' will return ', $ostr) if($self->is_the_boss && !defined($xlat));
                     return $ostr;
                 }
             }
