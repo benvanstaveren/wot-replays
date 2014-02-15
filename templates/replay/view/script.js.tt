@@ -26,10 +26,13 @@
             return false;
         });
         $('button#edit-save').click(function() {
+            if($(this).hasClass('disabled')) return false;
+            $(this).addClass('disabled');
             var v = $('textarea#edit-text').val();
-            $(this).attr('disabled', true);
             $('textarea#edit-text').attr('disabled', true);
-            $(this).html('[% h.loc('text.saving') |ucfirst %]...');
+            $(this).attr('data-orig', $(this).html());
+            $(this).html($('<span>').addClass('spinner small'));
+            var that = this;
             
             $.getJSON('/replay/[% h.get_id(replay) %]/desc', {
                 desc: v,
@@ -45,6 +48,8 @@
                     });
                     $('#desc-show').removeClass('hide');
                     $('#desc-edit').addClass('hide');
+                    $(that).html($(that).attr('data-orig'));
+                    $(that).removeClass('disabled');
                 }
             });
             return false;

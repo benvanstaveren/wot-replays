@@ -19,7 +19,7 @@
         [% cd = h.get_crit_details(details.crits) %]
         [% IF cd.count > 0 %]
             critDetails['[% pid %]'] = {
-                'title': '[% h.loc('replays.overview.battleperformance.critdetails.title') %]',
+                'title': '[% h.loc('replays.overview.battleperformance.critdetail.title') %]',
                 'placement': 'right',
                 'container': 'body',
                 'html': true,

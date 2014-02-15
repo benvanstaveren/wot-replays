@@ -10,7 +10,7 @@
         [% IF h.achievement_is_award(award.type) %]
             [% IF h.achievement_is_class(award.type) %]
                 [% IF award.type == 79 %]
-                    [% title = h.loc('replay.awards.masterybadge') _ ': ' _ h.loc('#achievements:markOfMasteryContent/' _ award.class_suffix _ '/info') %]
+                    [% title = h.loc('#achievements:markOfMastery').replace('\"%\(name\)s\"','') _ h.loc('#achievements:markOfMasteryContent/' _ award.class_suffix _ '/info') %]
                 [% ELSE %]
                     [% title = h.achievement_name(h.get_achievements.index_to_idstr(award.type)) _ ' ' _ award.class_suffix _ ' Class' %]
                 [% END %]

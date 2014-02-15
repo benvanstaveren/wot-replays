@@ -77,41 +77,44 @@ sub register {
         my $self = shift;
         my $str  = shift;
         my $args = shift;
+        my $nolc = shift || 0;
         my $l    = 'site';  # default localizer "language", here to ensure that anything that doesn't get the #whatever:foo prefix treatment is picked up normally
         my $ostr = $str;
 
         return $str if(defined($self->config->{loc_disabled}));
 
+
         $args = [ $args, @_ ] if(ref($args) ne 'ARRAY');
 
-        $self->app->log->error('no language string passed, caller: ' . (caller(0))[3]) and return 'no.lang.string.given' unless(defined($str));
+        $self->error('no language string passed, caller: ' . (caller(0))[3]) and return 'no.lang.string.given' unless(defined($str));
 
         # find out if the string is a WoT style userString
         if($str =~ /^#(.*?):(.*)/) {
             $l   = $1;
             $str = $2;
         } else {
-            $str = lc($str);
+            $str = lc($str) unless($nolc == 1);
         }
 
         if(my $localizer = $self->stash('i18n_localizer')) {
             if(my $xlat = $localizer->localize_for(lang => $l, id => $str, args => $args)) {
                 return $xlat;
             } else {
-                $self->error('WR::Plugin::I18N: localisation for ', $self->stash('user_lang'), ' root: ', $l, ' str: ', $str, ' did not give a translation') if($self->is_the_boss && !defined($xlat));
                 if($l ne 'site') {
                     # okay, stupid WG inconsistency, some tanks have a _short, some don't, so if our str contains _short, retry it 
-                    $self->error('WR::Plugin::I18N: localisation for ', $self->stash('user_lang'), ' root: ', $l, ' str: ', $str, ' did not give a translation, trying to see if WG was stupid') if($self->is_the_boss);
                     if($str =~ /_short$/) {
                         $ostr =~ s/_short$//g;
                         return $self->loc($ostr);
                     } else {
-                        $self->error('WR::Plugin::I18N: apparently WG is not stupid') if($self->is_the_boss);
                         return $ostr;
                     }
                 } else {
-                    $self->error('WR::Plugin::I18N: root: ', $l, ' str: ', $str, ' will return ', $ostr) if($self->is_the_boss);
-                    return $ostr;
+                    # we mighta fucked it with the LC
+                    if($nolc == 1) {
+                        return $ostr;
+                    } else {
+                        return $self->loc($ostr, $args, 1);
+                    }
                 }
             }
         } else {
