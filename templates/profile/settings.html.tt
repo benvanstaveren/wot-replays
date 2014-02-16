@@ -62,7 +62,7 @@
                     $(this).removeClass('disabled');
                 });
             });
-            $('select[name="ratings"]').val('[% h.current_user.settings.timezone %]').change(function() {
+            $('select[name="timezone"]').val('[% h.current_user.settings.timezone %]').change(function() {
                 if($(this).hasClass('disabled')) return;
                 $(this).addClass('disabled');
                 $('#spinner-timezone').removeClass('hide');
