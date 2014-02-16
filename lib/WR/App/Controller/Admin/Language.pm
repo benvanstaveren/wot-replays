@@ -218,6 +218,13 @@ sub save_all {
         if($key =~ /strings\[(.*?)\]/) {
             my $rk = $1;
             my $v  = xml_escape($args->{$key});
+
+            # restore entities
+            while($v =~ /\&amp;(.*?);/) {
+                my $e = $1;
+                $v =~ s/\&amp;$e;/\&$e;/g;
+            }
+
             $set->{$rk} = $args->{$key};
         }
     }
@@ -253,6 +260,11 @@ sub save_single {
     if(my $fh = IO::File->new(sprintf('>%s', $file))) {
         foreach my $key (sort(keys(%$export))) {
             my $v = xml_escape($export->{$key});
+            # restore entities
+            while($v =~ /\&amp;(.*?);/) {
+                my $e = $1;
+                $v =~ s/\&amp;$e;/\&$e;/g;
+            }
             $fh->print(sprintf('msgid "%s"', $key), "\n");
             $fh->print(sprintf('msgstr "%s"', $v), "\n");
             $fh->print("\n");
