@@ -1,6 +1,7 @@
 package WR::App::Controller::Admin::Language;
 use Mojo::Base 'WR::App::Controller';
 use WR::HashTable;
+use Mojo::Util;
 
 has 'layout' => sub { 
     [
@@ -216,14 +217,8 @@ sub save_all {
     foreach my $key (keys(%$args)) {
         if($key =~ /strings\[(.*?)\]/) {
             my $rk = $1;
-            my $v  = $args->{$key};
-
-            $v =~ s/"/&quot;/g;
-            $v =~ s/\&/&amp;/g;
-            $v =~ s/\</&lt;/g;
-            $v =~ s/\>/&gt;/g;
-
-            $set->{$rk} = $args->{$key} unless($v =~ /[<>]/); # don't accept html...
+            my $v  = xml_escape($args->{$key});
+            $set->{$rk} = $args->{$key};
         }
     }
 
@@ -257,11 +252,7 @@ sub save_single {
     $export->{$path} = $val;
     if(my $fh = IO::File->new(sprintf('>%s', $file))) {
         foreach my $key (sort(keys(%$export))) {
-            my $v = $export->{$key};
-            $v =~ s/"/&quot;/g;
-            $v =~ s/\&/&amp;/g;
-            $v =~ s/\</&lt;/g;
-            $v =~ s/\>/&gt;/g;
+            my $v = xml_escape($export->{$key});
             $fh->print(sprintf('msgid "%s"', $key), "\n");
             $fh->print(sprintf('msgstr "%s"', $v), "\n");
             $fh->print("\n");
