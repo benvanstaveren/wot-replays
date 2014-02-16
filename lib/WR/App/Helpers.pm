@@ -201,7 +201,7 @@ sub add_helpers {
         my $time = shift;
 
         return $self->strftime($fmt, $time) unless($self->is_user_authenticated);
-        my $dt = DateTime->from_epoch(epoch => $time / 1000, time_zone => $self->current_user->{settings}->{timezone});
+        my $dt = DateTime->from_epoch(epoch => $time / 1000, time_zone => $self->current_user->{settings}->{timezone} || 'UTC');
         return $dt->strftime($fmt);
     });
 
