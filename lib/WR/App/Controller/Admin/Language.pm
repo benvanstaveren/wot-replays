@@ -1,7 +1,7 @@
 package WR::App::Controller::Admin::Language;
 use Mojo::Base 'WR::App::Controller';
 use WR::HashTable;
-use Mojo::Util;
+use Mojo::Util qw/xml_escape/;
 
 has 'layout' => sub { 
     [
