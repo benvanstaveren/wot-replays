@@ -2,6 +2,7 @@ package WR::App::Controller::Profile;
 use Mojo::Base 'WR::App::Controller';
 use WR::Query;
 use Mango::BSON;
+use DateTime::TimeZone;
 
 sub bridge {
     my $self = shift;
@@ -103,6 +104,7 @@ sub settings {
 
     $self->respond(template => 'profile/settings', stash => {
         page => { title => 'profile.settings.page.title' },
+        timezones => DateTime::TimeZone->all_names,
     });
 }
 

@@ -21,15 +21,29 @@
                 <div class="panel-heading">[% h.loc('profile.settings.ratings.title') %]</div>
                 <div class="panel-body">
                     <select name="ratings" class="form-control">
-                        <option value="simplified">[% h.loc('profile.settings.ratings.simplified') %]</option>
-                        <option value="wn8">[% h.loc('profile.settings.ratings.wn8') %]</option>
-                        <option value="none">[% h.loc('profile.settings.ratings.none') %]</option>
+                        <option value="simplified" [% IF h.current_user.settings.ratings == 'simplified' %]selected="true"[% END %]>[% h.loc('profile.settings.ratings.simplified') %]</option>
+                        <option value="wn8" [% IF h.current_user.settings.ratings == 'wn8' %]selected="true"[% END %]>[% h.loc('profile.settings.ratings.wn8') %]</option>
+                        <option value="none" [% IF h.current_user.settings.ratings == 'none' %]selected="true"[% END %]>[% h.loc('profile.settings.ratings.none') %]</option>
                     </select>
                     <span class="spinner hide" id="spinner-ratings"></span>
                 </div>
             </div>
         </div>
         <div class="col-lg-4 col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">[% h.loc('profile.settings.timezone.title') %]</div>
+                <div class="panel-body">
+                    <select name="timezone" class="form-control">
+                        <option value="UTC" [% IF h.current_user.settings.timezone == 'UTC' %]selected="true"[% END %]>UTC</option>
+                        [% FOREACH zone IN timezones %]
+                            [% IF zone != 'UTC' %]
+                                <option value="[% zone %]" [% IF h.current_user.settings.timezone == zone %]selected="true">[% zone %]</option>
+                            [% END %]
+                        [% END %]
+                    </select>
+                    <span class="spinner hide" id="spinner-timezone"></span>
+                </div>
+            </div>
         </div>
     </div>
     <script type="text/javascript">
@@ -45,6 +59,20 @@
                 }, function(d) {
                     $('#spinner-ratings').addClass('hide');
                     $('select[name="ratings"]').removeClass('hide');
+                    $(this).removeClass('disabled');
+                });
+            });
+            $('select[name="ratings"]').val('[% h.current_user.settings.timezone %]').change(function() {
+                if($(this).hasClass('disabled')) return;
+                $(this).addClass('disabled');
+                $('#spinner-timezone').removeClass('hide');
+                $('select[name="timezone"]').addClass('hide');
+                $.getJSON('/profile/j/setting', {
+                    setting: 'timezone',
+                    value  : $(this).val()
+                }, function(d) {
+                    $('#spinner-timezone').addClass('hide');
+                    $('select[name="timezone"]').removeClass('hide');
                     $(this).removeClass('disabled');
                 });
             });

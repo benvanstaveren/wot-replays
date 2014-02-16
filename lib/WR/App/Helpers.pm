@@ -195,6 +195,16 @@ sub add_helpers {
         return ($server eq 'sea') ? 'asia' : $server;
     });
 
+    $self->helper('usertime' => sub {
+        my $self = shift;
+        my $fmt  = shift;
+        my $time = shift;
+
+        return $self->strftime($fmt, $time) unless($self->is_user_authenticated);
+        my $dt = DateTime->from_epoch(epoch => $time / 1000, time_zone => $self->current_user->{settings}->{timezone});
+        return $dt->strftime($fmt);
+    });
+
     $self->helper(strftime => sub {
         my $self = shift;
         my $fmt  = shift;

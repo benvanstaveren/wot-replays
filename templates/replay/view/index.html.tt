@@ -10,6 +10,9 @@
                 <li><a href="#teams" data-toggle="tab">[% h.loc('replay.nav.teams') %]</a></li>
                 <li><a href="#vehicle-loadout" data-toggle="tab">[% h.loc('replay.nav.loadout') %]</a></li>
                 <li class="[% IF replay.chat.size < 1 %]disabled [% END %]"><a href="#battle-chat" data-toggle="tab">[% h.loc('replay.nav.chat') %]</a></li>
+                <li class="pull-right">
+                    <span style="position: relative; top: 11px">[% h.usertime('%d/%m/%Y %H:%M:%S', replay.game.started) %]</span>
+                </li>
             </ul>
             <div class="tab-content">
                 <div id="vehicle-stats" class="tab-pane fade in active">
