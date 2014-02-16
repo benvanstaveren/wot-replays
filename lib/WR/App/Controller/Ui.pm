@@ -3,7 +3,7 @@ use Mojo::Base 'WR::App::Controller';
 use WR::Res::Achievements;
 use Time::HiRes qw/gettimeofday tv_interval/;
 use Filesys::DiskUsage::Fast qw/du/;
-use WR::OpenID;
+use Mojo::Util qw/url_escape/;
 use Mango::BSON;
 use Data::Dumper;
 
@@ -20,6 +20,8 @@ sub frontpage {
     my $start   = [ gettimeofday ];
     my $newest  = [];
     my $replays = [];
+
+    $self->debug('frontpage: session openid says: ', $self->session('openid'));
 
     $self->debug('frontpage: top');
 
@@ -124,12 +126,21 @@ sub xhr_qs {
 sub do_logout {
     my $self = shift;
 
-    # logging out just means we want to jack up the session cookie
-    $self->session('openid' => undef);
+    $self->render_later;
 
-    $self->respond(template => 'login/form', stash => {
-        page => { title => 'Login' },
-        notify  => { type => 'notify', text => 'You logged out successfully', sticky => 0, close => 1 },
+    # logging out just means we want to jack up the session cookie
+    my $url = 'http://api.statterbox.com/wot/auth/logout';
+    my $form = {
+        application_id  => $self->config->{statterbox}->{server},
+        cluster         => $self->current_user->{player_server},
+        access_token    => $self->current_user->{access_token},
+    };
+    $self->ua->inactivity_timeout(30);
+    $self->ua->post($url => form => $form => sub {
+        my ($ua, $tx) = (@_);
+        $self->session('openid' => undef);
+        $self->session(notify  => { type => 'notify', text => 'You logged out successfully', sticky => 0, close => 1 });
+        $self->redirect_to('/');
     });
 }
 
@@ -137,14 +148,52 @@ sub do_login {
     my $self = shift;
     my $s    = $self->stash('s'); # $self->req->param('s');
 
+    $self->redirect_to('/') and return if($self->is_user_authenticated);
+
     if(defined($s)) {
+        $self->render_later;
+
         # fix for the sea -> asia move
         $s = 'asia' if($s eq 'sea');
 
-        my $url = sprintf('http://%s.wargaming.net/', $s);
-        my $my_url = $self->req->url->base;
-        my $o = WR::OpenID->new(realm => $my_url, region => $s, schema => 'https', ua => $self->ua, return_to => sprintf('%s/openid/return', $my_url));
-        $self->redirect_to($o->checkid_setup($url));
+        $self->session(
+            'auth_server' => ($s eq 'asia') ? 'sea' : $s,   # and we fix it right back too... 
+            'auth_nonce'  => Mango::BSON::bson_oid . '',
+        );
+
+        my $url = 'http://api.statterbox.com/wot/auth/login';
+        my $form = {
+            application_id => $self->config->{statterbox}->{server},
+            cluster        => $s,
+            nofollow       => 1,
+            redirect_uri   => sprintf('%s/openid/return', $self->req->url->base),
+            expires_at     => 86400 * 7,
+        };
+
+        $self->debug('set session auth_server to ', $self->session('auth_server'), ' and nonce to ', $self->session('auth_nonce'));
+
+        $self->ua->inactivity_timeout(30);
+        $self->ua->post($url => form => $form => sub {
+            my ($ua, $tx) = (@_);
+            if(my $res = $tx->success) {
+                if($res->json('/status') eq 'ok') {
+                    $self->debug('tx ok, status ok');
+                    $self->redirect_to($res->json('/data/location'));
+                } else {
+                    $self->debug('tx ok, status not ok: ', Dumper($res->json));
+                    $self->respond(template => 'login/form', stash => {
+                        page => { title => 'Login' },
+                        notify => { title => 'error', text => 'An API error occurred ' . ($self->is_the_boss) ? Dumper($res->json('/error')) : '', sticky => 1, close => 1 },
+                    });
+                }
+            } else {
+                $self->debug('tx not ok');
+                $self->respond(template => 'login/form', stash => {
+                    page => { title => 'Login' },
+                    notify => { title => 'error', text => 'API timeout, try again' }
+                });
+            }
+        });
     } else {
         $self->respond(template => 'login/form', stash => {
             page => { title => 'Login' },
@@ -155,47 +204,57 @@ sub do_login {
 sub openid_return {
     my $self   = shift;
     my $my_url = $self->req->url->base;
-    my $params = { @{$self->req->params} };
+    my $params = $self->req->params->to_hash;
 
-    my $o = WR::OpenID->new(realm => $my_url, ua => $self->ua, return_to => sprintf('%s/openid/return', $my_url), nonce_cache => $self->model('wot-replays.openid_nonce_cache'));
+    $self->redirect_to('/') and return if($self->is_user_authenticated);
 
-    $o->on('not_openid' => sub {
+    $self->debug('openid_return, params: ', Dumper($params));
+
+    if($params->{status} eq 'ok') {
+        if(!defined($self->session('auth_nonce')) || !defined($self->session('auth_server'))) {
+            $self->respond(template => 'login/form', stash => {
+                page    => { title => 'Login' },
+                notify  => { type => 'error', text => 'Session lost', sticky => 0, close => 1 },
+            });
+        } else {
+            $self->render_later;
+            $self->model('wot-replays.openid_nonce_cache')->find_one({ _id => $self->session('auth_nonce') } => sub {
+                my ($coll, $err, $doc) = (@_);
+
+                if(defined($doc)) {
+                    $self->debug('dupe nonce');
+                    $self->respond(template => 'login/form', stash => {
+                        page    => { title => 'Login' },
+                        notify  => { type => 'error', text => 'Duplicate nonce', sticky => 0, close => 1 },
+                    });
+                } else {
+                    my $account = {
+                        _id     => sprintf('%s-%s', lc($self->session('auth_server')), lc($params->{nickname})),
+                        clan    => undef,
+                        player_name     => $params->{nickname},
+                        player_server   => $self->session('auth_server'),
+                        access_token    => $params->{access_token},
+                        expires_at      => Mango::BSON::bson_time(($params->{expires_at} + 0) * 1000),
+                    };
+                    $self->debug('updating account with: ', Dumper($account));
+                    $self->model('wot-replays.accounts')->save($account => sub {
+                        my ($coll, $err, $oid) = (@_);
+
+                        $self->model('wot-replays.openid_nonce_cache')->save({ _id => $self->session('auth_nonce'), used => Mango::BSON::bson_time, used_by => (defined($err)) ? undef : $oid } => sub {
+                            $self->session('openid' => sprintf('%s-%s', lc($self->session('auth_server')), lc($params->{nickname})));
+                            $self->session('notify' => { type => 'info', text => 'Login successful', close => 1 }),
+                            $self->redirect_to('/');
+                        });
+                    });
+                }
+            });
+        }
+    } else {
         $self->respond(template => 'login/form', stash => {
             page    => { title => 'Login' },
-            notify  => { type => 'error', text => 'A message was received that was not an OpenID message', sticky => 1, close => 1 },
+            notify  => { type => 'error', text => 'Wargaming.net signin failed', sticky => 0, close => 1 },
         });
-    });
-
-    $o->on('setup_needed' => sub {
-        $self->redirect_to($params->{'openid.user_setup_url'});
-    });
-
-    $o->on('cancelled' => sub {
-        $self->respond(template => 'login/form', stash => {
-            page    => { title => 'Login' },
-            notify  => { type => 'error', text => 'You cancelled the signin process', sticky => 0, close => 1 },
-        });
-    });
-
-    $o->on('verified' => sub {
-        my $o  = shift;
-        my $ident = shift;
-
-        $self->session('openid' => $ident, 'notify' => { type => 'info', text => 'Login successful', close => 1 }),
-        $self->redirect_to('/');
-    });
-
-    $o->on('error' => sub {
-        my $o = shift;
-        my $err = shift;
-
-        $self->respond(template => 'login/form', stash => {
-            page    => { title => 'Login' },
-            notify  => { type => 'error', text => sprintf('OpenID Error: %s', $err), sticky => 0, close => 1 },
-        });
-    });
-
-    $o->response(params => $params);
-};
+    }
+}
 
 1;

@@ -15,7 +15,6 @@ sub register {
     $app->helper(user => sub { return shift->current_user });
     $app->helper(current_user => sub {
         my $self = shift;
-
         return ($self->is_user_authenticated) ? $self->stash('current_user') : {}
     });
 
@@ -56,47 +55,47 @@ sub register {
         $self->render_later;
         if(my $o = $self->session('openid')) {
             $self->debug('have openid: ', $o);
-            if($o =~ /https:\/\/(.*?)\..*\/id\/(\d+)-(.*)\//) {
-                $self->debug('openid matches regex');
-                my $server = $1;
-                my $pname = $3;
 
-                $server = 'sea' if(lc($server) eq 'asia'); # fuck WG and renaming endpoints
-
-                my $user_id   = sprintf('%s-%s', lc($server), lc($pname));
-
-                if($self->req->is_xhr) {
-                    $self->model('wot-replays.accounts')->find_one({ _id => $user_id } => sub {
-                        my ($coll, $err, $user) = (@_);
+            if($self->req->is_xhr) {
+                $self->model('wot-replays.accounts')->find_one({ _id => $o } => sub {
+                    my ($coll, $err, $user) = (@_);
+                    if($user->{expires_at} > Mango::BSON::bson_time) {
                         $self->stash(current_user => $user);
                         $self->stash(current_player_name => $user->{player_name});
                         $self->stash(current_player_server => uc($user->{player_server}));
-                        $self->continue;
-                    });
-                } else {
-                    my $last_seen = Mango::BSON::bson_time;
+                    }
+                    $self->continue;
+                });
+            } else {
+                my $last_seen = Mango::BSON::bson_time;
 
-                    $self->model('wot-replays.accounts')->update({ 
-                        _id => $user_id 
-                    }, {
-                        '$set' => {
-                            player_name     => $pname,
-                            player_server   => lc($server),
-                            last_seen       => $last_seen,
-                        },
-                    }, {
-                        upsert => 1,
+                $self->model('wot-replays.accounts')->update({ 
+                    _id => $o 
+                }, {
+                    '$set' => {
+                        last_seen       => $last_seen,
                     },
-                    sub {
-                        my ($coll, $err, $oid) = (@_);
-                        $self->model('wot-replays.accounts')->find_one({ _id => $user_id } => sub {
-                            my ($coll, $err, $user) = (@_);
+                } => sub {
+                    my ($coll, $err, $oid) = (@_);
+                    $self->debug('last seen updated');
+                    $self->model('wot-replays.accounts')->find_one({ _id => $o } => sub {
+                        my ($coll, $err, $user) = (@_);
+
+                        $self->debug('we have that account, yeah: ', Dumper($user));
+
+                        $self->debug('expires_at: ', $user->{expires_at}, ' now: ', Mango::BSON::bson_time);
+
+                        if($user->{expires_at} > Mango::BSON::bson_time) {
+                            # later, we may just auth/prolongate this by a week if the expiry time is less than 86400 seconds away
+
 
                             $self->stash(current_user           => $user);
                             $self->stash(current_player_name    => $user->{player_name});
                             $self->stash(current_player_server  => uc($user->{player_server}));
 
                             $self->current_user->{last_clan_check} ||= 0;
+
+                            $self->debug('expiry is okay');
 
                             if($self->current_user->{last_clan_check} < Mango::BSON::bson_time( (time() - 86400) * 1000)) {
                                 my $url = 'http://api.statterbox.com/wot/account/clan';
@@ -127,7 +126,7 @@ sub register {
                                         $clan = undef;
                                     }
                                     $self->current_user->{clan} = $clan;
-                                    $self->model('wot-replays.accounts')->update({ _id => $user_id }, { '$set' => {
+                                    $self->model('wot-replays.accounts')->update({ _id => $o }, { '$set' => {
                                         'last_clan_check' => Mango::BSON::bson_time,
                                         'clan'            => $clan,
                                     }} => sub {
@@ -137,11 +136,13 @@ sub register {
                             } else {
                                 $self->continue;
                             }
-                        });
+                        } else {
+                            $self->debug('auth is expired');
+                            $self->session('openid' => undef, notify => { type => 'info', text => 'Your login has expired, you will have to log in again' });
+                            $self->continue;
+                        }
                     });
-                }
-            } else {
-                return 1;
+                });
             }
         } else {
             return 1;

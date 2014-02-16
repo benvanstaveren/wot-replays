@@ -114,7 +114,7 @@
                                 <li><a href="/profile/uploads/page/1">[% h.loc('nav.profile.uploads') %]</a></li>
                                 <li><a href="/profile/settings">[% h.loc('nav.profile.settings') %]</a></li>
                                 <li class="divider"></li>
-                                <li><a href="/logout">[% h.loc('nav.profile.signout') %]</a></li>
+                                <li><a class="please-wait" href="/logout">[% h.loc('nav.profile.signout') %]</a></li>
                             </ul>
                         </li>
                     [% ELSE %]
@@ -143,6 +143,16 @@
                 </div>
             </div>
         [% END %]
+        <div class="modal fade" id="pleaseWaitModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">[% h.loc('modal.pleasewait.title') %]</h4>
+                    </div>
+                    <div class="modal-body"> [% h.loc('modal.pleasewait.text') %]</div>
+                </div>
+            </div>
+        </div>
         <!-- Piwik -->
         <script type="text/javascript"> 
             var _paq = _paq || [];

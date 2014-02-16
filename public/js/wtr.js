@@ -3,6 +3,15 @@ $(document).ready(function() {
         var i = new Image();
         i.src = image;
     });
+    $('div#pleaseWaitModal').modal({
+        backdrop: 'static',
+        keyboard: false,
+        show: false,
+    });
+    $('a.please-wait').on('click', function() { 
+        $('div#pleaseWaitModal').modal('show');
+        return true;
+    });
     $('a.btn.btn-save-replay').on('click', function() {
         var go = true;
         if($(this).hasClass('incompatible')) {
