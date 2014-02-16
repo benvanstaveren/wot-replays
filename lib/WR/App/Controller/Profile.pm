@@ -101,10 +101,11 @@ sub sr {
 
 sub settings {
     my $self = shift;
+    my $zones = DateTime::TimeZone->all_names;
 
     $self->respond(template => 'profile/settings', stash => {
         page => { title => 'profile.settings.page.title' },
-        timezones => DateTime::TimeZone->all_names,
+        timezones => $zones,
     });
 }
 
