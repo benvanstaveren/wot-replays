@@ -37,7 +37,7 @@
                         <option value="UTC" [% IF h.current_user.settings.timezone == 'UTC' %]selected="true"[% END %]>UTC</option>
                         [% FOREACH zone IN timezones %]
                             [% IF zone != 'UTC' %]
-                                <option value="[% zone %]" [% IF h.current_user.settings.timezone == zone %]selected="true">[% zone %]</option>
+                                <option value="[% zone %]" [% IF h.current_user.settings.timezone == zone %]selected="true"[% END %]>[% zone %]</option>
                             [% END %]
                         [% END %]
                     </select>
