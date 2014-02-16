@@ -8,6 +8,7 @@ has 'layout' => sub {
             title    => 'Global Elements',
             children => [ 
                 { id => 'nav', title => 'Navigation' },
+                { id => 'modal', title => 'Global Modals' },
                 { id => 'footer', title => 'Footer' },
             ],
         },
