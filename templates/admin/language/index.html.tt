@@ -1,7 +1,20 @@
 [% WRAPPER admin/wrapper.html.tt %]
     [% bseq = 1 %]
     <div class="page-header">
-        <h1>Language Manager</h1>
+        <h1>Language Manager
+            [% IF lang.defined %]
+                [% multi = 0 %]
+                [% IF h.is_the_boss || h.current_user.admin.languages.allowed.size > 1 %][% multi = 1 %][% END %]
+                <select class="form-control pull-right [% IF multi == 0 %]disabled[% END %]" [% IF multi == 0 %]disabled="true"[% END %] style="width: 100px" name="language-change">
+                    [% IF h.is_the_boss %]
+                        <option value="common" [% IF 'common' == lang %]selected="true"[% END %]>Common</option>
+                    [% END %]
+                    [% FOREACH l IN config.languages %]
+                        <option value="[% l.ident %]" [% IF l.ident == lang %]selected="true"[% END %]>[% l.ident |upper %]</option>
+                    [% END %]
+                </select>
+            [% END %]
+        </h1>
     </div>
     <div class="row">
         <div class="col-lg-3 col-md-3">
@@ -27,7 +40,7 @@
                     </li>
                 [% END %]
             </ul>
-            [% IF h.is_the_boss %]
+            [% IF h.is_the_boss || h.has_role(h.current_user, 'language_publish_' _ lang) %]
                 <button style="margin-top: 50px" id="btn-publish" class="btn btn-danger btn-block">Publish</button>
             [% END %]
         </div>
@@ -58,30 +71,43 @@
                             <fieldset><legend>New String <button type="button" role="button" class="btn btn-default btn-xs pull-right new-string" id="btn-save-[% bseq %]" data-bseq="[% bseq %]"">Save</button><span class="spinner small pull-right hide" id="spinner-[% bseq %]"></span></legend>
                             <div class="form-group">
                                 <label class="control-label">String</label>
-                                <input type="text" name="new-string" value="" class="form-control string"/>
+                                <input type="text" name="new-string" value="" class="form-control"/>
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Value</label>
-                                <input type="text" name="new-value" value="" class="form-control string"/>
+                                <input type="text" name="new-value" value="" class="form-control"/>
                             </div>
                         </form>
                     </div>
                 [% END %]
             [% ELSE %]
-                <pre>
-                    [% h.dumper(sections) %]
-                </pre>
+                <div class="page-header">
+                    <h4>Welcome!</h4>
+                </div>
+                <p>Use the section navigation on the left to navigate various elements of the site; each section has it's own set of translatable strings.</p>
+                <p>When translating, you will see the string identifier, the original (or &quot;common&quot translation), and a text field to enter your own.</p>
+                <p>You can either save a single string, or save all strings inside a section by clicking the appropriate buttons.</p>
+                <p><em>Changes are not published immediatel, someone with the proper rights can do a language publish for you</em></p>
+                <p>A few reminders:
+                    <ul><li><em>%0, %1, %2, etc. are parameters, you can move them inside a string, but do not change the numbering</em></li>
+                    <li><em>To do things like show &quot;1 replay&quot; and &quot;5 replays&quot; use the following: <b>%0 %quant(%0,replay,replays)</b> where %0 is the parameter that needs the proper plural or singular word following it. %quant() takes 3 parameters, the first is the parameter to check, second is the singular form of the word, third is the plural form of the word.</em></li>
+                    </ul>
+                </p>
+                <p>If you have the rights to work on multiple languages, you can switch them by using the select box at the top of the page</p>
+                <p><strong>Check your work by opening a new tab on wotreplays.org, and switching your language to the one you are working on. Languages marked with (!) in front are not available to the general public, only to translatos. That way you can see what prompts still need to be translated.</strong></p>
             [% END %]
         </div>
     </div>
     <script type="text/javascript">
         $(document).ready(function() {
-            [% IF h.is_the_boss && lang == 'common' %]
+            [% IF h.is_the_boss || h.has_role(h.current_user, 'language_publish_' _ lang) %]
                 $('button#btn-publish').on('click', function() {
                     $.getJSON('/admin/language/[% lang %]/publish', {}, function() {
                         alert('Published');
                     });
                 });
+            [% END %]
+            [% IF h.is_the_boss && lang == 'common' %]
                 $('button.new-string').on('click', function() {
                     var string = $('input[name="new-string"]').val();
                     var value  = $('input[name="new-value"]').val();

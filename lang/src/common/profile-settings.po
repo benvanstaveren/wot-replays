@@ -16,3 +16,6 @@ msgstr "Display ratings in panel"
 msgid "profile.settings.ratings.wn8"
 msgstr "Display WN8 ratings"
 
+msgid "profile.settings.timezone.title"
+msgstr "Timezone"
+

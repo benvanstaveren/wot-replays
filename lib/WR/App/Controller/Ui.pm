@@ -132,14 +132,17 @@ sub do_logout {
     my $url = 'http://api.statterbox.com/wot/auth/logout';
     my $form = {
         application_id  => $self->config->{statterbox}->{server},
-        cluster         => $self->current_user->{player_server},
+        cluster         => $self->fix_server($self->current_user->{player_server}),
         access_token    => $self->current_user->{access_token},
     };
     $self->ua->inactivity_timeout(30);
     $self->ua->post($url => form => $form => sub {
         my ($ua, $tx) = (@_);
-        $self->session('openid' => undef);
-        $self->session(notify  => { type => 'notify', text => 'You logged out successfully', sticky => 0, close => 1 });
+        if(my $res = $tx->success) {
+            $self->debug('logout res says: ', Dumper($res->json));
+            $self->session('openid' => undef);
+            $self->session(notify  => { type => 'notify', text => 'You logged out successfully', sticky => 0, close => 1 });
+        } 
         $self->redirect_to('/');
     });
 }

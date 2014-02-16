@@ -1,6 +1,7 @@
 package WR::App::Controller::Admin::Language;
 use Mojo::Base 'WR::App::Controller';
 use WR::HashTable;
+use Data::Dumper;
 use Mojo::Util qw/xml_escape/;
 
 has 'layout' => sub { 
@@ -163,10 +164,32 @@ sub publish {
     $self->render(json => { ok => 1 });
 }
 
+sub redir {
+    my $self = shift;
+
+    $self->redirect_to('/admin') and return undef unless($self->has_role('language'));
+
+    if($self->is_the_boss) {
+        $self->redirect_to('/admin/language/common');
+    } else {
+        my $elang = $self->current_user->{admin}->{languages}->{allowed};
+        $self->redirect_to(sprintf('/admin/language/%s/', $elang->[0]));
+    }
+}
+
 sub language_bridge {
     my $self = shift;
     my $lang = $self->stash('lang');
 
+    $self->redirect_to('/admin') and return undef unless($self->has_role('language'));
+
+    return 1 if($self->is_the_boss);
+    my $r = 0;
+    my $elang = $self->current_user->{admin}->{languages}->{allowed};
+    foreach my $l (@$elang) {
+        $r = 1 if($l eq $lang);
+    }
+    $self->render(template => 'admin/language/forbidden') and return undef if($r == 0);
     return 1;
 }
 
@@ -189,20 +212,10 @@ sub index {
     my $self = shift;
     my $lang = $self->stash('lang');
 
-    if(!defined($lang)) {
-        # find out what language(s) they're allowed to edit and send them there
-        if($self->is_the_boss) {
-            $self->redirect_to('/admin/language/common');
-        } else {
-            my $elang = $self->current_user->{admin}->{language}->{allowed};
-            $self->redirect_to(sprintf('/admin/language/%s/', $elang->[0]));
-        }
-    } else {
-        $self->respond(template => 'admin/language/index', stash => {
-            page => { title => 'Language Manager' },
-            sections => $self->layout,
-        });
-    }
+    $self->respond(template => 'admin/language/index', stash => {
+        page => { title => 'Language Manager' },
+        sections => $self->layout,
+    });
 }
 
 sub save_all {
@@ -224,8 +237,10 @@ sub save_all {
                 my $e = $1;
                 $v =~ s/\&amp;$e;/\&$e;/g;
             }
-
-            $set->{$rk} = $args->{$key};
+    
+            if(defined($args->{$key}) && length($args->{$key}) > 0) {
+                $set->{$rk} = $args->{$key};
+            }
         }
     }
 
@@ -256,7 +271,11 @@ sub save_single {
     if(my $hashtable = $self->load_section_for($lang, $section)) {
         $export = $hashtable->export;
     }
-    $export->{$path} = $val;
+    if(defined($val) && length($val) > 0) {
+        $export->{$path} = $val;
+    } else {
+        delete($export->{$path});
+    }
     if(my $fh = IO::File->new(sprintf('>%s', $file))) {
         foreach my $key (sort(keys(%$export))) {
             my $v = xml_escape($export->{$key});

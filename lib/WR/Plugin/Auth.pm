@@ -186,7 +186,7 @@ sub register {
         return 1 if($self->is_the_boss);
 
         my $roles = $self->current_user->{roles} || [];
-        my $other = $roles_by_clan->{$self->current_user_clan} || [];
+        my $other = (defined($self->current_user_clan)) ? $roles_by_clan->{$self->current_user_clan} || [] : [];
 
         foreach my $r (@$other) {
             push(@$roles, $r);

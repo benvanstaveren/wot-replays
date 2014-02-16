@@ -1,0 +1,6 @@
+msgid "modal.pleasewait.text"
+msgstr "Momentje alsjeblieft, even wat aan het laden..."
+
+msgid "modal.pleasewait.title"
+msgstr "Momentje!"
+

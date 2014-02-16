@@ -1,0 +1,6 @@
+msgid "footer.about"
+msgstr "over de site"
+
+msgid "footer.credits"
+msgstr "credits"
+

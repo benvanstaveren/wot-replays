@@ -378,6 +378,7 @@ sub add_helpers {
         return 0 unless(defined($u->{roles}));
 
         foreach my $role (@{$u->{roles}}) {
+            $self->debug('has_role check ', $role, ' against ', $r);
             return 1 if($role eq $r);
         }
         return 0;

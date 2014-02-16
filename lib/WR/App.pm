@@ -280,8 +280,8 @@ sub startup {
         $admin->route('/')->to('admin#index', pageid => 'admin/home');
         $admin->route('/events')->to('admin-events#index', pageid => 'admin/events');
 
-        my $language = $admin->under('/language');
-            $language->route('/')->to('admin-language#index', pageid => 'admin/language');
+        my $language = $admin->bridge('/language');
+            $language->route('/')->to('admin-language#redir', pageid => 'admin/language');
             my $langroot = $language->bridge('/:lang')->to('admin-language#language_bridge');
                 $langroot->route('/')->to('admin-language#index', pageid => 'admin/language', section => '--');
                 $langroot->route('/publish')->to('admin-language#publish', pageid => 'admin/language');

@@ -77,7 +77,7 @@
                     [% IF h.has_admin_role('events') %]
                         <li class="[% IF pageid == 'admin/events' %]active[% END %]"><a href="/admin/events">Event Manager</a></li>
                     [% END %]
-                    [% IF h.has_admin_role('translator') %]
+                    [% IF h.has_admin_role('language') %]
                         <li class="[% IF pageid == 'admin/language' %]active[% END %]"><a href="/admin/language">Language Manager</a></li>
                     [% END %]
                     [% IF h.has_admin_role('moderator') %]
