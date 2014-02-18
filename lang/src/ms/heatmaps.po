@@ -1,0 +1,21 @@
+msgid "heatmaps.page.title"
+msgstr "Peta Haba &raquo; %0"
+
+msgid "heatmaps.options.heading"
+msgstr "Opsyen"
+
+msgid "heatmaps.options.matchtype"
+msgstr "Jenis Pertempuran"
+
+msgid "heatmaps.options.heatmaptype"
+msgstr "Jenis Peta Haba"
+
+msgid "heatmaps.options.locations"
+msgstr "Lokasi"
+
+msgid "heatmaps.options.damage"
+msgstr "Kerosakan Diterima"
+
+msgid "heatmaps.options.deaths"
+msgstr "Pemusnahan"
+

@@ -1,0 +1,32 @@
+msgid "replay.missions.heading"
+msgstr "Misi-misi"
+
+msgid "replay.missions.completed"
+msgstr "Selesai"
+
+msgid "replay.missions.inprogress"
+msgstr "Sedang Dijalankan"
+
+msgid "replay.missions.whatsthis"
+msgstr "apa ini?"
+
+msgid "replay.missions.oopscondition"
+msgstr "Oops, tidak tahu bagaimana untuk mengendali matlamat ini..."
+
+msgid "replay.missions.unknown"
+msgstr "misi tidak diketahui"
+
+msgid "replay.missions.bonustype.premium"
+msgstr "%0 %quant(%0,hari,hari) Premium"
+
+msgid "replay.missions.bonustype.xpFactor"
+msgstr "%0x xp"
+
+msgid "replay.missions.bonustype.creditFactor"
+msgstr "%0x kredit"
+
+msgid "replay.missions.bonustype.credits"
+msgstr "%0 kredit"
+
+msgid "replay.missions.bonustype.tankmenXPFactor"
+msgstr "%0x xp kru"

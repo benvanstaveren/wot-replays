@@ -79,6 +79,7 @@ sub startup {
         $xhr->route('/qs')->to('ui#xhr_qs');
         $xhr->route('/ds')->to('ui#xhr_ds');
         $xhr->route('/du')->to('ui#xhr_du');
+        $xhr->route('/po/:lang')->to('ui#xhr_po');
 
     my $bv = $r->under('/battleviewer/:replay_id');
         $bv->route('/')->to('replays-view#battleviewer', pageid => 'battleviewer', page => { title => 'replay.battleviewer.page.title' });

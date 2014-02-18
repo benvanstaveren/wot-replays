@@ -1,0 +1,38 @@
+msgid "replays.team.title"
+msgstr "Pasukan %1"
+
+msgid "replays.team.tank.text"
+msgstr "Perisai"
+
+msgid "replays.team.player.text"
+msgstr "Pemain"
+
+msgid "replays.team.awards.text"
+msgstr "Anugerah"
+
+msgid "replays.team.wn7.text"
+msgstr "WN7"
+
+msgid "replays.team.wn8.text"
+msgstr "WN8"
+
+msgid "replays.team.damage.text"
+msgstr "Dmg"
+
+msgid "replays.team.damage.title"
+msgstr "Kerosakan"
+
+msgid "replays.team.xp.text"
+msgstr "XP"
+
+msgid "replays.team.xp.title"
+msgstr "Pengalaman"
+
+msgid "replays.team.kills.text"
+msgstr "K"
+
+msgid "replays.team.kills.title"
+msgstr "Dimusnahkan"
+
+msgid "replays.team.xp.earned"
+msgstr "Pemain meraih %1 xp dasar"

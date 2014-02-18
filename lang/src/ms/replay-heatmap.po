@@ -1,0 +1,2 @@
+msgid "replay.heatmap.page.title"
+msgstr "Peta Haba Pertempuran"

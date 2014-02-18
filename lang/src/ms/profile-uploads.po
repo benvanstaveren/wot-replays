@@ -1,0 +1,32 @@
+msgid "profile.uploads.page.title"
+msgstr "Profil &raquo; Dimuat Naik"
+
+msgid "profile.uploads.upload.date"
+msgstr "Tarikh Muat Naik"
+
+msgid "profile.uploads.upload.file"
+msgstr "Fail"
+
+msgid "profile.uploads.upload.status"
+msgstr "Status"
+
+msgid "profile.uploads.replay.file"
+msgstr "fail rakaman"
+
+msgid "profile.uploads.replay.page"
+msgstr "halaman rakaman"
+
+msgid "profile.uploads.status.view"
+msgstr "lihat status"
+
+msgid "profile.uploads.process.ok"
+msgstr "SUDAH DIPROSES"
+
+msgid "profile.uploads.process.error"
+msgstr "RALAT MEMPROSES"
+
+msgid "profile.uploads.process.pending"
+msgstr "DALAM GILIRAN"
+
+msgid "profile.uploads.process.processing"
+msgstr "SEDANG DIPROSES"

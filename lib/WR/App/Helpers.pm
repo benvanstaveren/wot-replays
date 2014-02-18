@@ -12,6 +12,7 @@ use WR::Util::TypeComp qw/parse_int_compact_descr type_id_to_name/;
 use Data::Dumper;
 use DateTime;
 use Mojo::Util qw/encode decode/;
+use Try::Tiny qw/try catch/;
 
 use constant ROMAN_NUMERALS => [qw(0 I II III IV V VI VII VIII IX X)];
 
@@ -737,10 +738,13 @@ sub add_helpers {
         my $a = shift;
         my $b = shift;
 
-        return 0 unless(($a > 0) && ($b > 0));
+        $self->debug('percentage_of: a: ', $a, ' b: ', $b);
 
-        # a = 200, b = 100 -> 50% 
-        return sprintf('%.0f', 100/($a/$b));
+        $self->debug('return 0') and return '0' unless(($a > 0) && ($b > 0));
+
+        my $v = sprintf('%.0f', 100/($a/$b));
+        $self->debug('returning: ', $v);
+        return $v;
     });
 
     $self->helper(map_slug => sub {
@@ -967,6 +971,10 @@ sub add_helpers {
         return sprintf('%.2f', ($now - $then) / 1000);
     });
 
+    $self->helper(nonce => sub {
+        return Mango::BSON::bson_time;
+    });
+
     $self->helper('parse_message' => sub {
         my $self = shift;
         my $m    = shift;
@@ -998,8 +1006,35 @@ sub add_helpers {
         # yurk
         $n->{vehicle} = decode('UTF-8', $n->{vehicle}) if(defined($n->{vehicle}));
         return { base => $base_color, name => $n, message => $message };
-
     });
+
+    $self->helper(i18n_attr => sub {
+        my $self = shift;
+        my $val  = shift;
+
+        return sprintf(q|data-i18n-attr='%s'|, $self->as_json($val));
+    });
+
+    $self->helper('is_translator_for' => sub {
+        my $self = shift;
+        my $lang = shift;
+
+        return 0 unless($self->is_user_authenticated);
+        return 0 unless($self->has_admin_access);
+        return 0 unless($self->has_admin_role('language'));
+
+        my $r = 0;
+        try {
+            my $allowed = $self->current_user->{admin}->{languages}->{allowed};
+            foreach my $l (@$allowed) {
+                $r = 1 and last if($l eq $lang);
+            }
+        } catch {
+            $r = 0;
+        };
+        return $r;
+    });
+
 }
 
 1;

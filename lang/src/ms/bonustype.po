@@ -1,0 +1,42 @@
+msgid "bonustype.1"
+msgstr "Pertempuran Rawak"
+
+msgid "bonustype.1.short"
+msgstr "Rawak"
+
+msgid "bonustype.2"
+msgstr "Pertempuran Bilik Latihan"
+
+msgid "bonustype.2.short"
+msgstr "Latihan"
+
+msgid "bonustype.3"
+msgstr "Pertempuran Kompeni"
+
+msgid "bonustype.3.short"
+msgstr "Kompeni"
+
+msgid "bonustype.4"
+msgstr "Pertempuran Kejohanan"
+
+msgid "bonustype.4.short"
+msgstr "Kejohanan"
+
+msgid "bonustype.5"
+msgstr "Pertempuran Klan"
+
+msgid "bonustype.5.short"
+msgstr "Klan"
+
+msgid "bonustype.6"
+msgstr "Pertempuran Tutorial"
+
+msgid "bonustype.6.short"
+msgstr "Tutorial"
+
+msgid "bonustype.7"
+msgstr "Pertempuran Pasukan"
+
+msgid "bonustype.7.short"
+msgstr "Pasukan"
+

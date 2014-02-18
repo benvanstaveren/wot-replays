@@ -9,7 +9,13 @@
                 <div class="panel-body">
                     <select name="language" class="form-control">
                         [% FOREACH language IN config.languages %]
-                            <option value="[% language.ident %]" [% IF user_lang == language.ident %]selected[% END %]>[% h.loc('language.' _ language.ident) %]</option>
+                            [% IF language.active == 0 %]
+                                [% IF h.is_translator_for(language.ident) %]
+                                    <option class="i18n" value="[% language.ident %]" [% IF user_lang == language.ident %]selected[% END %] data-i18n-format="(!) %s">language.[% language.ident %]</option>
+                                [% END %]
+                            [% ELSE %]
+                                <option class="i18n" value="[% language.ident %]" [% IF user_lang == language.ident %]selected[% END %]><span class="i18n">language.[% language.ident %]</span></option>
+                            [% END %]
                         [% END %]
                     </select>
                     <span class="spinner small hide" id="spinner-language"></span>

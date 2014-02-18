@@ -29,40 +29,37 @@
         <script type="text/javascript" src="[% config.urls.static %]/js/jquery.timers.js"></script>
         <script type="text/javascript" src="[% config.urls.static %]/js/bootstrap-slider.js"></script>
 
+        <script type="text/javascript" src="/xhr/po/[% user_lang %].js?_[% h.nonce %]"></script>
+
+        <script type="text/javascript" src="[% config.urls.static %]/js/wtr.models.js"></script>
+        <script type="text/javascript" src="[% config.urls.static %]/js/wtr.views.js"></script>
         <script type="text/javascript" src="[% config.urls.static %]/js/wtr.js"></script>
+
         <script type="text/javascript" src="[% config.urls.static %]/js/mapgrid.js"></script>
         <script type="text/javascript" src="[% config.urls.static %]/js/heatmap.js"></script>
         <script type="text/javascript" src="[% config.urls.static %]/js/heatmapviewer.js"></script>
         <script type="text/javascript" src="[% config.urls.static %]/js/battleviewer.js"></script>
+        [% TRY %]
+            [% INCLUDE head_javascript %]
+        [% CATCH %]
+        [% END %]
 
 	    <script type="text/javascript">
-            var thunderChannels = [ 'site', 'page.[% pageid %]' ];
-            var thunderOpts = { 
-                log: false,
-                user: '[% IF h.is_user_authenticated %][% h.current_user.player_name |js %].[% h.current_user.player_server |js %][% ELSE %]anon-[% h.get_oid() %][% END %]'
-            };
-            WR.pageid = '[% pageid |js %]';
-            $(document).ready(function() {
-                Statterpush.connect('[% config.statterbox.web %]', 'wotreplays', thunderChannels, thunderOpts);
-                Statterpush.listen(function(message) {
-                    WR.dispatchMessage(message);
-                });
-	            [% IF notify.defined %]
-                    var notifyOpts = { 
-                        type: '[% IF notify.type == 'error' %]danger[% ELSE %]info[% END %]',
-                        allow_dismiss: [% IF notify.close %]true[% ELSE %]false[% END %],
-                        offset: { from: 'top', amount: 60 },
-                        delay: [% IF notify.sticky %]200000[% ELSE %]20000[% END %]
-                    };
-                    $.bootstrapGrowl('[% notify.text |js %]', notifyOpts);
-	            [% END %]
+            var WR = new Wotreplays({
+                pageid: '[% pageid |js %]',
+                apikey: '[% config.statterbox.web %]',
+                user: '[% IF h.is_user_authenticated %][% h.current_user.player_name |js %].[% h.current_user.player_server |js %][% ELSE %]anon-[% h.get_oid() %][% END %]',
+                channels: [],
+                indev: [% IF config.mode.defined && config.mode == 'dev' %]true[% ELSE %]false[% END %],
+            });
+            WR.on('ready', function() {
                 $('.bs-tooltip').tooltip();
                 $('.bs-popover').popover();
             });
         </script>
     </head>
     <body>
-        <div class="navbar navbar-default navbar-shadow">
+        <div class="navbar navbar-default navbar-shadow" id="main-navigation">
             <div class="navbar-header">
                 <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
                     <span class="icon-bar"></span>
@@ -72,23 +69,23 @@
             </div>
             <div class="navbar-collapse collapse" id="navbar-main">
                 <ul class="nav navbar-nav">
-                    <li class="[% IF pageid == 'home' %]active[% END %]"><a  href="/">[% h.loc('nav.home') %]</a></li>
-                    <li class="[% IF pageid == 'browse' %]active[% END %]"><a href="/browse">[% h.loc('nav.browse') %]</a></li>
-                    <li class="[% IF pageid == 'player' %]active[% END %]"><a href="/players/">[% h.loc('nav.players') %]</a></li>
-                    <li class="[% IF pageid == 'clan' %]active[% END %]"><a href="/clans/">[% h.loc('nav.clans') %]</a></li>
-                    <li class="[% IF pageid == 'map' %]active[% END %]"><a href="/maps/">[% h.loc('nav.maps') %]</a></li>
-                    <li class="dropdown [% IF pageid == 'vehicle' %]active[% END %]"><a class="dropdown-toggle" data-toggle="dropdown" href="/vehicles/">[% h.loc('nav.vehicles') %] <b class="caret"></b></a>
+                    <li class="[% IF pageid == 'home' %]active[% END %]"><a class="i18n" href="/">nav.home</a></li>
+                    <li class="[% IF pageid == 'browse' %]active[% END %]"><a class="i18n" href="/browse">nav.browse</a></li>
+                    <li class="[% IF pageid == 'player' %]active[% END %]"><a class="i18n" href="/players/">nav.players</a></li>
+                    <li class="[% IF pageid == 'clan' %]active[% END %]"><a class="i18n" href="/clans/">nav.clans</a></li>
+                    <li class="[% IF pageid == 'map' %]active[% END %]"><a class="i18n" href="/maps/">nav.maps</a></li>
+                    <li class="dropdown [% IF pageid == 'vehicle' %]active[% END %]"><a class="dropdown-toggle" data-toggle="dropdown" href="/vehicles/"><span class="i18n">nav.vehicles</span> <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="/vehicles/china">[% h.loc('nations.china') %]</a></li>
-                            <li><a href="/vehicles/france">[% h.loc('nations.france') %]</a></li>
-                            <li><a href="/vehicles/germany">[% h.loc('nations.germany') %]</a></li>
-                            <li><a href="/vehicles/japan">[% h.loc('nations.japan') %]</a></li>
-                            <li><a href="/vehicles/uk">[% h.loc('nations.uk') %]</a></li>
-                            <li><a href="/vehicles/usa">[% h.loc('nations.usa') %]</a></li>
-                            <li><a href="/vehicles/ussr">[% h.loc('nations.ussr') %]</a></li>
+                            <li><a class="i18n" href="/vehicles/china">nations.china</a></li>
+                            <li><a class="i18n" href="/vehicles/france">nations.france</a></li>
+                            <li><a class="i18n" href="/vehicles/germany">nations.germany</a></li>
+                            <li><a class="i18n" href="/vehicles/japan">nations.japan</a></li>
+                            <li><a class="i18n" href="/vehicles/uk">nations.uk</a></li>
+                            <li><a class="i18n" href="/vehicles/usa">nations.usa</a></li>
+                            <li><a class="i18n" href="/vehicles/ussr">nations.ussr</a></li>
                         </ul>
                     </li>
-                    <li class="dropdown [% IF pageid == 'heatmap' %]active[% END %]"><a class="dropdown-toggle" data-toggle="dropdown" href="/heatmaps/">[% h.loc('nav.heatmaps') %] <b class="caret"></b></a>
+                    <li class="dropdown [% IF pageid == 'heatmap' %]active[% END %]"><a class="dropdown-toggle" data-toggle="dropdown" href="/heatmaps/"><span class="i18n">nav.heatmaps</span> <b class="caret"></b></a>
                         <ul class="dropdown-menu" style="column-count: 3; -moz-column-count: 3; -webkit-column-count: 3; width: 500px">
                             [% INCLUDE generated/heatmap_list.html.tt %]
                         </ul>
@@ -127,7 +124,7 @@
         </div>
         <div class="container rounded shadow clearfix">
             <div id="contentMain">[% content %]</div>
-            <div class="clearfix" style="text-align: center; margin: 40px 0px 10px 0px">&copy; 2012-2014 Scrambled |  <a style="display: inline; text-decoration: underline; padding: 0px" href="/doc/about.html">[% h.loc('footer.about') %]</a> | <a style="display: inline; text-decoration: underline; padding: 0px" href="/doc/credits.html">[% h.loc('footer.credits') %]</a> | t: <span id="timing_elapsed">[% IF timing_elapsed.defined %][% h.sprintf('%.4f', timing_elapsed)  %][% ELSE %]-[% END %]</span> [% IF timing_query.defined %]q: <span id="timing_query">[% h.sprintf('%.4f', timing_query) %]</span>[% END %]</div>
+            <div class="clearfix" style="text-align: center; margin: 40px 0px 10px 0px">&copy; 2012-2014 Scrambled |  <a class="i18n" style="display: inline; text-decoration: underline; padding: 0px" href="/doc/about.html">footer.about</a> | <a style="display: inline; text-decoration: underline; padding: 0px" href="/doc/credits.html" class="i18n">footer.credits</a> | t: <span id="timing_elapsed">[% IF timing_elapsed.defined %][% h.sprintf('%.4f', timing_elapsed)  %][% ELSE %]-[% END %]</span> [% IF timing_query.defined %]q: <span id="timing_query">[% h.sprintf('%.4f', timing_query) %]</span>[% END %]</div>
         </div>
         [% IF hint.defined %]
             <div class="modal fade" id="hintModal">
@@ -153,20 +150,24 @@
                 </div>
             </div>
         </div>
-        <!-- Piwik -->
-        <script type="text/javascript"> 
-            var _paq = _paq || [];
-            _paq.push(['trackPageView']);
-            _paq.push(['enableLinkTracking']);
-            (function() {
-                var u=(("https:" == document.location.protocol) ? "https" : "http") + "://piwik.blockstackers.net//";
-                _paq.push(['setTrackerUrl', u+'piwik.php']);
-                _paq.push(['setSiteId', 1]);
-                var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
-                g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
-            })();
-        </script>
-        <noscript><p><img src="http://piwik.blockstackers.net/piwik.php?idsite=1" style="border:0" alt="" /></p></noscript>
-        <!-- End Piwik Code -->
+        [% IF config.mode.defined && config.mode == 'dev' %]
+            <!-- piwik not included for dev -->
+        [% ELSE %]
+            <!-- Piwik -->
+            <script type="text/javascript"> 
+                var _paq = _paq || [];
+                _paq.push(['trackPageView']);
+                _paq.push(['enableLinkTracking']);
+                (function() {
+                    var u=(("https:" == document.location.protocol) ? "https" : "http") + "://piwik.blockstackers.net//";
+                    _paq.push(['setTrackerUrl', u+'piwik.php']);
+                    _paq.push(['setSiteId', 1]);
+                    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+                    g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+                })();
+            </script>
+            <noscript><p><img src="http://piwik.blockstackers.net/piwik.php?idsite=1" style="border:0" alt="" /></p></noscript>
+            <!-- End Piwik Code -->
+        [% END %]
     </body>
 </html>

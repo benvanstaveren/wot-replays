@@ -1,0 +1,38 @@
+msgid "replay.battleviewer.button.glacial"
+msgstr "Amat Perlahan"
+
+msgid "replay.battleviewer.button.slow"
+msgstr "Perlahan"
+
+msgid "replay.battleviewer.button.realtime"
+msgstr "Biasa"
+
+msgid "replay.battleviewer.button.fast"
+msgstr "Pantas"
+
+msgid "replay.battleviewer.button.ludicrous"
+msgstr "Sangat Pantas"
+
+msgid "replay.battleviewer.packetsloading"
+msgstr "Memuatkan Paket-paket"
+
+msgid "replay.battleviewer.packeterror"
+msgstr "Tidak dapat memuatkan data paket, sila cuba memuatkan semula halaman"
+
+msgid "replay.battleviewer.clicktostart"
+msgstr "Klik untuk mula"
+
+msgid "replay.battleviewer.period.1"
+msgstr "Menunggu Pemain"
+
+msgid "replay.battleviewer.period.2"
+msgstr "Mengira Masa"
+
+msgid "replay.battleviewer.period.3"
+msgstr "Dalam Pertempuran"
+
+msgid "replay.battleviewer.period.4"
+msgstr "Pertempuran Tamat"
+
+msgid "replay.battleviewer.page.title"
+msgstr "Pemapar Pertempuran"

@@ -1,0 +1,64 @@
+msgid "upload.page.title"
+msgstr "Muat Naik Rakaman"
+
+msgid "upload.description.help"
+msgstr "Teks sahaja, HTML tidak dibenarkan"
+
+msgid "upload.legend.file"
+msgstr "Fail Rakaman"
+
+msgid "upload.legend.details"
+msgstr "Butiran Rakaman"
+
+msgid "upload.description"
+msgstr "Huraian"
+
+msgid "upload.optional"
+msgstr "tidak wajib"
+
+msgid "upload.privacy"
+msgstr "Tetapan Privasi"
+
+msgid "upload.privacy.tooltip"
+msgstr "Maklumat tambahan..."
+
+msgid "upload.button.upload"
+msgstr "Muat Naik Rakaman"
+
+msgid "upload.modal.upload.header"
+msgstr "Memuat naik rakaman..."
+
+msgid "upload.modal.process.header"
+msgstr "Memproses rakaman..."
+
+msgid "upload.modal.process.button.close"
+msgstr "Tutup &amp; dan proses di latar belakang"
+
+msgid "upload.modal.complete.header"
+msgstr "Selese Memproses"
+
+msgid "upload.modal.complete.links"
+msgstr "Pautan"
+
+msgid "upload.modal.complete.replay.page"
+msgstr "Halaman rakaman"
+
+msgid "upload.modal.complete.replay.file"
+msgstr "Fail rakaman"
+
+msgid "upload.modal.complete.banner"
+msgstr "Sepanduk"
+
+msgid "upload.modal.complete.banner.error"
+msgstr "Terdapat ralat semasa membuat sepanduk, kami akan membuatkannya semula sebentar lagi dan anda akan boleh gunakannya menggunakan butang 'Benamkan' pada halaman rakaman."
+
+msgid "upload.modal.complete.button.closeview"
+msgstr "Tutup &amp; Lihat"
+
+msgid "upload.modal.complete.button.close"
+msgstr "Tutup"
+
+
+
+
+

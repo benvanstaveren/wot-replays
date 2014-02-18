@@ -10,3 +10,5 @@ msgstr "Bahasa Indonesia"
 msgid "language.nl"
 msgstr "Nederlands"
 
+msgid "language.ms"
+msgstr "Bahasa Malaysia"

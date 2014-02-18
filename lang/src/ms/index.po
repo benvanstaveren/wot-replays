@@ -1,0 +1,20 @@
+msgid "index.page.title" 
+msgstr "Utama"
+
+msgid "index.page.header"
+msgstr "Rakaman Terbaru"
+
+msgid "sidebar.status.header"
+msgstr "Status"
+
+msgid "sidebar.status.pending"
+msgstr "sedang diproses"
+
+msgid "sidebar.status.datasize"
+msgstr "saiz data"
+
+msgid "sidebar.status.indexsize"
+msgstr "saiz index"
+
+msgid "sidebar.status.diskusage"
+msgstr "pengunaan cakera"

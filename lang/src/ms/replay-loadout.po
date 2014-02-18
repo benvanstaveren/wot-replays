@@ -1,0 +1,20 @@
+msgid "replay.loadout.inscriptions.heading"
+msgstr "Inskripsi"
+
+msgid "replay.loadout.emblems.heading"
+msgstr "Lambang"
+
+msgid "replay.loadout.camouflage.heading"
+msgstr "Penyamaran"
+
+msgid "replay.loadout.ammunition.heading"
+msgstr "Amunisi"
+
+msgid "replay.loadout.modules.heading"
+msgstr "Modul-modul"
+
+msgid "replay.loadout.consumables.heading"
+msgstr "Barangpakai"
+
+msgid "replay.loadout.equipment.heading"
+msgstr "Kelengkapan"

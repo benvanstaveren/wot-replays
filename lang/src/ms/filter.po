@@ -1,0 +1,80 @@
+msgid "sidebar.filter.header"
+msgstr "Penapis"
+
+msgid "sidebar.filter.button.filter"
+msgstr "Tapis"
+
+msgid "sidebar.filter.button.reset"
+msgstr "Tetap semula"
+
+msgid "sidebar.filter.vehicle.title"
+msgstr "Kenderaan"
+
+msgid "sidebar.filter.vehicle.all"
+msgstr "Semua kenderaan"
+
+msgid "sidebar.filter.tier.title"
+msgstr "Paras"
+
+msgid "sidebar.filter.map.title"
+msgstr "Medan"
+
+msgid "sidebar.filter.map.all"
+msgstr "Semua medan"
+
+msgid "sidebar.filter.server.title"
+msgstr "Server"
+
+msgid "sidebar.filter.server.all"
+msgstr "Semua server"
+
+msgid "sidebar.filter.matchmode.title"
+msgstr "Mod Pertempuran"
+
+msgid "sidebar.filter.matchmode.all"
+msgstr "Semua mod"
+
+msgid "sidebar.filter.matchtype.title"
+msgstr "Jenis Pertempuran"
+
+msgid "sidebar.filter.matchtype.all"
+msgstr "Semua jenis"
+
+msgid "sidebar.filter.sorting.title"
+msgstr "Susunan"
+
+msgid "sidebar.filter.sorting.upload"
+msgstr "Tarikh Muat Naik"
+
+msgid "sidebar.filter.sorting.matchtime"
+msgstr "Masa Pertempuran"
+
+msgid "sidebar.filter.sorting.xp"
+msgstr "Pengalaman Dasar Diraih"
+
+msgid "sidebar.filter.sorting.credits"
+msgstr "Kredit Dasar Diraih"
+
+msgid "sidebar.filter.sorting.damage"
+msgstr "Kerosakan Langung Dikenakan"
+
+msgid "sidebar.filter.sorting.scouted"
+msgstr "Kerosakan Pengesanan Dikenakan"
+
+msgid "sidebar.filter.sorting.likes"
+msgstr "Disuka"
+
+msgid "sidebar.filter.sorting.downloads"
+msgstr "Muat Turun"
+
+msgid "sidebar.filter.player.title"
+msgstr "Pemain"
+
+msgid "sidebar.filter.player.all"
+msgstr "Semua Rakaman"
+
+msgid "sidebar.filter.player.recordedonly"
+msgstr "Rakaman Sendiri Sahaja"
+
+msgid "sidebar.filter.player.involvedonly"
+msgstr "Rakaman Terlibat Sahaja"

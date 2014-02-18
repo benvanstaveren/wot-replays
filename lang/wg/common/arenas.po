@@ -1,3 +1,6 @@
+msgid "42_north_america/name"
+msgstr "Port"
+
 msgid "00_planb_testsite/description"
 msgstr "?empty?"
 

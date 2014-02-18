@@ -1,0 +1,3 @@
+msgid "vehicles.page.title"
+msgstr "Kenderaan &raquo; %0"
+

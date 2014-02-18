@@ -1,0 +1,6 @@
+msgid "browse.error.noreplays"
+msgstr "Oops, nampaknya tiada rakaman yang memadani penapis..."
+
+msgid "browse.page.title"
+msgstr "Layari Rakaman"
+

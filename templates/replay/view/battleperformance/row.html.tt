@@ -42,6 +42,7 @@
             [% IF roster.player.team == replay.game.recorder.team %]
                 [% IF details.hits + details.he_hits == 0 %]dimmed[% ELSE %][% END %]" title="[% h.loc('replays.overview.battleperformance.teamdamage', details.damageDealt + 0, h.percentage_of(ph, details.damageDealt + 0)) %]"
             [% ELSE %]
+                <!-- ph: [% ph %], detailsdamage-dealt: [% details.damageDealt %] -->
                 [% IF details.hits + details.he_hits == 0 %]dimmed[% ELSE %][% END %]" title="[% h.loc('replays.overview.battleperformance.damage', details.damageDealt + 0, h.percentage_of(ph, details.damageDealt + 0)) %]"
             [% END %]>
             [% IF details.hits + details.he_hits > 0 %]

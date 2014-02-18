@@ -1,0 +1,8 @@
+msgid "camouflage.summer"
+msgstr "Musim panas"
+
+msgid "camouflage.winter"
+msgstr "Musim sejuk"
+
+msgid "camouflage.desert"
+msgstr "Padang pasir"

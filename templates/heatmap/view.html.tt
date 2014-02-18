@@ -68,3 +68,6 @@
         });
     </script>
 [% END %]
+[% BLOCK head_javascript %]
+// head_javascript 
+[% END %]

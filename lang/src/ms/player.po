@@ -1,0 +1,2 @@
+msgid "player.page.title"
+msgstr "Layari Pemain - %0"

@@ -1,0 +1,11 @@
+msgid "replay.modal.embed.title"
+msgstr "Benamkan Rakaman"
+
+msgid "replay.modal.embed.text"
+msgstr "Untuk membenamkan rakaman ini, gunakan BBcode yang disediakan di bawah"
+
+msgid "replay.modal.embed.button.close.text"
+msgstr "Tutup"
+
+msgid "replay.modal.embed.button.close.title"
+msgstr "Tutup dialog ini"

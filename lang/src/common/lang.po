@@ -1,5 +1,0 @@
-msgid "en"
-msgstr "English"
-
-msgid "id"
-msgstr "Bahasa Indonesia"

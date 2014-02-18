@@ -1,0 +1,35 @@
+msgid "gametype.ctf"
+msgstr "Biasa"
+
+msgid "gametype.ctf.short"
+msgstr "Biasa"
+
+msgid "gametype.ctf.desc"
+msgstr "Menang pertempuran dengan menawan pangkalan musuh atau memusnahkan semua musuh"
+
+msgid "gametype.domination"
+msgstr "Pertemuan"
+
+msgid "gametype.domination.short"
+msgstr "Pertemuan"
+
+msgid "gametype.domination.desc"
+msgstr "Menang pertempuran dengan menawan pangkalan atau memusnahkan semua musuh"
+
+msgid "gametype.assault"
+msgstr "Serangan"
+
+msgid "gametype.assault.short"
+msgstr "Serangan"
+
+msgid "gametype.assault.desc"
+msgstr "Menang pertempuran dengan menyerang atau mempertahan pangkalan atau memusnahkan semua musuh"
+
+msgid "gametype.nations"
+msgstr "Konfrontasi"
+
+msgid "gametype.nations.short"
+msgstr "Konfrontasi"
+
+msgid "gametype.nations.desc"
+msgstr "Menang pertempuran dengan menawan pangkalan atau memusnahkan semua musuh"

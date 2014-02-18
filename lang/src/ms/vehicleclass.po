@@ -1,0 +1,29 @@
+msgid "vehicleclass.l"
+msgstr "Perisai Ringan"
+
+msgid "vehicleclass.m"
+msgstr "Perisai Sederhana"
+
+msgid "vehicleclass.h"
+msgstr "Perisai Berat"
+
+msgid "vehicleclass.t"
+msgstr "Pemusnah Perisai"
+
+msgid "vehicleclass.s"
+msgstr "SPG"
+
+msgid "vehicleclass.l.plural"
+msgstr "Perisai Ringan"
+
+msgid "vehicleclass.m.plural"
+msgstr "Perisai Sederhana"
+
+msgid "vehicleclass.h.plural"
+msgstr "Perisai Berat"
+
+msgid "vehicleclass.t.plural"
+msgstr "Pemusnah Perisai"
+
+msgid "vehicleclass.s.plural"
+msgstr "SPG"

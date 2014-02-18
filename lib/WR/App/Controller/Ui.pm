@@ -260,4 +260,34 @@ sub openid_return {
     }
 }
 
+sub _get_lang_data {
+    my $self = shift;
+    my $what = shift;
+    my $data = {};
+
+    if(my $fh = IO::File->new(sprintf('%s/%s/site.po', $self->app->home->rel_dir('lang/site'), $what))) {
+        my $id = undef;
+        my $val = undef;
+        while(my $line = <$fh>) {
+            if($line =~ /msgid\s+\"(.*?)\"/) {
+                $id = $1;
+            } elsif($line =~ /msgstr\s+"(.*)\"/) {
+                $data->{$id} = $1;
+                $id = undef;
+            }
+        }
+        $fh->close;
+    }
+    return $data;
+}
+
+sub xhr_po {
+    my $self = shift;
+    my $lang = $self->stash('lang');
+    my $common = $self->_get_lang_data('common');
+    my $ldata  = $self->_get_lang_data($lang);
+    $self->stash(catalog => $self->i18n_catalog);
+    $self->render(template => 'xhr/po');
+}
+
 1;

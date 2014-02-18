@@ -1,0 +1,6 @@
+msgid "maps.page.header"
+msgstr "Medan"
+
+msgid "maps.page.title"
+msgstr "Medan"
+

@@ -1,0 +1,89 @@
+msgid "replay.game.finishreason.0"
+msgstr "tidak diketahui"
+
+msgid "replay.game.finishreason.1.0"
+msgstr "semua musuh dimusnahkan"
+
+msgid "replay.game.finishreason.1.1"
+msgstr "semua sekutu dimusnahkan"
+
+msgid "replay.game.finishreason.2"
+msgstr "pangkalan ditawan"
+
+msgid "replay.game.finishreason.3"
+msgstr "tamat tempoh"
+
+msgid "replay.game.finishreason.4"
+msgstr "gagal"
+
+msgid "replay.game.finishreason.5"
+msgstr "teknikal"
+
+msgid "replay.header.killedby"
+msgstr "dimusnahkan oleh"
+
+msgid "replay.header.result"
+msgstr "Keputusan"
+
+msgid "replay.header.survived"
+msgstr "Terselamat"
+
+msgid "replay.header.survived.no"
+msgstr "Tidak"
+
+msgid "replay.header.survived.yes"
+msgstr "Ya"
+
+msgid "replay.result.defeat"
+msgstr "Kalah"
+
+msgid "replay.result.draw"
+msgstr "Seri"
+
+msgid "replay.result.victory"
+msgstr "Menang"
+
+msgid "replay.button.replay.title"
+msgstr "Lihat halaman statistik rakaman"
+
+msgid "replay.button.replay.label"
+msgstr "Halaman Rakaman"
+
+msgid "replay.button.modal.close.label"
+msgstr "Tutup"
+
+msgid "replay.button.like.label"
+msgstr "Suka"
+
+msgid "replay.button.like.title"
+msgstr "Sukakan rakaman ini"
+
+msgid "replay.button.save.label"
+msgstr "Simpan"
+
+msgid "replay.button.save.title"
+msgstr "Muat turun rakaman ini"
+
+msgid "replay.button.view.label"
+msgstr "Lihat"
+
+msgid "replay.button.view.title"
+msgstr "Lihat rakaman ini"
+
+msgid "replay.button.embed.label"
+msgstr "Benamkan"
+
+msgid "replay.button.embed.title"
+msgstr "Buatkan kod BB untuk benamkan rakaman ini dalam forum"
+
+msgid "replay.button.battleviewer.label"
+msgstr "Pemapar Pertempuran"
+
+msgid "replay.button.battleviewer.title"
+msgstr "Mainkan rakaman pertempuran ini pada peta mini maya"
+
+msgid "replay.button.battleheatmap.title"
+msgstr "Lihat peta haba untuk pertempuran ini"
+
+msgid "replay.button.battleheatmap.label"
+msgstr "Peta Haba"

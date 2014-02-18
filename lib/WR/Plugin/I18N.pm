@@ -2,6 +2,7 @@ package WR::Plugin::I18N;
 use Mojo::Base 'Mojolicious::Plugin';
 use Data::Localize::Gettext;
 use Data::Dumper;
+use Mojo::Util qw/encode decode/;
 
 sub get_paths {
     my $self = shift;
@@ -88,16 +89,35 @@ sub register {
         return Data::Localize::Gettext->new(formatter => WR::Localize::Formatter->new(), paths => $self->config('i18n_language_paths')->{$lang});
     });
 
+    $app->helper(i18n_catalog => sub {
+        my $self = shift;
+        if(my $localizer = $self->stash('i18n_localizer')) {
+            # aw yiss, grab the entire catalog and construct a single hash out of it, site comes last
+            my $catalog = {};
+            foreach my $cat (keys(%{$localizer->lexicon_map})) {
+                next if($cat eq 'site');
+                foreach my $id (keys(%{$localizer->get_lexicon_map($cat)})) {
+                    $catalog->{sprintf('#%s:%s', $cat, $id)} = decode('UTF-8', $localizer->get_lexicon($cat, $id));
+                }
+            }
+            foreach my $id (keys(%{$localizer->get_lexicon_map('site')})) {
+                $catalog->{$id} = decode('UTF-8', $localizer->get_lexicon('site', $id));
+            }
+            return $catalog;
+        } else {
+            return {};
+        }
+    });
+
     $app->helper(loc => sub {
         my $self = shift;
         my $str  = shift;
         my $args = shift;
-        my $nolc = shift || 0;
+        my $nolc = $self->stash('loc_nolc') || 0;
         my $l    = 'site';  # default localizer "language", here to ensure that anything that doesn't get the #whatever:foo prefix treatment is picked up normally
         my $ostr = $str;
 
         return $str if(defined($self->config->{loc_disabled}));
-
 
         $args = [ $args, @_ ] if(ref($args) ne 'ARRAY');
 
@@ -111,31 +131,37 @@ sub register {
             $str = lc($str) unless($nolc == 1);
         }
 
+        my $result;
+
         if(my $localizer = $self->stash('i18n_localizer')) {
             if(my $xlat = $localizer->localize_for(lang => $l, id => $str, args => $args)) {
-                return $xlat;
+                $result = $xlat;
             } else {
                 if($l ne 'site') {
                     # okay, stupid WG inconsistency, some tanks have a _short, some don't, so if our str contains _short, retry it 
                     if($str =~ /_short$/) {
                         $ostr =~ s/_short$//g;
-                        return $self->loc($ostr);
+                        $result = $self->loc($ostr);
                     } else {
-                        return $ostr;
+                        $result = $ostr;
                     }
                 } else {
                     # we mighta fucked it with the LC
                     if($nolc == 1) {
-                        return $ostr;
+                        $result = $ostr;
                     } else {
-                        return $self->loc($ostr, $args, 1);
+                        $self->stash('loc_nolc' => 1);
+                        $result = $self->loc($ostr, $args);
                     }
                 }
             }
         } else {
             $self->error('WR::Plugin::I18N: no localizer in stash');
-            return $ostr;
+            $result = $ostr;
         }
+
+        $self->stash('loc_nolc' => 0);
+        return $result;
     });
 }
 

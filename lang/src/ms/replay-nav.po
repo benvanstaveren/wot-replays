@@ -1,0 +1,18 @@
+msgid "replay.nav.chat"
+msgstr "Chat"
+
+msgid "replay.nav.earnings"
+msgstr "Perolehan"
+
+msgid "replay.nav.loadout"
+msgstr "Muatan"
+
+msgid "replay.nav.missions"
+msgstr "Misi-misi"
+
+msgid "replay.nav.overview"
+msgstr "Ringkasan"
+
+msgid "replay.nav.teams"
+msgstr "Pasukan"
+

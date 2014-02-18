@@ -82,10 +82,10 @@
 
                         WR_CR_session = d.channel;
 
-                        WR.addMessageHandler('chatreader.message', function(data) {
+                        WR.on('chatreader.message', function(data) {
                             if(data.session == WR_CR_session) $('#chat-output').append( $('<div/>').html(data.text) );
                         });
-                        WR.addMessageHandler('chatreader.finished', function(data) {
+                        WR.on('chatreader.finished', function(data) {
                             if(data.session == WR_CR_session) {
                                 $('#processing-display').addClass('hide');
                                 $('#reset-container').removeClass('hide');

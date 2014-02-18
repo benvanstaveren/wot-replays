@@ -1,0 +1,8 @@
+msgid "critdetails.damaged"
+msgstr "Rosak"
+
+msgid "critdetails.destroyed"
+msgstr "Musnah"
+
+msgid "critdetails.crew"
+msgstr "Kru"

@@ -1,0 +1,15 @@
+msgid "server.eu"
+msgstr "Eropah"
+
+msgid "server.kr"
+msgstr "Korea"
+
+msgid "server.na"
+msgstr "Amerika Utara"
+
+msgid "server.ru"
+msgstr "Rusia"
+
+msgid "server.sea"
+msgstr "Asia"
+

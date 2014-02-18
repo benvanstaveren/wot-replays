@@ -1,0 +1,6 @@
+msgid "footer.about"
+msgstr "tentang laman web ini"
+
+msgid "footer.credits"
+msgstr "penghargaan"
+

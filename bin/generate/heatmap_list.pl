@@ -10,5 +10,5 @@ my $db     = $mango->db('wot-replays');
 
 foreach my $map (@{$db->collection('data.maps')->find()->sort({ label => 1 })->all()}) {
     next if($map->{slug} eq 'trainingarea');
-    print sprintf(q|<li><a href="/heatmaps/%s">[%% h.loc('%s') %%]</a></li>|, $map->{slug}, $map->{i18n}), "\n";
+    print sprintf(q|<li><a href="/heatmaps/%s" class="i18n">%s</a></li>|, $map->{slug}, $map->{i18n}), "\n";
 }

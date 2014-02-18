@@ -12,7 +12,7 @@
     </div>
     <script type="text/javascript">
         $(document).ready(function() {
-            WR.addMessageHandler('replay.upload', function(data) {
+            WR.on('replay.upload', function(data) {
                 $('#queue-count').html('-');
                 $.getJSON('/xhr/qs', {}, function(d) {
                     if(d.ok == 1) {

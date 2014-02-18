@@ -1,0 +1,27 @@
+msgid "clans.button.search.label"
+msgstr "Cari"
+
+msgid "clans.heading.results"
+msgstr "Hasil"
+
+msgid "clans.heading.search"
+msgstr "Cari"
+
+msgid "clans.label.clan.name"
+msgstr "Nama Klan"
+
+msgid "clans.label.clan.ticker"
+msgstr "Tanda Klan"
+
+msgid "clans.label.query"
+msgstr "Pertanyaan"
+
+msgid "clans.label.server"
+msgstr "Server"
+
+msgid "clans.page.header"
+msgstr "Cari Klan"
+
+msgid "clans.page.title"
+msgstr "Cari Klan"
+
