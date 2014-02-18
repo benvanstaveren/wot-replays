@@ -43,10 +43,10 @@ sub frontpage {
             page            => { title => 'index.page.title' },
             timing_query    => tv_interval($start),
             sidebar         => {
-                alert       =>  {
-                    title   =>  'Big Update',
-                    text    =>  q|A big update was pushed just now that includes a lot of work done on making the site translateable into more languages; if you see any odd texts in a format like <em>foo.bar.baz</em>, please let me know what page it's on so I can fix it.|
-                }
+                info        =>  {
+                    title   =>  'Languages',
+                    text    => q|The first translation has been received! You can now browse the site in English or Malaysian. You can change your language preferences in <a href="/profile/settings">your settings</a>|,
+                },
             }
         });
     });
