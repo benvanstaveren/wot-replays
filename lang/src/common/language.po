@@ -7,8 +7,9 @@ msgstr "English"
 msgid "language.id"
 msgstr "Bahasa Indonesia"
 
+msgid "language.ms"
+msgstr "Bahasa Melayu"
+
 msgid "language.nl"
 msgstr "Nederlands"
 
-msgid "language.ms"
-msgstr "Bahasa Malaysia"

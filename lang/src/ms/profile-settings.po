@@ -16,3 +16,6 @@ msgstr "Paparan penilaian dalam panel"
 msgid "profile.settings.ratings.wn8"
 msgstr "Paparkan penilaian WN8"
 
+msgid "profile.settings.timezone.title"
+msgstr "Zon waktu"
+

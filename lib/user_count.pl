@@ -8,7 +8,7 @@ use Data::Dumper;
 
 my $p = WR::Statterpush::Server->new(
     host        => 'localhost:3000',
-    token       => '52fa6116907e1347ac010000',
+    token       => '52fa6dcc9c81a53ec3010000',
     group       => 'wotreplays',
     );
 

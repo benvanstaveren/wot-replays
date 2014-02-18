@@ -48,13 +48,13 @@ sub register {
 
         my $language = $c->session('language') || 'en';
         $c->app->log->debug('before_routes: language: ' . $language . ' paths: ' . join(', ', @{$c->config('i18n_language_paths')->{$language}}));
+        $c->stash('user_lang' => $language);
         if(my $localizer = $c->get_localizer_for($language)) {
             $c->stash('i18n_localizer' => $localizer);
         } else {
             $c->error('no localizer for language ', $language, ' falling back to EN');
             $c->stash('i18n_localizer' => $c->get_localizer_for('en'));
         }
-        $c->stash('user_lang' => $language);
     });
 
     $app->helper(set_language => sub {
@@ -85,7 +85,6 @@ sub register {
     $app->helper(get_localizer_for => sub {
         my $self = shift;
         my $lang = shift;
-
         return Data::Localize::Gettext->new(formatter => WR::Localize::Formatter->new(), paths => $self->config('i18n_language_paths')->{$lang});
     });
 
@@ -101,7 +100,7 @@ sub register {
                 }
             }
             foreach my $id (keys(%{$localizer->get_lexicon_map('site')})) {
-                $catalog->{$id} = decode('UTF-8', $localizer->get_lexicon('site', $id));
+                $catalog->{$id} = $localizer->get_lexicon('site', $id);
             }
             return $catalog;
         } else {
@@ -156,7 +155,7 @@ sub register {
                 }
             }
         } else {
-            $self->error('WR::Plugin::I18N: no localizer in stash');
+            $self->error('WR::Plugin::I18N: no localizer in stash, requested language: ', $self->stash('user_lang'), ' key: ', $ostr);
             $result = $ostr;
         }
 

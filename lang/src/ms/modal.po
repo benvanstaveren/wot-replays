@@ -1,0 +1,6 @@
+msgid "modal.pleasewait.text"
+msgstr "Sila tunggu, kami sedang sibuk memuatkan sesuatu..."
+
+msgid "modal.pleasewait.title"
+msgstr "Sila Tunggu"
+

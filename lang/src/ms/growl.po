@@ -1,0 +1,3 @@
+msgid "growl.replay.new"
+msgstr "Sebuah rakaman baru sahaja dimuat naik, lihatkannya di halaman depan sekarang!"
+

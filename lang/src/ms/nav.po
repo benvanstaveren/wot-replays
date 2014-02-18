@@ -1,44 +1,26 @@
-msgid "nav.home"
-msgstr "Utama"
-
-msgid "nav.browse"
-msgstr "Layari"
-
-msgid "nav.upload"
-msgstr "Muat Naik Rakaman"
-
 msgid "nav.admin"
 msgstr "Panel Pentadbir"
-
-msgid "nav.signin"
-msgstr "Log Masuk"
-
-msgid "nav.players"
-msgstr "Pemain"
-
-msgid "nav.clans"
-msgstr "Klan"
-
-msgid "nav.maps"
-msgstr "Medan"
-
-msgid "nav.vehicles"
-msgstr "Kenderaan"
 
 msgid "nav.blog"
 msgstr "Berita Terkini"
 
-msgid "nav.tools"
-msgstr "Alatan"
+msgid "nav.browse"
+msgstr "Layari"
+
+msgid "nav.clans"
+msgstr "Klan"
 
 msgid "nav.heatmaps"
 msgstr "Peta Haba"
 
-msgid "nav.tools.issuetracker"
-msgstr "Penjejak Isu"
+msgid "nav.home"
+msgstr "Utama"
 
-msgid "nav.tools.wiki"
-msgstr "Wiki"
+msgid "nav.maps"
+msgstr "Medan"
+
+msgid "nav.players"
+msgstr "Pemain"
 
 msgid "nav.profile.header"
 msgstr "Profil Anda"
@@ -46,11 +28,30 @@ msgstr "Profil Anda"
 msgid "nav.profile.replays"
 msgstr "Rakaman"
 
-msgid "nav.profile.uploads"
-msgstr "Dimuat Naik"
-
 msgid "nav.profile.settings"
 msgstr "Tetapan"
 
 msgid "nav.profile.signout"
 msgstr "Log Keluar"
+
+msgid "nav.profile.uploads"
+msgstr "Dimuat Naik"
+
+msgid "nav.signin"
+msgstr "Log Masuk"
+
+msgid "nav.tools"
+msgstr "Peralatan"
+
+msgid "nav.tools.issuetracker"
+msgstr "Penjejak Isu"
+
+msgid "nav.tools.wiki"
+msgstr "Wiki"
+
+msgid "nav.upload"
+msgstr "Muat Naik Rakaman"
+
+msgid "nav.vehicles"
+msgstr "Kenderaan"
+

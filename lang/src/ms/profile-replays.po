@@ -1,56 +1,8 @@
-msgid "profile.replays.page.title"
-msgstr "Profil &raquo; Rakaman"
-
-msgid "profile.replays.unlisted"
-msgstr "%1 %quant(%1,rakaman,rakaman) tidak tersenarai menampilkan anda"
-
-msgid "profile.replays.public"
-msgstr "%1 %quant(%1,rakaman,rakaman) awam menampilkan anda"
-
-msgid "profile.replays.clan"
-msgstr "%1 %quant(%1,rakaman,rakaman) awam menampilkan anda"
-
-msgid "profile.replays.private"
-msgstr "%1 %quant(%1,rakaman,rakaman) awam menampilkan anda"
-
 msgid "profile.replays.any"
 msgstr "%1 %quant(%1,rakaman,rakaman) menampilkan anda"
 
-msgid "profile.replays.heading.map"
-msgstr "medan"
-
-msgid "profile.replays.heading.vehicle"
-msgstr "kenderaan"
-
-msgid "profile.replays.heading.wl"
-msgstr "m/k"
-
-msgid "profile.replays.heading.survived"
-msgstr "terselamat"
-
-msgid "profile.replays.heading.kills"
-msgstr "dimusnahkan"
-
-msgid "profile.replays.heading.damaged"
-msgstr "dirosakkan"
-
-msgid "profile.replays.heading.spotted"
-msgstr "dikesan"
-
-msgid "profile.replays.heading.xp"
-msgstr "xp"
-
-msgid "profile.replays.heading.credits"
-msgstr "kredit"
-
-msgid "profile.replays.heading.version"
-msgstr "versi"
-
-msgid "profile.replays.heading.links"
-msgstr "pautan"
-
-msgid "profile.replays.victory"
-msgstr "menang"
+msgid "profile.replays.clan"
+msgstr "%1 %quant(%1,rakaman,rakaman) klan menampilkan anda"
 
 msgid "profile.replays.defeat"
 msgstr "kalah"
@@ -58,11 +10,60 @@ msgstr "kalah"
 msgid "profile.replays.draw"
 msgstr "seri"
 
-msgid "profile.replays.survived.yes"
-msgstr "ya"
+msgid "profile.replays.heading.credits"
+msgstr "kredit"
+
+msgid "profile.replays.heading.damaged"
+msgstr "dirosakkan"
+
+msgid "profile.replays.heading.kills"
+msgstr "dimusnahkan"
+
+msgid "profile.replays.heading.links"
+msgstr "pautan"
+
+msgid "profile.replays.heading.map"
+msgstr "medan"
+
+msgid "profile.replays.heading.spotted"
+msgstr "dikesan"
+
+msgid "profile.replays.heading.survived"
+msgstr "terselamat"
+
+msgid "profile.replays.heading.vehicle"
+msgstr "kenderaan"
+
+msgid "profile.replays.heading.version"
+msgstr "versi"
+
+msgid "profile.replays.heading.wl"
+msgstr "m/k"
+
+msgid "profile.replays.heading.xp"
+msgstr "xp"
+
+msgid "profile.replays.page.title"
+msgstr "Profil » Rakaman"
+
+msgid "profile.replays.private"
+msgstr "%1 %quant(%1,rakaman,rakaman) peribadi menampilkan anda"
+
+msgid "profile.replays.public"
+msgstr "%1 %quant(%1,rakaman,rakaman) awam menampilkan anda"
 
 msgid "profile.replays.survived.no"
 msgstr "tidak"
 
+msgid "profile.replays.survived.yes"
+msgstr "ya"
+
+msgid "profile.replays.unlisted"
+msgstr "%1 %quant(%1,rakaman,rakaman) tidak tersenarai menampilkan anda"
+
+msgid "profile.replays.victory"
+msgstr "menang"
+
 msgid "profile.replays.view"
 msgstr "lihat"
+

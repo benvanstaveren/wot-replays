@@ -155,13 +155,12 @@ sub publish {
         }
     }
 
-    my $fh = IO::File->new(sprintf('>%s/%s/site.po', $self->app->home->rel_dir('lang/site'), $lang));
-    foreach my $key (sort(keys(%$pub))) {
-        $fh->print(sprintf(q|msgid "%s"|, $key), "\n");
-        $fh->print(sprintf(q|msgstr "%s"|, $pub->{$key}), "\n");
-        $fh->print("\n");
+    if(open(my $fh, '>:encoding(utf-8)', sprintf('%s/%s/site.po', $self->app->home->rel_dir('lang/site'), $lang))) {
+	    foreach my $key (sort(keys(%$pub))) {
+            print($fh sprintf(q|msgid "%s"|, $key), "\n", sprintf(q|msgstr "%s"|, $pub->{$key}), "\n\n");
+	    }
+        close($fh);
     }
-    $fh->close;
     $self->render(json => { ok => 1 });
 }
 
