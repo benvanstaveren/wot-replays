@@ -20,6 +20,10 @@
         <div class="col-lg-12 col-md-12">
             <h3>Online Users <span class="spinner" id="users-online-spinner" style="float: left; position: relative; top: 2px; left: 168px"></span></h3>
             <div class="well" id="users-online">
+                <h4><span id="user-count">-</span> logged in</h4>
+                <p id="user-list"></p>
+                <h4>Guests</h4>
+                <p><span id="guest-count">-</span> guests</p>
             </div>
         </div>
     </div>
@@ -45,41 +49,50 @@
         </div>
     </div>
     <script type="text/javascript">
-        $(document).ready(function() {
+        function g_RC() {
             $.getJSON('/admin/replaycount', {}, function(d) {
                 $('#replay-count').text(d.count);
             });
+        }
+        function g_TC() {
             $.getJSON('/admin/todaycount', {}, function(d) {
                 $('#today-count').text(d.count);
             });
-            $('#replay-count').everyTime(10000, function() {
-                $.getJSON('/admin/replaycount', {}, function(d) {
-                    $('#replay-count').text(d.count);
+        }
+        function g_UPL() {
+            $('#uploads-spinner').addClass('hide');
+            $('#uploads-list').everyTime(10000, function() {
+                $('#uploads-spinner').removeClass('hide');
+                $('#uploads-list').load('/admin/uploadslist', {}, function() {
+                    $('#uploads-spinner').addClass('hide');
                 });
             });
-            $('#today-count').everyTime(10000, function() {
-                $.getJSON('/admin/todaycount', {}, function(d) {
-                    $('#today-count').text(d.count);
-                });
-            });
-            $('#uploads-list').load('/admin/uploadslist', {}, function() {
-                $('#uploads-spinner').addClass('hide');
-                $('#uploads-list').everyTime(10000, function() {
-                    $('#uploads-spinner').removeClass('hide');
-                    $('#uploads-list').load('/admin/uploadslist', {}, function() {
-                        $('#uploads-spinner').addClass('hide');
-                    });
-                });
-            });
-            $('#users-online').load('/admin/usersonline', {}, function() {
+        }
+        function g_USR() {
+            $('#users-online-spinner').removeClass('hide');
+            $.getJSON('/admin/usersonline', {}, function(d) {
+                $('#guest-count').text(d.guest_count);
+                $('#user-count').text(d.users.length);
+                $('#user-list').text(d.users.join(', '));
                 $('#users-online-spinner').addClass('hide');
-                $('#users-online').everyTime(10000, function() {
-                    $('#users-online-spinner').removeClass('hide');
-                    $('#users-online').load('/admin/usersonline', {}, function() {
-                        $('#users-online-spinner').addClass('hide');
-                    });
-                });
             });
+        }
+        $(document).ready(function() {
+            WR.on('replay.processed', function(e) {
+                g_RC();
+                g_TC();
+                g_UPL();
+            });
+            WR.on('replay.upload', function(e) {
+                g_UPL();
+            });
+
+            g_RC();
+            g_TC();
+            g_UPL();
+            g_USR();
+
+            $('#users-online').everyTime(10000, g_USR);
         });
     </script>
 [% END %]

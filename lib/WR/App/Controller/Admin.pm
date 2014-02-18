@@ -65,9 +65,7 @@ sub get_online_users {
             }
         }
 
-        # gotta do it like this
-        $self->stash('guests' => $g + 0, online_users => $o); 
-        $self->render('admin/users');
+        $self->render(json => { guest_count => 0, users => $o });
     });
 }
 
