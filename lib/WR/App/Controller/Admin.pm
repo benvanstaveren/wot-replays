@@ -46,6 +46,7 @@ sub get_online_users {
     my $self = shift;
     my $end  = shift;
 
+    $self->render_later;
     $self->app->statterpush->channel_list('site' => sub {
         my ($p, $res) = (@_);
         my $o = [];
@@ -60,8 +61,8 @@ sub get_online_users {
         }
 
         # gotta do it like this
-        $self->stash('guests' => $g + 0); 
-        $end->({ key => 'online_users', value => $o });
+        $self->stash('guests' => $g + 0, online_users => $o); 
+        $self->render('admin/users');
     });
 }
 
@@ -83,7 +84,6 @@ sub index {
         });
     });
 
-    $self->get_online_users($delay->begin(0));
     $self->get_replay_count($delay->begin(0));
     $self->get_today_count($delay->begin(0));
     $self->get_upload_queue($delay->begin(0));

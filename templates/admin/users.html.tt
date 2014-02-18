@@ -1,0 +1,4 @@
+<h4>[% online_users.size || '0' %] logged in</h4>
+<p>[% online_users.join(', ') %]</p>
+<h4>Guests</h4>
+<p> [% guests %] guests

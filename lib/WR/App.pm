@@ -280,6 +280,7 @@ sub startup {
 
     my $admin = $r->bridge('/admin')->to('admin#bridge');
         $admin->route('/')->to('admin#index', pageid => 'admin/home');
+        $admin->route('/usersonline')->to('admin#get_online_users');
         $admin->route('/events')->to('admin-events#index', pageid => 'admin/events');
 
         my $language = $admin->bridge('/language');

@@ -41,7 +41,7 @@
 
 	    <script type="text/javascript">
             var WR = new Wotreplays({
-                pageid: '[% pageid.replace(/\//, '_') |js %]',
+                pageid: '[% pageid.replace('/\//', '_') |js %]',
                 apikey: '[% config.statterbox.web %]',
                 user: '[% IF h.is_user_authenticated %][% h.current_user.player_name |js %].[% h.current_user.player_server |js %][% ELSE %]anon-[% h.get_oid() %][% END %]',
                 channels: [ 'admin' ],
