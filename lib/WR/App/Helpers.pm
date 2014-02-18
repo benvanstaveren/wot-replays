@@ -1012,6 +1012,7 @@ sub add_helpers {
 
         my @parts = ();
         my $base_color = $dom->find('font')->first->attr('color');
+        my $text_color = $dom->find('font')->[1]->attr('color');
         $dom->children->each(sub {
             push(@parts, shift->text);
         });
@@ -1033,7 +1034,7 @@ sub add_helpers {
 
         # yurk
         $n->{vehicle} = decode('UTF-8', $n->{vehicle}) if(defined($n->{vehicle}));
-        return { base => $base_color, name => $n, message => $message };
+        return { base => $base_color, name => $n, message => $message, text => $text_color };
     });
 
     $self->helper(i18n_attr => sub {

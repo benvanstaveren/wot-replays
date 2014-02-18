@@ -61,7 +61,7 @@
         }
         function g_UPL() {
             $('#uploads-spinner').addClass('hide');
-            $('#uploads-list').everyTime(10000, function() {
+            $('#uploads-list').everyTime(20000, function() {
                 $('#uploads-spinner').removeClass('hide');
                 $('#uploads-list').load('/admin/uploadslist', {}, function() {
                     $('#uploads-spinner').addClass('hide');
