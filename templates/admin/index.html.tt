@@ -63,20 +63,20 @@
                 });
             });
             $('#uploads-list').load('/admin/uploadslist', {}, function() {
-                //$('#uploads-spinner').addClass('hide');
+                $('#uploads-spinner').addClass('hide');
                 $('#uploads-list').everyTime(10000, function() {
-                    //$('#uploads-spinner').removeClass('hide');
+                    $('#uploads-spinner').removeClass('hide');
                     $('#uploads-list').load('/admin/uploadslist', {}, function() {
-                        //$('#uploads-spinner').addClass('hide');
+                        $('#uploads-spinner').addClass('hide');
                     });
                 });
             });
             $('#users-online').load('/admin/usersonline', {}, function() {
-                //$('#users-online-spinner').addClass('hide');
+                $('#users-online-spinner').addClass('hide');
                 $('#users-online').everyTime(10000, function() {
-                    //$('#users-online-spinner').removeClass('hide');
+                    $('#users-online-spinner').removeClass('hide');
                     $('#users-online').load('/admin/usersonline', {}, function() {
-                        //$('#users-online-spinner').addClass('hide');
+                        $('#users-online-spinner').addClass('hide');
                     });
                 });
             });
