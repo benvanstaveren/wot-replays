@@ -311,7 +311,7 @@ sub actual_view_replay {
     my $title = sprintf('%s - %s - %s (%s)',
         $replay->{game}->{recorder}->{name},
         $self->get_recorder_vehicle($replay)->{vehicle}->{label},
-        $self->map_name($replay),
+        $self->loc($self->map_name($replay)),
         $self->loc(sprintf('gametype.%s', $replay->{game}->{type}))
         );
 
@@ -319,7 +319,7 @@ sub actual_view_replay {
         lc($self->loc(sprintf('gametype.%s', $replay->{game}->{type}))),
         $replay->{game}->{recorder}->{name}, 
         $self->get_recorder_vehicle($replay)->{vehicle}->{label},
-        $self->map_name($replay),
+        $self->loc($self->map_name($replay)),
         );
 
     my $playerteam = $replay->{game}->{recorder}->{team} - 1;

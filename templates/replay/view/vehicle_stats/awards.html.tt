@@ -3,7 +3,14 @@
 <div class="heroawardlist clearfix">
     [% awardcount = 0 %]
     [% FOREACH award IN replay.stats.achievements.nsort %]
-        <div data-placement="bottom" data-toggle="tooltip" data-container="body" class="bs-tooltip award big [% h.get_achievements.index_to_idstr(award) %]" title="[% h.achievement_name(h.get_achievements.index_to_idstr(award)) |html %]"></div>
+        <div 
+            data-placement="bottom" 
+            data-toggle="tooltip" 
+            data-container="body" 
+            class="bs-tooltip award big [% h.get_achievements.index_to_idstr(award) %] i18n" 
+            data-attributes-only="true"
+            [% h.i18n_attr({ title => [ h.achievement_name(h.get_achievements.index_to_idstr(award)), {} ]}) %]
+            ></div>
         [% awardcount = awardcount + 1 %]
     [% END %]
     [% FOREACH award IN other_awards %]
@@ -17,7 +24,7 @@
             [% ELSE %]
                 [% title = h.achievement_name(h.get_achievements.index_to_idstr(award.type)) %]
             [% END %]
-            <div data-toggle="tooltip" data-placement="bottom" data-container="body" class="bs-tooltip award big [% h.get_achievements.index_to_idstr(award.type) %][% IF award.class_suffix %][% award.class_suffix %][% END %]" title="[% title |html %]"></div>
+            <div data-toggle="tooltip" data-placement="bottom" data-container="body" class="bs-tooltip award big [% h.get_achievements.index_to_idstr(award.type) %][% IF award.class_suffix %][% award.class_suffix %][% END %] i18n" data-attributes-only="true" [% h.i18n_attr({ title => [ title, {} ]}) %]></div>
             [% awardcount = awardcount + 1 %]
         [% END %]
     [% END %]
