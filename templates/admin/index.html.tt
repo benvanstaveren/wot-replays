@@ -18,16 +18,14 @@
     </div>
     <div class="row">
         <div class="col-lg-12 col-md-12">
-            <h3>Online Users</h3>
-            <span class="spinner" id="users-online-spinner" style="float: left; position: relative; top: -35px; left: 145px"></span>
+            <h3>Online Users <span class="spinner" id="users-online-spinner" style="float: left; position: relative; top: 2px; left: 168px"></span></h3>
             <div class="well" id="users-online">
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-md-12 col-lg-12">
-            <h3>Upload Queue</h3>
-            <span class="spinner" id="uploads-spinner" style="float: left; position: relative; top: -35px; left: 145px"></span>
+            <h3>Upload Queue <span class="spinner" id="uploads-spinner" style="float: left; position: relative; top: 2px; left: 185px"></span></h3>
             <table class="table table-bordered table-striped">
             <colgroup>
                 <col style="width: 20%"/>
@@ -65,20 +63,20 @@
                 });
             });
             $('#uploads-list').load('/admin/uploadslist', {}, function() {
-                $('#uploads-spinner').addClass('hide');
+                //$('#uploads-spinner').addClass('hide');
                 $('#uploads-list').everyTime(10000, function() {
-                    $('#uploads-spinner').removeClass('hide');
+                    //$('#uploads-spinner').removeClass('hide');
                     $('#uploads-list').load('/admin/uploadslist', {}, function() {
-                        $('#uploads-spinner').addClass('hide');
+                        //$('#uploads-spinner').addClass('hide');
                     });
                 });
             });
             $('#users-online').load('/admin/usersonline', {}, function() {
-                $('#users-online-spinner').addClass('hide');
+                //$('#users-online-spinner').addClass('hide');
                 $('#users-online').everyTime(10000, function() {
-                    $('#users-online-spinner').removeClass('hide');
+                    //$('#users-online-spinner').removeClass('hide');
                     $('#users-online').load('/admin/usersonline', {}, function() {
-                        $('#users-online-spinner').addClass('hide');
+                        //$('#users-online-spinner').addClass('hide');
                     });
                 });
             });
