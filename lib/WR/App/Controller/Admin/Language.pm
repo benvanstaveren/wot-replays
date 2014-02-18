@@ -11,6 +11,7 @@ has 'layout' => sub {
             children => [ 
                 { id => 'nav', title => 'Navigation' },
                 { id => 'modal', title => 'Global Modals' },
+                { id => 'growl', title => 'Growl Notifications' },
                 { id => 'footer', title => 'Footer' },
             ],
         },
