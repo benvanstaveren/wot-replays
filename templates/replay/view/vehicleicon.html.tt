@@ -1,3 +1,0 @@
-                        <div style="margin: 0px 25px 0px 0px; background: transparent url([% h.vehicle_icon(replay.player.vehicle.full, 100) %]) no-repeat scroll center center;" class="vehicleIcon-100 box replayView" title="[% h.vehicle_description(replay.player.vehicle.full) |html %]">
-                            <div class="vehicleTier" style="height: 17px; min-width: 24px; background: transparent url([% h.vehicle_tier(replay.player.vehicle.full) %]) no-repeat scroll top left"></div>
-                        </div>

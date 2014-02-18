@@ -2,7 +2,8 @@ package WR::Plugin::I18N;
 use Mojo::Base 'Mojolicious::Plugin';
 use Data::Localize::Gettext;
 use Data::Dumper;
-use Mojo::Util qw/encode decode/;
+use Try::Tiny qw/try catch/;
+use Encode qw/encode decode from_to/;
 
 sub get_paths {
     my $self = shift;
@@ -85,7 +86,7 @@ sub register {
     $app->helper(get_localizer_for => sub {
         my $self = shift;
         my $lang = shift;
-        return Data::Localize::Gettext->new(formatter => WR::Localize::Formatter->new(), paths => $self->config('i18n_language_paths')->{$lang});
+        return Data::Localize::Gettext->new(encoding => 'utf8', formatter => WR::Localize::Formatter->new(), paths => $self->config('i18n_language_paths')->{$lang});
     });
 
     $app->helper(i18n_catalog => sub {
@@ -96,7 +97,8 @@ sub register {
             foreach my $cat (keys(%{$localizer->lexicon_map})) {
                 next if($cat eq 'site');
                 foreach my $id (keys(%{$localizer->get_lexicon_map($cat)})) {
-                    $catalog->{sprintf('#%s:%s', $cat, $id)} = decode('UTF-8', $localizer->get_lexicon($cat, $id));
+                    my $val = $localizer->get_lexicon($cat, $id);
+                    $catalog->{sprintf('#%s:%s', $cat, $id)} = $val;
                 }
             }
             foreach my $id (keys(%{$localizer->get_lexicon_map('site')})) {

@@ -10,6 +10,7 @@ use lib "$FindBin::Bin/../lib";
 use WR;
 use WR::Res;
 use WR::Query;
+use WR::QuickDB;
 use WR::App::Helpers;
 use Time::HiRes qw/gettimeofday/;
 
@@ -347,6 +348,20 @@ sub startup {
     });
     $self->types->type(csv => 'text/csv; charset=utf-8');
     $self->renderer->default_handler('tt');
+
+    my $preload = [ 'components', 'consumables', 'customization', 'equipment', 'maps', 'vehicles' ];
+
+    foreach my $type (@$preload) {
+        my $aname = sprintf('data_%s', $type);
+        $self->attr($aname => sub {
+            my $self = shift;
+            return WR::QuickDB->new(data => $self->mango->db('wot-replays')->collection(sprintf('data.%s', $type))->find()->all());
+        });
+        $self->helper($aname => sub {
+            return shift->app->$aname();
+        });
+        $self->$aname();
+    }
 }
 
 1;

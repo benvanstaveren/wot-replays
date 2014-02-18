@@ -43,8 +43,9 @@ sub generate_vehicle_select {
    
     foreach my $country (qw/china france germany usa japan ussr uk/) {
         my $d = { label => $l->{$country}, country => $country };
-        my $cursor = $self->model('wot-replays.data.vehicles')->find({ country => $country })->sort({ label => 1 });
-        while(my $obj = $cursor->next()) {
+
+        # just dig into the data_vehicles attribute and find all that match the given country 
+        foreach my $obj (sort { $b->{level} <=> $a->{level} } ($self->data_vehicles->all(country => $country))) {
             push(@{$d->{items}}, {
                 id => $obj->{_id},
                 value => $obj->{i18n},
@@ -81,11 +82,11 @@ sub add_helpers {
         my $tc   = parse_int_compact_descr($i->{item});
 
         my $type    = type_id_to_name($tc->{type_id});
-        my $model   = ($type eq 'equipment') ? 'wot-replays.data.consumables' : 'wot-replays.data.equipment'; 
+        my $model   = ($type eq 'equipment') ? 'data_consumables' : 'data_equipment';
         my $path    = ($type eq 'equipment') ? 'consumables' : 'equipment';
 
         # the typecomp is the ID of the item 
-        if(my $c = $self->model($model)->find_one({ wot_id => $tc->{id} })) {
+        if(my $c = $self->$model->get(wot_id => $tc->{id})) {
             return sprintf('<span data-placement="bottom" data-toggle="tooltip" title="%s x%d" class="bs-tooltip mission-icon rounded" style="background: transparent url(http://images.wotreplays.org/%s/32x32/%s) no-repeat scroll 0 0"><b>%d</b></span>', $c->{label}, $i->{count}, $path, $c->{icon}, $i->{count});
         } else {
             return undef;
@@ -101,13 +102,13 @@ sub add_helpers {
 
         if(ref($a)) {
             $self->app->log->debug('new style consumable');
-            return sprintf('style="background: transparent url(http://images.wotreplays.org/consumables/24x24/%s) no-repeat scroll 0 0"', $a->{icon});
+            return sprintf('style="background: transparent url(http://images.wotreplays.org/consumables/32x32/%s) no-repeat scroll 0 0"', $a->{icon});
         } else {
             $self->app->log->debug('old style consumable');
             my $tc = parse_int_compact_descr($a);
             my $i = $tc->{id};
-            if(my $c = $self->model('wot-replays.data.consumables')->find_one({ wot_id => $i + 0 })) {
-                return sprintf('style="background: transparent url(http://images.wotreplays.org/consumables/24x24/%s) no-repeat scroll 0 0"', $c->{icon});
+            if(my $c = $self->data_consumables->get(wot_id => $i + 0)) {
+                return sprintf('style="background: transparent url(http://images.wotreplays.org/consumables/32x32/%s) no-repeat scroll 0 0"', $c->{icon});
             } else {
                 return undef;
             }
@@ -124,13 +125,13 @@ sub add_helpers {
             # new style
             my $n = ($a->{count} > 0) ? $a->{ammo}->{kind} : sprintf('NO_%s', $a->{ammo}->{kind});
             $self->app->log->debug('new style ammo');
-            return sprintf('style="background: transparent url(http://images.wotreplays.org/ammo/24x24/%s.png) no-repeat scroll 0 0"', $n);
+            return sprintf('style="background: transparent url(http://images.wotreplays.org/ammo/32x32/%s.png) no-repeat scroll 0 0"', $n);
         } else {
             $self->app->log->debug('old style ammo');
             my $i = $a->{id};
-            if(my $c = $self->model('wot-replays.data.components')->find_one({ component => 'shells', _id => $i + 0 })) {
+            if(my $c = $self->data_components->get_multi(component => 'shells', _id => $i + 0)) {
                 my $n = ($a->{count} > 0) ? $c->{kind} : sprintf('NO_%s', $c->{kind});
-                return sprintf('style="background: transparent url(http://images.wotreplays.org/ammo/24x24/%s.png) no-repeat scroll 0 0"', $n);
+                return sprintf('style="background: transparent url(http://images.wotreplays.org/ammo/32x32/%s.png) no-repeat scroll 0 0"', $n);
             } else {
                 return undef;
             }
@@ -150,23 +151,27 @@ sub add_helpers {
 
         return undef unless(defined($a) && ref($a) eq 'HASH');
 
+        my $retval = [];
+
         if(defined($a->{ammo})) {
             my $c = $a->{ammo};
-            return sprintf('%s %dmm %s %s', 
+            $retval->[0] = sprintf('%s %dmm %s %s', 
                 sprintf('%d x', $a->{count}),
                 $c->{caliber}, 
                 $kind_map->{$c->{kind}},
-                (defined($c->{i18n})) ? $self->loc($c->{i18n}) : $c->{label},
                 );
+            $retval->[1] = (defined($c->{i18n})) ? $c->{i18n} : $c->{label};
+            return $retval;
         } else {
             my $i = $a->{id};
-            if(my $c = $self->model('wot-replays.data.components')->find_one({ component => 'shells', _id => $i + 0 })) {
-                return sprintf('%s %dmm %s %s', 
+            if(my $c = $self->data_components->get_multi(component => 'shells', _id => $i + 0)) {
+                $retval->[0] = sprintf('%s %dmm %s %s', 
                     sprintf('%d x', $a->{count}),
                     $c->{caliber}, 
                     $kind_map->{$c->{kind}},
-                    $c->{label}
                     );
+                $retval->[1] = (defined($c->{i18n})) ? $c->{i18n} : $c->{label};
+                return $retval;
             } else {
                 return undef;
             }
@@ -402,11 +407,18 @@ sub add_helpers {
         my $roster = $self->get_roster_by_vid($r, $i);
 
         my $color = ($roster->{player}->{team} == $r->{game}->{recorder}->{team}) ? 'g' : 'r';
-        if(my $obj = $self->model('wot-replays.data.vehicles')->find_one({ _id => $roster->{vehicle}->{ident}})) {
+        if(my $obj = $self->data_vehicles->get(_id => $roster->{vehicle}->{ident})) {
             return sprintf('%s_%s.png', lc($obj->{type}), $color);
         } else {
             return 'blank.png';
         }
+    });
+
+    $self->helper(consumable_desc => sub {
+        my $self = shift;
+        my $a    = shift;
+
+        return sprintf('#artefacts:%s/descr', $a->{name});
     });
 
     $self->helper(consumable_name => sub {
@@ -416,11 +428,11 @@ sub add_helpers {
         return undef unless(defined($a));
 
         if(ref($a)) {
-            return $self->loc($a->{i18n});
+            return $a->{i18n};
         } else {
             $self->app->log->debug('old style consumable');
             my $tc = parse_int_compact_descr($a);
-            if(my $c = $self->model('wot-replays.data.consumables')->find_one({ wot_id => $tc->{id} + 0 })) {
+            if(my $c = $self->data_consumables->get(wot_id => $tc->{id} + 0)) {
                 return $c->{label} || $c->{name};
             } else {
                 return sprintf('404:%d', $a);
@@ -431,13 +443,12 @@ sub add_helpers {
     $self->helper(generate_map_select => sub {
         my $self = shift;
         my $list = [];
-        my $cursor = $self->model('wot-replays.data.maps')->find()->sort({ label => 1 });
 
-        while(my $o = $cursor->next()) {
+        foreach my $map (sort { $a->{label} cmp $b->{label} } (@{$self->data_maps->data})) {
             push(@$list, {
-                id => $o->{numerical_id},
-                label => $o->{label},
-                i18n => $o->{i18n}
+                id => $map->{numerical_id},
+                label => $map->{label},
+                i18n => $map->{i18n}
             });
         }
         return $list;
@@ -450,7 +461,7 @@ sub add_helpers {
         if(defined($replay->{game}->{map_extra})) {
             return $replay->{game}->{map_extra}->{icon};
         } else {
-            if(my $obj = $self->model('wot-replays.data.maps')->find_one({ numerical_id => $replay->{game}->{map} })) {
+            if(my $obj = $self->data_maps->get(numerical_id => $replay->{game}->{map})) {
                 return $obj->{icon};
             } else {
                 return sprintf('404:%s', $replay->{game}->{map});
@@ -463,7 +474,7 @@ sub add_helpers {
         my $ident   = shift;
         my $type    = shift;
 
-        if(my $obj = $self->model('wot-replays.data.maps')->find_one({ _id => $ident })) {
+        if(my $obj = $self->data_maps->get(_id => $ident)) {
             return $obj->{attributes}->{positions}->{$type};
         } else {
             return undef;
@@ -475,7 +486,7 @@ sub add_helpers {
         my $replay  = shift;
         my $type    = $replay->{game}->{type};
 
-        if(my $obj = $self->model('wot-replays.data.maps')->find_one({ numerical_id => $replay->{game}->{map} })) {
+        if(my $obj = $self->data_maps->get(numerical_id => $replay->{game}->{map})) {
             return $obj->{attributes}->{positions}->{$type};
         } else {
             return undef;
@@ -486,7 +497,7 @@ sub add_helpers {
         my $self    = shift;
         my $ident  = shift;
 
-        if(my $obj = $self->model('wot-replays.data.maps')->find_one({ _id => $ident })) {
+        if(my $obj = $self->data_maps->get(_id => $ident)) {
             return [ $obj->{attributes}->{geometry}->{bottom_left}, $obj->{attributes}->{geometry}->{upper_right} ];
         } else {
             return undef;
@@ -501,7 +512,7 @@ sub add_helpers {
         if(defined($replay->{game}->{map_extra})) {
             return $replay->{game}->{map_extra}->{geometry};
         } else {
-            if(my $obj = $self->model('wot-replays.data.maps')->find_one({ numerical_id => $replay->{game}->{map} })) {
+            if(my $obj = $self->data_maps->get(numerical_id => $replay->{game}->{map})) {
                 return [ $obj->{attributes}->{geometry}->{bottom_left}, $obj->{attributes}->{geometry}->{upper_right} ];
             } else {
                 return undef;
@@ -524,7 +535,7 @@ sub add_helpers {
         if(defined($replay->{game}->{map_extra})) {
             return $replay->{game}->{map_extra}->{ident};
         } else {
-            if(my $obj = $self->model('wot-replays.data.maps')->find_one({ numerical_id => $replay->{game}->{map} })) {
+            if(my $obj = $self->data_maps->get(numerical_id => $replay->{game}->{map})) {
                 return $obj->{_id};
             } else {
                 return sprintf('404:%s', $replay->{game}->{map});
@@ -537,9 +548,9 @@ sub add_helpers {
         my $replay = shift;
 
         if(defined($replay->{game}->{map_extra})) {
-            return $self->loc(sprintf('#arenas:%s/name', $replay->{game}->{map_extra}->{ident}));
+            return sprintf('#arenas:%s/name', $replay->{game}->{map_extra}->{ident});
         } else {
-            if(my $obj = $self->model('wot-replays.data.maps')->find_one({ numerical_id => $replay->{game}->{map} })) {
+            if(my $obj = $self->data_maps->get(numerical_id => $replay->{game}->{map})) {
                 return $obj->{label};
             } else {
                 return sprintf('404:%s', $replay->{game}->{map});
@@ -599,7 +610,7 @@ sub add_helpers {
     $self->helper(vehicle_tier => sub {
         my $self = shift;
         my $v = shift;
-        if(my $obj = $self->model('wot-replays.data.vehicles')->find_one({ _id => $v })) {
+        if(my $obj = $self->data_vehicles->get(_id => $v)) {
             return sprintf('//images.wotreplays.org/icon/tier/%02d.png', $obj->{level});
         } else {
             return '-';
@@ -619,7 +630,7 @@ sub add_helpers {
         my $v = shift;
         my ($c, $n) = split(/:/, $v, 2);
 
-        if(my $obj = $self->model('wot-replays.data.vehicles')->find_one({ _id => $v })) {
+        if(my $obj = $self->data_vehicles->get(_id => $v)) {
             return $obj->{description};
         } else {
             return sprintf('nodesc:%s', $v);
@@ -631,9 +642,9 @@ sub add_helpers {
         my $v = shift;
         my ($c, $n) = split(/:/, $v, 2);
 
-        if(my $obj = $self->model('wot-replays.data.vehicles')->find_one({ _id => $v })) {
+        if(my $obj = $self->data_vehicles->get(_id => $v)) {
             if(defined($obj->{i18n})) {
-                return $self->loc($obj->{i18n});
+                return $obj->{i18n};
             } else {
                 return $obj->{label};
             }
@@ -648,7 +659,7 @@ sub add_helpers {
         my $v = shift;
         my ($c, $n) = split(/:/, $v, 2);
 
-        if(my $obj = $self->model('wot-replays.data.vehicles')->find_one({ _id => $v })) {
+        if(my $obj = $self->data_vehicles->get(_id => $v)) {
             return $obj->{label_short} || $obj->{label};
         } else {
             return sprintf('nolabel_short:%s', $v);
@@ -665,10 +676,32 @@ sub add_helpers {
         return unless defined($id);
         return if($id == 0);
 
-        if(my $obj = $self->model('wot-replays.data.equipment')->find_one({ wot_id => $id })) {
-            return $self->loc($obj->{i18n});
+        if(my $obj = $self->data_equipment->get('wot_id' => $id)) {
+            return $obj->{i18n};
         } else {
             return sprintf('nolabel:%d', $id);
+        }
+    });
+
+    $self->helper(equipment_desc => sub {
+        my $self = shift;
+        my $id = shift;
+
+        # here's a fun one, we need to see if id is a string or not, if it is, it's one of those
+        # weird unicode characters that came out wrong, so we want to convert that to something we can use
+
+        return unless defined($id);
+        return if($id == 0);
+
+        if(my $obj = $self->data_equipment->get('wot_id' => $id)) {
+            if($obj->{name} =~ /Rammer/) {  
+                # screw WG for using stuff like this...
+                return sprintf('#artefacts:rammer/descr');  
+            } else {
+                return sprintf('#artefacts:%s/descr', $obj->{name});
+            }
+        } else {
+            return undef;
         }
     });
 
@@ -679,7 +712,7 @@ sub add_helpers {
         return unless defined($id);
         return if($id == 0);
 
-        if(my $obj = $self->model('wot-replays.data.equipment')->find_one({ wot_id => $id })) {
+        if(my $obj = $self->data_equipment->get('wot_id' => $id)) {
             return $obj->{icon};
         } else {
             return undef;
@@ -700,8 +733,8 @@ sub add_helpers {
         $id = -1 unless(defined($id));
         $id = -1 if(length($id) == 0);
 
-        if(my $obj = $self->model('wot-replays.data.components')->find_one({ country => $nation, component => $type, component_id => $id + 0 })) {
-            return $self->loc($obj->{i18n}) if(defined($obj->{i18n}));
+        if(my $obj = $self->data_components->get_multi(country => $nation, component => $type, component_id => $id + 0)) {
+            return $obj->{i18n} if(defined($obj->{i18n}));
             return $obj->{label} || sprintf('nodblabel: %d', $id);
         } else {
             return sprintf('nolabel:%s/%s/%d', $nation, $type, $id);
@@ -738,12 +771,8 @@ sub add_helpers {
         my $a = shift;
         my $b = shift;
 
-        $self->debug('percentage_of: a: ', $a, ' b: ', $b);
-
-        $self->debug('return 0') and return '0' unless(($a > 0) && ($b > 0));
-
+        return '0' unless(($a > 0) && ($b > 0));
         my $v = sprintf('%.0f', 100/($a/$b));
-        $self->debug('returning: ', $v);
         return $v;
     });
 
@@ -754,7 +783,7 @@ sub add_helpers {
         if(defined($replay->{game}->{map_extra})) {
             return $replay->{game}->{map_extra}->{slug};
         } else {
-            if(my $obj = $self->model('wot-replays.data.maps')->find_one({ numerical_id => $replay->{game}->{map} })) {
+            if(my $obj = $self->data_maps->get(numerical_id => $replay->{game}->{map})) {
                 return $obj->{slug};
             } else {
                 return sprintf('404:%s', $replay->{game}->{map});
@@ -790,7 +819,7 @@ sub add_helpers {
         my $self = shift;
         my $str  = shift;
 
-        return $self->loc(sprintf('#achievements:%s', $str));
+        return sprintf('#achievements:%s', $str);
     });
 
     $self->helper('achievement_is_award' => sub {
@@ -894,7 +923,7 @@ sub add_helpers {
 
         my $_id = sprintf('camo-%s-%d', $country, $id);
 
-        if(my $camo = $self->model('wot-replays.data.customization')->find_one({ _id => $_id })) {
+        if(my $camo = $self->data_customization->get(_id => $_id)) {
             return $camo;
         } else {
             return undef;
@@ -905,7 +934,7 @@ sub add_helpers {
         my $self    = shift;
         my $id      = shift;
 
-        if(my $emblem = $self->model('wot-replays.data.customization')->find_one({ wot_id => $id, type => 'emblem' })) {
+        if(my $emblem = $self->data_customization->get_multi(wot_id => $id, type => 'emblem')) {
             return $emblem;
         } else {
             return undef;
@@ -925,7 +954,7 @@ sub add_helpers {
     
         my $_id = sprintf('inscription-%s-%d', $country, $id);
 
-        if(my $i = $self->model('wot-replays.data.customization')->find_one({ _id => $_id })) {
+        if(my $i = $self->data_customization->get(_id => $_id)) {
             return $i;
         } else {
             return undef;
@@ -941,7 +970,6 @@ sub add_helpers {
             if($a =~ /l:(.*?):(.*)/) {
                 my $root = $1;
                 my $key  = $2;
-
                 push(@$res, $self->loc(sprintf('%s.%s', $root, $self->stash($key))));
             } elsif($a =~ /^d:(.*?):(.*?):(.*?):(.*)/) {
                 my $coll = $1;
@@ -949,10 +977,9 @@ sub add_helpers {
                 my $_v   = $3;
                 my $val = $self->stash($_v);
                 my $rfield = $4;
-                # here's the issue we'll have, this is all blocking... 
-                warn 'make_args: d: coll: ', $coll, ' field: ', $field, ' val: ', $val, ' rfield: ', $rfield, "\n";
-                if(my $r = $self->model(sprintf('wot-replays.%s', $coll))->find_one({ $field => $val })) {
-                    push(@$res, $self->loc($r->{$rfield}));
+                $coll =~ s/^data\./data_/g;
+                if(my $obj = $self->$coll->get($field => $val)) {
+                    push(@$res, $self->loc($obj->{$rfield}));
                 } else {
                     push(@$res, 'd:failed');
                 }
@@ -960,6 +987,7 @@ sub add_helpers {
                 push(@$res, $self->stash($a));
             }
         }
+        $self->debug('make_args, returning: ', Dumper($res));
         return $res;
     });
 

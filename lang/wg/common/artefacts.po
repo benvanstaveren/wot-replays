@@ -332,7 +332,7 @@ msgid "largeCaliberHowitzerRammer/name"
 msgstr "Large-Caliber Artillery-Shell Rammer"
 
 msgid "largeCaliberTankRammer/name"
-msgstr "Large-Сaliber Tank Gun Rammer"
+msgstr "Large-Caliber Tank Gun Rammer"
 
 msgid "largeMedkit/always"
 msgstr "+15% to protection of the crew from injuries."

@@ -67,7 +67,6 @@ Wotreplays.prototype = {
         $('a.btn.btn-save-replay').on('click', function() {
             var go = true;
             if($(this).hasClass('incompatible')) {
-                console.log('incompatible version download');
                 go = confirm(  'This replay is from an older (or newer) version' + "\n" +
                                'of World of Tanks which you might not be able to play back.' + "\n\n" +
                                'Are you sure you want to download it?');
@@ -184,30 +183,35 @@ $.fn.extend({
     },
     i18n: function() {
         return this.each(function() {
-            var key  = $(this).text();
-            if(key != undefined && key != null) {
+            var key      = $(this).text();
+            var argsonly = $(this).data('attributes-only');
+            if(key != undefined && key != null && !argsonly) {
                 var args = $(this).data('i18n') || {};
                 var fmt  = $(this).data('i18n-format');
 
-                if(fmt == null || fmt == undefined) {
-                    $(this).text(WR.i18n(key, args));
-                } else {
-                    $(this).text(fmt.replace('%s', WR.i18n(key, args)));
-                }
+                if(!argsonly) {
+                    $(this).data('i18n-orig', key);
 
-                var element = this;
-
-                // for things like tooltips, we generally need localized titles as well,
-                // we'll find their keys and args in data-i18n-attr
-                var attrs = $(this).data('i18n-attr'); 
-                if(attrs != null && attrs != undefined) {
-                    for(attribute in attrs) {
-                        $(element).attr(attribute, WR.i18n(attrs[attribute].key, attrs[attribute].args));
+                    if(fmt == null || fmt == undefined) {
+                        $(this).text(WR.i18n(key, args));
+                    } else {
+                        $(this).text(fmt.replace('%s', WR.i18n(key, args)));
                     }
                 }
-            } else {
-                console.log('i18n wanted but no key for ', this);
             }
+            // for things like tooltips, we generally need localized titles as well,
+            // we'll find their keys and args in data-i18n-attr
+            var attrs = $(this).data('i18n-attr'); 
+            if(attrs != null && attrs != undefined) {
+                console.log('attrs: ', attrs);
+                for(attribute in attrs) {
+                    var key = attrs[attribute][0];
+                    var args = attrs[attribute][1];
+                    var val  = WR.i18n(key, args);
+                    $(this).attr(attribute, val);
+                }
+            }
+            if($(this).data('title-is-content')) $(this).attr('title', $(this).text());
         });
     }
 });

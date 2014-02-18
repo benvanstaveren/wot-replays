@@ -12,7 +12,7 @@
         <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet"/> 
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet"/>
         <link href="//netdna.bootstrapcdn.com/bootswatch/3.1.0/cyborg/bootstrap.min.css" rel="stylesheet"/>
-        <link href="[% config.urls.static %]/css/[% IF config.mode.defined && config.mode == 'dev' %]wtr[% ELSE %]wtr.min[% END %].css" rel="stylesheet"/>
+        <link href="[% config.urls.static %]/css/wtr.css" rel="stylesheet"/>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
@@ -23,8 +23,8 @@
         <script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.0/backbone-min.js"></script>
 
         <script type="text/javascript" src="//cdn.sockjs.org/sockjs-0.3.min.js"></script>
-        <script type="text/javascript" src="http://api.statterbox.com/statterpush.js"></script>
 
+        <script type="text/javascript" src="[% config.urls.static %]/js/statterpush.js"></script>
         <script type="text/javascript" src="[% config.urls.static %]/js/jquery.form.js"></script>
         <script type="text/javascript" src="[% config.urls.static %]/js/jquery.timers.js"></script>
         <script type="text/javascript" src="[% config.urls.static %]/js/bootstrap-slider.js"></script>
@@ -52,7 +52,8 @@
                 channels: [],
                 indev: [% IF config.mode.defined && config.mode == 'dev' %]true[% ELSE %]false[% END %],
             });
-            WR.on('ready', function() {
+            WR.on('i18ndone', function() {
+                console.log('i18n ready');
                 $('.bs-tooltip').tooltip();
                 $('.bs-popover').popover();
             });

@@ -195,8 +195,8 @@ span {
         }
     }
     &.equipment-icon {
-        width: 24px;
-        height: 24px;
+        width: 32px;
+        height: 32px;
         display: inline-block;
         border: #444 1px solid;
     }
@@ -220,10 +220,17 @@ span {
             left: 16px;
         }
     }
-    &.equipment-name {
+    &.equipment-name, &.equipment-desc {
         position: relative; 
-        top: -7px; 
+        top: -3px;
         padding: 0px 0px 0px 5px;
+    }
+    &.equipment-desc {
+        color: #5a5a5a;
+        font-size: 90%;
+    }
+    &.equipment-name.single, &.equipment-desc.single {
+        top: -12px;
     }
     &.clan {
         color: #eee;

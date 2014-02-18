@@ -1905,8 +1905,8 @@ span.spinner {
     height: 16px;
     background: transparent url(/img/spinner_small.gif) no-repeat scroll center center; }
 span.equipment-icon {
-  width: 24px;
-  height: 24px;
+  width: 32px;
+  height: 32px;
   display: inline-block;
   border: #444444 1px solid; }
 span.mission-icon {
@@ -1927,10 +1927,15 @@ span.mission-icon {
     position: relative;
     top: 15px;
     left: 16px; }
-span.equipment-name {
+span.equipment-name, span.equipment-desc {
   position: relative;
-  top: -7px;
+  top: -3px;
   padding: 0px 0px 0px 5px; }
+span.equipment-desc {
+  color: #5a5a5a;
+  font-size: 90%; }
+span.equipment-name.single, span.equipment-desc.single {
+  top: -12px; }
 span.clan {
   color: #eee; }
 span.green {

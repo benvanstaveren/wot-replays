@@ -6,5 +6,6 @@ $(document).ready(function() {
     WR.on('ready', function() {
         console.log('WR.ready -> running i18n');
         $('.i18n').i18n();
+        WR.emit('i18ndone', {});
     });
 });
