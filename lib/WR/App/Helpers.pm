@@ -1027,7 +1027,10 @@ sub add_helpers {
         try {
             my $allowed = $self->current_user->{admin}->{languages}->{allowed};
             foreach my $l (@$allowed) {
-                $r = 1 and last if($l eq $lang);
+                if($l eq $lang) {
+                    $r = 1;
+                    last;
+                }
             }
         } catch {
             $r = 0;
