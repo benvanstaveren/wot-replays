@@ -47,6 +47,7 @@ sub get_online_users {
     my $end  = shift;
 
     $self->render_later;
+    $self->app->statterpush->ua->inactivity_timeout(60);
     $self->app->statterpush->channel_list('site' => sub {
         my ($p, $res) = (@_);
         my $o = [];
