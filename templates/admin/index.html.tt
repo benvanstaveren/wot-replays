@@ -6,26 +6,28 @@
         <div class="col-lg-6 col-md-6">
             <div class="well well-lg text-center">
                 <h3 class="dark">Total Replays</h3>
-                <h2>[% total %]</h2>
+                <h2 id="replay-count"><span class="spinner"></span></h2>
             </div>
         </div>
         <div class="col-lg-6 col-md-6">
             <div class="well well-lg text-center">
                 <h3 class="dark">Uploaded Today</h3>
-                <h2>[% today %]</h2>
+                <h2 id="today-count"><span class="spinner"></span></h2>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-12 col-md-12">
             <h3>Online Users</h3>
-            <span class="spinner" id="users-online-spinner" style="position: relative; top: -35px; left: 145px"></span>
+            <span class="spinner" id="users-online-spinner" style="float: left; position: relative; top: -35px; left: 145px"></span>
             <div class="well" id="users-online">
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-md-12 col-lg-12">
+            <h3>Upload Queue</h3>
+            <span class="spinner" id="uploads-spinner" style="float: left; position: relative; top: -35px; left: 145px"></span>
             <table class="table table-bordered table-striped">
             <colgroup>
                 <col style="width: 20%"/>
@@ -39,30 +41,38 @@
                     <th>Status</th>
                 </tr>
             </thead>
-            <tbody>
-                [% FOREACH upload IN uploads %]
-                    <tr>
-                        <td>
-                            [% h.strftime('%d/%m/%Y %H:%M:%S', upload.ctime) %] UTC
-                        </td>
-                        <td>
-                            [% h.basename(upload.data.file_base) || upload.data.file_base _ ' (no basename)' %]
-                        </td>
-                        <td>
-                            [% IF upload.ready && !upload.locked %]
-                                Pending Processing
-                            [% ELSIF upload.ready && upload.locked %]
-                                Processing
-                            [% END %]
-                        </td>
-                    </tr>
-                [% END %]
+            <tbody id="uploads-list">
             </tbody>
             </table>
         </div>
     </div>
     <script type="text/javascript">
         $(document).ready(function() {
+            $.getJSON('/admin/replaycount', {}, function(d) {
+                $('#replay-count').text(d.count);
+            });
+            $.getJSON('/admin/todaycount', {}, function(d) {
+                $('#today-count').text(d.count);
+            });
+            $('#replay-count').everyTime(10000, function() {
+                $.getJSON('/admin/replaycount', {}, function(d) {
+                    $('#replay-count').text(d.count);
+                });
+            });
+            $('#today-count').everyTime(10000, function() {
+                $.getJSON('/admin/todaycount', {}, function(d) {
+                    $('#today-count').text(d.count);
+                });
+            });
+            $('#uploads-list').load('/admin/uploadslist', {}, function() {
+                $('#uploads-spinner').addClass('hide');
+                $('#uploads-list').everyTime(10000, function() {
+                    $('#uploads-spinner').removeClass('hide');
+                    $('#uploads-list').load('/admin/uploadslist', {}, function() {
+                        $('#uploads-spinner').addClass('hide');
+                    });
+                });
+            });
             $('#users-online').load('/admin/usersonline', {}, function() {
                 $('#users-online-spinner').addClass('hide');
                 $('#users-online').everyTime(10000, function() {

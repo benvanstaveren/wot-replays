@@ -281,6 +281,10 @@ sub startup {
     my $admin = $r->bridge('/admin')->to('admin#bridge');
         $admin->route('/')->to('admin#index', pageid => 'admin/home');
         $admin->route('/usersonline')->to('admin#get_online_users');
+        $admin->route('/uploadslist')->to('admin#get_upload_queue');
+        $admin->route('/todaycount')->to('admin#get_today_count');
+        $admin->route('/replaycount')->to('admin#get_replay_count');
+
         $admin->route('/events')->to('admin-events#index', pageid => 'admin/events');
 
         my $language = $admin->bridge('/language');
