@@ -1,9 +1,9 @@
 [% IF sidebar.info.defined %]
 <div class="row">
     <div class="col-lg-12 col-md-12">
-        <h4>[% sidebar.alert.title %]</h4>
+        <h4>[% sidebar.info.title %]</h4>
         <div class="alert alert-info">
-            [% sidebar.alert.text |html_line_break %]
+            [% sidebar.info.text |html_line_break %]
         </div>
     </div>
 </div>
