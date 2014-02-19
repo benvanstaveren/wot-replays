@@ -9,9 +9,9 @@ tmp/*
 _Inline/*
 data/*
 *.ttc
-./wr.conf
-./wr.development.conf
-./wrapi.conf
+wr.conf
+wr.development.conf
+wrapi.conf
 bin/*.txt
 wrapi.development.conf
 *.pyc
