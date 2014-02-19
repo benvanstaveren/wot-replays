@@ -138,12 +138,12 @@ function processBatch(jid, batchseq) {
                         // pop the last one
                         var last = d.status_text.pop()
                         $('#batch-tracker #batch-' + bs + ' td.statustext').empty().text(last.text);
-                        if(element.type == 'spinner') {
+                        if(last.type == 'spinner') {
                             $('#batch-tracker #batch-' + bs + ' td.status').empty().html( $('<span/>').addClass('spinner') )
-                        } else if(element.type == 'progress') {
+                        } else if(last.type == 'progress') {
                             var p = $('<div/>').addClass('progress')
                                 .append(
-                                    $('<div/>').addClass('progress-bar progress-bar-success').css({ 'width': element.perc + '%' })
+                                    $('<div/>').addClass('progress-bar progress-bar-success').css({ 'width': last.perc + '%' })
                                 );
                             $('#batch-tracker #batch-' + bs + ' td.status').empty().html( $(p) );
                         }
