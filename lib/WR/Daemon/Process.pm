@@ -132,6 +132,7 @@ sub process_job {
 
     if(!$job->{reprocess}) {
         my $count = $self->db->collection('replays')->find({ digest => $job->{_id} })->count();
+        $self->debug('have ', $count, ' replays with matching digest');
         if($count > 0) {
             # see how many we have
             if($count > 1) {
@@ -141,6 +142,7 @@ sub process_job {
                 return undef;
             } elsif($count == 1) {
                 my $r = $self->db->collection('replays')->find_one({ digest => $job->{_id} });
+                $self->debug('got single replay with same digest, r->site is: ', Dumper($r->{site}));
                 if(defined($r->{site}->{orpan}) && $r->{site}->{orphan}) {
                     # it's an orphaned replay, we want to store that info somewhere
                     $orphan_id = $r->{_id};
