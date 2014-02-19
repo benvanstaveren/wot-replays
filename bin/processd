@@ -93,7 +93,7 @@ sub REAPER_OF_DEAD_KIDLETS {
     while (($child = waitpid(-1, WNOHANG)) > 0) {
         delete($children->{$child});
         $child_count--;
-        debug('reaped ', $child, ' count now ', $child_count, ' can_spawn: ', can_spawn);
+        debug('reaped ', $child, ' count now ', $child_count);
     }
     $SIG{CHLD} = \&REAPER_OF_DEAD_KIDLETS;
 }
