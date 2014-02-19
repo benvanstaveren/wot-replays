@@ -1,7 +1,7 @@
 var handleProcess = null;
 var timerID = null;
 var jobIDstatus = {};
-var batchSequence = 1;
+var g_batchSequence = 1;
 
 function processBackground() {
     clearTimer(timerID); // and really that's all there's to it 
@@ -142,60 +142,64 @@ function processBatch(jid, batchseq) {
     }
 }
 
-function newBatchForm() {
-    var tmpl = $('script#batch-form-template').html();
+function newBatchForm(blseq) {
+    var f= function() {
+        var batchSequence = blseq;
+        var tmpl = $('script#batch-form-template').html();
+        // if we have a current one, hide it 
+        $('#container-frm-upload-batch .uploadform').addClass('hide');
+        var cont = $('<div>').attr('id', 'frm-upload-batch-' + batchSequence).addClass('uploadform').html(tmpl);
 
-    // if we have a current one, hide it 
-    $('#container-frm-upload-batch .uploadform').addClass('hide');
-    var cont = $('<div>').attr('id', 'frm-upload-batch-' + batchSequence).addClass('uploadform').html(tmpl);
-    $(cont).find('input[type="file"]').attr('id', 'replayFileBatch-' + batchSequence);
-    $('#container-frm-upload-batch').prepend($(cont));
+        $(cont).find('.i18n').i18n();
 
-    $('#container-frm-upload-batch #frm-upload-batch-' + batchSequence + ' form button').on('click', function() {
-        if($(this).hasClass('disabled')) return false;
-        $(this).addClass('disabled');
-        var file = $(this).parent().parent().find('input[type="file"]').val();
-        $('#batch-tracker').removeClass('hide');
-        $('#batch-tracker table tbody').prepend( $('<tr>').attr('id', 'batch-' + batchSequence).append($('<td>').addClass('file').text(file.replace(/.*\\/g, '')), $('<td>').addClass('status').text('') ) );
-        $('#batch-tracker #batch-' + batchSequence + ' td.status').html('<div class="progress"><div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div></div>');
-        $('#frm-upload-batch-' + batchSequence + ' form').ajaxSubmit({
-            uploadProgress: function(event, position, total, percentComplete) {
-                var percentVal = percentComplete + '%';
-                $('#batch-tracker #batch-' + batchSequence + ' td.status div.progress-bar').attr('aria-valuenow', percentVal).css({ width: percentVal + '%' });
-            },
-            error: function(x, t, e) {
-                $('#batch-tracker #batch-' + batchSequence + ' td.status').empty().html(
-                    $('<div>').addClass('alert alert-danger').text(e)
-                );
-            },
-            complete: function() {
-                batchSequence = batchSequence + 1;
-                newBatchForm();
-            },
-            success: function(d, t, x) {
-                if(d.ok && d.ok == 1) {
+        $(cont).find('input[type="file"]').attr('id', 'replayFileBatch-' + batchSequence);
+        $('#container-frm-upload-batch').prepend($(cont));
+
+        $('#container-frm-upload-batch #frm-upload-batch-' + batchSequence + ' form button').on('click', function() {
+            if($(this).hasClass('disabled')) return false;
+            $(this).addClass('disabled');
+            var file = $(this).parent().parent().find('input[type="file"]').val();
+            $('#batch-tracker').removeClass('hide');
+            $('#batch-tracker table tbody').prepend( $('<tr>').attr('id', 'batch-' + batchSequence).append($('<td>').addClass('file').text(file.replace(/.*\\/g, '')), $('<td>').addClass('status').text('') ) );
+            $('#batch-tracker #batch-' + batchSequence + ' td.status').html('<div class="progress"><div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div></div>');
+            $('#frm-upload-batch-' + batchSequence + ' form').ajaxSubmit({
+                uploadProgress: function(event, position, total, percentComplete) {
+                    var percentVal = percentComplete + '%';
+                    $('#batch-tracker #batch-' + batchSequence + ' td.status div.progress-bar').attr('aria-valuenow', percentVal).css({ width: percentVal + '%' });
+                },
+                error: function(x, t, e) {
                     $('#batch-tracker #batch-' + batchSequence + ' td.status').empty().html(
-                        $('<span>').addClass('spinner')
+                        $('<div>').addClass('alert alert-danger').text(e)
                     );
-                    $('#frm-upload-batch-' + batchSequence).everyTime(5000, processBatch(d.jid, batchSequence));
-                } else {
-                    if(d.error) {
+                },
+                success: function(d, t, x) {
+                    if(d.ok && d.ok == 1) {
                         $('#batch-tracker #batch-' + batchSequence + ' td.status').empty().html(
-                            $('<div>').addClass('alert alert-danger').text(d.error)
+                            $('<span>').addClass('spinner')
                         );
+                        $('#frm-upload-batch-' + batchSequence).everyTime(5000, processBatch(d.jid, batchSequence));
                     } else {
-                        $('#batch-tracker #batch-' + batchSequence + ' td.status').empty().html(
-                            $('<div>').addClass('alert alert-danger').text('Store fail')
-                        );
+                        if(d.error) {
+                            $('#batch-tracker #batch-' + batchSequence + ' td.status').empty().html(
+                                $('<div>').addClass('alert alert-danger').text(d.error)
+                            );
+                        } else {
+                            $('#batch-tracker #batch-' + batchSequence + ' td.status').empty().html(
+                                $('<div>').addClass('alert alert-danger').text('Store fail')
+                            );
+                        }
                     }
-                }
-            },
+                },
+            });
+            newBatchForm(g_batchSequence)();
         });
-    });
+    };
+    g_batchSequence = g_batchSequence + 1;
+    return f;
 }
 
 $(document).ready(function() {
-    newBatchForm();
+    newBatchForm(g_batchSequence)();
 
     $('button#process-background').click(function() {
         $('#processModal').modal('hide');
