@@ -143,7 +143,7 @@ sub process_job {
             } elsif($count == 1) {
                 my $r = $self->db->collection('replays')->find_one({ digest => $job->{_id} });
                 $self->debug('got single replay with same digest, r->site is: ', Dumper($r->{site}));
-                if(defined($r->{site}->{orpan}) && $r->{site}->{orphan}) {
+                if(defined($r->{site}->{orphan}) && $r->{site}->{orphan}) {
                     # it's an orphaned replay, we want to store that info somewhere
                     $orphan_id = $r->{_id};
                     $processing_orphan = 1;
