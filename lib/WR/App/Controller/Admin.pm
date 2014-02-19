@@ -40,7 +40,6 @@ sub get_upload_queue {
     $self->render_later;
     $self->model('wot-replays.jobs')->find({ complete => Mango::BSON::bson_false, ready => Mango::BSON::bson_true })->sort({ ctime => 1, priority => 1 })->all(sub {
         my ($c, $err, $docs) = (@_);
-
         $self->stash('uploads' => $docs);
         $self->render(template => 'admin/uploads_list');
     });

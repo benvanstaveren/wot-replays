@@ -10,6 +10,7 @@ use Time::HiRes;
 use Data::Dumper;
 use File::Copy qw/copy/;
 use Carp qw/cluck/;
+use Mojo::UserAgent;
 
 has '_start'    => sub { [ Time::HiRes::gettimeofday ] };
 has 'elapsed'   => sub { Time::HiRes::tv_interval(shift->_start) };
@@ -21,6 +22,7 @@ has 'db'        => sub {
     my $self = shift;
     return $self->mango->db($self->config->{mongodb}->{database});
 };
+has 'jtype' => undef;
 
 sub get_mango {
     my $self = shift;
@@ -30,11 +32,12 @@ sub get_mango {
 sub debug   { shift->_log('debug', @_) }
 sub info    { shift->_log('debug', @_) }
 sub error   { shift->_log('debug', @_) }
+sub ua      { Mojo::UserAgent->new }
 
 sub _log {
     my $self = shift;
     my $l    = shift;
-    my $m    = join(' ', '[', $$, '] ', @_);
+    my $m    = join('', '[Daemon::Process (', $self->jtype,')][', $$, ']: ', @_);
 
     $self->log->$l($m);
 }
@@ -52,7 +55,18 @@ sub job_error {
             error    => $error,
         }
     });
+
     $self->debug('job error: ', Dumper($error));
+
+    if(defined($job->{api}) && defined($job->{api}->{postback})) {
+        $self->ua->post($job->{api}->{postback} => json => {
+            id      => $job->{_id},
+            status  => 'error',
+            error   => $_,
+        });
+    }
+
+    return undef;
 }
 
 sub job_status {
@@ -101,6 +115,8 @@ sub process_chatreader {
     my $self = shift;
     my $job  = shift;
 
+    $self->jtype('ChatReader');
+
     # chat reading will have some additional info going on
     my $o = WR::Process::ChatReader->new(
         bf_key          => join('', map { chr(hex($_)) } (split(/\s/, $self->config->{wot}->{bf_key}))),
@@ -129,6 +145,8 @@ sub process_job {
     my $processing_orphan = 0;
     my $orphan_id = undef;
     my $orphan_site = undef;
+
+    $self->jtype('Full');
 
     $self->start($job);
 
@@ -438,6 +456,31 @@ sub process_job {
                             _id     => sprintf('%d_%s', $replay->{game}->{map}, $replay->{game}->{type}),
                         }, { '$inc' => $upd }, { upsert => 1 });
                     }
+                }
+
+                if(defined($job->{api}) && defined($job->{api}->{postback})) {
+                    my $form = {
+                        id      => $job->{_id},
+                        status  => 'ok',
+                        replay  => undef,
+                        packets => undef,
+                    };
+
+                    if($job->{api}->{flags}->{replay} == 1) {
+                        # make a sanitized copy of the replay 
+                        my $copy = { %$replay };
+                        delete($copy->{$_}) for(qw/site heatmap packets/); # yes, we delete packets here
+                        $form->{replay} = $copy;
+                    }  else {
+                        $form->{replay}->{_id} = $replay->{_id};
+                    }
+
+                    if($job->{api}->{flags}->{packets} == 1) {
+                        $form->{packets} = sprintf('http://packets.wotreplays.org/%s', $replay->{packets});
+                    } else {
+                        $form->{packets} = undef;
+                    }
+                    $self->ua->post($job->{api}->{postback} => json => $form);
                 }
                 return $replay;
             } else {

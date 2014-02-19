@@ -192,8 +192,10 @@ sub process_replay {
     if(my $upload = $self->req->upload('replay')) {
         $self->render(json => { ok => 0, error => 'not.a.replay.file'}) and return unless($upload->filename =~ /\.wotreplay$/);
 
+        # generate a random fragment 
         my $filename = $upload->filename;
         $filename =~ s/.*\\//g if($filename =~ /\\/);
+
         $filename = sprintf('%s-%s', $self->rfrag, $filename);
 
         my $hashbucket_size = length($filename);
@@ -210,7 +212,7 @@ sub process_replay {
         my $digest = $sha->hexdigest;
         
         my $prio_map = {
-            'wotreplays.org' => 100,
+            'wotreplays.org' => 20,
         };
 
         my $api = {
@@ -235,7 +237,8 @@ sub process_replay {
         # set this up as the job id
         $self->model('wot-replays.jobs')->save({
             _id         => $digest,
-            uploader    => undef,                       # these will not show up in any upload logs for players, but will show on the admin page
+            api         => $api,
+            uploader    => undef,
             ready       => Mango::BSON::bson_false,
             complete    => Mango::BSON::bson_false,
             status      => 0,
@@ -244,8 +247,7 @@ sub process_replay {
             ctime       => Mango::BSON::bson_time,
             status_text => [ ],
             data        => { },
-            priority    => 1000,
-            api         => $api,
+            priority    => $prio,
         } => sub {
             my ($coll, $err, $oid) = (@_);
             if(defined($oid)) {

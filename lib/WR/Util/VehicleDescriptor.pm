@@ -2,6 +2,7 @@ package WR::Util::VehicleDescriptor;
 use Mojo::Base '-base';
 use Data::Dumper;
 use Scalar::Util qw/looks_like_number/;
+use Try::Tiny qw/try catch/;
 
 use constant CUSTOMIZATION_EPOCH => 1306886400;
 
@@ -15,7 +16,11 @@ sub new {
     bless($self, $package);
 
     die 'Missing vehicle descriptor', "\n" unless(defined($self->descriptor));
-    $self->BUILD;
+    try {
+        $self->BUILD;
+    } catch {
+
+    };
     return $self;
 }
 
@@ -51,6 +56,7 @@ sub BUILD {
     my $optional_devices_mask = $flags & 15;
     my $idx = 2;
 
+
     while($optional_devices_mask) {
         if($optional_devices_mask & 1) {
             my $m = unpack('S<', substr($self->descriptor, 0, 2));
@@ -64,6 +70,7 @@ sub BUILD {
         $idx--;
     }
 
+    # this potentially blows up in 0.8.11
     if($flags & 32) {
         my $positions = ord(substr($self->descriptor, 0, 1));
         $self->descriptor(substr($self->descriptor, 1));
