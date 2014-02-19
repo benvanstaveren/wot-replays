@@ -121,17 +121,37 @@ function processBatch(jid, batchseq) {
             if(d.complete) {
                 if(d.status == 1) {
                     $('#batch-tracker #batch-' + bs + ' td.status').empty().html(
-                        $('<div>').addClass('alert alert-success').text('DONE')
+                        $('<div>').addClass('alert alert-success alert-sm').text('DONE')
                     );
+                    $('#batch-tracker #batch-' + bs + ' td.statustext').empty();
                     $('#frm-upload-batch-' + bs).stopTime();
                 } else if(d.status == -1) {
                     $('#batch-tracker #batch-' + bs + ' td.status').empty().html(
-                        $('<div>').addClass('alert alert-danger').text(d.error || 'Unknown error')
+                        $('<div>').addClass('alert alert-danger alert-sm').text(d.error || 'Unknown error')
                     );
+                    $('#batch-tracker #batch-' + bs + ' td.statustext').empty();
                     $('#frm-upload-batch-' + bs).stopTime();
                 }
             } else {
-                if(d.status == -1) {
+                if(d.status == 0) {
+                    if(d.status_text.length > 0) {
+                        // pop the last one
+                        var last = d.status_text.pop()
+                        $('#batch-tracker #batch-' + bs + ' td.statustext').empty().text(last.text);
+                        if(element.type == 'spinner') {
+                            $('#batch-tracker #batch-' + bs + ' td.status').empty().html( $('<span/>').addClass('spinner') )
+                        } else if(element.type == 'progress') {
+                            var p = $('<div/>').addClass('progress')
+                                .append(
+                                    $('<div/>').addClass('progress-bar progress-bar-success').css({ 'width': element.perc + '%' })
+                                );
+                            $('#batch-tracker #batch-' + bs + ' td.status').empty().html( $(p) );
+                        }
+                    } else {
+                        $('#batch-tracker #batch-' + bs + ' td.statustext').empty().text('Queued');
+                        $('#batch-tracker #batch-' + bs + ' td.status').empty().text(d.position + ' of ' + d.pending);
+                    }
+                } else {
                     $('#batch-tracker #batch-' + bs + ' td.status').empty().html(
                         $('<div>').addClass('alert alert-danger').text(d.error || 'Unknown error')
                     );
@@ -160,7 +180,7 @@ function newBatchForm(blseq) {
             $(this).addClass('disabled');
             var file = $(this).parent().parent().find('input[type="file"]').val();
             $('#batch-tracker').removeClass('hide');
-            $('#batch-tracker table tbody').prepend( $('<tr>').attr('id', 'batch-' + batchSequence).append($('<td>').addClass('file').text(file.replace(/.*\\/g, '')), $('<td>').addClass('status').text('') ) );
+            $('#batch-tracker table tbody').prepend( $('<tr>').attr('id', 'batch-' + batchSequence).append($('<td>').addClass('file').text(file.replace(/.*\\/g, '')), $('<td>').addClass('statustext').text('Uploading...'), $('<td>').addClass('status').text('') ) );
             $('#batch-tracker #batch-' + batchSequence + ' td.status').html('<div class="progress"><div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div></div>');
             $('#frm-upload-batch-' + batchSequence + ' form').ajaxSubmit({
                 uploadProgress: function(event, position, total, percentComplete) {
@@ -171,6 +191,7 @@ function newBatchForm(blseq) {
                     $('#batch-tracker #batch-' + batchSequence + ' td.status').empty().html(
                         $('<div>').addClass('alert alert-danger').text(e)
                     );
+                    $('#batch-tracker #batch-' + batchSequence + ' td.statustext').empty();
                 },
                 success: function(d, t, x) {
                     if(d.ok && d.ok == 1) {
@@ -181,12 +202,14 @@ function newBatchForm(blseq) {
                     } else {
                         if(d.error) {
                             $('#batch-tracker #batch-' + batchSequence + ' td.status').empty().html(
-                                $('<div>').addClass('alert alert-danger').text(d.error)
+                                $('<div>').addClass('alert alert-danger alert-sm').text(d.error)
                             );
+                            $('#batch-tracker #batch-' + batchSequence + ' td.statustext').empty();
                         } else {
                             $('#batch-tracker #batch-' + batchSequence + ' td.status').empty().html(
-                                $('<div>').addClass('alert alert-danger').text('Store fail')
+                                $('<div>').addClass('alert alert-danger alert-sm').text('Store fail')
                             );
+                            $('#batch-tracker #batch-' + batchSequence + ' td.statustext').empty();
                         }
                     }
                 },
