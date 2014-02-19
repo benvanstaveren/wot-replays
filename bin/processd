@@ -93,7 +93,7 @@ sub REAPER_OF_DEAD_KIDLETS {
     while (($child = waitpid(-1, WNOHANG)) > 0) {
         delete($children->{$child});
         $child_count--;
-        debug('reaped ', $child, ' count now ', $child_count);
+        debug('reaped ', $child, ' count now ', $child_count, ' can_spawn: ', can_spawn);
     }
     $SIG{CHLD} = \&REAPER_OF_DEAD_KIDLETS;
 }
@@ -123,7 +123,7 @@ while(!$stopping) {
         my $jobs = ($can_spawn > 0) ? get_jobs($can_spawn) : [];
         debug('can spawn ', $can_spawn, ', got ' . scalar(@$jobs) . ' jobs');
         if(scalar(@$jobs) > 0) {
-            while(max_spawnable > 0) {
+            while(max_spawnable > 0 && scalar(@$jobs) > 0) {
                 my $job = shift(@$jobs);
                 next if($job->{locked}); # this may cause issues if we terminate the script because the lock status isn't cleared
                 next if(!defined($job->{data}));
