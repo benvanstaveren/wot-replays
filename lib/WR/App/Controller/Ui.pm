@@ -21,11 +21,6 @@ sub frontpage {
     my $newest  = [];
     my $replays = [];
 
-    $self->debug('frontpage: session openid says: ', $self->session('openid'));
-
-    $self->debug('frontpage: top');
-
-    # we need to use WR::Query here to get the first page of results
     my $query = $self->wr_query(
         sort    => { 'site.uploaded_at' => -1 },
         perpage => 15,
@@ -35,22 +30,19 @@ sub frontpage {
     $query->page(1 => sub {
         my ($q, $replays) = (@_);
 
-        # the template has to be altered depending on how we request it
         my $template = ($self->req->is_xhr) ? 'replay/list' : 'index';
-
         $self->respond(template => $template, stash => {
             replays         => $replays || [],
             page            => { title => 'index.page.title' },
             timing_query    => tv_interval($start),
             sidebar         => {
-                info        =>  {
-                    title   =>  'Languages',
-                    text    => q|The first translation has been received! You can now browse the site in English or Malaysian. You can change your language preferences in <a href="/profile/settings">your settings</a>|,
+                alert        =>  {
+                    title   =>  'Well shit',
+                    text    => q|<a href="http://blog.wotreplays.org/index.php/2014/02/19/well-shit/">This is really turning into a recurring theme here, but we had another drive failure...</a> - click to read blog post|,
                 },
             }
         });
     });
-    $self->debug('frontpage: bottom');
 }
 
 sub xhr_du {

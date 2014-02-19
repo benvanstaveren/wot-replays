@@ -71,6 +71,10 @@ Wotreplays.prototype = {
                                'of World of Tanks which you might not be able to play back.' + "\n\n" +
                                'Are you sure you want to download it?');
             }
+            if($(this).hasClass('disabled')) {
+                alert('The file for this replay is missing...');
+                go = false;
+            }
             if(!go) return false;
             var c = parseInt($(this).find('span.badge').html());
             $(this).find('span.badge').html(c + 1);

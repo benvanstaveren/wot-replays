@@ -59,8 +59,6 @@ sub upload {
 
             make_path($replay_path);
 
-            #$self->render(json => { ok => 0, error => 'You might want to rename the replay file first, we already seem to have one with the same name...' }) and return if(-e $replay_file);
-
             my $sha = Digest::SHA1->new();
             $sha->add($upload->asset->slurp);
             my $digest = $sha->hexdigest;

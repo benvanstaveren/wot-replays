@@ -125,13 +125,32 @@ sub process_chatreader {
 sub process_job {
     my $self = shift;
     my $job = shift;
+    my $processing_orphan = 0;
+    my $orphan_id = undef;
 
     $self->start($job);
 
     if(!$job->{reprocess}) {
-        if($self->db->collection('replays')->find({ digest => $job->{_id} })->count() > 0) {
-            $self->job_error($job, 'Looks like that replay has been uploaded already...');
-            return undef;
+        my $count = $self->db->collection('replays')->find({ digest => $job->{_id} })->count();
+        if($count > 0) {
+            # see how many we have
+            if($count > 1) {
+                # yyyeah this shouldn't happen
+                $self->job_error($job, 'This replay has multiple matching digests, please inform Scrambled!');
+                $self->debug('multiple matching digests for ', $job->{_id}, "\n");
+                return undef;
+            } elsif($count == 1) {
+                my $r = $self->db->collection('replays')->find_one({ digest => $job->{_id} });
+                if(defined($r->{site}->{orpan}) && $r->{site}->{orphan}) {
+                    # it's an orphaned replay, we want to store that info somewhere
+                    $orphan_id = $r->{_id};
+                    $processing_orphan = 1;
+                    $self->debug('processing orphan for ', $job->{_id}, "\n");
+                } else {
+                    $self->job_error($job, 'This replay has been uploaded already...');
+                    return undef;
+                }
+            }
         }
     }
 
@@ -370,12 +389,15 @@ sub process_job {
                     $replay->{site}->{visible} = Mango::BSON::bson_false;
                     $replay->{site}->{privacy} = 3;
                 }
+                if($processing_orphan == 1) {
+                    $replay->{_id} = $orphan_id;
+                    $self->debug('processed orphaned replay');
+                    $replay->{site}->{orphan} = Mango::BSON::bson_false;
+                }
             }
 
-            # don't bother with the packets, we'll send them out as an event stream later after we store them in the database(?)
             $self->debug('preparing to store replay');
             if(my $oid = $self->mango->db('wot-replays')->collection('replays')->save($replay)) {
-                $self->debug('got replay oid: ', $oid);
                 $self->db->collection('jobs')->update({ _id => $job->{_id} }, {
                     '$set' => {
                         complete => Mango::BSON::bson_true,
@@ -387,16 +409,6 @@ sub process_job {
                     }
                 });
                 $self->debug('updated job status: ', $oid);
-                if(!$job->{reprocess}) {
-                    # heatmap only if we're not reprocessing
-                    my $bt = $replay->{game}->{bonus_type};
-                    my $gid = ($replay->{game}->{type} eq 'ctf')
-                        ? 0
-                        : ($replay->{game}->{type} eq 'assault') 
-                            ? 2
-                            : 1;
-
-                }
                 $self->job_status($job, {
                     id      =>  'final',
                     text    =>  'Saving replay',
@@ -404,20 +416,20 @@ sub process_job {
                     done    =>  Mango::BSON::bson_true,
                 });
 
-                # store the heatmap updates
-                foreach my $type (keys(%{$o->hm_updates})) {
-                    my $data = $o->hm_updates->{$type};
-                    my $upd  = {};
-                    foreach my $x (keys(%$data)) {
-                        foreach my $y (keys(%{$data->{$x}})) {
-                            $upd->{sprintf('%d.%d', $x, $y)} += $data->{$x}->{$y};
+                if($processing_orphan == 0) {
+                    foreach my $type (keys(%{$o->hm_updates})) {
+                        my $data = $o->hm_updates->{$type};
+                        my $upd  = {};
+                        foreach my $x (keys(%$data)) {
+                            foreach my $y (keys(%{$data->{$x}})) {
+                                $upd->{sprintf('%d.%d', $x, $y)} += $data->{$x}->{$y};
+                            }
                         }
+                        $self->db->collection(sprintf('hm_%s', $type))->update({
+                            _id     => sprintf('%d_%s', $replay->{game}->{map}, $replay->{game}->{type}),
+                        }, { '$inc' => $upd }, { upsert => 1 });
                     }
-                    $self->db->collection(sprintf('hm_%s', $type))->update({
-                        _id     => sprintf('%d_%s', $replay->{game}->{map}, $replay->{game}->{type}),
-                    }, { '$inc' => $upd }, { upsert => 1 });
                 }
-
                 return $replay;
             } else {
                 $self->debug('error saving replay');
