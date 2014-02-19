@@ -8,6 +8,7 @@ use WR::Process::Full;
 use WR::Process::ChatReader;
 use Time::HiRes;
 use Data::Dumper;
+use File::Copy qw/copy/;
 use Carp qw/cluck/;
 
 has '_start'    => sub { [ Time::HiRes::gettimeofday ] };
@@ -127,6 +128,7 @@ sub process_job {
     my $job = shift;
     my $processing_orphan = 0;
     my $orphan_id = undef;
+    my $orphan_site = undef;
 
     $self->start($job);
 
@@ -146,6 +148,7 @@ sub process_job {
                 if(defined($r->{site}->{orphan}) && $r->{site}->{orphan}) {
                     # it's an orphaned replay, we want to store that info somewhere
                     $orphan_id = $r->{_id};
+                    $orphan_site = $r->{site};
                     $processing_orphan = 1;
                     $self->debug('processing orphan for ', $job->{_id}, "\n");
                 } else {
@@ -344,7 +347,7 @@ sub process_job {
         $self->debug('state.wn7.finish');
     });
 
-    if(my $replay = $o->process( ($job->{reprocess}) ? $job->{replayid} : undef)) {
+    if(my $replay = $o->process( (defined($orphan_id)) ? $orphan_id : undef)) {
         if($o->has_error > 0) {
             my $err = $o->error;
             $self->debug('Error processing: ', $err);
@@ -393,6 +396,10 @@ sub process_job {
                 }
                 if($processing_orphan == 1) {
                     $replay->{_id} = $orphan_id;
+
+                    for(qw/desc downloads likes views visible privacy/) {
+                        $replay->{site}->{$_} = $orphan_site->{$_};
+                    }
                     $self->debug('processed orphaned replay');
                     $replay->{site}->{orphan} = Mango::BSON::bson_false;
                 }
