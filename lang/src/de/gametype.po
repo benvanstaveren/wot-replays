@@ -1,0 +1,35 @@
+msgid "gametype.ctf"
+msgstr "CTF"
+
+msgid "gametype.ctf.short"
+msgstr "CTF"
+
+msgid "gametype.ctf.desc"
+msgstr "Win the match by capturing the enemy base or killing all opponents"
+
+msgid "gametype.domination"
+msgstr "Encounter"
+
+msgid "gametype.domination.short"
+msgstr "Encounter"
+
+msgid "gametype.domination.desc"
+msgstr "Win the match by capturing the base or killing all opponents"
+
+msgid "gametype.assault"
+msgstr "Assault"
+
+msgid "gametype.assault.short"
+msgstr "Assault"
+
+msgid "gametype.assault.desc"
+msgstr "Win the match by attacking or defending the base or killing all opponents"
+
+msgid "gametype.nations"
+msgstr "Nations"
+
+msgid "gametype.nations.short"
+msgstr "Nations"
+
+msgid "gametype.nations.desc"
+msgstr "Win the match by capturing the base or killing all opponents"

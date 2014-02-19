@@ -1,0 +1,8 @@
+msgid "camouflage.summer"
+msgstr "Summer"
+
+msgid "camouflage.winter"
+msgstr "Winter"
+
+msgid "camouflage.desert"
+msgstr "Desert"

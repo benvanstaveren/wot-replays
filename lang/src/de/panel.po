@@ -1,0 +1,72 @@
+msgid "panel.result.heading"
+msgstr "result"
+
+msgid "panel.result.victory"
+msgstr "victory"
+
+msgid "panel.result.draw"
+msgstr "draw"
+
+msgid "panel.result.defeat"
+msgstr "defeat"
+
+msgid "panel.xp.heading"
+msgstr "xp"
+
+msgid "panel.xp.tooltip"
+msgstr "Earned %0 xp including premium and mission bonuses"
+
+msgid "panel.credits.heading"
+msgstr "credits"
+
+msgid "panel.credits.tooltip"
+msgstr "Earned %0 credits including premium and mission bonuses"
+
+msgid "panel.spotted.heading"
+msgstr "spotted"
+
+msgid "panel.damaged.heading"
+msgstr "damaged"
+
+msgid "panel.killed.heading"
+msgstr "killed"
+
+msgid "panel.server.heading"
+msgstr "server"
+
+msgid "panel.survived.heading"
+msgstr "survived"
+
+msgid "panel.survived.yes"
+msgstr "yes"
+
+msgid "panel.survived.no"
+msgstr "no"
+
+msgid "panel.version.heading"
+msgstr "version"
+
+msgid "panel.version.current"
+msgstr "Current version"
+
+msgid "panel.version.incompatible"
+msgstr "Incompatible version"
+
+msgid "panel.button.view.label"
+msgstr "View"
+
+msgid "panel.button.view.title"
+msgstr "View this replay"
+
+msgid "panel.button.save.label"
+msgstr "Save"
+
+msgid "panel.button.save.title"
+msgstr "Download this replay"
+
+msgid "panel.button.like.label"
+msgstr "Like"
+
+msgid "panel.button.like.title"
+msgstr "Like this replay"
+

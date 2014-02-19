@@ -1,0 +1,111 @@
+msgid "new-string"
+msgstr ""
+
+msgid "new-value"
+msgstr ""
+
+msgid "replays.overview.awards.noawards"
+msgstr "No medals awarded"
+
+msgid "replays.overview.awards.title"
+msgstr "Awards"
+
+msgid "replays.overview.battleperformance.assisted"
+msgstr "Team members assisted %1 points (%2%) of damage due to spotting, and %3 points (%4%) of damage due to tracking"
+
+msgid "replays.overview.battleperformance.critdetail.text"
+msgstr "Player made %0 %quant(%0,critical hit,critical hits), click for details"
+
+msgid "replays.overview.battleperformance.critdetail.title"
+msgstr "Critical Hit Details"
+
+msgid "replays.overview.battleperformance.damage"
+msgstr "Player did %1 points (%2%) of damage [%0, %1, %2, %3, %4]"
+
+msgid "replays.overview.battleperformance.kill"
+msgstr "Player got the killing blow on this enemy"
+
+msgid "replays.overview.battleperformance.noassist"
+msgstr "No assisted damage done"
+
+msgid "replays.overview.battleperformance.spotted"
+msgstr "Player spotted this vehicle"
+
+msgid "replays.overview.battleperformance.teamdamage"
+msgstr "Player did %1 points (%2%) of damage to a team member"
+
+msgid "replays.overview.battleperformance.teamkill"
+msgstr "Player got the killing blow on this team member"
+
+msgid "replays.overview.battleperformance.title"
+msgstr "Performance"
+
+msgid "replays.overview.capture.cap.text"
+msgstr "Captured"
+
+msgid "replays.overview.capture.cap.title"
+msgstr "Base points captured"
+
+msgid "replays.overview.capture.defend.text"
+msgstr "Defended"
+
+msgid "replays.overview.capture.defend.title"
+msgstr "Base points dropped from enemy players"
+
+msgid "replays.overview.capture.title"
+msgstr "Capture"
+
+msgid "replays.overview.damage.assist.text"
+msgstr "Assisted"
+
+msgid "replays.overview.damage.assist.title"
+msgstr "Team members contributed %0 points of damage via spotting, %1 points of damage via tracking"
+
+msgid "replays.overview.damage.average.text"
+msgstr "Damage/Shot"
+
+msgid "replays.overview.damage.average.title"
+msgstr "Average damage done per penetrating shot"
+
+msgid "replays.overview.damage.direct.text"
+msgstr "Direct"
+
+msgid "replays.overview.damage.direct.title"
+msgstr "Damage done directly by the player"
+
+msgid "replays.overview.damage.received.text"
+msgstr "Received"
+
+msgid "replays.overview.damage.received.title"
+msgstr "Damage done to the player"
+
+msgid "replays.overview.damage.title"
+msgstr "Damage"
+
+msgid "replays.overview.description"
+msgstr "Description"
+
+msgid "replays.overview.description.button.save"
+msgstr "Save"
+
+msgid "replays.overview.description.edit"
+msgstr "edit"
+
+msgid "replays.overview.description.none"
+msgstr "No description"
+
+msgid "replays.overview.shots.fired"
+msgstr "Fired"
+
+msgid "replays.overview.shots.hits"
+msgstr "Hits"
+
+msgid "replays.overview.shots.misses"
+msgstr "Misses"
+
+msgid "replays.overview.shots.penetrations"
+msgstr "Penetrations"
+
+msgid "replays.overview.shots.title"
+msgstr "Shots"
+

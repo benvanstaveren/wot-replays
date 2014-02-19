@@ -1,0 +1,32 @@
+msgid "replay.missions.heading"
+msgstr "Missions"
+
+msgid "replay.missions.completed"
+msgstr "Completed"
+
+msgid "replay.missions.inprogress"
+msgstr "In Progress"
+
+msgid "replay.missions.whatsthis"
+msgstr "what's this?"
+
+msgid "replay.missions.oopscondition"
+msgstr "Oops, don't know how to handle this condition..."
+
+msgid "replay.missions.unknown"
+msgstr "unknown mission"
+
+msgid "replay.missions.bonustype.premium"
+msgstr "%0 %quant(%0,day,days) Premium"
+
+msgid "replay.missions.bonustype.xpFactor"
+msgstr "%0x xp"
+
+msgid "replay.missions.bonustype.creditFactor"
+msgstr "%0x credits"
+
+msgid "replay.missions.bonustype.credits"
+msgstr "%0 credits"
+
+msgid "replay.missions.bonustype.tankmenXPFactor"
+msgstr "%0x crew xp"

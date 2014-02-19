@@ -1,0 +1,11 @@
+msgid "replay.modal.embed.title"
+msgstr "Embed Replay"
+
+msgid "replay.modal.embed.text"
+msgstr "In order to embed this replay, use the supplied BBcode below"
+
+msgid "replay.modal.embed.button.close.text"
+msgstr "Close"
+
+msgid "replay.modal.embed.button.close.title"
+msgstr "Close this dialog"

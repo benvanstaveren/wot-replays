@@ -1,0 +1,3 @@
+msgid "map.page.title"
+msgstr "Browse Map - %0"
+
