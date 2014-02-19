@@ -207,6 +207,7 @@ sub openid_return {
 
     if($params->{status} eq 'ok') {
         if(!defined($self->session('auth_nonce')) || !defined($self->session('auth_server'))) {
+            $self->debug('status ok, but no auth_nonce or auth_server in session: ', Dumper($self->session));
             $self->respond(template => 'login/form', stash => {
                 page    => { title => 'Login' },
                 notify  => { type => 'error', text => 'Session lost', sticky => 0, close => 1 },

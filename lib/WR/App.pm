@@ -313,6 +313,7 @@ sub startup {
 
     $self->sessions->default_expiration(86400 * 365); 
     $self->sessions->cookie_name('wrsession');
+    $self->log->debug('were in dev mode, cookie_domain not set') if(defined($config->{mode}) && $config->{mode} eq 'dev');
     $self->sessions->cookie_domain($config->{urls}->{app_c}) if(!defined($config->{mode}) || $config->{mode} ne 'dev');
 
     has 'wr_res' => sub { return WR::Res->new() };

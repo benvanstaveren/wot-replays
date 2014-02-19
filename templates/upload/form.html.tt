@@ -4,47 +4,17 @@
     </div>
     <div class="row">
         <div class="col-lg-12 col-md-12">
-            <div id="container-frm-upload" class="well">
-                <form class="form-horizontal" id="frm-upload" action="/upload" method="post" enctype="multipart/form-data">
-                    <input name="a" type="hidden" value="save"/>
-                    <fieldset>
-                        <legend>[% h.loc('upload.legend.file') %]</legend>
-                        <div class="form-group">
-                            <label class="col-lg-2" for="replayFile">[% h.loc('upload.legend.file') %]</label>
-                            <div class="col-lg-10">
-                                <input type="file" name="replay" id="replayFile" class="form-control"/>
-                            </div>
-                        </div>
-                    </fieldset>
-                    <fieldset>
-                        <legend>[% h.loc('upload.legend.details') %]</legend>
-                        <div class="form-group">
-                            <label class="col-lg-2" for="replayDescription">[% h.loc('upload.description') %] ([% h.loc('upload.optional') %])</label>
-                            <div class="col-lg-10">
-                                <textarea class="form-control" rows="5" id="replayDescription" name="description">[% description %]</textarea>
-                                <span class="help-block">[% h.loc('upload.description.help') %]</span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-lg-2">[% h.loc('upload.privacy') %] <a href="/doc/replayprivacy" class="bs-tooltip" title="[% h.loc('upload.privacy.tooltip') %]">(?)</a></label>
-                            <div class="col-lg-10">
-                                <select name="hide">
-                                    <option selected="true" value="0">[% h.loc('privacy.public') %]</option>
-                                    <option value="1">[% h.loc('privacy.unlisted') %]</option>
-                                    <option value="2">[% h.loc('privacy.private') %]</option>
-                                    <option [% IF !h.current_user.clan.defined %]disabled="true"[% END %] value="3">[% h.loc('privacy.clan') %]</option>
-                                </select>
-                            </div>
-                        </div>
-                    </fieldset>
-                    <fieldset>
-                        <div class="form-group">
-                            <div class="col-lg-offset-2 col-lg-10">
-                                <button class="btn btn-primary" type="submit">[% h.loc('upload.button.upload') %]</button>
-                            </div>
-                        </div>
-                    </fieldset>
-                </form>
+            <ul class="nav nav-tabs nav-inverse" id="upload-tabs">
+                <li class="active"><a href="#single" class="i18n" data-toggle="tab">upload.nav.single</a></li>
+                <li><a href="#batch" class="i18n" data-toggle="tab">upload.nav.batch</a></li>
+            </ul>
+            <div class="tab-content">
+                <div id="single" class="tab-pane fade in active">
+                    [% INCLUDE upload/single.html.tt %]
+                </div>
+                <div id="batch" class="tab-pane fade">
+                    [% INCLUDE upload/batch.html.tt %]
+                </div>
             </div>
         </div>
     </div>

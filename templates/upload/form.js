@@ -1,6 +1,7 @@
 var handleProcess = null;
 var timerID = null;
 var jobIDstatus = {};
+var batchSequence = 1;
 
 function processBackground() {
     clearTimer(timerID); // and really that's all there's to it 
@@ -110,7 +111,92 @@ handleProcess = function(jobid) {
     });
 }
 
+function processBatch(jid, batchseq) {
+    return function() {
+        var jobid = jid;
+        var bs = batchseq;
+        var nonce = new Date().getTime();
+        var processURL = 'http://api.wotreplays.org/v1/process/status/' + jobid;
+        $.getJSON(processURL, { 'seq': nonce, 't': '[% config.secrets.apitoken %]' }, function(d) {
+            if(d.complete) {
+                if(d.status == 1) {
+                    $('#batch-tracker #batch-' + bs + ' td.status').empty().html(
+                        $('<div>').addClass('alert alert-success').text('DONE')
+                    );
+                    $('#frm-upload-batch-' + bs).stopTime();
+                } else if(d.status == -1) {
+                    $('#batch-tracker #batch-' + bs + ' td.status').empty().html(
+                        $('<div>').addClass('alert alert-danger').text(d.error || 'Unknown error')
+                    );
+                    $('#frm-upload-batch-' + bs).stopTime();
+                }
+            } else {
+                if(d.status == -1) {
+                    $('#batch-tracker #batch-' + bs + ' td.status').empty().html(
+                        $('<div>').addClass('alert alert-danger').text(d.error || 'Unknown error')
+                    );
+                    $('#frm-upload-batch-' + bs).stopTime();
+                }
+            }
+        });
+    }
+}
+
+function newBatchForm() {
+    var tmpl = $('script#batch-form-template').html();
+
+    // if we have a current one, hide it 
+    $('#container-frm-upload-batch .uploadform').addClass('hide');
+    var cont = $('<div>').attr('id', 'frm-upload-batch-' + batchSequence).addClass('uploadform').html(tmpl);
+    $(cont).find('input[type="file"]').attr('id', 'replayFileBatch-' + batchSequence);
+    $('#container-frm-upload-batch').prepend($(cont));
+
+    $('#container-frm-upload-batch #frm-upload-batch-' + batchSequence + ' form button').on('click', function() {
+        if($(this).hasClass('disabled')) return false;
+        $(this).addClass('disabled');
+        var file = $(this).parent().parent().find('input[type="file"]').val();
+        $('#batch-tracker').removeClass('hide');
+        $('#batch-tracker table tbody').prepend( $('<tr>').attr('id', 'batch-' + batchSequence).append($('<td>').addClass('file').text(file.replace(/.*\\/g, '')), $('<td>').addClass('status').text('') ) );
+        $('#batch-tracker #batch-' + batchSequence + ' td.status').html('<div class="progress"><div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div></div>');
+        $('#frm-upload-batch-' + batchSequence + ' form').ajaxSubmit({
+            uploadProgress: function(event, position, total, percentComplete) {
+                var percentVal = percentComplete + '%';
+                $('#batch-tracker #batch-' + batchSequence + ' td.status div.progress-bar').attr('aria-valuenow', percentVal).css({ width: percentVal + '%' });
+            },
+            error: function(x, t, e) {
+                $('#batch-tracker #batch-' + batchSequence + ' td.status').empty().html(
+                    $('<div>').addClass('alert alert-danger').text(e)
+                );
+            },
+            complete: function() {
+                batchSequence = batchSequence + 1;
+                newBatchForm();
+            },
+            success: function(d, t, x) {
+                if(d.ok && d.ok == 1) {
+                    $('#batch-tracker #batch-' + batchSequence + ' td.status').empty().html(
+                        $('<span>').addClass('spinner')
+                    );
+                    $('#frm-upload-batch-' + batchSequence).everyTime(5000, processBatch(d.jid, batchSequence));
+                } else {
+                    if(d.error) {
+                        $('#batch-tracker #batch-' + batchSequence + ' td.status').empty().html(
+                            $('<div>').addClass('alert alert-danger').text(d.error)
+                        );
+                    } else {
+                        $('#batch-tracker #batch-' + batchSequence + ' td.status').empty().html(
+                            $('<div>').addClass('alert alert-danger').text('Store fail')
+                        );
+                    }
+                }
+            },
+        });
+    });
+}
+
 $(document).ready(function() {
+    newBatchForm();
+
     $('button#process-background').click(function() {
         $('#processModal').modal('hide');
         processBackground();
@@ -120,6 +206,7 @@ $(document).ready(function() {
         $('#completeModal').modal('hide');
         document.location.href = href;
     });
+
     $('#frm-upload').ajaxForm({
         clearForm: true,
         resetForm: true,
@@ -158,7 +245,6 @@ $(document).ready(function() {
         },
         success: function(d, t, x) {
             $('#uploadModal').modal('hide');
-
             if(d.ok && d.ok == 1) {
                 $('#processModal').modal('show');
                 handleProcess(d.jid);
@@ -181,4 +267,5 @@ $(document).ready(function() {
             }
         },
     });
+
 });    
