@@ -26,10 +26,10 @@ HeatmapViewer = function(options) {
 
     this.config         =   {
         types: [
-            { id: 'location', name: 'Locations' },
-            { id: 'deaths', name: 'Deaths' },
-            { id: 'damage_r', name: 'Damage Received' },
-            { id: 'damage_d', name: 'Damage Done' },
+            { id: 'location', name: 'heatmaps.type.locations' },
+            { id: 'deaths', name: 'heatmaps.type.deaths' },
+            { id: 'damage_r', name: 'heatmaps.type.damage.received' },
+            { id: 'damage_d', name: 'heatmaps.type.damage.done' },
         ],
         modes: null,
     };
@@ -119,9 +119,10 @@ HeatmapViewer.prototype = {
         $(select).empty();
         this.config.types.forEach(function(type) {
             $(select).append(
-                $('<option/>').attr('value', type.id).html(type.name)
+                $('<option/>').addClass('i18n').attr('value', type.id).html(type.name)
             )
         });
+        $(select).find('.i18n').i18n();
         var me = this;
         $(select).val(this._type);
         $(select).change(function() {
@@ -130,17 +131,18 @@ HeatmapViewer.prototype = {
     },
     bindModeSelect: function(select) {
         var modeNames = {
-            'ctf': 'CTF',
-            'assault': 'Assault',
-            'domination': 'Encounter',
-            'nations': 'Nations',
+            'ctf': 'gametype.ctf.short',
+            'assault': 'gametype.assault.short',
+            'domination': 'gametype.domination.short',
+            'nations': 'gametype.nations.short',
         };
         $(select).empty();
         this.config.modes.forEach(function(mode) {
             $(select).append(
-                $('<option/>').attr('value', mode).html(modeNames[mode])
+                $('<option/>').addClass('i18n').attr('value', mode).html(modeNames[mode])
             );
         });
+        $(select).find('.i18n').i18n();
         var me = this;
         $(select).val(this._mode);
         $(select).change(function() {
