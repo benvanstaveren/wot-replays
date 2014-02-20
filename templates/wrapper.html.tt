@@ -97,7 +97,7 @@
                     <li class="[% IF pageid == 'upload' %]active[% END %]"><a href="[% IF h.is_user_authenticated %]/upload/[% ELSE %]/login/[% END %]">[% h.loc('nav.upload') %]</a></li>
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">[% h.loc('nav.tools') %] <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li class=" issues [% IF pageid == 'issues' %]active[% END %]"><a class="js-hover" href="https://bitbucket.org/wotreplays/wot-replays/issues">[% h.loc('nav.tools.issuetracker') %]</a></li> 
+                            <li class=" issues [% IF pageid == 'issues' %]active[% END %]"><a class="js-hover" href="https://github.com/benvanstaveren/wot-replays/issues">[% h.loc('nav.tools.issuetracker') %]</a></li> 
                             <li class=" wiki [% IF pageid == 'wiki' %]active[% END %]"><a class="js-hover" href="http://wiki.vbaddict.net/pages/WoT_Developer_Wiki">[% h.loc('nav.tools.wiki') %]</a></li>
                         </ul>
                     </li>
