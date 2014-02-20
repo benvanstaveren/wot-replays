@@ -198,7 +198,7 @@ function newBatchForm(blseq) {
                         $('#batch-tracker #batch-' + batchSequence + ' td.status').empty().html(
                             $('<span>').addClass('spinner')
                         );
-                        $('#frm-upload-batch-' + batchSequence).everyTime(5000, processBatch(d.jid, batchSequence));
+                        $('#frm-upload-batch-' + batchSequence).everyTime(2500, processBatch(d.jid, batchSequence));
                     } else {
                         if(d.error) {
                             $('#batch-tracker #batch-' + batchSequence + ' td.status').empty().html(
