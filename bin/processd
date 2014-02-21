@@ -170,4 +170,5 @@ while(!$stopping) {
     # sleep for a while
     debug('sleeping 5');
     sleep(5);
+    debug('stopping is set to 1, need to quit running now') if($stopping);
 }
