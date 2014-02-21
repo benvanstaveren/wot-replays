@@ -1,21 +1,26 @@
     <div class="page-header">
-        <h2>Über Missionen</h2>
+        <h2>&Uuml;ber Missionen</h2>
     </div>
     <h3>Woher hast du die Daten?</h3>
     <div class="well well-lg">
         <p>
+<<<<<<< HEAD
             Ich habe ein kleines Mod gemacht, das die Missionsdetails auf die Statistik-Seite <a href="http://statterbox.com">Statterbox</a> hochlädt, von wo aus ich eine Liste generiere und die Boni für eine Mission oder ein Event herausfinde.
+=======
+            Using a little mod I put together that uploads mission details to the <a href="http://statterbox.com">Statterbox</a> stats tracker site, from there I use it to generate the list and figure out the bonuses you get from a mission or event.
+            Ich habe ein kleines Mod gemacht, das die Missionsdetails auf die Statistik-Seite <a href="http://statterbox.com">Statterbox</a> hochl&auml;dt, von wo aus ich eine Liste generiere und die Boni f&uuml;r eine Mission oder ein Event herausfinde.
+>>>>>>> a3c518baaa260d6893996f8b2939c5eb2e8d9904
         </p>
     </div>
     <h3>Was bedeutet "Unbekannte Mission"?</h3>
     <div class="well well-lg">
         <p>
-            Da die Missionsdaten von Leuten, die das Mod installiert haben, zusammengetragen werden, bedeutet das, dass sich eintweder keiner von ihnen angemeldet hat oder es niemand für die aktuelle Version installiert hat. Falls du helfen willst, installiere es bitte; es verlangsamt das Spiel nicht und arbeitet nur nach der Anmeldung, um genau zu sein, wenn die Meldung "Gleiche Nachschub ab" erscheint. Danach tut es nichts mehr.
+            Da die Missionsdaten von Leuten, die das Mod installiert haben, zusammengetragen werden, bedeutet das, dass sich eintweder keiner von ihnen angemeldet hat oder es niemand f&uuml;r die aktuelle Version installiert hat. Falls du helfen willst, installiere es bitte; es verlangsamt das Spiel nicht und arbeitet nur nach der Anmeldung, um genau zu sein, wenn die Meldung "Gleiche Nachschub ab" erscheint. Danach tut es nichts mehr.
         </p>
     </div>
     <h3>Das Mod installieren</h3>
     <div class="well well-lg">
         <p>
-            Sehr einfach. Lade <a href="http://dl.wotreplays.org/mods/missiondumper-0.8.11.zip">diese Zip-Date</a> herunter und entpacke sie in den res_mods-Ordner der WoT-Installation. Es fängt nach einem Neustart mit seiner Arbeit an.
+            Sehr einfach. Lade <a href="http://dl.wotreplays.org/mods/missiondumper-0.8.11.zip">diese Zip-Date</a> herunter und entpacke sie in den res_mods-Ordner der WoT-Installation. Es f&auml;ngt nach einem Neustart mit seiner Arbeit an.
         </p>
     </div>

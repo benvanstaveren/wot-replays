@@ -32,7 +32,7 @@ msgid "replays.team.kills.text"
 msgstr "Zerst."
 
 msgid "replays.team.kills.title"
-msgstr "Fahrzeuge zerstört"
+msgstr "Fahrzeuge zerst&ouml;rt"
 
 msgid "replays.team.xp.earned"
 msgstr "Spieler hat %1 Basis-XP verdient"

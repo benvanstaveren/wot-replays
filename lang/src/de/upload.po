@@ -17,7 +17,7 @@ msgid "upload.optional"
 msgstr "optional"
 
 msgid "upload.privacy"
-msgstr "Privatsphäre-Einstellungen"
+msgstr "Privatsph&auml;re-Einstellungen"
 
 msgid "upload.privacy.tooltip"
 msgstr "mehr Infos..."
@@ -32,7 +32,7 @@ msgid "upload.modal.process.header"
 msgstr "Replay wird verarbeitet..."
 
 msgid "upload.modal.process.button.close"
-msgstr "Schließen &amp; und im Hintergrund verarbeiten"
+msgstr "Schlie&szlig;en &amp; und im Hintergrund verarbeiten"
 
 msgid "upload.modal.complete.header"
 msgstr "Verarbeitung fertig"
@@ -50,13 +50,13 @@ msgid "upload.modal.complete.banner"
 msgstr "Banner"
 
 msgid "upload.modal.complete.banner.error"
-msgstr "Während der Generierung des Banners ist ein Fehler aufgetreten, er wird bald neu generiert und du kannst ihn unter 'Einbetten' auf der Replay-Seite finden."
+msgstr "W&auml;hrend der Generierung des Banners ist ein Fehler aufgetreten, er wird bald neu generiert und du kannst ihn unter 'Einbetten' auf der Replay-Seite finden."
 
 msgid "upload.modal.complete.button.closeview"
-msgstr "Schließen &amp; Anschauen"
+msgstr "Schlie&szlig;en &amp; Anschauen"
 
 msgid "upload.modal.complete.button.close"
-msgstr "Schließen"
+msgstr "Schlie&szlig;en"
 
 
 

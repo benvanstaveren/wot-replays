@@ -1,15 +1,15 @@
     <div class="page-header">
-        <h2>Replay-Privatsphäre-Einstellungen</h2>
+        <h2>Replay-Privatsph&auml;re-Einstellungen</h2>
     </div>
     <div class="well well-lg">
-        <p>Replays können eine Privatsphäre-Einstellung haben. Diese bestimmt, wer es sehen darf. Du selber kannst immer deine eigenen Replays anschauen.</p>
-        <p>Die Einstellung ändert, bei wem das Replay in den Suchergebnissen angezeigt wird, und es wird geprüft, ob die Person das Replay sehen anzeigen darf.</p>
-        <p>Gäste (also nicht angemeldete Benutzer) können nur öffentliche und ungelistete Replays sehen</p>
+        <p>Replays k&ouml;nnen eine Privatsph&auml;re-Einstellung haben. Diese bestimmt, wer es sehen darf. Du selber kannst immer deine eigenen Replays anschauen.</p>
+        <p>Die Einstellung &auml;ndert, bei wem das Replay in den Suchergebnissen angezeigt wird, und es wird gepr&uuml;ft, ob die Person das Replay sehen anzeigen darf.</p>
+        <p>G&auml;ste (also nicht angemeldete Benutzer) k&ouml;nnen nur &ouml;ffentliche und ungelistete Replays sehen</p>
         <p>Die Tabelle unten zeigt die unterschiedlichen Einstellungen; der &quot;Aufzeichner&quot; ist die Person, die das Replay aufgezeichnet hat (normalerweise du)</p>
-        <p>Bitte beachte, dass <strong>Clan Wars</strong>-Replays <strong>immer</strong> auf <i>Clan</i> gesetzt sind und ihre Einstellung nicht geändert werden kann.
+        <p>Bitte beachte, dass <strong>Clan Wars</strong>-Replays <strong>immer</strong> auf <i>Clan</i> gesetzt sind und ihre Einstellung nicht ge&auml;ndert werden kann.
         </div>
         <div class="well well-lg">
-            <h4>Öffentlich</h4>
+            <h4>&Ouml;ffentlich</h4>
             <table class="table table-bordered">
                 <colgroup>
                 <col style="width: 50%"/>
@@ -54,10 +54,10 @@
         <col style="width: 50%"/>
     </colgroup>
     <thead>
-       <th>Wird in den Suchergebnissen angezeigt bei</th>
-       <th>Anschaubar von</th>
-   </thead>
-   <tbody>
+     <th>Wird in den Suchergebnissen angezeigt bei</th>
+     <th>Anschaubar von</th>
+ </thead>
+ <tbody>
     <tr>
         <td>Aufzeichner</td>
         <td>Aufzeichner</td>

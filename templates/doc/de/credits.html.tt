@@ -4,29 +4,29 @@
     <h3>Tools Used</h3>
     <div class="well well-lg">
         <p class="lead">
-            wotreplays.org wird erst durch die folgenden Dinge ermöglicht:
+            wotreplays.org wird erst durch die folgenden Dinge erm&ouml;glicht:
         </p>
         <p>
             <ul>
                 <li><a href="http://www.perl.org/">Perl</a>, das Schweizer Taschenmesser unter den Programmiersprachen im Internet.</li>
                 <li><a href="http://mojolicio.us">Mojolicious</a>, ein next-generation Web-Framework.</li>
-                <li><a href="https://metacpan.org/release/Mango">Mango</a>, ein nur in Perl implementierter, nicht blockierender Treiber für MongoDB.</li>
+                <li><a href="https://metacpan.org/release/Mango">Mango</a>, ein nur in Perl implementierter, nicht blockierender Treiber f&uuml;r MongoDB.</li>
                 <li><a href="http://www.mongodb.org">MongoDB</a>, um alle deine Daten zu speichern und die coolsten MapReduce-Datensammel-Dinge zu machen</li>
                 <li><a href="http://www.jquery.com">jQuery</a>, wer benutzt es nicht?</li>
                 <li><a href="http://getbootstrap.com">Bootstrap</a>, CSS eben!</li>
-                <li><a href="http://bootswatch.com">BootSwatch</a>, für Designs und ähnliches.</li>
+                <li><a href="http://bootswatch.com">BootSwatch</a>, f&uuml;r Designs und &auml;hnliches.</li>
             </ul>
         </p>
     </div>
-    <h3>Übersetzungen</h3>
+    <h3>&Uuml;bersetzungen</h3>
     <div class="well well-lg">
         <p class="lead">
             Dank diesen Leuten kannst du die Seite in verschiedenen Sprachen anschauen:
         </p>
         <p>
             <ul>
-                <li> <strong>Malaysisch</strong> - übersetzt von <strong>Amade</strong> und <strong>Dinbatu</strong> </li>
-                <li> <strong>Deutsch</strong> - übersetzt von <strong>domistiller</strong> </li>
+                <li> <strong>Malaysisch</strong> - &uuml;bersetzt von <strong>Amade</strong> und <strong>Dinbatu</strong> </li>
+                <li> <strong>Deutsch</strong> - &uuml;bersetzt von <strong>domistiller</strong> </li>
             </ul>
         </p>
     </div>
@@ -37,9 +37,9 @@
         </p>
         <p>
             <ul>
-                <li> <b>Phalynx</b> von <a href="http://www.vbaddict.net/">vbAddict WoT Performance Analyzer</a>; dafür, dass ich seine gesammelten Daten und einige Ideen benutzen durfte</li>
-                <li> <b>Evido</b> für die Entwicklung des <a href="http://github.com/evido/wotreplay-parser">wotreplay-parser</a>, durch den ich die Grundlagen für das Decodieren der Pakete in einer Replay-Datei lernte</li>
-                <li> <a href="http://forum.wotlabs.net/">Wotlabs Forum</a>; dafür, dass es der Ort ist, an dem Fehler und Bugs schnell angesprochen werden und viele Vorschläge gemacht werden. Es ist eine tolle Community!</li>
+                <li> <b>Phalynx</b> von <a href="http://www.vbaddict.net/">vbAddict WoT Performance Analyzer</a>; daf&uuml;r, dass ich seine gesammelten Daten und einige Ideen benutzen durfte</li>
+                <li> <b>Evido</b> f&uuml;r die Entwicklung des <a href="http://github.com/evido/wotreplay-parser">wotreplay-parser</a>, durch den ich die Grundlagen f&uuml;r das Decodieren der Pakete in einer Replay-Datei lernte</li>
+                <li> <a href="http://forum.wotlabs.net/">Wotlabs Forum</a>; daf&uuml;r, dass es der Ort ist, an dem Fehler und Bugs schnell angesprochen werden und viele Vorschl&auml;ge gemacht werden. Es ist eine tolle Community!</li>
             </ul>
         </p>
         <p class="lead">

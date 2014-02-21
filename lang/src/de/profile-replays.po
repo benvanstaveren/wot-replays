@@ -14,10 +14,10 @@ msgid "profile.replays.heading.credits"
 msgstr "Kreditpunkte"
 
 msgid "profile.replays.heading.damaged"
-msgstr "Beschädigt"
+msgstr "Besch&auml;digt"
 
 msgid "profile.replays.heading.kills"
-msgstr "Zerstört"
+msgstr "Zerst&ouml;rt"
 
 msgid "profile.replays.heading.links"
 msgstr "Link"
@@ -26,10 +26,10 @@ msgid "profile.replays.heading.map"
 msgstr "Karte"
 
 msgid "profile.replays.heading.spotted"
-msgstr "Aufgeklärt"
+msgstr "Aufgekl&auml;rt"
 
 msgid "profile.replays.heading.survived"
-msgstr "Überlebt"
+msgstr "&Uuml;berlebt"
 
 msgid "profile.replays.heading.vehicle"
 msgstr "Fahrzeug"
@@ -50,7 +50,7 @@ msgid "profile.replays.private"
 msgstr "%1 %quant(%1,privates Replay,private Replays) mit dir"
 
 msgid "profile.replays.public"
-msgstr "%1 %quant(%1,öffentliches Replay,öffentliche Replays) mit dir"
+msgstr "%1 %quant(%1,&ouml;ffentliches Replay,&ouml;ffentliche Replays) mit dir"
 
 msgid "profile.replays.survived.no"
 msgstr "Nein"

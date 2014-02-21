@@ -1,5 +1,5 @@
 msgid "tooltip.rating.none"
-msgstr "Nicht verfügbar"
+msgstr "Nicht verf&uuml;gbar"
 
 msgid "tooltip.rating.battle.none"
 msgstr "Es konnte keine Wertung berechnet werden"
@@ -32,7 +32,7 @@ msgid "tooltip.wn7.battle"
 msgstr "Spieler-WN7 in diesem Gefecht"
 
 msgid "tooltip.team.average.wn7"
-msgstr "Durchschnitts-WN7 für dieses Team"
+msgstr "Durchschnitts-WN7 f&uuml;r dieses Team"
 
 msgid "tooltip.wn8.overall"
 msgstr "Spieler Gesamt-WN8"
@@ -41,5 +41,5 @@ msgid "tooltip.wn8.battle"
 msgstr "Spieler-WN8 in diesem Gefecht"
 
 msgid "tooltip.team.average.wn8"
-msgstr "Durchschnitts-WN8 für dieses Team"
+msgstr "Durchschnitts-WN8 f&uuml;r dieses Team"
 

@@ -5,4 +5,4 @@ msgid "camouflage.winter"
 msgstr "Winter"
 
 msgid "camouflage.desert"
-msgstr "Wüste"
+msgstr "W&uuml;ste"
