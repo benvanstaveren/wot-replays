@@ -1,4 +1,5 @@
 package WR::App::Controller::Admin::Language;
+use utf8;
 use Mojo::Base 'WR::App::Controller';
 use WR::HashTable;
 use Data::Dumper;
@@ -157,6 +158,7 @@ sub publish {
 
     if(open(my $fh, '>:encoding(utf-8)', sprintf('%s/%s/site.po', $self->app->home->rel_dir('lang/site'), $lang))) {
 	    foreach my $key (sort(keys(%$pub))) {
+            utf8::decode($pub->{$key});
             print($fh sprintf(q|msgid "%s"|, $key), "\n", sprintf(q|msgstr "%s"|, $pub->{$key}), "\n\n");
 	    }
         close($fh);
@@ -230,7 +232,9 @@ sub save_all {
     foreach my $key (keys(%$args)) {
         if($key =~ /strings\[(.*?)\]/) {
             my $rk = $1;
+            next if($rk =~ /^new-(string|value)/);
             my $v  = xml_escape($args->{$key});
+            utf8::decode($args->{$key});
 
             # restore entities
             while($v =~ /\&amp;(.*?);/) {
@@ -284,6 +288,7 @@ sub save_single {
                 my $e = $1;
                 $v =~ s/\&amp;$e;/\&$e;/g;
             }
+            utf8::decode($v);
             $fh->print(sprintf('msgid "%s"', $key), "\n");
             $fh->print(sprintf('msgstr "%s"', $v), "\n");
             $fh->print("\n");

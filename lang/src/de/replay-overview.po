@@ -1,9 +1,3 @@
-msgid "new-string"
-msgstr ""
-
-msgid "new-value"
-msgstr ""
-
 msgid "replays.overview.awards.noawards"
 msgstr "Keine Auszeichnungen"
 

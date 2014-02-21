@@ -20,12 +20,12 @@
         </div>
         <div class="col-lg-9 col-md-9">
             <div class="row">
-                <div class="col-lg-8 col-md-8">
+                <div class="col-lg-7 col-md-7">
                     <p class="lead">
-                        <a data-placement="auto" data-toggle="tooltip" class="bs-tooltip [% IF replay.panel.premium %]premium[% END %]" href="/player/[% replay.panel.server %]/[% replay.panel.name |uri %]/" title="[% replay.panel.name |html %] [% IF replay.panel.premium %](Premium)[% END %]">[% replay.panel.name |truncate(15) |html %]</a> - <a href="/vehicle/[% h.vehicle_link(replay.panel.vehicle.ident) %]/" data-placement="auto" title="[% replay.panel.vehicle.label |html %]" data-toggle="tooltip" class="bs-tooltip">[% IF replay.panel.vehicle.i18n.defined %][% h.loc(replay.panel.vehicle.i18n _ '_short') %][% ELSE %][% replay.panel.vehicle.label_short |html %][% END %]</a> - <a href="/map/[% replay.panel.map.slug |uri %]/" data-toggle="tooltip" class="bs-tooltip" title="[% replay.panel.map.label |html %]" data-placement="auto">[% replay.panel.map.label |html %]</a> 
+                        <a data-placement="auto" data-toggle="tooltip" class="bs-tooltip [% IF replay.panel.premium %]premium[% END %]" href="/player/[% replay.panel.server %]/[% replay.panel.name |uri %]/" title="[% replay.panel.name |html %] [% IF replay.panel.premium %](Premium)[% END %]">[% replay.panel.name |truncate(15) |html %]</a> - <a href="/vehicle/[% h.vehicle_link(replay.panel.vehicle.ident) %]/" data-placement="auto" title="[% replay.panel.vehicle.label |html %]" data-toggle="tooltip" class="bs-tooltip">[% IF replay.panel.vehicle.i18n.defined %][% h.loc(replay.panel.vehicle.i18n _ '_short') %][% ELSE %][% replay.panel.vehicle.label_short |html %][% END %]</a> - <a href="/map/[% replay.panel.map.slug |uri %]/" data-toggle="tooltip" class="bs-tooltip" title="[% replay.panel.map.label |html %]" data-placement="auto">[% replay.panel.map.label |truncate(15) |html %]</a> 
                     </p>
                 </div>
-                <div class="col-lg-4 col-md-4 text-right" style="padding-top: 2px">
+                <div class="col-lg-5 col-md-4 text-right" style="padding-top: 2px">
                     <span class="label label-default">[% h.loc('bonustype.' _ replay.panel.bonus_type _ '.short') %]</span>
                     <span class="label label-default">[% h.loc('gametype.' _ replay.panel.game_type _ '.short') %]</span>
                     [% IF !replay.site.visible %]

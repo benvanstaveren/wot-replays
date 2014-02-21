@@ -1,4 +1,5 @@
 package WR::Plugin::I18N;
+use utf8;
 use Mojo::Base 'Mojolicious::Plugin';
 use Data::Localize::Gettext;
 use Data::Dumper;
@@ -30,8 +31,6 @@ sub register {
     $g->{'common'} = [ $self->get_paths(for => 'common', using => $app) ];
     $g->{'en'}     = $g->{common};
 
-    $app->log->debug('I18N register, app->config->languages says: ' . Dumper($app->config->{languages}));
-
     if(defined($app->config->{languages})) {
         foreach my $language (@{$app->config->{languages}}) {
             $g->{$language->{ident}} = [ 
@@ -41,19 +40,16 @@ sub register {
         }
     }
 
-    $app->log->debug('config i18n_language_paths is: ' . Dumper($g));
     $app->config('i18n_language_paths' => $g);
 
     $app->hook(before_routes => sub {
         my $c = shift;
 
         my $language = $c->session('language') || 'en';
-        $c->app->log->debug('before_routes: language: ' . $language . ' paths: ' . join(', ', @{$c->config('i18n_language_paths')->{$language}}));
         $c->stash('user_lang' => $language);
         if(my $localizer = $c->get_localizer_for($language)) {
             $c->stash('i18n_localizer' => $localizer);
         } else {
-            $c->error('no localizer for language ', $language, ' falling back to EN');
             $c->stash('i18n_localizer' => $c->get_localizer_for('en'));
         }
     });
@@ -86,7 +82,7 @@ sub register {
     $app->helper(get_localizer_for => sub {
         my $self = shift;
         my $lang = shift;
-        return Data::Localize::Gettext->new(encoding => 'utf8', formatter => WR::Localize::Formatter->new(), paths => $self->config('i18n_language_paths')->{$lang});
+        return Data::Localize::Gettext->new(encoding => 'utf-8', formatter => WR::Localize::Formatter->new(), paths => $self->config('i18n_language_paths')->{$lang});
     });
 
     $app->helper(i18n_catalog => sub {
@@ -98,7 +94,7 @@ sub register {
                 next if($cat eq 'site');
                 foreach my $id (keys(%{$localizer->get_lexicon_map($cat)})) {
                     my $val = $localizer->get_lexicon($cat, $id);
-                    $catalog->{sprintf('#%s:%s', $cat, $id)} = $val;
+                    $catalog->{sprintf('#%s:%s', $cat, $id)} = encode('utf8', $val, Encode::FB_HTMLCREF);
                 }
             }
             foreach my $id (keys(%{$localizer->get_lexicon_map('site')})) {
@@ -137,6 +133,7 @@ sub register {
         if(my $localizer = $self->stash('i18n_localizer')) {
             if(my $xlat = $localizer->localize_for(lang => $l, id => $str, args => $args)) {
                 $result = $xlat;
+                # see if result is valid utf8
             } else {
                 if($l ne 'site') {
                     # okay, stupid WG inconsistency, some tanks have a _short, some don't, so if our str contains _short, retry it 

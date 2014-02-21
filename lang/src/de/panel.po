@@ -1,62 +1,8 @@
-msgid "panel.result.heading"
-msgstr "Ergebnis"
+msgid "panel.button.like.label"
+msgstr "Gef‰llt mir"
 
-msgid "panel.result.victory"
-msgstr "Sieg"
-
-msgid "panel.result.draw"
-msgstr "Unentschieden"
-
-msgid "panel.result.defeat"
-msgstr "Niederlage"
-
-msgid "panel.xp.heading"
-msgstr "XP"
-
-msgid "panel.xp.tooltip"
-msgstr "%0 XP mit Premium und Missions-Boni erhalten"
-
-msgid "panel.credits.heading"
-msgstr "Kreditpunkte"
-
-msgid "panel.credits.tooltip"
-msgstr "%0 Kreditpunkte mit Premium und Missions-Boni erhalten"
-
-msgid "panel.spotted.heading"
-msgstr "Aufgekl√§rt"
-
-msgid "panel.damaged.heading"
-msgstr "Besch√§digt"
-
-msgid "panel.killed.heading"
-msgstr "Zerst√∂rt"
-
-msgid "panel.server.heading"
-msgstr "Server"
-
-msgid "panel.survived.heading"
-msgstr "√úberlebt"
-
-msgid "panel.survived.yes"
-msgstr "Ja"
-
-msgid "panel.survived.no"
-msgstr "Nein"
-
-msgid "panel.version.heading"
-msgstr "Version"
-
-msgid "panel.version.current"
-msgstr "Aktuelle Version"
-
-msgid "panel.version.incompatible"
-msgstr "Inknompatible Version"
-
-msgid "panel.button.view.label"
-msgstr "Anschauen"
-
-msgid "panel.button.view.title"
-msgstr "Dieses Replay anschauen"
+msgid "panel.button.like.title"
+msgstr "Dieses Replay gef‰llt mir"
 
 msgid "panel.button.save.label"
 msgstr "Speichern"
@@ -64,9 +10,63 @@ msgstr "Speichern"
 msgid "panel.button.save.title"
 msgstr "Dieses Replay herunterladen"
 
-msgid "panel.button.like.label"
-msgstr "Gef√§llt mir"
+msgid "panel.button.view.label"
+msgstr "Anschauen"
 
-msgid "panel.button.like.title"
-msgstr "Dieses Replay gef√§llt mir"
+msgid "panel.button.view.title"
+msgstr "Dieses Replay anschauen"
+
+msgid "panel.credits.heading"
+msgstr "Kreditpunkte"
+
+msgid "panel.credits.tooltip"
+msgstr "%0 Kreditpunkte mit Premium und Missions-Boni erhalten"
+
+msgid "panel.damaged.heading"
+msgstr "Besch‰digt"
+
+msgid "panel.killed.heading"
+msgstr "Zerstˆrt"
+
+msgid "panel.result.defeat"
+msgstr "Niederlage"
+
+msgid "panel.result.draw"
+msgstr "Unentschieden"
+
+msgid "panel.result.heading"
+msgstr "Ergebnis"
+
+msgid "panel.result.victory"
+msgstr "Sieg"
+
+msgid "panel.server.heading"
+msgstr "Server"
+
+msgid "panel.spotted.heading"
+msgstr "Aufgekl‰rt"
+
+msgid "panel.survived.heading"
+msgstr "‹berlebt"
+
+msgid "panel.survived.no"
+msgstr "Nein"
+
+msgid "panel.survived.yes"
+msgstr "Ja"
+
+msgid "panel.version.current"
+msgstr "Aktuelle Version"
+
+msgid "panel.version.heading"
+msgstr "Version"
+
+msgid "panel.version.incompatible"
+msgstr "Inknompatible Version"
+
+msgid "panel.xp.heading"
+msgstr "XP"
+
+msgid "panel.xp.tooltip"
+msgstr "%0 XP mit Premium und Missions-Boni erhalten"
 

@@ -1067,6 +1067,10 @@ sub install {
         return $r;
     });
 
+    $self->helper('is_test_server' => sub {
+        my $self = shift;
+        my $name = shift;
+    });
 }
 
 1;
