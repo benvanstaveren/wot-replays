@@ -11,7 +11,7 @@ msgid "replay.nav.missions"
 msgstr "Missionen"
 
 msgid "replay.nav.overview"
-msgstr "Übersicht"
+msgstr "&Uuml;bersicht"
 
 msgid "replay.nav.teams"
 msgstr "Teams"

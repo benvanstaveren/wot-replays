@@ -6,7 +6,7 @@ msgstr "In order to embed this replay, use the supplied BBcode below"
 msgstr "Benutze den unten stehenden BBCode, um das Replay einzubetten"
 
 msgid "replay.modal.embed.button.close.text"
-msgstr "Schließen"
+msgstr "Schlie&szlig;en"
 
 msgid "replay.modal.embed.button.close.title"
-msgstr "Diesen Dialog schließen"
+msgstr "Diesen Dialog schlie&szlig;en"

@@ -41,4 +41,4 @@ msgid "replays.earnings.text.repair"
 msgstr "Reparaturkosten"
 
 msgid "replays.earnings.text.compensation"
-msgstr "Entschädigung"
+msgstr "Entsch&auml;digung"

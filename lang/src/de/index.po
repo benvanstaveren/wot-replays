@@ -11,10 +11,10 @@ msgid "sidebar.status.pending"
 msgstr "Noch nicht verarbeitet"
 
 msgid "sidebar.status.datasize"
-msgstr "Datengröße"
+msgstr "Datengr&ouml;&szlig;e"
 
 msgid "sidebar.status.indexsize"
-msgstr "Indexgröße"
+msgstr "Indexgr&ouml;&szlig;e"
 
 msgid "sidebar.status.diskusage"
 msgstr "Festplattennutzung"

@@ -23,19 +23,19 @@ msgid "panel.credits.tooltip"
 msgstr "%0 Kreditpunkte mit Premium und Missions-Boni erhalten"
 
 msgid "panel.spotted.heading"
-msgstr "Aufgeklärt"
+msgstr "Aufgekl&auml;rt"
 
 msgid "panel.damaged.heading"
-msgstr "Beschädigt"
+msgstr "Besch&auml;digt"
 
 msgid "panel.killed.heading"
-msgstr "Zerstört"
+msgstr "Zerst&ouml;rt"
 
 msgid "panel.server.heading"
 msgstr "Server"
 
 msgid "panel.survived.heading"
-msgstr "Überlebt"
+msgstr "&Uuml;berlebt"
 
 msgid "panel.survived.yes"
 msgstr "Ja"
@@ -65,8 +65,8 @@ msgid "panel.button.save.title"
 msgstr "Dieses Replay herunterladen"
 
 msgid "panel.button.like.label"
-msgstr "Gefällt mir"
+msgstr "Gef&auml;llt mir"
 
 msgid "panel.button.like.title"
-msgstr "Dieses Replay gefällt mir"
+msgstr "Dieses Replay gef&auml;llt mir"
 

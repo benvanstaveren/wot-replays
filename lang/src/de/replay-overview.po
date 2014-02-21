@@ -11,10 +11,10 @@ msgid "replays.overview.awards.title"
 msgstr "Auszeichnungen"
 
 msgid "replays.overview.battleperformance.assisted"
-msgstr "Team-Mitglieder unterstützte mit %1 Schadenspunkte (%2%) durch Aufklärung und %3 Schadenspunkte (%4%) durch Tracking"
+msgstr "Team-Mitglieder unterst&uuml;tzte mit %1 Schadenspunkte (%2%) durch Aufkl&auml;rung und %3 Schadenspunkte (%4%) durch Tracking"
 
 msgid "replays.overview.battleperformance.critdetail.text"
-msgstr "Spieler machte %0 %quant(%0,kritischen,kritische) Treffer, für Details klicken"
+msgstr "Spieler machte %0 %quant(%0,kritischen,kritische) Treffer, f&uuml;r Details klicken"
 
 msgid "replays.overview.battleperformance.critdetail.title"
 msgstr "Kritische Treffer-Details"
@@ -23,19 +23,19 @@ msgid "replays.overview.battleperformance.damage"
 msgstr "Spieler machte %1 Schadenspunkte (%2%) [%0, %1, %2, %3, %4]"
 
 msgid "replays.overview.battleperformance.kill"
-msgstr "Spieler zerstörte diesen Gegner"
+msgstr "Spieler zerst&ouml;rte diesen Gegner"
 
 msgid "replays.overview.battleperformance.noassist"
-msgstr "Kein Schaden durch Unterstützung"
+msgstr "Kein Schaden durch Unterst&uuml;tzung"
 
 msgid "replays.overview.battleperformance.spotted"
-msgstr "Spieler hat dieses Fahrzeug aufgeklärt"
+msgstr "Spieler hat dieses Fahrzeug aufgekl&auml;rt"
 
 msgid "replays.overview.battleperformance.teamdamage"
 msgstr "Spieler machte %1 Schadenspunkte (%2%) an einem Team-Mitglied"
 
 msgid "replays.overview.battleperformance.teamkill"
-msgstr "Spieler zerstörte dieses Team-Mitglied"
+msgstr "Spieler zerst&ouml;rte dieses Team-Mitglied"
 
 msgid "replays.overview.battleperformance.title"
 msgstr "Leistung"
@@ -56,10 +56,10 @@ msgid "replays.overview.capture.title"
 msgstr "Eroberung"
 
 msgid "replays.overview.damage.assist.text"
-msgstr "Unterstützt"
+msgstr "Unterst&uuml;tzt"
 
 msgid "replays.overview.damage.assist.title"
-msgstr "%0 Schadenspunkte durch Aufklärung, %1 Schadenspunkte durch Tracking"
+msgstr "%0 Schadenspunkte durch Aufkl&auml;rung, %1 Schadenspunkte durch Tracking"
 
 msgid "replays.overview.damage.average.text"
 msgstr "Schaden/Schuss"
@@ -101,11 +101,11 @@ msgid "replays.overview.shots.hits"
 msgstr "Treffer"
 
 msgid "replays.overview.shots.misses"
-msgstr "Fehlschüsse"
+msgstr "Fehlsch&uuml;sse"
 
 msgid "replays.overview.shots.penetrations"
 msgstr "Wirkungstreffer"
 
 msgid "replays.overview.shots.title"
-msgstr "Schüsse"
+msgstr "Sch&uuml;sse"
 

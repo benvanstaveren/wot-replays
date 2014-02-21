@@ -2,10 +2,10 @@ msgid "replay.game.finishreason.0"
 msgstr "Unbekannt"
 
 msgid "replay.game.finishreason.1.0"
-msgstr "Alle Feinde zerstört"
+msgstr "Alle Feinde zerst&ouml;rt"
 
 msgid "replay.game.finishreason.1.1"
-msgstr "Alle Verbündeten zerstört"
+msgstr "Alle Verb&uuml;ndeten zerst&ouml;rt"
 
 msgid "replay.game.finishreason.2"
 msgstr "Basis eingenommen"
@@ -20,13 +20,13 @@ msgid "replay.game.finishreason.5"
 msgstr "Technischer Fehler"
 
 msgid "replay.header.killedby"
-msgstr "Zerstört von"
+msgstr "Zerst&ouml;rt von"
 
 msgid "replay.header.result"
 msgstr "Ergebnis"
 
 msgid "replay.header.survived"
-msgstr "Überlebt"
+msgstr "&Uuml;berlebt"
 
 msgid "replay.header.survived.no"
 msgstr "Nein"
@@ -50,13 +50,13 @@ msgid "replay.button.replay.label"
 msgstr "Replay-Seite"
 
 msgid "replay.button.modal.close.label"
-msgstr "Schließen"
+msgstr "Schlie&szlig;en"
 
 msgid "replay.button.like.label"
-msgstr "Gefällt mir"
+msgstr "Gef&auml;llt mir"
 
 msgid "replay.button.like.title"
-msgstr "Dieses Replay gefällt mir"
+msgstr "Dieses Replay gef&auml;llt mir"
 
 msgid "replay.button.save.label"
 msgstr "Speichern"
@@ -84,7 +84,7 @@ msgstr "Replay this battle on a virtual mini-map"
 msgstr "Dieses Replay auf einer virtuellen Minimap wiedergeben"
 
 msgid "replay.button.battleheatmap.title"
-msgstr "Die Heatmap für dieses Gefecht anschauen"
+msgstr "Die Heatmap f&uuml;r dieses Gefecht anschauen"
 
 msgid "replay.button.battleheatmap.label"
 msgstr "Heatmap"

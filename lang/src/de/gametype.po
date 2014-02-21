@@ -5,7 +5,7 @@ msgid "gametype.ctf.short"
 msgstr "Standard"
 
 msgid "gametype.ctf.desc"
-msgstr "Gewinne, indem du die gegnerische Basis einnimmst oder alle Gegner zerstörst"
+msgstr "Gewinne, indem du die gegnerische Basis einnimmst oder alle Gegner zerst&ouml;rst"
 
 msgid "gametype.domination"
 msgstr "Begegnungsgefecht"
@@ -14,7 +14,7 @@ msgid "gametype.domination.short"
 msgstr "Begegnung"
 
 msgid "gametype.domination.desc"
-msgstr "Gewinne, indem du die Basis einnimmst oder alle Gegner zerstörst"
+msgstr "Gewinne, indem du die Basis einnimmst oder alle Gegner zerst&ouml;rst"
 
 msgid "gametype.assault"
 msgstr "Angriff"
@@ -24,7 +24,7 @@ msgstr "Angriff"
 
 msgid "gametype.assault.desc"
 msgstr "Win the match by attacking or defending the base or killing all opponents"
-msgstr "Gewinne, indem du die Basis einnimmst oder verteidigst oder alle Gegner zerstörst"
+msgstr "Gewinne, indem du die Basis einnimmst oder verteidigst oder alle Gegner zerst&ouml;rst"
 
 msgid "gametype.nations"
 msgstr "Konfrontation"
@@ -33,4 +33,4 @@ msgid "gametype.nations.short"
 msgstr "Konfrontation"
 
 msgid "gametype.nations.desc"
-msgstr "Gewinne, indem du die Basis einnimmst oder alle Gegner zerstörst"
+msgstr "Gewinne, indem du die Basis einnimmst oder alle Gegner zerst&ouml;rst"

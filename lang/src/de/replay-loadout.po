@@ -1,5 +1,5 @@
 msgid "replay.loadout.inscriptions.heading"
-msgstr "Schriftzüge"
+msgstr "Schriftz&uuml;ge"
 
 msgid "replay.loadout.emblems.heading"
 msgstr "Wappen"
@@ -17,4 +17,4 @@ msgid "replay.loadout.consumables.heading"
 msgstr "Verbrauchsmaterialien"
 
 msgid "replay.loadout.equipment.heading"
-msgstr "Zubehör"
+msgstr "Zubeh&ouml;r"

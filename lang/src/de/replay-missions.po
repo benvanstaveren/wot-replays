@@ -2,7 +2,7 @@ msgid "replay.missions.heading"
 msgstr "Missionen"
 
 msgid "replay.missions.completed"
-msgstr "Erfüllt"
+msgstr "Erf&uuml;llt"
 
 msgid "replay.missions.inprogress"
 msgstr "Laufend"
@@ -12,7 +12,7 @@ msgstr "Was ist das?"
 
 msgid "replay.missions.oopscondition"
 msgstr "Oops, don't know how to handle this condition..."
-msgstr "Ups, ich weiß nicht, wie ich damit umgehen soll..."
+msgstr "Ups, ich wei&szlig; nicht, wie ich damit umgehen soll..."
 
 msgid "replay.missions.unknown"
 msgstr "unbekannte Mission"

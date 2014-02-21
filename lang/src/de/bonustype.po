@@ -5,10 +5,10 @@ msgid "bonustype.1.short"
 msgstr "Zufall"
 
 msgid "bonustype.2"
-msgstr "Übungsgefecht"
+msgstr "&Uuml;bungsgefecht"
 
 msgid "bonustype.2.short"
-msgstr "Übung"
+msgstr "&Uuml;bung"
 
 msgid "bonustype.3"
 msgstr "Kompanie-Gefecht"

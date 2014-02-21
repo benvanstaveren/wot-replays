@@ -1,5 +1,5 @@
 msgid "privacy.public"
-msgstr "Öffentlich"
+msgstr "&Ouml;ffentlich"
 
 msgid "privacy.clan"
 msgstr "Clan"

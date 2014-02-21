@@ -5,7 +5,7 @@ msgid "sidebar.filter.button.filter"
 msgstr "Filter"
 
 msgid "sidebar.filter.button.reset"
-msgstr "Zurücksetzen"
+msgstr "Zur&uuml;cksetzen"
 
 msgid "sidebar.filter.vehicle.title"
 msgstr "Fahrzeug"
@@ -59,10 +59,10 @@ msgid "sidebar.filter.sorting.damage"
 msgstr "Direkt verursachten Schaden"
 
 msgid "sidebar.filter.sorting.scouted"
-msgstr "Schaden durch Aufklärung"
+msgstr "Schaden durch Aufkl&auml;rung"
 
 msgid "sidebar.filter.sorting.likes"
-msgstr "Gefällt mir"
+msgstr "Gef&auml;llt mir"
 
 msgid "sidebar.filter.sorting.downloads"
 msgstr "Downloads"
