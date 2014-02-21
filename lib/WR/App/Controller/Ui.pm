@@ -36,6 +36,12 @@ sub frontpage {
             replays         => $replays || [],
             page            => { title => 'index.page.title' },
             timing_query    => tv_interval($start),
+            sidebar         => {
+                info    => {
+                    title => 'Languages',
+                    text  => q|Did you know you can change the site language in your settings? Currently we have <strong>English</strong>, <strong>Malaysian</strong> and <strong>German</strong> available, with more languages being added!|,
+                },
+            },
         });
     });
 }
