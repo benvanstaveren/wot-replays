@@ -50,7 +50,7 @@ sub browse {
         });
     } else {
         if(defined($self->stash('filter_opts')->{base_query})) {
-            my $result = $self->stash('filter_opts')->{base_query};
+            my $result = $self->stash('filter_opts')->{base_query}->($self);
             if(defined($self->stash('context.filter'))) {
                 foreach my $field (keys(%{$self->stash('context.filter')})) {
                     $result->{$field} = $self->stash('context.filter')->{$field};
