@@ -1,0 +1,5 @@
+        <div class="progress">
+            <div class="progress-bar progress-bar-success" style="width: 25%">
+                <span>$15.00/$60.00</span> 
+            </div>
+        </div>
