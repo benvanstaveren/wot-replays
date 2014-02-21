@@ -5,107 +5,107 @@ msgid "new-value"
 msgstr ""
 
 msgid "replays.overview.awards.noawards"
-msgstr "No medals awarded"
+msgstr "Keine Auszeichnungen"
 
 msgid "replays.overview.awards.title"
-msgstr "Awards"
+msgstr "Auszeichnungen"
 
 msgid "replays.overview.battleperformance.assisted"
-msgstr "Team members assisted %1 points (%2%) of damage due to spotting, and %3 points (%4%) of damage due to tracking"
+msgstr "Team-Mitglieder unterstützte mit %1 Schadenspunkte (%2%) durch Aufklärung und %3 Schadenspunkte (%4%) durch Tracking"
 
 msgid "replays.overview.battleperformance.critdetail.text"
-msgstr "Player made %0 %quant(%0,critical hit,critical hits), click for details"
+msgstr "Spieler machte %0 %quant(%0,kritischen,kritische) Treffer, für Details klicken"
 
 msgid "replays.overview.battleperformance.critdetail.title"
-msgstr "Critical Hit Details"
+msgstr "Kritische Treffer-Details"
 
 msgid "replays.overview.battleperformance.damage"
-msgstr "Player did %1 points (%2%) of damage [%0, %1, %2, %3, %4]"
+msgstr "Spieler machte %1 Schadenspunkte (%2%) [%0, %1, %2, %3, %4]"
 
 msgid "replays.overview.battleperformance.kill"
-msgstr "Player got the killing blow on this enemy"
+msgstr "Spieler zerstörte diesen Gegner"
 
 msgid "replays.overview.battleperformance.noassist"
-msgstr "No assisted damage done"
+msgstr "Kein Schaden durch Unterstützung"
 
 msgid "replays.overview.battleperformance.spotted"
-msgstr "Player spotted this vehicle"
+msgstr "Spieler hat dieses Fahrzeug aufgeklärt"
 
 msgid "replays.overview.battleperformance.teamdamage"
-msgstr "Player did %1 points (%2%) of damage to a team member"
+msgstr "Spieler machte %1 Schadenspunkte (%2%) an einem Team-Mitglied"
 
 msgid "replays.overview.battleperformance.teamkill"
-msgstr "Player got the killing blow on this team member"
+msgstr "Spieler zerstörte dieses Team-Mitglied"
 
 msgid "replays.overview.battleperformance.title"
-msgstr "Performance"
+msgstr "Leistung"
 
 msgid "replays.overview.capture.cap.text"
-msgstr "Captured"
+msgstr "Erobert"
 
 msgid "replays.overview.capture.cap.title"
-msgstr "Base points captured"
+msgstr "Eroberungspunkte"
 
 msgid "replays.overview.capture.defend.text"
-msgstr "Defended"
+msgstr "Verteidigt"
 
 msgid "replays.overview.capture.defend.title"
-msgstr "Base points dropped from enemy players"
+msgstr "Verteidigungspunkte"
 
 msgid "replays.overview.capture.title"
-msgstr "Capture"
+msgstr "Eroberung"
 
 msgid "replays.overview.damage.assist.text"
-msgstr "Assisted"
+msgstr "Unterstützt"
 
 msgid "replays.overview.damage.assist.title"
-msgstr "Team members contributed %0 points of damage via spotting, %1 points of damage via tracking"
+msgstr "%0 Schadenspunkte durch Aufklärung, %1 Schadenspunkte durch Tracking"
 
 msgid "replays.overview.damage.average.text"
-msgstr "Damage/Shot"
+msgstr "Schaden/Schuss"
 
 msgid "replays.overview.damage.average.title"
-msgstr "Average damage done per penetrating shot"
+msgstr "Durchschnittsschaden pro Wirkungstreffer"
 
 msgid "replays.overview.damage.direct.text"
-msgstr "Direct"
+msgstr "Direkt"
 
 msgid "replays.overview.damage.direct.title"
-msgstr "Damage done directly by the player"
+msgstr "Direkt durch den Spieler verursachter Schaden"
 
 msgid "replays.overview.damage.received.text"
-msgstr "Received"
+msgstr "Erhalten"
 
 msgid "replays.overview.damage.received.title"
-msgstr "Damage done to the player"
+msgstr "Vom Spieler erhaltener Schaden"
 
 msgid "replays.overview.damage.title"
-msgstr "Damage"
+msgstr "Schaden"
 
 msgid "replays.overview.description"
-msgstr "Description"
+msgstr "Beschreibung"
 
 msgid "replays.overview.description.button.save"
-msgstr "Save"
+msgstr "Speichern"
 
 msgid "replays.overview.description.edit"
-msgstr "edit"
+msgstr "Bearbeiten"
 
 msgid "replays.overview.description.none"
-msgstr "No description"
+msgstr "Keine Beschreibung"
 
 msgid "replays.overview.shots.fired"
-msgstr "Fired"
+msgstr "Geschossen"
 
 msgid "replays.overview.shots.hits"
-msgstr "Hits"
+msgstr "Treffer"
 
 msgid "replays.overview.shots.misses"
-msgstr "Misses"
+msgstr "Fehlschüsse"
 
 msgid "replays.overview.shots.penetrations"
-msgstr "Penetrations"
+msgstr "Wirkungstreffer"
 
 msgid "replays.overview.shots.title"
-msgstr "Shots"
+msgstr "Schüsse"
 

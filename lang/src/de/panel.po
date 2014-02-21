@@ -1,72 +1,72 @@
 msgid "panel.result.heading"
-msgstr "result"
+msgstr "Ergebnis"
 
 msgid "panel.result.victory"
-msgstr "victory"
+msgstr "Sieg"
 
 msgid "panel.result.draw"
-msgstr "draw"
+msgstr "Unentschieden"
 
 msgid "panel.result.defeat"
-msgstr "defeat"
+msgstr "Niederlage"
 
 msgid "panel.xp.heading"
-msgstr "xp"
+msgstr "XP"
 
 msgid "panel.xp.tooltip"
-msgstr "Earned %0 xp including premium and mission bonuses"
+msgstr "%0 XP mit Premium und Missions-Boni erhalten"
 
 msgid "panel.credits.heading"
-msgstr "credits"
+msgstr "Kreditpunkte"
 
 msgid "panel.credits.tooltip"
-msgstr "Earned %0 credits including premium and mission bonuses"
+msgstr "%0 Kreditpunkte mit Premium und Missions-Boni erhalten"
 
 msgid "panel.spotted.heading"
-msgstr "spotted"
+msgstr "Aufgeklärt"
 
 msgid "panel.damaged.heading"
-msgstr "damaged"
+msgstr "Beschädigt"
 
 msgid "panel.killed.heading"
-msgstr "killed"
+msgstr "Zerstört"
 
 msgid "panel.server.heading"
-msgstr "server"
+msgstr "Server"
 
 msgid "panel.survived.heading"
-msgstr "survived"
+msgstr "Überlebt"
 
 msgid "panel.survived.yes"
-msgstr "yes"
+msgstr "Ja"
 
 msgid "panel.survived.no"
-msgstr "no"
+msgstr "Nein"
 
 msgid "panel.version.heading"
-msgstr "version"
+msgstr "Version"
 
 msgid "panel.version.current"
-msgstr "Current version"
+msgstr "Aktuelle Version"
 
 msgid "panel.version.incompatible"
-msgstr "Incompatible version"
+msgstr "Inknompatible Version"
 
 msgid "panel.button.view.label"
-msgstr "View"
+msgstr "Anschauen"
 
 msgid "panel.button.view.title"
-msgstr "View this replay"
+msgstr "Dieses Replay anschauen"
 
 msgid "panel.button.save.label"
-msgstr "Save"
+msgstr "Speichern"
 
 msgid "panel.button.save.title"
-msgstr "Download this replay"
+msgstr "Dieses Replay herunterladen"
 
 msgid "panel.button.like.label"
-msgstr "Like"
+msgstr "Gefällt mir"
 
 msgid "panel.button.like.title"
-msgstr "Like this replay"
+msgstr "Dieses Replay gefällt mir"
 

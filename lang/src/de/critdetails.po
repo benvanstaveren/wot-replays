@@ -1,8 +1,8 @@
 msgid "critdetails.damaged"
-msgstr "Damaged"
+msgstr "Beschädigt"
 
 msgid "critdetails.destroyed"
-msgstr "Destroyed"
+msgstr "Zerstört"
 
 msgid "critdetails.crew"
-msgstr "Crew"
+msgstr "Besatzung"

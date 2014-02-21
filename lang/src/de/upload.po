@@ -1,62 +1,62 @@
 msgid "upload.page.title"
-msgstr "Upload Replay"
+msgstr "Replay hochladen"
 
 msgid "upload.description.help"
-msgstr "Text only, HTML is not allowed"
+msgstr "Nur Text, HTML ist nicht erlaubt"
 
 msgid "upload.legend.file"
-msgstr "Replay File"
+msgstr "Replay-Datei"
 
 msgid "upload.legend.details"
-msgstr "Replay Details"
+msgstr "Replay-Details"
 
 msgid "upload.description"
-msgstr "Description"
+msgstr "Beschreibung"
 
 msgid "upload.optional"
 msgstr "optional"
 
 msgid "upload.privacy"
-msgstr "Privacy Setting"
+msgstr "Privatsphäre-Einstellungen"
 
 msgid "upload.privacy.tooltip"
-msgstr "More info..."
+msgstr "mehr Infos..."
 
 msgid "upload.button.upload"
-msgstr "Upload Replay"
+msgstr "Replay hochladen"
 
 msgid "upload.modal.upload.header"
-msgstr "Replay uploading..."
+msgstr "Replay wird hochgeladen..."
 
 msgid "upload.modal.process.header"
-msgstr "Replay processing..."
+msgstr "Replay wird verarbeitet..."
 
 msgid "upload.modal.process.button.close"
-msgstr "Close &amp; process in background"
+msgstr "Schließen &amp; und im Hintergrund verarbeiten"
 
 msgid "upload.modal.complete.header"
-msgstr "Processing Completed"
+msgstr "Verarbeitung fertig"
 
 msgid "upload.modal.complete.links"
 msgstr "Links"
 
 msgid "upload.modal.complete.replay.page"
-msgstr "Replay page"
+msgstr "Replay-Seite"
 
 msgid "upload.modal.complete.replay.file"
-msgstr "Replay file"
+msgstr "Replay-Datei"
 
 msgid "upload.modal.complete.banner"
 msgstr "Banner"
 
 msgid "upload.modal.complete.banner.error"
-msgstr "There was an error generating the banner, we'll get around to re-generating it soon, and you will be able to find it using the 'Embed' button on the replay page."
+msgstr "Während der Generierung des Banners ist ein Fehler aufgetreten, er wird bald neu generiert und du kannst ihn unter 'Einbetten' auf der Replay-Seite finden."
 
 msgid "upload.modal.complete.button.closeview"
-msgstr "Close &amp; View"
+msgstr "Schließen &amp; Anschauen"
 
 msgid "upload.modal.complete.button.close"
-msgstr "Close"
+msgstr "Schließen"
 
 
 

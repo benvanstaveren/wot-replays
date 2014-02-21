@@ -1,2 +1,2 @@
 msgid "player.page.title"
-msgstr "Browse Player - %0"
+msgstr "Spieler durchsuchen - %0"

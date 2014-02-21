@@ -1,45 +1,45 @@
 msgid "tooltip.rating.none"
-msgstr "Not Available"
+msgstr "Nicht verfügbar"
 
 msgid "tooltip.rating.battle.none"
-msgstr "No rating was obtained"
+msgstr "Es konnte keine Wertung berechnet werden"
 
 msgid "tooltip.rating.battle.above"
-msgstr "Player performed above average in this battle"
+msgstr "Spieler war in diesem Gefecht besser als der Durchschnitt"
 
 msgid "tooltip.rating.battle.below"
-msgstr "Player performed below average in this battle"
+msgstr "Spieler war in diesem Gefecht schlechter als der Durchschnitt"
 
 msgid "tooltip.rating.battle.equal"
-msgstr "Player performed average in this battle"
+msgstr "Spieler war in diesem Gefecht durchschnittlich"
 
 msgid "tooltip.rating.overall.none"
-msgstr "No rating was obtained"
+msgstr "Es konnte keine Wertung berechnet werden"
 
 msgid "tooltip.rating.overall.above"
-msgstr "Player's overall performance is above average"
+msgstr "Spieler ist insgesamt besser als der Durchschnitt"
 
 msgid "tooltip.rating.overall.below"
-msgstr "Player's overall performance is below average"
+msgstr "Spieler ist insgesamt schlechter als der Durchschnitt"
 
 msgid "tooltip.rating.overall.equal"
-msgstr "Player's overall performance is average"
+msgstr "Spieler ist insgesamt durchschnittlich"
 
 msgid "tooltip.wn7.overall"
-msgstr "Player overall WN7"
+msgstr "Spieler Gesamt-WN7"
 
 msgid "tooltip.wn7.battle"
-msgstr "Player WN7 for this battle only"
+msgstr "Spieler-WN7 in diesem Gefecht"
 
 msgid "tooltip.team.average.wn7"
-msgstr "Average WN7 for this team"
+msgstr "Durchschnitts-WN7 für dieses Team"
 
 msgid "tooltip.wn8.overall"
-msgstr "Player overall WN8"
+msgstr "Spieler Gesamt-WN8"
 
 msgid "tooltip.wn8.battle"
-msgstr "Player WN8 for this battle only"
+msgstr "Spieler-WN8 in diesem Gefecht"
 
 msgid "tooltip.team.average.wn8"
-msgstr "Average WN8 for this team"
+msgstr "Durchschnitts-WN8 für dieses Team"
 

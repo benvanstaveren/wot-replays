@@ -1,41 +1,41 @@
 msgid "bonustype.1"
-msgstr "Random Battle"
+msgstr "Zufallsgefecht"
 
 msgid "bonustype.1.short"
-msgstr "Random"
+msgstr "Zufall"
 
 msgid "bonustype.2"
-msgstr "Training Room Battle"
+msgstr "Übungsgefecht"
 
 msgid "bonustype.2.short"
-msgstr "Training"
+msgstr "Übung"
 
 msgid "bonustype.3"
-msgstr "Company Battle"
+msgstr "Kompanie-Gefecht"
 
 msgid "bonustype.3.short"
-msgstr "Company"
+msgstr "Kompanie"
 
 msgid "bonustype.4"
-msgstr "Tournament Battle"
+msgstr "Turnier-Gefecht"
 
 msgid "bonustype.4.short"
-msgstr "Tournament"
+msgstr "Turnier"
 
 msgid "bonustype.5"
-msgstr "Clan Battle"
+msgstr "Clan-Gefecht"
 
 msgid "bonustype.5.short"
 msgstr "Clan"
 
 msgid "bonustype.6"
-msgstr "Tutorial Battle"
+msgstr "Tutorial-Gefecht"
 
 msgid "bonustype.6.short"
 msgstr "Tutorial"
 
 msgid "bonustype.7"
-msgstr "Team Battle"
+msgstr "Team-Gefecht"
 
 msgid "bonustype.7.short"
 msgstr "Team"

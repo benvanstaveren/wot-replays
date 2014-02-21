@@ -1,32 +1,32 @@
 msgid "nav.home"
-msgstr "Home"
+msgstr "Startseite"
 
 msgid "nav.browse"
-msgstr "Browse"
+msgstr "Durchsuchen"
 
 msgid "nav.upload"
-msgstr "Upload Replay"
+msgstr "Replay hochladen"
 
 msgid "nav.admin"
-msgstr "Admin Panel"
+msgstr "Admin-Panel"
 
 msgid "nav.signin"
-msgstr "Sign In"
+msgstr "Anmelden"
 
 msgid "nav.players"
-msgstr "Players"
+msgstr "Spieler"
 
 msgid "nav.clans"
 msgstr "Clans"
 
 msgid "nav.maps"
-msgstr "Maps"
+msgstr "Karten"
 
 msgid "nav.vehicles"
-msgstr "Vehicles"
+msgstr "Fahrzeuge"
 
 msgid "nav.blog"
-msgstr "News and Updates"
+msgstr "Neuigkeiten und Änderungen"
 
 msgid "nav.tools"
 msgstr "Tools"
@@ -41,7 +41,7 @@ msgid "nav.tools.wiki"
 msgstr "Wiki"
 
 msgid "nav.profile.header"
-msgstr "Your Profile"
+msgstr "Dein Profil"
 
 msgid "nav.profile.replays"
 msgstr "Replays"
@@ -50,7 +50,7 @@ msgid "nav.profile.uploads"
 msgstr "Uploads"
 
 msgid "nav.profile.settings"
-msgstr "Settings"
+msgstr "Einstellungen"
 
 msgid "nav.profile.signout"
-msgstr "Sign Out"
+msgstr "Abmelden"

@@ -1,6 +1,6 @@
 msgid "footer.about"
-msgstr "about the site"
+msgstr "Über diese Seite"
 
 msgid "footer.credits"
-msgstr "additional credits"
+msgstr "Andere Danksagungen"
 

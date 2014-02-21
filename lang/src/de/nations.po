@@ -2,19 +2,19 @@ msgid "nations.china"
 msgstr "China"
 
 msgid "nations.france"
-msgstr "France"
+msgstr "Frankreich"
 
 msgid "nations.germany"
-msgstr "Germany"
+msgstr "Deutschland"
 
 msgid "nations.japan"
 msgstr "Japan"
 
 msgid "nations.uk"
-msgstr "U.K."
+msgstr "GB"
 
 msgid "nations.usa"
-msgstr "U.S.A."
+msgstr "USA"
 
 msgid "nations.ussr"
-msgstr "U.S.S.R."
+msgstr "UdSSR"

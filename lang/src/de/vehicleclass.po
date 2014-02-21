@@ -1,29 +1,29 @@
 msgid "vehicleclass.l"
-msgstr "Light Tank"
+msgstr "Leichter Panzer"
 
 msgid "vehicleclass.m"
-msgstr "Medium Tank"
+msgstr "Mittlerer Panzer"
 
 msgid "vehicleclass.h"
-msgstr "Heavy Tank"
+msgstr "Schwerer Panzer"
 
 msgid "vehicleclass.t"
-msgstr "Tank Destroyer"
+msgstr "Jagdpanzer"
 
 msgid "vehicleclass.s"
-msgstr "SPG"
+msgstr "Artillerie"
 
 msgid "vehicleclass.l.plural"
-msgstr "Light Tanks"
+msgstr "Leichte Panzer"
 
 msgid "vehicleclass.m.plural"
-msgstr "Medium Tanks"
+msgstr "Mittlere Panzer"
 
 msgid "vehicleclass.h.plural"
-msgstr "Heavy Tanks"
+msgstr "Schwere Panzer"
 
 msgid "vehicleclass.t.plural"
-msgstr "Tank Destroyers"
+msgstr "Jagdpanzer"
 
 msgid "vehicleclass.s.plural"
-msgstr "SPGs"
+msgstr "Artillerien"

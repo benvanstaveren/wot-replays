@@ -1,89 +1,90 @@
 msgid "replay.game.finishreason.0"
-msgstr "unknown"
+msgstr "Unbekannt"
 
 msgid "replay.game.finishreason.1.0"
-msgstr "all enemies killed"
+msgstr "Alle Feinde zerstört"
 
 msgid "replay.game.finishreason.1.1"
-msgstr "all friendlies killed"
+msgstr "Alle Verbündeten zerstört"
 
 msgid "replay.game.finishreason.2"
-msgstr "base captured"
+msgstr "Basis eingenommen"
 
 msgid "replay.game.finishreason.3"
-msgstr "timeout"
+msgstr "Aublauf der Zeit"
 
 msgid "replay.game.finishreason.4"
-msgstr "failure"
+msgstr "Fehler"
 
 msgid "replay.game.finishreason.5"
-msgstr "technical"
+msgstr "Technischer Fehler"
 
 msgid "replay.header.killedby"
-msgstr "killed by"
+msgstr "Zerstört von"
 
 msgid "replay.header.result"
-msgstr "Result"
+msgstr "Ergebnis"
 
 msgid "replay.header.survived"
-msgstr "Survived"
+msgstr "Überlebt"
 
 msgid "replay.header.survived.no"
-msgstr "No"
+msgstr "Nein"
 
 msgid "replay.header.survived.yes"
-msgstr "Yes"
+msgstr "Ja"
 
 msgid "replay.result.defeat"
-msgstr "Defeat"
+msgstr "Niederlage"
 
 msgid "replay.result.draw"
-msgstr "Draw"
+msgstr "Unentschieden"
 
 msgid "replay.result.victory"
-msgstr "Victory"
+msgstr "Sieg"
 
 msgid "replay.button.replay.title"
-msgstr "View replay statistics page"
+msgstr "Statistiken dieses Replays anschauen"
 
 msgid "replay.button.replay.label"
-msgstr "Replay Page"
+msgstr "Replay-Seite"
 
 msgid "replay.button.modal.close.label"
-msgstr "Close"
+msgstr "Schließen"
 
 msgid "replay.button.like.label"
-msgstr "Like"
+msgstr "Gefällt mir"
 
 msgid "replay.button.like.title"
-msgstr "Like this replay"
+msgstr "Dieses Replay gefällt mir"
 
 msgid "replay.button.save.label"
-msgstr "Save"
+msgstr "Speichern"
 
 msgid "replay.button.save.title"
-msgstr "Download this replay"
+msgstr "Dieses Replay herunterladen"
 
 msgid "replay.button.view.label"
-msgstr "View"
+msgstr "Anschauen"
 
 msgid "replay.button.view.title"
-msgstr "View this replay"
+msgstr "Dieses Replay anschauen"
 
 msgid "replay.button.embed.label"
-msgstr "Embed"
+msgstr "Einbetten"
 
 msgid "replay.button.embed.title"
-msgstr "Generate UBB code to embed this replay on a forum"
+msgstr "UBB-Code zur Einbindung in Foren generieren"
 
 msgid "replay.button.battleviewer.label"
-msgstr "Battle Viewer"
+msgstr "Gefechts-Betrachter"
 
 msgid "replay.button.battleviewer.title"
 msgstr "Replay this battle on a virtual mini-map"
+msgstr "Dieses Replay auf einer virtuellen Minimap wiedergeben"
 
 msgid "replay.button.battleheatmap.title"
-msgstr "View the heatmap for this battle"
+msgstr "Die Heatmap für dieses Gefecht anschauen"
 
 msgid "replay.button.battleheatmap.label"
 msgstr "Heatmap"

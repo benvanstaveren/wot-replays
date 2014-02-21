@@ -1,6 +1,6 @@
 msgid "browse.error.noreplays"
-msgstr "Oops, seems there are no replays that match that filter..."
+msgstr "Ups, anscheinend gibt es keine Replays, auf die dieser Filter zutrifft..."
 
 msgid "browse.page.title"
-msgstr "Browse Replays"
+msgstr "Replays durchsuchen"
 

@@ -1,69 +1,69 @@
 msgid "profile.replays.any"
-msgstr "%1 %quant(%1,replay,replays) featuring you"
+msgstr "%1 %quant(%1,Replay,Replays) mit dir"
 
 msgid "profile.replays.clan"
-msgstr "%1 clan %quant(%1,replay,replays) featuring you"
+msgstr "%1 Clan-%quant(%1,Replay,Replays) mit dir"
 
 msgid "profile.replays.defeat"
-msgstr "defeat"
+msgstr "Niederlage"
 
 msgid "profile.replays.draw"
-msgstr "draw"
+msgstr "Unentschieden"
 
 msgid "profile.replays.heading.credits"
-msgstr "credits"
+msgstr "Kreditpunkte"
 
 msgid "profile.replays.heading.damaged"
-msgstr "damaged"
+msgstr "Beschädigt"
 
 msgid "profile.replays.heading.kills"
-msgstr "kills"
+msgstr "Zerstört"
 
 msgid "profile.replays.heading.links"
-msgstr "links"
+msgstr "Link"
 
 msgid "profile.replays.heading.map"
-msgstr "map"
+msgstr "Karte"
 
 msgid "profile.replays.heading.spotted"
-msgstr "spotted"
+msgstr "Aufgeklärt"
 
 msgid "profile.replays.heading.survived"
-msgstr "survived"
+msgstr "Überlebt"
 
 msgid "profile.replays.heading.vehicle"
-msgstr "vehicle"
+msgstr "Fahrzeug"
 
 msgid "profile.replays.heading.version"
-msgstr "version"
+msgstr "Version"
 
 msgid "profile.replays.heading.wl"
-msgstr "w/l"
+msgstr "Ergebnis"
 
 msgid "profile.replays.heading.xp"
-msgstr "xp"
+msgstr "XP"
 
 msgid "profile.replays.page.title"
-msgstr "Profile » Replays"
+msgstr "Profil » Replays"
 
 msgid "profile.replays.private"
-msgstr "%1 private %quant(%1,replay,replays) featuring you"
+msgstr "%1 %quant(%1,privates Replay,private Replays) mit dir"
 
 msgid "profile.replays.public"
-msgstr "%1 public %quant(%1,replay,replays) featuring you"
+msgstr "%1 %quant(%1,öffentliches Replay,öffentliche Replays) mit dir"
 
 msgid "profile.replays.survived.no"
-msgstr "no"
+msgstr "Nein"
 
 msgid "profile.replays.survived.yes"
-msgstr "yes"
+msgstr "Ja"
 
 msgid "profile.replays.unlisted"
-msgstr "%1 unlisted %quant(%1,replay,replays) featuring you"
+msgstr "%1 nicht %quant(%1,gelistetes Replay,gelistete Replays) mit dir"
 
 msgid "profile.replays.victory"
-msgstr "victory"
+msgstr "Sieg"
 
 msgid "profile.replays.view"
-msgstr "view"
+msgstr "Anschauen"
 

@@ -1,3 +1,3 @@
 msgid "vehicle.page.title"
-msgstr "Browse Vehicle - %0"
+msgstr "Fahrzeug durchsuchen - %0"
 

@@ -1,15 +1,15 @@
 msgid "server.eu"
-msgstr "Europe"
+msgstr "Europa"
 
 msgid "server.kr"
 msgstr "Korea"
 
 msgid "server.na"
-msgstr "North America"
+msgstr "Nord-Amerika"
 
 msgid "server.ru"
-msgstr "Russia"
+msgstr "Russland"
 
 msgid "server.sea"
-msgstr "Asia"
+msgstr "Asien"
 

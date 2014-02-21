@@ -1,6 +1,6 @@
 msgid "maps.page.header"
-msgstr "Maps"
+msgstr "Karten"
 
 msgid "maps.page.title"
-msgstr "Maps"
+msgstr "Karten"
 

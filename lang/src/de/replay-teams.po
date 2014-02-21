@@ -2,13 +2,13 @@ msgid "replays.team.title"
 msgstr "Team %1"
 
 msgid "replays.team.tank.text"
-msgstr "Tank"
+msgstr "Panzer"
 
 msgid "replays.team.player.text"
-msgstr "Player"
+msgstr "Spieler"
 
 msgid "replays.team.awards.text"
-msgstr "Awards"
+msgstr "Auszeichnungen"
 
 msgid "replays.team.wn7.text"
 msgstr "WN7"
@@ -17,22 +17,22 @@ msgid "replays.team.wn8.text"
 msgstr "WN8"
 
 msgid "replays.team.damage.text"
-msgstr "Dmg"
+msgstr "Sch."
 
 msgid "replays.team.damage.title"
-msgstr "Damage"
+msgstr "Schaden"
 
 msgid "replays.team.xp.text"
 msgstr "XP"
 
 msgid "replays.team.xp.title"
-msgstr "Experience"
+msgstr "Erfahrung"
 
 msgid "replays.team.kills.text"
-msgstr "K"
+msgstr "Zerst."
 
 msgid "replays.team.kills.title"
-msgstr "Kills"
+msgstr "Fahrzeuge zerstört"
 
 msgid "replays.team.xp.earned"
-msgstr "Player earned %1 base xp"
+msgstr "Spieler hat %1 Basis-XP verdient"

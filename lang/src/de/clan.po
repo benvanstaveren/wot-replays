@@ -1,2 +1,2 @@
 msgid "clan.page.title"
-msgstr "Browse Clan - %0"
+msgstr "Clan durschsuchen - %0"

@@ -1,20 +1,20 @@
 msgid "index.page.title" 
-msgstr "Home"
+msgstr "Startseite"
 
 msgid "index.page.header"
-msgstr "Newest Replays"
+msgstr "Neuste Replys"
 
 msgid "sidebar.status.header"
 msgstr "Status"
 
 msgid "sidebar.status.pending"
-msgstr "pending processing"
+msgstr "Noch nicht verarbeitet"
 
 msgid "sidebar.status.datasize"
-msgstr "data size"
+msgstr "Datengröße"
 
 msgid "sidebar.status.indexsize"
-msgstr "index size"
+msgstr "Indexgröße"
 
 msgid "sidebar.status.diskusage"
-msgstr "disk usage"
+msgstr "Festplattennutzung"

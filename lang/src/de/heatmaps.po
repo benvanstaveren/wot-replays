@@ -2,20 +2,20 @@ msgid "heatmaps.page.title"
 msgstr "Heatmaps &raquo; %0"
 
 msgid "heatmaps.options.heading"
-msgstr "Options"
+msgstr "Optionen"
 
 msgid "heatmaps.options.matchtype"
-msgstr "Match Type"
+msgstr "Gefechtsart"
 
 msgid "heatmaps.options.heatmaptype"
-msgstr "Heatmap Type"
+msgstr "Heatmap-Typ"
 
 msgid "heatmaps.options.locations"
-msgstr "Locations"
+msgstr "Orte"
 
 msgid "heatmaps.options.damage"
-msgstr "Damage Received"
+msgstr "Erhaltener Schaden"
 
 msgid "heatmaps.options.deaths"
-msgstr "Deaths"
+msgstr "Tode"
 
