@@ -88,6 +88,8 @@ sub _real_browse {
 
     $self->stash('browse_filter_raw' => $filter); # this will bomb dafux out 
 
+    $self->debug('base_q isa: ', ref($base_q));
+
     foreach my $k (keys(%$base_q)) {
         $filter->{$k} = $base_q->{$k};
     }
