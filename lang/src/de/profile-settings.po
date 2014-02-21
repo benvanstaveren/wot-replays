@@ -1,0 +1,21 @@
+msgid "profile.settings.language.title"
+msgstr "Sprache"
+
+msgid "profile.settings.page.title"
+msgstr "Profil &raquo; Einstellungen"
+
+msgid "profile.settings.ratings.none"
+msgstr "Keine Wertungen anzeigen"
+
+msgid "profile.settings.ratings.simplified"
+msgstr "Vereinfachte Wertung anzeigen"
+
+msgid "profile.settings.ratings.title"
+msgstr "Wertungen im Panel anzeigen"
+
+msgid "profile.settings.ratings.wn8"
+msgstr "WN8-Wertung anzeigen"
+
+msgid "profile.settings.timezone.title"
+msgstr "Zeitzone"
+

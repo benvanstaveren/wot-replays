@@ -1,0 +1,64 @@
+msgid "upload.page.title"
+msgstr "Replay hochladen"
+
+msgid "upload.description.help"
+msgstr "Nur Text, HTML ist nicht erlaubt"
+
+msgid "upload.legend.file"
+msgstr "Replay-Datei"
+
+msgid "upload.legend.details"
+msgstr "Replay-Details"
+
+msgid "upload.description"
+msgstr "Beschreibung"
+
+msgid "upload.optional"
+msgstr "optional"
+
+msgid "upload.privacy"
+msgstr "Privatsphäre-Einstellungen"
+
+msgid "upload.privacy.tooltip"
+msgstr "mehr Infos..."
+
+msgid "upload.button.upload"
+msgstr "Replay hochladen"
+
+msgid "upload.modal.upload.header"
+msgstr "Replay wird hochgeladen..."
+
+msgid "upload.modal.process.header"
+msgstr "Replay wird verarbeitet..."
+
+msgid "upload.modal.process.button.close"
+msgstr "Schließen &amp; und im Hintergrund verarbeiten"
+
+msgid "upload.modal.complete.header"
+msgstr "Verarbeitung fertig"
+
+msgid "upload.modal.complete.links"
+msgstr "Links"
+
+msgid "upload.modal.complete.replay.page"
+msgstr "Replay-Seite"
+
+msgid "upload.modal.complete.replay.file"
+msgstr "Replay-Datei"
+
+msgid "upload.modal.complete.banner"
+msgstr "Banner"
+
+msgid "upload.modal.complete.banner.error"
+msgstr "Während der Generierung des Banners ist ein Fehler aufgetreten, er wird bald neu generiert und du kannst ihn unter 'Einbetten' auf der Replay-Seite finden."
+
+msgid "upload.modal.complete.button.closeview"
+msgstr "Schließen &amp; Anschauen"
+
+msgid "upload.modal.complete.button.close"
+msgstr "Schließen"
+
+
+
+
+

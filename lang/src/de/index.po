@@ -1,0 +1,20 @@
+msgid "index.page.title" 
+msgstr "Startseite"
+
+msgid "index.page.header"
+msgstr "Neuste Replys"
+
+msgid "sidebar.status.header"
+msgstr "Status"
+
+msgid "sidebar.status.pending"
+msgstr "Noch nicht verarbeitet"
+
+msgid "sidebar.status.datasize"
+msgstr "Datengröße"
+
+msgid "sidebar.status.indexsize"
+msgstr "Indexgröße"
+
+msgid "sidebar.status.diskusage"
+msgstr "Festplattennutzung"

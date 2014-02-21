@@ -1,0 +1,38 @@
+msgid "replay.battleviewer.button.glacial"
+msgstr "Sehr langsam"
+
+msgid "replay.battleviewer.button.slow"
+msgstr "Langsam"
+
+msgid "replay.battleviewer.button.realtime"
+msgstr "Echtzeit"
+
+msgid "replay.battleviewer.button.fast"
+msgstr "Schnell"
+
+msgid "replay.battleviewer.button.ludicrous"
+msgstr "Sehr schnell"
+
+msgid "replay.battleviewer.packetsloading"
+msgstr "Lade Pakete..."
+
+msgid "replay.battleviewer.packeterror"
+msgstr "Die Pakete konnten nicht geladen werden, aktualisiere bitte die Seite"
+
+msgid "replay.battleviewer.clicktostart"
+msgstr "Zum Starten klicken"
+
+msgid "replay.battleviewer.period.1"
+msgstr "Warte auf Spieler..."
+
+msgid "replay.battleviewer.period.2"
+msgstr "Countdown"
+
+msgid "replay.battleviewer.period.3"
+msgstr "Im Gefecht"
+
+msgid "replay.battleviewer.period.4"
+msgstr "Nach dem Gefecht"
+
+msgid "replay.battleviewer.page.title"
+msgstr "Gefechts-Betrachter"

@@ -1,0 +1,6 @@
+msgid "browse.error.noreplays"
+msgstr "Ups, anscheinend gibt es keine Replays, auf die dieser Filter zutrifft..."
+
+msgid "browse.page.title"
+msgstr "Replays durchsuchen"
+

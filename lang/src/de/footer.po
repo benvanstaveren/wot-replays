@@ -1,0 +1,6 @@
+msgid "footer.about"
+msgstr "Über diese Seite"
+
+msgid "footer.credits"
+msgstr "Andere Danksagungen"
+

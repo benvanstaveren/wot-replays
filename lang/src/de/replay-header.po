@@ -1,0 +1,90 @@
+msgid "replay.game.finishreason.0"
+msgstr "Unbekannt"
+
+msgid "replay.game.finishreason.1.0"
+msgstr "Alle Feinde zerstört"
+
+msgid "replay.game.finishreason.1.1"
+msgstr "Alle Verbündeten zerstört"
+
+msgid "replay.game.finishreason.2"
+msgstr "Basis eingenommen"
+
+msgid "replay.game.finishreason.3"
+msgstr "Aublauf der Zeit"
+
+msgid "replay.game.finishreason.4"
+msgstr "Fehler"
+
+msgid "replay.game.finishreason.5"
+msgstr "Technischer Fehler"
+
+msgid "replay.header.killedby"
+msgstr "Zerstört von"
+
+msgid "replay.header.result"
+msgstr "Ergebnis"
+
+msgid "replay.header.survived"
+msgstr "Überlebt"
+
+msgid "replay.header.survived.no"
+msgstr "Nein"
+
+msgid "replay.header.survived.yes"
+msgstr "Ja"
+
+msgid "replay.result.defeat"
+msgstr "Niederlage"
+
+msgid "replay.result.draw"
+msgstr "Unentschieden"
+
+msgid "replay.result.victory"
+msgstr "Sieg"
+
+msgid "replay.button.replay.title"
+msgstr "Statistiken dieses Replays anschauen"
+
+msgid "replay.button.replay.label"
+msgstr "Replay-Seite"
+
+msgid "replay.button.modal.close.label"
+msgstr "Schließen"
+
+msgid "replay.button.like.label"
+msgstr "Gefällt mir"
+
+msgid "replay.button.like.title"
+msgstr "Dieses Replay gefällt mir"
+
+msgid "replay.button.save.label"
+msgstr "Speichern"
+
+msgid "replay.button.save.title"
+msgstr "Dieses Replay herunterladen"
+
+msgid "replay.button.view.label"
+msgstr "Anschauen"
+
+msgid "replay.button.view.title"
+msgstr "Dieses Replay anschauen"
+
+msgid "replay.button.embed.label"
+msgstr "Einbetten"
+
+msgid "replay.button.embed.title"
+msgstr "UBB-Code zur Einbindung in Foren generieren"
+
+msgid "replay.button.battleviewer.label"
+msgstr "Gefechts-Betrachter"
+
+msgid "replay.button.battleviewer.title"
+msgstr "Replay this battle on a virtual mini-map"
+msgstr "Dieses Replay auf einer virtuellen Minimap wiedergeben"
+
+msgid "replay.button.battleheatmap.title"
+msgstr "Die Heatmap für dieses Gefecht anschauen"
+
+msgid "replay.button.battleheatmap.label"
+msgstr "Heatmap"

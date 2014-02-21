@@ -1,0 +1,3 @@
+msgid "replay.chat.heading"
+msgstr "Gefechts-Chat"
+

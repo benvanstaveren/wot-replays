@@ -1,0 +1,72 @@
+msgid "panel.result.heading"
+msgstr "Ergebnis"
+
+msgid "panel.result.victory"
+msgstr "Sieg"
+
+msgid "panel.result.draw"
+msgstr "Unentschieden"
+
+msgid "panel.result.defeat"
+msgstr "Niederlage"
+
+msgid "panel.xp.heading"
+msgstr "XP"
+
+msgid "panel.xp.tooltip"
+msgstr "%0 XP mit Premium und Missions-Boni erhalten"
+
+msgid "panel.credits.heading"
+msgstr "Kreditpunkte"
+
+msgid "panel.credits.tooltip"
+msgstr "%0 Kreditpunkte mit Premium und Missions-Boni erhalten"
+
+msgid "panel.spotted.heading"
+msgstr "Aufgeklärt"
+
+msgid "panel.damaged.heading"
+msgstr "Beschädigt"
+
+msgid "panel.killed.heading"
+msgstr "Zerstört"
+
+msgid "panel.server.heading"
+msgstr "Server"
+
+msgid "panel.survived.heading"
+msgstr "Überlebt"
+
+msgid "panel.survived.yes"
+msgstr "Ja"
+
+msgid "panel.survived.no"
+msgstr "Nein"
+
+msgid "panel.version.heading"
+msgstr "Version"
+
+msgid "panel.version.current"
+msgstr "Aktuelle Version"
+
+msgid "panel.version.incompatible"
+msgstr "Inknompatible Version"
+
+msgid "panel.button.view.label"
+msgstr "Anschauen"
+
+msgid "panel.button.view.title"
+msgstr "Dieses Replay anschauen"
+
+msgid "panel.button.save.label"
+msgstr "Speichern"
+
+msgid "panel.button.save.title"
+msgstr "Dieses Replay herunterladen"
+
+msgid "panel.button.like.label"
+msgstr "Gefällt mir"
+
+msgid "panel.button.like.title"
+msgstr "Dieses Replay gefällt mir"
+

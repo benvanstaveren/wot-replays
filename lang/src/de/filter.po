@@ -1,0 +1,80 @@
+msgid "sidebar.filter.header"
+msgstr "Filter"
+
+msgid "sidebar.filter.button.filter"
+msgstr "Filter"
+
+msgid "sidebar.filter.button.reset"
+msgstr "Zurücksetzen"
+
+msgid "sidebar.filter.vehicle.title"
+msgstr "Fahrzeug"
+
+msgid "sidebar.filter.vehicle.all"
+msgstr "Alle Fahrzeuge"
+
+msgid "sidebar.filter.tier.title"
+msgstr "Stufe"
+
+msgid "sidebar.filter.map.title"
+msgstr "Karte"
+
+msgid "sidebar.filter.map.all"
+msgstr "Alle Karten"
+
+msgid "sidebar.filter.server.title"
+msgstr "Server"
+
+msgid "sidebar.filter.server.all"
+msgstr "Alle Server"
+
+msgid "sidebar.filter.matchmode.title"
+msgstr "Gefechtsmodus"
+
+msgid "sidebar.filter.matchmode.all"
+msgstr "Alle Modi"
+
+msgid "sidebar.filter.matchtype.title"
+msgstr "Gefechtsart"
+
+msgid "sidebar.filter.matchtype.all"
+msgstr "Alle Arten"
+
+msgid "sidebar.filter.sorting.title"
+msgstr "Sortierung"
+
+msgid "sidebar.filter.sorting.upload"
+msgstr "Upload-Datum"
+
+msgid "sidebar.filter.sorting.matchtime"
+msgstr "Gefechtszeit"
+
+msgid "sidebar.filter.sorting.xp"
+msgstr "Erhaltene Basis-Erfahrung"
+
+msgid "sidebar.filter.sorting.credits"
+msgstr "Erhaltene Basis-Credits"
+
+msgid "sidebar.filter.sorting.damage"
+msgstr "Direkt verursachten Schaden"
+
+msgid "sidebar.filter.sorting.scouted"
+msgstr "Schaden durch Aufklärung"
+
+msgid "sidebar.filter.sorting.likes"
+msgstr "Gefällt mir"
+
+msgid "sidebar.filter.sorting.downloads"
+msgstr "Downloads"
+
+msgid "sidebar.filter.player.title"
+msgstr "Spieler"
+
+msgid "sidebar.filter.player.all"
+msgstr "Alle Spieler"
+
+msgid "sidebar.filter.player.recordedonly"
+msgstr "Nur aufgezeichnete Replays"
+
+msgid "sidebar.filter.player.involvedonly"
+msgstr "Nur Replays, in denen ich beteiligt bin"

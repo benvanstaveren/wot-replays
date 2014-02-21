@@ -1,0 +1,21 @@
+msgid "heatmaps.page.title"
+msgstr "Heatmaps &raquo; %0"
+
+msgid "heatmaps.options.heading"
+msgstr "Optionen"
+
+msgid "heatmaps.options.matchtype"
+msgstr "Gefechtsart"
+
+msgid "heatmaps.options.heatmaptype"
+msgstr "Heatmap-Typ"
+
+msgid "heatmaps.options.locations"
+msgstr "Orte"
+
+msgid "heatmaps.options.damage"
+msgstr "Erhaltener Schaden"
+
+msgid "heatmaps.options.deaths"
+msgstr "Tode"
+

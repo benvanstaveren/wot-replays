@@ -1,0 +1,69 @@
+msgid "profile.replays.any"
+msgstr "%1 %quant(%1,Replay,Replays) mit dir"
+
+msgid "profile.replays.clan"
+msgstr "%1 Clan-%quant(%1,Replay,Replays) mit dir"
+
+msgid "profile.replays.defeat"
+msgstr "Niederlage"
+
+msgid "profile.replays.draw"
+msgstr "Unentschieden"
+
+msgid "profile.replays.heading.credits"
+msgstr "Kreditpunkte"
+
+msgid "profile.replays.heading.damaged"
+msgstr "Beschädigt"
+
+msgid "profile.replays.heading.kills"
+msgstr "Zerstört"
+
+msgid "profile.replays.heading.links"
+msgstr "Link"
+
+msgid "profile.replays.heading.map"
+msgstr "Karte"
+
+msgid "profile.replays.heading.spotted"
+msgstr "Aufgeklärt"
+
+msgid "profile.replays.heading.survived"
+msgstr "Überlebt"
+
+msgid "profile.replays.heading.vehicle"
+msgstr "Fahrzeug"
+
+msgid "profile.replays.heading.version"
+msgstr "Version"
+
+msgid "profile.replays.heading.wl"
+msgstr "Ergebnis"
+
+msgid "profile.replays.heading.xp"
+msgstr "XP"
+
+msgid "profile.replays.page.title"
+msgstr "Profil » Replays"
+
+msgid "profile.replays.private"
+msgstr "%1 %quant(%1,privates Replay,private Replays) mit dir"
+
+msgid "profile.replays.public"
+msgstr "%1 %quant(%1,öffentliches Replay,öffentliche Replays) mit dir"
+
+msgid "profile.replays.survived.no"
+msgstr "Nein"
+
+msgid "profile.replays.survived.yes"
+msgstr "Ja"
+
+msgid "profile.replays.unlisted"
+msgstr "%1 nicht %quant(%1,gelistetes Replay,gelistete Replays) mit dir"
+
+msgid "profile.replays.victory"
+msgstr "Sieg"
+
+msgid "profile.replays.view"
+msgstr "Anschauen"
+

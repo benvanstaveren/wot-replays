@@ -1,0 +1,12 @@
+msgid "privacy.public"
+msgstr "Öffentlich"
+
+msgid "privacy.clan"
+msgstr "Clan"
+
+msgid "privacy.private"
+msgstr "Privat"
+
+msgid "privacy.unlisted"
+msgstr "Nicht gelistet"
+

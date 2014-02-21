@@ -1,0 +1,30 @@
+    <div class="page-header">
+        <h2>Über diese Seite</h2>
+    </div>
+    <h3>wotreplays.org ist eine World of Tanks-Replay-Hosting -Seite.</h3>
+    <div class="well well-lg">
+        <p>
+            Wir hosten nicht nur deine Replay-Dateien, wir extrahieren aus ihnen auch Informationen und benutzen diese Informationen, um Replays auf unterschiedliche Arten zu durchsuchen. Desweiteren generieren wir daraus Statistiken und Spieler-Wertungen. Nach der Abschaltung im September hat Scrambled sie wieder online genommen, um seine Lamgeweile zu bekämpfen.
+        </p>
+        <p>
+            Früher habe ich um kleine Spenden gebeten, da dieses Projekt schnell teuer wurde; allerdings hat mir eine einzige Spende von $5 in 6 Monaten gezeigt, dass sich die WoT-Commmunity nicht dafür interessiert oder es als selbstverständlich ansieht.
+        </p>
+        <p>
+            Falls du daher spenden willst, benutze einfach den unten stehenden Knopf, aber beachte, dass ich die Seite nicht mehr "für die Community" betreibe sondern zu meinem eigenen Vergnügen.
+        </p>
+        <p>
+            Falls du eine bestimmte Funktion willst, wird eine Spende helfen, dass diese schneller eingebaut wird, ansonsten werde ich es tun, wenn ich dazu Lust habe.
+        </p>
+        <p class="text-center">
+            [% INCLUDE donatebutton.html.tt %]
+        </p>
+    </div>
+    <h3>Urheberrechtsanmerkungen</h3>
+    <div class="well well-lg">
+        <p>
+            Diese Seite ist urheberrechtlich geschützt 2012, 2013 von <a href="http://worldoftanks.asia/community/accounts/2000036302-Scrambled/">Scrambled</a>.
+        </p>
+        <p>
+            Alle zum Spiel gehörigen Bilder, Logos, Namen und Beschreibungen sind urheberrechtlich von Wargaming geschützt und werden hier zur Unterhaltung und vielleicht zur Bildung verwendet.
+        </p>
+    </div>

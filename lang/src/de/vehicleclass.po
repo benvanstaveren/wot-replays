@@ -1,0 +1,29 @@
+msgid "vehicleclass.l"
+msgstr "Leichter Panzer"
+
+msgid "vehicleclass.m"
+msgstr "Mittlerer Panzer"
+
+msgid "vehicleclass.h"
+msgstr "Schwerer Panzer"
+
+msgid "vehicleclass.t"
+msgstr "Jagdpanzer"
+
+msgid "vehicleclass.s"
+msgstr "Artillerie"
+
+msgid "vehicleclass.l.plural"
+msgstr "Leichte Panzer"
+
+msgid "vehicleclass.m.plural"
+msgstr "Mittlere Panzer"
+
+msgid "vehicleclass.h.plural"
+msgstr "Schwere Panzer"
+
+msgid "vehicleclass.t.plural"
+msgstr "Jagdpanzer"
+
+msgid "vehicleclass.s.plural"
+msgstr "Artillerien"

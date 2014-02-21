@@ -1,0 +1,27 @@
+msgid "clans.button.search.label"
+msgstr "Suchen"
+
+msgid "clans.heading.results"
+msgstr "Ergebnisse"
+
+msgid "clans.heading.search"
+msgstr "Suche"
+
+msgid "clans.label.clan.name"
+msgstr "Clan-Name"
+
+msgid "clans.label.clan.ticker"
+msgstr "Clan-Ticker"
+
+msgid "clans.label.query"
+msgstr "Suchbegriff"
+
+msgid "clans.label.server"
+msgstr "Server"
+
+msgid "clans.page.header"
+msgstr "Clans suchen"
+
+msgid "clans.page.title"
+msgstr "Clans suchen"
+

@@ -1,0 +1,2 @@
+msgid "clan.page.title"
+msgstr "Clan durschsuchen - %0"

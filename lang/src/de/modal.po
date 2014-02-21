@@ -1,0 +1,6 @@
+msgid "modal.pleasewait.text"
+msgstr "Bitte warten, es wird gerade etwas geladen..."
+
+msgid "modal.pleasewait.title"
+msgstr "Bitte warten"
+

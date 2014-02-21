@@ -1,0 +1,2 @@
+msgid "growl.replay.new"
+msgstr "Ein neues Replay wurde gerade hochgeladen, schau es dir jetzt auf der Startseite an!"

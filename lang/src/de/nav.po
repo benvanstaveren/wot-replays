@@ -1,0 +1,56 @@
+msgid "nav.home"
+msgstr "Startseite"
+
+msgid "nav.browse"
+msgstr "Durchsuchen"
+
+msgid "nav.upload"
+msgstr "Replay hochladen"
+
+msgid "nav.admin"
+msgstr "Admin-Panel"
+
+msgid "nav.signin"
+msgstr "Anmelden"
+
+msgid "nav.players"
+msgstr "Spieler"
+
+msgid "nav.clans"
+msgstr "Clans"
+
+msgid "nav.maps"
+msgstr "Karten"
+
+msgid "nav.vehicles"
+msgstr "Fahrzeuge"
+
+msgid "nav.blog"
+msgstr "Neuigkeiten und Änderungen"
+
+msgid "nav.tools"
+msgstr "Tools"
+
+msgid "nav.heatmaps"
+msgstr "Heatmaps"
+
+msgid "nav.tools.issuetracker"
+msgstr "Issue Tracker"
+
+msgid "nav.tools.wiki"
+msgstr "Wiki"
+
+msgid "nav.profile.header"
+msgstr "Dein Profil"
+
+msgid "nav.profile.replays"
+msgstr "Replays"
+
+msgid "nav.profile.uploads"
+msgstr "Uploads"
+
+msgid "nav.profile.settings"
+msgstr "Einstellungen"
+
+msgid "nav.profile.signout"
+msgstr "Abmelden"
