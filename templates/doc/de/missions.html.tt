@@ -4,7 +4,6 @@
     <h3>Woher hast du die Daten?</h3>
     <div class="well well-lg">
         <p>
-            Using a little mod I put together that uploads mission details to the <a href="http://statterbox.com">Statterbox</a> stats tracker site, from there I use it to generate the list and figure out the bonuses you get from a mission or event.
             Ich habe ein kleines Mod gemacht, das die Missionsdetails auf die Statistik-Seite <a href="http://statterbox.com">Statterbox</a> hochlädt, von wo aus ich eine Liste generiere und die Boni für eine Mission oder ein Event herausfinde.
         </p>
     </div>

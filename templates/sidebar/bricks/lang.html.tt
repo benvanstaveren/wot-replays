@@ -1,4 +1,4 @@
-[% lang_brick    = 'sidebar/bricks/' _ user_language _ '/' _ brick _ '.html.tt' %]
+[% lang_brick    = 'sidebar/bricks/' _ user_lang _ '/' _ brick _ '.html.tt' %]
 [% default_brick = 'sidebar/bricks/en/' _ brick _ '.html.tt' %]
 <div class="row">
     <div class="col-lg-12 col-md-12">

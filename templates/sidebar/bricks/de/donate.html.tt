@@ -7,11 +7,7 @@
         Ich habe ein monatliches Spendenziel von $60 gesetzt, davon werden die Serverkosten bezahlt, und ich kann mehr an dieser Seite arbeiten.
     </p>
     <p>
-        <div class="progress">
-            <div class="progress-bar progress-bar-success" style="width: 25%">
-                <span>$15.00/$60.00</span> 
-            </div>
-        </div>
+        [% INCLUDE sidebar/bricks/dbar.html.tt %]
     </p>
     <p>
         [% INCLUDE donatebutton.html.tt %]

@@ -7,11 +7,7 @@
         I've set a monthly goal of $60 in donations, this will pay for the server costs, and allow me to spend more time working on the site.
     </p>
     <p>
-        <div class="progress">
-            <div class="progress-bar progress-bar-success" style="width: 25%">
-                <span>$15.00/$60.00</span> 
-            </div>
-        </div>
+        [% INCLUDE sidebar/bricks/dbar.html.tt %]
     </p>
     <p>
         [% INCLUDE donatebutton.html.tt %]
