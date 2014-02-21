@@ -298,8 +298,8 @@ sub onGameInit {
     my $packet = shift;
 
     $self->emit('game.version'   => $packet->version);
-    $self->emit('game.version_n' => $self->wot_version_string_to_numeric($packet->version);
-    $self->version($v);
+    $self->emit('game.version_n' => $self->wot_version_string_to_numeric($packet->version));
+    $self->version($self->wot_version_string_to_numeric($packet->version));
 }
 
 sub onArenaInit {
