@@ -54,10 +54,10 @@
         <col style="width: 50%"/>
     </colgroup>
     <thead>
-       <th>Wird in den Suchergebnissen angezeigt bei</th>
-       <th>Anschaubar von</th>
-   </thead>
-   <tbody>
+     <th>Wird in den Suchergebnissen angezeigt bei</th>
+     <th>Anschaubar von</th>
+ </thead>
+ <tbody>
     <tr>
         <td>Aufzeichner</td>
         <td>Aufzeichner</td>

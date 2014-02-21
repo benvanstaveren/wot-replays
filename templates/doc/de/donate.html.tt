@@ -12,10 +12,10 @@
             Diese Site läuft zur Zeit auf einem Dedicated Server mit einem i7-920, 24GB RAM und RAID1 750GB SATA-Festplatten. Dieser Server kostet <b>&euro; 60.00</b> pro Monat. Gerade bezahle ich alles selber, da es mein Hobby ist und Hobbies Geld kosten dürfen. Allerdings wird es teurer und teurer. Nicht nur die Serverkosten, aber auch die Zeit, die ich damit verbringe, um die Seite zu verbessern und instand zu halten. Leider ist mein "Hobbyzeit" begrenzt, da ich eine "echte", bezahlte Arbeit ausüben muss, um die Rechnungen zu bezahlen.
         </p>
         <p>
-        Spenden helfen mir, mehr Zeit an dieser Website zu verbringen. Außerdem sind sie eine großartige Motivation, das Projekt fortzuführen.
+            Spenden helfen mir, mehr Zeit an dieser Website zu verbringen. Au&szlig;erdem sind sie eine gro&szlig;artige Motivation, das Projekt fortzuf&uuml;hren.
         </p>
         <p>
-        Also, wenn du spenden kannst, dann tu es. Ich freue mich über jede einzelne!
+            Also, wenn du spenden kannst, dann tu es. Ich freue mich &uuml;ber jede einzelne!
         </p>
         <p>
             [% INCLUDE donatebutton.html.tt %]
