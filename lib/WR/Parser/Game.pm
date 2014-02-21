@@ -273,16 +273,32 @@ sub onSpaceInit {
     }
 }
 
+sub wot_version_string_to_numeric {
+    my $self = shift;
+    my $v    = shift;
+
+    my @ver = split(/\,/, $v);
+    my @wgfix = ();
+    while(@ver) {
+        my $a = shift(@ver);
+        $a =~ s/^\s+//g;
+        $a =~ s/\s+$//g; # ffffuck
+        if($a =~ /\s+/) {
+            push(@wgfix, (split(/\s+/, $a)));
+        } else {
+            push(@wgfix, $a);
+        }
+    }
+
+    return $wgfix[0] * 1000000 + $wgfix[1] * 10000 + $wgfix[2] * 100 + $wgfix[3];
+}
+
 sub onGameInit {
     my $self   = shift;
     my $packet = shift;
 
-    my $v = $packet->version;
-    $v =~ s/\D+//g;
-    $v += 0;
-
     $self->emit('game.version'   => $packet->version);
-    $self->emit('game.version_n' => $v);
+    $self->emit('game.version_n' => $self->wot_version_string_to_numeric($packet->version);
     $self->version($v);
 }
 
@@ -437,6 +453,7 @@ sub onArenaHandler {
             $self->rosteridx($self->rosteridx + 1);
             if($h->{name} eq $self->recorder->{name}) {
                 $self->emit('recorder.id' => $h->{vehicleID}); 
+                $self->emit('recorder.account_id' => $h->{accountDBID});
                 $self->recorder->{id} = $h->{vehicleID};
             }
         }

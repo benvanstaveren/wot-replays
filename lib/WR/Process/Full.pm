@@ -370,6 +370,10 @@ sub _real_process {
             my ($s, $v) = (@_);
             $replay->{game}->{recorder}->{name} = $v;
         });
+        $game->on('recorder.account_id' => sub {
+            my ($s, $v) = (@_);
+            $replay->{game}->{recorder}->{account_id} = $v;
+        });
         $game->on('recorder.id' => sub {
             my ($s, $v) = (@_);
             $replay->{game}->{recorder}->{id} = $v + 0;
