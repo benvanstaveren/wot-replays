@@ -38,8 +38,8 @@ sub frontpage {
             timing_query    => tv_interval($start),
             sidebar         => {
                 alert        =>  {
-                    title   =>  'Well shit',
-                    text    => q|<a href="http://blog.wotreplays.org/index.php/2014/02/19/well-shit/">This is really turning into a recurring theme here, but we had another drive failure...</a> - click to read blog post|,
+                    title   =>  'WG API ISSUES',
+                    text    => q|<p>It seems the WG API for the Asia cluster has fallen over, and since wotreplays.org uses that API for the signin process, players from the Asia server currently can't sign in on the site. There's no ETA from WG yet as to when this issue will be resolved.</p><p>A side effect is that the site can't obtain overall ratings for players from the Asia cluster at the moment...</p>|,
                 },
             }
         });
