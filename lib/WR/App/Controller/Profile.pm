@@ -101,6 +101,7 @@ sub sr {
 
 sub settings {
     my $self = shift;
+    my $redir_on_load = shift || 0;
     my $zones = DateTime::TimeZone->all_names;
 
     $self->respond(template => 'profile/settings', stash => {
@@ -114,7 +115,11 @@ sub sl {
     my $l = $self->stash('lang');
 
     $self->set_language($l);
-    $self->settings;
+    $self->model('wot-replays.accounts')->update({ _id => $self->current_user->{_id} }, {
+        '$set' => { 'settings.language' => $l },
+    } => sub {
+        $self->redirect_to('/profile/settings');
+    });
 }
 
 sub replays {

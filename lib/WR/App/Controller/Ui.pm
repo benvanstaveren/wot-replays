@@ -20,11 +20,12 @@ sub frontpage {
     my $start   = [ gettimeofday ];
     my $newest  = [];
     my $replays = [];
+    my $filter  = (defined($self->stash('frontpage.filter'))) ? $self->stash('frontpage.filter') : {};
 
     my $query = $self->wr_query(
         sort    => { 'site.uploaded_at' => -1 },
         perpage => 15,
-        filter  => { },
+        filter  => $filter,
         panel   => 1,
         );
     $query->page(1 => sub {

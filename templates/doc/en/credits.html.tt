@@ -41,7 +41,13 @@
                 <li> <a href="http://forum.wotlabs.net/">Wotlabs Forum</a> for being the place where issues and bugs get raised quickly, and suggestions come in at a great rate. It's also a great community!</li>
             </ul>
         </p>
+        <p class="lead">
+            GitHub Contributors
+        </p>
         <p>
-            Thanks also to everyone who's suggested additions or changes to the site; it wouldn't be what it is without you, and a really <b>big</b> thank you to everyone who has donated some spare change, trust me when I say it helps me stay motivated to work on this project!
+            <ul>
+                <li>domistiller</li>
+                <li><a href="http://github.com/benvanstaveren/wot-replays/">you?</a></li>
+            </ul>
         </p>
     </div>

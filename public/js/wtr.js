@@ -216,6 +216,15 @@ $.fn.extend({
                 }
             }
             if($(this).data('title-is-content')) $(this).attr('title', $(this).text());
+            if(!argsonly) {
+                if($(this).hasClass('transform')) {
+                    // transformations only work on entire texts, not attributes
+                    var tx = $(this).data('transform');
+                    if(tx == 'ucfirst') $(this).css({ 'text-transform': 'capitalize' });
+                    if(tx == 'uc') $(this).css({ 'text-transform': 'uppercase' });
+                    if(tx == 'lc') $(this).css({ 'text-transform': 'lowercase' });
+                }
+            }
         });
     }
 });

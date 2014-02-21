@@ -1,0 +1,25 @@
+<h4 class="i18n">replays.earnings.crewxp.title</h4>
+<table class="table table-bordered table-striped">
+    <colgroup>
+        <col style="width: 50%"/>
+        <col style="width: 50%"/>
+    </colgroup>
+    <tbody>
+        <tr>
+            <td><h5 style="margin: 0px" class="i18n transform" data-transform="ucfirst">replays.earnings.text.base</h5></td>
+            <td>[% replay.stats.tmenXP %]</td>
+        </tr>
+        [% IF replay.stats.eventTMenXP > 0 %]
+            <tr>
+                <td><h5 style="margin: 0px">+ <span class="i18n transform" data-transform="ucfirst">replays.earnings.text.event</span>/<span class="i18n transform" data-transform="ucfirst">replays.earnings.text.mission</span></td>
+                <td>
+                    [% replay.stats.eventTMenXP %]
+                </td>
+            </tr>
+        [% END %]
+        <tr>
+            <td><h5 style="margin: 0px" class="i18n transform" data-transform="ucfirst">replays.earnings.text.earned</h5></td>
+            <td>[% replay.stats.tmenXP + replay.stats.eventTMenXP %]</td>
+        </tr>
+    </tbody>
+</table>

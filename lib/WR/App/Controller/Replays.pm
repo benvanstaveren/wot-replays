@@ -39,13 +39,26 @@ sub browse {
     if(defined($self->stash('filter_opts')->{async})) {
         $self->stash('filter_opts')->{base_query}->($self, sub {
             my $result = shift;
+
+            # apply the default_filter from our context if we have it
+            if(defined($self->stash('context.filter'))) {
+                foreach my $field (keys(%{$self->stash('context.filter')})) {
+                    $result->{$field} = $self->stash('context.filter')->{$field};
+                }
+            }
             $self->_real_browse($result);
         });
     } else {
         if(defined($self->stash('filter_opts')->{base_query})) {
-            $self->_real_browse($self->stash('filter_opts')->{base_query}->($self));
+            my $result = $self->stash('filter_opts')->{base_query};
+            if(defined($self->stash('context.filter'))) {
+                foreach my $field (keys(%{$self->stash('context.filter')})) {
+                    $result->{$field} = $self->stash('context.filter')->{$field};
+                }
+            }
+            $self->_real_browse($result);
         } else {
-            $self->_real_browse({});
+            $self->_real_browse((defined($self->stash('context.filter'))) ? $self->stash('context.filter') : {});
         }
     }
 }

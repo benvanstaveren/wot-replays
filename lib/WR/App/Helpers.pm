@@ -57,7 +57,7 @@ sub generate_vehicle_select {
     return $p;
 }
 
-sub add_helpers {
+sub install {
     my $class = shift;
     my $self  = shift; # not really self but the Mojo app
 
