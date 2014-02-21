@@ -2,7 +2,7 @@
     <div class="col-lg-6 col-md-6"">
         [% IF replay.panel.wn8.overall.defined %]
             [% class = h.wn8_color(replay.panel.wn8.overall) %]
-            [% IF class %]
+            [% IF class && replay.panel.wn8.overall > 0 %]
                 <div 
                     title="[% h.loc('tooltip.wn8.overall') %]"
                     data-placement="auto" 
@@ -13,7 +13,7 @@
                     >[% replay.panel.wn8.overall %]</div>
             [% ELSE%]
                 <div 
-                    title="[% h.loc('tooltip.wn8.overall') %]"
+                    title="[% h.loc('tooltip.rating.overall.none') %]"
                     data-placement="auto" 
                     data-toggle="tooltip" 
                     class="bs-tooltip wn8 none rounded"
@@ -22,7 +22,7 @@
             [% END %] 
         [% ELSE %]
             <div 
-                title="[% h.loc('tooltip.wn8.overall') %]"
+                title="[% h.loc('tooltip.rating.overall.none') %]"
                 data-placement="auto" 
                 data-toggle="tooltip" 
                 class="bs-tooltip wn8 none rounded"
@@ -43,7 +43,7 @@
                     >[% replay.panel.wn8.battle %]</div>
             [% ELSE %]
                 <div 
-                    title="[% h.loc('tooltip.wn8.battle') %]"
+                    title="[% h.loc('tooltip.rating.battle.none') %]"
                     data-placement="auto" 
                     data-toggle="tooltip" 
                     class="bs-tooltip wn8 none rounded"
@@ -52,7 +52,7 @@
             [% END %]
         [% ELSE %]
             <div 
-                title="[% h.loc('tooltip.wn8.battle') %]"
+                title="[% h.loc('tooltip.rating.battle.none') %]"
                 data-placement="auto" 
                 data-toggle="tooltip" 
                 class="bs-tooltip wn8 none rounded"

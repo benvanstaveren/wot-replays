@@ -43,7 +43,6 @@ db.replays.ensureIndex({
 );
 
 // query indexes
-
 // vehicle type
 db.replays.ensureIndex({
     'site.visible': 1,
@@ -90,6 +89,7 @@ db.replays.ensureIndex({
 db.replays.ensureIndex({
     'site.visible': 1,
     'site.privacy': 1,
+    'game.recorder.account_id': 1,
     'game.recorder.clan': 1,
     'game.recorder.name': 1,
     'game.type': 1,
@@ -103,8 +103,57 @@ db.replays.ensureIndex({
     }
 );
 
+db.replays.ensureIndex({
+    'game.recorder.name': 1,
+    'game.recorder.account_id': 1,
+    'game.server': 1,
+    'site.privacy': 1,
+    'site.visible': 1
+    }, {
+        name: 'privacy.player'
+    }
+);
+db.replays.ensureIndex({
+    'game.server': 1,
+    'site.privacy': 1,
+    'site.visible': 1,
+    'game.recorder.clan': 1
+    }, {
+        name: 'privacy.clan'
+    }
+);
+
+db.replays.ensureIndex({
+    'game.recorder.name': 1,
+    'game.recorder.account_id': 1
+    }, {
+        name: 'query.recorder.both',
+    }
+);
+db.replays.ensureIndex({
+    'game.recorder.name': 1,
+    }, {
+        name: 'query.recorder.name',
+    }
+);
+db.replays.ensureIndex({
+    'game.recorder.account_id': 1,
+    }, {
+        name: 'query.recorder.account_id',
+    }
+);
 
 
+db.replays.ensureIndex({
+    'digest': 1
+    }, {
+        name: 'replay.digest',
+    }
+);
 
-
-
+db.replays.ensureIndex({
+    'site.orphan': 1,
+    }, {
+        name: 'site.orphan',
+    }
+);
