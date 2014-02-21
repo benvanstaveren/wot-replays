@@ -1,0 +1,27 @@
+    <div><div class="content nosidebar aboutText">
+        <h3>[% page.title %]</h3>
+        <div>
+            <strong>F: Warum sind die Namen mancher Panzer in einem komischen Format, und warum werden manche Icons nicht geladen?</strong>
+            <div>
+                A: Weil ein Replay Informationen nur in einer Kurzform enthält (z.B. wird der Tiger II dort als 'germany:PzVIB_Tiger_II' bezeichnet). Es gibt eine Tabelle die einer ID einer Namen zuordnet, allerdings ist diese nicht vollständig. Genauso wie die Icons, diese sind nicht immer richtig benannt, da ich diese von Hand von der WoT-Wiki herunterladen muss und diese unterschiedlich benannt sind. Falls dir so etwas auffällt, informiere mich im WoT-Forum und ich werde den Fehler beheben.
+            </div>
+        </div>
+        <div>
+            <strong>F: Warum bekommen manche Leute so viele Überlegenheitsabzeichen?</strong>
+            <div>
+                A: Tun sie nicht. So, wie uns WoT die Informationen sendet, gibt es keine Möglichkeit zu sagen, ob du es schon bekommen hast oder nicht, also ist der einzige Weg, das höchste Abzeichen auf einem Fahrzeug zu verfolgen. Wenn du das erste mal ein Replay hochlädst, sind natürlich keine Informationen vorhanden, also ist deine Stufe 0 - daher wird dir jedes erste Replay ein Überlegenheitsabzeichen "verdienen". Danach wirst du nur noch ausgezeichnet, falls du eine höhere Stufe als vorher hast. Es ist ein Fehler, der nicht behoben werden kann, ohne regelmäßig die Dossier-Datei hochzuladen.
+            </div>
+        </div>
+        <div>
+        <strong>F: Was ist ein vollständiges Replay?</strong>
+            <div>
+            A: Eins, bei dem du die Gefechtsergebnisse angesehen hast. Falls du das Spiel vor dem Ende verlässt, werden die Ergebnisse nie im Replay gespeichert (meiner Meinung nach ziemlich dumm). Daher fehlen viele Daten, um die hübsche Anzeige zu erstellen. Unvollständige Replays können nur heruntergeladen werden und werden nicht auf der Statistik-Seite angezeigt.
+            </div>
+        </div>
+        <div>
+            <strong>F: Was sind zusammengehörige Replays?</strong>
+            <div>
+            A: Zusammengehörige Replays sind Replays desselben Gefechts, die aber von unterschiedlichen Spielern hochgeladen wurden.
+            </div>
+        </div>
+    </div><div class="clear"></div></div>

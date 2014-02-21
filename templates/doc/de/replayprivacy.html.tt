@@ -1,0 +1,86 @@
+    <div class="page-header">
+        <h2>Replay-Privatsphäre-Einstellungen</h2>
+    </div>
+    <div class="well well-lg">
+        <p>Replays können eine Privatsphäre-Einstellung haben. Diese bestimmt, wer es sehen darf. Du selber kannst immer deine eigenen Replays anschauen.</p>
+        <p>Die Einstellung ändert, bei wem das Replay in den Suchergebnissen angezeigt wird, und es wird geprüft, ob die Person das Replay sehen anzeigen darf.</p>
+        <p>Gäste (also nicht angemeldete Benutzer) können nur öffentliche und ungelistete Replays sehen</p>
+        <p>Die Tabelle unten zeigt die unterschiedlichen Einstellungen; der &quot;Aufzeichner&quot; ist die Person, die das Replay aufgezeichnet hat (normalerweise du)</p>
+        <p>Bitte beachte, dass <strong>Clan Wars</strong>-Replays <strong>immer</strong> auf <i>Clan</i> gesetzt sind und ihre Einstellung nicht geändert werden kann.
+        </div>
+        <div class="well well-lg">
+            <h4>Öffentlich</h4>
+            <table class="table table-bordered">
+                <colgroup>
+                <col style="width: 50%"/>
+                <col style="width: 50%"/>
+            </colgroup>
+            <thead>
+                <th>Wird in den Suchergebnissen angezeigt bei</th>
+                <th>Anschaubar von</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Jedem</td>
+                    <td>Jedem</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="well well-lg">
+        <h4>Unlisted</h4>
+        <table class="table table-bordered">
+            <colgroup>
+            <col style="width: 50%"/>
+            <col style="width: 50%"/>
+        </colgroup>
+        <thead>
+            <th>Wird in den Suchergebnissen angezeigt bei</th>
+            <th>Anschaubar von</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Niemandem</td>
+                <td>Jedem</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="well well-lg">
+    <h4>Private</h4>
+    <table class="table table-bordered">
+        <colgroup>
+        <col style="width: 50%"/>
+        <col style="width: 50%"/>
+    </colgroup>
+    <thead>
+       <th>Wird in den Suchergebnissen angezeigt bei</th>
+       <th>Anschaubar von</th>
+   </thead>
+   <tbody>
+    <tr>
+        <td>Aufzeichner</td>
+        <td>Aufzeichner</td>
+    </tr>
+</tbody>
+</table>
+</div>
+<div class="well well-lg">
+    <h4>Clan</h4>
+    <table class="table table-bordered">
+        <colgroup>
+        <col style="width: 50%"/>
+        <col style="width: 50%"/>
+    </colgroup>
+    <thead>
+        <th>Wird in den Suchergebnissen angezeigt bei</th>
+        <th>Anschaubar von</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Aufzeichner und dem Clan des Aufzeichners zum Zeitpunkt des Gefechts</td>
+            <td>Aufzeichner und dem Clan des Aufzeichners zum Zeitpunkt des Gefechts</td>
+        </tr>
+    </tbody>
+</table>
+</div>

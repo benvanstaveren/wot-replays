@@ -1,0 +1,19 @@
+<h4>Donate</h4>
+<div class="well well-sm">
+    <p>
+        Da diese Seite jeden Tag beliebter wird, kostet es mich immer mehr, sie zu betreiben. Fast 10.000 Aufrufe pro Tag bedeuten, dass die Hardware-Kosten steigen und steigen. Falls du diese Seite benutzt und du denkst, dass sie es wert ist, spende bitte einen kleinen Betrag. Auf <a href="/doc/donate">dieser</a> Seite findest du weitere Informationen.
+    </p>
+    <p>
+        Ich habe ein monatliches Spendenziel von $60 gesetzt, davon werden die Serverkosten bezahlt, und ich kann mehr an dieser Seite arbeiten.
+    </p>
+    <p>
+        <div class="progress">
+            <div class="progress-bar progress-bar-success" style="width: 25%">
+                <span>$15.00/$60.00</span> 
+            </div>
+        </div>
+    </p>
+    <p>
+        [% INCLUDE donatebutton.html.tt %]
+    </p>
+</div>
