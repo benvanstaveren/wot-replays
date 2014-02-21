@@ -1,0 +1,1652 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: World Of Tanks\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-06-01 10:00+0300\n"
+"PO-Revision-Date: 2010-06-01 10:00+0300\n"
+"Last-Translator: WoT Translator <noreply@wargaming.net>\n"
+"Language-Team: WoT Team <noreply@wargaming.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "AEC"
+msgstr "2x AEC"
+
+msgid "AEC_A189"
+msgstr "AEC A189"
+
+msgid "AEC_A1909"
+msgstr "AEC A190"
+
+msgid "AEC_Type_179"
+msgstr "AEC Type 179"
+
+msgid "Alarm_flags"
+msgstr "Signalflaggen"
+
+msgid "Armstrong-Siddeley"
+msgstr "2x Armstrong Siddeley"
+
+msgid "Bedford_V8"
+msgstr "Bedford V8"
+
+msgid "British_Wireless_set_N19"
+msgstr "WS No. 19 Special"
+
+msgid "C42"
+msgstr "SR C42"
+
+msgid "C45"
+msgstr "SR C45"
+
+msgid "Chassis_GB01_Medium_Mark_I"
+msgstr "Vickers Medium Mk. I"
+
+msgid "Chassis_GB01_Medium_Mark_I_2"
+msgstr "Vickers Medium Mk. IA*"
+
+msgid "Chassis_GB03_Cruiser_Mk_I"
+msgstr "A9 Mk. I"
+
+msgid "Chassis_GB03_Cruiser_Mk_I_2"
+msgstr "A9 Mk. II"
+
+msgid "Chassis_GB04_Valentine"
+msgstr "Valentine Mk. I"
+
+msgid "Chassis_GB04_Valentine_2"
+msgstr "Valentine Mk. VI"
+
+msgid "Chassis_GB05_Vickers_Medium_Mk_II"
+msgstr "Vickers Medium Mk. II"
+
+msgid "Chassis_GB05_Vickers_Medium_Mk_II_2"
+msgstr "Vickers Medium Mk. IIA"
+
+msgid "Chassis_GB06_Vickers_Medium_Mk_III"
+msgstr "Vickers Medium А6Е1"
+
+msgid "Chassis_GB06_Vickers_Medium_Mk_III_2"
+msgstr "Vickers Medium А6Е3"
+
+msgid "Chassis_GB07_Matilda"
+msgstr "Matilda Mk. II"
+
+msgid "Chassis_GB07_Matilda_2"
+msgstr "Matilda Mk. IIA"
+
+msgid "Chassis_GB08_Churchill_I"
+msgstr "Churchill I"
+
+msgid "Chassis_GB08_Churchill_I_2"
+msgstr "Churchill III"
+
+msgid "Chassis_GB09_Churchill_VII"
+msgstr "Churchill IV"
+
+msgid "Chassis_GB09_Churchill_VII_2"
+msgstr "Churchill VII"
+
+msgid "Chassis_GB10_Black_Prince"
+msgstr "Black Prince"
+
+msgid "Chassis_GB10_Black_Prince_2"
+msgstr "Black Prince Mk. II"
+
+msgid "Chassis_GB11_Caernarvon"
+msgstr "FV221"
+
+msgid "Chassis_GB11_Caernarvon_2"
+msgstr "FV221A"
+
+msgid "Chassis_GB12_Conqueror"
+msgstr "FV214"
+
+msgid "Chassis_GB12_Conqueror_2"
+msgstr "FV214А"
+
+msgid "Chassis_GB13_FV215b"
+msgstr "FV215"
+
+msgid "Chassis_GB20_Crusader"
+msgstr "Crusader Mk. I"
+
+msgid "Chassis_GB20_Crusader_2"
+msgstr "Crusader Mk. III"
+
+msgid "Chassis_GB21_Cromwell"
+msgstr "A27L"
+
+msgid "Chassis_GB21_Cromwell_2"
+msgstr "A27M"
+
+msgid "Chassis_GB22_Comet"
+msgstr "A34"
+
+msgid "Chassis_GB22_Comet_2"
+msgstr "A34A"
+
+msgid "Chassis_GB23_Centurion"
+msgstr "Centurion Mk. I"
+
+msgid "Chassis_GB23_Centurion_2"
+msgstr "Centurion Mk. III"
+
+msgid "Chassis_GB24_Centurion_Mk3"
+msgstr "Centurion Mk. 7"
+
+msgid "Chassis_GB24_Centurion_Mk3_2"
+msgstr "Centurion Mk. 9"
+
+msgid "Chassis_GB25_Loyd_Carrier"
+msgstr "Loyd Carrier Mk. I"
+
+msgid "Chassis_GB25_Loyd_Carrier_2"
+msgstr "Loyd Carrier Mk. II"
+
+msgid "Chassis_GB26_Birch_Gun"
+msgstr "Birch Gun Mk. I"
+
+msgid "Chassis_GB26_Birch_Gun_2"
+msgstr "Birch Gun Mk. II"
+
+msgid "Chassis_GB27_Sexton"
+msgstr "Sexton"
+
+msgid "Chassis_GB27_Sexton_2"
+msgstr "Sexton II"
+
+msgid "Chassis_GB28_Bishop"
+msgstr "Valentine Mk. II"
+
+msgid "Chassis_GB28_Bishop_2"
+msgstr "Bishop"
+
+msgid "Chassis_GB29_Crusader_5inch"
+msgstr "Crusader Mk. II"
+
+msgid "Chassis_GB29_Crusader_5inch_2"
+msgstr "Crusader 5.5-in. SP"
+
+msgid "Chassis_GB30_FV3805"
+msgstr "FV3805"
+
+msgid "Chassis_GB30_FV3805_2"
+msgstr "FV3806"
+
+msgid "Chassis_GB31_Conqueror_Gun"
+msgstr "Conqueror Gun Carriage"
+
+msgid "Chassis_GB32_Tortoise"
+msgstr "Tortoise"
+
+msgid "Chassis_GB32_Tortoise_2"
+msgstr "Tortoise Mk. 2"
+
+msgid "Chassis_GB39_Universal_CarrierQF2"
+msgstr "Universal Carrier Mk. I"
+
+msgid "Chassis_GB39_Universal_CarrierQF2_2"
+msgstr "Universal Carrier Mk. II"
+
+msgid "Chassis_GB40_Gun_Carrier_Churchill"
+msgstr "Churchill Gun Carrier"
+
+msgid "Chassis_GB40_Gun_Carrier_Churchill_2"
+msgstr "Churchill Gun Carrier Mk. II"
+
+msgid "Chassis_GB42_Valentine_AT"
+msgstr "Valentine AT Mk. I"
+
+msgid "Chassis_GB42_Valentine_AT_2"
+msgstr "Valentine AT Mk. II"
+
+msgid "Chassis_GB48_FV215b_183"
+msgstr "FV215b"
+
+msgid "Chassis_GB51_Excelsior"
+msgstr "Excelsior"
+
+msgid "Chassis_GB57_Alecto"
+msgstr "Alecto Mk. I"
+
+msgid "Chassis_GB57_Alecto_2"
+msgstr "Alecto Mk. IV"
+
+msgid "Chassis_GB58_Cruiser_Mk_III"
+msgstr "Cruiser Mk. III"
+
+msgid "Chassis_GB58_Cruiser_Mk_III_2"
+msgstr "Cruiser Mk. III*"
+
+msgid "Chassis_GB59_Cruiser_Mk_IV"
+msgstr "Cruiser Mk. IV"
+
+msgid "Chassis_GB59_Cruiser_Mk_IV_2"
+msgstr "Cruiser Mk. IVA"
+
+msgid "Chassis_GB60_Covenanter"
+msgstr "Covenanter Mk. I"
+
+msgid "Chassis_GB60_Covenanter_2"
+msgstr "Covenanter Mk. III"
+
+msgid "Chassis_GB63_TOG_II"
+msgstr "TOG II*"
+
+msgid "Chassis_GB68_Matilda_Black_Prince"
+msgstr "Matilda Black Prince"
+
+msgid "Chassis_GB69_Cruiser_Mk_II"
+msgstr "A10 Mk. I"
+
+msgid "Chassis_GB69_Cruiser_Mk_II_2"
+msgstr "A10 Mk. II"
+
+msgid "Chassis_GB70_FV4202_105"
+msgstr "FV4202"
+
+msgid "Chassis_GB71_AT_15A"
+msgstr "AT 15A"
+
+msgid "Chassis_GB72_AT15"
+msgstr "AT 15"
+
+msgid "Chassis_GB72_AT15_2"
+msgstr "AT 15 Mk. II"
+
+msgid "Chassis_GB73_AT2"
+msgstr "AT 2"
+
+msgid "Chassis_GB73_AT2_2"
+msgstr "AT 2 Mk. II"
+
+msgid "Chassis_GB74_AT8"
+msgstr "AT 8"
+
+msgid "Chassis_GB74_AT8_2"
+msgstr "AT 8 Mk. II"
+
+msgid "Chassis_GB75_AT7"
+msgstr "AT 7"
+
+msgid "Chassis_GB75_AT7_2"
+msgstr "AT 7 Mk. II"
+
+msgid "Chassis_GB76_Mk_VIC"
+msgstr "Light Mk. VIC"
+
+msgid "Chassis_GB77_FV304"
+msgstr "FV304"
+
+msgid "Chassis_GB77_FV304_2"
+msgstr "FV304 Mk. II"
+
+msgid "Chassis_GB79_FV206"
+msgstr "FV206"
+
+msgid "Chassis_GB79_FV206_2"
+msgstr "FV207"
+
+msgid "Chassis_Sexton_I"
+msgstr "Sexton I"
+
+msgid "Continental_AVDS-1790-2"
+msgstr "Continental AVDS-1790-2"
+
+msgid "Continental_R-975"
+msgstr "Continental R-975"
+
+msgid "Ford_GAA"
+msgstr "Ford GAA"
+
+msgid "Ford_V8-220"
+msgstr "Ford V8-220"
+
+msgid "Ford_V8-221"
+msgstr "Ford V8-221"
+
+msgid "Ford_V8-239"
+msgstr "Ford V8-239"
+
+msgid "GB01_Medium_Mark_I"
+msgstr "Vickers Medium Mk. I"
+
+msgid "GB01_Medium_Mark_I_descr"
+msgstr ""
+"Der erste britische Panzer, der ein Geschütz in einem Drehturm hatte. Die "
+"Entwicklung wurde 1922 durch Vickers aufgenommen, einige Dutzend wurden von "
+"1923 bis 1925 in Serie gefertigt. Der Panzer wurde zwischen 1924 und 1938 in "
+"der Truppe eingesetzt."
+
+msgid "GB01_Medium_Mark_I_short"
+msgstr "Medium I"
+
+msgid "GB03_Cruiser_Mk_I"
+msgstr "Cruiser Mk. I"
+
+msgid "GB03_Cruiser_Mk_I_descr"
+msgstr ""
+"Der erste Kreuzerpanzer im britischen Arsenal. Die Entwicklung wurde 1934 "
+"von Vickers begonnen. 125 Fahrzeuge wurden in den Jahren 1936 und 1937 "
+"gebaut."
+
+msgid "GB03_Cruiser_Mk_I_short"
+msgstr "Cruiser I"
+
+msgid "GB04_Valentine"
+msgstr "Valentine"
+
+msgid "GB04_Valentine_descr"
+msgstr ""
+"1938 von Vickers-Armstrong entwickelt, ist dieser Panzer einer der Besten "
+"seiner Klasse. Von 1940 bis 1944 wurden insgesamt 8.275 Fahrzeug in "
+"verschiedenen Ausführungen hergestellt."
+
+msgid "GB04_Valentine_short"
+msgstr "Valentine"
+
+msgid "GB05_Vickers_Medium_Mk_II"
+msgstr "Vickers Medium Mk. II"
+
+msgid "GB05_Vickers_Medium_Mk_II_descr"
+msgstr ""
+"Britischer mittlerer Panzer. Entwickelt zwischen 1924 und 1925 durch Vickers "
+"aus dem Vickers Medium Mark I. Während der Serienfertigung in der Zeit von "
+"1925 bis 1934 wurden etwa 100 Panzer gebaut."
+
+msgid "GB05_Vickers_Medium_Mk_II_short"
+msgstr "Medium II"
+
+msgid "GB06_Vickers_Medium_Mk_III"
+msgstr "Vickers Medium Mk. III"
+
+msgid "GB06_Vickers_Medium_Mk_III_descr"
+msgstr ""
+"Britischer mittlerer Panzer, der als Vickers \"16-tonner\" bekannt wurde. "
+"Vickers fertigte von 1926 bis 1931 drei Prototypen. Einige Quellen "
+"behaupten, dass drei weitere Fahrzeuge 1933 gebaut wurden und sich bis 1938 "
+"im Dienst befanden, jedoch niemals im Kampf eingesetzt wurden."
+
+msgid "GB06_Vickers_Medium_Mk_III_short"
+msgstr "Medium III"
+
+msgid "GB07_Matilda"
+msgstr "Matilda"
+
+msgid "GB07_Matilda_descr"
+msgstr ""
+"Entwickelt zwischen 1936 und 1938. Bis August 1943 wurden insgesamt 2.987 "
+"Fahrzeuge gebaut. Es war der einzige britische Panzer, der während des "
+"gesamten Zweiten Weltkriegs in Dienst befindlich war."
+
+msgid "GB07_Matilda_short"
+msgstr "Matilda"
+
+msgid "GB08_Churchill_I"
+msgstr "Churchill I"
+
+msgid "GB08_Churchill_I_descr"
+msgstr ""
+"Der Prototyp A22 wurde von Vauxhall Motors im Herbst 1940 gebaut. Das "
+"Fahrzeug ging im Sommer 1941 in Serie. Frühe Ausführungen hatten noch keine "
+"Kettenabdeckungen, einen anderen Lüfter und einen 3-inch-Howitzer in der "
+"Wanne. 300 Churchill I wurden gebaut."
+
+msgid "GB08_Churchill_I_short"
+msgstr "Churchill I"
+
+msgid "GB09_Churchill_VII"
+msgstr "Churchill VII"
+
+msgid "GB09_Churchill_VII_descr"
+msgstr ""
+"Eine weitere Ausführung des A22 mit verbesserter Panzerung. Die ersten "
+"Fahrzeuge dieses Typs wurden kurz vor der Alliierten Ladung in der Normandie "
+"gebaut. Diese Ausführung diente als Basis für den Flammpanzer Churchill "
+"Crocodile."
+
+msgid "GB09_Churchill_VII_short"
+msgstr "Churchill VII"
+
+msgid "GB10_Black_Prince"
+msgstr "Black Prince"
+
+msgid "GB10_Black_Prince_descr"
+msgstr ""
+"Der Black Prince wurde von 1943 bis 1945 auf Basis des Churchill-Panzers "
+"entwickelt. Er hatte eine breitere Wanne, um den überarbeiteten Turm mit 17-"
+"Pfünder-Geschütz aufzunehmen. Sechs Prototypen des Black Prince wurden "
+"zwischen 1944 und 1945 gebaut. Eine Handvoll Fahrzeuge wurden erprobt, aber "
+"nie eingesetzt."
+
+msgid "GB10_Black_Prince_short"
+msgstr "Black Prince"
+
+msgid "GB11_Caernarvon"
+msgstr "Caernarvon"
+
+msgid "GB11_Caernarvon_descr"
+msgstr ""
+"Die Entwicklung dieses Infanterieunterstützungspanzers wurde 1944 begonnen. "
+"Der erste Prototyp stand 1952 für die Erprobung bereit. 21 Panzer wurden "
+"gebaut, aber nie eingesetzt. Einige der Fahrzeuge wurden später zum schweren "
+"Panzer Conquerer umgebaut."
+
+msgid "GB11_Caernarvon_short"
+msgstr "Caernarvon"
+
+msgid "GB12_Conqueror"
+msgstr "Conqueror"
+
+msgid "GB12_Conqueror_descr"
+msgstr ""
+"Entwickelt von 1949 bis 1952 sollte dieser Panzer den neuen sowjetischen "
+"schweren Panzern Paroli bieten. Insgesamt wurden 185 Fahrzeuge zwischen 1955 "
+"und 1959 gebaut."
+
+msgid "GB12_Conqueror_short"
+msgstr "Conqueror"
+
+msgid "GB13_FV215b"
+msgstr "FV215b"
+
+msgid "GB13_FV215b_descr"
+msgstr ""
+"Vorschlag für einen schweren Panzer auf Basis des Conquerer Mk. II. Anders "
+"als das Serienmodell bot diese Ausführung einen rückwärtigen Kampfraum. Es "
+"wurden keine Prototypen gebaut."
+
+msgid "GB18_Sherman_II_I_descr"
+msgstr ""
+"Der amerikanische Panzer M4A2 wurde aufgrund des Leih-und-Pacht-Gesetzes "
+"nach Großbritannien exportiert und erhielt dort den Spitznamen Sherman III. "
+"Das Fahrzeug hatte einen Dieselmotor."
+
+msgid "GB20_Crusader"
+msgstr "Crusader"
+
+msgid "GB20_Crusader_descr"
+msgstr ""
+"Der Crusader wurde von Nuffield Mechanisations and Aero, Ltd. von 1938 bis "
+"1940 entwickelt. Es wurden mehr als 5.300 Fahrzeuge während der "
+"Serienfertigung zwischen 1941 und 1943 gebaut. Hauptsächlich wurden diese "
+"Fahrzeuge in Nordafrika von 1941 bis 1942 eingesetzt."
+
+msgid "GB20_Crusader_short"
+msgstr "Crusader"
+
+msgid "GB21_Cromwell"
+msgstr "Cromwell"
+
+msgid "GB21_Cromwell_descr"
+msgstr ""
+"Der Cromwell wurde 1941 bis 1942 von BRC&W entwickelt. 1.070 Fahrzeuge "
+"wurden von Ende 1943 bis 1945 gebaut. Sie wurden hauptsächlich von der "
+"britischen Armee in den Feldzügen in Nordwest-Europa von 1944 bis 1945 "
+"eingesetzt."
+
+msgid "GB21_Cromwell_short"
+msgstr "Cromwell"
+
+msgid "GB22_Comet"
+msgstr "Comet"
+
+msgid "GB22_Comet_descr"
+msgstr ""
+"Die Weiterentwicklung des Cromwell-Kreuzerpanzers wurde im Zweiten Weltkrieg "
+"eingesetzt. Insgesamt wurden 1.186 Fahrzeuge von September 1944 bis Ende "
+"1945 gebaut."
+
+msgid "GB22_Comet_short"
+msgstr "Comet"
+
+msgid "GB23_Centurion"
+msgstr "Centurion Mk. I"
+
+msgid "GB23_Centurion_descr"
+msgstr ""
+"Die Entwicklung des Centurion wurde 1943 begonnen. Dieser \"Universalpanzer"
+"\" sollte die Kreuzer- und Infanteriepanzer ersetzen und wurde 1947 an die "
+"Truppe übergeben. 100 Fahrzeuge wurden zwischen 1945 und 1946 gebaut."
+
+msgid "GB23_Centurion_short"
+msgstr "Centurion I"
+
+msgid "GB24_Centurion_Mk3"
+msgstr "Centurion Mk. 7/1"
+
+msgid "GB24_Centurion_Mk3_descr"
+msgstr ""
+"Diese verbesserte Ausführung des Centurion wurde durch Leyland Motors "
+"entwickelt und hatte eine größere Wanne, ergonomischeren Kampfraum, größere "
+"Treibstoffbehälter und eine verbesserte Panzerung."
+
+msgid "GB24_Centurion_Mk3_short"
+msgstr "Centurion 7/1"
+
+msgid "GB25_Loyd_Carrier"
+msgstr "Loyd Gun Carriage"
+
+msgid "GB25_Loyd_Carrier_descr"
+msgstr ""
+"Es wurde angedacht, ein 76,2-mm-Geschütz auf das Fahrgestell eines Loyd "
+"Carrier Artillery Truck zu montieren. Von 1940 bis 1941 entwickelt. Es "
+"wurden keine Prototypen gebaut."
+
+msgid "GB25_Loyd_Carrier_short"
+msgstr "Loyd GC"
+
+msgid "GB26_Birch_Gun"
+msgstr "Birch Gun"
+
+msgid "GB26_Birch_Gun_descr"
+msgstr ""
+"Die erste offizielle Selbstfahrlafette, die in Großbritannien entworfen "
+"wurde. Die Entwicklung begann 1923. Ein Prototyp wurde 1925 auf Basis des "
+"Vickers Medium Mark II gebaut. Einige Prototypen wurden gefertigt und ab "
+"1925 erprobt. Das Projekt wurde 1928 aufgrund des mangelnden Interesses der "
+"britischen Regierung aufgegeben."
+
+msgid "GB26_Birch_Gun_short"
+msgstr "Birch Gun"
+
+msgid "GB27_Sexton"
+msgstr "Sexton II"
+
+msgid "GB27_Sexton_descr"
+msgstr ""
+"Eine Variante des Panzers Grizzly, mit einer britischen 25-Pfund-"
+"Feldhaubitze. Die Serienfertigung in den Montreal Locomotive Works belief "
+"sich 1943 bis 1945 bei 2.150 Einheiten."
+
+msgid "GB27_Sexton_short"
+msgstr "Sexton II"
+
+msgid "GB28_Bishop"
+msgstr "Bishop"
+
+msgid "GB28_Bishop_descr"
+msgstr ""
+"Entwickelt im Juni 1941 von Birmingham Carriage and Wagon auf Basis des "
+"Infanterie-Unterstützungsfarhrzeugs Valentine II. Zwischen 1942 und 1943 "
+"wurden 149 Selbstfahrlafetten gebaut. Das Fahrzeuge war unerfolgreich. Bis "
+"1943 wurde es für Übungszwecke eingesetzt."
+
+msgid "GB28_Bishop_short"
+msgstr "Bishop"
+
+msgid "GB29_Crusader_5inch"
+msgstr "Crusader 5.5-in. SP"
+
+msgid "GB29_Crusader_5inch_descr"
+msgstr ""
+"Eine Ausführung des Crusader mit einer 140-mm-Haubitze. Kurz nach dem WKII "
+"war der Prototyp fertiggestellt. Das Fahrzeug wurde jedoch nicht in "
+"Serienfertigung gegeben."
+
+msgid "GB29_Crusader_5inch_short"
+msgstr "Crusader SP"
+
+msgid "GB30_FV3805"
+msgstr "FV3805"
+
+msgid "GB30_FV3805_descr"
+msgstr ""
+"Eine Ausführung des Centurion mit einer 140-mm-Haubitze. Zwei Prototypen "
+"wurden 1956 gebaut. Die Entwicklung des FV3805 wurde 1960 eingestellt. Das "
+"Fahrzeug wurde nie eingesetzt."
+
+msgid "GB30_FV3805_short"
+msgstr "FV3805"
+
+msgid "GB31_Conqueror_Gun"
+msgstr "Conqueror Gun Carriage"
+
+msgid "GB31_Conqueror_Gun_descr"
+msgstr ""
+"Vorschlag einer 234-mm-Haubitze auf dem Chassis des Conquerers. Nur auf dem "
+"Papier."
+
+msgid "GB31_Conqueror_Gun_short"
+msgstr "ConquerorGC"
+
+msgid "GB32_Tortoise"
+msgstr "Tortoise"
+
+msgid "GB32_Tortoise_descr"
+msgstr ""
+"Die Entwicklung des Sturmpanzers wurde 1942 in Großbritannien begonnen. Der "
+"Entwurf war bis Februar 1944 fertig, es wurden 25 Fahrzeuge bestellt. Jedoch "
+"wurden bis Herbst 1947 nur fünf Panzer gebaut."
+
+msgid "GB39_Universal_CarrierQF2"
+msgstr "Universal Carrier 2-pdr"
+
+msgid "GB39_Universal_CarrierQF2_descr"
+msgstr ""
+"Der Universal Carrier wurde während der Zwischenkriegszeit entwickelt und "
+"war eines der wichtigsten gepanzerten Fahrzeuge der British Commonwealth "
+"Forces. 90.000 Fahrzeuge wurden zwischen 1937 und 1945 gebaut. Varianten des "
+"Universal Carriers wurden als Besatzungstransporter, Maschinengewehrträger "
+"und zur Aufklärung benutzt. 1940 wurde eine Variante mit einem 40-mm-"
+"Panzerabwehrgeschütz entwickelt."
+
+msgid "GB39_Universal_CarrierQF2_short"
+msgstr "UC 2-pdr"
+
+msgid "GB40_Gun_Carrier_Churchill"
+msgstr "Churchill Gun Carrier"
+
+msgid "GB40_Gun_Carrier_Churchill_descr"
+msgstr ""
+"Dieses Fahrzeug hatte den Panzer Churchill als Grundlage. Der Kampfraum mit "
+"3-Zoll-Geschütz war vorne angebracht. Zunächst wurden 100 Fahrzeuge "
+"beauftragt, später reduzierte man diesen Auftrag auf 24 Fahrzeuge. "
+"Schließlich wurden von 1941 bis 1942 50 Fahrzeuge gebaut. Keines davon wurde "
+"im Krieg eingesetzt."
+
+msgid "GB40_Gun_Carrier_Churchill_short"
+msgstr "Churchill GC"
+
+msgid "GB42_Valentine_AT"
+msgstr "Valentine AT"
+
+msgid "GB42_Valentine_AT_descr"
+msgstr ""
+"Dieser Versuchs-Jagdpanzer hatte das Geschütz in der Mitte der Wanne, hinter "
+"einer Kanonenblende montiert. Ein Prototyp wurde gebaut, die Entwicklung "
+"wurde jedoch aufgegeben, als ein neuer Jagdpanzer entwickelt wurde, der auf "
+"Basis des Valentine mit einem 17-Pfünder war."
+
+msgid "GB48_FV215b_183"
+msgstr "FV215b (183)"
+
+msgid "GB48_FV215b_183_descr"
+msgstr ""
+"Dieser Vorschlag einer schweren Selbstfahrlafette sollte Teile des Mk. II "
+"Conqueror benutzen. Das Fahrzeug hatte ein Geschütz, das im rückwärtigen "
+"Wiegeturm untergebracht war. Das Projekt wurde kurz nach Bau eines "
+"Versuchsmusters eingestellt."
+
+msgid "GB48_FV215b_183_short"
+msgstr "FV215b 183"
+
+msgid "GB51_Excelsior"
+msgstr "Excelsior"
+
+msgid "GB51_Excelsior_descr"
+msgstr ""
+"Ende 1942 wurde die Bewaffnung des Panzers Churchill als unzureichend "
+"bewertet. Es wurden neue Infanteriepanzer, der A31, A32 und der A33 "
+"entwickelt. Der A33 wurde von der English Electric Company entwickelt. Die "
+"LMS Company war für das Kettenlaufwerk des neuen Panzers zuständig. Zwei "
+"Fahrzeuge, die sich deutlich voneinander unterschieden, wurden gebaut. Die "
+"Produktion des A33 erhielt grünes Licht, jedoch wurde 1943 die Entscheidung "
+"wiederrufen und kein Auftrag für dem A33 vergeben."
+
+msgid "GB57_Alecto"
+msgstr "Alecto"
+
+msgid "GB57_Alecto_descr"
+msgstr ""
+"Ein Jagdpanzer der von 1944 bis 1945 auf Basis des leichten Panzers Tetrarch "
+"entwickelt wurde. Das Projekt wurde nach Ende des Zweiten Weltkriegs "
+"eingestellt."
+
+msgid "GB58_Cruiser_Mk_III"
+msgstr "Cruiser Mk. III"
+
+msgid "GB58_Cruiser_Mk_III_descr"
+msgstr ""
+"Dieses Fahrzeug wurde durch die weitgehende Verbesserung zweier M1931-"
+"Chrisite-Prototypen entwickelt, welche die britische Armee 1936 gekauft "
+"hatte. Das Fahrzeug sollte als schneller, leicht gepanzerter "
+"Durchbruchpanzer fungieren. Ein abgeänderter Entwurf wurde erfolgreich "
+"bewertet und stellte die Basis für andere Kreuzerpanzer. Fünfundsechzig "
+"Fahrzeuge dieses Typs wurden gebaut. Sie wurden in Frankreich und Nordafrika "
+"in den Jahren 1940 und 1941 eingesetzt."
+
+msgid "GB58_Cruiser_Mk_III_short"
+msgstr "Cruiser III"
+
+msgid "GB59_Cruiser_Mk_IV"
+msgstr "Cruiser Mk. IV"
+
+msgid "GB59_Cruiser_Mk_IV_descr"
+msgstr ""
+"Eine verbesserte Ausführung des Cruiser Tank Mk. III mit stärkerer "
+"Panzerung. Der Cruiser Mk. IV kämpfte 1940 in Frankreich und in der frühen "
+"Phase des Nordafrikafeldzugs. Der letzte Einsatz war im Winter 1941/42. 655 "
+"Panzer wurden gebaut."
+
+msgid "GB59_Cruiser_Mk_IV_short"
+msgstr "Cruiser IV"
+
+msgid "GB60_Covenanter"
+msgstr "Covenanter"
+
+msgid "GB60_Covenanter_descr"
+msgstr ""
+"Ein neuer Kreuzerpanzer mit vielen Neuerungen wie Gegenkolbenmotor, vorne "
+"liegenden Kühlern und vermehrten Einsatz von Schweißnähten. Die "
+"Serienfertigung wurde am 17. April 1939 angeordnet. Es wurden 1.771 Panzer "
+"in vier Haupt-Ausführungen gebaut. Die Covenanter wurden hauptsächlich für "
+"Übungszwecke verwendet."
+
+msgid "GB60_Covenanter_short"
+msgstr "Covenanter"
+
+msgid "GB63_TOG_II"
+msgstr "TOG II*"
+
+msgid "GB63_TOG_II_descr"
+msgstr ""
+"Entwickelt für den Grabenkampf. Zunächst sollte die Bewaffnung in der "
+"Wannenfront und seitlichen Geschützplattformen untergebracht werden. Später "
+"entschied man sich jedoch, anstelle seitlicher Geschützplattformen einen "
+"Turm zu verwenden. Als der TOG 2* 1943 fertig gestellt und bereit für die "
+"Erprobung war, galt das Konzept bereits als überholt. Das Fahrzeug wurde nie "
+"indienstgestellt."
+
+msgid "GB68_Matilda_Black_Prince"
+msgstr "Matilda Black Prince"
+
+msgid "GB68_Matilda_Black_Prince_descr"
+msgstr ""
+"In diesem Fahrzeug wurde ein Sechspfünder in einem A27-Turm untergebracht. "
+"Es wurde nur ein Prototyp gebaut, nach dessen Fertigstellung die Entwicklung "
+"eingestellt wurde, da es Probleme mit dem Turm gab. Kein Einsatz in der "
+"Truppe."
+
+msgid "GB68_Matilda_Black_Prince_short"
+msgstr "Matilda BP"
+
+msgid "GB69_Cruiser_Mk_II"
+msgstr "Cruiser Mk. II"
+
+msgid "GB69_Cruiser_Mk_III_descr"
+msgstr ""
+"Der A10 Cruiser Mk. II war eine Weiterentwicklung der Ausführung A9. Der A10 "
+"hatte stärkere Panzerung und keine Maschinengewehrtürme. Ein Prototyp wurde "
+"im Juli 1937 gebaut und als schwerer Kreuzerpanzer für die Truppe "
+"angenommen. Insgesamt wurden von 1938 bis 1939 175 Fahrzeuge bestellt, die "
+"bis September 1940 gebaut wurden. Das Fahrzeug wurde in Frankreich (1940), "
+"Griechenland (1941) und Nordafrika (1941) eingesetzt."
+
+msgid "GB69_Cruiser_Mk_II_short"
+msgstr "Cruiser II"
+
+msgid "GB70_FV4202_105"
+msgstr "FV4202"
+
+msgid "GB70_FV4202_105_descr"
+msgstr ""
+"Versuchsfahrzeug auf Basis des mittleren Panzers Centurion. Das Fahrzeug "
+"wurde 1956 bis 1959 entwickelt. Keine Serienfertigung. Technische "
+"Entscheidungen und Neuerungen des FV4202 wurden in den FV4201 Chieftain "
+"übernommen."
+
+msgid "GB70_FV4202_105_short"
+msgstr "FV4202"
+
+msgid "GB71_AT_15A"
+msgstr "AT 15A"
+
+msgid "GB71_AT_15A_descr"
+msgstr ""
+"Sturmpanzer, der Durchbruchangriffe gegen feindliche Befestigungen "
+"durchführen sollte. Die Entwicklung war am 5. Oktober 1943 abgeschlossen. Es "
+"wurden keine Prototypen gebaut. Das Projekt diente jedoch als Grundlage für "
+"den schweren Sturmpanzer A39 Tortoise."
+
+msgid "GB72_AT15"
+msgstr "AT 15"
+
+msgid "GB72_AT15_descr"
+msgstr ""
+"Sturmpanzer, der durch befestigte Stellungen brechen sollte. Die "
+"Projektplanung war 1943 abgeschlossen, dennoch wurden keine Prototypen "
+"gebaut. Das Projekt wurde aber Basis für den schweren Sturmpanzer A39 "
+"Tortoise."
+
+msgid "GB73_AT2"
+msgstr "AT 2"
+
+msgid "GB73_AT2_descr"
+msgstr ""
+"Entwurf für einen Sturmpanzer, der durch gegnerische Verteidigungsstellungen "
+"brechen sollte. Der Entwurf war am 15. März 1943 fertig gestellt. Es wurden "
+"keine Prototypen gebaut, der Entwurf diente jedoch als Grundlage für einen "
+"anderen schweren Sturmpanzer, den A39 Tortoise."
+
+msgid "GB74_AT8"
+msgstr "AT 8"
+
+msgid "GB74_AT8_descr"
+msgstr ""
+"Das Fahrzeug war als schwerer Durchbruchpanzer gedacht. Der Entwurf wurde "
+"aus dem AT-7 entwickelt, beide Projekte waren gleichzeitig eingereicht "
+"worden. Es wurden keine Prototypen gebaut, da man den A39 Tortoise vorzog."
+
+msgid "GB75_AT7"
+msgstr "AT 7"
+
+msgid "GB75_AT7_descr"
+msgstr ""
+"Das Projekt, das man als Durchbruchs-Sturmpanzer ansah, wurde am 10. Juni "
+"1943 fertig gestellt. Es wurden keine vollständigen Prototypen gebaut. "
+"Einige Teile und Komponenten fanden jedoch beim A39 Tortoise Verwendung."
+
+msgid "GB76_Mk_VIC"
+msgstr "Light Mk. VIC"
+
+msgid "GB76_Mk_VIC_descr"
+msgstr ""
+"Eine Ausführung des leichten Panzers Mk.VI mit verbesserter Bewaffnung (das "
+"15-mm-Besa-Maschinengewehr). Gebaut von Dezember 1939 bis Juli 1940. "
+"Zunächst waren die Panzer für den Einsatz in den Kolonien geplant. Es wurden "
+"130 Mk.VIC gebaut."
+
+msgid "GB76_Mk_VIC_short"
+msgstr "Light VIC"
+
+msgid "GB77_FV304"
+msgstr "FV304"
+
+msgid "GB77_FV304_descr"
+msgstr ""
+"Prototyp einer leichten Selbstfahrlafette von Vickers. Die Entwicklung wurde "
+"1947 begonnen. Der Prototyp wurde jedoch erst 1953 gebaut. Diese Art von "
+"Selbstfahrlafette war zu dieser Zeit bereits veraltet, das Projekt wurde "
+"aufgegeben."
+
+msgid "GB77_FV304_short"
+msgstr "FV304"
+
+msgid "GB78_Sexton_I"
+msgstr "Sexton I"
+
+msgid "GB78_Sexton_I_descr"
+msgstr ""
+"1943 begonnen die Montreal Locomotive Works die Serienfertigung der "
+"Selbstfahrlafette Sexton; der RAM II diente als Ausgangsfahrzeug. Insgesamt "
+"wurden bis 1945 2.150 Einheiten gefertigt, 125 davon unter der Bezeichnung "
+"Sexton I."
+
+msgid "GB79_FV206"
+msgstr "FV207"
+
+msgid "GB79_FV206_descr"
+msgstr ""
+"Eine Selbstfahrlafette auf Basis des A45 Conquerer. Es sollte entweder eine "
+"105-mm-, 140-mm- oder 152-mm-Haubitze in einem geschlossenem Kampfraum "
+"verwendet werden. Das Fahrzeug gab es nur auf dem Papier."
+
+msgid "GB79_FV206_short"
+msgstr "FV207"
+
+msgid "GMC_6-71_Mk10"
+msgstr "GMC 6004 6-71S"
+
+msgid "GMC_6-71_Mk11"
+msgstr "GMC 6004 6-71A"
+
+msgid "Leyland"
+msgstr "2x Leyland E164"
+
+msgid "Leyland_V6"
+msgstr "2x Leyland E165"
+
+msgid "Liberty_MkIII"
+msgstr "Liberty Mk. III"
+
+msgid "Liberty_MkIV"
+msgstr "Liberty Mk. IV"
+
+msgid "MTU_V12_Diesel"
+msgstr "MTU V12 Diesel"
+
+msgid "Meadows"
+msgstr "Meadows"
+
+msgid "Meadows_DAV"
+msgstr "Meadows D.A.V."
+
+msgid "Meadows_DAV_MkI"
+msgstr "Meadows D.A.V. O.C."
+
+msgid "Meadows_DAV_MkIII"
+msgstr "Meadows DAV Mk. III"
+
+msgid "Meadows_ESTB"
+msgstr "Meadows E.S.T.L."
+
+msgid "Meadows_HOP"
+msgstr "Meadows H.O.P."
+
+msgid "Meadows_HOP_OC"
+msgstr "Meadows H.O.P. O.C."
+
+msgid "N11"
+msgstr "WS No. 11"
+
+msgid "N14"
+msgstr "WS No. 14"
+
+msgid "N19A"
+msgstr "Wireless Set No.19 Mk. II"
+
+msgid "N19Mk1"
+msgstr "WS No. 19 Mk. I"
+
+msgid "N19Mk2"
+msgstr "WS No. 19 Mk. II"
+
+msgid "N19Mk3"
+msgstr "WS No. 19 Mk. III"
+
+msgid "N19_HP"
+msgstr "N19 HP"
+
+msgid "N22"
+msgstr "WS No. 22"
+
+msgid "N49A"
+msgstr "WS No. 49A"
+
+msgid "N9"
+msgstr "WS No. 9"
+
+msgid "Nuffield_liberty"
+msgstr "Nuffield liberty"
+
+msgid "Nuffield_liberty_MKII"
+msgstr "Nuffield Liberty Mk. II"
+
+msgid "Nuffield_liberty_MKIV"
+msgstr "Nuffield Liberty Mk. III"
+
+msgid "Nuffield_liberty_MKV"
+msgstr "Nuffield Liberty Mk. V"
+
+msgid "OQF_17pdr_Gun_Mk_VII"
+msgstr "OQF 17-pdr Gun Mk. VII"
+
+msgid "OQF_25pdr_Gun_Mk_II"
+msgstr "Q.F. 25-Pr. Gun/How."
+
+msgid "OQF_3pdr_Gun"
+msgstr "OQF 3-pdr Gun Mk. II"
+
+msgid "OQF_77mm_AT_Gun_MkII"
+msgstr "OQF 77 mm AT Gun Mk. II"
+
+msgid "OQF_77mm_Gun_MkII"
+msgstr "OQF 77 mm Gun Mk. II"
+
+msgid "Paxman_Ricardo"
+msgstr "Paxman 12TP"
+
+msgid "QF_2pdr_Littlejohn"
+msgstr "QF 2-pdr Mk. X-B"
+
+msgid "QF_6_pounder_8cwt_Mk_I"
+msgstr "QF 6-pdr 8 cwt Mk. I"
+
+msgid "QF_6_pounder_8cwt_Mk_II"
+msgstr "QF 6-pdr 8 cwt Mk. II"
+
+msgid "QF_6_pounder_8cwt_Mk_II_AT"
+msgstr "QF 6-pdr 8 cwt AT Gun Mk. II"
+
+msgid "QF_6_pounder_8cwt_Mk_I_AT"
+msgstr "QF 6-pdr 8 cwt AT Gun Mk. I"
+
+msgid "QF_6_pounder_Mk_III"
+msgstr "QF 6-pdr Mk. III"
+
+msgid "QF_6_pounder_Mk_III_AT"
+msgstr "QF 6-pdr AT Gun Mk. III"
+
+msgid "QF_6_pounder_Mk_II_AT"
+msgstr "QF 6-pdr AT Gun Mk. II"
+
+msgid "QF_6_pounder_Mk_IV_AT"
+msgstr "QF 6-pdr AT Gun Mk. IV"
+
+msgid "QF_6_pounder_Mk_V"
+msgstr "QF 6-pdr Gun Mk. V"
+
+msgid "QF_6_pounder_Mk_VA"
+msgstr "QF 6-pdr Mk. V A"
+
+msgid "QF_6_pounder_Mk_V_AT"
+msgstr "QF 6-pdr AT Gun Mk. V"
+
+msgid "Rolls_Royce_Griffon"
+msgstr "Rolls-Royce Griffon"
+
+msgid "Rolls_Royce_Meteor_M300"
+msgstr "Rolls-Royce Meteor M300"
+
+msgid "Rolls_Royce_Meteorite_V8"
+msgstr "Rolls-Royce Meteorite V8"
+
+msgid "Rolls_Royse_Meteor"
+msgstr "Rolls-Royce Meteor"
+
+msgid "Rolls_Royse_Meteor_M120"
+msgstr "Rolls-Royce Meteor M120"
+
+msgid "Rolls_Royse_Meteor_Mk12"
+msgstr "Rolls-Royce Meteor Mk. 12"
+
+msgid "Rolls_Royse_Meteor_MkIV"
+msgstr "Rolls-Royce Meteor Mk. IVB"
+
+msgid "Rolls_Royse_Meteor_MkIVC"
+msgstr "Rolls-Royce Meteor Mk. IVC"
+
+msgid "Rolls_Royse_Meteor_MkIVD"
+msgstr "Rolls-Royce Meteor M120A"
+
+msgid "Rolls_Royse_Meteor_MkV"
+msgstr "Rolls-Royce Meteor Mk. V"
+
+msgid "Rolls_Royse_Phantom"
+msgstr "Rolls-Royce Phantom"
+
+msgid "Rolls_Royse_Phantom_II"
+msgstr "2x Rolls-Royce Phantom II"
+
+msgid "Sunbeam_Amazon"
+msgstr "Sunbeam Amazon"
+
+msgid "Turret_1_GB01_Medium_Mark_I"
+msgstr "Vickers Medium Mk. I"
+
+msgid "Turret_1_GB03_Cruiser_Mk_I"
+msgstr "Cruiser Mk. I"
+
+msgid "Turret_1_GB04_Valentine"
+msgstr "Valentine Mk. I"
+
+msgid "Turret_1_GB05_Vickers_Medium_Mk_II"
+msgstr "Vickers Medium Mk. II*"
+
+msgid "Turret_1_GB06_Vickers_Medium_Mk_III"
+msgstr "Vickers Medium А6Е1"
+
+msgid "Turret_1_GB07_Matilda"
+msgstr "Matilda Mk. IIA"
+
+msgid "Turret_1_GB08_Churchill_I"
+msgstr "Churchill I"
+
+msgid "Turret_1_GB09_Churchill_VII"
+msgstr "Churchill IV"
+
+msgid "Turret_1_GB10_Black_Prince"
+msgstr "А22F"
+
+msgid "Turret_1_GB11_Caernarvon"
+msgstr "Black Prince"
+
+msgid "Turret_1_GB12_Conqueror"
+msgstr "Centurion Mk. III"
+
+msgid "Turret_1_GB13_FV215b"
+msgstr "FV215"
+
+msgid "Turret_1_GB16_Stuart_VI"
+msgstr "M23"
+
+msgid "Turret_1_GB20_Crusader"
+msgstr "Crusader Mk. I"
+
+msgid "Turret_1_GB21_Cromwell"
+msgstr "Cromwell Mk. I"
+
+msgid "Turret_1_GB22_Comet"
+msgstr "Cromwell Mk. IV"
+
+msgid "Turret_1_GB23_Centurion"
+msgstr "Centurion Mk. I"
+
+msgid "Turret_1_GB24_Centurion_Mk3"
+msgstr "Centurion Mk. 7"
+
+msgid "Turret_1_GB25_Loyd_Carrier"
+msgstr "Loyd Gun Carriage"
+
+msgid "Turret_1_GB27_Sexton"
+msgstr "Sexton II"
+
+msgid "Turret_1_GB30_FV3805"
+msgstr "FV3805"
+
+msgid "Turret_1_GB32_Tortoise"
+msgstr "Tortoise"
+
+msgid "Turret_1_GB34_RAM"
+msgstr "RAM"
+
+msgid "Turret_1_GB39_Universal_CarrierQF2"
+msgstr "Universal Carrier 2-pdr"
+
+msgid "Turret_1_GB40_Gun_Carrier_Churchill"
+msgstr "Churchill Gun Carrier"
+
+msgid "Turret_1_GB42_Valentine_AT"
+msgstr "Valentine AT"
+
+msgid "Turret_1_GB48_FV215b_183"
+msgstr "FV215b"
+
+msgid "Turret_1_GB57_Alecto"
+msgstr "Alecto"
+
+msgid "Turret_1_GB58_Cruiser_Mk_III"
+msgstr "Cruiser Mk. III"
+
+msgid "Turret_1_GB59_Cruiser_Mk_IV"
+msgstr "Cruiser Mk. IV"
+
+msgid "Turret_1_GB60_Covenanter"
+msgstr "Covenanter Mk. I"
+
+msgid "Turret_1_GB63_TOG_II"
+msgstr "TOG II*"
+
+msgid "Turret_1_GB68_Matilda_Black_Prince"
+msgstr "Matilda Black Prince"
+
+msgid "Turret_1_GB69_Cruiser_Mk_II"
+msgstr "A10E1"
+
+msgid "Turret_1_GB70_FV4202_105"
+msgstr "FV4202"
+
+msgid "Turret_1_GB71_AT_15A"
+msgstr "AT 15A"
+
+msgid "Turret_1_GB72_AT15"
+msgstr "AT 15"
+
+msgid "Turret_1_GB73_AT2"
+msgstr "AT 2"
+
+msgid "Turret_1_GB74_AT8_2"
+msgstr "AT 8"
+
+msgid "Turret_1_GB75_AT7"
+msgstr "AT 7"
+
+msgid "Turret_1_GB76_Mk_VIC"
+msgstr "Light Mk. VIC"
+
+msgid "Turret_1_GB77_FV304"
+msgstr "FV304"
+
+msgid "Turret_1_Sexton_I"
+msgstr "Sexton I"
+
+msgid "Turret_2_GB01_Medium_Mark_I"
+msgstr "Vickers Medium Mk. IA*"
+
+msgid "Turret_2_GB03_Cruiser_Mk_I"
+msgstr "Cruiser Mk. III"
+
+msgid "Turret_2_GB04_Valentine"
+msgstr "Valentine Mk. XI"
+
+msgid "Turret_2_GB05_Vickers_Medium_Mk_II"
+msgstr "Vickers Medium Mk. II**"
+
+msgid "Turret_2_GB06_Vickers_Medium_Mk_III"
+msgstr "Vickers Medium А6Е3"
+
+msgid "Turret_2_GB07_Matilda"
+msgstr "Matilda Mk. IIA*"
+
+msgid "Turret_2_GB08_Churchill_I"
+msgstr "Churchill III"
+
+msgid "Turret_2_GB09_Churchill_VII"
+msgstr "Churchill VII"
+
+msgid "Turret_2_GB10_Black_Prince"
+msgstr "Black Prince"
+
+msgid "Turret_2_GB11_Caernarvon"
+msgstr "Centurion Mk. II"
+
+msgid "Turret_2_GB12_Conqueror"
+msgstr "Conqueror Mk. II"
+
+msgid "Turret_2_GB16_Stuart_VI"
+msgstr "M44"
+
+msgid "Turret_2_GB20_Crusader"
+msgstr "Crusader Mk. III"
+
+msgid "Turret_2_GB21_Cromwell"
+msgstr "Cromwell Mk. IV"
+
+msgid "Turret_2_GB22_Comet"
+msgstr "Comet Mk. I"
+
+msgid "Turret_2_GB23_Centurion"
+msgstr "Centurion Mk. III"
+
+msgid "Turret_2_GB24_Centurion_Mk3"
+msgstr "Centurion Mk. 9"
+
+msgid "Turret_2_GB26_Birch_Gun"
+msgstr "Birch Gun"
+
+msgid "Turret_2_GB51_Excelsior"
+msgstr "Excelsior"
+
+msgid "Turret_2_GB58_Cruiser_Mk_III"
+msgstr "Cruiser Mk. III*"
+
+msgid "Turret_2_GB59_Cruiser_Mk_IV"
+msgstr "Cruiser Mk. IVA"
+
+msgid "Turret_2_GB60_Covenanter"
+msgstr "Covenanter Mk. IV CS"
+
+msgid "Turret_2_GB69_Cruiser_Mk_II"
+msgstr "Cruiser Mk. II"
+
+msgid "Vauxhall_Bedford_Twin_Six"
+msgstr "Bedford Twin-Six"
+
+msgid "Vickers-Armstrong"
+msgstr "Armstrong Siddeley V8"
+
+msgid "Vickers-Armstrong_MkII"
+msgstr "Armstrong Siddeley V8 SC"
+
+msgid "Wright_Continental_R-975C1"
+msgstr "Wright Continental R-975C1"
+
+msgid "Wright_Continental_R-975C4"
+msgstr "Wright Continental R-975C4"
+
+msgid "Wright_Continental_R-975EC2_A"
+msgstr "Wright (Continental) R975 EC2"
+
+msgid "Wright_Continental_R-975EC2_A_short"
+msgstr ""
+"Wright (Continental)\n"
+"R975 EC2"
+
+msgid "_105mm_APCR_L7"
+msgstr "APDS L-28"
+
+msgid "_105mm_AP_L7"
+msgstr "AP L7"
+
+msgid "_105mm_Gun_L7"
+msgstr "105 mm Royal Ordnance L7A1"
+
+msgid "_105mm_HESH_L7"
+msgstr "HESH-T L-37"
+
+msgid "_105mm_HE_L7"
+msgstr "HESH-T L-35"
+
+msgid "_105mm_Howitzer_M2A1"
+msgstr "105 mm Howitzer M2A1"
+
+msgid "_120mm_AP-T_L1A1"
+msgstr "AP-T L1"
+
+msgid "_120mm_APDS_L1A1"
+msgstr "APDS L1"
+
+msgid "_120mm_AT_Gun_L1A1"
+msgstr "120 mm AT Gun L1A1"
+
+msgid "_120mm_Gun_L1A1"
+msgstr "120 mm Gun L1A1"
+
+msgid "_120mm_HEAT-T_L1A1"
+msgstr "HEAT-T L1A1"
+
+msgid "_120mm_HE_L1A1"
+msgstr "HESH-T L1"
+
+msgid "_13pdr_Gun"
+msgstr "Q.F. 13-Pr. Mk. III"
+
+msgid "_13pdr_HE"
+msgstr "HE Mk. III"
+
+msgid "_15mm_AP_W_Mk1"
+msgstr "AP W Mk. 1"
+
+msgid "_15mm_AP_W_Mk1T"
+msgstr "AP W Mk. 1T"
+
+msgid "_15mm_Machine_gun_BESA"
+msgstr "15 mm Machine Gun BESA"
+
+msgid "_17pdr_APC_Mk4T"
+msgstr "APDS 17-Pr. Mk. 1T"
+
+msgid "_17pdr_AP_Mk3T"
+msgstr "APCBC 17-Pr. Mk. 8T"
+
+msgid "_17pdr_HE_Mk1T"
+msgstr "HE 17-Pr. Mk. 1T"
+
+msgid "_17pdr_OQF_AT"
+msgstr "OQF 17-pdr AT Gun Mk. VII"
+
+msgid "_183mm_AP_Mk1"
+msgstr "AP Mk. 1"
+
+msgid "_183mm_AT_Gun"
+msgstr "183 mm L4"
+
+msgid "_183mm_HESH"
+msgstr "HESH Mk. 1"
+
+msgid "_183mm_HE_Mk1"
+msgstr "HE Mk. 1"
+
+msgid "_18_pdr_SPG_Gun"
+msgstr "Q.F. 18-Pr."
+
+msgid "_18pdr_AP_Mk_1T"
+msgstr "AP-T Mk. 1T"
+
+msgid "_18pdr_HE_Mk_1C"
+msgstr "HE Mk. 1C"
+
+msgid "_20pdr_APC_Mk2"
+msgstr "APC Mk. 2"
+
+msgid "_20pdr_AP_Mk1"
+msgstr "AP Mk. 1"
+
+msgid "_20pdr_AT_Gun_Type_A"
+msgstr "OQF 20-pdr AT Gun Type A Barrel"
+
+msgid "_20pdr_AT_Gun_Type_B"
+msgstr "OQF 20-pdr AT Gun Type B Barrel"
+
+msgid "_20pdr_Gun_Type_A"
+msgstr "OQF 20-pdr Gun Type A Barrel"
+
+msgid "_20pdr_Gun_Type_B"
+msgstr "OQF 20-pdr Gun Type B Barrel"
+
+msgid "_20pdr_HE_Mk3"
+msgstr "HE Mk. 3"
+
+msgid "_25pdr_AP_Mk_1T"
+msgstr "AP-T Mk. 1T"
+
+msgid "_25pdr_AP_Mk_1T_SC"
+msgstr "AP-T Mk. 1T S.C."
+
+msgid "_25pdr_AT_Field_Gun"
+msgstr "Q.F. 25-Pr. AT Gun/How. Mk. III"
+
+msgid "_25pdr_Field_Gun"
+msgstr "Q.F. 25-Pr. Gun/How. Mk. II"
+
+msgid "_25pdr_HE_Mk_1D"
+msgstr "HE Mk. 1D"
+
+msgid "_2pdr_APCNR_Mk.1"
+msgstr "APCNR Mk. 1"
+
+msgid "_2pdr_APCNR_Mk.2"
+msgstr "APCNR Mk. 2"
+
+msgid "_2pdr_APSV_Mk.1"
+msgstr "APSV Mk. 1"
+
+msgid "_2pdr_APSV_Mk.2"
+msgstr "APSV Mk. 2"
+
+msgid "_2pdr_AP_Mk.1T"
+msgstr "AP Mk. 1T"
+
+msgid "_2pdr_AP_Mk.IXBT"
+msgstr "APCBC Mk. IXBT"
+
+msgid "_2pdr_AT_Gun_Mk_IX"
+msgstr "QF 2-pdr AT Gun Mk. IX"
+
+msgid "_2pdr_Gun_Mk_IX"
+msgstr "QF 2-pdr Mk. IX"
+
+msgid "_2pdr_Gun_Mk_X"
+msgstr "QF 2-pdr Mk. X"
+
+msgid "_2pdr_HE_Mk.2"
+msgstr "HE Mk. 2"
+
+msgid "_3.7inch_AP"
+msgstr "AP Mk. 1T"
+
+msgid "_3.7inch_APCR"
+msgstr "APCR Mk. 2T"
+
+msgid "_3.7inch_AT_Howitzer"
+msgstr "3.7-inch AT Howitzer"
+
+msgid "_3.7inch_HE"
+msgstr "HE Mk. 1C"
+
+msgid "_3.7inch_HEAT_Mk.1"
+msgstr "HEAT Mk. 1"
+
+msgid "_3.7inch_HEAT_Mk1"
+msgstr "HEAT Mk. 1"
+
+msgid "_3.7inch_HE_Mk.3"
+msgstr "HE Mk. 3"
+
+msgid "_3.7inch_HE_Mk3"
+msgstr "HE Mk. 3"
+
+msgid "_3.7inch_Howitzer"
+msgstr "3.7-inch Howitzer"
+
+msgid "_3.7inch_QF_AA_MK_1"
+msgstr "QF 3.7-inch AT Gun"
+
+msgid "_32-pounder_AT_Gun_OQF"
+msgstr "OQF 32-pdr AT Gun"
+
+msgid "_32pdr_APCR_MkII"
+msgstr "APDS Mk. 2T"
+
+msgid "_32pdr_AP_MkI"
+msgstr "AP Mk. 1"
+
+msgid "_32pdr_HE_MkI"
+msgstr "HE Mk. 1A"
+
+msgid "_3inch_20_cwt_MkIII_AT_Gun"
+msgstr "3-inch 20 cwt AT Gun Mk. III"
+
+msgid "_3inch_AP"
+msgstr "AP Mk. 2T"
+
+msgid "_3inch_APCR"
+msgstr "APCR Mk. 1T"
+
+msgid "_3inch_HE"
+msgstr "HE Mk. 2B"
+
+msgid "_3pdr_gun_Hotchkiss"
+msgstr "OQF 3-pdr Gun Mk. I"
+
+msgid "_4.5inch_HE_Mk_13"
+msgstr "HE Mk. XIII"
+
+msgid "_4.5inch_SPG_Howitzer"
+msgstr "Q.F. 4.5-in. Howitzer"
+
+msgid "_40mm_AP"
+msgstr "AP Mk. I"
+
+msgid "_40mm_APCR"
+msgstr "APCR Mk. II"
+
+msgid "_40mm_APHV"
+msgstr "APHV Mk. 1T"
+
+msgid "_40mm_Bofors_MkI"
+msgstr "QF 40 mm Mk. VI Bofors"
+
+msgid "_40mm_HE"
+msgstr "HE Mk. I"
+
+msgid "_40mm_Mk2T"
+msgstr "HE Mk. 2T"
+
+msgid "_40mm_Pom_Pom"
+msgstr "40 mm Pom-Pom"
+
+msgid "_40mm_SAP"
+msgstr "SAP Mk. 1T"
+
+msgid "_47mm_3pdrAP"
+msgstr "QF AP Mk. IIIT"
+
+msgid "_47mm_3pdrAPCR"
+msgstr "QF APDS Mk. I"
+
+msgid "_47mm_3pdrHE"
+msgstr "QF HE Mk. IT"
+
+msgid "_47mm_APCR_MkI"
+msgstr "APCR Mk. I"
+
+msgid "_47mm_AP_MkI"
+msgstr "AP Mk. I"
+
+msgid "_47mm_HE_MkI"
+msgstr "HE Mk. I"
+
+msgid "_5.5inch_HE_Mk_4"
+msgstr "HE 80-lb Mk. 3"
+
+msgid "_5.5inch_HE_Mk_5"
+msgstr "HE 80-lb Mk. 4"
+
+msgid "_5.5inch_SPG_Gun"
+msgstr "B.L. 5.5-in. Gun"
+
+msgid "_6inch_AP"
+msgstr "AP Mk. V"
+
+msgid "_6inch_HE"
+msgstr "HE Mk. V"
+
+msgid "_6inch_HE_Mk_6"
+msgstr "HE Mk. VI"
+
+msgid "_6inch_SPG_Gun"
+msgstr "Q.F. 6-in. Gun Mk. V"
+
+msgid "_6pdr_APCR_MK_1T"
+msgstr "APCR Mk. 1T"
+
+msgid "_6pdr_AP_MK_1T"
+msgstr "AP Mk. 1T"
+
+msgid "_6pdr_AP_Steel_HSCT"
+msgstr "Steel Shell HSCT"
+
+msgid "_6pdr_AP_Steel_NF"
+msgstr "Steel Shell NF"
+
+msgid "_6pdr_HE_Common"
+msgstr "Common Shell"
+
+msgid "_6pdr_HE_MK_10T"
+msgstr "HE Mk. 10T"
+
+msgid "_7.2inch_HE"
+msgstr "HE Mk. 1D"
+
+msgid "_7.2inch_HE_Mk_2"
+msgstr "HE Mk. 2D"
+
+msgid "_7.2inch_SPG_Howitzer"
+msgstr "B.L. 7.2-in. Howitzer Mk. 6"
+
+msgid "_75mm_APCR_HV_Mk3"
+msgstr "APCR HV Mk. 3"
+
+msgid "_75mm_APCR_Mk3"
+msgstr "APCR Mk. 3"
+
+msgid "_75mm_AP_HV_Mk1"
+msgstr "AP HV Mk. 1"
+
+msgid "_75mm_AP_Mk1"
+msgstr "AP Mk. 1"
+
+msgid "_75mm_AT_Gun_Mk_V"
+msgstr "75 mm AT Gun Mk. V"
+
+msgid "_75mm_Gun_Mk_V"
+msgstr "75 mm Gun Mk. V"
+
+msgid "_75mm_Gun_Vickers_HV"
+msgstr "75 mm Vickers HV"
+
+msgid "_75mm_HEAT_M66"
+msgstr "HEAT M66"
+
+msgid "_75mm_HE_HV_Mk2"
+msgstr "HE HV Mk. 2"
+
+msgid "_75mm_HE_Mk2"
+msgstr "HE Mk. 2"
+
+msgid "_75mm_Howitzer_M3"
+msgstr "75 mm Howitzer M3"
+
+msgid "_76mm_Gun_M1A2"
+msgstr "76 mm Gun M1A2"
+
+msgid "_76mm_HEAT_MkI"
+msgstr "HEAT Mk. I"
+
+msgid "_76mm_HE_MkI"
+msgstr "HE Mk. I"
+
+msgid "_76mm_Howitzer_MkI"
+msgstr "OQF 3-inch Howitzer Mk. I"
+
+msgid "_77mm_APCBC_Mk8T"
+msgstr "APCBC 77 mm Mk. 8T"
+
+msgid "_77mm_APDS_Mk1T"
+msgstr "APDS 77 mm Mk. 1T"
+
+msgid "_77mm_HE_Mk1T"
+msgstr "HE 77 mm Mk. 1T"
+
+msgid "_9.2inch_HE_Mk_18"
+msgstr "HE Mk. 18"
+
+msgid "_9.2inch_HE_Mk_19"
+msgstr "HE Mk. 19"
+
+msgid "_9.2inch_SPG_Howitzer"
+msgstr "B.L. 9.2-in. Howitzer Mk. II"

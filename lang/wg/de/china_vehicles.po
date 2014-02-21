@@ -1,0 +1,924 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: World Of Tanks\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-06-01 10:00+0300\n"
+"PO-Revision-Date: 2010-06-01 10:00+0300\n"
+"Last-Translator: WoT Translator <noreply@wargaming.net>\n"
+"Language-Team: WoT Team <noreply@wargaming.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "A-220"
+msgstr "A-220"
+
+msgid "A-220B"
+msgstr "A-220A"
+
+msgid "A-220B_1"
+msgstr "A-220B"
+
+msgid "A-220_1"
+msgstr "A-220"
+
+msgid "AN_GRR_5_Prem"
+msgstr "AN/GRR-5"
+
+msgid "Armstrong_Siddeley"
+msgstr "Armstrong Siddeley V4"
+
+msgid "Ch01_Type59"
+msgstr "Type 59"
+
+msgid "Ch01_Type59_descr"
+msgstr ""
+"Die Serienfertigung des Fahrzeugs wurde 1957 in der Panzerfabrik Baotou, "
+"Innere Mongolei, begonnen. Bis 1987 wurden 6.000 Fahrzeuge gebaut."
+
+msgid "Ch02_Type62"
+msgstr "Type 62"
+
+msgid "Ch02_Type62_descr"
+msgstr ""
+"Der leichte Panzer Type 62 war der erste Panzer, der in chinesischer "
+"Eigenregie entwickelt wurde. In Entwicklung befindlich seit 1958 war der "
+"Panzer für die Gebiete im Süden Chinas gedacht. Das Fahrzeug wurde 1962 nach "
+"sorgfältiger Erprobung in Dienst gestellt. Bis 1989 wurden gut 1.500 "
+"Fahrzeuge gebaut. Der Type 62 wurde nach Albanien, Mali, Vietnam, Zaire, "
+"sowie in den Kongo und Sudan exportiert."
+
+msgid "Ch03_WZ-111"
+msgstr "WZ-111"
+
+msgid "Ch03_WZ-111_descr"
+msgstr ""
+"Stark durch den sowjetischen T-10 beeinflusst wurde dieser Prototyp eines "
+"schweren Panzers in den frühen 1960ern auf Basis der sowjetischen IS-2 und "
+"IS-3 entwickelt. In der Erprobung zeigten sich gravierende Mängel und so "
+"wurde die Forschung 1964 eingestellt."
+
+msgid "Ch04_T34_1"
+msgstr "T-34-1"
+
+msgid "Ch04_T34_1_descr"
+msgstr ""
+"1954 beriet die chinesische Regierung über die Möglichkeit, den T-34-85 in "
+"China zu produzieren. Zur gleichen Zeit schlugen chinesische Ingenieure ein "
+"Alternativprojekt vor, den T-34-1. Auf dem T-34-85 basieren, wurden beim "
+"T-34-1 Getriebe und Antrieb neu angeordnet, um das Gesamtgewicht und die "
+"Wannenhöhe zu verringern. 1954 wurden verschiedene Konzepte mit "
+"unterschiedlichen Türmen und Geschützen entwickelt. Dennoch wurde kein "
+"Prototyp gebaut."
+
+msgid "Ch05_T34_2"
+msgstr "T-34-2"
+
+msgid "Ch05_T34_2_descr"
+msgstr ""
+"Der T-34-2 war keine verbesserte Ausführung des sowjetischen Panzers T-34, "
+"sondern ein völlig anderes Fahrzeug. Chinesische Ingenieure entwickelten den "
+"T-34-2 als Gegenstück zum sowjetischen T-54. Später gab die UdSSR die "
+"Technologien der T-54-Produktion an China, der T-34-2 wurde danach "
+"eingestellt."
+
+msgid "Ch06_Renault_NC31"
+msgstr "Renault NC-31"
+
+msgid "Ch06_Renault_NC31_descr"
+msgstr ""
+"Das Projekt NC-2 (Firmenbezeichnung NC-31) war eine Weiterentwicklung des "
+"Panzers Renault FT-17 und besaß neben weicherer Aufhängung gezahnte "
+"Gummiketten von Kegresse-Hinstin. Diese Besonderheiten erhöhten zusammen mit "
+"dem verbesserten Motor eine Höchstgeschwindigkeit von 16 km/h. Es wurden 15 "
+"Fahrzeuge an China geliefert."
+
+msgid "Ch06_Renault_NC31_short"
+msgstr "NC-31"
+
+msgid "Ch07_Vickers_MkE_Type_BT26"
+msgstr "Vickers Mk. E Type B"
+
+msgid "Ch07_Vickers_MkE_Type_BT26_descr"
+msgstr ""
+"1928 von J. V. Carden und V. Loyd entwickelt. Obwohl Großbritannien diesen "
+"Panzer nie in die Truppe übernahm, wurde er an andere Länder, darunter "
+"China, exportiert. 1937 kämpften zwanzig dieser Fahrzeuge gegen die "
+"japanischen Truppen in Shanghai. Sowjetische Panzer des auf Vickers "
+"basierenden T-26 wurden ebenfalls an China geliefert, 82 dieser Fahrzeuge "
+"kamen in Südchina und Birma zwischen 1941 und 1942 zum Einsatz."
+
+msgid "Ch07_Vickers_MkE_Type_BT26_short"
+msgstr "VAE Type B"
+
+msgid "Ch08_Type97_Chi_Ha"
+msgstr "Type 2597 Chi-Ha"
+
+msgid "Ch08_Type97_Chi_Ha_descr"
+msgstr ""
+"Von 1935 bis 1937 von Mitsubishi entwickelt. Dieser Panzer wurde von 1938 "
+"bis 1942 gebaut, in den letzten beiden Jahren neben einer verbesserten "
+"Ausführung des Shinhoto Chi-Ha, insgesamt verließen 2.880 Fahrzeuge beider "
+"Typen die Fabriken. Chi-Ha und Shinhoto Chi-Ha wurden in großer Anzahl von "
+"den japanischen Streitkräften in China eingesetzt. Nach der Kapitulation "
+"Japans wurden die Panzer sowohl von der VBA als auch von den Truppen der "
+"Kuomintang im Bürgerkrieg 1946 eingesetzt."
+
+msgid "Ch08_Type97_Chi_Ha_short"
+msgstr "Chi-Ha"
+
+msgid "Ch09_M5"
+msgstr "M5A1 Stuart"
+
+msgid "Ch09_M5_descr"
+msgstr ""
+"Die ersten Panzer der M5-Reihe wurden ab April 1942 gebaut, eine neue "
+"Ausführung, der M5A1 wurde anderen Ausführungen vorgezogen. Nach Entwicklung "
+"des M24 Chaffee galten die M5A1 als überholt und wurden an andere Länder, "
+"darunter China, verkauft. 100 dieser Panzer wurden an die Kuomintang "
+"geliefert. Während des Bürgerkriegs (1946–1949) wurden viele dieser "
+"Fahrzeuge von der VBA erbeutet."
+
+msgid "Ch10_IS2"
+msgstr "IS-2"
+
+msgid "Ch10_IS2_descr"
+msgstr ""
+"Anfang der 1950er wurden sowjetische IS-2 an China geliefert und während des "
+"Koreakriegs von 1950 bis 1953 eingesetzt. Laut amerikanischer "
+"Aufklärungsberichte waren mindestens vier der nach Korea entsendeten "
+"chinesischen Panzerkompanien mit je fünf IS-2-Panzern ausgestattet. Der "
+"Panzer IS-2 wurde bis in die späten 1950er eingesetzt. Die Produktion wurde "
+"aufgrund Knappheit von Ersatzteilen und Einführung des Projektes Typ 59 "
+"eingestellt. Einige IS-2 wurden an Vietnam exportiert, wo sie in der letzten "
+"Phase des Indochinakriegs 1946-1954 eingesetzt wurden."
+
+msgid "Ch11_110"
+msgstr "110"
+
+msgid "Ch11_110_descr"
+msgstr ""
+"Von Mitte der 1940er bis in die 1950er versuchten sowjetische Ingenieure, "
+"den IS-2 zu modernisieren. Die Ausführung IS-2U wurde im November 1944 "
+"entwickelt und sollte eine verstärkte Front der Wanne erhalten, die dem IS-3 "
+"ähnlich war. Mitte der 1950er wurden die Pläne an China weiter gegeben und "
+"wurden so die Basis für weitere chinesische Panzerprojekte."
+
+msgid "Ch12_111_1_2_3"
+msgstr "WZ-111 model 1-4"
+
+msgid "Ch12_111_1_2_3_descr"
+msgstr ""
+"Prototyp eines schweren Panzers, der in den frühen 1960ern entwickelt wurde. "
+"Das Projekt 111 wurde auf Basis der sowjetischen Panzer IS-3 und T-10 "
+"entwickelt. 1964 wurde die Entwicklung zugunsten neuer mittlerer Panzertypen "
+"aufgegeben."
+
+msgid "Ch12_111_1_2_3_short"
+msgstr "WZ-111 1-4"
+
+msgid "Ch14_T34_3"
+msgstr "T-34-3"
+
+msgid "Ch14_T34_3_descr"
+msgstr ""
+"Der mittlere Panzer T-34-3 ist die Weiterentwicklung des T-34-2. Anders als "
+"der Type-59 hatte der T-34-3 weniger Panzerung und eine 122-mm-Kanone. Das "
+"Fahrzeug wurde 1957 entwickelt. Das Projekt T-34-3 wurde jedoch mit dem "
+"Start der Serienfertigung des Type-59 eingestellt."
+
+msgid "Ch15_59_16"
+msgstr "59-16"
+
+msgid "Ch15_59_16_descr"
+msgstr ""
+"1957 wurde die Entwicklung eines neuen leichten Panzers von der chinesischen "
+"Regierung in Auftrag gegeben. Die Entwicklung war 1959 abgeschlossen. Das "
+"neue Fahrzeug, 16 Tonnen schwer, war mit vier drehstabgefederten Laufrädern, "
+"rückwärtigem Antriebsrad und einem 57-mm-Geschütz (später auf 76 mm "
+"aufgewertet) ausgestattet."
+
+msgid "Ch16_WZ_131"
+msgstr "WZ-131"
+
+msgid "Ch16_WZ_131_descr"
+msgstr ""
+"Die Entwicklung wurde 1957 begonnen. Das Fahrzeug war eine leichte "
+"Ausführung des Typ 59 und sollte im gebirgigen und sumpfigen Gelände "
+"Südchinas zum Einsatz kommen. Der erste Prototyp wurde 1962 fertiggestellt. "
+"Später wurde das Fahrzeug modernisiert."
+
+msgid "Ch17_WZ131_1_WZ132"
+msgstr "WZ-132"
+
+msgid "Ch17_WZ131_1_WZ132_descr"
+msgstr ""
+"Die Bestellung für den WZ-132 wurde 1964 getätigt. Auf dem WZ-131 basierend "
+"sollten Feuerkraft und Panzerung verbessert werden. Einige Prototypen wurden "
+"vor Beendigung der Entwicklung in den späten 1960ern gebaut. Alle Prototypen "
+"wurden bei der Erprobung chinesischer Atomwaffen zerstört."
+
+msgid "Ch18_WZ-120"
+msgstr "WZ-120"
+
+msgid "Ch18_WZ-120_descr"
+msgstr ""
+"Anfangs war der WZ-120 (Type 59) eine Kopie des sowjetischen mittleren "
+"Panzers T-54A. Der Panzer wurde in verschiedenen Ausführungen verbessert. "
+"Zwischen 6.000 und 9.500 Fahrzeuge aller Ausführungen wurden von 1958 bis "
+"1987 gebaut."
+
+msgid "Ch19_121"
+msgstr "121"
+
+msgid "Ch19_121_descr"
+msgstr ""
+"Die Entwicklung eines neuen mittleren Panzers auf Basis des Typ 59 wurde "
+"1962 aufgenommen. Der neue Panzer sollte Verbesserungen bei Bewaffnung und "
+"Panzerung erhalten. Das Projekt wurde allerdings kurz danach aufgegeben. "
+"Einige technische Neuerungen wurden später bei der Entwicklung des Typ 69 "
+"angewandt. Alle 121 Prototypen wurden bei chinesischen Atomwaffentests "
+"zerstört."
+
+msgid "Ch20_Type58"
+msgstr "Type 58"
+
+msgid "Ch20_Type58_descr"
+msgstr ""
+"In den frühen 1950ern exportierte die UdSSR insgesamt 1.800 T-34-76 und "
+"T-34-85 an China. 1954 entschloss sich die chinesische Regierung, 1958 den "
+"T-34-85 selbst mit der Bezeichnung Typ 58 zu bauen. Die Produktion wurde "
+"jedoch nie begonnen, und die chinesische Armee entschied sich, den T-34 zu "
+"modifizieren."
+
+msgid "Ch21_T34"
+msgstr "Type T-34"
+
+msgid "Ch21_T34_descr"
+msgstr ""
+"Einige hundert T-34-76 wurden in den frühen 1950er exportiert von der UdSSR "
+"an China. Die Nutzbarkeit dieser Panzer wurde durch chinesische Aufwertungen "
+"verlängert, darunter neue Motoren und verbesserte Aufhängungen."
+
+msgid "Ch22_113"
+msgstr "113"
+
+msgid "Ch22_113_descr"
+msgstr ""
+"Die Entwicklung des Modell 113 wurde 1963 begonnen. Das Fahrzeug war als "
+"Alternative zum WZ-111 gedacht und es wurden Teile und Komponenten mittlerer "
+"Panzer verwendet. Das Projekt wurde jedoch zugunsten eines Hauptkampfpanzers "
+"aufgegeben."
+
+msgid "Ch23_112"
+msgstr "112"
+
+msgid "Ch23_112_descr"
+msgstr ""
+"Die Entwicklung des Panzers 112 wurde 1962 begonnen. Für das Projekt wurden "
+"sowohl Teile und Komponenten von mittleren als auch schweren Panzern "
+"verwendet. Nur auf dem Papier. Der Panzer 113 war die Weiterentwicklung des "
+"112."
+
+msgid "Ch24_Type64"
+msgstr "Type 64"
+
+msgid "Ch24_Type64_descr"
+msgstr ""
+"Es wurden mehr als 50 dieser Fahrzeuge in Taiwan gebaut. Alle "
+"Standardkomponenten des Fahrzeugs wurden von denen amerikanischer Fahzeuge "
+"kopiert. Der Hellcat-Turm wurde auf dem Fahrwerk des Flakpanzers M42 "
+"montiert, das Hauptgeschütz war die altbewährte M1A1. Nur einer der 64 "
+"Prototypen hat es bis heute geschafft."
+
+msgid "Chassis_Ch01_Type59_2"
+msgstr "Type 59"
+
+msgid "Chassis_Ch01_Type59_gold"
+msgstr "Type 59 G"
+
+msgid "Chassis_Ch02_Type62"
+msgstr "Type 62"
+
+msgid "Chassis_Ch03_WZ-111"
+msgstr "WZ-111 model 2"
+
+msgid "Chassis_Ch04_T34_1"
+msgstr "T-34-1"
+
+msgid "Chassis_Ch04_T34_1_2"
+msgstr "T-34-1 model 2"
+
+msgid "Chassis_Ch05_T34_2"
+msgstr "T-34-2"
+
+msgid "Chassis_Ch05_T34_2_2"
+msgstr "T-34-2 model 2"
+
+msgid "Chassis_Ch06_Renault_NC31"
+msgstr "M24/25"
+
+msgid "Chassis_Ch06_Renault_NC31_2"
+msgstr "M26/27"
+
+msgid "Chassis_Ch07_Vickers_MkE_Type_BT26"
+msgstr "Vickers Mk. E Type B"
+
+msgid "Chassis_Ch07_Vickers_MkE_Type_BT26_2"
+msgstr "T-26-2"
+
+msgid "Chassis_Ch08_Type97_Chi_Ha"
+msgstr "Type 97"
+
+msgid "Chassis_Ch08_Type97_Chi_Ha_2"
+msgstr "Type 97-Kai"
+
+msgid "Chassis_Ch09_M5"
+msgstr "VVSS T36E6"
+
+msgid "Chassis_Ch09_M5_2"
+msgstr "VVSS T55E1"
+
+msgid "Chassis_Ch10_IS2"
+msgstr "IS-2 early"
+
+msgid "Chassis_Ch10_IS2_2"
+msgstr "IS-2 late"
+
+msgid "Chassis_Ch11_110"
+msgstr "110"
+
+msgid "Chassis_Ch11_110_2"
+msgstr "110-1"
+
+msgid "Chassis_Ch12_111_1_2_3"
+msgstr "WZ-111"
+
+msgid "Chassis_Ch12_111_1_2_3_2"
+msgstr "WZ-111 model 4"
+
+msgid "Chassis_Ch14_T34_3"
+msgstr "T-34-3"
+
+msgid "Chassis_Ch15_59_16"
+msgstr "131"
+
+msgid "Chassis_Ch15_59_16_2"
+msgstr "131 model 2"
+
+msgid "Chassis_Ch16_WZ_131"
+msgstr "WZ-131"
+
+msgid "Chassis_Ch16_WZ_131_2"
+msgstr "WZ-131 model 2"
+
+msgid "Chassis_Ch17_WZ131_1_WZ132"
+msgstr "WZ-131-1"
+
+msgid "Chassis_Ch17_WZ131_1_WZ132_2"
+msgstr "WZ-132"
+
+msgid "Chassis_Ch18_WZ-120"
+msgstr "WZ-120"
+
+msgid "Chassis_Ch18_WZ-120_2"
+msgstr "WZ-120 model 3"
+
+msgid "Chassis_Ch19_121"
+msgstr "121"
+
+msgid "Chassis_Ch20_Type58"
+msgstr "T-34-85"
+
+msgid "Chassis_Ch20_Type58_2"
+msgstr "Type 58"
+
+msgid "Chassis_Ch21_T34"
+msgstr "Type T-34"
+
+msgid "Chassis_Ch21_T34_2"
+msgstr "Type T-34M"
+
+msgid "Chassis_Ch22_113"
+msgstr "113"
+
+msgid "Chassis_Ch23_112"
+msgstr "112"
+
+msgid "Chassis_Ch24_Type64"
+msgstr "Type 64"
+
+msgid "Continental_R-975-C1"
+msgstr "Continental R-975-C1"
+
+msgid "ER_52"
+msgstr "ER 52"
+
+msgid "Fanions_de_signaux"
+msgstr "Signalflaggen"
+
+msgid "Franklin"
+msgstr "Franklin"
+
+msgid "NORINCO_12150L7"
+msgstr "NORINCO 12150L"
+
+msgid "SCR_506"
+msgstr "SCR 506"
+
+msgid "SCR_508"
+msgstr "SCR 508"
+
+msgid "Turret_1_Ch01_Type59_2"
+msgstr "Type 59"
+
+msgid "Turret_1_Ch01_Type59_gold"
+msgstr "Type 59 G"
+
+msgid "Turret_1_Ch02_Type62"
+msgstr "Type 62"
+
+msgid "Turret_1_Ch03_WZ-111"
+msgstr "WZ-111 model 2"
+
+msgid "Turret_1_Ch04_T34_1"
+msgstr "T-34-1"
+
+msgid "Turret_1_Ch05_T34_2"
+msgstr "T-34-2"
+
+msgid "Turret_1_Ch06_Renault_NC31"
+msgstr "FT-17"
+
+msgid "Turret_1_Ch07_Vickers_MkE_Type_BT26"
+msgstr "Vickers Mk. E Type B"
+
+msgid "Turret_1_Ch08_Type97_Chi_Ha"
+msgstr "Type 97"
+
+msgid "Turret_1_Ch09_M5"
+msgstr "M3A3"
+
+msgid "Turret_1_Ch10_IS2"
+msgstr "IS-2 early"
+
+msgid "Turret_1_Ch11_110"
+msgstr "110"
+
+msgid "Turret_1_Ch12_111_1_2_3"
+msgstr "IS-3"
+
+msgid "Turret_1_Ch14_T34_3"
+msgstr "T-34-3"
+
+msgid "Turret_1_Ch15_59_16"
+msgstr "131"
+
+msgid "Turret_1_Ch16_WZ_131"
+msgstr "132A"
+
+msgid "Turret_1_Ch17_WZ131_1_WZ132"
+msgstr "WZ-131-1"
+
+msgid "Turret_1_Ch18_WZ-120"
+msgstr "WZ-120"
+
+msgid "Turret_1_Ch19_121"
+msgstr "121"
+
+msgid "Turret_1_Ch20_Type58"
+msgstr "T-34-85"
+
+msgid "Turret_1_Ch21_T34"
+msgstr "Type T-34"
+
+msgid "Turret_1_Ch22_113"
+msgstr "113"
+
+msgid "Turret_1_Ch23_112"
+msgstr "112"
+
+msgid "Turret_1_Ch24_Type64"
+msgstr "Type 64"
+
+msgid "Turret_2_Ch04_T34_1"
+msgstr "T-34-1 model 2"
+
+msgid "Turret_2_Ch05_T34_2"
+msgstr "T-34-2 model 2"
+
+msgid "Turret_2_Ch06_Renault_NC31"
+msgstr "FT-18"
+
+msgid "Turret_2_Ch07_Vickers_MkE_Type_BT26"
+msgstr "T-26 model 1936"
+
+msgid "Turret_2_Ch08_Type97_Chi_Ha"
+msgstr "Type 97-Kai"
+
+msgid "Turret_2_Ch09_M5"
+msgstr "M5A1"
+
+msgid "Turret_2_Ch10_IS2"
+msgstr "IS-2 late"
+
+msgid "Turret_2_Ch11_110"
+msgstr "T-10"
+
+msgid "Turret_2_Ch12_111_1_2_3"
+msgstr "WZ-111"
+
+msgid "Turret_2_Ch15_59_16"
+msgstr "131-1"
+
+msgid "Turret_2_Ch16_WZ_131"
+msgstr "132B"
+
+msgid "Turret_2_Ch17_WZ131_1_WZ132"
+msgstr "WZ-132"
+
+msgid "Turret_2_Ch18_WZ-120"
+msgstr "WZ-120-1"
+
+msgid "Turret_2_Ch20_Type58"
+msgstr "Type 58"
+
+msgid "Turret_2_Ch21_T34"
+msgstr "Type T-34M"
+
+msgid "Twin_Cadillac_42series"
+msgstr "Twin Cadillac, Series 42"
+
+msgid "Type59_gold"
+msgstr "Type 59 G"
+
+msgid "V-2"
+msgstr "V-2"
+
+msgid "V-2-34"
+msgstr "V-2-34"
+
+msgid "_100mm_44-100JT"
+msgstr "100 mm 44-100JT"
+
+msgid "_100mm_59"
+msgstr "100 mm Type 59"
+
+msgid "_100mm_59-100T"
+msgstr "100 mm 59-100T"
+
+msgid "_100mm_60-100T"
+msgstr "100 mm 60-100T"
+
+msgid "_100mm_62-100T"
+msgstr "100 mm 62-100T"
+
+msgid "_100mm_CJ-412G"
+msgstr "Chuan jian-412G"
+
+msgid "_100mm_SB-412G"
+msgstr "Sha bao-412G"
+
+msgid "_100mm_TC-412G"
+msgstr "Tuo chuan-412G"
+
+msgid "_100mm_UBR-412"
+msgstr "Chuan bei-412"
+
+msgid "_100mm_UBR-412P"
+msgstr "Chuan chao-412"
+
+msgid "_100mm_UOF-412"
+msgstr "Sha bao-412"
+
+msgid "_12150L"
+msgstr "12150L"
+
+msgid "_12150L-3_V-12"
+msgstr "NORINCO 12150L3"
+
+msgid "_12150L3"
+msgstr "12150L3"
+
+msgid "_12150L7"
+msgstr "12150L7"
+
+msgid "_12150LS"
+msgstr "12150LS"
+
+msgid "_12150LT"
+msgstr "12150LT"
+
+msgid "_12150LZ"
+msgstr "NORINCO 12150L"
+
+msgid "_122-mm_37-122JT"
+msgstr "122 mm 37-122JT"
+
+msgid "_122-mm_60-122T"
+msgstr "122 mm 60-122T"
+
+msgid "_122-mm_60-122TG"
+msgstr "122 mm 60-122TG"
+
+msgid "_122-mm_D25-T"
+msgstr "122 mm D-25T"
+
+msgid "_122-mm_D25-TA"
+msgstr "122 mm D-25TA"
+
+msgid "_122mm_CB-472"
+msgstr "Chuan bei-472"
+
+msgid "_122mm_PO-122"
+msgstr "Po-122"
+
+msgid "_122mm_SB-472"
+msgstr "Sha bao-472"
+
+msgid "_122mm_Type_57"
+msgstr "Chuan bei-471"
+
+msgid "_122mm_Type_64"
+msgstr "Po-471"
+
+msgid "_122mm_Type_68"
+msgstr "Sha bao-471"
+
+msgid "_13.2mm_Balle_P."
+msgstr "Balle P."
+
+msgid "_13.2mm_Balle_T.P."
+msgstr "Balle T.P."
+
+msgid "_13.2mm_Hotchkiss_mle._1930"
+msgstr "13.2 mm Hotchkiss mle. 1930"
+
+msgid "_13.2mm_Hotchkiss_mle._1930_short"
+msgstr "13.2 mm Hotchkiss"
+
+msgid "_130mm_59-130T"
+msgstr "130 mm 59-130T"
+
+msgid "_130mm_AP"
+msgstr "Chuan bei-482"
+
+msgid "_130mm_HE"
+msgstr "Sha bao-482"
+
+msgid "_130mm_HEAT"
+msgstr "Po-130"
+
+msgid "_37cm_Pzgr40"
+msgstr "Pzgr. 40"
+
+msgid "_37mm_APC_M51"
+msgstr "APC M51"
+
+msgid "_37mm_APX_SA18"
+msgstr "37 mm APX SA18"
+
+msgid "_37mm_AP_M74"
+msgstr "AP M74"
+
+msgid "_37mm_FrtPrf1935"
+msgstr "Frt.Prf. mle. 1935"
+
+msgid "_37mm_Gun_M1A1"
+msgstr "37 mm Gun M1A1"
+
+msgid "_37mm_HE_M63"
+msgstr "HE M63"
+
+msgid "_37mm_KwK_L46"
+msgstr "37 mm KwK 36 L/46.5"
+
+msgid "_37mm_M-6_L53"
+msgstr "37 mm M6"
+
+msgid "_37mm_OE_mle._1916"
+msgstr "OE mle. 1916"
+
+msgid "_37mm_Odr_mle._1935"
+msgstr "ODR mle. 1935"
+
+msgid "_37mm_Pzgr36"
+msgstr "Pzgr. 36"
+
+msgid "_37mm_Sprg.18"
+msgstr "Sprgr. 18"
+
+msgid "_40mm_AP"
+msgstr "AP Mk. I"
+
+msgid "_40mm_APCR"
+msgstr "APCR Mk. II"
+
+msgid "_40mm_HE"
+msgstr "HE Mk. I"
+
+msgid "_40mm_Pom_Pom"
+msgstr "40 mm Pom-Pom"
+
+msgid "_45mm_20K"
+msgstr "45 mm 20K"
+
+msgid "_45mm_UBR-240A"
+msgstr "UBR-240A"
+
+msgid "_45mm_UBR-240PA"
+msgstr "UBR-240PA"
+
+msgid "_45mm_UOF-240A"
+msgstr "UOF-240A"
+
+msgid "_47mm_AP"
+msgstr "AP"
+
+msgid "_47mm_APCR"
+msgstr "APCR"
+
+msgid "_47mm_APCR_Type1"
+msgstr "Type 1 Te Jia"
+
+msgid "_47mm_APHE_Type1"
+msgstr "Type 1"
+
+msgid "_47mm_Gun_Type_1"
+msgstr "47 mm Gun Type 1"
+
+msgid "_47mm_HE"
+msgstr "HE"
+
+msgid "_47mm_HE_Type1"
+msgstr "Type 94"
+
+msgid "_47mm_QFSA"
+msgstr "47 mm Vickers QF"
+
+msgid "_57mm_55-57FG"
+msgstr "57 mm 55-57FG"
+
+msgid "_57mm_APCR_Type_55_57"
+msgstr "Chuan chao-271"
+
+msgid "_57mm_AP_Type_55_57"
+msgstr "Chuan dun-271"
+
+msgid "_57mm_AP_Type_97"
+msgstr "Type 92"
+
+msgid "_57mm_Gun_Type_97"
+msgstr "57 mm Gun Type 97"
+
+msgid "_57mm_HEAT_Type_97"
+msgstr "Type 3"
+
+msgid "_57mm_HE_Type_55_57"
+msgstr "Sha bao-271"
+
+msgid "_57mm_HE_Type_97"
+msgstr "Type 90"
+
+msgid "_71-TK-3"
+msgstr "71-TK-3"
+
+msgid "_76mm_54-76T"
+msgstr "76 mm 54-76T"
+
+msgid "_76mm_54-76TG"
+msgstr "76 mm 54-76TG (autoloader)"
+
+msgid "_76mm_54-76TG_short"
+msgstr ""
+"76 mm 54-76TG\n"
+"(autoloader)"
+
+msgid "_76mm_APCR_type1"
+msgstr "Chuan jian-350"
+
+msgid "_76mm_AP_type1"
+msgstr "Chuan dun-350"
+
+msgid "_76mm_F-34"
+msgstr "76 mm F-34"
+
+msgid "_76mm_Gun_Type64"
+msgstr "76 mm Gun M1A2"
+
+msgid "_76mm_HE_type1"
+msgstr "Sha bao-350"
+
+msgid "_76mm_UBR-354A"
+msgstr "UBR-354A"
+
+msgid "_76mm_UBR-354MP"
+msgstr "UBR-354MP"
+
+msgid "_76mm_UOF-354"
+msgstr "UOF-354"
+
+msgid "_85mm_367"
+msgstr "Chuan chao-367"
+
+msgid "_85mm_CB_367G"
+msgstr "Chuan bei-367G"
+
+msgid "_85mm_CJ_365"
+msgstr "Chuan jian-365"
+
+msgid "_85mm_HEAT"
+msgstr "Po-365"
+
+msgid "_85mm_Po_367"
+msgstr "Po-367"
+
+msgid "_85mm_S-53"
+msgstr "85 mm S-53"
+
+msgid "_85mm_SB_365"
+msgstr "Sha bao-365"
+
+msgid "_85mm_SB_367G"
+msgstr "Sha bao-367G"
+
+msgid "_85mm_Tip_56-85JT"
+msgstr "85 mm 56-85JT"
+
+msgid "_85mm_Tip_56-85T"
+msgstr "85 mm 56-85T"
+
+msgid "_85mm_Tip_62-85T"
+msgstr "85 mm 62-85T"
+
+msgid "_85mm_Tip_62-85TS"
+msgstr "85 mm Type 62"
+
+msgid "_85mm_Tip_64-85T"
+msgstr "85 mm 64-85T"
+
+msgid "_85mm_Tip_64-85TG"
+msgstr "85 mm 64-85TG"
+
+msgid "_85mm_UBR"
+msgstr "Chuan bei-367"
+
+msgid "_85mm_UOF"
+msgstr "Sha bao-367"
+
+msgid "_8V135"
+msgstr "8V135"
+
+msgid "_9R"
+msgstr "9R"
+
+msgid "_9RM"
+msgstr "A-220"
+
+msgid "_9RM_shop"
+msgstr "9RM"
+
+msgid "_Marconi_SB4a"
+msgstr "Marconi SB-4a"
+
+msgid "_Renault_62CV"
+msgstr "Renault 62CV"
+
+msgid "_Renault_M26_27"
+msgstr "Renault M26/27"
+
+msgid "_Renault_NC"
+msgstr "Renault NC-2"
+
+msgid "_Type100_A"
+msgstr "Type 100 V-12 A"
+
+msgid "_Type100_W"
+msgstr "Type 100 V-12 W"
+
+msgid "_Type3_Otsu"
+msgstr "Type 3 Otsu"
+
+msgid "_Type94_Hei"
+msgstr "Type 94 Hei"
+
+msgid "_Type96_Bo"
+msgstr "Type 96 Bo"
+
+msgid "_Type97"
+msgstr "Mitsubishi Type 97"
+
+msgid "_Type_102"
+msgstr "Type 102"
+
+msgid "_Type_102S"
+msgstr "Type 102S"
+
+msgid "_Type_102S1"
+msgstr "Type 102S1"
+
+msgid "_V-2-54SC"
+msgstr "V-2-54SC"
+
+msgid "_V-2IS"
+msgstr "V-2-10"
