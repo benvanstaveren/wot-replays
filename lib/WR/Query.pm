@@ -25,17 +25,17 @@ has 'panel'   => 0;
 has 'di_fields' =>  sub { {} };
 has 'di_prio'   =>  sub {
     {
-        'site.visible'                  => 1,
-        'site.privacy'                  => 2,
-        'game.server'                   => 3,
-        'game.map'                      => 4,
-        'game.type'                     => 5,
-        'game.bonus_type'               => 6,
-        'game.recorder.vehicle.ident'   => 6,
-        'game.recorder.vehicle.tier'    => 7,
-        'game.recorder.name'            => 8,
-        'game.recorder.clan'            => 9,
-        'involved.players'              => 10,
+        'game.type'                     => 1,   # 1 because if they are selected, cardinality is only 4
+        'game.server'                   => 1,   # also 1 because cardinality is only 5
+        'game.bonus_type'               => 1,   # also 1 because, hey, if it's selected, cardinality is only 7  
+        'game.map'                      => 2,   # plenty maps
+        'game.recorder.vehicle.ident'   => 3,   # vehicle idents can come after
+        'game.recorder.vehicle.tier'    => 3,   # right along with this
+        'game.recorder.name'            => 4,   # and this
+        'game.recorder.clan'            => 5,   # oh and this one
+        'involved.players'              => 6,   # this is one of those last-ditch effort things
+        'site.visible'                  => 7,   # these two are used in the privacy fetcher, and while cardinality of these matters...
+        'site.privacy'                  => 7,   # ... the query's $or statement for the privacy generally doesn't do much to weed out the chaff.
     }
 };
 
