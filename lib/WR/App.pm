@@ -84,7 +84,7 @@ sub startup {
     });
 
     $self->asset('wtr.css'  =>  '/scss/style.scss');
-    $self->asset('wtr.js'   =>  (map { sprintf('/js/%s', $_) } (qw/jquery.blockUI.js jquery.form.js jquery.timers.js bootstrap-slider.js statterpush.js battleviewer.js heatmap.js heatmapviewer.js mapgrid.js wtr.js wtr.models.js wtr.views.js /)));
+    $self->asset('wtr.js'   =>  (map { sprintf('/js/%s', $_) } (qw/jquery.form.js jquery.timers.js bootstrap-slider.js statterpush.js battleviewer.js heatmap.js heatmapviewer.js mapgrid.js wtr.js wtr.models.js wtr.views.js /)));
 
     $self->routes->namespaces([qw/WR::App::Controller/]);
     my $r = $self->routes->bridge('/')->to(cb => sub {
