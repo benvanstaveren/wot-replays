@@ -11,7 +11,7 @@ msgid "profile.replays.draw"
 msgstr "Unentschieden"
 
 msgid "profile.replays.heading.credits"
-msgstr "Kreditpunkte"
+msgstr "Credits"
 
 msgid "profile.replays.heading.damaged"
 msgstr "Besch&auml;digt"
@@ -67,3 +67,5 @@ msgstr "Sieg"
 msgid "profile.replays.view"
 msgstr "Anschauen"
 
+msgid "profile.replays.allprivacies"
+msgstr "Alle"

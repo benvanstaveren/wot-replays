@@ -5,7 +5,7 @@ msgid "replays.earnings.freexp.title"
 msgstr "Verdiente freie XP"
 
 msgid "replays.earnings.credits.title"
-msgstr "Verdiente Kreditpunkte"
+msgstr "Verdiente Credits"
 
 msgid "replays.earnings.text.premium"
 msgstr "Premium"
