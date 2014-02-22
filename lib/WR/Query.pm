@@ -64,7 +64,7 @@ sub gen_dynamic_index {
     $self->coll->ensure_index($idx, { name => $n });
 
     my $sortidx = Mango::BSON::bson_doc(%{$self->sort});
-    my $sn = sprintf('sort.%s', $self->coll->build_index_name($idx));
+    my $sn = sprintf('sort.%s', $self->coll->build_index_name($sortidx));
     $self->coll->ensure_index($sortidx, { name => $sn });
 
 }
