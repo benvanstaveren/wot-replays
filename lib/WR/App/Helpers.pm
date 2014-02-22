@@ -32,13 +32,13 @@ sub generate_vehicle_select {
 
     my $p = [];
     my $l = { 
-        china => 'China',
-        france => 'France',
-        germany => 'Germany',
-        usa => 'USA',
-        ussr => 'USSR',
-        japan => 'Japan',
-        uk => 'UK',
+        china => $self->loc('nations.china'),
+        france => $self->loc('nations.france'),
+        germany => $self->loc('nations.germany'),
+        usa => $self->loc('nations.usa'),
+        ussr => $self->loc('nations.ussr'),
+        japan => $self->loc('nations.japan'),
+        uk => $self->loc('nations.uk'),
         };
    
     foreach my $country (qw/china france germany usa japan ussr uk/) {
