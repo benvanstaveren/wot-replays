@@ -1,6 +1,7 @@
 package WR::Query;
 use Mojo::Base '-base';
 use Mojo::JSON;
+use Digest::SHA1;
 use Mango::BSON;
 use Data::Dumper;
 use Time::HiRes qw/gettimeofday tv_interval/;
@@ -61,10 +62,10 @@ sub gen_dynamic_index {
 
     my $idx = Mango::BSON::bson_doc(map { $_ => 1 } @$i);
     my $n = $self->coll->build_index_name($idx);
-    $self->coll->ensure_index($idx, { name => $n });
+    $self->coll->ensure_index($idx, { name => sprintf('filter.%s', Digest::SHA1::sha1_hex($n)) });
 
     my $sortidx = Mango::BSON::bson_doc(%{$self->sort});
-    my $sn = sprintf('sort.%s', $self->coll->build_index_name($sortidx));
+    my $sn = sprintf('sort.%s', Digest::SHA1::sha1_hex($self->coll->build_index_name($sortidx)));
     $self->coll->ensure_index($sortidx, { name => $sn });
 
 }
