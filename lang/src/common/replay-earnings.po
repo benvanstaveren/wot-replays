@@ -1,17 +1,23 @@
-msgid "replays.earnings.xp.title"
-msgstr "XP Earnings"
+msgid "replays.earnings.credits.title"
+msgstr "Credit Earnings"
+
+msgid "replays.earnings.crewxp.title"
+msgstr "Crew XP Earnings"
 
 msgid "replays.earnings.freexp.title"
 msgstr "Free XP Earnings"
 
-msgid "replays.earnings.credits.title"
-msgstr "Credit Earnings"
-
-msgid "replays.earnings.text.premium"
-msgstr "premium"
+msgid "replays.earnings.text.ammo"
+msgstr "ammo"
 
 msgid "replays.earnings.text.base"
 msgstr "base"
+
+msgid "replays.earnings.text.compensation"
+msgstr "compensation"
+
+msgid "replays.earnings.text.consumables"
+msgstr "consumables"
 
 msgid "replays.earnings.text.daily"
 msgstr "daily"
@@ -19,26 +25,24 @@ msgstr "daily"
 msgid "replays.earnings.text.earned"
 msgstr "earned"
 
-msgid "replays.earnings.text.subtotal"
-msgstr "subtotal"
-
-msgid "replays.earnings.text.penalty"
-msgstr "penalty"
-
 msgid "replays.earnings.text.event"
 msgstr "event"
 
 msgid "replays.earnings.text.mission"
 msgstr "mission"
 
-msgid "replays.earnings.text.ammo"
-msgstr "ammo"
+msgid "replays.earnings.text.penalty"
+msgstr "penalty"
 
-msgid "replays.earnings.text.consumables"
-msgstr "consumables"
+msgid "replays.earnings.text.premium"
+msgstr "premium"
 
 msgid "replays.earnings.text.repair"
 msgstr "repair"
 
-msgid "replays.earnings.text.compensation"
-msgstr "compensation"
+msgid "replays.earnings.text.subtotal"
+msgstr "subtotal"
+
+msgid "replays.earnings.xp.title"
+msgstr "XP Earnings"
+

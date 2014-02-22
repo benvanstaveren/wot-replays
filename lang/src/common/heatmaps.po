@@ -1,11 +1,11 @@
-msgid "heatmaps.page.title"
-msgstr "Heatmaps &raquo; %0"
+msgid "heatmaps.options.damage"
+msgstr "Damage Received"
+
+msgid "heatmaps.options.deaths"
+msgstr "Deaths"
 
 msgid "heatmaps.options.heading"
 msgstr "Options"
-
-msgid "heatmaps.options.matchtype"
-msgstr "Match Type"
 
 msgid "heatmaps.options.heatmaptype"
 msgstr "Heatmap Type"
@@ -13,9 +13,21 @@ msgstr "Heatmap Type"
 msgid "heatmaps.options.locations"
 msgstr "Locations"
 
-msgid "heatmaps.options.damage"
+msgid "heatmaps.options.matchtype"
+msgstr "Match Type"
+
+msgid "heatmaps.page.title"
+msgstr "Heatmaps &raquo; %0"
+
+msgid "heatmaps.type.damage.done"
+msgstr "Damage Done"
+
+msgid "heatmaps.type.damage.received"
 msgstr "Damage Received"
 
-msgid "heatmaps.options.deaths"
+msgid "heatmaps.type.deaths"
 msgstr "Deaths"
+
+msgid "heatmaps.type.locations"
+msgstr "Locations"
 
