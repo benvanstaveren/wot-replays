@@ -17,33 +17,32 @@
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
-        <script defer src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-growl/1.0.0/jquery.bootstrap-growl.min.js"></script>
-        <script defer src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
-        <script defer src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.0/backbone-min.js"></script>
-        <script defer type="text/javascript" src="//cdn.sockjs.org/sockjs-0.3.min.js"></script>
-
+        <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-growl/1.0.0/jquery.bootstrap-growl.min.js"></script>
+        <script src="//cdn.sockjs.org/sockjs-0.3.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.0/backbone-min.js"></script>
 
         <script defer type="text/javascript" src="[% config.urls.static %]/js/jquery.form.js"></script>
         <script defer type="text/javascript" src="[% config.urls.static %]/js/jquery.timers.js"></script>
-        <script  type="text/javascript" defer src="[% config.urls.static %]/js/statterpush.js"></script>
-        <script defer type="text/javascript" src="[% config.urls.static %]/js/bootstrap-slider.js"></script>
+        <script type="text/javascript" src="[% config.urls.static %]/js/statterpush.js"></script>
+        <script type="text/javascript" src="[% config.urls.static %]/js/bootstrap-slider.js"></script>
+
         <script defer type="text/javascript" src="[% config.urls.static %]/js/mapgrid.js"></script>
         <script defer type="text/javascript" src="[% config.urls.static %]/js/heatmap.js"></script>
         <script defer type="text/javascript" src="[% config.urls.static %]/js/heatmapviewer.js"></script>
         <script defer type="text/javascript" src="[% config.urls.static %]/js/battleviewer.js"></script>
 
         <script type="text/javascript" src="[% config.urls.static %]/js/wtr.js?_[% h.nonce %]"></script>
-
-        <script defer type="text/javascript" src="/xhr/po/[% user_lang %].js?_[% h.nonce %]"></script>
-        <script defer type="text/javascript" src="[% config.urls.static %]/js/wtr.models.js?_[% h.nonce %]"></script>
-        <script defer type="text/javascript" src="[% config.urls.static %]/js/wtr.views.js?_[% h.nonce %]"></script>
+        <script type="text/javascript" src="/xhr/po/[% user_lang %].js?_[% h.nonce %]"></script>
+        <script type="text/javascript" src="[% config.urls.static %]/js/wtr.models.js?_[% h.nonce %]"></script>
+        <script type="text/javascript" src="[% config.urls.static %]/js/wtr.views.js?_[% h.nonce %]"></script>
 
         [% TRY %]
             [% INCLUDE head_javascript %]
         [% CATCH %]
         [% END %]
 
-	    <script type="text/javascript" defer>
+	    <script type="text/javascript">
             var WR = new Wotreplays({
                 pageid: '[% pageid |js %]',
                 apikey: '[% config.statterbox.web %]',
