@@ -25,13 +25,13 @@
                     <th>[% h.loc('profile.replays.heading.vehicle') %]</th>
                     <th>[% h.loc('profile.replays.heading.wl') %]</th>
                     <th>[% h.loc('profile.replays.heading.survived') %]</th>
-                    <th>[% h.loc('profile.replays.heading.kills') %]kills</th>
-                    <th>[% h.loc('profile.replays.heading.damaged') %]damaged</th>
-                    <th>[% h.loc('profile.replays.heading.spotted') %]spotted</th>
-                    <th>[% h.loc('profile.replays.heading.xp') %]xp</th>
-                    <th>[% h.loc('profile.replays.heading.credits') %]credits</th>
-                    <th>[% h.loc('profile.replays.heading.version') %]version</th>
-                    <th>[% h.loc('profile.replays.heading.links') %]links</th>
+                    <th>[% h.loc('profile.replays.heading.kills') %]</th>
+                    <th>[% h.loc('profile.replays.heading.damaged') %]</th>
+                    <th>[% h.loc('profile.replays.heading.spotted') %]</th>
+                    <th>[% h.loc('profile.replays.heading.xp') %]</th>
+                    <th>[% h.loc('profile.replays.heading.credits') %]</th>
+                    <th>[% h.loc('profile.replays.heading.version') %]</th>
+                    <th>[% h.loc('profile.replays.heading.links') %]</th>
                     <th>
                         <select name="type" style="width: 100%">
                             <option value="*">all</option>
