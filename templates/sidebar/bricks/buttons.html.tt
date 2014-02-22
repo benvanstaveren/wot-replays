@@ -1,0 +1,5 @@
+<div class="row">
+    <div class="col-lg-12 col-md-12">
+        <a href="/upload/" class="btn btn-primary btn-lg btn-block"><i class="fa fa-upload fa-fw"></i> <span class="i18n">nav.upload</span></a>$
+    </div>
+</div>

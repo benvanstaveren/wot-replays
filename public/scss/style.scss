@@ -24,7 +24,6 @@ $armor_base_ussr:       rgb(61, 62, 42);
 @import "battleviewer";
 @import "map";
 
-
 div {
     &.row.replay-view {
         h4 { margin: 15px 0px 10px 0px }
@@ -55,10 +54,13 @@ div {
     &.rounded-tl {
         @extend %rounded-tl;
     }
-    &.container {
-        /*background: #060606 none repeat scroll 0 0;*/
+    &.container.content-main {
         background: rgba($background_from_theme,0.95) none repeat scroll 0 0;
-        margin-bottom: 40px;
+        margin: 40px auto;
+        padding: 0px;
+    }
+    #contentMain {
+        padding: 0px 15px 0px 15px;
     }
     &.sidebar {
         padding-top: 10px;

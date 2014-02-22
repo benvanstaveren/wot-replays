@@ -50,3 +50,54 @@ $corner_radius: 4px;
     @extend %rounded-br;
     @extend %rounded-bl;
 }
+
+%not-rounded-tr {
+    -moz-border-top-right-radius: none;
+    -webkit-border-top-right-radius: none;
+    border-top-right-radius: none;
+}
+
+%not-rounded-tl {
+    -moz-border-top-left-radius: none;
+    -webkit-border-top-left-radius: none;
+    border-top-left-radius: none;
+}
+
+%not-rounded-br {
+    -moz-border-bottom-right-radius: none;
+    -webkit-border-bottom-right-radius: none;
+    border-bottom-right-radius: none;
+}
+
+%not-rounded-bl {
+    -moz-border-bottom-left-radius: none;
+    -webkit-border-bottom-left-radius: none;
+    border-bottom-left-radius: none;
+}
+
+%not-rounded-bottom {
+    @extend %not-rounded-br;
+    @extend %not-rounded-bl;
+}
+
+%not-rounded-top {
+    @extend %not-rounded-tr;
+    @extend %not-rounded-tl;
+}
+
+%not-rounded-left {
+    @extend %not-rounded-tl;
+    @extend %not-rounded-bl;
+}
+
+%not-rounded-right {
+    @extend %not-rounded-tr;
+    @extend %not-rounded-br;
+}
+
+%not-rounded {
+    @extend %not-rounded-tr;
+    @extend %not-rounded-tl;
+    @extend %not-rounded-br;
+    @extend %not-rounded-bl;
+}
