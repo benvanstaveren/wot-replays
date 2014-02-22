@@ -5,7 +5,7 @@ msgid "server.kr"
 msgstr "Korea"
 
 msgid "server.na"
-msgstr "Nord-Amerika"
+msgstr "Nordamerika"
 
 msgid "server.ru"
 msgstr "Russland"
