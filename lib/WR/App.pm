@@ -78,13 +78,13 @@ sub startup {
     $self->types->type(csv => 'text/csv; charset=utf-8');
     $self->renderer->default_handler('tt');
 
-    $self->plugin('Mojolicious::Plugin::AssetPack', {
-        cleanup => 1,
-        minify  => 0,
-    });
+    #$self->plugin('Mojolicious::Plugin::AssetPack', {
+    #    cleanup => 1,
+    #    minify  => 0,
+    #});
 
-    $self->asset('wtr.css'  =>  '/scss/style.scss');
-    $self->asset('wtr.js'   =>  (map { sprintf('/js/%s', $_) } (qw/jquery.form.js jquery.timers.js bootstrap-slider.js statterpush.js battleviewer.js heatmap.js heatmapviewer.js mapgrid.js wtr.js wtr.models.js wtr.views.js /)));
+    #$self->asset('wtr.css'  =>  '/scss/style.scss');
+    #$self->asset('wtr.js'   =>  (map { sprintf('/js/%s', $_) } (qw/jquery.form.js jquery.timers.js bootstrap-slider.js statterpush.js battleviewer.js heatmap.js heatmapviewer.js mapgrid.js wtr.js wtr.models.js wtr.views.js /)));
 
     $self->routes->namespaces([qw/WR::App::Controller/]);
     my $r = $self->routes->bridge('/')->to(cb => sub {
