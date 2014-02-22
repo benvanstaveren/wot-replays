@@ -82,8 +82,25 @@ sub register {
     $app->helper(get_localizer_for => sub {
         my $self = shift;
         my $lang = shift;
-        return Data::Localize::Gettext->new(encoding => 'utf-8', formatter => WR::Localize::Formatter->new(), paths => $self->config('i18n_language_paths')->{$lang});
+        return Data::Localize::Gettext->new(encoding => 'utf8', formatter => WR::Localize::Formatter->new(), paths => $self->config('i18n_language_paths')->{$lang});
     });
+
+    $app->helper(fix_utf8_for_js => sub {
+        my $self = shift;
+        my $str  = shift;
+        my $new  = '';
+
+        my @b = split(//, $str);
+        foreach my $c (@b) {
+            if(ord($c) > 127) {
+                $new .= sprintf('&#%d;', ord($c));
+            } else {
+                $new .= $c;
+            }
+        }
+        return $new;
+    });
+
 
     $app->helper(i18n_catalog => sub {
         my $self = shift;
@@ -94,7 +111,7 @@ sub register {
                 next if($cat eq 'site');
                 foreach my $id (keys(%{$localizer->get_lexicon_map($cat)})) {
                     my $val = $localizer->get_lexicon($cat, $id);
-                    $catalog->{sprintf('#%s:%s', $cat, $id)} = encode('utf8', $val, Encode::FB_HTMLCREF);
+                    $catalog->{sprintf('#%s:%s', $cat, $id)} = $self->fix_utf8_for_js($val);
                 }
             }
             foreach my $id (keys(%{$localizer->get_lexicon_map('site')})) {
@@ -124,6 +141,7 @@ sub register {
         if($str =~ /^#(.*?):(.*)/) {
             $l   = $1;
             $str = $2;
+            # it is...
         } else {
             $str = lc($str) unless($nolc == 1);
         }
@@ -133,7 +151,10 @@ sub register {
         if(my $localizer = $self->stash('i18n_localizer')) {
             if(my $xlat = $localizer->localize_for(lang => $l, id => $str, args => $args)) {
                 $result = $xlat;
-                # see if result is valid utf8
+                if($l ne 'site') {
+                    # which means it's a WoT thing
+                    utf8::decode($result);
+                }
             } else {
                 if($l ne 'site') {
                     # okay, stupid WG inconsistency, some tanks have a _short, some don't, so if our str contains _short, retry it 

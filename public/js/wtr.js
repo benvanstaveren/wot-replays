@@ -197,9 +197,9 @@ $.fn.extend({
                     $(this).data('i18n-orig', key);
 
                     if(fmt == null || fmt == undefined) {
-                        $(this).text(WR.i18n(key, args));
+                        $(this).html(WR.i18n(key, args));
                     } else {
-                        $(this).text(fmt.replace('%s', WR.i18n(key, args)));
+                        $(this).html(fmt.replace('%s', WR.i18n(key, args)));
                     }
                 }
             }
@@ -215,7 +215,7 @@ $.fn.extend({
                     $(this).attr(attribute, val);
                 }
             }
-            if($(this).data('title-is-content')) $(this).attr('title', $(this).text());
+            if($(this).data('title-is-content')) $(this).attr('title', $(this).html());
             if(!argsonly) {
                 if($(this).hasClass('transform')) {
                     // transformations only work on entire texts, not attributes
@@ -225,6 +225,9 @@ $.fn.extend({
                     if(tx == 'lc') $(this).css({ 'text-transform': 'lowercase' });
                 }
             }
+
+            // cheesy fix
+            if($(this).hasClass('bs-tooltip')) $(this).data('html', true);
         });
     }
 });
