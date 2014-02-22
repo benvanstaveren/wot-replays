@@ -17,10 +17,10 @@ msgid "panel.button.view.title"
 msgstr "Dieses Replay anschauen"
 
 msgid "panel.credits.heading"
-msgstr "Kreditpunkte"
+msgstr "Credits"
 
 msgid "panel.credits.tooltip"
-msgstr "%0 Kreditpunkte mit Premium und Missions-Boni erhalten"
+msgstr "%0 Credits mit Premium und Missions-Boni erhalten"
 
 msgid "panel.spotted.heading"
 msgstr "Aufgekl&auml;rt"

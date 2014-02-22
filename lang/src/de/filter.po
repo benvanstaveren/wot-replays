@@ -62,7 +62,7 @@ msgid "sidebar.filter.sorting.scouted"
 msgstr "Schaden durch Aufkl&auml;rung"
 
 msgid "sidebar.filter.sorting.likes"
-msgstr "Gef&auml;llt mir"
+msgstr "Gef&auml;llt mir-Angaben"
 
 msgid "sidebar.filter.sorting.downloads"
 msgstr "Downloads"

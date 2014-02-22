@@ -26,19 +26,19 @@ msgid "tooltip.rating.overall.equal"
 msgstr "Spieler ist insgesamt durchschnittlich"
 
 msgid "tooltip.wn7.overall"
-msgstr "Spieler Gesamt-WN7"
+msgstr "Gesamt-WN7 des Spielers"
 
 msgid "tooltip.wn7.battle"
-msgstr "Spieler-WN7 in diesem Gefecht"
+msgstr "WN7 des Spielers in diesem Gefecht"
 
 msgid "tooltip.team.average.wn7"
 msgstr "Durchschnitts-WN7 f&uuml;r dieses Team"
 
 msgid "tooltip.wn8.overall"
-msgstr "Spieler Gesamt-WN8"
+msgstr "Gesamt-WN8 des Spielers"
 
 msgid "tooltip.wn8.battle"
-msgstr "Spieler-WN8 in diesem Gefecht"
+msgstr "WN8 des Spielers in diesem Gefecht"
 
 msgid "tooltip.team.average.wn8"
 msgstr "Durchschnitts-WN8 f&uuml;r dieses Team"

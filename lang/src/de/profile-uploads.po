@@ -23,7 +23,7 @@ msgid "profile.uploads.process.ok"
 msgstr "Erfolgreich verarbeitet"
 
 msgid "profile.uploads.process.error"
-msgstr "Fehler bei Verarbeitung"
+msgstr "Fehler bei der Verarbeitung"
 
 msgid "profile.uploads.process.pending"
 msgstr "Noch nicht verarbeitet"

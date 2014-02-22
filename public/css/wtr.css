@@ -1798,10 +1798,12 @@ div.armor.usa {
   background: #524833 none repeat scroll 0 0; }
 div.armor.ussr {
   background: #3d3e2a none repeat scroll 0 0; }
-div.container {
-  /*background: #060606 none repeat scroll 0 0;*/
+div.container.content-main {
   background: rgba(6, 6, 6, 0.95) none repeat scroll 0 0;
-  margin-bottom: 40px; }
+  margin: 40px auto;
+  padding: 0px; }
+div #contentMain {
+  padding: 0px 15px 0px 15px; }
 div.sidebar {
   padding-top: 10px; }
 

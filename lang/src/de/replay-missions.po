@@ -24,10 +24,10 @@ msgid "replay.missions.bonustype.xpFactor"
 msgstr "%0x XP"
 
 msgid "replay.missions.bonustype.creditFactor"
-msgstr "%0x Kreditpunkte"
+msgstr "%0x Credits"
 
 msgid "replay.missions.bonustype.credits"
-msgstr "%0 Kreditpunkte"
+msgstr "%0 Credits"
 
 msgid "replay.missions.bonustype.tankmenXPFactor"
 msgstr "%0x Crew-XP"

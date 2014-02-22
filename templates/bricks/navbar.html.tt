@@ -1,0 +1,63 @@
+<div class="navbar navbar-inverse navbar-shadow not-rounded-bottom" id="main-navigation">
+    <div class="navbar-header">
+        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div>
+    <div class="navbar-collapse collapse" id="navbar-main">
+        <ul class="nav navbar-nav">
+            <li class="[% IF pageid == 'home' %]active[% END %]"><a class="i18n" href="/">nav.home</a></li>
+            <li class="[% IF pageid == 'browse' %]active[% END %]"><a class="i18n" href="/browse">nav.browse</a></li>
+            <li class="[% IF pageid == 'player' %]active[% END %]"><a class="i18n" href="/players/">nav.players</a></li>
+            <li class="[% IF pageid == 'clan' %]active[% END %]"><a class="i18n" href="/clans/">nav.clans</a></li>
+            <li class="[% IF pageid == 'map' %]active[% END %]"><a class="i18n" href="/maps/">nav.maps</a></li>
+            <li class="dropdown [% IF pageid == 'vehicle' %]active[% END %]"><a class="dropdown-toggle" data-toggle="dropdown" href="/vehicles/"><span class="i18n">nav.vehicles</span> <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a class="i18n" href="/vehicles/china">nations.china</a></li>
+                    <li><a class="i18n" href="/vehicles/france">nations.france</a></li>
+                    <li><a class="i18n" href="/vehicles/germany">nations.germany</a></li>
+                    <li><a class="i18n" href="/vehicles/japan">nations.japan</a></li>
+                    <li><a class="i18n" href="/vehicles/uk">nations.uk</a></li>
+                    <li><a class="i18n" href="/vehicles/usa">nations.usa</a></li>
+                    <li><a class="i18n" href="/vehicles/ussr">nations.ussr</a></li>
+                </ul>
+            </li>
+            <li class="dropdown [% IF pageid == 'heatmap' %]active[% END %]"><a class="dropdown-toggle" data-toggle="dropdown" href="/heatmaps/"><span class="i18n">nav.heatmaps</span> <b class="caret"></b></a>
+                <ul class="dropdown-menu" style="column-count: 3; -moz-column-count: 3; -webkit-column-count: 3; width: 500px">
+                    [% INCLUDE generated/heatmap_list.html.tt %]
+                </ul>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="[% IF pageid == 'blog' %]active[% END %]"><a href="http://blog.wotreplays.org/">[% h.loc('nav.blog') %]</a></li>
+            <li class="[% IF pageid == 'upload' %]active[% END %]"><a href="[% IF h.is_user_authenticated %]/upload/[% ELSE %]/login/[% END %]">[% h.loc('nav.upload') %]</a></li>
+            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">[% h.loc('nav.tools') %] <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li class=" issues [% IF pageid == 'issues' %]active[% END %]"><a class="js-hover" href="https://github.com/benvanstaveren/wot-replays/issues">[% h.loc('nav.tools.issuetracker') %]</a></li> 
+                    <li class=" wiki [% IF pageid == 'wiki' %]active[% END %]"><a class="js-hover" href="http://wiki.vbaddict.net/pages/WoT_Developer_Wiki">[% h.loc('nav.tools.wiki') %]</a></li>
+                </ul>
+            </li>
+            [% IF h.is_user_authenticated %]
+                [% IF h.has_admin_access %]
+                    <li><a href="/admin/">[% h.loc('nav.admin') %]</a></li>
+                [% END %]
+                <li class="dropdown [% IF pageid == 'profile' %]active[% END %]"><a href="/profile" class="dropdown-toggle" data-toggle="dropdown">[% h.current_user.player_name |html %] <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-header">[% h.loc('nav.profile.header') %]</li>
+                        <li><a href="/profile/replays/type/p/page/1">[% h.loc('nav.profile.replays') %]</a></li>
+                        <li><a href="/profile/uploads/page/1">[% h.loc('nav.profile.uploads') %]</a></li>
+                        <li><a href="/profile/settings">[% h.loc('nav.profile.settings') %]</a></li>
+                        <li class="divider"></li>
+                        <li><a class="please-wait" href="/logout">[% h.loc('nav.profile.signout') %]</a></li>
+                    </ul>
+                </li>
+            [% ELSE %]
+                <li [% IF pageid == 'login' %]class="active"[% END %]>
+                    <a href="/login">[% h.loc('nav.signin') %]</a>
+                </li>
+            [% END %]
+        </ul>
+    </div>
+</div>
