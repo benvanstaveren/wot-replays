@@ -62,6 +62,11 @@ sub gen_dynamic_index {
     my $idx = Mango::BSON::bson_doc(map { $_ => 1 } @$i);
     my $n = $self->coll->build_index_name($idx);
     $self->coll->ensure_index($idx, { name => $n });
+
+    my $sortidx = Mango::BSON::bson_doc(%{$self->sort});
+    my $sn = sprintf('sort.%s', $self->coll->build_index_name($idx));
+    $self->coll->ensure_index($sortidx, { name => $sn });
+
 }
 
 sub error { shift->_log('error', @_) }
