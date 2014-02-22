@@ -14,7 +14,7 @@ msgid "clans.label.clan.ticker"
 msgstr "Tanda Klan"
 
 msgid "clans.label.query"
-msgstr "Pertanyaan"
+msgstr "Nama"
 
 msgid "clans.label.server"
 msgstr "Server"

@@ -1,38 +1,29 @@
-msgid "upload.page.title"
+msgid "upload.button.upload"
 msgstr "Replay hochladen"
-
-msgid "upload.description.help"
-msgstr "Nur Text, HTML ist nicht erlaubt"
-
-msgid "upload.legend.file"
-msgstr "Replay-Datei"
-
-msgid "upload.legend.details"
-msgstr "Replay-Details"
 
 msgid "upload.description"
 msgstr "Beschreibung"
 
-msgid "upload.optional"
-msgstr "optional"
+msgid "upload.description.help"
+msgstr "Nur Text, HTML ist nicht erlaubt"
 
-msgid "upload.privacy"
-msgstr "Privatsph&auml;re-Einstellungen"
+msgid "upload.legend.details"
+msgstr "Replay-Details"
 
-msgid "upload.privacy.tooltip"
-msgstr "mehr Infos..."
+msgid "upload.legend.file"
+msgstr "Replay-Datei"
 
-msgid "upload.button.upload"
-msgstr "Replay hochladen"
+msgid "upload.modal.complete.banner"
+msgstr "Banner"
 
-msgid "upload.modal.upload.header"
-msgstr "Replay wird hochgeladen..."
+msgid "upload.modal.complete.banner.error"
+msgstr "W&auml;hrend der Generierung des Banners ist ein Fehler aufgetreten, er wird bald neu generiert und du kannst ihn unter &#39;Einbetten&#39; auf der Replay-Seite finden."
 
-msgid "upload.modal.process.header"
-msgstr "Replay wird verarbeitet..."
+msgid "upload.modal.complete.button.close"
+msgstr "Schlie&szlig;en"
 
-msgid "upload.modal.process.button.close"
-msgstr "Schlie&szlig;en &amp; und im Hintergrund verarbeiten"
+msgid "upload.modal.complete.button.closeview"
+msgstr "Schlie&szlig;en &amp; Anschauen"
 
 msgid "upload.modal.complete.header"
 msgstr "Verarbeitung fertig"
@@ -40,25 +31,36 @@ msgstr "Verarbeitung fertig"
 msgid "upload.modal.complete.links"
 msgstr "Links"
 
-msgid "upload.modal.complete.replay.page"
-msgstr "Replay-Seite"
-
 msgid "upload.modal.complete.replay.file"
 msgstr "Replay-Datei"
 
-msgid "upload.modal.complete.banner"
-msgstr "Banner"
+msgid "upload.modal.complete.replay.page"
+msgstr "Replay-Seite"
 
-msgid "upload.modal.complete.banner.error"
-msgstr "W&auml;hrend der Generierung des Banners ist ein Fehler aufgetreten, er wird bald neu generiert und du kannst ihn unter 'Einbetten' auf der Replay-Seite finden."
+msgid "upload.modal.process.button.close"
+msgstr "Schlie&szlig;en &amp; und im Hintergrund verarbeiten"
 
-msgid "upload.modal.complete.button.closeview"
-msgstr "Schlie&szlig;en &amp; Anschauen"
+msgid "upload.modal.process.header"
+msgstr "Replay wird verarbeitet..."
 
-msgid "upload.modal.complete.button.close"
-msgstr "Schlie&szlig;en"
+msgid "upload.modal.upload.header"
+msgstr "Replay wird hochgeladen..."
 
+msgid "upload.nav.batch"
+msgstr "Stapelupload"
 
+msgid "upload.nav.single"
+msgstr "Einzelupload"
 
+msgid "upload.optional"
+msgstr "optional"
 
+msgid "upload.page.title"
+msgstr "Replay hochladen"
+
+msgid "upload.privacy"
+msgstr "Privatsph&auml;re-Einstellungen"
+
+msgid "upload.privacy.tooltip"
+msgstr "mehr Infos..."
 

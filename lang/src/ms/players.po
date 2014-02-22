@@ -1,11 +1,17 @@
 msgid "players.button.search.label"
 msgstr "Cari"
 
+msgid "players.heading.results"
+msgstr "Hasil"
+
 msgid "players.heading.search"
 msgstr "Cari"
 
+msgid "players.label.player"
+msgstr "Pemain"
+
 msgid "players.label.query"
-msgstr "Pertanyaan"
+msgstr "Nama"
 
 msgid "players.label.server"
 msgstr "Server"
@@ -16,8 +22,3 @@ msgstr "Cari Pemain"
 msgid "players.page.title"
 msgstr "Cari Pemain"
 
-msgid "players.heading.results"
-msgstr "Hasil"
-
-msgid "players.label.player"
-msgstr "Pemain"
