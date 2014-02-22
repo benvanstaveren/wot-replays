@@ -18,8 +18,51 @@ has '_query'  => sub { return shift->_build_query };
 has '_res'    => undef;
 has 'total'   => 0;
 has 'log'     => undef;
-has 'query_explain' => sub { return shift->exec()->explain() }; # since this is usually called until way after we've done our exec, we can probably get away with this here 
+has 'explain' => sub { return shift->exec()->explain() }; # since this is usually called until way after we've done our exec, we can probably get away with this here 
 has 'panel'   => 0;
+
+has 'di_fields' =>  sub { {} };
+has 'di_prio'   =>  sub {
+    {
+        'site.visible'                  => 1,
+        'site.privacy'                  => 2,
+        'game.server'                   => 3,
+        'game.map'                      => 4,
+        'game.type'                     => 5,
+        'game.bonus_type'               => 6,
+        'game.recorder.vehicle.ident'   => 6,
+        'game.recorder.vehicle.tier'    => 7,
+        'game.recorder.name'            => 8,
+        'game.recorder.clan'            => 9,
+        'involved.players'              => 10,
+    }
+};
+
+sub dif { my $self = shift; my $n = shift; $self->di_fields->{$n}++; $self->debug('dif: ', $n) }
+
+sub gen_dynamic_index {
+    my $self = shift;
+    my $i = [];
+    
+    foreach my $f (sort { $self->di_prio->{$a} <=> $self->di_prio->{$b} } (keys(%{$self->di_prio}))) {
+        if(defined($self->di_fields->{$f})) {
+            push(@$i, $f);
+            delete($self->di_fields->{$f});
+        }
+    }
+
+    foreach my $f (keys(%{$self->di_fields})) {
+        push(@$i, $f);
+    }
+    
+    foreach my $key (keys(%{$self->sort})) {
+        push(@$i, $key);
+    }
+
+    my $idx = Mango::BSON::bson_doc(map { $_ => 1 } @$i);
+    my $n = $self->coll->build_index_name($idx);
+    $self->coll->ensure_index($idx, { name => $n });
+}
 
 sub error { shift->_log('error', @_) }
 sub info { shift->_log('info', @_) }
@@ -37,7 +80,6 @@ sub _log {
 sub exec {
     my $self = shift;
     my $cb   = shift;
-
 
     if(defined($self->_res)) {
         $self->debug('exec already has result');
@@ -129,6 +171,9 @@ sub fixargs {
 # these fragments are combined in an '$or' statement for the visible and privacy level settings
 sub _privacy_public {
     my $self = shift;
+
+    $self->dif('site.visible');
+
     return {
         'site.visible' => Mango::BSON::bson_true,
     };
@@ -136,6 +181,9 @@ sub _privacy_public {
 
 sub _privacy_recorder {
     my $self = shift;
+
+    $self->dif($_) for(qw/site.visible site.privacy game.recorder.name game.server/);
+
     return {
         'site.visible'       => Mango::BSON::bson_false,
         'site.privacy'       => 2,
@@ -146,6 +194,9 @@ sub _privacy_recorder {
 
 sub _privacy_clan {
     my $self = shift;
+
+    $self->dif($_) for(qw/site.visible site.privacy game.recorder.clan game.server/);
+
     return {
         'site.visible'       => Mango::BSON::bson_false,
         'site.privacy'       => 3,
@@ -157,92 +208,144 @@ sub _privacy_clan {
 sub _build_query {
     my $self = shift;
     my %args = (
-        playerpov => 0,
-        playerinv => 0,
-        vehiclepov => 0,
-        vehicleinv => 0,
+        pp => 0,
+        pi => 0,
+        vp => 0,
+        vi => 0,
         %{ $self->filter },
         );
-    my $query = {};
+    my $query = [];
+    my $namemap = {
+        'playerpov'     => 'pp',
+        'playerinv'     => 'pi',
+        'vehiclepov'    => 'vp',
+        'vehicleinv'    => 'vi',
+        'tier_min'      => 'tmi',
+        'tier_max'      => 'tma',
+        'map'           => 'm',
+        'server'        => 's',
+        'matchmode'     => 'mm',
+        'matchtype'     => 'mt',
+        'sort'          => 'sr',
+        'vehicle'       => 'v',
+        'clan'          => 'c',
+        'player'        => 'pl',
+    };
 
+    # convert any old names to new names (yey)
     foreach my $key (keys(%args)) {
         delete($args{$key}) if($args{$key} eq '*');
+        if(my $newname = $namemap->{$key}) {
+            $args{$newname} = delete($args{$key});
+        } 
     }
 
-    my $ors = [];
+    $self->debug('raw args: ', Dumper({%args}));
 
     my $priv = [
         $self->_privacy_public,
     ];
-
     push(@$priv, $self->_privacy_recorder) if(defined($self->user) && defined($self->user->{player_name}));
     push(@$priv, $self->_privacy_clan) if(defined($self->user) && defined($self->user->{clan}));
 
-    if($args{'player'}) {
-        if($args{'playerpov'} > 0) {
-            $query->{'game.server'} = $self->fixargs($args{'server'});
-            $query->{'game.recorder.name'} = $self->fixargs($args{'player'});
-        } elsif($args{'playerinv'} > 0) {
-            $query->{'game.server'} = $self->fixargs($args{'server'});
-            $query->{'involved.players'} = $self->fixargs($args{'player'}, '$in'); 
-            $query->{'game.recorder.name'} = $self->fixargs($args{'player'}, '$nin');
+    if($args{'pl'}) {
+        if($args{'pp'} > 0) {
+            push(@$query, { 
+                'game.server'         => $self->fixargs($args{s}),
+                'game.recorder.name'  => $self->fixargs($args{pl}),
+            });
+            $self->dif($_) for(qw/game.server game.recorder.name/);
+        } elsif($args{'pi'} > 0) {
+            push(@$query, {
+                'game.server'     => $self->fixargs($args{s}),
+                '$and'            => [
+                    { 'involved.players' => $self->fixargs($args{'pl'}, '$in') },
+                    { 'game.recorder.name' => $self->fixargs($args{'pl'}, '$nin') },
+                ],
+            });
+            $self->dif($_) for(qw/game.server game.recorder.name involved.players/);
         } else {
-            push(@$ors, [ 
-                { 'game.recorder.name' => $self->fixargs($args{'player'}) }, { 'involved.players' => $self->fixargs($args{'player'}, '$in') } 
-            ]);
-            $query->{'game.server'} = $self->fixargs($args{'server'});
+            push(@$query, {
+                '$or' => [
+                    { 'game.recorder.name' => $self->fixargs($args{'pl'}) }, 
+                    { 'involved.players' => $self->fixargs($args{'pl'}, '$in') }
+                ],
+                'game.server'     => $self->fixargs($args{s}),
+            });
+            $self->dif($_) for(qw/game.server game.recorder.name involved.players/);
         }
     }
 
-    $query->{'game.recorder.clan'} = $args{'clan'} if($args{'clan'}); # keep the privacy settings intact
+    if($args{c}) {
+        push(@$query, { 'game.recorder.clan' => $args{c} });
+        $self->dif('game.recorder.clan');
+    }
 
-    if($args{'server'}) {
-        if(ref($args{'server'}) eq 'ARRAY') {
-            $query->{'game.server'} = { '$in' => $args{'server'} };
+    if($args{'s'}) {
+        if(ref($args{'s'}) eq 'ARRAY') {
+            push(@$query, { 'game.server' => { '$in' => $args{'s'} } });
         } elsif(!ref($args{'server'})) {
-            $query->{'game.server'} = $args{'server'} if($args{'server'} ne 'www');
+            push(@$query, { 'game.server' => $args{'s'} });
         }
+        $self->dif('game.server');
     }
 
-    $query->{'game.map'} = $self->fixargs($args{map} + 0) if(defined($args{map}));
+    if($args{m}) {
+        push(@$query, { 'game.map' => $self->fixargs($args{m}) + 0 });
+        $self->dif('game.map');
+    }
 
-    if($args{'vehicle'}) {
-        if($args{'vehiclepov'}) {
-            $query->{'game.recorder.vehicle.ident'} = $self->fixargs($args{'vehicle'});
-        } elsif($args{'vehicleinv'}) {
-            $query->{'roster.vehicle.ident'} = $self->fixargs($args{'vehicle'});
+    if($args{'v'}) {
+        if($args{'vp'}) {
+            push(@$query, { 'game.recorder.vehicle.ident' => $self->fixargs($args{'v'}) });
+            $self->dif('game.recorder.vehicle.ident');
+        } elsif($args{'vi'}) {
+            push(@$query, { 'roster.vehicle.ident' => $self->fixargs($args{'vi'}) });
+            $self->dif('roster.vehicle.ident');
         } else {
-            push(@$ors, [
-                { 'game.recorder.vehicle.ident' => $self->fixargs($args{'vehicle'}) },
-                { 'roster.vehicle.ident' => $self->fixargs($args{'vehicle'}) },
-            ]);
+            $self->dif('game.recorder.vehicle.ident');
+            $self->dif('roster.vehicle.ident');
+            push(@$query, { 
+                '$or' => [
+                    { 'game.recorder.vehicle.ident' => $self->fixargs($args{'vi'}) },
+                    { 'roster.vehicle.ident' => $self->fixargs($args{'vi'}) },
+                ]
+            });
         }
-    }
-
-    if(defined($args{'tier_min'}) || defined($args{'tier_max'})) {
-        $query->{'game.recorder.vehicle.tier'} = {
-            '$gte' => (defined($args{'tier_min'})) ? $args{tier_min} + 0 : 1,
-            '$lte' => (defined($args{'tier_max'})) ? $args{tier_max} + 0 : 10,
-        };
-    }
-
-    $query->{'game.type'} = $args{'matchmode'} if($args{'matchmode'} && $args{'matchmode'} ne '');
-    $query->{'game.bonus_type'} = $args{'matchtype'} + 0 if($args{'matchtype'} && $args{'matchtype'} ne '');
-
-    # finalize the query
-    if(scalar(@$ors) > 1) {
-        foreach my $or (@$ors) {
-            push(@{$query->{'$and'}}, { '$or' => $or });
-        }
-    } elsif(scalar(@$ors) > 0) {
-        $query->{'$or'} = [ shift(@$ors), @$priv ]
     } else {
-        $query->{'$or'} = $priv;
+        if(defined($args{'tmi'}) || defined($args{'tma'})) { 
+            my $c = 0;
+            my $r = {};
+            $self->debug('tmi: ', $args{tmi}, ' tma: ', $args{tma});
+            if($args{tmi} + 0 > 1) {
+                $r->{'$gte'} = $args{tmi};
+                $c++;
+            }
+            if($args{tma} + 0 < 10) {
+                $r->{'$lte'} = $args{'tma'};
+                $c++;
+            }
+            $self->debug('c: ', $c);
+            push(@$query, { 'game.recorder.vehicle.tier' => $r }) if($c > 0);
+            $self->dif('game.recorder.vehicle.tier') if($c > 0);
+        }
     }
 
-    $self->debug('[_build_query]: built query: ', Dumper($query));
+    if($args{mm} && $args{mm} ne '') {
+        push(@$query, { 'game.type' => $args{mm} });
+        $self->dif('game.type');
+    }
+    if($args{mt} && $args{mt} ne '') {
+        push(@$query, { 'game.bonus_type' => $args{mt} });
+        $self->dif('game.bonus_type');
+    }
 
-    return $query;
+    my $real_query = (scalar(@$query) > 0) 
+        ? { '$and' => [ { '$or' => $priv }, { '$and' => $query } ] }
+        : { '$or' => $priv };
+
+    $self->gen_dynamic_index;
+    return $real_query;
 }
 
 1;

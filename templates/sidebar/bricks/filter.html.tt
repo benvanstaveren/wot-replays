@@ -3,11 +3,11 @@
     <div class="col-lg-12 col-md-12">
         <form id="frm-browse-filter" method="post">
             <input type="hidden" name="p" value="[% p %]"/>
-            <input type="hidden" name="vehiclepov" value="1"/>
-            <input type="hidden" name="vehicleinv" value="0"/>
+            <input type="hidden" name="vp" value="1"/>
+            <input type="hidden" name="vi" value="0"/>
             [% IF pageid == 'player' %]
-                <input type="hidden" name="playerpov" value="1"/>
-                <input type="hidden" name="playerinv" value="0"/>
+                <input type="hidden" name="pp" value="1"/>
+                <input type="hidden" name="pi" value="0"/>
                 <div class="row">
                     <div class="col-lg-12 col-md-12">
                         <h5>[% h.loc('sidebar.filter.player.title') %]</h5>
@@ -20,12 +20,12 @@
                 </div>
             [% END %]
             [% IF pageid != 'vehicle' %]
-                <input type="hidden" name="tier_min" value="1"/>
-                <input type="hidden" name="tier_max" value="10"/>
+                <input type="hidden" name="tmi" value="1"/>
+                <input type="hidden" name="tma" value="10"/>
                 <div class="row">
                     <div class="col-lg-12 col-md-12">
                         <h5>[% h.loc('sidebar.filter.vehicle.title') %]</h5>
-                        <select name="vehicle" class="form-control">
+                        <select name="v" class="form-control">
                             <option value="*" tier="-1">-- [% h.loc('sidebar.filter.vehicle.all') %]</option>
                             [% FOREACH group IN h.generate_vehicle_select() %]
                                 <optgroup label="[% group.label %]">
@@ -40,7 +40,7 @@
                 <div class="row">
                     <div class="col-lg-12 col-md-12">
                         <h5>[% h.loc('sidebar.filter.tier.title') %]</h5>
-                        <small style="margin: 0px 15px 0px 0px" id="tier-min">[% filter.tier_min || '1' %]</small><input id="tier-slider" type="text" class="span2" value="" data-slider-min="1" data-slider-max="10" data-slider-value="[[% filter.tier_min || '1' %],[% filter.tier_max || '10' %]]" data-slider-step="1" data-slider-orientation="horizontal" data-slider-tooltip="hide"/> <small style="margin: 0px 0px 0px 15px" id="tier-max"> [% filter.tier_max || '10' %]</small>
+                        <small style="margin: 0px 15px 0px 0px" id="tier-min">[% filter.tier_min || '1' %]</small><input id="tier-slider" type="text" class="span2" value="" data-slider-min="1" data-slider-max="10" data-slider-value="[[% filter.tmi || '1' %],[% filter.tma || '10' %]]" data-slider-step="1" data-slider-orientation="horizontal" data-slider-tooltip="hide"/> <small style="margin: 0px 0px 0px 15px" id="tier-max"> [% filter.tier_max || '10' %]</small>
                     </div>
                 </div>
             [% END %]
@@ -48,7 +48,7 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12">
                     <h5>[% h.loc('sidebar.filter.map.title') %]</h5>
-                    <select name="map" class="form-control">
+                    <select name="m" class="form-control">
                         <option value="*">-- [% h.loc('sidebar.filter.map.all') %]</option>
                         [% FOREACH map IN h.generate_map_select() %]
                             <option value="[% map.id |html %]">[% h.loc(map.i18n) %]</option>
@@ -61,7 +61,7 @@
                 <div class="row">
                     <div class="col-lg-12 col-md-12">
                         <h5>[% h.loc('sidebar.filter.server.title') %]</h5>
-                        <select name="server" class="form-control">
+                        <select name="s" class="form-control">
                             <option value="*">-- [% h.loc('sidebar.filter.server.all') %]</option>
                             <option value="na">[% h.loc('server.na') %]</option>
                             <option value="eu">[% h.loc('server.eu') %]</option>
@@ -75,7 +75,7 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12">
                     <h5>[% h.loc('sidebar.filter.matchmode.title') %]</h5>
-                    <select name="matchmode" class="form-control">
+                    <select name="mm" class="form-control">
                         <option value="*">-- [% h.loc('sidebar.filter.matchmode.all') %]</option>
                         <option value="ctf">[% h.loc('gametype.ctf') %]</option>
                         <option value="domination">[% h.loc('gametype.domination') %]</option>
@@ -87,7 +87,7 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12">
                     <h5>[% h.loc('sidebar.filter.matchtype.title') %]</h5>
-                    <select name="matchtype" class="form-control">
+                    <select name="mt" class="form-control">
                         <option value="*">-- [% h.loc('sidebar.filter.matchtype.all') %]</option>
                         <option value="1">[% h.loc('bonustype.1') %]</option>
                         <option value="2">[% h.loc('bonustype.2') %]</option>
@@ -102,7 +102,7 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12">
                     <h5>[% h.loc('sidebar.filter.sorting.title') %]</h5>
-                    <select name="sort" class="form-control">
+                    <select name="sr" class="form-control">
                         <option value="upload">[% h.loc('sidebar.filter.sorting.upload') %]</option>
                         <option value="matchtime">[% h.loc('sidebar.filter.sorting.matchtime') %]</option>
                         <option value="xp">[% h.loc('sidebar.filter.sorting.xp') %]</option>

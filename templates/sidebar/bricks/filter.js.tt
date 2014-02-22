@@ -1,13 +1,13 @@
 <script type="text/javascript">
     $(document).ready(function() {
         [% IF pageid != 'vehicle' %]
-            $('#frm-browse-filter select[name="vehicle"]').val('[% filter.vehicle || '*' %]');
+            $('#frm-browse-filter select[name="v"]').val('[% filter.v || '*' %]');
 
-            $('select[name="vehicle"] option').each(function(i, e) {
+            $('select[name="v"] option').each(function(i, e) {
                 var t = $(e).attr('tier');
                 if(t == -1) {
                     $(e).show();
-                } else if(t < [% filter.tier_min || '0' %] || t > [% filter.tier_max || '10' %]) {
+                } else if(t < [% filter.tmi || '0' %] || t > [% filter.tma || '10' %]) {
                     $(e).hide();
                 } else {
                     $(e).show();
@@ -17,10 +17,10 @@
             $('#tier-slider').slider()
                 .on('slideStop', function(ev) {
                     var v = ev.value;
-                    $('input[name="tier_min"]').val(v[0]);
-                    $('input[name="tier_max"]').val(v[1]);
+                    $('input[name="tmi"]').val(v[0]);
+                    $('input[name="tma"]').val(v[1]);
 
-                    $('select[name="vehicle"] option').each(function(i, e) {
+                    $('select[name="v"] option').each(function(i, e) {
                         var t = $(e).attr('tier');
                         if(t < v[0] || t > v[1]) {
                             $(e).hide();
@@ -35,47 +35,51 @@
                     $('small#tier-max').text(v[1]);
                 });
 
-            $('select[name="vehicle"]').change(function() {
+            $('#tier-slider').slider('setValue', [[% filter.tmi %],[% filter.tma %]]);
+            $('small#tier-min').text([% filter.tmi %]);
+            $('small#tier-max').text([% filter.tma %]);
+
+            $('select[name="v"]').change(function() {
                 var v = $(this).val();
                 if(v == null || v == undefined || v == '*') {
                     $('#vehicle-tier-container').show();
                 } else {
                     $('#vehicle-tier-container').hide();
-                    $('input[name="tier_min"]').val(1);
-                    $('input[name="tier_max"]').val(10);
+                    $('input[name="tmi"]').val(1);
+                    $('input[name="tma"]').val(10);
                 }
             });
         [% END %]
 
         [% IF pageid != 'map' %]
-            $('#frm-browse-filter select[name="map"]').val('[% filter.map || '*'%]');
+            $('#frm-browse-filter select[name="m"]').val('[% filter.m || '*'%]');
         [% END %]
 
         [% IF pageid != 'player' %]
-            $('#frm-browse-filter select[name="server"]').val('[% filter.server || '*' %]');
+            $('#frm-browse-filter select[name="s"]').val('[% filter.s || '*' %]');
         [% END %]
-        $('#frm-browse-filter select[name="matchmode"]').val('[% filter.matchmode || '*' %]');
-        $('#frm-browse-filter select[name="matchtype"]').val('[% filter.matchtype || '*' %]');
-        $('#frm-browse-filter select[name="sort"]').val('[% filter.sort || 'upload'%]');
+        $('#frm-browse-filter select[name="mm"]').val('[% filter.mm || '*' %]');
+        $('#frm-browse-filter select[name="mt"]').val('[% filter.mt || '*' %]');
+        $('#frm-browse-filter select[name="sr"]').val('[% filter.sr || 'upload'%]');
 
         [% IF pageid == 'player' %]
             var v = '*';
 
-            if([% filter.playerinv %] == 0 && [% filter.playerpov %] == 0) v = '*';
-            if([% filter.playerinv %] == 1) v = 1;
-            if([% filter.playerpov %] == 1) v = 0;
+            if([% filter.pi %] == 0 && [% filter.pp %] == 0) v = '*';
+            if([% filter.pi %] == 1) v = 1;
+            if([% filter.pp %] == 1) v = 0;
 
             $('select[name="tplayer"]').val(v).change(function() {
                 var val = $(this).val();
                 if(val == '*') {
-                    $('input[name="playerpov"]').val(0);
-                    $('input[name="playerinv"]').val(0);
+                    $('input[name="pp"]').val(0);
+                    $('input[name="pi"]').val(0);
                 } else if(val == 0) {
-                    $('input[name="playerpov"]').val(1);
-                    $('input[name="playerinv"]').val(0);
+                    $('input[name="pp"]').val(1);
+                    $('input[name="pi"]').val(0);
                 } else {
-                    $('input[name="playerpov"]').val(0);
-                    $('input[name="playerinv"]').val(1);
+                    $('input[name="pp"]').val(0);
+                    $('input[name="pi"]').val(1);
                 }
             });
         [% END %]
@@ -85,10 +89,10 @@
             $('form#frm-browse-filter input[name="p"]').val('1');
 
             [% IF pageid != 'vehicle' %]
-                $('form#frm-browse-filter input[name="tier_min"]').val('1');
-                $('form#frm-browse-filter input[name="tier_max"]').val('10');
+                $('form#frm-browse-filter input[name="tmi"]').val('1');
+                $('form#frm-browse-filter input[name="tma"]').val('10');
                 $('#tier-slider').slider('setValue', [1,10]);
-                $('form#frm-browse-filter select[name="vehicle"]').val('*');
+                $('form#frm-browse-filter select[name="v"]').val('*');
                 $('small#tier-min').html(1);
                 $('small#tier-max').html(10);
             [% END %]
@@ -96,34 +100,34 @@
             [% IF pageid == 'player' %]
                 var v = '*';
 
-                if([% filter.playerinv %] == 0 && [% filter.playerpov %] == 0) v = '*';
-                if([% filter.playerinv %] == 1) v = 1;
-                if([% filter.playerpov %] == 1) v = 0;
+                if([% filter.pi %] == 0 && [% filter.pp %] == 0) v = '*';
+                if([% filter.pi %] == 1) v = 1;
+                if([% filter.pp %] == 1) v = 0;
 
                 $('select[name="tplayer"]').val(v);
                 if(v == '*') {
-                    $('input[name="playerpov"]').val(0);
-                    $('input[name="playerinv"]').val(0);
+                    $('input[name="pp"]').val(0);
+                    $('input[name="pi"]').val(0);
                 } else if(v == 0) {
-                    $('input[name="playerpov"]').val(1);
-                    $('input[name="playerinv"]').val(0);
+                    $('input[name="pp"]').val(1);
+                    $('input[name="pi"]').val(0);
                 } else {
-                    $('input[name="playerpov"]').val(0);
-                    $('input[name="playerinv"]').val(1);
+                    $('input[name="pp"]').val(0);
+                    $('input[name="pi"]').val(1);
                 }
             [% END %]
 
             [% IF pageid != 'player' %]
-                $('form#frm-browse-filter select[name="server"]').val('*');
+                $('form#frm-browse-filter select[name="s"]').val('*');
             [% END %]
 
             [% IF pageid != 'map' %]
-                $('form#frm-browse-filter select[name="map"]').val('*');
+                $('form#frm-browse-filter select[name="m"]').val('*');
             [% END %]
 
-            $('form#frm-browse-filter select[name="matchmode"]').val('*');
-            $('form#frm-browse-filter select[name="matchtype"]').val('*');
-            $('form#frm-browse-filter select[name="sort"]').val('upload');
+            $('form#frm-browse-filter select[name="mm"]').val('*');
+            $('form#frm-browse-filter select[name="mt"]').val('*');
+            $('form#frm-browse-filter select[name="sr"]').val('upload');
 
 
             var s = $('form#frm-browse-filter').serialize();

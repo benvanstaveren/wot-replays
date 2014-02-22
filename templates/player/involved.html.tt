@@ -21,8 +21,8 @@
 <script type="text/javascript">
     $(document).ready(function() {
         $('form#frm-browse-filter input[name="p"]').val('1');
-        $('form#frm-browse-filter input[name="playerpov"]').val('0');
-        $('form#frm-browse-filter input[name="playerinv"]').val('1');
+        $('form#frm-browse-filter input[name="p"]').val('0');
+        $('form#frm-browse-filter input[name="pi"]').val('1');
         var s = $('form#frm-browse-filter').serialize();
         $('#browseContent').load('/replay/browse', s, function() {
         });

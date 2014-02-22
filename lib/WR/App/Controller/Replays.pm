@@ -87,7 +87,6 @@ sub _real_browse {
     }
 
     $self->stash('browse_filter_raw' => $filter); # this will bomb dafux out 
-
     $self->debug('base_q isa: ', ref($base_q));
 
     foreach my $k (keys(%$base_q)) {
@@ -98,9 +97,9 @@ sub _real_browse {
         $self->stash(filter_root => $self->stash('filter_opts')->{filter_root}->($self));
     }
 
-    my $tier_min = $filter->{tier_min} || 1;
-    my $tier_max = $filter->{tier_max} || 10;
-    my $sort = $sorting->{$filter->{sort} || 'upload'};
+    my $tier_min = $filter->{tmi} || 1;
+    my $tier_max = $filter->{tma} || 10;
+    my $sort = $sorting->{$filter->{sr} || 'upload'};
 
     my $start = [ gettimeofday ];
     my $query = $self->wr_query(

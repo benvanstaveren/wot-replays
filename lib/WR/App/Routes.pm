@@ -18,17 +18,17 @@ sub install {
     $r->route('/browse')->to(cb => sub {
         my $self = shift;
         $self->stash('browse_filter_raw' => {
-            p => 1,
-            vehiclepov => 1,
-            vehicleinv => 0,
-            tier_min => 1,
-            tier_max => 10,
-            vehicle => '*',
-            map => '*',
-            server => '*',
-            matchmode => '*',
-            matchtype => '*',
-            sort => 'upload',
+            p   => 1,
+            vp  => 1,
+            vi  => 0,
+            tmi => 1,
+            tma => 10,
+            v   => '*',
+            m   => '*',
+            s   => '*',
+            mm  => '*',
+            mt  => '*',
+            sr  => 'upload',
         }, pageid => 'browse');
         $self->redirect_to(sprintf('/browse/%s', $self->browse_page(1)));
     });
@@ -65,15 +65,15 @@ sub install {
         $clan->route('/:server/:clanticker')->to(cb => sub {
             my $self = shift;
             $self->stash('browse_filter_raw' => {
-                p => 1,
-                vehiclepov => 1,
-                map => '*',
-                server => '*',
-                matchmode => '*',
-                matchtype => '*',
-                sort => 'upload',
-                playerpov => 1, 
-                playerinv => 0,
+                p   => 1,
+                vp  => 1,
+                m   => '*',
+                s   => '*',
+                mm  => '*',
+                mt  => '*',
+                sr  => 'upload',
+                pp  => 1, 
+                pi  => 0,
             });
             $self->redirect_to(sprintf('/clan/%s/%s/%s', $self->stash('server'), $self->stash('clanticker'), $self->browse_page(1)));
         }, pageid => 'clan');
@@ -87,7 +87,7 @@ sub install {
             filter_opts => {
                 base_query => sub {
                     my $self = shift;
-                    return { 'clan' => $self->stash('clanticker'), 'server' => $self->stash('server') };
+                    return { 'c' => $self->stash('clanticker'), 's' => $self->stash('server') };
                 },
                 filter_root => sub {
                     my $self = shift;
@@ -103,15 +103,15 @@ sub install {
         $player->route('/:server/:player_name')->to(cb => sub {
             my $self = shift;
             $self->stash('browse_filter_raw' => {
-                p => 1,
-                vehiclepov => 1,
-                map => '*',
-                server => '*',
-                matchmode => '*',
-                matchtype => '*',
-                sort => 'upload',
-                playerpov => 1, 
-                playerinv => 0,
+                p   => 1,
+                vp  => 1,
+                m   => '*',
+                s   => '*',
+                mm  => '*',
+                mt  => '*',
+                sr  => 'upload',
+                pp  => 1, 
+                pi  => 0,
             });
             $self->redirect_to(sprintf('/player/%s/%s/%s', $self->stash('server'), $self->stash('player_name'), $self->browse_page(1)));
         }, pageid => 'player');
@@ -125,7 +125,7 @@ sub install {
             filter_opts => {
                 base_query => sub {
                     my $self = shift;
-                    return { 'player' => $self->stash('player_name'), 'server' => $self->stash('server') };
+                    return { 'pl' => $self->stash('player_name'), 's' => $self->stash('server') };
                 },
                 filter_root => sub {
                     my $self = shift;
@@ -142,13 +142,13 @@ sub install {
         $vehicle->route('/:country/:vehicle')->to(cb => sub {
             my $self = shift;
             $self->stash('browse_filter_raw' => {
-                p => 1,
-                vehiclepov => 1,
-                map => '*',
-                server => '*',
-                matchmode => '*',
-                matchtype => '*',
-                sort => 'upload',
+                p   => 1,
+                vp  => 1,
+                m   => '*',
+                s   => '*',
+                mm  => '*',
+                mt  => '*',
+                sr  => 'upload',
             });
             $self->redirect_to(sprintf('/vehicle/%s/%s/%s', $self->stash('country'), $self->stash('vehicle'), $self->browse_page(1)));
         }, pageid => 'vehicle');
@@ -161,7 +161,7 @@ sub install {
             filter_opts => {
                 base_query => sub {
                     my $self = shift;
-                    return { 'vehicle' => sprintf('%s:%s', $self->stash('country'), $self->stash('vehicle')) };
+                    return { 'v' => sprintf('%s:%s', $self->stash('country'), $self->stash('vehicle')) };
                 },
                 filter_root => sub {
                     my $self = shift;
@@ -180,15 +180,15 @@ sub install {
         $map->route('/:map_id')->to(cb => sub {
             my $self = shift;
             $self->stash('browse_filter_raw' => {
-                p => 1,
-                vehiclepov => 1,
-                tier_min => 1,
-                tier_max => 10,
-                vehicle => '*',
-                server => '*',
-                matchmode => '*',
-                matchtype => '*',
-                sort => 'upload',
+                p   => 1,
+                vp  => 1,
+                tmi => 1,
+                tma => 10,
+                v   => '*',
+                s   => '*',
+                mm  => '*',
+                mt  => '*',
+                sr  => 'upload',
             });
             $self->redirect_to(sprintf('/map/%s/%s', $self->stash('map_id'), $self->browse_page(1)));
         }, pageid => 'map');
@@ -208,7 +208,7 @@ sub install {
                     $self->model('wot-replays.data.maps')->find_one({ slug => $slug } => sub {
                         my ($coll, $err, $doc) = (@_);
                         $self->stash('map_name' => $self->loc($doc->{i18n}));
-                        $cb->({ map => $doc->{numerical_id }});
+                        $cb->({ m => $doc->{numerical_id }});
                     });
                 },
                 filter_root => sub {
