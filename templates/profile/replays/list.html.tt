@@ -34,7 +34,7 @@
                     <th>[% h.loc('profile.replays.heading.links') %]</th>
                     <th>
                         <select name="type" style="width: 100%">
-                            <option value="*">all</option>
+                            <option value="*">[% h.loc('profile.replays.allprivacies') |lower %]</option>
                             <option value="p">[% h.loc('privacy.public') |lower %]</option>
                             <option value="u">[% h.loc('privacy.unlisted') |lower %]</option>
                             <option value="pr">[% h.loc('privacy.private') |lower %]</option>

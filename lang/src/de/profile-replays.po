@@ -67,3 +67,5 @@ msgstr "Sieg"
 msgid "profile.replays.view"
 msgstr "Anschauen"
 
+msgid "profile.replays.allprivacies"
+msgstr "Alle"
