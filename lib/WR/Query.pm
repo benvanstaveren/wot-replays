@@ -220,7 +220,7 @@ sub _build_query {
         vi => 0,
         %{ $self->filter },
         );
-    my $query = [];
+    my $query = {};
     my $namemap = {
         'playerpov'     => 'pp',
         'playerinv'     => 'pi',
@@ -256,68 +256,47 @@ sub _build_query {
 
     if($args{'pl'}) {
         if($args{'pp'} > 0) {
-            push(@$query, { 
-                'game.server'         => $self->fixargs($args{s}),
-                'game.recorder.name'  => $self->fixargs($args{pl}),
-            });
+            $query->{'game.server'} = $self->fixargs($args{s});
+            $query->{'game.recorder.name'} = $self->fixargs($args{pl});
             $self->dif($_) for(qw/game.server game.recorder.name/);
         } elsif($args{'pi'} > 0) {
-            push(@$query, {
-                'game.server'     => $self->fixargs($args{s}),
-                '$and'            => [
-                    { 'involved.players' => $self->fixargs($args{'pl'}, '$in') },
-                    { 'game.recorder.name' => $self->fixargs($args{'pl'}, '$nin') },
-                ],
-            });
+            $query->{'game.server'} = $self->fixargs($args{s});
+            $query->{'involved.players'} = $self->fixargs($args{pl}, '$in');
+            $query->{'game.recorder.name'} = $self->fixargs($args{pl}, '$nin');
             $self->dif($_) for(qw/game.server game.recorder.name involved.players/);
         } else {
-            push(@$query, {
-                '$or' => [
-                    { 'game.recorder.name' => $self->fixargs($args{'pl'}) }, 
-                    { 'involved.players' => $self->fixargs($args{'pl'}, '$in') }
-                ],
-                'game.server'     => $self->fixargs($args{s}),
-            });
+            $query->{'game.server'} = $self->fixargs($args{s});
+            $query->{'$or'} = [
+                { 'game.recorder.name' => $self->fixargs($args{'pl'}) }, 
+                { 'involved.players' => $self->fixargs($args{'pl'}, '$in') }
+            ];
             $self->dif($_) for(qw/game.server game.recorder.name involved.players/);
         }
     }
 
     if($args{c}) {
-        push(@$query, { 'game.recorder.clan' => $args{c} });
+        $query->{'game.recorder.clan'} = $args{c};
         $self->dif('game.recorder.clan');
     }
 
     if($args{'s'}) {
         if(ref($args{'s'}) eq 'ARRAY') {
-            push(@$query, { 'game.server' => { '$in' => $args{'s'} } });
+            $query->{'game.server'} = { '$in' => $args{s} } unless(defined($query->{'game.server'})); # if we already have it, can't specify it again because the player has
         } elsif(!ref($args{'server'})) {
-            push(@$query, { 'game.server' => $args{'s'} });
+            $query->{'game.server'} = $args{s} unless(defined($query->{'game.server'})); # if we already have it, can't specify it again because the player has
         }
         $self->dif('game.server');
     }
 
     if($args{m}) {
-        push(@$query, { 'game.map' => $self->fixargs($args{m}) + 0 });
+        $query->{'game.map'} = $self->fixargs($args{m} + 0);
         $self->dif('game.map');
     }
 
     if($args{'v'}) {
-        if($args{'vp'}) {
-            push(@$query, { 'game.recorder.vehicle.ident' => $self->fixargs($args{'v'}) });
-            $self->dif('game.recorder.vehicle.ident');
-        } elsif($args{'vi'}) {
-            push(@$query, { 'roster.vehicle.ident' => $self->fixargs($args{'vi'}) });
-            $self->dif('roster.vehicle.ident');
-        } else {
-            $self->dif('game.recorder.vehicle.ident');
-            $self->dif('roster.vehicle.ident');
-            push(@$query, { 
-                '$or' => [
-                    { 'game.recorder.vehicle.ident' => $self->fixargs($args{'vi'}) },
-                    { 'roster.vehicle.ident' => $self->fixargs($args{'vi'}) },
-                ]
-            });
-        }
+        # no longer support involved vehicles 
+        $query->{'game.recorder.vehicle.ident'} = $self->fixargs($args{v});
+        $self->dif('game.recorder.vehicle.ident');
     } else {
         if(defined($args{'tmi'}) || defined($args{'tma'})) { 
             my $c = 0;
@@ -332,22 +311,22 @@ sub _build_query {
                 $c++;
             }
             $self->debug('c: ', $c);
-            push(@$query, { 'game.recorder.vehicle.tier' => $r }) if($c > 0);
+            $query->{'game.recorder.vehicle.tier'} = $r if($c > 0);
             $self->dif('game.recorder.vehicle.tier') if($c > 0);
         }
     }
 
     if($args{mm} && $args{mm} ne '') {
-        push(@$query, { 'game.type' => $args{mm} });
+        $query->{'game.type'} = $args{mm};
         $self->dif('game.type');
     }
     if($args{mt} && $args{mt} ne '') {
-        push(@$query, { 'game.bonus_type' => $args{mt} + 0 });
+        $query->{'game.bonus_type'} = $args{mt} + 0;
         $self->dif('game.bonus_type');
     }
 
-    my $real_query = (scalar(@$query) > 0) 
-        ? { '$and' => [ { '$or' => $priv }, { '$and' => $query } ] }
+    my $real_query = (scalar(keys(%$query)) > 0) 
+        ? { '$and' => [ { '$or' => $priv },  $query ] }
         : { '$or' => $priv };
 
     $self->gen_dynamic_index;
