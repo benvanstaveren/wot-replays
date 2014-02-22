@@ -40,10 +40,7 @@ sub startup {
         $self->plugin(sprintf('WR::Plugin::%s', $_));
     }
 
-    $self->plugin('WR::Plugin::Statterpush', {
-        token => $config->{statterbox}->{server},
-        group => 'wotreplays',
-    });
+    $self->plugin('WR::Plugin::Thunderpush', $config->{thunderpush});
 
     $self->renderer->paths([]); # clear this out
     $self->plugin('Mojolicious::Plugin::TtRenderer', {

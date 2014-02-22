@@ -50,13 +50,16 @@ sub get_online_users {
     my $end  = shift;
 
     $self->render_later;
-    $self->app->statterpush->ua->inactivity_timeout(60);
-    $self->app->statterpush->channel_list('site' => sub {
+    $self->app->thunderpush->ua->inactivity_timeout(60);
+    $self->app->thunderpush->channel_list('site' => sub {
         my ($p, $res) = (@_);
         my $o = [];
         my $g = 0;
 
-        foreach my $user (@{$res->{data}->{users}}) {
+        use Data::Dumper;
+        warn Dumper($res);
+
+        foreach my $user (@{$res->{response}->{users}}) {
             if($user =~ /^(anon-|undefined)/) {
                 $g++;
             } else {
@@ -64,7 +67,7 @@ sub get_online_users {
             }
         }
 
-        $self->render(json => { guest_count => 0, users => $o });
+        $self->render(json => { guest_count => $g, users => $o });
     });
 }
 

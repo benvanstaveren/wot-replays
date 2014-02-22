@@ -76,6 +76,7 @@
                 },
                 success: function(d, t, x) {
                     $('#uploadModal').modal('hide');
+                    console.log('upload done, data: ', d);
                     if(d.ok && d.ok == 1) {
                         $('#frm-upload').addClass('hide');
                         $('#chat-output-row').removeClass('hide');
@@ -83,6 +84,7 @@
                         WR_CR_session = d.channel;
 
                         WR.on('chatreader.message', function(data) {
+                            console.log('WR.on chatreader.message, data: ', data, ' WR_CR_session = ', d.channel);
                             if(data.session == WR_CR_session) $('#chat-output').append( $('<div/>').html(data.text) );
                         });
                         WR.on('chatreader.finished', function(data) {

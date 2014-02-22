@@ -1,6 +1,7 @@
 package WR::App::Controller::Auth;
 use Mojo::Base 'WR::App::Controller';
 use Mango::BSON;
+use Data::Dumper;
 
 sub do_logout {
     my $self = shift;

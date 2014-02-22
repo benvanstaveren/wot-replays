@@ -3,6 +3,7 @@ window.Wotreplays = function(options) {
     this.channels   = options.channels  || [];
     this.user       = options.user;
     this.apikey     = options.apikey;
+    this.thunderkey = options.thunderkey;
     this.indev      = options.indev || false;
 
     this.catalog    = {};
@@ -34,7 +35,8 @@ Wotreplays.prototype = {
             });
         }
     },
-    dispatchMessage: function(message) {   
+    dispatchMessage: function(raw) {   
+        var message = JSON.parse(raw);
         if(message.evt) this.emit(message.evt, message.data); 
     },
     ready: function() {
@@ -47,8 +49,8 @@ Wotreplays.prototype = {
 
         this._setDefaultHandlers();
 
-        Statterpush.connect(this.apikey, 'wotreplays', chan, { log: this.indev, user: this.user });
-        Statterpush.listen(function(message) {
+        Thunder.connect('thunderpush.wotreplays.org', this.thunderkey, chan, { log: this.indev, user: this.user });
+        Thunder.listen(function(message) {
             that.dispatchMessage(message);
         });
         [ '/img/waiting.gif' ].forEach(function(image) {
@@ -207,7 +209,6 @@ $.fn.extend({
             // we'll find their keys and args in data-i18n-attr
             var attrs = $(this).data('i18n-attr'); 
             if(attrs != null && attrs != undefined) {
-                console.log('attrs: ', attrs);
                 for(attribute in attrs) {
                     var key = attrs[attribute][0];
                     var args = attrs[attribute][1];

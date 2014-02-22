@@ -14,6 +14,7 @@ sub _json {
     if(my $res = $tx->success) {
         return $res->json;
     } else {
+        warn ref($self), ': _json: res not success, code: ', $tx->res->code, ' ', $tx->res->message, "\n";
         return undef;
     }
 }
@@ -23,6 +24,9 @@ sub send_to_channel {
     my $channel = shift;
     my $message = shift;
     my $cb      = shift;
+
+    warn ref($self), ': send_to_channel: ', $channel, "\n";
+    warn ref($self), ': send_to_channel: host ', $self->host, ' key: ', $self->key, ' secret: ', $self->secret, "\n";
 
     if(defined($cb)) {
         $self->ua->post(sprintf('http://%s/api/1.0.0/%s/channels/%s/', 

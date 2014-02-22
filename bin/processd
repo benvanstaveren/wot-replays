@@ -6,12 +6,13 @@ use lib "$FindBin::Bin/../lib";
 use Getopt::Long;
 use WR::Daemon::Process;
 use Mojo::Log;
-use WR::Statterpush::Server;
+use WR::Thunderpush::Server;
 use Mojo::JSON;
 use Time::HiRes;
 use Time::HiRes;
 use Time::HiRes;
 use Time::HiRes;
+use Data::Dumper;
 use POSIX ":sys_wait_h";
 
 my $config      = {};
@@ -58,7 +59,7 @@ if(my $fh = IO::File->new($cfile)) {
 my $mango       = Mango->new($config->{mongodb}->{host});
 my $db          = $mango->db($config->{mongodb}->{database});
 
-sub get_push { return WR::Statterpush::Server->new(host => 'api.statterbox.com', token => $config->{statterbox}->{server}, group => 'wotreplays') };
+sub get_push { return WR::Thunderpush::Server->new(host => 'thunderpush.wotreplays.org', key => $config->{thunderpush}->{key}, secret => $config->{thunderpush}->{secret}) };
 
 my $log;
 if(my $lf = $config->{processd}->{logfile} && !$ls) {
@@ -145,10 +146,10 @@ while(!$stopping) {
                             $p->db->collection('jobs')->update({ _id => $job->{_id} }, { '$set' => { 'status_text' => [], locked => Mango::BSON::bson_true, locked_by => $$, locked_at => Mango::BSON::bson_time } } );
                             $p->on('message' => sub {
                                 my ($p, $text) = (@_);
-                                get_push->send_to_channel('admin' => Mojo::JSON->new->encode({ evt => 'chatreader.message', data => { session => $job->{channel}, text => $text } }));
+                                debug(Dumper(get_push->send_to_channel('admin' => Mojo::JSON->new->encode({ evt => 'chatreader.message', data => { session => $job->{channel}, text => $text } }))));
                             });
                             $p->on('finished' => sub {
-                                get_push->send_to_channel('admin' => Mojo::JSON->new->encode({ evt => 'chatreader.finished', data => { session => $job->{channel} } }));
+                                debug(Dumper(get_push->send_to_channel('admin' => Mojo::JSON->new->encode({ evt => 'chatreader.finished', data => { session => $job->{channel} } }))));
                             });
                            $p->process_chatreader($job);
                         } else {
