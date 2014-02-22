@@ -342,7 +342,7 @@ sub _build_query {
         $self->dif('game.type');
     }
     if($args{mt} && $args{mt} ne '') {
-        push(@$query, { 'game.bonus_type' => $args{mt} });
+        push(@$query, { 'game.bonus_type' => $args{mt} + 0 });
         $self->dif('game.bonus_type');
     }
 
@@ -351,6 +351,9 @@ sub _build_query {
         : { '$or' => $priv };
 
     $self->gen_dynamic_index;
+
+    $self->debug('QUERY: ', Dumper($real_query));
+
     return $real_query;
 }
 
