@@ -12,33 +12,17 @@
         <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet"/> 
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet"/>
         <link href="//netdna.bootstrapcdn.com/bootswatch/3.1.0/cyborg/bootstrap.min.css" rel="stylesheet"/>
-        <link href="[% config.urls.static %]/css/wtr.css" rel="stylesheet"/>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-growl/1.0.0/jquery.bootstrap-growl.min.js"></script>
-
         <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.0/backbone-min.js"></script>
-
         <script type="text/javascript" src="//cdn.sockjs.org/sockjs-0.3.min.js"></script>
 
-        <script type="text/javascript" src="[% config.urls.static %]/js/statterpush.js"></script>
-        <script type="text/javascript" src="[% config.urls.static %]/js/jquery.form.js"></script>
-        <script type="text/javascript" src="[% config.urls.static %]/js/jquery.timers.js"></script>
-        <script type="text/javascript" src="[% config.urls.static %]/js/bootstrap-slider.js"></script>
+        [% h.asset('wtr.css') %]
+        [% h.asset('wtr.js') %]
 
-        <script type="text/javascript" src="/xhr/po/[% user_lang %].js?_[% h.nonce %]"></script>
-
-        <script type="text/javascript" src="[% config.urls.static %]/js/wtr.models.js?_[% h.nonce %]"></script>
-        <script type="text/javascript" src="[% config.urls.static %]/js/wtr.views.js?_[% h.nonce %]"></script>
-        <script type="text/javascript" src="[% config.urls.static %]/js/wtr.js?_[% h.nonce %]"></script>
-
-        <script type="text/javascript" src="[% config.urls.static %]/js/mapgrid.js"></script>
-        <script type="text/javascript" src="[% config.urls.static %]/js/heatmap.js"></script>
-        <script type="text/javascript" src="[% config.urls.static %]/js/heatmapviewer.js"></script>
-        <script type="text/javascript" src="[% config.urls.static %]/js/battleviewer.js"></script>
         [% TRY %]
             [% INCLUDE head_javascript %]
         [% CATCH %]

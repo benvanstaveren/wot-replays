@@ -17,3 +17,4 @@ wrapi.development.conf
 *.pyc
 lib/WR/Parser/Private/*
 lang/site/*
+public/packed/*
