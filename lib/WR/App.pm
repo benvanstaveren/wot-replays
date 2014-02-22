@@ -78,13 +78,6 @@ sub startup {
     $self->types->type(csv => 'text/csv; charset=utf-8');
     $self->renderer->default_handler('tt');
 
-    $self->plugin('Mojolicious::Plugin::AssetPack', {
-        cleanup => 1,
-        minify  => 0,
-    });
-
-    $self->asset('wtr.css'  =>  '/scss/style.scss');
-
     $self->routes->namespaces([qw/WR::App::Controller/]);
     my $r = $self->routes->bridge('/')->to(cb => sub {
         my $self = shift;

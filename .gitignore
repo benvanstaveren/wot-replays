@@ -17,5 +17,4 @@ wrapi.development.conf
 *.pyc
 lib/WR/Parser/Private/*
 lang/site/*
-public/packed/*
-public/css/*
+public/scss/.sass-cache/*
