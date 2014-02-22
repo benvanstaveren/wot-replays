@@ -219,13 +219,13 @@ sub install {
         );
 
     my $login = $r->under('/login');
-        $login->route('/')->to('ui#do_login', pageid => 'login');
-        $login->route('/:s')->to('ui#do_login', pageid => 'login');
+        $login->route('/')->to('auth#do_login', pageid => 'login');
+        $login->route('/:s')->to('auth#do_login', pageid => 'login');
 
-    $r->route('/logout')->to('ui#do_logout');
+    $r->route('/logout')->to('auth#do_logout');
 
     my $openid = $r->under('/openid');
-        $openid->any('/return')->to('ui#openid_return');
+        $openid->any('/return')->to('auth#openid_return');
 
     my $pb = $r->bridge('/profile')->to('profile#bridge');
         $pb->route('/replays/type/:type/page/:page')->to('profile#replays', mustauth => 1, pageid => 'profile', page => { title => 'profile.replays.page.title' });
