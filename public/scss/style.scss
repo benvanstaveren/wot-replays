@@ -2,6 +2,7 @@ $image_base: "//images.wotreplays.org";
 $static_base: "";
 $background_from_theme: #060606;
 $text_color_from_theme: #888;
+$background_tag: "201402";
 
 $base_green: rgb(0, 255, 0);
 $base_red:   rgb(255, 0, 0);
@@ -69,7 +70,7 @@ div {
 
 
 body {
-    background-image:url(#{$static_base}/img/bg.jpg);
+    background-image:url(#{$static_base}/img/bg-#{$background_tag}.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center center;
