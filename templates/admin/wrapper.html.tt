@@ -67,7 +67,7 @@
                 </ul>
             </div>
         </div>
-        <div class="container rounded shadow clearfix">
+        <div class="container rounded shadow clearfix content-main">
             <div id="contentMain">[% content %]</div>
             <div class="clearfix" style="text-align: center; margin: 40px 0px 10px 0px">&copy; 2012-2014 Scrambled | t: <span id="timing_elapsed">[% IF timing_elapsed.defined %][% h.sprintf('%.4f', timing_elapsed)  %][% ELSE %]-[% END %]</span> [% IF timing_query.defined %]q: <span id="timing_query">[% h.sprintf('%.4f', timing_query) %]</span>[% END %]</div>
         </div>
