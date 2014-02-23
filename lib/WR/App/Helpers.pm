@@ -968,10 +968,12 @@ sub install {
         my $res  = [];
 
         foreach my $a (@$args) {
-            if($a =~ /l:(.*?):(.*)/) {
+            if($a =~ /^l:(.*?):(.*)/) {
                 my $root = $1;
                 my $key  = $2;
                 push(@$res, $self->loc(sprintf('%s.%s', $root, $self->stash($key))));
+            } elsif($a =~ /^l:(.*?)/) {
+                push(@$res, $self->loc($1));
             } elsif($a =~ /^d:(.*?):(.*?):(.*?):(.*)/) {
                 my $coll = $1;
                 my $field = $2;
@@ -1082,6 +1084,28 @@ sub install {
         return undef unless($self->is_user_authenticated);
         $self->stash('uset_ht' => WR::HashTable->new(data => $self->current_user->{settings})) if(!defined($self->stash('uset_ht')));
         return $self->stash('uset_ht')->get($path);
+    });
+
+    $self->helper('comp_not_current' => sub {
+        my $self = shift;
+        my $now  = Mango::BSON::bson_time( DateTime->now(time_zone => 'UTC')->epoch * 1000 );
+        my $c    = $self->stash('competition');
+
+        return ($c->{config}->{start_time} > $now) 
+            ? 1
+            : ($c->{config}->{end_time} < $now)
+                ? 1
+                : 0;
+    });
+
+    $self->helper('comp_started' => sub {
+        my $self = shift;
+        my $now  = Mango::BSON::bson_time( DateTime->now(time_zone => 'UTC')->epoch * 1000 );
+        my $c    = $self->stash('competition');
+
+        return ($c->{config}->{start_time} > $now) 
+            ? 0
+            : 1;
     });
 }
 

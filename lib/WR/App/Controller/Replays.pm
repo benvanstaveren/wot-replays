@@ -78,9 +78,10 @@ sub _real_browse {
         downloads   => { 'site.downloads'           => -1 },
         scouted     => { 'stats.damageAssistedRadio' => -1 },
         };
+    my $query_add = undef;
 
     # yank all the settings out into filter
-    my $filterlist = [ split('/', $self->stash('filter')) ];
+    my $filterlist = [ split('/', $self->stash('filter') || '') ];
 
     # if we're logged in and have a setting...
     $perpage = $self->usetting('replay.list.perpage') if($self->is_user_authenticated && defined($self->usetting('replay.list.perpage')));
@@ -92,8 +93,16 @@ sub _real_browse {
     $self->stash('browse_filter_raw' => $filter); # this will bomb dafux out 
     $self->debug('base_q isa: ', ref($base_q));
 
-    foreach my $k (keys(%$base_q)) {
-        $filter->{$k} = $base_q->{$k};
+    if(my $inc = delete($base_q->{_inc})) {
+        foreach my $i (@$inc) {
+            $filter->{$i} = delete($base_q->{$i});
+        }
+        delete($base_q->{_inc});
+        $query_add = $base_q;
+    } else {
+        foreach my $k (keys(%$base_q)) {
+            $filter->{$k} = $base_q->{$k};
+        }
     }
 
     if(defined($self->stash('filter_opts')->{filter_root})) {
@@ -109,6 +118,7 @@ sub _real_browse {
         sort    => $sort,
         perpage => $perpage,
         filter  => $filter,
+        add     => $query_add,
         panel   => 1,
         );
            

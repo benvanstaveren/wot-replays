@@ -1,0 +1,14 @@
+[% WRAPPER wrapper.html.tt %]
+    <div class="page-header">
+        <h1>Yeah about that...</h1>
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-md-3" style="min-height: 189px; background: transparent url(/img/404.png) no-repeat scroll center center"></div>
+        <div class="col-lg-9 col-md-9">
+            <div class="alert alert-danger">
+                <p>That competition doesn't seem to exist; either it was removed, you followed a bad link, or you're bad at typing...</p>
+                <p><a href="/competitions">See the full list here</a></p>
+            </div>
+        </div>
+    </div>
+[% END %]

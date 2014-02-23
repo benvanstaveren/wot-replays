@@ -1997,3 +1997,6 @@ div#progressModal div.progress {
 
 div.bs-popover div.foo {
   max-width: 175px; }
+
+ul.section-list li ul li a {
+  padding: 2px 15px; }

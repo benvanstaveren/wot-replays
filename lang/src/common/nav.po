@@ -1,6 +1,9 @@
 msgid "nav.home"
 msgstr "Home"
 
+msgid "nav.competitions"
+msgstr "Competitions"
+
 msgid "nav.browse"
 msgstr "Browse"
 

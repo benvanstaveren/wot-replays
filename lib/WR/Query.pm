@@ -11,6 +11,7 @@ has 'coll'    => undef;
 has 'perpage' => 15;
 has 'filter'  => sub { {} };
 has 'sort'    => sub { {} };
+has 'add'     => undef;
 
 # user doing the query
 has 'user'    => undef;
@@ -325,6 +326,11 @@ sub _build_query {
         $self->dif('game.bonus_type');
     }
 
+    if(defined($self->add)) {
+        foreach my $key (keys(%{$self->add})) {
+            $query->{$key} = $self->add->{$key};
+        }
+    }
     my $real_query = (scalar(keys(%$query)) > 0) 
         ? { '$and' => [ { '$or' => $priv },  $query ] }
         : { '$or' => $priv };

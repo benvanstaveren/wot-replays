@@ -1,0 +1,15 @@
+<a href="/competition/[% h.get_id(entry) %]/" class="list-group-item">
+    <h4 class="list-group-item-heading">[% entry.title %]</h4>
+    <p class="list-group-item-text clearfix">
+        <span class="pull-left">
+            <i class="fa fa-clock-o"></i> <span>[% h.usertime('%d/%m/%Y %H:%M %Z', entry.config.start_time) %]</span> - <span>[% h.usertime('%d/%m/%Y %H:%M %Z', entry.config.end_time) %]</span>
+        </span>
+        <span class="pull-right">
+            [% FOREACH s IN ['eu','na','sea'] %]
+                [% IF entry.config.server == s || entry.config.server.0 == s %]
+                <span style="margin-right: 4px" class="label label-success pull-right i18n">server.[% s %]</span>
+                [% END %]
+            [% END %]
+        </span>
+    </p>
+</a>

@@ -1,0 +1,103 @@
+[% WRAPPER wrapper.html.tt %]
+    <div class="page-header">
+        <h2>[% competition.title %]</h2>
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-md-3">
+            <strong class="i18n">competition.heading.starttime</strong>
+            <h5><i style="top: 5px; position: relative;" class="fa fa-clock-o fa-2x"></i> [% h.usertime('%d/%m/%Y %H:%M %Z', competition.config.start_time) %]</h5>
+        </div>
+        <div class="col-lg-6 col-md-6">
+            [% IF h.comp_not_current %]
+                <div class="alert alert-danger text-center">
+                    <h3 style="font-weight: bold; margin: 0px; padding: 0px; font-size: 40px" class="i18n">competition.heading.notactive</h3>
+                </div>
+            [% ELSE %]
+                <div class="alert alert-success text-center">
+                    <h3 style="font-weight: bold; margin: 0px; padding: 0px; font-size: 40px" class="i18n">competition.heading.active</h3>
+                </div>
+            [% END %]
+        </div>
+        <div class="col-lg-3 col-md-3 text-right">
+            <strong class="i18n">competition.heading.endtime</strong>
+            <h5>[% h.usertime('%d/%m/%Y %H:%M %Z', competition.config.end_time) %] <i class="fa fa-clock-o fa-2x" style="position: relative; top: 5px"></i></h5>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-8 col-md-8">
+            <h4 class="i18n">competition.heading.description</h4>
+            <div class="well well-lg">
+                [% competition.description |html_line_break %]
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4">
+            <h4 class="i18n">competition.heading.links</h4>
+            <div class="list-group">
+                [% FOREACH link IN competition.links %]
+                    <a class="list-group-item" href="[% link.values.0 %]">[% link.keys.0 %] [% IF competition.rules_on_forum %](<span class="i18n">competition.rules.forum</span>)[% END %]</a>
+                [% END %]
+            </div>
+        </div>
+    </div>
+    [% IF h.comp_started %]
+        <div class="row">
+            <div class="col-md-12 col-lg-12">
+                <h4 class="i18n">competition.heading.leaderboard</h4>
+                [% position = 1 %]
+                <table class="table table-bordered table-striped">
+                    <colgroup>
+                        <col style="width: 30px; text-align: right"/>
+                        <col/>
+                        <col/>
+                    </colgroup>
+                    <thead>
+                        <th class="i18n">#</th>
+                        <th class="i18n">[% competition.config.display.primary %]</th>
+                        <th class="i18n">[% competition.config.display.outputvalue %]</th>
+                    </thead>
+                    <tbody>
+                        [% FOREACH row IN toplist %]
+                            <tr>
+                                <td>[% position %]</td>
+                                <td>[% h.get_id(row).player %]</td>
+                                <td>
+                                    <span>[% row.kills %]</span>
+                                    <a href="/competition/[% competition_id %]/entry/[% h.get_id(row).player %]/" class="btn btn-primary btn-xs pull-right i18n">competition.entries.view</a>
+                                </td>
+                            </tr>
+                            [% position = position + 1 %]
+                        [% END %]
+                    </tbody>
+                </table>
+                [% IF otherlist.size > 0 %]
+                    <h4 class="i18n">competition.heading.rest</h4>
+                    <table class="table table-bordered table-striped">
+                        <colgroup>
+                            <col style="width: 30px; text-align: right"/>
+                            <col/>
+                            <col/>
+                        </colgroup>
+                        <thead>
+                            <th class="i18n">#</th>
+                            <th class="i18n">[% competition.config.display.primary %]</th>
+                            <th class="i18n">[% competition.config.display.outputvalue %]</th>
+                        </thead>
+                        <tbody>
+                            [% FOREACH row IN otherlist %]
+                                <tr>
+                                    <td>[% position %]</td>
+                                    <td>[% h.get_id(row).player %]</td>
+                                    <td>
+                                        <span>[% row.kills %]</span>
+                                        <a href="/competition/[% competition_id %]/entry/[% h.get_id(row).player %]/" class="btn btn-default btn-xs pull-right i18n">competition.entries.view</a>
+                                    </td>
+                                </tr>
+                                [% position = position + 1 %]
+                            [% END %]
+                        </tbody>
+                    </table>
+                [% END %]
+            </div>
+        </div>
+    [% END %]
+[% END %]

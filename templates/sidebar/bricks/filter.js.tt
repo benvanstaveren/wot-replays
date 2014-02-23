@@ -1,6 +1,6 @@
 <script type="text/javascript">
     $(document).ready(function() {
-        [% IF pageid != 'vehicle' %]
+        [% IF pageid != 'vehicle' && pageid != 'competition' %]
             $('#frm-browse-filter select[name="v"]').val('[% filter.v || '*' %]');
 
             $('select[name="v"] option').each(function(i, e) {
@@ -51,11 +51,11 @@
             });
         [% END %]
 
-        [% IF pageid != 'map' %]
+        [% IF pageid != 'map' && pageid != 'competition' %]
             $('#frm-browse-filter select[name="m"]').val('[% filter.m || '*'%]');
         [% END %]
 
-        [% IF pageid != 'player' %]
+        [% IF pageid != 'player' && pageid != 'competition' %]
             $('#frm-browse-filter select[name="s"]').val('[% filter.s || '*' %]');
         [% END %]
         $('#frm-browse-filter select[name="mm"]').val('[% filter.mm || '*' %]');
@@ -88,7 +88,7 @@
         $('a#btn-browse-reset').click(function() {
             $('form#frm-browse-filter input[name="p"]').val('1');
 
-            [% IF pageid != 'vehicle' %]
+            [% IF pageid != 'vehicle' && pageid != 'competition' %]
                 $('form#frm-browse-filter input[name="tmi"]').val('1');
                 $('form#frm-browse-filter input[name="tma"]').val('10');
                 $('#tier-slider').slider('setValue', [1,10]);
@@ -117,11 +117,11 @@
                 }
             [% END %]
 
-            [% IF pageid != 'player' %]
+            [% IF pageid != 'player' && pageid != 'competition' %]
                 $('form#frm-browse-filter select[name="s"]').val('*');
             [% END %]
 
-            [% IF pageid != 'map' %]
+            [% IF pageid != 'map' && pageid != 'competition' %]
                 $('form#frm-browse-filter select[name="m"]').val('*');
             [% END %]
 

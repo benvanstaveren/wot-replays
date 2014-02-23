@@ -1,0 +1,47 @@
+[% WRAPPER wrapper.html.tt %]
+    <div class="page-header">
+        <h2>[% h.loc('competitions.page.header') %]</h2>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-lg-12">
+            <h3 class="i18n">competitions.current</h3>
+            [% IF current.defined && current.size > 0 %]
+                <div class="list-group">
+                    [% FOREACH entry IN current %]
+                        [% INCLUDE competition/entry.html.tt %]
+                    [% END %]
+                </div>
+            [% ELSE %]
+                <em class="i18n">competitions.current.none</em>
+            [% END %]
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-lg-12">
+            <h3 class="i18n">competitions.upcoming</h3>
+            [% IF future.defined && future.size > 0 %]
+                <div class="list-group">
+                    [% FOREACH entry IN future %]
+                        [% INCLUDE competition/entry.html.tt %]
+                    [% END %]
+                </div>
+            [% ELSE %]
+                <em class="i18n">competitions.future.none</em>
+            [% END %]
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-lg-12">
+            <h3 class="i18n">competitions.past</h3>
+            [% IF past.defined && past.size > 0 %]
+                <div class="list-group">
+                    [% FOREACH entry IN past %]
+                        [% INCLUDE competition/entry.html.tt %]
+                    [% END %]
+                </div>
+            [% ELSE %]
+                <em class="i18n">competitions.past.none</em>
+            [% END %]
+        </div>
+    </div>
+[% END %]

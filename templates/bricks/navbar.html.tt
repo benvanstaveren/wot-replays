@@ -22,6 +22,7 @@
                     [% INCLUDE generated/heatmap_list.html.tt %]
                 </ul>
             </li>
+            <li class="[% IF pageid == 'competition' %]active[% END %]"><a class="i18n" href="/competitions/">nav.competitions</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li class="[% IF pageid == 'blog' %]active[% END %]"><a href="http://blog.wotreplays.org/">[% h.loc('nav.blog') %]</a></li>

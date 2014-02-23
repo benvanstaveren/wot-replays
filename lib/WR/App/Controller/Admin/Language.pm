@@ -52,6 +52,7 @@ has 'layout' => sub {
                     ],
                 },
                 { title => 'Heatmaps',  id => 'heatmaps' },
+                { title => 'Competitions',  id => 'competitions' },
                 { title => 'Upload Form',  id => 'upload' },
                 { 
                     title => 'Player Profile',

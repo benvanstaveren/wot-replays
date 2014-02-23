@@ -1,0 +1,67 @@
+msgid "competition.page.entries.title"
+msgstr "%1 &raquo; %0"
+
+msgid "competitions.page.header"
+msgstr "Competitions"
+
+msgid "competitions.page.title"
+msgstr "Competitions"
+
+msgid "competitions.current"
+msgstr "Active competitions"
+
+msgid "competitions.upcoming"
+msgstr "Upcoming competitions"
+
+msgid "competitions.past"
+msgstr "Past competitions"
+
+msgid "competition.entries.view"
+msgstr "view entries"
+
+msgid "competitions.current.none"
+msgstr "No active competitions..."
+
+msgid "competitions.future.none"
+msgstr "No future competitions..."
+
+msgid "competitions.past.none"
+msgstr "No past competitions..."
+
+msgid "competition.page.title"
+msgstr "Competitions - %0"
+
+msgid "competition.heading.starttime"
+msgstr "Competition starts"
+
+msgid "competition.heading.endtime"
+msgstr "Competition ends"
+
+msgid "competition.heading.active"
+msgstr "ACTIVE"
+
+msgid "competition.heading.notactive"
+msgstr "NOT ACTIVE"
+
+msgid "competition.heading.links"
+msgstr "Important Links"
+
+msgid "competition.rules.forum"
+msgstr "rules can be found here"
+
+msgid "competition.heading.description"
+msgstr "Description"
+
+msgid "competition.heading.leaderboard"
+msgstr "Leaderboard"
+
+msgid "competition.heading.rest"
+msgstr "Participants"
+
+msgid "competition.heading.player"
+msgstr "Player"
+
+msgid "competition.heading.kills"
+msgstr "Kills"
+
+
