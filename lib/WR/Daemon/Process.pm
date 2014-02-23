@@ -185,6 +185,7 @@ sub process_job {
         file            => $job->{data}->{file},
         log             => $self->log,
         skip_wn7        => $self->skip_wn7,
+        config          => $self->config,
         );
 
     $o->on('state.prepare.start' => sub {
@@ -364,6 +365,7 @@ sub process_job {
         });
         $self->debug('state.wn7.finish');
     });
+
 
     if(my $replay = $o->process( (defined($orphan_id)) ? $orphan_id : undef)) {
         if($o->has_error > 0) {

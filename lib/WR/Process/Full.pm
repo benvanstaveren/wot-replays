@@ -33,6 +33,7 @@ has '_parser'       => undef;
 has 'packets'       => sub { [] };
 has 'log'           => undef;
 has 'ua'            => sub { Mojo::UserAgent->new };
+has 'config'        => sub { {} };
 
 has '_consumables'  => sub { {} }; # consumables are keyed by their typecomp id fragment
 has '_components'   => sub { {} }; # components are keyed by type, country, id
@@ -297,6 +298,13 @@ sub vteam {
             : 1;
 }
 
+sub fix_server {
+    my $self = shift;
+    my $server = shift;
+
+    return ($server eq 'sea') ? 'asia' : $server;
+}
+
 sub _real_process {
     my $self = shift;
     my $prepared_id = shift;
@@ -540,56 +548,54 @@ sub _real_process {
                         my $count = 0;
 
                         if(!$self->skip_wn7) {
-                            foreach my $player (keys(%{$replay->{players}})) {
-                                my $url = sprintf('http://statterbox.com/api/v1/%s/wn8?server=%s&player=%s', 
-                                    '5299a074907e1337e0010000', # yes it's a hardcoded API token :P
-                                    $replay->{game}->{server},
-                                    lc($player)
-                                    );
-
-                                $self->debug(sprintf('[%s]: %s', $player, $url));
-
-                                my $roster = $replay->{roster}->[ $replay->{players}->{$player} ];
-                                $self->ua->inactivity_timeout(5); # wait less
-
-                                if(my $tx = $self->ua->get($url)) {
+                            my $url = 'http://api.statterbox.com/wot/account/wn8';
+                            foreach my $entry (@{$replay->{roster}}) {
+                                my $form = {
+                                    application_id  => $self->config->{'statterbox'}->{server},
+                                    account_id      => $entry->{player}->{accountDBID},
+                                    cluster         => $self->fix_server($replay->{game}->{server})
+                                };
+                                $self->debug('getting wn8 from statterbox via ', $url, ' -> ', Dumper($form));
+                                if(my $tx = $self->ua->post($url => form => $form)) {
                                     if(my $res = $tx->success) {
-                                        if($res->json->{ok} == 1) {
-                                            if(my $wn7 = $res->json->{data}->{lc($player)}) {
-                                                $roster->{wn8} = { 
+                                        if($res->json->{status} eq 'ok') {
+                                            my $data = $res->json->{data};
+                                            my $wn8  = $data->{$entry->{player}->{accountDBID}};
+                                            if(defined($wn8))  {
+                                                $entry->{wn8} = { 
                                                     available => Mango::BSON::bson_true,
-                                                    data => { overall => $wn7 }
+                                                    data => { overall => $wn8->{wn8} }
                                                 };
                                             } else {
-                                                $roster->{wn8} = { 
+                                                $entry->{wn8} = { 
                                                     available => Mango::BSON::bson_false,
                                                     data => { overall => 0 }
                                                 };
                                             }
                                         } else {
-                                            $roster->{wn8} = { 
+                                            $entry->{wn8} = { 
                                                 available => Mango::BSON::bson_false,
                                                 data => { overall => 0 }
                                             };
                                         }
                                     } else {
-                                        $roster->{wn8} = { 
+                                        $entry->{wn8} = { 
                                             available => Mango::BSON::bson_false,
                                             data => { overall => 0 }
                                         };
                                     }
-                                    $replay->{wn8} = $roster->{wn8} if($player eq $replay->{game}->{recorder}->{name});
                                 } else {
-                                    $roster->{wn8} = { 
+                                    $entry->{wn8} = { 
                                         available => Mango::BSON::bson_false,
                                         data => { overall => 0 }
                                     };
-                                    $replay->{wn8} = $roster->{wn8} if($player eq $replay->{game}->{recorder}->{name});
                                 }
-                                $self->emit('state.wn7.progress' => { count => ++$count, total => scalar(keys(%{$replay->{players}})) });
+                                $replay->{wn8} = $entry->{wn8} if($entry->{player}->{name} eq $replay->{game}->{recorder}->{name});
+                                $self->emit('state.wn7.progress' => { count => ++$count, total => scalar(@{$replay->{roster}}) });
                             }
                         }
-                        $self->emit('state.wn7.finish' => scalar(keys(%{$replay->{players}})));
+
+                        $self->emit('state.wn7.finish' => scalar(@{$replay->{roster}}));
 
                         my $roster = $replay->{roster}->[ $replay->{players}->{$replay->{game}->{recorder}->{name}} ];
 
