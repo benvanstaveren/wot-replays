@@ -67,7 +67,7 @@ sub _real_browse {
     my $self = shift;
     my $base_q = shift;
     my $filter = {};
-    my $perpage = 15;
+    my $perpage = 10;
     my $sorting = {
         upload      => { 'site.uploaded_at'         => -1 },
         matchtime   => { 'game.started'             => -1 },
@@ -81,6 +81,9 @@ sub _real_browse {
 
     # yank all the settings out into filter
     my $filterlist = [ split('/', $self->stash('filter')) ];
+
+    # if we're logged in and have a setting...
+    $perpage = $self->usetting('replay.list.perpage') if($self->is_user_authenticated && defined($self->usetting('replay.list.perpage')));
 
     while(my $i = shift(@$filterlist)) {
         $filter->{$i} = shift(@$filterlist);

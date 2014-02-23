@@ -1,6 +1,6 @@
-<h3>[% h.loc('sidebar.filter.header') %]</h3>
 <div class="row">
     <div class="col-lg-12 col-md-12">
+        <div class="well well-sm">
         <form id="frm-browse-filter" method="post">
             <input type="hidden" name="p" value="[% p %]"/>
             <input type="hidden" name="vp" value="1"/>
@@ -123,5 +123,6 @@
                 </div>
             </div>
         </form>
+        </div>
     </div>
 </div>

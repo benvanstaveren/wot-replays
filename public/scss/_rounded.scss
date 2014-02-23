@@ -52,27 +52,27 @@ $corner_radius: 4px;
 }
 
 %not-rounded-tr {
-    -moz-border-top-right-radius: none;
-    -webkit-border-top-right-radius: none;
-    border-top-right-radius: none;
+    -moz-border-top-right-radius: 0px;
+    -webkit-border-top-right-radius: 0px;
+    border-top-right-radius: 0px;
 }
 
 %not-rounded-tl {
-    -moz-border-top-left-radius: none;
-    -webkit-border-top-left-radius: none;
-    border-top-left-radius: none;
+    -moz-border-top-left-radius: 0px;
+    -webkit-border-top-left-radius: 0px;
+    border-top-left-radius: 0px;
 }
 
 %not-rounded-br {
-    -moz-border-bottom-right-radius: none;
-    -webkit-border-bottom-right-radius: none;
-    border-bottom-right-radius: none;
+    -moz-border-bottom-right-radius: 0px;
+    -webkit-border-bottom-right-radius: 0px;
+    border-bottom-right-radius: 0px;
 }
 
 %not-rounded-bl {
-    -moz-border-bottom-left-radius: none;
-    -webkit-border-bottom-left-radius: none;
-    border-bottom-left-radius: none;
+    -moz-border-bottom-left-radius: 0px;
+    -webkit-border-bottom-left-radius: 0px;
+    border-bottom-left-radius: 0px;
 }
 
 %not-rounded-bottom {

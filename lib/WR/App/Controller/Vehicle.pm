@@ -2,6 +2,12 @@ package WR::App::Controller::Vehicle;
 use Mojo::Base 'WR::App::Controller';
 use WR::Query;
 
+sub select {
+    my $self = shift;
+    
+    $self->respond(template => 'vehicle/select');
+}
+
 sub index {
     my $self = shift;
     my $vehicles = {};

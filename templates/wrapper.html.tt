@@ -28,9 +28,11 @@
         </script>
     </head>
     <body>
-        [% INCLUDE bricks/navbar.html.tt %]
         <div class="container rounded shadow clearfix content-main">
-            <div id="contentMain">[% content %]</div>
+            [% INCLUDE bricks/navbar.html.tt %]
+            <div id="contentMain">
+                [% content %]
+            </div>
             [% INCLUDE bricks/footer.html.tt %]
         </div>
         <div class="modal fade" id="pleaseWaitModal">

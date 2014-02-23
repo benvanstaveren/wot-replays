@@ -1,0 +1,6 @@
+<div class="row" style="margin-bottom: 30px">
+    <div class="col-lg-12 col-md-12">
+        <a href="/upload/" class="btn btn-success btn-lg btn-block"><i class="fa fa-upload"></i> <span class="i18n">nav.upload</span></a>
+    </div>
+</div>
+[% content %]

@@ -1,0 +1,30 @@
+[% WRAPPER wrapper.html.tt %]
+    <div class="page-header">
+        <h2>[% h.loc(page.title, h.make_args(page.title_args)) %]</h2>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <a href="/vehicles/china" class="btn btn-primary btn-block i18n">nations.china</a>
+        </div>
+        <div class="col-md-3">
+            <a href="/vehicles/france" class="btn btn-primary btn-block i18n">nations.france</a>
+        </div>
+        <div class="col-md-3">
+            <a href="/vehicles/germany" class="btn btn-primary btn-block i18n">nations.germany</a>
+        </div>
+        <div class="col-md-3">
+            <a href="/vehicles/japan" class="btn btn-primary btn-block i18n">nations.japan</a>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 25px">
+        <div class="col-md-3">
+            <a href="/vehicles/uk" class="btn btn-primary btn-block i18n">nations.uk</a>
+        </div>
+        <div class="col-md-3">
+            <a href="/vehicles/usa" class="btn btn-primary btn-block i18n">nations.usa</a>
+        </div>
+        <div class="col-md-3">
+            <a href="/vehicles/ussr" class="btn btn-primary btn-block i18n">nations.ussr</a>
+        </div>
+    </div>
+[% END %]

@@ -1,15 +1,25 @@
 [% WRAPPER wrapper.html.tt %]
     <div class="page-header">
-        <h2>[% h.loc(page.title, h.make_args(page.title_args)) %]</h2>
+        <h2>
+            [% IF browse.heading.defined %]
+                [% h.loc(browse.heading, h.make_args(page.title_args)) %] 
+            [% ELSE %]
+                [% h.loc(page.title, h.make_args(page.title_args)) %]
+            [% END %]
+        </h2>
     </div>
     <div class="row">
         <div class="col-lg-9 col-md-9" id="browseContent">
             [% INCLUDE replay/list.html.tt %]
-            [% INCLUDE query_debug.html.tt %]
             [% INCLUDE browse/pager.html.tt %]
         </div>
         <div class="col-lg-3 col-md-3">
-            [% INCLUDE sidebar/browse.html.tt %]
+            [% TRY %]
+                [% st = 'sidebar/' _ pageid _ '.html.tt' %]
+                [% INCLUDE $st %]
+            [% CATCH %]
+                [% INCLUDE sidebar/browse.html.tt %]
+            [% END %]
         </div>
     </div>
 [% END %]

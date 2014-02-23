@@ -4,6 +4,7 @@ use warnings;
 use WR::Query;
 use WR::Res;
 use WR::Util::CritDetails;
+use WR::HashTable;
 use WR::Provider::ServerFinder;
 use WR::Localize::Formatter;
 use File::Slurp qw/read_file/;
@@ -983,6 +984,8 @@ sub install {
                 } else {
                     push(@$res, 'd:failed');
                 }
+            } elsif($a =~ /^t:(.*)/) {
+                push(@$res, $1);
             } else {
                 push(@$res, $self->stash($a));
             }
@@ -1070,6 +1073,15 @@ sub install {
     $self->helper('is_test_server' => sub {
         my $self = shift;
         my $name = shift;
+    });
+
+    $self->helper('usetting' => sub {
+        my $self = shift;
+        my $path = shift;
+
+        return undef unless($self->is_user_authenticated);
+        $self->stash('uset_ht' => WR::HashTable->new(data => $self->current_user->{settings})) if(!defined($self->stash('uset_ht')));
+        return $self->stash('uset_ht')->get($path);
     });
 }
 

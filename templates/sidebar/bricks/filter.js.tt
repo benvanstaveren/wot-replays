@@ -35,7 +35,7 @@
                     $('small#tier-max').text(v[1]);
                 });
 
-            $('#tier-slider').slider('setValue', [[% filter.tmi %],[% filter.tma %]]);
+            $('#tier-slider').slider('setValue', [[% filter.tmi || 1 %],[% filter.tma || 10 %]]);
             $('small#tier-min').text([% filter.tmi %]);
             $('small#tier-max').text([% filter.tma %]);
 
@@ -133,7 +133,7 @@
             var s = $('form#frm-browse-filter').serialize();
             var first = s.replace(/=/g, '/');
             var second = first.replace(/\&/g, '/');
-            document.location.href = '/[% filter_root %]/' + second;
+            document.location.href = '/[% IF filter_root.defined %][% filter_root %]/[% END %]' + second;
             return false;
         });
 
@@ -142,7 +142,7 @@
             var s = $('form#frm-browse-filter').serialize();
             var first = s.replace(/=/g, '/');
             var second = first.replace(/\&/g, '/');
-            document.location.href = '/[% filter_root %]/' + second;
+            document.location.href = '/[% IF filter_root.defined %][% filter_root %]/[% END %]' + second;
             return false;
         });
     });

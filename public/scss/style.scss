@@ -54,6 +54,12 @@ div {
     &.rounded-tl {
         @extend %rounded-tl;
     }
+    &.not-rounded-top {
+        @extend %not-rounded-top;
+    }
+    &.not-rounded-bottom {
+        @extend %not-rounded-bottom;
+    }
     &.container.content-main {
         background: rgba($background_from_theme,0.95) none repeat scroll 0 0;
         margin: 40px auto;
@@ -68,6 +74,10 @@ div {
     &.navbar-shadow {
         @extend %box-shadow;
     }
+}
+
+div.navbar.not-rounded-bottom {
+    @extend %not-rounded-bottom;
 }
 
 

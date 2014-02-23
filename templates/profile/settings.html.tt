@@ -27,9 +27,9 @@
                 <div class="panel-heading">[% h.loc('profile.settings.ratings.title') %]</div>
                 <div class="panel-body">
                     <select name="ratings" class="form-control">
-                        <option value="simplified" [% IF h.current_user.settings.ratings == 'simplified' %]selected="true"[% END %]>[% h.loc('profile.settings.ratings.simplified') %]</option>
-                        <option value="wn8" [% IF h.current_user.settings.ratings == 'wn8' %]selected="true"[% END %]>[% h.loc('profile.settings.ratings.wn8') %]</option>
-                        <option value="none" [% IF h.current_user.settings.ratings == 'none' %]selected="true"[% END %]>[% h.loc('profile.settings.ratings.none') %]</option>
+                        <option value="simplified" [% IF h.usetting('display.ratings') == 'simplified' %]selected="true"[% END %]>[% h.loc('profile.settings.ratings.simplified') %]</option>
+                        <option value="wn8" [% IF h.usetting('display.ratings') == 'wn8' %]selected="true"[% END %]>[% h.loc('profile.settings.ratings.wn8') %]</option>
+                        <option value="none" [% IF h.usetting('display.ratings') == 'none' %]selected="true"[% END %]>[% h.loc('profile.settings.ratings.none') %]</option>
                     </select>
                     <span class="spinner hide" id="spinner-ratings"></span>
                 </div>
@@ -40,10 +40,10 @@
                 <div class="panel-heading">[% h.loc('profile.settings.timezone.title') %]</div>
                 <div class="panel-body">
                     <select name="timezone" class="form-control">
-                        <option value="UTC" [% IF h.current_user.settings.timezone == 'UTC' %]selected="true"[% END %]>UTC</option>
+                        <option value="UTC" [% IF h.usetting('timezone') == 'UTC' %]selected="true"[% END %]>UTC</option>
                         [% FOREACH zone IN timezones %]
                             [% IF zone != 'UTC' %]
-                                <option value="[% zone %]" [% IF h.current_user.settings.timezone == zone %]selected="true"[% END %]>[% zone %]</option>
+                                <option value="[% zone %]" [% IF h.usetting('timezone') == zone %]selected="true"[% END %]>[% zone %]</option>
                             [% END %]
                         [% END %]
                     </select>

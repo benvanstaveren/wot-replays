@@ -7,7 +7,32 @@ sub install {
     my $self  = shift;
     my $r     = shift;
 
-    $r->route('/')->to('ui#frontpage', pageid => 'home')->name('main_index');
+    $r->route('/')->to('replays#browse', 
+        filter_opts => {}, 
+        pageid      => 'home', 
+        filter_root => undef,
+        page        => { 
+            title       => 'index.page.title' 
+        }, 
+        browse => { 
+            heading     => 'index.page.header' 
+        },
+        browse_filter_raw   =>  {
+            p   =>  1,
+            v   =>  '*',
+            tmi =>  1,
+            tma =>  10,
+            m   =>  '*',
+            mt  =>  '*',
+            mm  =>  '*',
+            sr  =>  'upload',
+            s   =>  '*',
+            vp  =>  1,
+            vi  =>  0
+        },
+    );
+   
+    #'ui#frontpage', pageid => 'home')->name('main_index');
 
     my $doc = $r->under('/doc');
         for(qw/about donate credits missions replayprivacy/) {
@@ -32,7 +57,6 @@ sub install {
         }, pageid => 'browse');
         $self->redirect_to(sprintf('/browse/%s', $self->browse_page(1)));
     });
-
 
     # funky bits
     $r->route('/upload')->to('replays-upload#upload', pageid => 'upload');
@@ -96,8 +120,6 @@ sub install {
             }
         );
 
-
-
     $r->route('/players')->to('player#index', pageid => 'player', page => { title => 'players.page.title' });
     my $player = $r->under('/player');
         $player->route('/:server/:player_name')->to(cb => sub {
@@ -136,7 +158,20 @@ sub install {
 
 
     my $vehicles = $r->under('/vehicles');
-        $vehicles->route('/:country')->to('vehicle#index', pageid => 'vehicle', page => { title => 'vehicles.page.title', title_args => [ 'l:nations:country' ] });
+        $vehicles->route('/')->to('vehicle#select', 
+            pageid  => 'vehicle', 
+            page    => { 
+                title   => 'vehicles.page.title', 
+                title_args => [ 't:Select Nation' ],
+            }
+        );
+        $vehicles->route('/:country')->to('vehicle#index', 
+            pageid  => 'vehicle', 
+            page    => { 
+                title   => 'vehicles.page.title', 
+                title_args => [ 'l:nations:country' ],
+            }
+        );
 
     my $vehicle = $r->under('/vehicle');
         $vehicle->route('/:country/:vehicle')->to(cb => sub {
@@ -272,6 +307,19 @@ sub install {
             my $bothunter = $modtools->under('/bothunter');
                 $bothunter->route('/')->to('admin-moderator-bothunter#index', pageid => 'admin/moderator');
                 $bothunter->route('/process')->to('admin-moderator-bothunter#process');
+
+    $r->route('/*filter')->to('replays#browse', 
+        filter_opts => {}, 
+        pageid      => 'home', 
+        but_really  => 'browse',
+        filter_root => undef,
+        page        => { 
+            title       => 'browse.page.title' 
+        }, 
+        browse => { 
+            heading     => 'browse.page.title' 
+        },
+    );
 }
 
 1;

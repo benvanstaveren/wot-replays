@@ -1,3 +1,5 @@
-[% INCLUDE sidebar/bricks/alert.html.tt %]
-[% INCLUDE sidebar/bricks/lang.html.tt brick='donate' %]
-[% INCLUDE sidebar/bricks/stats.html.tt %]
+[% WRAPPER sidebar/wrapper.html.tt %]
+    [% INCLUDE sidebar/bricks/filter.html.tt %]
+    [% INCLUDE sidebar/bricks/filter.js.tt %]
+    [% INCLUDE sidebar/bricks/stats.html.tt %]
+[% END %]
