@@ -39,6 +39,8 @@ sub rfrag {
 sub upload {
     my $self = shift;
 
+    $self->redirect_to('/login') and return unless($self->is_user_authenticated);
+
     if($self->req->param('a')) {
         $self->render_later;
         if(my $upload = $self->req->upload('replay')) {
