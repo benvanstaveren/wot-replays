@@ -567,7 +567,7 @@ sub onArenaHandler {
         $self->emit('arena.team_killer' => { id => $packet->update, clock => $packet->clock, ident => 'arena.team_killer', pident => $self->make_pident($packet, 1) });
     } elsif($packet->update_type == 0x0b) {
         $self->emit('arena.vehicle_updated' => {
-            id      =>  $packet->id,
+            id      =>  $packet->player_id,
             clock   =>  $packet->clock,
             %{$packet->update},
             ident   =>  'arena.vehicle_updated',
