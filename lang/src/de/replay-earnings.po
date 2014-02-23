@@ -1,17 +1,23 @@
-msgid "replays.earnings.xp.title"
-msgstr "Verdiente XP"
+msgid "replays.earnings.credits.title"
+msgstr "Verdiente Credits"
+
+msgid "replays.earnings.crewxp.title"
+msgstr "Verdiente Crew-XP"
 
 msgid "replays.earnings.freexp.title"
 msgstr "Verdiente freie XP"
 
-msgid "replays.earnings.credits.title"
-msgstr "Verdiente Credits"
-
-msgid "replays.earnings.text.premium"
-msgstr "Premium"
+msgid "replays.earnings.text.ammo"
+msgstr "Munition"
 
 msgid "replays.earnings.text.base"
 msgstr "Basis"
+
+msgid "replays.earnings.text.compensation"
+msgstr "Entsch&auml;digung"
+
+msgid "replays.earnings.text.consumables"
+msgstr "Verbrauchsmaterialien"
 
 msgid "replays.earnings.text.daily"
 msgstr "erster Sieg des Tages"
@@ -19,26 +25,23 @@ msgstr "erster Sieg des Tages"
 msgid "replays.earnings.text.earned"
 msgstr "Verdient"
 
-msgid "replays.earnings.text.subtotal"
-msgstr "Zwischensumme"
-
-msgid "replays.earnings.text.penalty"
-msgstr "Strafe"
-
 msgid "replays.earnings.text.event"
 msgstr "Ereignis"
 
 msgid "replays.earnings.text.mission"
 msgstr "Mission"
 
-msgid "replays.earnings.text.ammo"
-msgstr "Munition"
+msgid "replays.earnings.text.penalty"
+msgstr "Strafe"
 
-msgid "replays.earnings.text.consumables"
-msgstr "Verbrauchsmaterialien"
+msgid "replays.earnings.text.premium"
+msgstr "Premium"
 
 msgid "replays.earnings.text.repair"
 msgstr "Reparaturkosten"
 
-msgid "replays.earnings.text.compensation"
-msgstr "Entsch&auml;digung"
+msgid "replays.earnings.text.subtotal"
+msgstr "Zwischensumme"
+
+msgid "replays.earnings.xp.title"
+msgstr "Verdiente XP"
