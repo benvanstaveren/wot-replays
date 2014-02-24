@@ -20,7 +20,6 @@ has '_query'  => sub { return shift->_build_query };
 has '_res'    => undef;
 has 'total'   => 0;
 has 'log'     => undef;
-has 'explain' => sub { return shift->exec()->explain() }; # since this is usually called until way after we've done our exec, we can probably get away with this here 
 has 'panel'   => 0;
 
 
@@ -188,7 +187,8 @@ sub _build_query {
 
     # convert any old names to new names (yey)
     foreach my $key (keys(%args)) {
-        delete($args{$key}) if($args{$key} eq '*');
+        delete($args{$key}) if(!defined($args{$key}));
+        delete($args{$key}) if(defined($args{$key}) && $args{$key} eq '*');
         if(my $newname = $namemap->{$key}) {
             $args{$newname} = delete($args{$key});
         } 

@@ -1,44 +1,50 @@
 // sort indexes
 db.replays.ensureIndex({
-    'game.started': -1 
-    }, {
-        name: 'sort.game.started',
+    'site.uploaded_at': -1
+    }, { 
+        name: 'wr.query.sort.uploaded_at',
     }
 );
 db.replays.ensureIndex({
-    'site.uploaded_at': -1 
-    }, {
-        name: 'sort.site.uploaded_at',
+    'site.likes': -1
+    }, { 
+        name: 'wr.query.sort.likes',
     }
 );
 db.replays.ensureIndex({
-    'site.likes': -1 
-    }, {
-        name: 'sort.site.likes',
+    'site.downloads': -1
+    }, { 
+        name: 'wr.query.sort.downloads',
     }
 );
 db.replays.ensureIndex({
-    'site.downloads': -1 
-    }, {
-        name: 'sort.site.downloads',
+    'site.uploaded_at': -1
+    }, { 
+        name: 'wr.query.sort.uploaded_at',
     }
 );
 db.replays.ensureIndex({
-    'stats.originalXP': -1 
-    }, {
-        name: 'sort.stats.originalXP',
+    'game.started': -1
+    }, { 
+        name: 'wr.query.sort.started',
     }
 );
 db.replays.ensureIndex({
-    'stats.originalCredits': -1 
-    }, {
-        name: 'sort.stats.originalCredits',
+    'stats.originalXP': -1
+    }, { 
+        name: 'wr.query.sort.xp',
     }
 );
 db.replays.ensureIndex({
-    'stats.damageDealt': -1 
-    }, {
-        name: 'sort.stats.damageDealt',
+    'stats.damageDealt': -1
+    }, { 
+        name: 'wr.query.sort.damage',
+    }
+);
+db.replays.ensureIndex({
+    'stats.damageAssistedRadio': -1
+    }, { 
+        name: 'wr.query.sort.scouted',
     }
 );
 
@@ -90,58 +96,5 @@ db.replays.ensureIndex({
     'involved.players': 1
     }, {
         name: 'filter.all',
-    }
-);
-db.replays.ensureIndex({
-    'game.server': 1,
-    'game.recorder.name': 1,
-    'game.recorder.account_id': 1,
-    }, {
-        name: 'filter.player.pp'
-    }
-);
-db.replays.ensureIndex({
-    'game.server': 1,
-    'game.recorder.name': 1,
-    'game.recorder.account_id': 1,
-    'involved.players': 1
-    }, {
-        name: 'filter.player.pi'
-    }
-);
-db.replays.ensureIndex({
-    'game.recorder.vehicle.ident': 1,
-    }, {
-        name: 'filter.vehicle.type'
-    }
-);
-db.replays.ensureIndex({
-    'game.recorder.vehicle.tier': 1
-    }, {
-        name: 'filter.vehicle.tier'
-    }
-);
-db.replays.ensureIndex({
-    'game.server': 1,
-    }, {
-        name: 'filter.server',
-    }
-);
-db.replays.ensureIndex({
-    'game.map': 1,
-    }, {
-        name: 'filter.map',
-    }
-);
-db.replays.ensureIndex({
-    'game.type': 1,
-    }, {
-        name: 'filter.type',
-    }
-);
-db.replays.ensureIndex({
-    'game.bonus_type': 1,
-    }, {
-        name: 'filter.bonus_type',
     }
 );

@@ -236,7 +236,7 @@ sub install {
         my $f = $self->stash('browse_filter_raw');
         $f->{p} = $p;
 
-        if($self->stash('pageid') eq 'vehicle') {
+        if($self->stash('pageid') eq 'vehicle' || $self->stash('pageid') eq 'competition') {
             delete($f->{$_}) for(qw/vehicle tier_min tier_max/);
         } elsif($self->stash('pageid') eq 'map') {
             delete($f->{$_}) for(qw/map/);
@@ -247,7 +247,7 @@ sub install {
         my @a = ();
         
         foreach my $key (sort { $a cmp $b } (keys(%$f))) {
-            push(@a, $key, $f->{$key});
+            push(@a, $key, $f->{$key}) if(defined($key) && defined($f->{$key}));
         }
 
         return join('/', @a);

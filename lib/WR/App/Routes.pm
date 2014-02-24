@@ -8,9 +8,9 @@ sub install {
     my $r     = shift;
 
     $r->route('/')->to('replays#browse', 
-        filter_opts => {}, 
+        filter_opts => {},
         pageid      => 'home', 
-        filter_root => undef,
+        filter_root => 'browse',
         page        => { 
             title       => 'index.page.title' 
         }, 
@@ -31,8 +31,6 @@ sub install {
             vi  =>  0
         },
     );
-   
-    #'ui#frontpage', pageid => 'home')->name('main_index');
 
     my $doc = $r->under('/doc');
         for(qw/about donate credits missions replayprivacy/) {
@@ -370,6 +368,8 @@ sub install {
                 $bothunter->route('/')->to('admin-moderator-bothunter#index', pageid => 'admin/moderator');
                 $bothunter->route('/process')->to('admin-moderator-bothunter#process');
 
+    # this one caused issues
+=pod
     $r->route('/*filter')->to('replays#browse', 
         filter_opts => {}, 
         pageid      => 'home', 
@@ -382,6 +382,7 @@ sub install {
             heading     => 'browse.page.title' 
         },
     );
+=cut
 }
 
 1;

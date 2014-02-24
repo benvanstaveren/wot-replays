@@ -25,7 +25,7 @@
                 <li><a href="/[% IF filter_root.defined %][% filter_root %]/[% END %][% h.browse_page(maxp) %]" page="[% maxp %]">&raquo;</a></li>
             [% ELSE %]
                 <li class="disabled"><a href="/[% IF filter_root.defined %][% filter_root %]/[% END %][% h.browse_page(p + 1) %]" page="[% p + 1 %]">&gt;</a></li>
-                <li class="disabled"><a href="/[% IF filter_root.defined %][% filter_root %]/[% END %][% filter_root %]/[% h.browse_page(maxp) %]" page="[% maxp %]">&raquo;</a></li>
+                <li class="disabled"><a href="/[% IF filter_root.defined %][% filter_root %]/[% END %][% h.browse_page(maxp) %]" page="[% maxp %]">&raquo;</a></li>
             [% END %]
         </ul>
     </div>
@@ -34,7 +34,7 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $('ul.pagination li a').on('click', function() {
-                if($(this).hasClass('disabled')) return false;
+                if($(this).parent().hasClass('disabled')) return false;
                 return true;
             });
         });
