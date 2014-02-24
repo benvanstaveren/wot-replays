@@ -1,0 +1,7 @@
+[% IF competitions.defined && competitions.size > 0 %]
+    <div class="list-group">
+        [% FOREACH entry IN competitions %]
+            [% INCLUDE competition/entry.html.tt %]
+        [% END %]
+    </div>
+[% END %]
