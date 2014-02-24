@@ -19,8 +19,13 @@ use WR::App::Routes;
 $Template::Stash::PRIVATE = undef;
 
 $SIG{__WARN__} = sub {
-    require Carp if defined $^S;
-    Carp::confess($_[0]) if defined &Carp::confess;
+    my $msg = $_[0];
+    if($msg =~ /Non-blocking operations in progress/) {
+        require Carp if defined $^S;
+        Carp::confess($_[0]) if defined &Carp::confess;
+    } else {
+        CORE::warn(@_);
+    }
 };
 
 # This method will run once at server start
