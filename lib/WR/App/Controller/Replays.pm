@@ -140,7 +140,6 @@ sub _real_browse {
                 p       => $p,
                 query   => $query->_query,
                 query_sort => $sort,
-                query_explain => $query->explain,
                 timing_query => tv_interval($start, [ gettimeofday ]),
             }
         );
