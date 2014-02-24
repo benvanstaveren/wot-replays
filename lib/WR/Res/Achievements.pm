@@ -69,7 +69,15 @@ sub new {
         no strict 'refs';
         *{"${package}::is_${t}"} = sub {
             my ($self, $idx) = (@_);
-            return ($self->achievements->[$idx]->{type} eq $t) ? 1 : 0;
+
+            if(defined($self->achievements->[$idx]) && defined($self->achievements->[$idx]->{type})) {
+                return (defined($t))
+                    ? ($self->achievements->[$idx]->{type} eq $t)
+                        ? 1
+                        : 0
+                    : 0
+            }
+            return 0;
         } unless($package->can("is_${t}"));
         use strict 'refs';
     }
