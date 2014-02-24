@@ -7,7 +7,8 @@ sub install {
     my $self  = shift;
     my $r     = shift;
 
-    $r->route('/')->to('replays#browse', 
+    # dirty little trick to load the content required for the index page include
+    $r->bridge('/')->to('ui#frontpage')->route('/')->to('replays#browse', 
         filter_opts => {},
         pageid      => 'home', 
         filter_root => 'browse',

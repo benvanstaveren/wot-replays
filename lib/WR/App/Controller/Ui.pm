@@ -17,33 +17,31 @@ sub doc {
 
 sub frontpage {
     my $self    = shift;
-    my $start   = [ gettimeofday ];
-    my $newest  = [];
-    my $replays = [];
-    my $filter  = (defined($self->stash('frontpage.filter'))) ? $self->stash('frontpage.filter') : {};
 
-    my $query = $self->wr_query(
-        sort    => { 'site.uploaded_at' => -1 },
-        perpage => 15,
-        filter  => $filter,
-        panel   => 1,
-        );
-    $query->page(1 => sub {
-        my ($q, $replays) = (@_);
+    $self->model('wot-replays.competitions')->find()->sort({ start_time => 1 })->all(sub {
+        my ($c, $e, $d) = (@_);
+        
+        if(defined($e) || !defined($d)) {
+            $self->render(template => 'competition/list');
+        } else {
+            my $past = [];
+            my $current = [];
+            my $future = [];
+            
+            my $now = Mango::BSON::bson_time( DateTime->now(time_zone => 'UTC')->epoch * 1000 );
 
-        my $template = ($self->req->is_xhr) ? 'replay/list' : 'index';
-        $self->respond(template => $template, stash => {
-            replays         => $replays || [],
-            page            => { title => 'index.page.title' },
-            timing_query    => tv_interval($start),
-            sidebar         => {
-                info    => {
-                    title => 'Languages',
-                    text  => q|Did you know you can change the site language in your settings? Currently we have <strong>English</strong>, <strong>Malaysian</strong> and <strong>German</strong> available, with more languages being added!|,
-                },
-            },
-        });
+            foreach my $doc (@$d) {
+                if($doc->{config}->{end_time} > $now && $doc->{config}->{start_time} < $now) {
+                    push(@$current, $doc);
+                }
+            }
+            $self->stash(
+                competitions => $current,
+            );
+        }
+        $self->continue;
     });
+    return undef;
 }
 
 sub xhr_du {

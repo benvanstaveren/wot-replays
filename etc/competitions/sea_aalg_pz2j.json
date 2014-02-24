@@ -8,7 +8,7 @@ db.competitions.save(
         time_field: 'game.started',
         input: {
             matchConditions: { 
-                'game_recorder_vehicle_tier': 1
+                'game_recorder_vehicle_tier': 1,
                 'stats_kills': { 'gte': 1 }
             }
         },
