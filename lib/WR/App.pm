@@ -4,8 +4,8 @@ use Mojo::JSON;
 use Mango;
 
 # this is a bit cheesy but... 
-use FindBin;
-use lib "$FindBin::Bin/../lib";
+#use FindBin;
+#use lib "$FindBin::Bin/../lib";
 
 use WR;
 use WR::Res;
