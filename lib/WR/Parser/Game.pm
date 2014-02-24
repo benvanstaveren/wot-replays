@@ -582,7 +582,7 @@ sub onArenaHandler {
         $self->emit('arena.vehicle_updated' => {
             id      =>  $packet->player_id,
             clock   =>  $packet->clock,
-            %{$packet->update},
+            update  =>  $packet->update,
             ident   =>  'arena.vehicle_updated',
             pident  =>  $self->make_pident($packet, 1),
         });
