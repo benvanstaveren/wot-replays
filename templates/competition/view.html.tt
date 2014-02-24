@@ -37,6 +37,7 @@
                     <a class="list-group-item" href="[% link.values.0 %]">[% link.keys.0 %] [% IF competition.rules_on_forum %](<span class="i18n">competition.rules.forum</span>)[% END %]</a>
                 [% END %]
             </div>
+            [% INCLUDE sidebar/bricks/buttons.html.tt %]
         </div>
     </div>
     [% IF h.comp_started %]

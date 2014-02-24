@@ -85,9 +85,8 @@ sub register {
 
                         $self->debug('expires_at: ', $user->{expires_at}, ' now: ', Mango::BSON::bson_time);
 
-                        if($user->{expires_at} > Mango::BSON::bson_time) {
+                        if(defined($user->{expires_at}) && $user->{expires_at} > Mango::BSON::bson_time) {
                             # later, we may just auth/prolongate this by a week if the expiry time is less than 86400 seconds away
-
 
                             $self->stash(current_user           => $user);
                             $self->stash(current_player_name    => $user->{player_name});

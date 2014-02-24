@@ -8,6 +8,7 @@ my $m = Mango->new('mongodb://localhost:27017');
 my $d = $m->db('wot-replays');
 
 my $e = WR::Event->new(
+    _debug          => 1,
     db              => $d,
     log             => Mojo::Log->new(level => 'debug'),
     server          => 'sea',
@@ -18,6 +19,7 @@ my $e = WR::Event->new(
     input           => {
         matchConditions => {
             'game_type' => 'ctf',
+            'stats_kills' => { 'gte' => 1 },
         },
     },
     output          => {

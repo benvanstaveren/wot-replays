@@ -9,7 +9,6 @@ db.competitions.save(
         input: {
             matchConditions: { 
                 'game_recorder_vehicle_tier': 1
-                'stats_kills': { 'gte': 1 }
             }
         },
         output: {

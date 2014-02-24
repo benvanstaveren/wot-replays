@@ -15,10 +15,13 @@ has 'output'                =>  undef;
 
 has 'db'                    =>  undef;
 has 'log'                   =>  undef;
+has '_debug'                =>  0;
 
-our $DEBUG = 0;
 
-sub debug { shift->log->debug(join('', @_)) if($DEBUG > 0) }
+sub debug { 
+    my $self = shift;
+    $self->log->debug(join('', @_)) if($self->_debug > 0);
+}
 
 sub model {
     my $self = shift;
