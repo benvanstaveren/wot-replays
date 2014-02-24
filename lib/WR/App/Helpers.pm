@@ -1116,6 +1116,21 @@ sub install {
             ? 0
             : 1;
     });
+
+    $self->helper('competition_server' => sub {
+        my $self = shift;
+        my $e    = shift;
+        my $s    = shift;
+
+        if(ref($e->{config}->{server}) eq 'ARRAY') {
+            foreach my $es (@{$e->{config}->{server}}) {
+                return 1 if($es eq $s);
+            }
+            return 0;
+        } else {
+            return ($e->{config}->{server} eq $s) ? 1 : 0;
+        }
+    });
 }
 
 1;

@@ -23,6 +23,16 @@ sub debug {
     $self->log->debug(join('', @_)) if($self->_debug > 0);
 }
 
+sub get_server {
+    my $self = shift;
+    
+    if(ref($self->server) eq 'ARRAY') {
+        return { '$in' => $self->server };
+    } else {
+        return $self->server;
+    }
+}
+
 sub model {
     my $self = shift;
     return $self->db->collection(shift);
@@ -43,7 +53,7 @@ sub get_leaderboard_entries {
 sub process_match_conditions {
     my $self    = shift;
     my $query   = {
-        'game.server'     => $self->server,
+        'game.server'     => $self->get_server,
     };
     $query->{$self->time_field} = { '$gte' => $self->start_time, '$lte' => $self->end_time } if($self->timeless < 1);
     foreach my $key (keys(%{$self->input->{matchConditions}})) {

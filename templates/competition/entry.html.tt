@@ -5,10 +5,17 @@
             <i class="fa fa-clock-o"></i> <span>[% h.usertime('%d/%m/%Y %H:%M %Z', entry.config.start_time) %]</span> - <span>[% h.usertime('%d/%m/%Y %H:%M %Z', entry.config.end_time) %]</span>
         </span>
         <span class="pull-right">
-            [% FOREACH s IN ['eu','na','sea'] %]
-                [% IF entry.config.server == s || entry.config.server.0 == s %]
-                <span style="margin-right: 4px" class="label label-success pull-right i18n">server.[% s %]</span>
-                [% END %]
+            [% FOREACH s IN ['na','eu','sea'] %]
+                <span 
+                    style="margin-right: 4px" 
+                    data-toggle="tooltip" 
+                    data-placement="bottom" 
+                    [% IF h.competition_server(entry, s) %]
+                        [% h.i18n_attr({ title => [ 'competition.server.enabled', {} ]}) %]
+                    [% ELSE %]
+                        [% h.i18n_attr({ title => [ 'competition.server.disabled', {} ]}) %]
+                    [% END %]
+                    class="label bs-tooltip [% IF h.competition_server(entry, s) %]label-success[% ELSE %]label-default[% END %] pull-right i18n">server.[% s %]</span>
             [% END %]
         </span>
     </p>

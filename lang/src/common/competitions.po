@@ -1,6 +1,12 @@
 msgid "competition.page.entries.title"
 msgstr "%1 &raquo; %0"
 
+msgid "competition.server.enabled"
+msgstr "Players from this server can participate in this contest"
+
+msgid "competition.server.disabled"
+msgstr "Players from this server can not participate in this contest"
+
 msgid "competitions.page.header"
 msgstr "Competitions"
 
