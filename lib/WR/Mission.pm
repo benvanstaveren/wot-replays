@@ -5,6 +5,10 @@ has 'mission'       => undef;     # the hash from the missions collection in sta
 has 'result'        => undef;     # the data in the replay 
 has 'is_awarded'    => sub {
     my $self = shift;
+
+    $self->result->[1]->{bonusCount} ||= 0;
+    $self->result->[2]->{bonusCount} ||= 0;
+
     if($self->result->[1]->{bonusCount} < $self->result->[2]->{bonusCount}) {
         # mission was awarded
         return 1;
