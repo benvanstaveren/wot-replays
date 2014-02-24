@@ -54,7 +54,9 @@ sub process_match_conditions {
             $cm->{'$lte'} = $cond->{'lte'} + 0 if(defined($cond->{'lte'}));
             $query->{$field} = $cm;
         } else {
-            $query->{$field} = $self->input->{matchConditions}->{$key};
+	    my $val = $self->input->{matchConditions}->{$key};
+            $val += 0 if($val =~ /^\d+/);
+            $query->{$field} = $val;
         }
     }
 
