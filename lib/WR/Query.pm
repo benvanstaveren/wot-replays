@@ -23,53 +23,6 @@ has 'log'     => undef;
 has 'explain' => sub { return shift->exec()->explain() }; # since this is usually called until way after we've done our exec, we can probably get away with this here 
 has 'panel'   => 0;
 
-has 'di_fields' =>  sub { {} };
-has 'di_prio'   =>  sub {
-    {
-        'game.type'                     => 1,   # 1 because if they are selected, cardinality is only 4
-        'game.server'                   => 1,   # also 1 because cardinality is only 5
-        'game.bonus_type'               => 1,   # also 1 because, hey, if it's selected, cardinality is only 7  
-        'game.map'                      => 2,   # plenty maps
-        'game.recorder.vehicle.ident'   => 3,   # vehicle idents can come after
-        'game.recorder.vehicle.tier'    => 3,   # right along with this
-        'game.recorder.name'            => 4,   # and this
-        'game.recorder.clan'            => 5,   # oh and this one
-        'involved.players'              => 6,   # this is one of those last-ditch effort things
-        'site.visible'                  => 7,   # these two are used in the privacy fetcher, and while cardinality of these matters...
-        'site.privacy'                  => 7,   # ... the query's $or statement for the privacy generally doesn't do much to weed out the chaff.
-    }
-};
-
-sub dif { my $self = shift; my $n = shift; $self->di_fields->{$n}++; $self->debug('dif: ', $n) }
-
-sub gen_dynamic_index {
-    my $self = shift;
-    my $i = [];
-    
-    foreach my $f (sort { $self->di_prio->{$a} <=> $self->di_prio->{$b} } (keys(%{$self->di_prio}))) {
-        if(defined($self->di_fields->{$f})) {
-            push(@$i, $f);
-            delete($self->di_fields->{$f});
-        }
-    }
-
-    foreach my $f (keys(%{$self->di_fields})) {
-        push(@$i, $f);
-    }
-    
-    foreach my $key (keys(%{$self->sort})) {
-        push(@$i, $key);
-    }
-
-    my $idx = Mango::BSON::bson_doc(map { $_ => 1 } @$i);
-    my $n = $self->coll->build_index_name($idx);
-    $self->coll->ensure_index($idx, { name => sprintf('filter.%s', Digest::SHA1::sha1_hex($n)) });
-
-    my $sortidx = Mango::BSON::bson_doc(%{$self->sort});
-    my $sn = sprintf('sort.%s', Digest::SHA1::sha1_hex($self->coll->build_index_name($sortidx)));
-    $self->coll->ensure_index($sortidx, { name => $sn });
-
-}
 
 sub error { shift->_log('error', @_) }
 sub info { shift->_log('info', @_) }
@@ -179,8 +132,6 @@ sub fixargs {
 sub _privacy_public {
     my $self = shift;
 
-    $self->dif('site.visible');
-
     return {
         'site.visible' => Mango::BSON::bson_true,
     };
@@ -188,8 +139,6 @@ sub _privacy_public {
 
 sub _privacy_recorder {
     my $self = shift;
-
-    $self->dif($_) for(qw/site.visible site.privacy game.recorder.name game.server/);
 
     return {
         'site.visible'       => Mango::BSON::bson_false,
@@ -201,8 +150,6 @@ sub _privacy_recorder {
 
 sub _privacy_clan {
     my $self = shift;
-
-    $self->dif($_) for(qw/site.visible site.privacy game.recorder.clan game.server/);
 
     return {
         'site.visible'       => Mango::BSON::bson_false,
@@ -259,25 +206,21 @@ sub _build_query {
         if($args{'pp'} > 0) {
             $query->{'game.server'} = $self->fixargs($args{s});
             $query->{'game.recorder.name'} = $self->fixargs($args{pl});
-            $self->dif($_) for(qw/game.server game.recorder.name/);
         } elsif($args{'pi'} > 0) {
             $query->{'game.server'} = $self->fixargs($args{s});
             $query->{'involved.players'} = $self->fixargs($args{pl}, '$in');
             $query->{'game.recorder.name'} = $self->fixargs($args{pl}, '$nin');
-            $self->dif($_) for(qw/game.server game.recorder.name involved.players/);
         } else {
             $query->{'game.server'} = $self->fixargs($args{s});
             $query->{'$or'} = [
                 { 'game.recorder.name' => $self->fixargs($args{'pl'}) }, 
                 { 'involved.players' => $self->fixargs($args{'pl'}, '$in') }
             ];
-            $self->dif($_) for(qw/game.server game.recorder.name involved.players/);
         }
     }
 
     if($args{c}) {
         $query->{'game.recorder.clan'} = $args{c};
-        $self->dif('game.recorder.clan');
     }
 
     if($args{'s'}) {
@@ -286,18 +229,15 @@ sub _build_query {
         } elsif(!ref($args{'server'})) {
             $query->{'game.server'} = $args{s} unless(defined($query->{'game.server'})); # if we already have it, can't specify it again because the player has
         }
-        $self->dif('game.server');
     }
 
     if($args{m}) {
         $query->{'game.map'} = $self->fixargs($args{m} + 0);
-        $self->dif('game.map');
     }
 
     if($args{'v'}) {
         # no longer support involved vehicles 
         $query->{'game.recorder.vehicle.ident'} = $self->fixargs($args{v});
-        $self->dif('game.recorder.vehicle.ident');
     } else {
         if(defined($args{'tmi'}) || defined($args{'tma'})) { 
             my $c = 0;
@@ -313,17 +253,14 @@ sub _build_query {
             }
             $self->debug('c: ', $c);
             $query->{'game.recorder.vehicle.tier'} = $r if($c > 0);
-            $self->dif('game.recorder.vehicle.tier') if($c > 0);
         }
     }
 
     if($args{mm} && $args{mm} ne '') {
         $query->{'game.type'} = $args{mm};
-        $self->dif('game.type');
     }
     if($args{mt} && $args{mt} ne '') {
         $query->{'game.bonus_type'} = $args{mt} + 0;
-        $self->dif('game.bonus_type');
     }
 
     if(defined($self->add)) {
@@ -334,8 +271,6 @@ sub _build_query {
     my $real_query = (scalar(keys(%$query)) > 0) 
         ? { '$and' => [ { '$or' => $priv },  $query ] }
         : { '$or' => $priv };
-
-    $self->gen_dynamic_index;
 
     $self->debug('QUERY: ', Dumper($real_query));
 

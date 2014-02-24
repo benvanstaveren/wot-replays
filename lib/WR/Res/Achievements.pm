@@ -65,6 +65,7 @@ sub new {
     }
 
     foreach my $t (keys(%$types)) {
+        next unless(defined($t));
         no strict 'refs';
         *{"${package}::is_${t}"} = sub {
             my ($self, $idx) = (@_);
