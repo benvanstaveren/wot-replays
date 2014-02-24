@@ -1,7 +1,7 @@
 package Mango;
 use Mojo::Base 'Mojo::EventEmitter';
 
-use Carp 'croak';
+use Carp qw/croak confess/;
 use Mango::BSON qw(bson_doc bson_false bson_true);
 use Mango::Database;
 use Mango::Protocol;
@@ -267,7 +267,7 @@ sub _start {
 
     # Start non-blocking
     unless ($self->{nb}) {
-      croak 'Blocking operation in progress' if $self->_active;
+      confess 'Blocking operation in progress' if $self->_active;
       warn "-- Switching to non-blocking mode\n" if DEBUG;
       $self->_cleanup;
       $self->{nb}++;
@@ -278,7 +278,7 @@ sub _start {
 
   # Start blocking
   if ($self->{nb}) {
-    croak 'Non-blocking operations in progress' if $self->_active;
+    confess 'Non-blocking operations in progress' if $self->_active;
     warn "-- Switching to blocking mode\n" if DEBUG;
     $self->_cleanup;
     delete $self->{nb};
