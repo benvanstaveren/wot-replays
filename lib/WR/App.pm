@@ -18,6 +18,11 @@ use WR::App::Routes;
 
 $Template::Stash::PRIVATE = undef;
 
+$SIG{__WARN__} = sub {
+    require Carp if defined $^S;
+    Carp::confess($_[0]) if defined &Carp::confess;
+};
+
 # This method will run once at server start
 sub startup {
     my $self = shift;
