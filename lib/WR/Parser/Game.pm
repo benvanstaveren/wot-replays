@@ -4,13 +4,12 @@ use WR::Util::VehicleDescriptor;
 use WR::Util::TypeComp qw/parse_int_compact_descr type_id_to_name/;
 use WR::Constants qw/nation_id_to_name/;
 
-has 'stream'    => undef;
-
-has '_roster'    => undef;      # the players in the match 
-has 'vehicles'  => sub { {} }; # maps vehicle id to roster entry    
-has 'recorder'  => sub { {} };      
-has 'positions' => sub { {} }; # position recording by vehicle ID
-has 'rosteridx' => 0;
+has 'stream'            => undef;
+has '_roster'           => undef;      # the players in the match 
+has 'vehicles'          => sub { {} }; # maps vehicle id to roster entry    
+has 'recorder'          => sub { {} };      
+has 'positions'         => sub { {} }; # position recording by vehicle ID
+has 'rosteridx'         => 0;
 
 # initial and current shell and consumable slot setup
 has 'vshells'           => sub { {} };
@@ -19,25 +18,27 @@ has 'vshells_initial'   => sub { {} };
 has 'vcons_initial'     => sub { {} };
 
 # game version and packet counter
-has 'version'   =>  0;
-has 'pcounter'  =>  0;
+has 'version'           =>  0;
+has 'pcounter'          =>  0;
 
-has 'stopping'  => 0;
-has 'handlers'  => sub { [] };
-has 'map_done'  => 0;
+has 'stopping'          => 0;
+has 'handlers'          => sub { [] };
+has 'map_done'          => 0;
+has 'arena_period'      => 0;
 
-has 'arena_period' => 0;
+# speshul, we'll try to reconstruct the battle result out of whatever
+# is in the replay data. it will, of course, be missing a lot of stuff
+# that the game adds after a match (xp, credits, resupply, etc.) 
+has 'playerstats'       => sub { {} };
+has 'playerhealth'      => sub { {} }; # records health by vehicle
 
 sub roster {
     my $self = shift;
     my $v    = shift;
 
     if($v) { 
-        warn 'roster set with ', (defined($v)) ? scalar(@$v) : '*** NONE ***', ' entries via: ', (caller(1))[3], "\n";
         $self->_roster($v);
     } else {
-        my $r = $self->_roster;
-        warn 'roster get with ', (defined($r)) ? scalar(@$r) : '*** NONE ***' , ' entries via: ', (caller(1))[3], "\n";
         return $self->_roster;
     }
 }
@@ -326,7 +327,11 @@ sub is_recorder {
     my $self = shift;
     my $p    = shift;
 
-    return ($p->player_id == $self->recorder->{id}) ? 1 : 0;
+    if(ref($p)) {
+        return ($p->player_id == $self->recorder->{id}) ? 1 : 0;
+    } else {
+        return ($p == $self->recorder->{id}) ? 1 : 0;
+    }
 }
 
 sub get_recorder_position {
@@ -385,6 +390,14 @@ sub distance_to_recorder_points {
                 : ($dist <= 445)
                     ? 2
                     : 0;
+}
+
+sub player_name {
+    my $self = shift;
+    my $id   = shift;
+    
+    return undef unless($self->is_player($id));
+    return $self->roster->[$self->vehicles->{$id}]->{name};
 }
 
 sub onUpdatePosition {
