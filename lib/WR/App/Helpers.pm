@@ -156,7 +156,7 @@ sub install {
 
         if(defined($a->{ammo})) {
             my $c = $a->{ammo};
-            $retval->[0] = sprintf('%s %dmm %s %s', 
+            $retval->[0] = sprintf('%s %dmm %s', 
                 sprintf('%d x', $a->{count} || 0),
                 $c->{caliber} || -1, 
                 $kind_map->{$c->{kind}} || 'UNKNOWN',
@@ -166,7 +166,7 @@ sub install {
         } else {
             my $i = $a->{id};
             if(my $c = $self->data_components->get_multi(component => 'shells', _id => $i + 0)) {
-                $retval->[0] = sprintf('%s %dmm %s %s', 
+                $retval->[0] = sprintf('%s %dmm %s', 
                     sprintf('%d x', $a->{count}),
                     $c->{caliber}, 
                     $kind_map->{$c->{kind}},
