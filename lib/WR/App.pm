@@ -21,6 +21,9 @@ $Template::Stash::PRIVATE = undef;
 # This method will run once at server start
 sub startup {
     my $self = shift;
+
+    use Data::Dumper;
+    warn Dumper({ %INC });
     
     $self->attr(json => sub { return Mojo::JSON->new() });
 

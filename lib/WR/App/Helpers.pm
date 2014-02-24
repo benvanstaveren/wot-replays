@@ -158,8 +158,8 @@ sub install {
             my $c = $a->{ammo};
             $retval->[0] = sprintf('%s %dmm %s %s', 
                 sprintf('%d x', $a->{count} || 0),
-                $c->{caliber}, 
-                $kind_map->{$c->{kind}},
+                $c->{caliber} || -1, 
+                $kind_map->{$c->{kind}} || 'UNKNOWN',
                 );
             $retval->[1] = (defined($c->{i18n})) ? $c->{i18n} : $c->{label};
             return $retval;
