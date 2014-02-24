@@ -86,6 +86,9 @@ sub path {
     my $self  = shift;
     my $path  = shift;
     my $_root = shift || $self->data;
+
+    return undef if(!defined($_root));
+
     my $root  = { %{$_root} };
 
     return undef unless(defined($root) && scalar(keys(%$root)) > 0);

@@ -157,7 +157,7 @@ sub install {
         if(defined($a->{ammo})) {
             my $c = $a->{ammo};
             $retval->[0] = sprintf('%s %dmm %s %s', 
-                sprintf('%d x', $a->{count}),
+                sprintf('%d x', $a->{count} || 0),
                 $c->{caliber}, 
                 $kind_map->{$c->{kind}},
                 );
@@ -419,7 +419,16 @@ sub install {
         my $self = shift;
         my $a    = shift;
 
-        return sprintf('#artefacts:%s/descr', $a->{name});
+        if(!ref($a)) {
+            my $tc = parse_int_compact_descr($a);
+            if(my $c = $self->data_consumables->get(wot_id => $tc->{id} + 0)) {
+                return sprintf('#artefacts:%s/descr', $c->{name});
+            } else {
+                return sprintf('#unknown:%d', $a);
+            }
+        } else {
+            return sprintf('#artefacts:%s/descr', $a->{name});
+        }
     });
 
     $self->helper(consumable_name => sub {
