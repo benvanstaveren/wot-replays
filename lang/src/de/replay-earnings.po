@@ -1,5 +1,5 @@
 msgid "replays.earnings.credits.title"
-msgstr "Verdiente Kreditpunkte"
+msgstr "Verdiente Credits"
 
 msgid "replays.earnings.crewxp.title"
 msgstr "Verdiente Crew-XP"
@@ -7,11 +7,8 @@ msgstr "Verdiente Crew-XP"
 msgid "replays.earnings.freexp.title"
 msgstr "Verdiente freie XP"
 
-msgid "replays.earnings.credits.title"
-msgstr "Verdiente Credits"
-
-msgid "replays.earnings.text.premium"
-msgstr "Premium"
+msgid "replays.earnings.text.ammo"
+msgstr "Munition"
 
 msgid "replays.earnings.text.base"
 msgstr "Basis"
@@ -48,4 +45,3 @@ msgstr "Zwischensumme"
 
 msgid "replays.earnings.xp.title"
 msgstr "Verdiente XP"
-
