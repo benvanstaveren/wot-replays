@@ -61,7 +61,7 @@ has 'source'        => sub {
 
 has 'source_raw' => sub {
     my $self = shift;
-    if($self->subtype == 0x01 || $self->subtype == 0x05 || $self->subtype == 0x0b) {
+    if($self->subtype == 0x01 || $self->subtype == 0x05 || $self->subtype== 0x06 || $self->subtype == 0x0b) {
         my $pos = 12;
         $pos = 14 if($self->subtype == 0x01);
         $pos = 12 if($self->subtype == 0x0b);
@@ -113,13 +113,26 @@ has 'target_raw'        => sub {
 
 
 # these two are basically only there when subtype == 10,
-# it's a slot item and it's count
+# not sure why the 0x09 is here anymore. 
+#
+# fun fact: subtype 0x10 can also contain other data
+# besides the slots, which is muy interesting
 has slot => sub {
     my $self = shift;
 
     if($self->subtype == 0x0a || $self->subtype == 0x09) {
-        my ($slot_item, $slot_count, $dummy) = unpack('LLC', $self->read(12, $self->data_length));
-        return { item => $slot_item, count => $slot_count };
+        my ($slot_item, $slot_count, $dummy1, $dummy2, $rest) = unpack('LSSCA*', $self->read(12, $self->data_length));
+        return { item => $slot_item, count => $slot_count, dummy1 => $dummy1, dummy2 => $dummy2, rest => $rest };
+    } else {
+        return undef;
+    }
+};
+
+has slotlen => sub {
+    my $self = shift;
+
+    if($self->subtype == 0x0a || $self->subtype == 0x09) {
+        return $self->data_length;
     } else {
         return undef;
     }
@@ -137,7 +150,14 @@ sub dump {
     });
 }
 
-# subtype 0x14 seems to have something to do with base capture points 
+# subtype 0x06 has a source, followed by:
+# 01 00 00 00 03 01 ff 2a 91 c3 36 8f 02
+
+# related to avatar.showVehicleDamageInfo(self, vehicleID, damageIndex, extraIndex, entityId)
+has 'subtype_06_data' => sub {
+    my $self = shift;
+    return [ unpack('SSLLC', $self->read(16, $self->data_length - 4)) ]
+};
 
 sub BUILD {
     my $self = shift;
@@ -147,8 +167,16 @@ sub BUILD {
     if($self->subtype == 0x1d) {
         $self->enable($_) for(qw/update_type update/);
     }
+
+    if($self->subtype == 0x0a || $self->subtype == 0x09) {
+        $self->enable($_) for(qw/slot slotlen/);
+    }
+
+    if($self->subtype == 0x06) {
+        $self->enable('subtype_06_data');
+    }
     
-    $self->enable($_) for(qw/slot health target source/);
+    $self->enable($_) for(qw/health target source/);
     $self->enable($_) for(qw/source_raw target_raw health_raw/);
 
     return $self;

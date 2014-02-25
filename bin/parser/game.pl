@@ -14,7 +14,7 @@ use constant WOT_BF_KEY_STR => 'DE 72 BE A0 DE 04 BE B1 DE FE BE EF DE AD BE EF'
 use constant WOT_BF_KEY     => join('', map { chr(hex($_)) } (split(/\s/, WOT_BF_KEY_STR)));
 
 my $parser = WR::Parser->new(bf_key => WOT_BF_KEY, file => $ARGV[0]);
-my $game   = $parser->game();
+my $game   = $parser->game_replayer();
 
 $game->on(finish => sub {
     my ($game, $reason) = (@_);
@@ -129,6 +129,12 @@ $game->on('player.position' => sub {
     print '[PLAYER.POSITION]: ', Dumper($v), "\n";
 });
 
+$game->on('player.tank.damaged' => sub {
+    my ($game, $v) = (@_);
+
+    print '[PLAYER.TANK.DAMAGED]: ', Dumper($v), "\n";
+});
+
 $game->on('player.health' => sub {
     my ($game, $v) = (@_);
 
@@ -166,4 +172,8 @@ $game->on('unknown' => sub {
 
 $game->start();
 
-print 'Final roster: ', Dumper($game->roster), "\n";
+print 'Bperf: ', Dumper($game->bperf), "\n";
+print 'Vcons i: ', Dumper($game->vcons_initial), "\n";
+print 'Vcons: ', Dumper($game->vcons), "\n";
+print 'Vshell i: ', Dumper($game->vshells_initial), "\n";
+print 'Vshell: ', Dumper($game->vshells), "\n";

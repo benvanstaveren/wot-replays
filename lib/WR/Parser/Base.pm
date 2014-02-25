@@ -9,6 +9,7 @@ use Mojo::JSON;
 use WR::Parser::Unpack;
 use WR::Parser::Stream;
 use WR::Parser::Game;
+use WR::Parser::GameReplayer;
 use WR::Util::Pickle;
 
 has 'file' => undef;
@@ -116,6 +117,13 @@ sub stream {
 
     my $stream = WR::Parser::Stream->new(fh => $self->unpack);
     return $stream;
+}
+
+sub game_replayer {
+    my $self = shift;
+
+    my $game = WR::Parser::GameReplayer->new(stream => $self->stream);
+    return $game;
 }
 
 sub game {

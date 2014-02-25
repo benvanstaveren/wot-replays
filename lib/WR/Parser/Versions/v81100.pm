@@ -21,5 +21,4 @@ sub get_battle_result {
     return $br;
 }
 
-
 1;

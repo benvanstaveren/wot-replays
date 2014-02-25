@@ -4,16 +4,20 @@ use Mojo::Base 'WR::Parser::Stream::Packet';
 has 'player_id' => sub { return shift->read(0, 4, 'L<') };
 has 'unknown'   => sub {
     my $self = shift;
-    return sprintf('%02x ' x ($self->packet_size - 4), map { ord($_) } (split(//, substr($self->data, 4))));
-};
-has 'unknown_len' => sub {
-    return length(shift->unknown);
+    my $u    = [];
+    my $o    = 4;
+
+    while($o + 4 < $self->payload_size) {
+        push(@$u, $self->read($o, 4, 'L<'));
+        $o += 4;
+    }
+    return $u;
 };
 
 sub BUILD {
     my $self = shift;
 
-    $self->enable($_) for(qw/player_id unknown unknown_len/);   
+    $self->enable($_) for(qw/player_id unknown/);
 
     return $self;
 }

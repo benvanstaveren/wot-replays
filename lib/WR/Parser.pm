@@ -38,9 +38,7 @@ sub new {
 
     my $monkey_patch_module = sprintf('WR::Parser::Versions::v%d', $v);
     load($monkey_patch_module);
-
     our @ISA = ( $monkey_patch_module ); # clobber the fuck out of that
-
     return $self;
 }
 
