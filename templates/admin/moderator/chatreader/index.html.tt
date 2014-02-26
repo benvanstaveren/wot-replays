@@ -21,7 +21,12 @@
     </div>
     <div class="row hide" id="chat-output-row">
         <div class="col-lg-12 col-md-12">
-            <h3 id="processing-display"><span class="spinner"></span> Processing...</h3>
+            <h3 id="processing-display">Processing <span class="spinner"></spinner></h3>
+            <div class="progress hide" id="stream-progress">
+                <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+                    <span>0%</span>
+                </div>
+            </div>
             <div id="reset-container" class="hide">
                 <button class="btn btn-primary">Reset</button>
             </div>
@@ -82,15 +87,32 @@
                         $('#chat-output-row').removeClass('hide');
 
                         WR_CR_session = d.channel;
+                        WR_CR_size = 0;
 
+                        WR.on('chatreader.init', function(data) {
+                            if(data.session == WR_CR_session) {
+                                WR_CR_size = data.size;
+                                $('#stream-progress').removeClass('hide');
+                                $('#processing-display span.spinner').addClass('hide');
+                            }
+                        });
+                        WR.on('chatreader.position', function(data) {
+                            if(data.session == WR_CR_session) {
+                                if(WR_CR_size > 0 && data.position > 0) {
+                                    var perc = Math.round(100/(WR_CR_size/data.position));
+                                    $('#stream-progress .progress-bar span').html(perc + '%');
+                                    $('#stream-progress .progress-bar').css({ width: perc + '%' });
+                                }
+                            }
+                        });
                         WR.on('chatreader.message', function(data) {
-                            console.log('WR.on chatreader.message, data: ', data, ' WR_CR_session = ', d.channel);
                             if(data.session == WR_CR_session) $('#chat-output').append( $('<div/>').html(data.text) );
                         });
                         WR.on('chatreader.finished', function(data) {
                             if(data.session == WR_CR_session) {
                                 $('#processing-display').addClass('hide');
                                 $('#reset-container').removeClass('hide');
+                                $('#stream-progress').addClass('hide');
                             }
                         });
                     } else {

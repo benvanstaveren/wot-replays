@@ -18,8 +18,8 @@ $| = 1;
 
 use constant END_OF_STREAM => 0xffffffff;
 
-sub stop { shift->stopping(1) }
-sub cancel { shift->stopping(1) }
+sub stop    { shift->stopping(1) }
+sub cancel  { shift->stopping(1) }
 
 sub new {
     my $package = shift;
@@ -31,6 +31,9 @@ sub new {
         my $name = $packetmodule;
         $self->modules->{$name}++;
     }
+
+    # cheesy
+    $self->emit('stream.size' => $self->len);
 
     $self->fh->seek(0, 0);
     return $self;
@@ -63,18 +66,23 @@ sub position {
 }
 
 sub _finish {
-    my $self = shift;
-    my $reason = shift;
-    my $p = shift;
+    my $self    = shift;
+    my $reason  = shift;
+    my $p       = shift;
 
     $self->emit(finish => $reason);
-    use Data::Dumper;
-    warn 'WR::Parser::Stream emit finish with reason: ', Dumper($reason), "\n";
     $self->stop;
     return (defined($p)) ? $p : undef;
 }
 
 sub next {
+    my $self = shift;
+    my $cb   = shift;
+
+    return (defined($cb)) ? $cb->($self, $self->_next) : $self->_next;
+}
+
+sub _next {
     my $self = shift;
 
     return undef if($self->stopping);

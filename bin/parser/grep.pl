@@ -33,4 +33,18 @@ try {
 } catch {
     print 'stream stopped: ', $_, "\n";
 };
+
+
+my $pc = {};
+
+foreach my $p (@$packets) {
+    my $s = sprintf('%02x-%02x %02d-%02d', $p->{type}, $p->{subtype}, $p->{type}, $p->{subtype});
+    $pc->{$s}++;
+}
+
 print $j->encode($packets);
+
+foreach my $t (sort { $pc->{$a} <=> $pc->{$b} } keys(%$pc)) {
+    print $t, ' = ', $pc->{$t}, "\n";
+}
+    

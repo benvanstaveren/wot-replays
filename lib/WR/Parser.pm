@@ -1,5 +1,5 @@
 package WR::Parser;
-use Mojo::Base 'WR::Parser::Base';
+use Mojo::Base 'WR::Parser::Versions::Base';
 use Module::Load;
 
 sub version_to_numeric {

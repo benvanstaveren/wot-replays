@@ -20,6 +20,8 @@ has data            => undef;
 has packet_size     => sub { return length(shift->data) };
 has packet_offset   => 0;
 
+has direct          => undef;
+
 has payload_size    => sub { return unpack('L<', substr(shift->data, 0, 4)) };
 has payload         => sub { 
     my $self = shift;
@@ -102,23 +104,13 @@ sub to_hash {
         $h->{$key} = $self->$key();
     }
 
-    $h->{payload} = ($self->payload_size > 0) ? sprintf('%02x ' x length($self->payload), map { ord($_) } (split(//, $self->payload))) : undef;
+    $h->{direct}  = $self->direct;
+    $h->{payload} = $self->payload_hex;
 
     return $h;
 }
 
 sub TO_JSON { shift->to_hash }
-
-sub dump {
-    my $self = shift;
-
-    return Dumper({ 
-        payload => $self->payload_hex,
-        type    => $self->type,
-        subtype => $self->subtype,
-        payload_length => $self->payload_size,
-    });
-}
 
 sub read {
     my $self = shift;

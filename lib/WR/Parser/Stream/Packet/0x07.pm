@@ -10,7 +10,8 @@ use Mojo::Base 'WR::Parser::Stream::Packet';
 # 8 ..  x           data
 
 
-has 'player_id' => sub { return shift->read(0, 4, 'L<') };
+has 'player_id'         => sub { return shift->read(0, 4, 'L<') };
+has 'data_length'       => sub { return shift->read(8, 4, 'L<') };
 
 has 'health'    => sub { 
     my $self = shift;
@@ -35,8 +36,9 @@ has 'destroyed_track_id' => sub {
 sub BUILD {
     my $self = shift;
 
-    $self->enable($_) for(qw/player_id health destroyed_track_id/);
-    
+    $self->enable(qw/player_id data_length/);
+    $self->enable($_) for(qw/health destroyed_track_id/);
+
     return $self;
 }
 

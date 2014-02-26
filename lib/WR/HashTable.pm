@@ -2,7 +2,6 @@ package WR::HashTable;
 use Mojo::Base '-base';
 
 has 'data' => sub { {} };
-has '_cached_data' => sub { {} };
 
 has '_ex' => sub { {} };
 
@@ -59,6 +58,36 @@ sub slice {
     }
 }
 
+sub delete {
+    my $self  = shift;
+    my $path  = shift;
+    my $_root = shift || $self->data;
+
+    return undef if(!defined($_root));
+
+    my $root  = { %{$_root} };
+
+    return undef unless(defined($root) && scalar(keys(%$root)) > 0);
+
+    my @comps = split(/\./, $path);
+    my $last  = pop(@comps);
+
+    while(my $c = shift(@comps)) {
+        if(defined($root) && ref($root) eq 'HASH') {
+            $root = $root->{$c};
+        } else {
+            $root = undef;
+        }
+    }
+
+    if(scalar(@comps)>0) {
+        return undef;
+    } else {
+        delete($root->{$last});
+    }
+}
+
+sub set { return shift->set_path(@_) }
 sub set_path {
     my $self  = shift;
     my $path  = shift;
@@ -67,18 +96,22 @@ sub set_path {
 
     my @comps = split(/\./, $path);
 
-    warn 'set_path: comps: ', join(', ', @comps), "\n";
-
     my $last = pop(@comps);
     while(my $c = shift(@comps)) {
         $hash->{$c} ||= {};
         $hash = $hash->{$c};
-        warn 'set_path: walked to ', $c, "\n";
     }
-    warn 'set_path: setting ', $last, ' to ', $value, "\n";
     $hash->{$last} = $value;
+}
 
-    delete($self->_cached_data->{$path}) if(defined($self->_cached_data->{$path}));
+sub append {
+    my $self = shift;
+    my $path = shift;
+    my $what = shift;
+    
+    my $a = $self->get($path) || [];
+    push(@$a, $what);
+    $self->set($path => $a);
 }
 
 sub get { return shift->path(@_) }
@@ -92,7 +125,6 @@ sub path {
     my $root  = { %{$_root} };
 
     return undef unless(defined($root) && scalar(keys(%$root)) > 0);
-    return $self->_cached_data->{$path} if(defined($self->_cached_data->{$path}));
 
     my @comps = split(/\./, $path);
 
@@ -107,12 +139,7 @@ sub path {
     if(scalar(@comps)>0) {
         return undef;
     } else {
-        $self->_cached_data->{$path} = (ref($root) eq 'HASH') 
-            ? { %$root }
-            : (ref($root) eq 'ARRAY')
-                ? [ @$root ]
-                : $root;
-        return $self->_cached_data->{$path};
+        return $root;
     }
 }
 
