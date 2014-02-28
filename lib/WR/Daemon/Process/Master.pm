@@ -252,7 +252,7 @@ sub start {
 
     $self->push(
         WR::Thunderpush::Client->new(
-            host        => 'thunderpush.wotreplays.org', 
+            host        => '127.0.0.1:20000',
             key         => $self->config->{thunderpush}->{key}, 
             secret      => $self->config->{thunderpush}->{secret},
             user        => 'processd.master',
@@ -318,8 +318,7 @@ sub start {
         }
     });
 
-    $self->reload_work_list; # load the current list, allows us to recover after a startup
-    $self->push->connect;
+    $self->reload_work_list; 
     $self->timers->{'work'} = Mojo::IOLoop->recurring(1 => sub {
         return unless($self->has_work);
         return if($self->pause_work);
@@ -331,6 +330,8 @@ sub start {
         }
         $self->pause_work(0);
     });
+    $self->debug('about to connect');
+    $self->push->connect;
     Mojo::IOLoop->start unless Mojo::IOLoop->is_running;
 }
 
