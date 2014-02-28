@@ -164,6 +164,10 @@ sub publish {
 	    }
         close($fh);
     }
+
+    # unlink the cached entry so it will regenerate on the next reload
+    unlink(sprintf('%s/lang/%s.js', $self->config('paths')->{public}, $lang));
+
     $self->render(json => { ok => 1 });
 }
 
