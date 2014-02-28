@@ -354,6 +354,105 @@ sub _setup_legacy_state_handlers {
     });
 }
 
+sub _with_battle_result {
+    my $self    = shift;
+    my $parser  = shift;
+    my $replay  = shift;
+    my $br      = shift;
+    my $cb      = shift;
+
+    $self->process_battle_result($replay, $br, sub {
+        if(my $replay = shift) {
+            # fix up the replay with some additional junk
+            if($replay->get('game.winner') == 0) {
+                $replay->set('game.victory' => -1); # draw
+            } else {
+                $replay->set('game.victory' => ($replay->get('game.winner') == $replay->get('game.recorder.team')) ? 1 : 0);
+            }
+            $replay->set('stats.damageAssisted' => $replay->get('stats.damageAssistedTrack') + $replay->get('stats.damageAssistedRadio'));
+
+            # this really oughta move into the stream events
+            if($replay->get('game.version_numeric') < $self->config->{wot}->{min_version}) {
+                $self->job->unlink;
+                $self->job->set_error('That replay is from an older version of World of Tanks which we cannot process...');
+                return $cb->($self, undef, 'That replay is from an older version of World of tanks which we cannot process...');
+            } elsif($replay->get('game.version_numeric') > $self->config->{wot}->{version_numeric}) {
+                $self->job->unlink;
+                $self->job->set_error('That replay is from a newer version of World of Tanks which we cannot process...');
+                return $cb->($self, undef, 'That replay is from a newer version of World of tanks which we cannot process...');
+            } else {
+                $replay->set('digest' => $self->job->_id);
+                $replay->set('site.visible' => ($self->job->data->{visible} < 1) ? Mango::BSON::bson_false : Mango::BSON::bson_true);
+                $replay->set('site.privacy' => $self->job->data->{privacy} || 0);
+                $replay->set('site.description' => (defined($self->job->data->{desc}) && length($self->job->data->{desc}) > 0) ? $self->job->data->{desc} : undef);
+                $replay->set('site.uploaded_at' => Mango::BSON::bson_time());
+                $replay->set('file' => $self->job->data->{file_base});
+                if($replay->get('game.bonus_type') == 5) {
+                    $self->debug('fix CW privacy');
+                    $replay->set('site.visible' => Mango::BSON::bson_false);
+                    $replay->set('site.privacy' => 3);
+                }
+
+                # see if we're processing an orphan, it's a bit of a waste to do it after all the work we went through,
+                # but eh. 
+                if($replay->get('site.orphan')) {
+                    # fix that up later, for now we'll just replace the entire thing, likes, downloads, etc. and all
+                }
+
+                # create the panel - we'll switch to using data mode here
+                my $data = $replay->data;
+                $data->{panel} = WR::Provider::Panelator->new->panelate($data);
+                $self->model('wot-replays.replays')->save($data => sub {
+                    my ($c, $e, $d) = (@_);
+
+                    if(defined($e)) {
+                        $self->error('full store fail: ', $e);
+                        $self->job->set_error('store fail: ', $e);
+                        return $cb->($self, undef, $e);
+                    } else {
+                        $self->debug('full replay saved ok');
+                        $self->job->set_complete($replay => sub {
+                            $self->debug('full job complete cb');
+                            return $cb->($self, $replay, undef);
+                        });
+                    }
+                });
+            }
+        }
+    });
+}
+
+sub _without_battle_result {
+    my $self   = shift;
+    my $parser = shift;
+    my $replay = shift;
+    my $cb      = shift;
+
+    $self->debug('replay has no battle result, doing process_minimal');
+    $self->process_minimal($parser => $replay => sub {
+        if(my $replay = shift) {
+            # store it the way it's come out
+            my $data = $replay->data;
+            $data->{panel} = WR::Provider::Panelator->new->panelate($data);
+            $self->model('wot-replays.replays')->save($data => sub {
+                my ($c, $e, $d) = (@_);
+
+                if(defined($e)) {
+                    $self->error('ninimal store fail: ', $e);
+                    $self->job->set_error('ninimal store fail: ', $e);
+                    return $cb->($self, undef, $e);
+                } else {
+                    $self->debug('ninimal replay saved ok');
+                    $self->job->set_complete($replay => sub {
+                        $self->debug('ninimal job complete cb');
+                        return $cb->($self, $replay, undef);
+                    });
+                }
+            });
+        }
+    });
+}
+
 sub _real_process {
     my $self   = shift;
     my $parser = shift;
@@ -387,87 +486,28 @@ sub _real_process {
             # figure out if the replay has a battle result, if it doesn't, just store
             # it as a minimal replay
             if($parser->has_battle_result) {
-                $self->process_battle_result($replay, $parser->get_battle_result, sub {
-                    if(my $replay = shift) {
-                        # fix up the replay with some additional junk
-                        if($replay->get('game.winner') == 0) {
-                            $replay->set('game.victory' => -1); # draw
-                        } else {
-                            $replay->set('game.victory' => ($replay->get('game.winner') == $replay->get('game.recorder.team')) ? 1 : 0);
-                        }
-                        $replay->set('stats.damageAssisted' => $replay->get('stats.damageAssistedTrack') + $replay->get('stats.damageAssistedRadio'));
-
-                        # this really oughta move into the stream events
-                        if($replay->get('game.version_numeric') < $self->config->{wot}->{min_version}) {
-                            $self->job->unlink;
-                            $self->job->set_error('That replay is from an older version of World of Tanks which we cannot process...');
-                            return $cb->($self, undef, 'That replay is from an older version of World of tanks which we cannot process...');
-                        } elsif($replay->get('game.version_numeric') > $self->config->{wot}->{version_numeric}) {
-                            $self->job->unlink;
-                            $self->job->set_error('That replay is from a newer version of World of Tanks which we cannot process...');
-                            return $cb->($self, undef, 'That replay is from a newer version of World of tanks which we cannot process...');
-                        } else {
-                            $replay->set('digest' => $self->job->_id);
-                            $replay->set('site.visible' => ($self->job->data->{visible} < 1) ? Mango::BSON::bson_false : Mango::BSON::bson_true);
-                            $replay->set('site.privacy' => $self->job->data->{privacy} || 0);
-                            $replay->set('site.description' => (defined($self->job->data->{desc}) && length($self->job->data->{desc}) > 0) ? $self->job->data->{desc} : undef);
-                            $replay->set('site.uploaded_at' => Mango::BSON::bson_time());
-                            $replay->set('file' => $self->job->data->{file_base});
-                            if($replay->get('game.bonus_type') == 5) {
-                                $self->debug('fix CW privacy');
-                                $replay->set('site.visible' => Mango::BSON::bson_false);
-                                $replay->set('site.privacy' => 3);
-                            }
-
-                            # see if we're processing an orphan, it's a bit of a waste to do it after all the work we went through,
-                            # but eh. 
-                            if($replay->get('site.orphan')) {
-                                # fix that up later, for now we'll just replace the entire thing, likes, downloads, etc. and all
-                            }
-
-                            # create the panel - we'll switch to using data mode here
-                            my $data = $replay->data;
-                            $data->{panel} = WR::Provider::Panelator->new->panelate($data);
-                            $self->model('wot-replays.replays')->save($data => sub {
-                                my ($c, $e, $d) = (@_);
-
-                                if(defined($e)) {
-                                    $self->error('full store fail: ', $e);
-                                    $self->job->set_error('store fail: ', $e);
-                                    return $cb->($self, undef, $e);
-                                } else {
-                                    $self->debug('full replay saved ok');
-                                    $self->job->set_complete($replay => sub {
-                                        $self->debug('full job complete cb');
-                                        return $cb->($self, $replay, undef);
-                                    });
-                                }
-                            });
-                        }
-                    }
-                });
+                $self->debug('replay has battle result');
+                $self->_with_battle_result($parser, $replay, $parser->get_battle_result, $cb);
             } else {
-                $self->debug('replay has no battle result, doing process_minimal');
-                $self->process_minimal($parser => $replay => sub {
-                    if(my $replay = shift) {
-                        # store it the way it's come out
-                        my $data = $replay->data;
-                        $data->{panel} = WR::Provider::Panelator->new->panelate($data);
-                        $self->model('wot-replays.replays')->save($data => sub {
-                            my ($c, $e, $d) = (@_);
+                $self->debug('replay has no battle result, attempting lookup');
+                # see if we happen to have an uploaded battle result for this replay
+                my $arena_id = $replay->get('game.arena_id') . '';
 
-                            if(defined($e)) {
-                                $self->error('ninimal store fail: ', $e);
-                                $self->job->set_error('ninimal store fail: ', $e);
-                                return $cb->($self, undef, $e);
-                            } else {
-                                $self->debug('ninimal replay saved ok');
-                                $self->job->set_complete($replay => sub {
-                                    $self->debug('ninimal job complete cb');
-                                    return $cb->($self, $replay, undef);
-                                });
-                            }
-                        });
+                $self->model('wot-replays.battleresults')->find_one({
+                    'battleresult.arenaUniqueID'        => $arena_id,
+                    'battleresult.personal.accountDBID' => $replay->get('game.recorder.account_id')
+                } => sub {
+                    my ($c, $e, $d) = (@_);
+
+                    if(defined($e)) {
+                        $self->error('Error during lookup of battle result: ', $e);
+                        $self->_without_battle_result($parser, $replay, $cb);
+                    } elsif(!defined($d)) {
+                        $self->debug('Could not find a stored battle result for this replay, using: ', $arena_id, ' and dbid: ', $replay->get('game.recorder.account_id'));
+                        $self->_without_battle_result($parser, $replay, $cb);
+                    } else {
+                        $self->debug('Found stored battle result');
+                        $self->_with_battle_result($parser, $replay, $d->{battleresult}, $cb);
                     }
                 });
             }
@@ -679,7 +719,8 @@ sub process_battle_result {
                             };
                         }
                     } else {
-                        $self->debug('wn8 res not success');
+                        my ($err, $code) = $tx->error;
+                        $self->debug('wn8 res not success, code: ', $code, ' err: ', $err);
                         $entry->{wn8} = { 
                             available => Mango::BSON::bson_false,
                             data => { overall => 0 }
