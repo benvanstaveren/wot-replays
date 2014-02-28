@@ -38,7 +38,7 @@ has [qw/_components _consumables _maps _vehicles/] => undef;
 
 has 'push'          => sub {
     my $self = shift;
-    return WR::Thunderpush::Server->new(host => '127.0.0.1:20000', secret => $self->config->{thunderpush}->{secret}, key => $self->config->{thunderpush}->{key});
+    return WR::Thunderpush::Server->new(host => 'push.wotreplays.org', secret => $self->config->{thunderpush}->{secret}, key => $self->config->{thunderpush}->{key});
 };
 
 

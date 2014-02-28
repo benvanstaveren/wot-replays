@@ -252,7 +252,7 @@ sub start {
 
     $self->push(
         WR::Thunderpush::Client->new(
-            host        => '127.0.0.1:20000',
+            host        => 'push.wotreplays.org',
             key         => $self->config->{thunderpush}->{key}, 
             secret      => $self->config->{thunderpush}->{secret},
             user        => 'processd.master',

@@ -49,7 +49,7 @@ Wotreplays.prototype = {
 
         this._setDefaultHandlers();
 
-        Thunder.connect('thunderpush.wotreplays.org', this.thunderkey, chan, { log: this.indev, user: this.user });
+        Thunder.connect('push.wotreplays.org', this.thunderkey, chan, { log: this.indev, user: this.user });
         Thunder.listen(function(message) {
             that.dispatchMessage(message);
         });

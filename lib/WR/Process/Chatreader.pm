@@ -13,7 +13,7 @@ has 'file'          => sub { shift->job->data->{file} };
 
 has 'push'          => sub {
     my $self = shift;
-    return WR::Thunderpush::Server->new(host => 'thunderpush.wotreplays.org', secret => $self->config->{thunderpush}->{secret}, key => $self->config->{thunderpush}->{key});
+    return WR::Thunderpush::Server->new(host => 'push.wotreplays.org', secret => $self->config->{thunderpush}->{secret}, key => $self->config->{thunderpush}->{key});
 };
 
 sub cleanup {
