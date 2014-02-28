@@ -637,6 +637,8 @@ sub process_battle_result {
                     $end->();
                 });
             });
+
+            $self->ua->inactivity_timeout(120);
             
             my $count = 0;
             foreach my $entry (@{$replay->get('roster')}) {
