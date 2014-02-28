@@ -537,6 +537,7 @@ sub process_minimal {
     $replay->set('site.visible'     => Mango::BSON::bson_false);
     $replay->set('site.privacy'     => 1); # unlisted
     $replay->set('game.server'      => WR::Provider::ServerFinder->new->get_server_by_id($replay->get('game.recorder.account_id')));
+    $replay->set('site.uploaded_at' => Mango::BSON::bson_time);
 
     $self->debug('process minimal complete, replay data now: ', Dumper($replay->data));
 
