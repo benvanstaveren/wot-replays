@@ -10,7 +10,7 @@ sub battleresult_submit {
     my $data = $self->req->json;
 
     $self->render_later;
-    if(defined($data->{arena_id}) && defined($data->{battleResult}) {
+    if(defined($data->{arena_id}) && defined($data->{battleResult})) {
         my $br_64 = b64_decode($data->{battleResult});
         my $p = WR::Util::Pickle->new(data => $br_64);
         my $br = undef;

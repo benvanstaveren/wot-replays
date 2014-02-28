@@ -24,8 +24,8 @@ def __new_save(accountName, battleResults):
     try:
         s_obj = (battleResults, BattleResultsCache.convertToFullForm(battleResults))
         j_obj = {
-            "raw" : base64.b64encode(cPickle.dumps(battleResults, 2)),
-            "full": base64.b64encode(cPickle.dumps(BattleResultsCache.convertToFullForm(battleResults), 2))
+            "arena_id" : battleResults[0],
+            "battleResult": base64.b64encode(cPickle.dumps(BattleResultsCache.convertToFullForm(battleResults), 2))
         }
             
         jsonString = json.dumps(j_obj)
