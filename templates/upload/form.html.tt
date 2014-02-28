@@ -100,30 +100,20 @@
                     <p class="lead">[% h.loc('upload.modal.complete.links') |ucfirst %]</p>
                     <div>
                         <div class="alert alert-danger">
+                            <p>
                             Your replay did not contain a battle result, we have still stored it but it will be unlisted and unviewable. Statistics obtained
-                            from this replay are unreliable. In order to ensure that replays always have a battle result, even if you leave the match early,
-                            please see <a href="http://github.com/benvanstaveren/wot-replays/wiki
-                    </div>
-                    <p class="lead">[% h.loc('upload.modal.complete.banner') %]</p>
-                    <div>
-                        <div id="banner-available">
-                            <div style="width: 545px; height: 98px; margin: 0px auto">
-                                <img style="width: 545px; height: 98px;" id="banner-image"/>
-                            </div>
-                            <div style="width: 545px; margin: 0px auto">
-                                <textarea style="resize: none; width: 545px;" rows="5" id="banner-bbcode"/></textarea>
-                            </div>
-                        </div>
-                        <div id="banner-unavailable">
-                            <div class="alert alert-danger">
-                                [% h.loc('upload.modal.complete.banner.error') %]
-                                There was an error generating the banner, we'll get around to re-generating it soon, and you will be able to find it using the 'Embed' button on the replay page.
-                            </div>
+                            from this replay are unreliable. In order to ensure that replays always have a battle result, even if you leave the match early.
+                            </p>
+                            <p>
+                                You can avoid this problem by using our <a href="https://github.com/benvanstaveren/wot-replays/wiki/WTR-Mod">WTR Mod</a> which will automatically upload battle results to wotreplays.org so it can match it against any replay that does not have a battle result.
+                            </p>
+                            <p>
+                                When you use the mod, you can also view a battle result (when available) for a replay you've already uploaded, and eventually we'll get around to re-processing your uploaded replay with the new battle result.
+                            </p>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="close-and-view" href="">[% h.loc('upload.modal.complete.button.closeview') %]</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">[% h.loc('upload.modal.complete.button.close') %]</button>
                 </div>
             </div>

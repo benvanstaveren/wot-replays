@@ -18,29 +18,33 @@ handleProcess = function(jobid) {
         if(d.complete) {
             $('#processModal').modal('hide');
             if(d.status == 1) {
-                $('#replay-file-link').html(
-                    $('<a>').attr('href', '[% config.urls.replays %]/' + d.file).html('[% config.urls.replays %]/' + d.file)
-                );
-                $('#replay-page-link').html(
-                    $('<a>').attr('href', '[% config.urls.app %]/replay/' + d.replayid + '.html').html('[% config.urls.app %]/replay/' + d.replayid + '.html')
-                );
-
-                if(d.banner.available) {
-                    $('#banner-available').show();
-                    $('#banner-unavailable').hide();
-
-                    $('#banner-image').attr('src', '[% config.urls.banners %]/' + d.banner.url_path);
-                    $('#banner-bbcode').text(
-                        '[url=[% config.urls.app %]/replay/' + d.replayid + '.html]' + "\n" +
-                        '[img][% config.urls.banners %]/' + d.banner.url_path + '[/img]' + "\n" +
-                        '[/url]'
-                    );
+                if(d.minimal) {
+                    $('#completeMinimalModal').modal('show');
                 } else {
-                    $('#banner-available').hide();
-                    $('#banner-unavailable').show();
+                    $('#replay-file-link').html(
+                        $('<a>').attr('href', '[% config.urls.replays %]/' + d.file).html('[% config.urls.replays %]/' + d.file)
+                    );
+                    $('#replay-page-link').html(
+                        $('<a>').attr('href', '[% config.urls.app %]/replay/' + d.replayid + '.html').html('[% config.urls.app %]/replay/' + d.replayid + '.html')
+                    );
+
+                    if(d.banner.available) {
+                        $('#banner-available').show();
+                        $('#banner-unavailable').hide();
+
+                        $('#banner-image').attr('src', '[% config.urls.banners %]/' + d.banner.url_path);
+                        $('#banner-bbcode').text(
+                            '[url=[% config.urls.app %]/replay/' + d.replayid + '.html]' + "\n" +
+                            '[img][% config.urls.banners %]/' + d.banner.url_path + '[/img]' + "\n" +
+                            '[/url]'
+                        );
+                    } else {
+                        $('#banner-available').hide();
+                        $('#banner-unavailable').show();
+                    }
+                    $('button#close-and-view').attr('href', '[% config.urls.app %]/replay/' + d.replayid + '.html');
+                    $('#completeModal').modal('show');
                 }
-                $('button#close-and-view').attr('href', '[% config.urls.app %]/replay/' + d.replayid + '.html');
-                $('#completeModal').modal('show');
             } else if(d.status == -1) {
                 if(!d.error) d.error = 'Unknown error occurred during processing';
                 $.bootstrapGrowl(d.error, {
@@ -250,6 +254,11 @@ $(document).ready(function() {
                 show: false,
             });
             $('#completeModal').modal({
+                backdrop: true,
+                keyboard: true,
+                show: false,
+            });
+            $('#completeMinimalModal').modal({
                 backdrop: true,
                 keyboard: true,
                 show: false,
