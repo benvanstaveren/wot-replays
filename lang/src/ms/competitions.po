@@ -1,0 +1,72 @@
+msgid "competition.entries.view"
+msgstr "lihat penyertaan"
+
+msgid "competition.heading.active"
+msgstr "AKTIF"
+
+msgid "competition.heading.description"
+msgstr "Huraian"
+
+msgid "competition.heading.endtime"
+msgstr "Pertandingan berakhir"
+
+msgid "competition.heading.kills"
+msgstr "Dimusnahkan"
+
+msgid "competition.heading.leaderboard"
+msgstr "Senarai Pendahulu"
+
+msgid "competition.heading.links"
+msgstr "Pautan penting"
+
+msgid "competition.heading.notactive"
+msgstr "TIDAK AKTIF"
+
+msgid "competition.heading.player"
+msgstr "Pemain"
+
+msgid "competition.heading.rest"
+msgstr "Peserta"
+
+msgid "competition.heading.starttime"
+msgstr "Pertandingan bermula"
+
+msgid "competition.page.entries.title"
+msgstr "%1 » %0"
+
+msgid "competition.page.title"
+msgstr "Pertandingan - %0"
+
+msgid "competition.rules.forum"
+msgstr "peraturan boleh dilihat di sini"
+
+msgid "competition.server.disabled"
+msgstr "Pemain dari server ini tidak boleh menyertai pertandingan ini"
+
+msgid "competition.server.enabled"
+msgstr "Pemain dari server ini boleh menyertai pertandingan ini"
+
+msgid "competitions.current"
+msgstr "Pertandingan aktif"
+
+msgid "competitions.current.none"
+msgstr "Tiada pertandingan aktif..."
+
+msgid "competitions.future.none"
+msgstr "Tiada pertandingan akan datang..."
+
+msgid "competitions.page.header"
+msgstr "Pertandingan"
+
+msgid "competitions.page.title"
+msgstr "Pertandingan"
+
+msgid "competitions.past"
+msgstr "Pertandingan lepas"
+
+msgid "competitions.past.none"
+msgstr "Tiada pertandingan lepas..."
+
+msgid "competitions.upcoming"
+msgstr "Pertandingan akan datang"
+

@@ -15,4 +15,5 @@ my $parser = WR::Parser->new(bf_key => WOT_BF_KEY, file => $ARGV[0], cb_gun_shot
 
 if($parser->has_battle_result) {
     my $u = $parser->get_battle_result;
+    print Dumper($u);
 }

@@ -10,6 +10,9 @@ msgstr "Layari"
 msgid "nav.clans"
 msgstr "Klan"
 
+msgid "nav.competitions"
+msgstr "Pertandingan"
+
 msgid "nav.heatmaps"
 msgstr "Peta Haba"
 
