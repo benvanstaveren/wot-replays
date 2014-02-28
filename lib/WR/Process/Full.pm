@@ -932,7 +932,7 @@ sub generate_banner {
         };
         $cb->($image);
     } else {
-        $self->log_error('[generate_banner]: could not find map, disk paths set right?');
+        $self->error('[generate_banner]: could not find map, disk paths set right? map: ', $res->get('game.map'));
         $cb->({
             available => Mango::BSON::bson_false,
             error => $_,
