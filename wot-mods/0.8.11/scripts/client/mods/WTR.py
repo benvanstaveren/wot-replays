@@ -1,16 +1,11 @@
 # original file: res/scripts/client/account_helpers/battleresultscache.pyc
-import os
-import BigWorld
-import cPickle
-import zlib
-import base64
-from battle_results_shared import *
 from account_helpers import BattleResultsCache
+import cPickle
+import base64
 from debug_utils import *
 from threading import Thread
 from urlparse import urlparse
 import httplib
-import constants
 import traceback
 import json
 
