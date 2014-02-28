@@ -26,7 +26,7 @@ span {
             color: white;
             background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0; 
             &:after {
-                content: "?";
+                content: "-";
             }
         }
     }
@@ -49,7 +49,7 @@ a {
             color: white;
             background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0; 
             &:after {
-                content: "?";
+                content: "-";
             }
         }
     }
@@ -72,7 +72,7 @@ div {
             color: white;
             background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0; 
             &:after {
-                content: "?";
+                content: "-";
             }
         }
     }
@@ -95,7 +95,7 @@ td {
             color: white;
             background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0; 
             &:after {
-                content: "?";
+                content: "-";
             }
         }
     }

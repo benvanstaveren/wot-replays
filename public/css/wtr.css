@@ -23,7 +23,7 @@ span.wn8.none {
   color: white;
   background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0; }
   span.wn8.none:after {
-    content: "?"; }
+    content: "-"; }
 
 a.wn8.verybad {
   color: #404040;
@@ -60,7 +60,7 @@ a.wn8.none {
   color: white;
   background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0; }
   a.wn8.none:after {
-    content: "?"; }
+    content: "-"; }
 
 div.wn8.verybad {
   color: #404040;
@@ -97,7 +97,7 @@ div.wn8.none {
   color: white;
   background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0; }
   div.wn8.none:after {
-    content: "?"; }
+    content: "-"; }
 
 td.wn8.verybad {
   color: #404040;
@@ -134,7 +134,7 @@ td.wn8.none {
   color: white;
   background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0; }
   td.wn8.none:after {
-    content: "?"; }
+    content: "-"; }
 
 div.rating {
   text-align: center;
