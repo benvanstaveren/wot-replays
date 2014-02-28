@@ -22,15 +22,17 @@ def __new_save(accountName, battleResults):
     std_save(accountName, battleResults)
 
     try:
+        print "- arena_id: " + str(battleResults[0]) + "\n"
+
         s_obj = (battleResults, BattleResultsCache.convertToFullForm(battleResults))
         j_obj = {
-            "arena_id" : battleResults[0],
+            "arena_id" : str(battleResults[0]),
             "battleResult": base64.b64encode(cPickle.dumps(BattleResultsCache.convertToFullForm(battleResults), 2))
         }
             
         jsonString = json.dumps(j_obj)
 
-        print "Will submit: " + jsonString + "\n"
+        print "- submit: " + jsonString + "\n"
 
         submitter = BattleResultsSubmitter(jsonString)
         thread = Thread(target=submitter.submit);
