@@ -411,6 +411,7 @@ sub _real_process {
                             $replay->set('site.visible' => ($self->job->data->{visible} < 1) ? Mango::BSON::bson_false : Mango::BSON::bson_true);
                             $replay->set('site.privacy' => $self->job->data->{privacy} || 0);
                             $replay->set('site.description' => (defined($self->job->data->{desc}) && length($self->job->data->{desc}) > 0) ? $self->job->data->{desc} : undef);
+                            $replay->set('site.uploaded_at' => Mango::BSON::bson_time());
                             $replay->set('file' => $self->job->data->{file_base});
                             if($replay->get('game.bonus_type') == 5) {
                                 $self->debug('fix CW privacy');
@@ -654,6 +655,7 @@ sub process_battle_result {
 
                     if(my $res = $tx->success) {
                         if($res->json->{status} eq 'ok') {
+                            $self->debug('wn8 res ok');
                             my $data = $res->json->{data};
                             my $wn8  = $data->{$entry->{player}->{accountDBID}};
                             if(defined($wn8))  {
@@ -662,6 +664,7 @@ sub process_battle_result {
                                     data => { overall => $wn8->{wn8} }
                                 };
                             } else {
+                                $self->debug('wn8 res error: ', Dumper($res->json));
                                 $entry->{wn8} = { 
                                     available => Mango::BSON::bson_false,
                                     data => { overall => 0 }
@@ -674,6 +677,7 @@ sub process_battle_result {
                             };
                         }
                     } else {
+                        $self->debug('wn8 res not success');
                         $entry->{wn8} = { 
                             available => Mango::BSON::bson_false,
                             data => { overall => 0 }
