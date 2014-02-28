@@ -310,8 +310,6 @@ sub start {
     $self->push->on(message => sub {
         my ($p, $m) = (@_);
 
-        $self->debug('received message: ', Dumper($m));
-
         if(defined($m->{evt}) && $m->{evt} eq 'replay.upload') {
             $self->debug('new upload on site, reload work list');
             $self->reload_work_list;

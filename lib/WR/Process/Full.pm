@@ -38,7 +38,7 @@ has [qw/_components _consumables _maps _vehicles/] => undef;
 
 has 'push'          => sub {
     my $self = shift;
-    return WR::Thunderpush::Server->new(host => 'thunderpush.wotreplays.org', secret => $self->config->{thunderpush}->{secret}, key => $self->config->{thunderpush}->{key});
+    return WR::Thunderpush::Server->new(host => '127.0.0.1:20000', secret => $self->config->{thunderpush}->{secret}, key => $self->config->{thunderpush}->{key});
 };
 
 
@@ -70,7 +70,7 @@ sub fix_server {
     my $self = shift;
     my $s    = shift;
 
-    return 'sea' if($s eq 'asia');
+    return 'asia' if($s eq 'sea');
     return $s;
 }
 
@@ -664,13 +664,13 @@ sub process_battle_result {
                                     data => { overall => $wn8->{wn8} }
                                 };
                             } else {
-                                $self->debug('wn8 res error: ', Dumper($res->json));
                                 $entry->{wn8} = { 
                                     available => Mango::BSON::bson_false,
                                     data => { overall => 0 }
                                 };
                             }
                         } else {
+                            $self->debug('wn8 res error: ', Dumper($res->json));
                             $entry->{wn8} = { 
                                 available => Mango::BSON::bson_false,
                                 data => { overall => 0 }
@@ -769,8 +769,6 @@ sub finalize_roster {
 
         push(@{$teams->[$entry->{team} - 1]}, $i);
 
-        
-
         my $newentry = {
             health  =>  {
                 total       => ($rawv->{health} + $rawv->{damageReceived}),
@@ -784,14 +782,16 @@ sub finalize_roster {
         };
 
         if(my $v = $self->_vehicles->get(typecomp => $rawv->{typeCompDescr})) {
+            $self->debug('Received vehicle from quickdb: ', Dumper($v));
             my $newvehicle = {};
             foreach my $key (keys(%$v)) {
                 $newvehicle->{$key} = $v->{$key};
             }
-            $newvehicle->{ident} = delete($v->{_id});
+            $newvehicle->{ident} = $v->{_id};
             $newvehicle->{id}    = $entry->{vehicleID};
             $newvehicle->{icon}  = sprintf('%s-%s.png', $v->{country}, $v->{name_lc});
             $newvehicle->{i18n}  = $v->{i18n};
+
             $newentry->{vehicle} = $newvehicle;
         }
         $newentry->{stats}->{isTeamKiller} = ($rawv->{isTeamKiller}) ? Mango::BSON::bson_true : Mango::BSON::bson_false;

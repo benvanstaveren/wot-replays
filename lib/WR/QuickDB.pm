@@ -2,23 +2,18 @@ package WR::QuickDB;
 use Mojo::Base '-base';
 
 has data    => sub { [] };
-has indexes => sub { {} };
 
 sub index_for {
     my $self = shift;
     my $key  = shift;
     my $val  = shift;
 
-    return $self->indexes->{$key}->{$val} if(defined($self->indexes->{$key}) && defined($self->indexes->{$key}->{$val}));
-
     my $i = 0;
     foreach my $doc (@{$self->data}) {
-        if($doc->{$key} eq $val) {
-            $self->indexes->{$key}->{$val} = $i;
-            return $i;
-        }
+        return $i if($doc->{$key} eq $val);
         $i++;
     }
+    return undef;
 }
 
 sub get_multi {
@@ -54,7 +49,11 @@ sub get {
     my $key  = shift;
     my $val  = shift;
 
-    return $self->data->[$self->index_for($key, $val)];
+    if(my $index = $self->index_for($key, $val)) {
+        return $self->data->[$index];
+    } else {
+        return undef;
+    }
 }
 
 1;
