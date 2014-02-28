@@ -7,7 +7,7 @@ div {
         text-align: center;
         background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0; 
         &:after {
-            content: "?";
+            content: "-";
         }
         &.below { color: lighten($rating_below, 25%); background: $rating_below none repeat scroll 0 0; }
         &.below:after {

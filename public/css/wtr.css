@@ -140,7 +140,7 @@ div.rating {
   text-align: center;
   background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0; }
   div.rating:after {
-    content: "?"; }
+    content: "-"; }
   div.rating.below {
     color: #e69999;
     background: #cd3333 none repeat scroll 0 0; }
