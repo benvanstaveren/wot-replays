@@ -937,12 +937,15 @@ sub generate_banner {
         my $i = WR::Provider::Imager->new();
         my $imagefile;
 
+        my $tv = $self->_vehicles->get(_id => $res->get('roster')->[$recorder]->{vehicle}->{ident});
+        my $vn = $tv->{label};
+
         my %imager_args = (
             map             => $map->{_id} . '',
             vehicle         => lc($pv),
             result          => $match_result,
             map_name        => $map->{label},
-            vehicle_name    => $res->get('roster')->[$recorder]->{vehicle}->{ident},
+            vehicle_name    => $vn,
             credits         => $res->get('stats.credits') + 0,
             xp              => $xp,
             kills           => $res->get('stats.kills') + 0,
