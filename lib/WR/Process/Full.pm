@@ -494,8 +494,8 @@ sub _real_process {
                 my $arena_id = $replay->get('game.arena_id') . '';
 
                 $self->model('wot-replays.battleresults')->find_one({
-                    'battleresult.arenaUniqueID'        => $arena_id,
-                    'battleresult.personal.accountDBID' => $replay->get('game.recorder.account_id')
+                    'battle_result.arenaUniqueID'        => $arena_id,
+                    'battle_result.personal.accountDBID' => $replay->get('game.recorder.account_id')
                 } => sub {
                     my ($c, $e, $d) = (@_);
 
@@ -507,7 +507,7 @@ sub _real_process {
                         $self->_without_battle_result($parser, $replay, $cb);
                     } else {
                         $self->debug('Found stored battle result');
-                        $self->_with_battle_result($parser, $replay, $d->{battleresult}, $cb);
+                        $self->_with_battle_result($parser, $replay, $d->{battle_result}, $cb);
                     }
                 });
             }
