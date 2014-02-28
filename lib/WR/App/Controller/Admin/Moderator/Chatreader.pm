@@ -40,8 +40,9 @@ sub process {
         my $replay_file = sprintf('%s/%s.wotreplay', $directory, $filename);
 
         $upload->asset->move_to($replay_file);
+        my $job_id = sprintf('%s-%d', $channel, Mango::BSON::bson_time);
         $self->model('wot-replays.jobs')->save({
-            _id         => sprintf('%s-%d', $channel, Mango::BSON::bson_time),
+            _id         => $job_id,
             type        => 'chatreader',
             ready       => Mango::BSON::bson_true,
             complete    => Mango::BSON::bson_false,
@@ -57,7 +58,10 @@ sub process {
         } => sub {
             my ($coll, $err, $oid) = (@_);
             if(defined($oid)) {
-                $self->render(json => { ok => 1, channel => $channel });
+                $self->app->thunderpush->send_to_channel('site' => Mojo::JSON->new->encode({ evt => 'replay.upload', data => { job_id => $job_id} }) => sub {
+                    my ($p, $r) = (@_);
+                    $self->render(json => { ok => 1, channel => $channel, oid => $oid, jid => $job_id });
+                });
             } else {
                 $self->render(json => { ok => 0, error => 'Could not save process job' });
             }

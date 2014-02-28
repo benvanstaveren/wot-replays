@@ -1,80 +1,84 @@
 package WR::Process::Full;
-use Mojo::Base 'Mojo::EventEmitter';
-use Mojo::UserAgent;
-use File::Path qw/make_path/;
-use Data::Dumper;
-use Mango::BSON;
-use Try::Tiny qw/try catch/;
-
+use Mojo::Base 'WR::Process::Base';
 use WR::Parser;
 use WR::Res::Achievements;
 use WR::Provider::ServerFinder;
 use WR::Provider::Imager;
 use WR::Provider::Panelator;
-use WR::Provider::Mapgrid;
-use WR::Constants qw/nation_id_to_name decode_arena_type_id ARENA_PERIOD_BATTLE/;
+use WR::HashTable;
+use WR::Constants qw/nation_id_to_name decode_arena_type_id ARENA_PERIOD_BATTLE gameplay_id_to_name/;
 use WR::Util::TypeComp qw/parse_int_compact_descr type_id_to_name/;
+use WR::QuickDB;
+use Data::Dumper;
 
+use Mango;
+use Mango::BSON;
 use Scalar::Util qw/blessed/;
+use Try::Tiny qw/try catch/;
+use File::Path qw/make_path/;
 
 use constant PARSER_VERSION => 0; # yeah
 use constant PACKET_VERSION => 1; # even more yeah
 
-has 'file'          => undef;
-has 'skip_wn7'      => 0;
-has 'mango'         => undef;
-has 'bf_key'        => undef;
-has 'banner_path'   => undef;
-has 'packet_path'   => undef;
+has [qw/config job log/] => undef;
+
+has 'mango'         => sub {
+    my $self = shift;
+    return Mango->new($self->config->{mongodb}->{host});
+};
+    
+has 'banner_path'   => sub { return shift->config->{paths}->{banners} };
+has 'packet_path'   => sub { return shift->config->{paths}->{packets} };
 has 'banner'        => 1;
-has '_error'        => undef;
-has 'has_error'     => 0;
-has '_parser'       => undef;
+
 has 'packets'       => sub { [] };
-has 'log'           => undef;
 has 'ua'            => sub { Mojo::UserAgent->new };
-has 'config'        => sub { {} };
 
-has '_consumables'  => sub { {} }; # consumables are keyed by their typecomp id fragment
-has '_components'   => sub { {} }; # components are keyed by type, country, id
+has [qw/_components _consumables _maps _vehicles/] => undef;
 
-has '_rsize'            =>  0;
-has '_arena_initialize' => undef;
-has 'mapgrid'           => undef;
-
-has 'hm_updates'        => sub {
-    {
-        'location'          =>  {},
-        'deaths'            =>  {},
-        'damage_d'          =>  {},
-        'damage_r'          =>  {},
-        'killshot'          =>  {},
-    }
+has 'push'          => sub {
+    my $self = shift;
+    return WR::Thunderpush::Server->new(host => 'thunderpush.wotreplays.org', secret => $self->config->{thunderpush}->{secret}, key => $self->config->{thunderpush}->{key});
 };
 
-has 'player_team'   => 0;
-has 'game'          => undef;
-
-has 'battleheat'        => sub { {} };
 
 sub _preload {
     my $self = shift;
-    my $cursor = $self->model('wot-replays.data.consumables')->find();
-    while(my $c = $cursor->next()) {
-        $self->_consumables->{$c->{wot_id}} = $c;
-    }
+    my $cb   = shift;
 
-    $cursor = $self->model('wot-replays.data.components')->find();
-    while(my $c = $cursor->next()) {
-        $self->_components->{$c->{component}}->{$c->{country}}->{$c->{component_id}} = $c;
+    my $delay = Mojo::IOLoop->delay(sub {
+        $self->debug('_preload delay cb');
+        return $cb->();
+    });
+
+    my $preload = [ 'components', 'consumables', 'maps', 'vehicles' ];
+    foreach my $type (@$preload) {
+        my $end = $delay->begin(0);
+        my $attr = sprintf('_%s', $type);
+        $self->debug('preloading ', $type);
+        $self->model(sprintf('wot-replays.data.%s', $type))->find()->all(sub {
+            my ($c, $e, $d) = (@_);
+            $self->$attr(WR::QuickDB->new(data => $d));
+            $self->debug('preloading ', $type, ' callback');
+            $end->();
+        });
+        $self->debug('post preloading ', $type);
     }
+}
+
+sub fix_server {
+    my $self = shift;
+    my $s    = shift;
+
+    return 'sea' if($s eq 'asia');
+    return $s;
 }
 
 sub get_consumable {
     my $self = shift;
     my $id   = shift;
 
-    return $self->_consumables->{$id};
+    return $self->_consumables->get(wot_id => $id);
 }
 
 sub get_component {
@@ -83,21 +87,8 @@ sub get_component {
     my $country = shift;
     my $id = shift;
 
-    return $self->_components->{$type}->{$country}->{$id};
+    return $self->_components->get_multi(component => $type, country => $country, component_id => $id);
 }
-
-sub _log {
-    my $self = shift;
-    my $level = shift;
-    my $msg  = join(' ', @_);
-
-    $self->log->$level($msg);
-}
-
-sub warning { shift->_log('warn', @_) }
-sub log_error { shift->_log('error', @_) }
-sub info { shift->_log('info', @_) }
-sub debug { shift->_log('debug', @_) }
 
 sub add_packet {
     my $self    = shift;
@@ -115,35 +106,614 @@ sub model {
     return $self->mango->db($db)->collection($coll);
 }
 
-sub error {
-    my $self = shift;
-    my $message = join(' ', @_);
+sub process_replay {
+    my $self   = shift;
+    my $parser = shift;
+    my $cb     = shift;
 
-    if(scalar(@_) > 0) {
-        $self->_error($message);
-        $self->log_error($message);
-        $self->has_error(1);
+    $self->debug('process_replay top');
+
+    $self->emit('state.prepare.start');
+    $self->_preload(sub {
+        $self->emit('state.prepare.finish');
+        try {
+            $self->_real_process($parser => $cb);
+        } catch {
+            my $e = $_;
+            $self->job->set_error('Process error: ', $e);
+            $self->error('Process error: ', $e);
+            $cb->($self, $e, undef);
+        };
+    });
+}
+
+# emit also dispatches to thunderpush
+sub emit {
+    my $self = shift;
+    my $key  = shift;
+    my $data = shift;
+    my $cb   = shift;
+
+    $data->{job_id} = $self->job->_id;
+
+    $self->push->send_to_channel('site' => Mojo::JSON->new->encode({ evt => $key,  data => $data}) => sub {
+        $self->SUPER::emit($key => $data);
+        return $cb->() if(defined($cb));
+    });
+}
+
+sub _stream_replay {
+    my $self    = shift;
+    my $parser  = shift;
+    my $replay  = shift;
+    my $cb      = shift;
+    my $pcount  = 0;
+
+    # set up game; game->start will set up a timer that will do some opportunistic reading
+    # for stream->next, the finish event from game will complete the initial replay step. 
+    if(my $game = $parser->game()) {
+        $game->on('replay.position' => sub {
+            my ($s, $v) = (@_);
+            
+            if(++$pcount % 100 == 0) {
+                $self->emit('state.streaming.progress' => { count => $v } => sub {
+                    # no-op but we want it to not block
+                });
+            }
+        });
+        $game->on('game.version' => sub {
+            my ($s, $v) = (@_); 
+            $replay->set('game.version' => $v);
+        });
+        $game->on('game.version_n' => sub {
+            my ($s, $v) = (@_);
+            $replay->set('game.version_numeric' => $v + 0);
+        });
+        $game->on('recorder.name' => sub {
+            my ($s, $v) = (@_);
+            $replay->set('game.recorder.name' => $v);
+        });
+        $game->on('recorder.account_id' => sub {
+            my ($s, $v) = (@_);
+            $replay->set('game.recorder.account_id' => $v + 0);
+        });
+        $game->on('recorder.id' => sub {
+            my ($s, $v) = (@_);
+            $replay->set('game.recorder.id' => $v + 0);
+        });
+        $game->on('arena.initialize' => sub {
+            my ($s, $init) = (@_);
+
+            $replay->set('game.battle_level'    => (defined($init->{battleLevel})) ? $init->{battleLevel} + 0 : undef);
+            $replay->set('game.opponents'       => (defined($init->{opponents})) ? $init->{opponents} : undef);
+            $replay->set('game.arena_id'        => $init->{arena_unique_id} . '');
+            $replay->set('game.started'         => undef);
+            $replay->set('game.duration'        => undef);
+            $replay->set('game.winner'          => undef);
+            $replay->set('game.bonus_type'      => $init->{bonus_type} + 0);
+            $replay->set('game.finish_reason'   => undef);
+            $replay->set('game.type'            => gameplay_id_to_name($init->{gameplay_id}));
+            $replay->set('game.type_n'          => $init->{gameplay_id});
+            $replay->set('game.map'             => $init->{map_id});
+            if(my $d = $self->_maps->get(numerical_id => $init->{map_id})) {
+                $replay->set('game.map_extra' => {
+                    ident   => $d->{_id},
+                    slug    => $d->{slug},
+                    icon    => $d->{icon},
+                    label   => $d->{label},
+                    geometry => [ $d->{attributes}->{geometry}->{bottom_left}, $d->{attributes}->{geometry}->{upper_right} ],
+                });
+            }
+        });
+
+        # here's some additional bits and pieces that we are interested in to write packet files
+        for my $event ('player.position', 'player.health', 'player.tank.destroyed', 'player.chat', 'arena.period', 'player.tank.damaged', 'arena.initialize', 'cell.attention', 'arena.base_points', 'arena.base_captured', 'arena.avatar_ready') {
+            $game->on($event => sub {
+                my ($s, $v) = (@_);
+                $self->add_packet($v);
+            });
+        }
+        # subscribe some duplicates for other things
+        $game->on('player.chat' => sub {
+            my ($game, $chat) = (@_);
+            $replay->append('chat', $chat->{text});
+        });
+        $game->on('setup.roster' => sub {
+            my ($g, $v) = (@_);
+
+            $replay->set('roster' => $v);
+        });
+        $game->on(finish => sub {
+            my ($game, $reason) = (@_);
+            $self->emit('state.streaming.finish' => { total => $game->stream->len } => sub {
+                if($reason->{ok} == 0) {
+                    return $cb->(undef, $reason->{reason});
+                } else {
+                    $replay->set('game.recorder.consumables' => $game->vcons_initial);
+                    $replay->set('game.recorder.ammo'        => $game->vshells_initial);
+
+                    $replay->set('temp.bperf'       => $game->bperf);
+                    $replay->set('temp.stats'       => $game->statistics);
+                    $replay->set('temp.personal'    => $game->personal);
+
+                    return $cb->($replay, undef);
+                }
+            });
+        });
+        $self->emit('state.streaming.start' => { total => $game->stream->len } => sub {
+            $game->start;
+        });
     } else {
-        return $self->_error;
+        return $cb->(undef, 'Could not stream replay');
     }
 }
 
-sub process {
+sub _setup_legacy_state_handlers {
     my $self = shift;
-    my $prepared_id = shift;
 
-    $self->_preload;
+    $self->on('state.prepare.start' => sub {
+        $self->job->set_status({
+            id      =>  'prepare',
+            text    =>  'Preparing replay...',
+            i18n    =>  'process.state.prepare',
+            type    =>  'spinner',
+            done    =>  Mango::BSON::bson_false,
+        });
+    });
+    $self->on('state.prepare.finish' => sub {
+        $self->job->set_status({
+            id      =>  'prepare',
+            done    =>  Mango::BSON::bson_true,
+        });
+    });
+    $self->on('state.streaming.start' => sub {
+        my ($o, $t) = (@_);
+        $self->job->set_status({
+            id      =>  'streaming',
+            text    =>  'Streaming packets',
+            i18n    =>  'process.state.streaming',
+            type    =>  'progress',
+            count   =>  0,
+            total   =>  $t->{total},
+            done    =>  Mango::BSON::bson_false,
+        });
+    });
+    $self->on('state.streaming.progress' => sub {
+        my ($o, $d) = (@_);
+        $self->job->set_status({
+            id      =>  'streaming',
+            count   =>  $d->{count},
+        });
+    });
+    $self->on('state.streaming.finish' => sub {
+        my ($o, $t) = (@_);
+        $self->job->set_status({
+            id      =>  'streaming',
+            count   =>  $t->{total},
+            total   =>  $t->{total},
+            done    =>  Mango::BSON::bson_true
+        });
+    });
+    $self->on('state.generatebanner.start' => sub {
+        $self->job->set_status({
+            id      =>  'generatebanner',
+            text    =>  'Generating banner...',
+            i18n    =>  'process.state.generatebanner',
+            type    =>  'spinner',
+            done    =>  Mango::BSON::bson_false,
+        });
+    });
+    $self->on('state.generatebanner.finish' => sub {
+        $self->job->set_status({
+            id      =>  'generatebanner',
+            done    =>  Mango::BSON::bson_true,
+        });
+    });
+    $self->on('state.packet.save.start' => sub {
+        $self->job->set_status({
+            id      =>  'packetsave',
+            text    =>  'Saving packets to disk...',
+            i18n    =>  'process.state.packetsave',
+            type    =>  'spinner',
+            done    =>  Mango::BSON::bson_false,
+        });
+    });
+    $self->on('state.packet.save.finish' => sub {
+        $self->job->set_status({
+            id      =>  'packetsave',
+            done    =>  Mango::BSON::bson_true,
+        });
+    });
+    $self->on('state.wn7.start' => sub {
+        my ($o, $t) = (@_);
+        $self->job->set_status({
+            id      =>  'wn7',
+            text    =>  'Fetching ratings from Statterbox',
+            i18n    =>  'process.state.rating',
+            type    =>  'progress',
+            count   =>  0,
+            total   =>  $t->{total},
+            done    =>  Mango::BSON::bson_false,
+        });
+    });
+    $self->on('state.wn7.start' => sub {
+        my ($o, $d) = (@_);
+        $self->job->set_status({
+            id      =>  'wn7',
+            count   =>  $d->{count},
+        });
+    });
+    $self->on('state.wn7.finish' => sub {
+        my ($o, $t) = (@_);
+        $self->job->set_status({
+            id      =>  'wn7',
+            count   =>  $t->{total},
+            total   =>  $t->{total},
+            done    =>  Mango::BSON::bson_true,
+        });
+    });
+}
 
-    my $replay;
+sub _real_process {
+    my $self   = shift;
+    my $parser = shift;
+    my $cb     = shift;
 
-    try {
-        $replay = $self->_real_process($prepared_id);
-    } catch {
-        my $e = $_;
-        $self->error($e);
-        $replay = undef;
-    };
-    return $replay;
+    my $replay = WR::HashTable->new(data => {});
+    if(defined($self->job->replayid)) {
+        $self->debug('job has existing replayid');
+        $replay->set('_id' => $self->job->replayid); # we're re-doing an existing replay
+        $replay->set('site.orphan' => Mango::BSON::bson_true); # not entirely true, but we might as well abuse the flag for it
+    } else {
+        $self->debug('job for new replay');
+        $replay->set('_id' => Mango::BSON::bson_oid);
+    }
+
+    # set up a couple of handlers for our state events, we still update the job with it
+    $self->_setup_legacy_state_handlers;
+    $self->debug('set up legacy state handlers');
+
+    # couple stages to the process
+    $self->_stream_replay($parser, $replay, sub {
+        my ($replay, $error) = (@_);
+
+        $self->debug('stream replay callback with error ', $error, ' replay ', $replay);
+
+        if(defined($error)) {
+            $self->job->set_error($error);
+            $self->error($error);
+            $cb->($self, undef, $error);
+        } else {
+            # figure out if the replay has a battle result, if it doesn't, just store
+            # it as a minimal replay
+            if($parser->has_battle_result) {
+                $self->process_battle_result($replay, $parser->get_battle_result, sub {
+                    if(my $replay = shift) {
+                        # fix up the replay with some additional junk
+                        if($replay->get('game.winner') == 0) {
+                            $replay->set('game.victory' => -1); # draw
+                        } else {
+                            $replay->set('game.victory' => ($replay->get('game.winner') == $replay->get('game.recorder.team')) ? 1 : 0);
+                        }
+                        $replay->set('stats.damageAssisted' => $replay->get('stats.damageAssistedTrack') + $replay->get('stats.damageAssistedRadio'));
+
+                        # this really oughta move into the stream events
+                        if($replay->get('game.version_numeric') < $self->config->{wot}->{min_version}) {
+                            $self->job->unlink;
+                            $self->job->set_error('That replay is from an older version of World of Tanks which we cannot process...');
+                            return $cb->($self, undef, 'That replay is from an older version of World of tanks which we cannot process...');
+                        } elsif($replay->get('game.version_numeric') > $self->config->{wot}->{version_numeric}) {
+                            $self->job->unlink;
+                            $self->job->set_error('That replay is from a newer version of World of Tanks which we cannot process...');
+                            return $cb->($self, undef, 'That replay is from a newer version of World of tanks which we cannot process...');
+                        } else {
+                            $replay->set('digest' => $self->job->_id);
+                            $replay->set('site.visible' => ($self->job->data->{visible} < 1) ? Mango::BSON::bson_false : Mango::BSON::bson_true);
+                            $replay->set('site.privacy' => $self->job->data->{privacy} || 0);
+                            $replay->set('site.description' => (defined($self->job->data->{desc}) && length($self->job->data->{desc}) > 0) ? $self->job->data->{desc} : undef);
+                            $replay->set('file' => $self->job->data->{file_base});
+                            if($replay->get('game.bonus_type') == 5) {
+                                $self->debug('fix CW privacy');
+                                $replay->set('site.visible' => Mango::BSON::bson_false);
+                                $replay->set('site.privacy' => 3);
+                            }
+
+                            # see if we're processing an orphan, it's a bit of a waste to do it after all the work we went through,
+                            # but eh. 
+                            if($replay->get('site.orphan')) {
+                                # fix that up later, for now we'll just replace the entire thing, likes, downloads, etc. and all
+                            }
+
+                            # create the panel - we'll switch to using data mode here
+                            my $data = $replay->data;
+                            $data->{panel} = WR::Provider::Panelator->new->panelate($data);
+                            $self->model('wot-replays.replays')->save($data => sub {
+                                my ($c, $e, $d) = (@_);
+
+                                if(defined($e)) {
+                                    $self->error('full store fail: ', $e);
+                                    $self->job->set_error('store fail: ', $e);
+                                    return $cb->($self, undef, $e);
+                                } else {
+                                    $self->debug('full replay saved ok');
+                                    $self->job->set_complete($replay => sub {
+                                        $self->debug('full job complete cb');
+                                        return $cb->($self, $replay, undef);
+                                    });
+                                }
+                            });
+                        }
+                    }
+                });
+            } else {
+                $self->debug('replay has no battle result, doing process_minimal');
+                $self->process_minimal($parser => $replay => sub {
+                    if(my $replay = shift) {
+                        # store it the way it's come out
+                        my $data = $replay->data;
+                        $data->{panel} = WR::Provider::Panelator->new->panelate($data);
+                        $self->model('wot-replays.replays')->save($data => sub {
+                            my ($c, $e, $d) = (@_);
+
+                            if(defined($e)) {
+                                $self->error('ninimal store fail: ', $e);
+                                $self->job->set_error('ninimal store fail: ', $e);
+                                return $cb->($self, undef, $e);
+                            } else {
+                                $self->debug('ninimal replay saved ok');
+                                $self->job->set_complete($replay => sub {
+                                    $self->debug('ninimal job complete cb');
+                                    return $cb->($self, $replay, undef);
+                                });
+                            }
+                        });
+                    }
+                });
+            }
+        }
+    });
+}
+
+sub process_minimal {
+    my $self   = shift;
+    my $parser = shift;
+    my $replay = shift;
+    my $cb     = shift;
+
+    # to figure out the arena start time, we'll have to dig it out of the first block 
+    # also use the temp.bperf, temp.stats, and temp.personal dicts to at least pull some stats
+    # in 
+
+    my $temp = { %{$replay->get('temp')} }; # shallow 
+    delete($replay->data->{temp}); # yeah...
+
+
+    foreach my $key (keys(%{$temp->{personal}})) {
+        $replay->set(sprintf('stats.%s', $key) => $temp->{personal}->{$key});
+    }
+    $replay->set('site.minimal'     => Mango::BSON::bson_true);
+    $replay->set('site.visible'     => Mango::BSON::bson_false);
+    $replay->set('site.privacy'     => 1); # unlisted
+    $replay->set('game.server'      => WR::Provider::ServerFinder->new->get_server_by_id($replay->get('game.recorder.account_id')));
+
+    $self->debug('process minimal complete, replay data now: ', Dumper($replay->data));
+
+    $cb->($replay);
+}
+
+sub process_battle_result {
+    my $self          = shift;
+    my $replay        = shift;
+    my $battle_result = shift;
+    my $cb            = shift;
+
+    $self->finalize_roster($replay, $battle_result);
+
+    $replay->set('stats'                => $battle_result->{personal});
+    $replay->set('game.duration'        => $battle_result->{common}->{duration} + 0);
+    $replay->set('game.started'         => Mango::BSON::bson_time($battle_result->{common}->{arenaCreateTime} * 1000));
+    $replay->set('game.winner'          => $battle_result->{common}->{winnerTeam});
+    $replay->set('game.finish_reason'   => $battle_result->{common}->{finishReason});
+
+    $replay->set('game.recorder.team'       => $battle_result->{personal}->{team} + 0);
+    $replay->set('game.recorder.survived'   => ($battle_result->{personal}->{deathReason} == -1) ? Mango::BSON::bson_true : Mango::BSON::bson_false);
+    $replay->set('game.recorder.killer'     => ($battle_result->{personal}->{killerID} > 0) ? $battle_result->{personal}->{killerID} : undef);
+    $replay->set('game.recorder.lifetime'   => $battle_result->{personal}->{lifeTime} + 0);
+
+    my $consumables     = [];
+    my $ammo            = [];
+
+    my $vcons_initial   = $replay->get('game.recorder.consumables');
+    my $vshells_initial = $replay->get('game.recorder.ammo');
+
+    foreach my $tc (keys(%$vcons_initial)) {
+        if($tc > 0) {
+            my $a = parse_int_compact_descr($tc);
+            if(my $c = $self->get_consumable($a->{id})) {
+                push(@$consumables, $c);
+            }
+        }
+    }
+
+    # ammo is a bit different since the array needs to be hashes of { id => typeid, count => count }
+    foreach my $id (keys(%$vshells_initial)) {
+        my $tc = parse_int_compact_descr($id);
+        if(my $a = $self->get_component('shells', nation_id_to_name($tc->{country}), $tc->{id})) {
+            push(@$ammo, {
+                ammo  => $a,
+                count => $vshells_initial->{$id}->{count},
+            });
+        }
+    }
+    
+    $replay->set('game.recorder.consumables' => $consumables);
+    $replay->set('game.recorder.ammo'        => $ammo);
+
+    my $delay = Mojo::IOLoop->delay(sub {
+        $self->debug('process_battle_result main delay cb');
+        $cb->($replay);
+    });
+
+    sub _generate_banner {
+        my $self = shift;
+        my $replay = shift;
+        my $end = shift;
+
+        $self->emit('state.generatebanner.start' => {} => sub {
+            $self->debug('preparing banner');
+            $self->generate_banner($replay => sub {
+                my $image = shift;
+                $self->emit('state.generatebanner.finish' => {} => sub {
+                    $replay->set('site.banner' => $image);
+                    $end->();
+                });
+            });
+        });
+    }
+
+    sub _misc {
+        my $self = shift;
+        my $replay = shift;
+        my $end = shift;
+
+        $replay->set('game.server'          => WR::Provider::ServerFinder->new->get_server_by_id($replay->get('game.recorder.account_id')));
+        $replay->set('game.recorder.index'  => $replay->get('players')->{$replay->get('game.recorder.name')});
+
+        my $tc = {};
+        foreach my $entry (@{$replay->get('roster')}) {
+            next unless(length($entry->{player}->{clanAbbrev}) > 0);
+            $tc->{$entry->{player}->{clanAbbrev}}++;
+        }
+        $replay->set('involved' => {
+            players     => [ keys(%{$replay->get('players')}) ],
+            clans       => [ keys(%$tc) ],
+            vehicles    => [ map { $_->{vehicle}->{ident} } @{$replay->get('roster')} ],
+        });
+        # noooo... cock!
+        # $replay->set('version' => $parser->version);
+        $end->();
+    }
+
+    sub _packetstore {
+        my $self = shift;
+        my $replay = shift;
+        my $end = shift;
+
+        $self->debug('storing packets for replay');
+        $self->emit('state.packet.save.start' => {} => sub {
+            my $base_path = sprintf('%s/%s', $self->packet_path, $self->hashbucket($replay->get('_id') . '', 7));
+            make_path($base_path) unless(-e $base_path);
+            my $packet_file = sprintf('%s/%s.json', $base_path, $replay->get('_id') . '');
+            if(my $fh = IO::File->new(sprintf('>%s', $packet_file))) {
+                my $json = Mojo::JSON->new();
+                $fh->print($json->encode($self->packets));
+                $fh->close;
+                $self->debug('wrote packets to file');
+                $replay->set('packets' => sprintf('%s/%s.json', $self->hashbucket($replay->get('_id') . '', 7), $replay->get('_id') . ''));
+                $self->emit('state.packet.save.finish' => {} => sub {
+                    $end->();
+                });
+            } else {
+                $self->debug('could not write packets to file');
+                $replay->set('packets' => undef);
+                $self->emit('state.packet.save.finish' => {} => sub {
+                    $end->();
+                });
+            }
+        });
+    }
+
+    sub _ratings {
+        my $self = shift;
+        my $replay = shift;
+        my $end = shift;
+
+        $self->emit('state.wn7.start' => { total => scalar(keys(%{$replay->get('players')})) } => sub {
+            my $ratingdelay = Mojo::IOLoop->delay(sub {
+                $self->debug('ratingdelay cb');
+                $self->emit('state.wn7.finish' => { total => scalar(@{$replay->get('roster')}) } => sub { 
+                    $self->debug('ratingdelay emit cb');
+                    $end->();
+                });
+            });
+            
+            my $count = 0;
+            foreach my $entry (@{$replay->get('roster')}) {
+                my $url = 'http://api.statterbox.com/wot/account/wn8';
+                my $rend = $ratingdelay->begin(0);
+                my $form = {
+                    application_id  => $self->config->{'statterbox'}->{server},
+                    account_id      => $entry->{player}->{accountDBID},
+                    cluster         => $self->fix_server($replay->get('game.server')),
+                };
+                $self->debug('getting wn8 from statterbox via ', $url, ' -> ', Dumper($form));
+                $self->ua->post($url => form => $form => sub {
+                    my ($ua, $tx) = (@_);
+
+                    $self->debug('callback for ', $url);
+
+                    if(my $res = $tx->success) {
+                        if($res->json->{status} eq 'ok') {
+                            my $data = $res->json->{data};
+                            my $wn8  = $data->{$entry->{player}->{accountDBID}};
+                            if(defined($wn8))  {
+                                $entry->{wn8} = { 
+                                    available => Mango::BSON::bson_true,
+                                    data => { overall => $wn8->{wn8} }
+                                };
+                            } else {
+                                $entry->{wn8} = { 
+                                    available => Mango::BSON::bson_false,
+                                    data => { overall => 0 }
+                                };
+                            }
+                        } else {
+                            $entry->{wn8} = { 
+                                available => Mango::BSON::bson_false,
+                                data => { overall => 0 }
+                            };
+                        }
+                    } else {
+                        $entry->{wn8} = { 
+                            available => Mango::BSON::bson_false,
+                            data => { overall => 0 }
+                        };
+                    }
+                    $replay->set('wn8' => $entry->{wn8}) if($entry->{player}->{name} eq $replay->get('game.recorder.name'));
+                    $self->emit('state.wn7.progress' => { count => ++$count, total => scalar(@{$replay->get('roster')}) } => sub {
+                        $rend->();
+                    });
+                });
+            }
+
+            my $brend = $ratingdelay->begin();
+            my $roster = $replay->get('roster')->[ $replay->get('players')->{$replay->get('game.recorder.name')} ];
+            my $url = sprintf('http://statterbox.com/api/v1/%s/calc/wn8?t=%d&frags=%d&damage=%d&spots=%d&defense=%d',
+                '5299a074907e1337e0010000',
+                $roster->{vehicle}->{typecomp},
+                $replay->get('stats.kills') + 0,
+                $replay->get('stats.damageDealt') + 0,
+                $replay->get('stats.spotted') + 0,
+                $replay->get('stats.droppedCapturePoints') + 0
+                );
+
+            $self->debug(sprintf('Getting battle WN8 from: %s', $url));
+            $self->ua->get($url => sub {
+                my ($ua, $tx) = (@_);
+                if(my $res = $tx->success) {
+                    $replay->set('wn8.data.battle' => $res->json('/wn8'));
+                } else {
+                    $replay->set('wn8.data.battle' => undef);
+                }
+                $brend->();
+            });
+        });
+    }
+
+    _generate_banner($self, $replay, $delay->begin(0));
+    _misc($self, $replay, $delay->begin(0));
+    _packetstore($self, $replay, $delay->begin(0));
+    _ratings($self, $replay, $delay->begin(0));
 }
 
 sub get_vehicle_from_battleresult_by_accountid {
@@ -163,24 +733,28 @@ sub get_vehicle_from_battleresult_by_accountid {
 
 sub finalize_roster {
     my $self            = shift;
-    my $battle_result   = shift;
     my $replay          = shift;
-    my $roster          = shift;
+    my $battle_result   = shift;
+    my $roster          = $replay->get('roster');
 
     my $name_to_vidx = {};
     my $vid_to_vidx = {};
     my $i = 0;
-    my $typecomps = {};
     my $newroster = [];
     my $teams = [];
     my $plat  = {};
+    my $pi    = 1;
 
-    $self->debug('finalize_roster with: ', Dumper($roster));
+    $self->debug('finalize_roster top');
 
     my $alternate_map = {};
 
     foreach my $entry (@$roster) {
         my $rawv = $self->get_vehicle_from_battleresult_by_accountid($battle_result => $entry->{accountDBID});
+
+        if($entry->{prebattleID} > 0) {
+            $plat->{$entry->{prebattleID}} = $pi++;
+        }
 
         die 'unable to get vehicle from battleresult via account ID', "\n" unless(defined($rawv));
 
@@ -191,6 +765,8 @@ sub finalize_roster {
 
         push(@{$teams->[$entry->{team} - 1]}, $i);
 
+        
+
         my $newentry = {
             health  =>  {
                 total       => ($rawv->{health} + $rawv->{damageReceived}),
@@ -198,11 +774,23 @@ sub finalize_roster {
             },
             stats => { map { $_ => $rawv->{$_} } (qw/this damageAssistedTrack damageAssistedRadio he_hits pierced kills shots spotted tkills potentialDamageReceived noDamageShotsReceived credits mileage heHitsReceived hits damaged piercedReceived droppedCapturePoints damageReceived killerID damageDealt shotsReceived xp deathReason lifeTime tdamageDealt capturePoints achievements/) },
             player => $entry,
-            platoon => (defined($plat->{$rawv->{accountDBID}})) ? $plat->{$rawv->{accountDBID}} : undef,
-            vehicle => { id => $entry->{vehicleID} }, # sometimes this doesn't work right, seems to be a database rollover issue
+            platoon => (defined($plat->{$entry->{prebattleID}})) 
+                ? $plat->{$entry->{prebattleID}} 
+                : undef
         };
+
+        if(my $v = $self->_vehicles->get(typecomp => $rawv->{typeCompDescr})) {
+            my $newvehicle = {};
+            foreach my $key (keys(%$v)) {
+                $newvehicle->{$key} = $v->{$key};
+            }
+            $newvehicle->{ident} = delete($v->{_id});
+            $newvehicle->{id}    = $entry->{vehicleID};
+            $newvehicle->{icon}  = sprintf('%s-%s.png', $v->{country}, $v->{name_lc});
+            $newvehicle->{i18n}  = $v->{i18n};
+            $newentry->{vehicle} = $newvehicle;
+        }
         $newentry->{stats}->{isTeamKiller} = ($rawv->{isTeamKiller}) ? Mango::BSON::bson_true : Mango::BSON::bson_false;
-        $typecomps->{$entry->{vehicleID}} = $rawv->{typeCompDescr};
         push(@$newroster, $newentry);
         $i++;
     }
@@ -226,432 +814,21 @@ sub finalize_roster {
         }
     }
 
-    my $t_resolve = {};
-    foreach my $key (keys(%$typecomps)) {
-        if(my $tc = $typecomps->{$key}) {
-            if(defined($t_resolve->{$tc . ''})) {
-                push(@{$t_resolve->{$tc . ''}}, $key);
-            } else {
-                $t_resolve->{$tc . ''} = [ $key ];
-            }
-        }
-    }
+    $replay->set('roster'           =>  $newroster);
+    $replay->set('vehicles'         =>  $vid_to_vidx);
+    $replay->set('players'          =>  $name_to_vidx);
+    $replay->set('teams'            =>  $teams);
+    $replay->set('roster_sorted'    =>  $roster_sorted);
+    $replay->set('teams_sorted'     =>  $teams_sorted);
 
-    my $cursor = $self->model('wot-replays.data.vehicles')->find({ typecomp => { '$in' => [ map { $_ + 0 } (keys(%$t_resolve)) ] }});
-    while(my $tc = $cursor->next()) {
-        my $typecomp = $tc->{typecomp};
-        foreach my $vid (@{$t_resolve->{$typecomp}}) {
-            my $idx = $vid_to_vidx->{$vid . ''};
-            my $newvehicle = {};
-            my $vehicle = $tc;
-            foreach my $key (keys(%$vehicle)) {
-                $newvehicle->{$key} = $vehicle->{$key};
-            }
-            $newvehicle->{ident} = delete($newvehicle->{_id});
-            $newvehicle->{id} = $vid + 0;
-            $newvehicle->{icon} = sprintf('%s-%s.png', $vehicle->{country}, $vehicle->{name_lc});
-            $newvehicle->{i18n} = $vehicle->{i18n};
-            $newroster->[$idx]->{vehicle} = $newvehicle;
-        }
-    }
+    $replay->set('game.recorder.vehicle' => {
+        id      => $newroster->[ $name_to_vidx->{$replay->get('game.recorder.name')} ]->{vehicle}->{id},
+        tier    => $newroster->[ $name_to_vidx->{$replay->get('game.recorder.name')} ]->{vehicle}->{level},
+        ident   => $newroster->[ $name_to_vidx->{$replay->get('game.recorder.name')} ]->{vehicle}->{ident},
+    });
 
-    $replay->{roster}        = $newroster;
-    $replay->{vehicles}      = $vid_to_vidx;
-    $replay->{players}       = $name_to_vidx;
-    $replay->{teams}         = $teams;
-    $replay->{roster_sorted} = $roster_sorted;
-    $replay->{teams_sorted}  = $teams_sorted;
-
-    $replay->{game}->{recorder}->{vehicle} = {
-        id      => $replay->{roster}->[ $replay->{players}->{$replay->{game}->{recorder}->{name}} ]->{vehicle}->{id},
-        tier    => $replay->{roster}->[ $replay->{players}->{$replay->{game}->{recorder}->{name}} ]->{vehicle}->{level},
-        ident   => $replay->{roster}->[ $replay->{players}->{$replay->{game}->{recorder}->{name}} ]->{vehicle}->{ident},
-    };
-
-    my $clan = $replay->{roster}->[ $replay->{players}->{$replay->{game}->{recorder}->{name}} ]->{player}->{clanAbbrev};
-    $replay->{game}->{recorder}->{clan} = (length($clan) > 0) ? $clan : undef;
-}
-
-sub is_friendly {
-    my $self = shift;
-    my $vid  = shift;
-
-    # if the roster isn't finalized, all we have is the roster entry from the 
-    # replay, which may be missing a few things here and there, so we only test
-    # for friendlyness, if you ain't with us, you sure must be against us! 
-
-    foreach my $entry (@{$self->game->roster}) {
-        return 1 if($entry->{vehicleID} == $vid && $entry->{team} == $self->player_team);
-        return 0 if($entry->{vehicleID} == $vid && $entry->{team} != $self->player_team);
-    }
-    return 0; # this catches anything that may be missing from the roster
-}
-
-sub vteam {
-    my $self = shift;
-    my $vid  = shift;
-
-    return ($self->is_friendly($vid)) 
-        ? $self->player_team 
-        : ($self->player_team == 1)
-            ? 2
-            : 1;
-}
-
-sub fix_server {
-    my $self = shift;
-    my $server = shift;
-
-    return ($server eq 'sea') ? 'asia' : $server;
-}
-
-sub _real_process {
-    my $self = shift;
-    my $prepared_id = shift;
-
-    my %args = (
-        bf_key  => $self->bf_key,
-        file    => $self->file,
-    );
-    
-    $self->emit('state.prepare.start');
-    $self->debug('instantiating parser');
-
-    my $parser;
-
-    try {
-        $parser = WR::Parser->new(%args);
-    } catch {
-        $self->error('unable to parse replay: ', $_);
-        die('Unable to parse replay: ', $_);
-    };
-
-    $self->_parser($parser);
-
-    $self->debug('parser instantiated');
-    $self->emit('state.prepare.finish');
-
-    # do we need a battle result? well, yeah, I guess we do after all
-    unless($self->_parser->has_battle_result) {
-        $self->error('Replay has no battle result');
-        return undef;
-    }
-
-    my $battle_result = $self->_parser->get_battle_result;
-
-    $self->debug('setting up temporary result');
-    # set up the temporary result 
-    my $replay = {
-        _id     => (defined($prepared_id)) ? $prepared_id : Mango::BSON::bson_oid,
-        site    => {
-            visible     => Mango::BSON::bson_true,
-            uploaded_at => Mango::BSON::bson_time,
-            downloads   => 0,
-            views       => 0,
-            likes       => 0,
-            last_viewed => Mango::BSON::bson_time(0),
-        },
-        game    => $self->_game($battle_result),
-        stats   => $battle_result->{personal},
-        chat    => [],
-    };
-
-    if(my $game = $self->_parser->game()) {
-        $self->game($game); # yeah yeah
-        $game->on('replay.size' => sub {
-            my ($s, $v) = (@_);
-            $self->_rsize($v);
-        });
-        $game->on('replay.position' => sub {
-            my ($s, $v) = (@_);
-            $self->emit('state.streaming.progress' => { count => $v, total => $self->_rsize });
-        });
-        $game->on('game.version' => sub {
-            my ($s, $v) = (@_);
-            $replay->{game}->{version} = $v;
-        });
-        $game->on('game.version_n' => sub {
-            my ($s, $v) = (@_);
-            $replay->{game}->{version_numeric} = $v;
-        });
-        $game->on('recorder.name' => sub {
-            my ($s, $v) = (@_);
-            $replay->{game}->{recorder}->{name} = $v;
-        });
-        $game->on('recorder.account_id' => sub {
-            my ($s, $v) = (@_);
-            $replay->{game}->{recorder}->{account_id} = $v;
-        });
-        $game->on('recorder.id' => sub {
-            my ($s, $v) = (@_);
-            $replay->{game}->{recorder}->{id} = $v + 0;
-        });
-        $game->on('arena.initialize' => sub {
-            my ($s, $init) = (@_);
-            $replay->{game}->{battle_level} = (defined($init->{battleLevel})) ? $init->{battleLevel} + 0 : undef;
-            $replay->{game}->{opponents}    = (defined($init->{opponents})) ? $init->{opponents} : undef;
-        });
-        # here's some additional bits and pieces that we are interested in to write packet files
-        for my $event ('player.position', 'player.health', 'player.tank.destroyed', 'player.chat', 'arena.period', 'player.tank.damaged', 'arena.initialize', 'cell.attention', 'arena.base_points', 'arena.base_captured', 'arena.avatar_ready') {
-            $game->on($event => sub {
-                my ($s, $v) = (@_);
-                $self->add_packet($v);
-            });
-        }
-        # subscribe some duplicates for other things
-        $game->on('player.chat' => sub {
-            my ($game, $chat) = (@_);
-            push(@{$replay->{chat}}, $chat->{text});
-        });
-        $game->on('arena.initialize' => sub {
-            $self->mapgrid(
-                WR::Provider::Mapgrid->new(
-                    width   => 768,
-                    height  => 768,
-                    bounds  => $replay->{game}->{map_extra}->{geometry},
-                )
-            );
-        });
-        $game->on('player.position' => sub {
-            my ($g, $v) = (@_);
-
-            return unless($g->arena_period == ARENA_PERIOD_BATTLE);
-
-            my $intx = int(sprintf('%.0f', $v->{position}->[0]));
-            my $inty = int(sprintf('%.0f', $v->{position}->[2]));
-
-            $self->hm_updates->{location}->{$intx}->{$inty} += $v->{points};
-            $self->battleheat->{$intx}->{$inty} += $v->{points};
-        });
-        $game->on('player.tank.destroyed' => sub {
-            my ($g, $v) = (@_);
-
-            # we need to record the death as the location of the player
-            if(my $dl = $g->get_player_position($v->{id})) {
-                my $intx = int(sprintf('%.0f', $dl->[0]));
-                my $inty = int(sprintf('%.0f', $dl->[2]));
-                $self->hm_updates->{deaths}->{$intx}->{$inty}++;
-            }
-
-            # now record the location of the destroyer, 
-            if(defined($v->{destroyer})) {
-                if(my $dl = $g->get_player_position($v->{destroyer})) {
-                    my $intx = int(sprintf('%.0f', $dl->[0]));
-                    my $inty = int(sprintf('%.0f', $dl->[2]));
-                    $self->hm_updates->{killshot}->{$intx}->{$inty}++;
-                }
-            }
-        });
-        $game->on('player.health' => sub {
-            my ($g, $v) = (@_);
-
-            if(defined($v->{source})) {
-                if(my $dl = $g->get_player_position($v->{id})) {
-                    my $intx = int(sprintf('%.0f', $dl->[0]));
-                    my $inty = int(sprintf('%.0f', $dl->[2]));
-                    $self->hm_updates->{damage_r}->{$intx}->{$inty}++;
-                }
-                if(my $dl = $g->get_player_position($v->{source})) {
-                    my $intx = int(sprintf('%.0f', $dl->[0]));
-                    my $inty = int(sprintf('%.0f', $dl->[2]));
-                    $self->hm_updates->{damage_d}->{$intx}->{$inty}++;
-                }
-            }
-        });
-        $game->on(finish => sub {
-            my ($game, $reason) = (@_);
-            if($reason->{ok} == 0) {
-                $self->error(Dumper($reason));
-                $replay = undef;
-            } else {
-                $self->debug('game finish: ', Dumper($reason));
-                try {
-                    $self->emit('state.streaming.finish' => $game->stream->len);
-
-                    # finalize the roster
-                    $self->finalize_roster($battle_result, $replay, $game->roster);
-
-                    # here's the issue, we have a bunch of packets that we are interested in sitting in
-                    # the packets array, but we now need to go and extract em and sort them out by enemy and friendly 
-                    # team. 
-
-                    # we alter the consumables list, the original consumables list contains numbers only, 
-                    # the new one will have refs
-                    my $consumables = [];
-                    foreach my $tc (keys(%{$game->vcons_initial})) {
-                        if($tc > 0) {
-                            my $a = parse_int_compact_descr($tc);
-                            if(my $c = $self->get_consumable($a->{id})) {
-                                push(@$consumables, $c);
-                            }
-                        }
-                    }
-
-                    $replay->{game}->{recorder}->{consumables} = $consumables;
-                    $replay->{game}->{recorder}->{ammo} = [];
-
-                    # ammo is a bit different since the array needs to be hashes of { id => typeid, count => count }
-                    foreach my $id (keys(%{$game->vshells_initial})) {
-                        my $tc = parse_int_compact_descr($id);
-                        if(my $a = $self->get_component('shells', nation_id_to_name($tc->{country}), $tc->{id})) {
-                            push(@{$replay->{game}->{recorder}->{ammo}}, {
-                                ammo  => $a,
-                                count => $game->vshells_initial->{$id}->{count},
-                            });
-                        }
-                    }
-
-                    $self->emit('state.generatebanner.start');
-                    $self->debug('preparing banner');
-                    $self->generate_banner($replay => sub {
-                        my $image = shift;
-
-                        $self->emit('state.generatebanner.finish');
-                            
-                        $replay->{site}->{banner} = $image;
-                        $replay->{game}->{server} = WR::Provider::ServerFinder->new->get_server_by_id($replay->{roster}->[ $replay->{players}->{$replay->{game}->{recorder}->{name}} ]->{player}->{accountDBID} + 0);
-                        $replay->{game}->{recorder}->{index} = $replay->{players}->{$replay->{game}->{recorder}->{name}};
-
-                        my $tc = {};
-                        foreach my $entry (@{$replay->{roster}}) {
-                            next unless(length($entry->{player}->{clanAbbrev}) > 0);
-                            $tc->{$entry->{player}->{clanAbbrev}}++;
-                        }
-
-                        $replay->{involved} = {
-                            players     => [ keys(%{$replay->{players}}) ],
-                            clans       => [ keys(%$tc) ],
-                            vehicles    => [ map { $_->{vehicle}->{ident} } @{$replay->{roster}} ],
-                        };
-
-                        $self->debug('storing packets for replay');
-                        $self->emit('state.packet.save.start');
-
-                        my $base_path = sprintf('%s/%s', $self->packet_path, $self->hashbucket($replay->{_id} . '', 7));
-                        make_path($base_path) unless(-e $base_path);
-                        my $packet_file = sprintf('%s/%s.json', $base_path, $replay->{_id} . '');
-                        if(my $fh = IO::File->new(sprintf('>%s', $packet_file))) {
-                            my $json = Mojo::JSON->new();
-                            $fh->print($json->encode($self->packets));
-                            $fh->close;
-                            $self->debug('wrote packets to file');
-                            $replay->{packets} = sprintf('%s/%s.json', $self->hashbucket($replay->{_id} . '', 7), $replay->{_id} . '');
-                            $self->emit('state.packet.save.finish');
-                        } else {
-                            $self->debug('could not write packets to file');
-                            $replay->{packets} = undef;
-                            $self->emit('state.packet.save.finish');
-                        }
-
-                        $self->emit('state.wn7.start' => scalar(keys(%{$replay->{players}})));
-
-                        my $count = 0;
-
-                        if(!$self->skip_wn7) {
-                            my $url = 'http://api.statterbox.com/wot/account/wn8';
-                            foreach my $entry (@{$replay->{roster}}) {
-                                my $form = {
-                                    application_id  => $self->config->{'statterbox'}->{server},
-                                    account_id      => $entry->{player}->{accountDBID},
-                                    cluster         => $self->fix_server($replay->{game}->{server})
-                                };
-                                $self->debug('getting wn8 from statterbox via ', $url, ' -> ', Dumper($form));
-                                if(my $tx = $self->ua->post($url => form => $form)) {
-                                    if(my $res = $tx->success) {
-                                        if($res->json->{status} eq 'ok') {
-                                            my $data = $res->json->{data};
-                                            my $wn8  = $data->{$entry->{player}->{accountDBID}};
-                                            if(defined($wn8))  {
-                                                $entry->{wn8} = { 
-                                                    available => Mango::BSON::bson_true,
-                                                    data => { overall => $wn8->{wn8} }
-                                                };
-                                            } else {
-                                                $entry->{wn8} = { 
-                                                    available => Mango::BSON::bson_false,
-                                                    data => { overall => 0 }
-                                                };
-                                            }
-                                        } else {
-                                            $entry->{wn8} = { 
-                                                available => Mango::BSON::bson_false,
-                                                data => { overall => 0 }
-                                            };
-                                        }
-                                    } else {
-                                        $entry->{wn8} = { 
-                                            available => Mango::BSON::bson_false,
-                                            data => { overall => 0 }
-                                        };
-                                    }
-                                } else {
-                                    $entry->{wn8} = { 
-                                        available => Mango::BSON::bson_false,
-                                        data => { overall => 0 }
-                                    };
-                                }
-                                $replay->{wn8} = $entry->{wn8} if($entry->{player}->{name} eq $replay->{game}->{recorder}->{name});
-                                $self->emit('state.wn7.progress' => { count => ++$count, total => scalar(@{$replay->{roster}}) });
-                            }
-                        }
-
-                        $self->emit('state.wn7.finish' => scalar(@{$replay->{roster}}));
-
-                        my $roster = $replay->{roster}->[ $replay->{players}->{$replay->{game}->{recorder}->{name}} ];
-
-                        if(!$self->skip_wn7) {
-                            # calculate a single battle's data based on the expected v.s. real values
-                            my $url = sprintf('http://statterbox.com/api/v1/%s/calc/wn8?t=%d&frags=%d&damage=%d&spots=%d&defense=%d',
-                                '5299a074907e1337e0010000',
-                                $roster->{vehicle}->{typecomp},
-                                $replay->{stats}->{kills} + 0,
-                                $replay->{stats}->{damageDealt} + 0,
-                                $replay->{stats}->{spotted} + 0,
-                                $replay->{stats}->{droppedCapturePoints} + 0
-                                );
-
-                            $self->debug(sprintf('Getting battle WN8 from: %s', $url));
-                
-                            if(my $tx = $self->ua->get($url)) {
-                                if(my $res = $tx->success) {
-                                    $replay->{wn8}->{data}->{battle} = $res->json('/wn8');
-                                } else {
-                                    $replay->{wn8}->{data}->{battle} = undef;
-                                }
-                            }
-                        }
-
-                        # here's some extra bits that we'll be using, game.version and game.version_n can be fucked
-                        $replay->{version} = $parser->version;
-                    });
-                } catch {
-                    $self->error('process error: ' . $_);
-                    $self->debug('process error: ', $_);
-                    die 'process error: ', $_, "\n";
-                };
-            }
-        });
-
-        $self->emit('state.streaming.start' => $game->stream->len);
-        $game->start;
-
-        # after game is done, we should in theory have a replay
-        if($self->has_error) {
-            return undef;
-        } else {
-            # yep, replay - in order to fix a few things up so we can use a simplified query,
-            # we're now going to construct the panel data 
-            my $p = WR::Provider::Panelator->new(db => $self->mango->db('wot-replays')); # hardcoding bad...
-            $replay->{panel} = $p->panelate($replay);
-            $replay->{parser_version} = $self->PARSER_VERSION;
-            $replay->{packet_version} = $self->PACKET_VERSION;
-            $replay->{heatmap} = $self->battleheat;
-            return $replay;
-        }
-    } else {
-        $self->error('unable to stream replay');
-        return undef;
-    }
+    my $clan = $newroster->[ $name_to_vidx->{$replay->get('game.recorder.name')} ]->{player}->{clanAbbrev};
+    $replay->set('game.recorder.clan' => (length($clan) > 0) ? $clan : undef);
 }
 
 sub stringify_awards {
@@ -682,7 +859,7 @@ sub generate_banner {
     my $res  = shift;
     my $cb   = shift;
     my $image;
-    my $recorder = $res->{players}->{$res->{game}->{recorder}->{name}};
+    my $recorder = $res->get('players')->{ $res->get('game.recorder.name') };
 
     unless(defined($self->banner_path)) {
         $self->warning('[generate_banner]: no banner path specified');
@@ -693,20 +870,20 @@ sub generate_banner {
         return;
     }
 
-    my $pv = $res->{roster}->[ $recorder ]->{vehicle}->{ident};
+    my $pv = $res->get('roster')->[ $recorder ]->{vehicle}->{ident};
     $pv =~ s/:/-/;
 
-    my $xp = $res->{stats}->{xp};
-    $xp .= sprintf(' (x%d)', $res->{stats}->{dailyXPFactor10}/10) if($res->{stats}->{dailyXPFactor10} > 10);
+    my $xp = $res->get('stats.xp');
+    $xp .= sprintf(' (x%d)', $res->get('stats.dailyXPFactor10')/10) if($res->get('stats.dailyXPFactor10') > 10);
 
-    if(my $map = $self->model('wot-replays.data.maps')->find_one({ numerical_id => $res->{game}->{map} })) {
-        my $match_result = ($res->{game}->{winner} < 1) 
+    if(my $map = $self->_maps->get(numerical_id => $res->get('game.map'))) {
+        my $match_result = ($res->get('game.winner') < 1) 
             ? 'draw'
-            : ($res->{game}->{winner} == $res->{roster}->[ $recorder ]->{player}->{team})
+            : ($res->get('game.winner') == $res->get('roster')->[ $recorder ]->{player}->{team})
                 ? 'victory'
                 : 'defeat';
                 
-        my $base_path = sprintf('%s/%s', $self->banner_path, $self->hashbucket($res->{_id} . ''));
+        my $base_path = sprintf('%s/%s', $self->banner_path, $self->hashbucket($res->get('_id') . ''));
         make_path($base_path) unless(-e $base_path);
 
         my $i = WR::Provider::Imager->new();
@@ -717,15 +894,15 @@ sub generate_banner {
             vehicle         => lc($pv),
             result          => $match_result,
             map_name        => $map->{label},
-            vehicle_name    => $res->{roster}->[ $recorder ]->{vehicle}->{label},
-            credits         => $res->{stats}->{credits},
+            vehicle_name    => $res->get('roster')->[$recorder]->{vehicle}->{ident},
+            credits         => $res->get('stats.credits') + 0,
             xp              => $xp,
-            kills           => $res->{stats}->{kills},
-            spotted         => $res->{stats}->{spotted},
-            damaged         => $res->{stats}->{damaged},
-            player          => $res->{roster}->[ $recorder ]->{player}->{name},
-            clan            => ($res->{roster}->[ $recorder ]->{player}->{clanDBID} > 0) ? $res->{roster}->[ $recorder ]->{player}->{clanAbbrev} : undef,
-            destination     => sprintf('%s/%s.jpg', $base_path, $res->{_id} . ''),
+            kills           => $res->get('stats.kills') + 0,
+            spotted         => $res->get('stats.spotted') + 0,
+            damaged         => $res->get('stats.damaged') + 0,
+            player          => $res->get('roster')->[ $recorder ]->{player}->{name},
+            clan            => ($res->get('roster')->[ $recorder ]->{player}->{clanDBID} > 0) ? $res->get('roster')->[ $recorder ]->{player}->{clanAbbrev} : undef,
+            destination     => sprintf('%s/%s.jpg', $base_path, $res->get('_id') . ''),
             awards          => $self->stringify_awards($res),
         );
 
@@ -736,7 +913,7 @@ sub generate_banner {
             $image = {
                 available => Mango::BSON::bson_true,
                 file => $imagefile,
-                url_path => sprintf('%s/%s.jpg', $self->hashbucket($res->{_id} . ''), $res->{_id} . ''),
+                url_path => sprintf('%s/%s.jpg', $self->hashbucket($res->get('_id') . ''), $res->get('_id') . ''),
             };
         } catch {
             my $e = $_;
@@ -745,7 +922,7 @@ sub generate_banner {
                 error => $e,
                 args  => { %imager_args }
             };
-            $self->log_error('Creating image failed: ', $e);
+            $self->error('Creating image failed: ', $e);
         };
         $cb->($image);
     } else {
@@ -757,48 +934,5 @@ sub generate_banner {
     }
 }
 
-sub _game {
-    my $self    = shift;
-    my $b       = shift;
-
-    # extract:
-    # - game type
-    # - bonus type 
-    # - arena name
-    # - arena unique id
-    my $game = {
-        arena_id        => $b->{arenaUniqueID} . '',       # yes, it's typecasting! In perl! woo!
-        duration        => $b->{common}->{duration} + 0,
-        started         => Mango::BSON::bson_time($b->{common}->{arenaCreateTime} * 1000),
-        winner          => $b->{common}->{winnerTeam},
-        bonus_type      => $b->{common}->{bonusType},
-        finish_reason   => $b->{common}->{finishReason},
-    };
-
-    $game->{recorder}->{team}       = $b->{personal}->{team} + 0;
-    $game->{recorder}->{survived}   = ($b->{personal}->{deathReason} == -1) ? Mango::BSON::bson_true : Mango::BSON::bson_false;
-    $game->{recorder}->{killer}     = ($b->{personal}->{killerID} > 0) ? $b->{personal}->{killerID} : undef;
-    $game->{recorder}->{lifetime}   = $b->{personal}->{lifeTime} + 0;
-
-    # set this so it's easier to refer to later on
-    $self->player_team($b->{personal}->{team} + 0);
-
-    my $decoded_arena_type_id = decode_arena_type_id($b->{common}->{arenaTypeID});
-    $game->{type} = $decoded_arena_type_id->{gameplay_type};
-    $game->{map}  = $decoded_arena_type_id->{map_id};
-
-    # additional map information we need to get, if we can
-    if(my $d = $self->model('wot-replays.data.maps')->find_one({ numerical_id => $game->{map} })) {
-        $game->{map_extra} = {
-            ident   => $d->{_id},
-            slug    => $d->{slug},
-            icon    => $d->{icon},
-            label   => $d->{label},
-            geometry => [ $d->{attributes}->{geometry}->{bottom_left}, $d->{attributes}->{geometry}->{upper_right} ],
-        };
-    }
-
-    return $game;
-}
 
 1;

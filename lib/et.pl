@@ -18,18 +18,20 @@ my $e = WR::Event->new(
     registration    => undef,
     input           => {
         matchConditions => {
-            'game_type' => 'ctf',
-            'stats_kills' => { 'gte' => 1 },
+            '@bonustype'    => { in => [ 1, 3, 4, 7 ] },
+            '@kills'        => { gte => 1 },
+            '@damageDealt'  => { gte => 750 },
+            '@vehicle'      => { in => [ 'usa:M18_Hellcat' ] },
         },
     },
     output          => {
         type    => 'leaderboard',
         config  =>  {
-            size        =>  10,
-            sort        =>  { kills => -1 },
+            size        =>  5,
+            sort        =>  { replays => -1 },
             generate    =>  { 
-                field   => '$stats.kills',
-                as      => 'kills',
+                field   => 1,
+                as      => 'replays',
             },
         }
     },

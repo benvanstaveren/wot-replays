@@ -1,5 +1,5 @@
 package WR::Parser::Versions::v81100;
-use Mojo::Base 'WR::Parser::Base';
+use Mojo::Base 'WR::Parser::Versions::Base';
 use Try::Tiny qw/try catch/;
 
 sub has_battle_result {
@@ -20,6 +20,5 @@ sub get_battle_result {
     };
     return $br;
 }
-
 
 1;

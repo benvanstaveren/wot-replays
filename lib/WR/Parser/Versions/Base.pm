@@ -1,4 +1,4 @@
-package WR::Parser::Base;
+package WR::Parser::Versions::Base;
 use Mojo::Base '-base';
 use IO::File ();
 use Digest::SHA1 qw/sha1_hex/;
@@ -21,7 +21,6 @@ has 'fh'   => sub {
     $fh->binmode(1);
     return $fh;
 };
-
 has 'num_blocks'        => 0;
 has 'block_meta'        => sub { [] };
 has 'blocks'            => sub { [] };
@@ -30,7 +29,6 @@ has 'pickle_block'      => 3;
 has '_decoded_blocks'   => sub { [] };
 has '_battle_result'    => undef;
 has 'bf_key'            => undef;
-
 has 'debug'             => 0;
 has 'version'           => 0;
 
@@ -146,20 +144,13 @@ sub has_battle_result {
     my $self = shift;
     my $rv = 0;
 
-    warn 'base has_battle_result', "\n";
-
     try {
         $rv = (defined($self->get_battle_result)) ? 1 : 0;
     } catch {
-        warn 'err: ', $_, "\n";
+        $rv = 0;
     };
 
     return $rv;
-}
-
-sub get_battle_result_raw {
-    my $self = shift;
-    return $self->get_block($self->pickle_block);
 }
 
 sub get_battle_result {
@@ -170,7 +161,7 @@ sub get_battle_result {
     try {
         $self->_battle_result($p->unpickle);
     } catch {
-        warn 'get_battle_result unpickle error: ', $_, "\n";
+        $self->_battle_result(undef);
     };
     return $self->_battle_result;
 }

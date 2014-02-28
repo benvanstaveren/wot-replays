@@ -107,7 +107,7 @@ sub upload {
                         if($err) {
                             $self->render(json => { ok => 0, error => $_, oid => $oid });
                         } else {
-                            $self->app->thunderpush->send_to_channel('site' => Mojo::JSON->new->encode({ evt => 'replay.upload', data => {} }) => sub {
+                            $self->app->thunderpush->send_to_channel('site' => Mojo::JSON->new->encode({ evt => 'replay.upload', data => { job_id => $digest} }) => sub {
                                 my ($p, $r) = (@_);
                                 $self->render(json => { ok => 1, jid => $digest });
                             });

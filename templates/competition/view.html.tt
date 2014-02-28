@@ -37,7 +37,9 @@
                     <a class="list-group-item" href="[% link.values.0 %]">[% link.keys.0 %] [% IF competition.rules_on_forum %](<span class="i18n">competition.rules.forum</span>)[% END %]</a>
                 [% END %]
             </div>
-            [% INCLUDE sidebar/bricks/buttons.html.tt %]
+            [% IF !h.comp_not_current %]
+                [% INCLUDE sidebar/bricks/buttons.html.tt %]
+            [% END %]
         </div>
     </div>
     [% IF h.comp_started %]
@@ -48,7 +50,7 @@
                 <table class="table table-bordered table-striped">
                     <colgroup>
                         <col style="width: 30px; text-align: right"/>
-                        <col/>
+                        <col style="width: 50%"/>
                         <col/>
                     </colgroup>
                     <thead>
@@ -75,7 +77,7 @@
                     <table class="table table-bordered table-striped">
                         <colgroup>
                             <col style="width: 30px; text-align: right"/>
-                            <col/>
+                            <col style="width: 50%"/>
                             <col/>
                         </colgroup>
                         <thead>

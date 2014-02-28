@@ -1,0 +1,36 @@
+#!/usr/bin/perl
+# vim: set filetype=perl:
+use strict;
+use warnings;
+use FindBin;
+use lib "$FindBin::Bin/../lib";
+use Getopt::Long;
+use WR::Daemon::Process::Worker;
+
+my $config      = {};
+my $cfile       = undef;
+my $jobid       = undef;
+my $ls          = undef;
+
+GetOptions(
+    'config=s'      => \$cfile,
+    'job-id=s'      => \$jobid,
+    'log-stdout!'   => \$ls,
+);
+
+die 'Usage: ', $0, ' --config <path to config file> --job-id <job id> [--log-stdout]', "\n" unless(defined($cfile));
+
+my $craw = '';
+if(my $fh = IO::File->new($cfile)) {
+    $craw .= $_ while(<$fh>);
+    $fh->close;
+
+    $config = eval($craw);
+
+    die 'Error parsing configuration: ', $@, "\n" if($@);
+} else {
+    die 'Could not open configuration file "', $cfile, '": ', $!, "\n";
+}
+
+my $p = WR::Daemon::Process::Worker->new(config => $config, log_stdout => $ls, job_id => $jobid);
+$p->start;

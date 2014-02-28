@@ -129,6 +129,12 @@ $game->on('player.position' => sub {
     print '[PLAYER.POSITION]: ', Dumper($v), "\n";
 });
 
+$game->on('player.tank.damaged' => sub {
+    my ($game, $v) = (@_);
+
+    print '[PLAYER.TANK.DAMAGED]: ', Dumper($v), "\n";
+});
+
 $game->on('player.health' => sub {
     my ($game, $v) = (@_);
 
@@ -166,4 +172,10 @@ $game->on('unknown' => sub {
 
 $game->start();
 
-print 'Final roster: ', Dumper($game->roster), "\n";
+print '--- BPERF ---', "\n", Dumper($game->bperf);
+print '--- PERS ---', "\n", Dumper($game->personal);
+print '--- STAT ---', "\n", Dumper($game->statistics);
+print '--- VCOI ---', "\n", Dumper($game->vcons_initial);
+print '--- VCO ---', "\n", Dumper($game->vcons);
+print '--- VSHI ---', "\n", Dumper($game->vshells_initial);
+print '--- VSH ---', "\n", Dumper($game->vshells);

@@ -1,0 +1,50 @@
+#!/usr/bin/perl
+# vim: set filetype=perl:
+use strict;
+use warnings;
+use FindBin;
+use lib "$FindBin::Bin/../lib";
+use Getopt::Long;
+use WR::Daemon::Process::Master;
+
+my $config      = {};
+my $cfile       = undef;
+my $daemon      = undef;
+my $workers     = 4;
+my $stopping    = 0;
+my $max         = 32;
+my $ls          = undef;
+my $debug       = undef;
+
+GetOptions(
+    'config=s'      => \$cfile,
+    'workers|w=i'   => \$workers,
+    'debug!'        => \$debug,
+    'log-stdout!'   => \$ls,
+);
+
+die 'Usage: ', $0, ' --config <path to config file> --workers <max worker count> [--log-stdout]', "\n" unless(defined($cfile));
+
+my $craw = '';
+if(my $fh = IO::File->new($cfile)) {
+    $craw .= $_ while(<$fh>);
+    $fh->close;
+
+    $config = eval($craw);
+
+    die 'Error parsing configuration: ', $@, "\n" if($@);
+} else {
+    die 'Could not open configuration file "', $cfile, '": ', $!, "\n";
+}
+
+# create a pidfile
+my $pidfile = $config->{processd}->{master}->{pidfile} || '/tmp/processd.master.pid';
+if(my $fh = IO::File->new(sprintf('>%s', $pidfile))) {
+    $fh->print($$);
+    $fh->close;
+} else {
+    die 'Could not create pidfile: ', $!, "\n";
+}
+
+my $p = WR::Daemon::Process::Master->new(config => $config, workers => $workers, debug => $debug, log_stdout => $ls);
+$p->start;

@@ -10,6 +10,8 @@ has 'key'               => undef;
 has 'user'              => undef;
 has 'channels'          => sub { [] };
 
+has 'is_connected'      => 0;
+
 has '_socket'    => undef;
 has '_server' => sub { int(rand(1000)) };
 has '_conn_id' => sub {
@@ -30,7 +32,7 @@ sub connect {
 
     $self->ua->inactivity_timeout(3600);
 
-    warn 'connecting using: ', $url, "\n";
+    warn 'connecting to ', $url, "\n";
 
     $self->ua->websocket($url => sub {
         my ($ua, $tx) = (@_);
@@ -38,7 +40,6 @@ sub connect {
         $self->emit('connect' => { status => 0, error => 'no tx' }) and return unless(defined($tx));
 
         if($tx->is_websocket) {
-            warn 'tx is websocket', "\n";
             $self->_socket($tx);
             $self->_socket->send({json => sprintf('CONNECT %s:%s', $self->user, $self->key)});
             $self->subscribe($_) for(@{$self->channels});
@@ -50,11 +51,16 @@ sub connect {
                 my ($s, $d) = (@_);
                 my $type = substr($d, 0, 1);
 
+                $self->emit(raw_message => $d);
+
                 if($type eq 'o') {
                     $self->emit('open');
                 } elsif($type eq 'a') {
                     my $array = $self->j->decode(substr($d, 1));
-                    $self->emit(message => $self->j->decode($_)) for(@$array);
+                    foreach my $raw (@$array) {
+                        my $str = String::Unquotemeta::unquotemeta(substr($raw, 1, length($raw)-2));
+                        $self->emit(message => $self->j->decode($str));
+                    }
                 } elsif($type eq 'm') {
                     $self->emit(message => $self->j->decode(substr($d, 1)));
                 } elsif($type eq 'h') {
@@ -67,10 +73,8 @@ sub connect {
             $self->emit('connect' => { status => 1 });
         } else {
             if($tx->success) {
-                warn 'tx is not websocket', "\n";
                 $self->emit('connect' => { status => 0, error => 'not a websocket' });
             } else {
-                warn 'connection failed', "\n";
                 $self->emit('connect' => { status => 0, error => 'connection refused' });
             }
         }

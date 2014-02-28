@@ -1,6 +1,5 @@
 package WR::Parser::Stream::Packet::0x08;
 use Mojo::Base 'WR::Parser::Stream::Packet';
-use Data::Dumper;
 
 has 'player_id'         => sub { return shift->read(0, 4, 'L<') };
 has 'data_length'       => sub { return shift->read(8, 4, 'L<') };
@@ -59,18 +58,6 @@ has 'source'        => sub {
     return undef;
 };
 
-has 'source_raw' => sub {
-    my $self = shift;
-    if($self->subtype == 0x01 || $self->subtype == 0x05 || $self->subtype == 0x0b) {
-        my $pos = 12;
-        $pos = 14 if($self->subtype == 0x01);
-        $pos = 12 if($self->subtype == 0x0b);
-
-        return $self->read_hex($pos, 4);
-    }
-    return undef;
-};
-
 has 'target'        => sub {
     my $self = shift;
 
@@ -91,65 +78,61 @@ has 'health'        => sub {
     return undef;
 };
 
-has 'health_raw' => sub {
-    my $self = shift;
-
-    if($self->subtype == 0x01 || $self->subtype == 0x02) {
-        return $self->read_hex(12, 2);
-    }
-    return undef;
-};
-
-has 'target_raw'        => sub {
-    my $self = shift;
-
-    if($self->subtype == 0x0b || $self->subtype == 0x17) {
-        my $pos = ($self->subtype == 0x17) ? 13 : 9;
-        return undef if($pos + 4 > $self->data_length);
-        return $self->read_hex($pos, 4);
-    }
-    return undef;
-};
-
-
-# these two are basically only there when subtype == 10,
-# it's a slot item and it's count
 has slot => sub {
     my $self = shift;
 
-    if($self->subtype == 0x0a || $self->subtype == 0x09) {
-        my ($slot_item, $slot_count, $dummy) = unpack('LLC', $self->read(12, $self->data_length));
-        return { item => $slot_item, count => $slot_count };
+    if($self->subtype == 0x09) {
+        my ($slot_item, $slot_count, $rest) = unpack('LSA*', $self->read(12, $self->data_length));
+        return { item => $slot_item, count => $slot_count, rest => $rest };
     } else {
         return undef;
     }
 };
 
-sub dump {
+has 'maybe_spot' => sub {
     my $self = shift;
 
-    return Dumper({ 
-        payload   => $self->payload_hex,
-        type      => $self->type,
-        subtype   => $self->subtype,
-        data_type => $self->data_type,
-        data_length => $self->data_length,
-    });
-}
+    if($self->subtype == 0x0a) {
+        my ($p1, $s, $p2) = unpack('LSL', $self->read(12, $self->data_length));
+        return { p1 => $p1, s => $s, p2 => $p2 };
+    } else {
+        return undef;
+    }
+};
 
-# subtype 0x14 seems to have something to do with base capture points 
+# subtype 0x06 has a source, followed by:
+# 01 00 00 00 03 01 ff 2a 91 c3 36 8f 02
+# S    S      L           L           C
+
+# related to avatar.showVehicleDamageInfo(self, vehicleID, damageIndex, extraIndex, entityId)
+has 'subtype_06_data' => sub {
+    my $self = shift;
+    return [ unpack('SSLLC', $self->read(16, $self->data_length - 4)) ]
+};
+
+has 'byte_flag' => sub {
+    my $self = shift;
+    return $self->read($self->data_length -1, 1, 'C');
+};
 
 sub BUILD {
     my $self = shift;
 
     $self->enable($_) for(qw/player_id data_length/);
 
-    if($self->subtype == 0x1d) {
-        $self->enable($_) for(qw/update_type update/);
+    $self->enable(qw/update_type update/) if($self->subtype == 0x1d);
+
+    $self->enable('slot') if($self->subtype == 0x09);
+
+    $self->enable('maybe_spot') if($self->subtype == 0x0a);
+
+    $self->enable('subtype_06_data') if($self->subtype == 0x06);
+
+    if($self->subtype == 0x01) {
+        $self->enable(qw/health source byte_flag/) 
+    } else {
+        $self->enable($_) for(qw/health target source/);
     }
-    
-    $self->enable($_) for(qw/slot health target source/);
-    $self->enable($_) for(qw/source_raw target_raw health_raw/);
 
     return $self;
 }

@@ -1,0 +1,67 @@
+msgid "competition.page.entries.title"
+msgstr "%1 &raquo; %0"
+
+msgid "competitions.page.header"
+msgstr "Wettbewerbe"
+
+msgid "competitions.page.title"
+msgstr "Wettbewerbe"
+
+msgid "competitions.current"
+msgstr "Laufende Wettbewerbe"
+
+msgid "competitions.upcoming"
+msgstr "Kommende Wettbewerbe"
+
+msgid "competitions.past"
+msgstr "Vergangene Wettbewerbe"
+
+msgid "competition.entries.view"
+msgstr "Beiträge ansehen"
+
+msgid "competitions.current.none"
+msgstr "Keine laufenden Wettbewerbe..."
+
+msgid "competitions.future.none"
+msgstr "Keine kommenden Wettbewerbe..."
+
+msgid "competitions.past.none"
+msgstr "Keine vergangenen Wettbewerbe..."
+
+msgid "competition.page.title"
+msgstr "Wettbewerbe - %0"
+
+msgid "competition.heading.starttime"
+msgstr "Wettbewerbe beginnt"
+
+msgid "competition.heading.endtime"
+msgstr "Wettbewerbe endet"
+
+msgid "competition.heading.active"
+msgstr "LAUFEND"
+
+msgid "competition.heading.notactive"
+msgstr "NICHT LAUFEND"
+
+msgid "competition.heading.links"
+msgstr "Wichtige Links"
+
+msgid "competition.rules.forum"
+msgstr "Regeln können hier eingesehen werden"
+
+msgid "competition.heading.description"
+msgstr "Beschreibung"
+
+msgid "competition.heading.leaderboard"
+msgstr "Rangliste"
+
+msgid "competition.heading.rest"
+msgstr "Teilnehmer"
+
+msgid "competition.heading.player"
+msgstr "Spieler"
+
+msgid "competition.heading.kills"
+msgstr "Zerstört"
+
+
