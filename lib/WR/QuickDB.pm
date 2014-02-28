@@ -49,11 +49,8 @@ sub get {
     my $key  = shift;
     my $val  = shift;
 
-    if(my $index = $self->index_for($key, $val)) {
-        return $self->data->[$index];
-    } else {
-        return undef;
-    }
+    my $index = $self->index_for($key, $val);
+    return (defined($index)) ? $self->data->[$index] : undef;
 }
 
 1;
