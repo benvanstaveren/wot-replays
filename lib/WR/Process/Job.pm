@@ -131,6 +131,7 @@ sub set_complete {
             replayid    =>  $replay->get('_id'),
             banner      =>  $replay->get('site.banner'),
             file        =>  $replay->get('file'),
+            minimal     =>  ($replay->get('site.minimal')) ? Mango::BSON::bson_true : Mango::BSON::bson_false,
         },
     } => $cb);
 }

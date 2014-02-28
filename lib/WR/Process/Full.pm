@@ -336,7 +336,7 @@ sub _setup_legacy_state_handlers {
             done    =>  Mango::BSON::bson_false,
         });
     });
-    $self->on('state.wn7.start' => sub {
+    $self->on('state.wn7.progress' => sub {
         my ($o, $d) = (@_);
         $self->job->set_status({
             id      =>  'wn7',

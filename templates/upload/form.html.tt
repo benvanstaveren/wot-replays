@@ -90,6 +90,45 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="completeMinimalModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">[% h.loc('upload.modal.complete.header') %]</h4>
+                </div>
+                <div class="modal-body">
+                    <p class="lead">[% h.loc('upload.modal.complete.links') |ucfirst %]</p>
+                    <div>
+                        <div class="alert alert-danger">
+                            Your replay did not contain a battle result, we have still stored it but it will be unlisted and unviewable. Statistics obtained
+                            from this replay are unreliable. In order to ensure that replays always have a battle result, even if you leave the match early,
+                            please see <a href="http://github.com/benvanstaveren/wot-replays/wiki
+                    </div>
+                    <p class="lead">[% h.loc('upload.modal.complete.banner') %]</p>
+                    <div>
+                        <div id="banner-available">
+                            <div style="width: 545px; height: 98px; margin: 0px auto">
+                                <img style="width: 545px; height: 98px;" id="banner-image"/>
+                            </div>
+                            <div style="width: 545px; margin: 0px auto">
+                                <textarea style="resize: none; width: 545px;" rows="5" id="banner-bbcode"/></textarea>
+                            </div>
+                        </div>
+                        <div id="banner-unavailable">
+                            <div class="alert alert-danger">
+                                [% h.loc('upload.modal.complete.banner.error') %]
+                                There was an error generating the banner, we'll get around to re-generating it soon, and you will be able to find it using the 'Embed' button on the replay page.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="close-and-view" href="">[% h.loc('upload.modal.complete.button.closeview') %]</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">[% h.loc('upload.modal.complete.button.close') %]</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <script type="text/javascript">
         [% INCLUDE upload/form.js %]
     </script>
