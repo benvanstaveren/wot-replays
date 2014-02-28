@@ -22,6 +22,7 @@
 <script type="text/javascript" src="[% config.urls.static %]/js/battleviewer.js"></script>
 
 <script type="text/javascript" src="[% config.urls.static %]/js/wtr.js?_[% h.nonce %]"></script>
-<script type="text/javascript" src="/xhr/po/[% user_lang %].js?_[% h.nonce %]"></script>
 <script type="text/javascript" src="[% config.urls.static %]/js/wtr.models.js?_[% h.nonce %]"></script>
 <script type="text/javascript" src="[% config.urls.static %]/js/wtr.views.js?_[% h.nonce %]"></script>
+<!-- the following file needs to be cache-controlled -->
+<script type="text/javascript" src="/lang/[% user_lang %].js"></script>

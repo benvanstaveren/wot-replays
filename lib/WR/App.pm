@@ -118,6 +118,26 @@ sub startup {
             $c->debug('request to host: ', $host);
         }
     });
+
+    $self->hook(after_render => sub {
+        my $c = shift;
+        my $output = shift;
+        my $format = shift;
+
+        if(defined($c->stash('public_cache') )) {
+            my $path = $c->req->url->to_abs->path;
+            my $full_file = sprintf('%s%s', $self->config('paths')->{public}, $path);
+            my @parts = split(/\//, $full_file);
+            my $file = pop(@parts);
+            my $dir = join('/', $file);
+
+            File::Path::make_path($dir) unless(-e $dir);
+            if(my $fh = IO::File->new('>' . $full_file)) {
+                $fh->print($$output);
+                $fh->close;
+            }
+        }
+    });
 }
 
 1;

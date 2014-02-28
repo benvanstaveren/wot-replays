@@ -667,9 +667,15 @@ sub process_battle_result {
     }
 
     sub _ratings {
-        my $self = shift;
+        my $self   = shift;
         my $replay = shift;
-        my $end = shift;
+        my $end    = shift;
+
+        # this needs to be replaced with a summary fetch from statterbox, and 
+        # a direct db fetch for the expected values and then a manual calculation
+        # of WN8 values given that summaries can be obtained faster than individual WN8 ratings
+        # (and we don't blast the WG API so hard)
+
 
         $self->emit('state.wn7.start' => { total => scalar(keys(%{$replay->get('players')})) } => sub {
             my $ratingdelay = Mojo::IOLoop->delay(sub {
@@ -735,7 +741,7 @@ sub process_battle_result {
                 });
             }
 
-            my $brend = $ratingdelay->begin();
+            my $brend = $ratingdelay->begin(0);
             my $roster = $replay->get('roster')->[ $replay->get('players')->{$replay->get('game.recorder.name')} ];
             my $url = sprintf('http://statterbox.com/api/v1/%s/calc/wn8?t=%d&frags=%d&damage=%d&spots=%d&defense=%d',
                 '5299a074907e1337e0010000',
