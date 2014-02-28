@@ -18,3 +18,4 @@ wrapi.development.conf
 lib/WR/Parser/Private/*
 lang/site/*
 public/scss/.sass-cache/*
+public/lang/*.js
