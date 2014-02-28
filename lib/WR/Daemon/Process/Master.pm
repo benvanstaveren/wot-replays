@@ -271,7 +271,7 @@ sub start {
             Mojo::IOLoop->timer(5 => sub {
                 $self->push->connect;
             });
-            $self->debug('received connect, status not ok, reconnecting in 5');
+            $self->debug('received connect, status not ok, reconnecting in 5: ', Dumper($s));
         } else {
             $self->debug('received connect, status 1');
         }
@@ -281,17 +281,6 @@ sub start {
         $self->timers->{'hb_check'} = Mojo::IOLoop->recurring(60 => sub {
             $self->debug('hb_check, last_hb_received is: ', $self->last_hb_received);
             $self->push->finish if($self->last_hb_received + 120 < time());
-        });
-        $self->timers->{'work'} = Mojo::IOLoop->recurring(1 => sub {
-            return unless($self->has_work);
-            return if($self->pause_work);
-
-            $self->pause_work(1);
-            # see if we can do this one..
-            while($self->child_count < $self->workers && $self->has_work) {
-                $self->fork_worker($self->get_work);
-            }
-            $self->pause_work(0);
         });
         $self->last_hb_received(time());
         $self->debug('received open');
@@ -331,6 +320,17 @@ sub start {
 
     $self->reload_work_list; # load the current list, allows us to recover after a startup
     $self->push->connect;
+    $self->timers->{'work'} = Mojo::IOLoop->recurring(1 => sub {
+        return unless($self->has_work);
+        return if($self->pause_work);
+
+        $self->pause_work(1);
+        # see if we can do this one..
+        while($self->child_count < $self->workers && $self->has_work) {
+            $self->fork_worker($self->get_work);
+        }
+        $self->pause_work(0);
+    });
     Mojo::IOLoop->start unless Mojo::IOLoop->is_running;
 }
 

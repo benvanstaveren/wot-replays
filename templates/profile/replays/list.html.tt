@@ -47,33 +47,47 @@
                 [% FOREACH replay IN replays %]
                     <tr>
                         <td>[% h.loc('#arenas:' _ replay.panel.map.ident _ '/name') %]</td>
-                        <td>[% h.loc(replay.panel.vehicle.i18n) %]</td>
                         <td>
-                            [% IF replay.panel.winner == 0 %]
-                                [% h.loc('profile.replays.draw') %]
-                            [% ELSIF replay.panel.team == replay.panel.winner %]
-                                <span class="green">[% h.loc('profile.replays.victory') %]</span>
+                            [% IF replay.site.minimal %]
+                                
                             [% ELSE %]
-                                <span class="red">[% h.loc('profile.replays.defeat') %]</span>
+                                [% h.loc(replay.panel.vehicle.i18n) %]
                             [% END %]
                         </td>
                         <td>
-                            [% IF recv.player.survived.defined %]
-                                [% IF recv.player.survived %][% h.loc('profile.replays.survived.yes') %][% ELSE %][% h.loc('profile.replays.survived.no') %][% END %]
-                            [% ELSE %]
-                                [% IF replay.panel.survived %][% h.loc('profile.replays.survived.yes') %][% ELSE %][% h.loc('profile.replays.survived.no') %][% END %]
+                            [% IF replay.site.minimal %]-[% ELSE %]
+                                [% IF replay.panel.winner == 0 %]
+                                    [% h.loc('profile.replays.draw') %]
+                                [% ELSIF replay.panel.team == replay.panel.winner %]
+                                    <span class="green">[% h.loc('profile.replays.victory') %]</span>
+                                [% ELSE %]
+                                    <span class="red">[% h.loc('profile.replays.defeat') %]</span>
+                                [% END %]
+                            [% END %]
+                        </td>
+                        <td>
+                            [% IF replay.site.minimal %]-[% ELSE %]
+                                [% IF recv.player.survived.defined %]
+                                    [% IF recv.player.survived %][% h.loc('profile.replays.survived.yes') %][% ELSE %][% h.loc('profile.replays.survived.no') %][% END %]
+                                [% ELSE %]
+                                    [% IF replay.panel.survived %][% h.loc('profile.replays.survived.yes') %][% ELSE %][% h.loc('profile.replays.survived.no') %][% END %]
+                                [% END %]
                             [% END %]
                         </td>
                         <td>[% replay.panel.killed + 0 %]</td>
                         <td>[% replay.panel.damaged + 0 %]</td>
                         <td>[% replay.panel.spotted + 0 %]</td>
-                        <td>[% replay.panel.xp + 0 %]</td>
-                        <td>[% replay.panel.credits + 0 %]</td>
+                        [% IF replay.site.minimal %]
+                            <td>-</td><td>-</td>
+                        [% ELSE %]
+                            <td>[% replay.panel.xp + 0 %]</td>
+                            <td>[% replay.panel.credits + 0 %]</td>
+                        [% END %]
                         <td>[% h.wot_version(replay.panel.version) %]</td>
-                        <td><a href="/replay/[% replay.panel.id %].html">[% h.loc('profile.replays.view') %]</a></td>
+                        <td>[% IF replay.site.minimal %]<span class="disabled">[% h.loc('profile.replays.view') %]</span>[% ELSE %]<a href="/replay/[% replay.panel.id %].html">[% h.loc('profile.replays.view') %]</a>[% END %]</td>
                         <td style="text-align: center">
                             <span class="spinner small hide" data-replayid="[% replay.panel.id %]"></span>
-                            <select name="replay-action-[% replay.panel.id %]" data-replayid="[% replay.panel.id %]" class="replay-action">
+                            <select name="replay-action-[% replay.panel.id %]" data-replayid="[% replay.panel.id %]" class="replay-action [% IF replay.site.minimal %]disabled[% END %]" [% IF replay.site.minimal %]disabled="true"[% END %]>
                                 <option value="0" [% IF replay.site.visible %]selected[% END %]>[% h.loc('privacy.public') |lower %]</option>
                                 <option value="1" [% IF replay.site.privacy == 1 %]selected[% END %]>[% h.loc('privacy.unlisted') |lower %]</option>
                                 <option value="2" [% IF replay.site.privacy == 2 %]selected[% END %]>[% h.loc('privacy.private') |lower %]</option>
@@ -122,6 +136,7 @@
 <script type="text/javascript">
     $(document).ready(function() {
         $('select.replay-action').change(function() {
+            if($(this).hasClass('disabled')) return false;
             $(this).addClass('hide');
             var id = $(this).attr('data-replayid');
             $('span[data-replayid="' + id + '"]').removeClass('hide');

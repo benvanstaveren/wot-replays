@@ -3,6 +3,7 @@ use Mojo::Base 'Mojo::EventEmitter';
 use WR::Util::VehicleDescriptor;
 use WR::Util::TypeComp qw/parse_int_compact_descr type_id_to_name/;
 use WR::Constants qw/nation_id_to_name/;
+use Data::Dumper;
 
 has 'stream'            => undef;
 has '_roster'           => undef;      # the players in the match 
@@ -55,7 +56,6 @@ sub start {
     $self->stream->on('finish' => sub {
         my ($stream, $status) = (@_);
 
-        use Data::Dumper;
         warn 'stream finished in Game.pm, re-emit using: ', Dumper($status), "\n";
         $self->emit(finish => $status);
         $stopping = 1;
@@ -95,7 +95,6 @@ sub process_packet {
         $self->handlers->[$packet->type]->($self, $packet);
     } else {
         $self->emit('unknown' => $packet);
-        #print 'No handler for: ', sprintf("%02x", $packet->type), ' => ', Dumper($packet->to_hash), "\n";
     }
 
     # by default we also emit all packets without handling them, if you don't subscribe to the event it doesn't cause overhead
@@ -128,7 +127,7 @@ sub make_pident {
     my $i    = shift || 0;
     return 'unknown/unknown' unless(defined($p) && ref($p));
 
-    return ($i) ? sprintf('%02x/%02x', $p->type, $p->subtype || '') : sprintf('%02x', $p->type);
+    return ($i) ? sprintf('%02x/%02x', $p->type, $p->subtype || undef) : sprintf('%02x', $p->type);
 }
 
 sub add_handlers {
@@ -474,8 +473,6 @@ sub onArenaHandler {
         }
 
         $self->roster($new);
-        use Data::Dumper;
-        warn 'Roster: ', Dumper($new), "\n";
 
         $self->emit('setup.roster' => $new);
         $self->emit('arena.vehicle_list' => {

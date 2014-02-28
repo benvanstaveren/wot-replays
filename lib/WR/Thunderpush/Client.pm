@@ -32,6 +32,8 @@ sub connect {
 
     $self->ua->inactivity_timeout(3600);
 
+    warn 'connecting to ', $url, "\n";
+
     $self->ua->websocket($url => sub {
         my ($ua, $tx) = (@_);
 

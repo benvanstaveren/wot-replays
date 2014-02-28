@@ -1,5 +1,6 @@
 package WR::HashTable;
 use Mojo::Base '-base';
+use Data::Dumper;
 
 has 'data' => sub { {} };
 

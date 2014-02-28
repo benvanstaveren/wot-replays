@@ -16,6 +16,42 @@ sub delete {
     $self->_coll->remove({ _id => $self->_id } => $cb);
 }
 
+sub set_status {
+    my $self    = shift;
+    my $status  = shift;
+    my $current;
+    my $u = 0;
+
+    $current = $self->status_text;
+
+    my $new = [];
+
+    foreach my $e (@$current) {
+        if($e->{id} eq $status->{id}) {
+            foreach my $key (keys(%$status)) {
+                $e->{$key} = $status->{$key};
+            }
+            push(@$new, $e);
+            $u++;
+        } else {
+            push(@$new, $e);
+        }
+    }
+
+    push(@$new, $status) unless($u > 0);
+
+    $self->_coll->update({ _id => $self->_id }, {
+        '$set' => {
+            status_text => $new,
+        }
+    } => sub {
+        # fire and forget, even though it may mean we clobber the status repeatedly 
+    });
+
+    $self->status_text($new);
+}
+
+
 sub load {
     my $self = shift;
     my $cb   = shift;
@@ -78,6 +114,23 @@ sub set_error {
             status      =>  -1,
             error       =>  $message,
             locked      =>  Mango::BSON::bson_false,
+        },
+    } => $cb);
+}
+
+sub set_complete {
+    my $self    = shift;
+    my $replay  = shift;
+    my $cb      = shift;
+
+    $self->_coll->update({ _id => $self->_id }, {
+        '$set' => {
+            complete    =>  Mango::BSON::bson_true,
+            elapsed     =>  $self->elapsed,
+            status      =>  1,
+            replayid    =>  $replay->get('_id'),
+            banner      =>  $replay->get('site.banner'),
+            file        =>  $replay->get('file'),
         },
     } => $cb);
 }

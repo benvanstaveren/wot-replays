@@ -19,9 +19,10 @@ sub get_stat {
     my $self = shift;
     my $p    = shift;
     my $k    = shift;
+    my $d    = shift;
 
     $self->statistics->{$p} ||= {};
-    return $self->statistics->{$p}->{$k};
+    return (defined($self->statistics->{$p}->{$k})) ? $self->statistics->{$p}->{$k} : $d;
 }
 
 sub inc_stat {
@@ -30,7 +31,7 @@ sub inc_stat {
     my $k    = shift;
     my $v    = shift || 1;
 
-    $self->set_stat($p, $k, $self->get_stat($p, $k) + $v);
+    $self->set_stat($p, $k, $self->get_stat($p, $k, 0) + $v);
 }
 
 sub set_pers {
@@ -44,8 +45,9 @@ sub set_pers {
 sub get_pers {
     my $self = shift;
     my $k    = shift;
+    my $d    = shift;
 
-    return $self->personal->{$k};
+    return (defined($self->personal->{$k})) ? $self->personal->{$k} : $d;
 }
 
 sub inc_pers {
@@ -53,7 +55,7 @@ sub inc_pers {
     my $k    = shift;
     my $v    = shift;
 
-    $self->set_pers($k, $self->get_pers($k) + $v);
+    $self->set_pers($k, $self->get_pers($k, 0) + $v);
 }
 
 sub add_handlers {

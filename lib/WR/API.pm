@@ -54,6 +54,9 @@ sub startup {
                 my $heatmap = $map->under('/heatmap/:heatmap_type/:game_type');
                     $heatmap->route('/')->to('v1#validate_token', next => 'map_heatmap_data', bonus_types => '0,1,2,3,4,5,6,7');
                     $heatmap->route('/:bonus_types')->to('v1#validate_token', next => 'map_heatmap_data');
+    my $util = $r->under('/util');
+        $util->route('/battleresult/submit')->to('util#battleresult_submit');
+    
 
 
 }

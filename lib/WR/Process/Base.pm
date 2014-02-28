@@ -34,6 +34,8 @@ sub process {
     my $self    = shift;
     my $cb      = shift;
 
+    $self->debug('process top');
+
     my %args = (
         bf_key  => $self->bf_key,
         file    => $self->file,
@@ -41,17 +43,20 @@ sub process {
     
     my $parser;
     try {
+        $self->debug('instantiating parser');
         $parser = WR::Parser->new(%args);
         $self->debug('parser instantiated');
     } catch {
         my $e = $_;
         $parser = undef;
-        $self->job->error('Could not instantiate parser: ', $e => sub {
+        $self->job->set_error('Could not instantiate parser: ', $e => sub {
             $self->error('Could not instantiate parser: ', $e);
             return $cb->();
+            exit(0);
         });
     };
     return unless (defined($parser));
+    $self->debug('have parser, going to call -> process_replay');
     $self->process_replay($parser => sub {
         # call cleanup on self
         return $self->cleanup($cb);

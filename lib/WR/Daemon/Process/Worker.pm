@@ -9,6 +9,7 @@ use WR::Thunderpush::Client; # because yes...
 use WR::Process::Job;
 
 use WR::Process::Chatreader;
+use WR::Process::Full;
 
 has 'config'            => sub { {} };
 has 'log'               => sub {
@@ -91,16 +92,20 @@ sub init {
             try {
                 # the worker module(s) do their entire own thing, all we need is to wait for a callback 
                 # that indicates we're done
+                $self->debug('instantiating ', $module);
                 my $m = $module->new(
                     config      =>  $self->config,
                     job         =>  $job->start,
                     log         =>  $self->log,
                 );
+                $self->debug($module, ' instantiated: ', $m);
                 $m->process(sub {
+                    $self->debug('process finished, exiting');
                     exit(0);
                 });
             } catch {
                 my $e = $_;
+                $self->debug('error: ', $e);
                 $job->set_error($e, sub {
                     $self->error('Could not process job of ', $type, ' using ', $module, ': ', $e);
                     $job->unlink;
