@@ -458,22 +458,24 @@ sub _without_battle_result {
         if(my $replay = shift) {
             # store it the way it's come out
             my $data = $replay->data;
-            $data->{panel} = WR::Provider::Panelator->new->panelate($data);
-            $self->model('wot-replays.replays')->save($data => sub {
-                my ($c, $e, $d) = (@_);
+            WR::Provider::Panelator->new(db => $self->mango->db('wot-replays'))->panelate($data => sub {
+                $data->{panel} = shift;
+                $self->model('wot-replays.replays')->save($data => sub {
+                    my ($c, $e, $d) = (@_);
 
-                if(defined($e)) {
-                    $self->error('minimal store fail: ', $e);
-                    $self->job->set_error('minimal store fail: ', $e => sub {
-                        return $cb->($self, undef, $e);
-                    });
-                } else {
-                    $self->debug('minimal replay saved ok');
-                    $self->job->set_complete($replay => sub {
-                        $self->debug('minimal job complete cb');
-                        return $cb->($self, $replay, undef);
-                    });
-                }
+                    if(defined($e)) {
+                        $self->error('minimal store fail: ', $e);
+                        $self->job->set_error('minimal store fail: ', $e => sub {
+                            return $cb->($self, undef, $e);
+                        });
+                    } else {
+                        $self->debug('minimal replay saved ok');
+                        $self->job->set_complete($replay => sub {
+                            $self->debug('minimal job complete cb');
+                            return $cb->($self, $replay, undef);
+                        });
+                    }
+                });
             });
         }
     });
