@@ -443,6 +443,9 @@ sub _with_battle_result {
                     });
                 });
             }
+        } else {
+            # assume the job's been set to te proper status already
+            return $cb->($self, undef, 'process_battleresult error');
         }
     });
 }
@@ -577,8 +580,19 @@ sub process_battle_result {
     my $replay        = shift;
     my $battle_result = shift;
     my $cb            = shift;
+    my $e             = undef;
 
-    $self->finalize_roster($replay, $battle_result);
+    try {
+        $self->finalize_roster($replay, $battle_result);
+    } catch {
+        my $fe = $_;
+        $self->job->set_error('finalize_roster: ', $fe => sub {
+            $self->error('finalize_roster: ', $fe);
+            $cb->(undef);
+            $e = 1;
+        });
+    };
+    return if(defined($e)); # this potentially may go really wrong
 
     $replay->set('stats'                => $battle_result->{personal});
     $replay->set('game.duration'        => $battle_result->{common}->{duration} + 0);
