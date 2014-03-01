@@ -435,7 +435,7 @@ sub _with_battle_result {
                             } else {
                                 $self->debug('full replay saved ok');
                                 $self->job->set_complete($replay => sub {
-                                    $self->emit('replay.processed' => { url => sprintf('/replay/%s.html', $data->{_id} . '') } => sub {
+                                    $self->push->send_to_channel('site' => Mojo::JSON->new->encode({ evt => 'replay.processed',  data => { url => sprintf('/replay/%s.html', $data->{_id} . '') }) => sub {
                                         $self->debug('full job complete cb');
                                         return $cb->($self, $replay, undef);
                                     });
