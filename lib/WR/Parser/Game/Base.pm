@@ -121,23 +121,6 @@ sub add_handler {
     $self->handlers->[$type] = $hsub;
 }
 
-sub make_pident {
-    my $self = shift;
-    my $p    = shift;
-    my $i    = shift || 0;
-
-    return 'unknown/unknown' unless(defined($p) && ref($p));
-
-    my $type    = $p->type;
-    my $subtype = $p->subtype;
-
-    if(defined($type) && defined($subtype) && $i) {
-        return sprintf('%02x/%02x', $type, $subtype);
-    } else {
-        return sprintf('%02x/%02x', $type);
-    }
-}
-
 sub add_handlers {
     my $self = shift;
 
@@ -171,7 +154,6 @@ sub add_handlers {
         if($packet->subtype == 0x03) {
             $self->emit('player.health' => { 
                 ident   => 'player.health',
-                pident  => $self->make_pident($packet),
                 id      => $packet->player_id, 
                 health  => $packet->health,
                 clock   => $packet->clock,
@@ -181,7 +163,6 @@ sub add_handlers {
             $self->emit('player.track.destroyed' => { 
                 id      => $packet->player_id, 
                 ident   => 'player.track.destroyed',
-                pident  => $self->make_pident($packet),
                 track   => (defined($packet->destroyed_track_id))
                     ?  ($packet->destroyed_track_id == 0xf0) 
                         ? 'left'
@@ -203,7 +184,6 @@ sub onViewMode {
         clock   => $packet->clock,
         ident   => 'recorder.viewmode',
         mode    => $packet->viewmode,
-        pident  => $self->make_pident($packet, 1),
     });
 }
 
@@ -213,7 +193,6 @@ sub onChat {
     $self->emit('player.chat' => {
         clock   => $packet->clock,
         ident   => 'player.chat',
-        pident  => $self->make_pident($packet, 1),
         text    => $packet->text
     });
 }
@@ -226,7 +205,6 @@ sub onDamageReceived {
     # and such that was done, but we can live with this
     $self->emit('player.tank.damaged' => {
         ident   => 'player.tank.damaged',
-        pident  => $self->make_pident($packet),
         clock   => $packet->clock,
         id      => $packet->player_id,
         health  => $packet->health,
@@ -265,7 +243,6 @@ sub onSlotChange {
     }
     $self->emit('player.slot' => {
         clock     => $packet->clock,
-        pident    => $self->make_pident($packet),
         slot      => {
             item    => $tc,
             count   => $count,
@@ -329,7 +306,7 @@ sub onMinimapClicked {
     my $self   = shift;
     my $packet = shift;
 
-    $self->emit('cell.attention' => { clock => $packet->clock, cell_id => $packet->cell_id, ident => 'cell.attention', pident => $self->make_pident($packet, 1) });
+    $self->emit('cell.attention' => { clock => $packet->clock, cell_id => $packet->cell_id, ident => 'cell.attention' });
 }
 
 sub is_recorder {
@@ -422,7 +399,6 @@ sub onUpdatePosition {
             clock           => $packet->clock,
             orientation     => $packet->hull_orientation,
             ident           => 'player.position',
-            pident          => $self->make_pident($packet, 1),
             distance_t      => $self->distance($packet->position, $self->positions->{$packet->player_id}),
             distance_r      => $self->distance_to_recorder($packet->position),
             points          => $self->distance_to_recorder_points($packet->position),
@@ -486,7 +462,6 @@ sub onArenaHandler {
         $self->emit('arena.vehicle_list' => {
             clock  => $packet->clock,
             list   => $new,
-            pident => $self->make_pident($packet, 1),
             ident  => 'arena.vehicle_list',
         });
     } elsif($packet->update_type == 0x02) {
@@ -512,11 +487,10 @@ sub onArenaHandler {
             $self->recorder->{id} = $h->{vehicleID};
         }
 
-        $self->emit('arena.vehicle_added' => { clock => $packet->clock, pident => $self->make_pident($packet, 1), ident => 'arena.vehicle_added', %$h });
+        $self->emit('arena.vehicle_added' => { clock => $packet->clock, ident => 'arena.vehicle_added', %$h });
     } elsif($packet->update_type == 0x03) {
         $self->emit('arena.period' => {
             clock           => $packet->clock,
-            pident          => $self->make_pident($packet, 1),
             ident           => 'arena.period',
             period          => $packet->update->[0],
             period_end      => $packet->update->[1],
@@ -529,7 +503,6 @@ sub onArenaHandler {
         $self->emit('setup.fraglist' => $packet->update);
         $self->emit('arena.statistics' => {
             clock   => $packet->clock,
-            pident  => $self->make_pident($packet, 1),
             ident   => 'arena.statistics',
             stats   => $packet->update,
             });
@@ -537,7 +510,6 @@ sub onArenaHandler {
         $self->emit('arena.vehicle_statistics' => {
             clock   => $packet->clock,
             ident   => 'arena.vehicle_statistics',
-            pident  => $self->make_pident($packet, 1),
             id      => $packet->update->[0],
             kills   => $packet->update->[1],
         });
@@ -546,7 +518,6 @@ sub onArenaHandler {
             id        => $packet->player_id,
             clock     => $packet->clock,
             ident     => 'arena.vehicle_killed',
-            pident    => $self->make_pident($packet, 1),
             destroyed => $packet->update->[0],
             destroyer => $packet->update->[1],
             reason    => $packet->update->[2],
@@ -559,12 +530,10 @@ sub onArenaHandler {
             id          => $packet->update,
             clock       => $packet->clock,
             ident       => 'arena.avatar_ready',
-            pident      => $self->make_pident($packet, 1),
         });
     } elsif($packet->update_type == 0x08) {
         my $evt = {
             ident               => 'arena.base_points',
-            pident              => $self->make_pident($packet, 1),
             clock               => $packet->clock,
             id                  => $packet->player_id,
             team                => $packet->update->[0],
@@ -577,21 +546,19 @@ sub onArenaHandler {
         # base captured
         $self->emit('arena.base_captured' => {
             ident       => 'arena.base_captured',
-            pident      => $self->make_pident($packet, 1),
             clock       => $packet->clock,
             id          => $packet->player_id,
             baseID      => $packet->update->[1],
             team        => $packet->update->[0],
         });
     } elsif($packet->update_type == 0x0a) {
-        $self->emit('arena.team_killer' => { id => $packet->update, clock => $packet->clock, ident => 'arena.team_killer', pident => $self->make_pident($packet, 1) });
+        $self->emit('arena.team_killer' => { id => $packet->update, clock => $packet->clock, ident => 'arena.team_killer' });
     } elsif($packet->update_type == 0x0b) {
         $self->emit('arena.vehicle_updated' => {
             id      =>  $packet->player_id,
             clock   =>  $packet->clock,
             update  =>  $packet->update,
             ident   =>  'arena.vehicle_updated',
-            pident  =>  $self->make_pident($packet, 1),
         });
     }
 }
