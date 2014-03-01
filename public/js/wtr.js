@@ -98,13 +98,6 @@ Wotreplays.prototype = {
             });
             return false;
         });
-        $('div.rating.overall').on('click', function() {
-            var href = $(this).attr('href');
-            if(href != null && href.length > 0) {
-                document.location = href;
-            }
-            return false;
-        });
         this.emit('ready');
     },
     growl: function(text, options) {

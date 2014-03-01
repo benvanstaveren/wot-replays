@@ -1,13 +1,10 @@
-<div class="well well-sm [% IF replay.site.description.defined %]bs-popover[% END %]" [% IF replay.site.description.defined %]title="[% h.loc(panel.replay.description) %]" data-toggle="popover" data-trigger="hover" data-content="<div>[% replay.site.description |html %]</div>" data-html="true" data-container="body" data-placement="left"[% END %]>
+<div class="well well-sm replay-panel [% IF replay.site.description.defined %]has-description[% END %]" data-replayid="[% h.get_id(replay) %]">
     <div class="row">
         <div class="col-lg-3 col-md-3">
-                <a href="/replay/[% replay.panel.id %].html">
+                <a href="/replay/[% replay.panel.id %].html" class="hover-description" data-replayid="[% h.get_id(replay) %]">
                     <div 
-                        title="[% IF replay.panel.vehicle.i18n.defined %][% h.loc(replay.panel.vehicle.i18n) %][% ELSE %][% replay.panel.vehicle.label |html %][% END %] on [% replay.panel.map.label |html %]"
                         style="background: transparent url([% config.urls.assets %]/maps/180/[% replay.panel.map.icon %]) no-repeat scroll 0 0; width: 180px; height: 180px; margin: 2px auto; position: relative"
-                        class="rounded bs-tooltip"
-                        data-toggle="tooltip"
-                        data-placement="auto"
+                        class="rounded"
                         >
                         <div class="panel-vehicle-wrapper">
                             <img src="[% config.urls.assets %]/vehicles/100/[% replay.panel.vehicle.icon %]"/>
@@ -20,14 +17,12 @@
         </div>
         <div class="col-lg-9 col-md-9">
             <div class="row">
-                <div class="col-lg-7 col-md-7">
-                    <p class="lead">
+                <div class="col-lg-10 col-md-10">
+                    <p class="lead" style="margin: 0px; padding: 0px">
                         <a data-placement="auto" data-toggle="tooltip" class="bs-tooltip [% IF replay.panel.premium %]premium[% END %]" href="/player/[% replay.panel.server %]/[% replay.panel.name |uri %]/" title="[% replay.panel.name |html %] [% IF replay.panel.premium %](Premium)[% END %]">[% replay.panel.name |truncate(15) |html %]</a> - <a href="/vehicle/[% h.vehicle_link(replay.panel.vehicle.ident) %]/" data-placement="auto" title="[% replay.panel.vehicle.label |html %]" data-toggle="tooltip" class="bs-tooltip">[% IF replay.panel.vehicle.i18n.defined %][% h.loc(replay.panel.vehicle.i18n _ '_short') %][% ELSE %][% replay.panel.vehicle.label_short |html %][% END %]</a> - <a href="/map/[% replay.panel.map.slug |uri %]/" data-toggle="tooltip" class="bs-tooltip" title="[% replay.panel.map.label |html %]" data-placement="auto">[% replay.panel.map.label |truncate(15) |html %]</a> 
                     </p>
                 </div>
-                <div class="col-lg-5 col-md-4 text-right" style="padding-top: 2px">
-                    <span class="label label-default">[% h.loc('bonustype.' _ replay.panel.bonus_type _ '.short') %]</span>
-                    <span class="label label-default">[% h.loc('gametype.' _ replay.panel.game_type _ '.short') %]</span>
+                <div class="col-lg-2 col-md-2 text-right" style="padding-top: 2px">
                     [% IF !replay.site.visible %]
                         [% IF replay.site.privacy == 1 %]
                             <span class="label label-default">[% h.loc('privacy.unlisted') %]</span>
@@ -41,8 +36,26 @@
                     [% END %]
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-12 col-md-12">[% INCLUDE replay/panel/panelstats.html.tt %]</div>
+            <div class="row" style="margin-bottom: 4px">
+                <div class="col-lg-6 col-md-6" style="padding-top: 2px">
+                    <span><i style="top: 0px; position: relative; margin: 0px 5px 0px 0px" class="fa fa-clock-o"></i> [% h.usertime('%d/%m/%Y %H:%M %Z', replay.game.started) %]</span>
+                </div>
+                <div class="col-lg-6 col-md-6 text-right" style="padding-top: 2px">
+                    <span style="position: relative; top: -2px;" class="label label-default">[% h.loc('bonustype.' _ replay.panel.bonus_type _ '.short') %]</span>
+                    <span style="position: relative; top: -2px;" class="label label-default">[% h.loc('gametype.' _ replay.panel.game_type _ '.short') %]</span>
+                </div>
+            </div>
+            <div class="row" data-replayid="[% h.get_id(replay) %]">
+                <div class="col-lg-12 col-md-12 panel-stats">[% INCLUDE replay/panel/panelstats.html.tt %]</div>
+                <div class="col-lg-12 col-md-12 panel-desc hide" style="height: 116px">
+                    <table class="table" style="margin-bottom: 5px;">
+                        <tbody>
+                            <tr>
+                                <td>[ % replay.site.description |html |html_line_break %]</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
             <div class="row">
                 <div class="col-lg-12 col-md-12">

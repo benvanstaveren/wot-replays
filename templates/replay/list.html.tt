@@ -4,4 +4,20 @@
     [% FOREACH replay IN replays %]
         [% INCLUDE replay/panel.html.tt %]
     [% END %]
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('div.replay-panel.has-description a.hover-description').hover(
+                function() {
+                    var rid = $(this).data('replayid');
+                    $('div.replay-panel[data-replayid="' + rid + '"] div.panel-stats').addClass('hide');
+                    $('div.replay-panel[data-replayid="' + rid + '"] div.panel-desc').removeClass('hide');
+                },
+                function() {
+                    var rid = $(this).data('replayid');
+                    $('div.replay-panel[data-replayid="' + rid + '"] div.panel-stats').removeClass('hide');
+                    $('div.replay-panel[data-replayid="' + rid + '"] div.panel-desc').addClass('hide');
+                }
+            );
+        });
+    </script>
 [% END %]

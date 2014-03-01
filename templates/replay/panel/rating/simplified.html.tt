@@ -8,8 +8,7 @@
                     data-placement="auto" 
                     data-toggle="tooltip" 
                     class="bs-tooltip rating [% class %] rounded overall"
-                    style="margin: 2px; font-weight: bold; text-align: center; cursor: pointer"
-                    href="http://statterbox.com/[% h.fix_server(replay.panel.server) %]/[% replay.panel.name |uri %]/"
+                    style="margin: 2px; font-weight: bold; text-align: center; height: 22px"
                     >
                 </div>
             [% ELSE %]
@@ -18,7 +17,7 @@
                     data-placement="auto" 
                     data-toggle="tooltip" 
                     class="bs-tooltip rating none rounded"
-                    style="margin: 2px; font-weight: bold; text-align: center"
+                    style="margin: 2px; font-weight: bold; text-align: center; height: 22px"
                     >
                 </div>
             [% END %] 
@@ -28,7 +27,7 @@
                 data-placement="auto" 
                 data-toggle="tooltip" 
                 class="bs-tooltip rating none rounded"
-                style="margin: 2px; font-weight: bold; text-align: center"
+                style="margin: 2px; font-weight: bold; text-align: center; height: 22px"
                 >
             </div>
         [% END %]
@@ -42,7 +41,7 @@
                     data-placement="auto" 
                     data-toggle="tooltip" 
                     class="bs-tooltip rating [% class %] rounded"
-                    style="margin: 2px; font-weight: bold; text-align: center"
+                    style="margin: 2px; font-weight: bold; text-align: center; height: 22px"
                     >
                 </div>
             [% ELSE %]
@@ -51,7 +50,7 @@
                     data-placement="auto" 
                     data-toggle="tooltip" 
                     class="bs-tooltip rating none rounded"
-                    style="margin: 2px; font-weight: bold; text-align: center"
+                    style="margin: 2px; font-weight: bold; text-align: center; height: 22px"
                     >
                 </div>
             [% END %]
@@ -61,7 +60,7 @@
                 data-placement="auto" 
                 data-toggle="tooltip" 
                 class="bs-tooltip rating none rounded"
-                style="margin: 2px; font-weight: bold; text-align: center"
+                style="margin: 2px; font-weight: bold; text-align: center; height: 22px"
                 >
             </div>
         [% END %]
@@ -73,7 +72,7 @@
             data-placement="auto" 
             data-toggle="tooltip" 
             class="bs-tooltip rating none rounded"
-            style="margin: 2px; font-weight: bold; text-align: center"
+            style="margin: 2px; font-weight: bold; text-align: center; height: 22px"
             >
         </div>
     </div>
@@ -83,7 +82,7 @@
             data-placement="auto" 
             data-toggle="tooltip" 
             class="bs-tooltip rating none rounded"
-            style="margin: 2px; font-weight: bold; text-align: center"
+            style="margin: 2px; font-weight: bold; text-align: center; height: 22px"
             >
         </div>
     </div>
