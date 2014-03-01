@@ -839,7 +839,6 @@ sub finalize_roster {
         };
 
         if(my $v = $self->_vehicles->get(typecomp => $rawv->{typeCompDescr})) {
-            $self->debug('Received vehicle from quickdb: ', Dumper($v));
             my $newvehicle = {};
             foreach my $key (keys(%$v)) {
                 $newvehicle->{$key} = $v->{$key};
