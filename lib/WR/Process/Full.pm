@@ -711,9 +711,9 @@ sub process_battle_result {
 
                     if(my $res = $tx->success) {
                         if($res->json->{status} eq 'ok') {
-                            $self->debug('wn8 res ok');
                             my $data = $res->json->{data};
                             my $wn8  = $data->{$entry->{player}->{accountDBID}};
+                            $self->debug('wn8 res ok, value: ', $wn8->{wn8});
                             if(defined($wn8))  {
                                 $entry->{wn8} = { 
                                     available => Mango::BSON::bson_true,
