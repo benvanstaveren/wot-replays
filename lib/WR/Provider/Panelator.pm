@@ -14,23 +14,29 @@ sub model {
 sub generate_map_extra {
     my $self   = shift;
     my $replay = shift;
+    my $panel  = shift;
+    my $cb     = shift;
 
-    if(my $d = $self->model('data.maps')->find_one({ numerical_id => $replay->{game}->{map} })) {
-        return {
-            ident   => $d->{_id},
-            slug    => $d->{slug},
-            icon    => $d->{icon},
-            label   => $d->{label},
-            geometry => [ $d->{attributes}->{geometry}->{bottom_left}, $d->{attributes}->{geometry}->{upper_right} ],
+    $self->model('data.maps')->find_one({ numerical_id => $replay->{game}->{map} } => sub {
+        my ($c, $e, $d) = (@_);
+        if(defined($d)) {
+            $panel->{map} = {
+                ident   => $d->{_id},
+                slug    => $d->{slug},
+                icon    => $d->{icon},
+                label   => $d->{label},
+                geometry => [ $d->{attributes}->{geometry}->{bottom_left}, $d->{attributes}->{geometry}->{upper_right} ],
+            };
         }
-    } else {
-        return undef;
-    }
+        return $cb->($panel);
+    });
 }
 
 sub panelate {
-    my $self = shift;
+    my $self   = shift;
     my $replay = shift;
+    my $cb     = shift;
+
     my $panel = {
         file    => $replay->{file},
         spotted => $replay->{stats}->{spotted},
@@ -75,9 +81,12 @@ sub panelate {
         i18n        => $roster->{vehicle}->{i18n},
     };
 
-    $panel->{map} = (defined($replay->{game}->{map_extra})) ? $replay->{game}->{map_extra} : $self->generate_map_extra($replay);
-
-    return $panel;
+    if(defined($replay->{game}->{map_extra})) {
+        $panel->{map} = $replay->{game}->{map_extra};
+        return $cb->($panel);
+    } else {
+        return $self->generate_map_extra($replay => $panel => $cb);
+    }
 }
 
 1;

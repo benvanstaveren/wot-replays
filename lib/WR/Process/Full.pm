@@ -419,22 +419,27 @@ sub _with_battle_result {
 
                     # create the panel - we'll switch to using data mode here
                     my $data = $replay->data;
-                    $data->{panel} = WR::Provider::Panelator->new->panelate($data);
-                    $self->model('wot-replays.replays')->save($data => sub {
-                        my ($c, $e, $d) = (@_);
 
-                        if(defined($e)) {
-                            $self->error('full store fail: ', $e);
-                            $self->job->set_error('store fail: ', $e => sub {
-                                return $cb->($self, undef, $e);
-                            });
-                        } else {
-                            $self->debug('full replay saved ok');
-                            $self->job->set_complete($replay => sub {
-                                $self->debug('full job complete cb');
-                                return $cb->($self, $replay, undef);
-                            });
-                        }
+
+                    WR::Provider::Panelator->new(db => $self->mango->db('wot-replays'))->panelate($data => sub {
+                        $data->{panel} = shift;
+                        
+                        $self->model('wot-replays.replays')->save($data => sub {
+                            my ($c, $e, $d) = (@_);
+
+                            if(defined($e)) {
+                                $self->error('full store fail: ', $e);
+                                $self->job->set_error('store fail: ', $e => sub {
+                                    return $cb->($self, undef, $e);
+                                });
+                            } else {
+                                $self->debug('full replay saved ok');
+                                $self->job->set_complete($replay => sub {
+                                    $self->debug('full job complete cb');
+                                    return $cb->($self, $replay, undef);
+                                });
+                            }
+                        });
                     });
                 });
             }
