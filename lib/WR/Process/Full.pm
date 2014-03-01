@@ -435,8 +435,10 @@ sub _with_battle_result {
                             } else {
                                 $self->debug('full replay saved ok');
                                 $self->job->set_complete($replay => sub {
-                                    $self->debug('full job complete cb');
-                                    return $cb->($self, $replay, undef);
+                                    $self->emit('replay.processed' => { url => sprintf('/replay/%s.html', $data->{_id} . '') } => sub {
+                                        $self->debug('full job complete cb');
+                                        return $cb->($self, $replay, undef);
+                                    });
                                 });
                             }
                         });
