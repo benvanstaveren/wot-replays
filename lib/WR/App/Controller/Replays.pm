@@ -90,7 +90,7 @@ sub _real_browse {
         $filter->{$i} = shift(@$filterlist);
     }
 
-    $self->stash('browse_filter_raw' => $filter); # this will bomb dafux out 
+    $self->stash('browse_filter_raw' => $filter); 
     $self->debug('base_q isa: ', ref($base_q));
 
     if(my $inc = delete($base_q->{_inc})) {
@@ -102,6 +102,12 @@ sub _real_browse {
     } else {
         foreach my $k (keys(%$base_q)) {
             $filter->{$k} = $base_q->{$k};
+        }
+    }
+
+    if(my $strip = delete($base_q->{_strip})) {
+        foreach my $i (@$strip) {
+            delete($filter->{i});
         }
     }
 

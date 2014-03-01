@@ -65,7 +65,7 @@
                                 <td>[% h.get_id(row).player %]</td>
                                 <td>
                                     <span>[% row.kills %]</span>
-                                    <a href="/competition/[% competition_id %]/entry/[% h.get_id(row).player %]/" class="btn btn-primary btn-xs pull-right i18n">competition.entries.view</a>
+                                    <a href="/competition/[% competition_id %]/[% h.get_id(row).server %]/[% h.get_id(row).player %]/" class="btn btn-primary btn-xs pull-right i18n">competition.entries.view</a>
                                 </td>
                             </tr>
                             [% position = position + 1 %]
@@ -92,7 +92,7 @@
                                     <td>[% h.get_id(row).player %]</td>
                                     <td>
                                         <span>[% row.kills %]</span>
-                                        <a href="/competition/[% competition_id %]/entry/[% h.get_id(row).player %]/" class="btn btn-default btn-xs pull-right i18n">competition.entries.view</a>
+                                        <a href="/competition/[% competition_id %]/[% h.get_id(row).server %]/[% h.get_id(row).player %]/" class="btn btn-default btn-xs pull-right i18n">competition.entries.view</a>
                                     </td>
                                 </tr>
                                 [% position = position + 1 %]

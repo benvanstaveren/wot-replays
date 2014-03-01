@@ -57,7 +57,6 @@ sub list {
             
             my $now = Mango::BSON::bson_time( DateTime->now(time_zone => 'UTC')->epoch * 1000 );
 
-
             foreach my $doc (@$d) {
                 if($doc->{config}->{end_time} > $now && $doc->{config}->{start_time} < $now) {
                     push(@$current, $doc);
