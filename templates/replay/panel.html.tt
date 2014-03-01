@@ -47,11 +47,11 @@
             </div>
             <div class="row" data-replayid="[% h.get_id(replay) %]">
                 <div class="col-lg-12 col-md-12 panel-stats">[% INCLUDE replay/panel/panelstats.html.tt %]</div>
-                <div class="col-lg-12 col-md-12 panel-desc hide" style="height: 116px">
+                <div class="col-lg-12 col-md-12 panel-desc hide" style="height: 116px; overflow-y: auto">
                     <table class="table" style="margin-bottom: 5px;">
                         <tbody>
                             <tr>
-                                <td>[ % replay.site.description |html |html_line_break %]</td>
+                                <td>[% replay.site.description |html |html_line_break %]</td>
                             </tr>
                         </tbody>
                     </table>
