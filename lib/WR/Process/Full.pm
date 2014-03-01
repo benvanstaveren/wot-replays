@@ -589,8 +589,8 @@ sub process_battle_result {
         $self->job->set_error('finalize_roster: ', $fe => sub {
             $self->error('finalize_roster: ', $fe);
             $cb->(undef);
-            $e = 1;
         });
+        $e = 1;
     };
     return if(defined($e)); # this potentially may go really wrong
 
