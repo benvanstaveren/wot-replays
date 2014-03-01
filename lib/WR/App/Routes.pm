@@ -276,7 +276,7 @@ sub install {
                         my $event    = WR::Event->new(log => $self->app->log, db => $self->get_database, %$config);
 
                         # get the merge args
-                        my $base = $event->get_leaderboard_entries({ pi => 0, pp => 1, pl => $id, s => $server, _inc => [qw/pi pp pl/], _strip => [qw/vp vi/]});
+                        my $base = $event->get_leaderboard_entries({ pi => 0, pp => 1, pl => $id, s => $server, _inc => [qw/pi pp pl s/] });
                         $cb->($base);
                     },
                     filter_root => sub {
@@ -289,7 +289,7 @@ sub install {
                     title_args  => [ 'competition_name', 'identifier' ],
                 }, 
             );
-            $cbridge->route('/entry/:identifier/*filter')->to('replays#browse', 
+            $cbridge->route('/:server/:identifier/*filter')->to('replays#browse', 
                 pageid      => 'competition', 
                 filter_opts => {
                     async      => 1,
@@ -297,19 +297,18 @@ sub install {
                     base_query => sub {
                         my $self = shift;
                         my $cb   = shift;
+                        my $server = $self->stash('server');
                         my $id   = $self->stash('identifier');
                         my $config = $self->stash('competition')->{config};
                         my $event = WR::Event->new(log => $self->app->log, db => $self->get_database, %$config);
 
                         # get the merge args
-                        my $base = $event->get_leaderboard_entries({ pi => 0, pp => 1, pl => $id, _inc => [qw/pi pp pl/] });
-                        use Data::Dumper;
-                        $self->debug('comp entry view base: ', Dumper($base));
+                        my $base = $event->get_leaderboard_entries({ pi => 0, pp => 1, pl => $id, s => $server, _inc => [qw/pi pp pl s/] });
                         $cb->($base);
                     },
                     filter_root => sub {
                         my $self = shift;
-                        return sprintf('competition/%s/entry/%s', $self->stash('competition_id'), $self->stash('identifier'));
+                        return sprintf('competition/%s/%s/%s', $self->stash('competition_id'), $self->stash('server'), $self->stash('identifier'));
                     }
                 },
                 page        => { 
