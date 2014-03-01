@@ -96,6 +96,7 @@ sub page {
                 panel   => 1,
                 site    => 1,
                 file    => 1,
+                'game.started' => 1,
             });
         }
 
