@@ -1,0 +1,40 @@
+db.competitions.save(
+{
+    _id: 'all_wtr_mar2014',
+    config: {
+        server: [ 'sea', 'na', 'eu' ],
+        start_time: ISODate("2014-03-01T00:00:00Z"),
+        end_time: ISODate("2014-04-01T00:00:00Z"),
+        time_field: 'game.started',
+        input: {
+            matchConditions: { 
+                '@bonustype': { 'in': [ 1, 3, 4, 7 ] },
+                '@kills': { 'gte': 1 },
+                '@damageDealt': { 'gte': 1000 },
+                '@vehicle': { 'in': [ 'usa:M18_Hellcat' ] }
+            }
+        },
+        output: {
+            type: 'leaderboard',
+            config: {
+                size: 5,
+                sort: { 'replays': -1 },
+                generate: {
+                    field: 1,
+                    as: 'replays'
+                }
+            }
+        },
+        display: {
+            primary: 'competition.heading.player',
+            outputvalue: 'Replays',
+        }
+    },
+    title: "March - The month of the Angry Kitty",
+    links: [
+        { 'Blog Post': 'http://blog.wotreplays.org/index.php/2014/02/28/the-month-of-the-angry-kitty/' },
+    ],
+    description: "You can win immortal fame and glory; the top 5 people at the end of the month will be featured in the hall of fame, thus earning much bragging rights. This month’s competition is all about the Hellcat, both because March just seems the perfect month for it, and because many people claim it’s OP. Since it’s been called OP, let’s prove it!\n\nThe competition conditions that a replay must satisfy in order to be counted:\n\n* Drive a Hellcat in any configuration\n* Win the match\n* Do at least 1000 points of direct damage\n* Get at least one kill\n\nThe top 5 people who upload the most replays that match the contest conditions will be featured in the hall of fame; keep in mind that all entries from all servers are taking part in this competition, so if you’ve ever wanted to prove that NA can beat EU, here’s a chance to do so… ",
+    rules_on_forum: false
+}
+);
