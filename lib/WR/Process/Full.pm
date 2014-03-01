@@ -130,7 +130,6 @@ sub process_replay {
     });
 }
 
-# emit also dispatches to thunderpush
 sub emit {
     my $self = shift;
     my $key  = shift;
@@ -139,10 +138,8 @@ sub emit {
 
     $data->{job_id} = $self->job->_id;
 
-    $self->push->send_to_channel('site' => Mojo::JSON->new->encode({ evt => $key,  data => $data}) => sub {
-        $self->SUPER::emit($key => $data);
-        return $cb->() if(defined($cb));
-    });
+    $self->SUPER::emit($key => $data);
+    return $cb->() if(defined($cb));
 }
 
 sub _stream_replay {
