@@ -34,6 +34,8 @@ has 'banner'        => 1;
 has 'packets'       => sub { [] };
 has 'ua'            => sub { Mojo::UserAgent->new };
 
+has '_existing'     => undef;
+
 has [qw/_components _consumables _maps _vehicles/] => undef;
 
 has 'push'          => sub {
@@ -385,41 +387,55 @@ sub _with_battle_result {
                 });
             } else {
                 $replay->set('digest' => $self->job->_id);
-                $replay->set('site.visible' => ($self->job->data->{visible} < 1) ? Mango::BSON::bson_false : Mango::BSON::bson_true);
-                $replay->set('site.privacy' => $self->job->data->{privacy} || 0);
-                $replay->set('site.description' => (defined($self->job->data->{desc}) && length($self->job->data->{desc}) > 0) ? $self->job->data->{desc} : undef);
-                $replay->set('site.uploaded_at' => Mango::BSON::bson_time());
                 $replay->set('file' => $self->job->data->{file_base});
-                if($replay->get('game.bonus_type') == 5) {
-                    $self->debug('fix CW privacy');
-                    $replay->set('site.visible' => Mango::BSON::bson_false);
-                    $replay->set('site.privacy' => 3);
-                }
 
-                # see if we're processing an orphan, it's a bit of a waste to do it after all the work we went through,
-                # but eh. 
-                if($replay->get('site.orphan')) {
-                    # fix that up later, for now we'll just replace the entire thing, likes, downloads, etc. and all
-                }
-
-                # create the panel - we'll switch to using data mode here
-                my $data = $replay->data;
-                $data->{panel} = WR::Provider::Panelator->new->panelate($data);
-                $self->model('wot-replays.replays')->save($data => sub {
-                    my ($c, $e, $d) = (@_);
-
-                    if(defined($e)) {
-                        $self->error('full store fail: ', $e);
-                        $self->job->set_error('store fail: ', $e => sub {
-                            return $cb->($self, undef, $e);
-                        });
+                # see if we happen to have been an existing replay
+                $self->model('wot-replays.replays')->find_one({ digest => $self->job->_id } => sub {
+                    my ($coll, $err, $doc) = (@_);
+                    if(defined($doc)) {
+                        # ah yes..
+                        $self->debug('*** REPLAY ALREADY EXISTS, MERGING ***');
+                        $replay->set('_id' => $doc->{_id});
+                        $replay->set('site' => $doc->{site});
+                        $replay->set('site.orphan' => Mango::BSON::bson_false);
                     } else {
-                        $self->debug('full replay saved ok');
-                        $self->job->set_complete($replay => sub {
-                            $self->debug('full job complete cb');
-                            return $cb->($self, $replay, undef);
-                        });
+                        $replay->set('site.visible' => ($self->job->data->{visible} < 1) ? Mango::BSON::bson_false : Mango::BSON::bson_true);
+                        $replay->set('site.privacy' => $self->job->data->{privacy} || 0);
+                        $replay->set('site.description' => (defined($self->job->data->{desc}) && length($self->job->data->{desc}) > 0) ? $self->job->data->{desc} : undef);
+                        $replay->set('site.uploaded_at' => Mango::BSON::bson_time());
                     }
+
+                    if($replay->get('game.bonus_type') == 5) {
+                        $self->debug('fix CW privacy');
+                        $replay->set('site.visible' => Mango::BSON::bson_false);
+                        $replay->set('site.privacy' => 3);
+                    }
+
+                    # see if we're processing an orphan, it's a bit of a waste to do it after all the work we went through,
+                    # but eh. 
+                    if($replay->get('site.orphan')) {
+                        # fix that up later, for now we'll just replace the entire thing, likes, downloads, etc. and all
+                    }
+
+                    # create the panel - we'll switch to using data mode here
+                    my $data = $replay->data;
+                    $data->{panel} = WR::Provider::Panelator->new->panelate($data);
+                    $self->model('wot-replays.replays')->save($data => sub {
+                        my ($c, $e, $d) = (@_);
+
+                        if(defined($e)) {
+                            $self->error('full store fail: ', $e);
+                            $self->job->set_error('store fail: ', $e => sub {
+                                return $cb->($self, undef, $e);
+                            });
+                        } else {
+                            $self->debug('full replay saved ok');
+                            $self->job->set_complete($replay => sub {
+                                $self->debug('full job complete cb');
+                                return $cb->($self, $replay, undef);
+                            });
+                        }
+                    });
                 });
             }
         }
@@ -469,7 +485,7 @@ sub _real_process {
         $replay->set('_id' => $self->job->replayid); # we're re-doing an existing replay
         $replay->set('site.orphan' => Mango::BSON::bson_true); # not entirely true, but we might as well abuse the flag for it
     } else {
-        $self->debug('job for new replay');
+        $self->debug('job for potentially new replay');
         $replay->set('_id' => Mango::BSON::bson_oid);
     }
 
@@ -531,14 +547,13 @@ sub process_minimal {
     # to figure out the arena start time, we'll have to dig it out of the first block 
     # also use the temp.bperf, temp.stats, and temp.personal dicts to at least pull some stats
     # in 
-
     my $temp = { %{$replay->get('temp')} }; # shallow 
     delete($replay->data->{temp}); # yeah...
-
 
     foreach my $key (keys(%{$temp->{personal}})) {
         $replay->set(sprintf('stats.%s', $key) => $temp->{personal}->{$key});
     }
+    $replay->set('digest'           => $self->job->_id);
     $replay->set('site.minimal'     => Mango::BSON::bson_true);
     $replay->set('site.visible'     => Mango::BSON::bson_false);
     $replay->set('site.privacy'     => 1); # unlisted
@@ -686,7 +701,11 @@ sub process_battle_result {
             $self->ua->inactivity_timeout(120);
 
             my $roster     = $replay->get('roster');
-            my $account_id = join(',', map { $_->{player}->{accountDBID} } @$roster);
+            my $phash      = { map { $_->{player}->{accountDBID} => 1 } @$roster };
+
+            delete($phash->{$replay->get('game.recorder.account_id')});
+
+            my $account_id = join(',', (keys(%$phash)));
 
             my $ratingdelay = Mojo::IOLoop->delay(sub {
                 $self->emit('state.wn7.finish' => { total => scalar(@{$replay->get('roster')}) } => sub { 
@@ -695,17 +714,40 @@ sub process_battle_result {
                 });
             });
 
-            my $all_url = 'http://api.statterbox.com/wot/account/wn8';
-            my $form = {
+
+            my $wn8all     = $ratingdelay->begin(0);
+            my $wn8player  = $ratingdelay->begin(0);
+            my $wn8battle  = $ratingdelay->begin(0);
+
+            my $all_url     = 'http://api.statterbox.com/wot/account/wn8';
+
+            $self->ua->post($all_url => form => {
+                application_id  => $self->config->{'statterbox'}->{server},
+                account_id      => $replay->get('game.recorder.account_id'),
+                cluster         => $self->fix_server($replay->get('game.server')),
+            } => sub {
+                my ($ua, $tx) = (@_);
+
+                if(my $res = $tx->success) {
+                    if($res->json('/status') eq 'ok') {
+                        $replay->set('wn8' => { 
+                            available => Mango::BSON::bson_true,
+                            data => { overall => $res->json(sprintf('/data/%s/wn8', $replay->get('game.recorder.account_id'))) }
+                        });
+                    }
+                } else {
+                    $replay->set('wn8' => { 
+                        available => Mango::BSON::bson_false,
+                        data => { overall => undef }
+                    });
+                }
+            });
+
+            $self->ua->post($all_url => form => {
                 application_id  => $self->config->{'statterbox'}->{server},
                 account_id      => $account_id,
                 cluster         => $self->fix_server($replay->get('game.server')),
-            };
-
-            $self->debug('getting player wn8 info with: ', Dumper($form));
-
-            my $wn8end = $ratingdelay->begin(0);
-            $self->ua->post($all_url => form => $form => sub {
+            } => sub {
                 my ($ua, $tx) = (@_);
 
                 $self->debug('callback for ', $all_url);
@@ -731,10 +773,6 @@ sub process_battle_result {
                                         data => { overall => 0 }
                                     };
                                 }
-                                if($entry->{player}->{name} eq $replay->get('game.recorder.name')) {
-                                    $replay->set('wn8.available'    => $entry->{wn8}->{available});
-                                    $replay->set('wn8.data.overall' => $entry->{wn8}->{data}->{overall});
-                                }
                             } else {
                                 $self->error('no roster entry for ', $id);
                             }
@@ -746,10 +784,9 @@ sub process_battle_result {
                     my ($err, $code) = $tx->error;
                     $self->debug('wn8 res not success, code: ', $code, ' err: ', $err);
                 }
-                $wn8end->();
+                $wn8all->();
             });
 
-            my $brend = $ratingdelay->begin(0);
             my $entry = $replay->get('roster')->[ $replay->get('players')->{$replay->get('game.recorder.name')} ];
             my $battle_url = sprintf('http://statterbox.com/api/v1/%s/calc/wn8?t=%d&frags=%d&damage=%d&spots=%d&defense=%d',
                 '5299a074907e1337e0010000',
@@ -768,7 +805,7 @@ sub process_battle_result {
                 } else {
                     $replay->set('wn8.data.battle' => undef);
                 }
-                $brend->();
+                $wn8battle->();
             });
         });
     }
