@@ -38,7 +38,7 @@
         $.getJSON('/xhr/ds', {}, function(d) {
             if(d.ok == 1) {
                 $('#indexSize').html(d.data.indexSize + 'Mb');
-                $('#dataSize').html(d.data.dataSize + 'Mb');
+                $('#dataSize').html(Math.floor(d.data.dataSize/1024) + 'Gb');
             } else {
                 $('#status-index').addClass('hide');
                 $('#status-data').addClass('hide');
