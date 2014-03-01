@@ -570,7 +570,7 @@ sub process_minimal {
     $replay->set('game.server'      => WR::Provider::ServerFinder->new->get_server_by_id($replay->get('game.recorder.account_id')));
     $replay->set('site.uploaded_at' => Mango::BSON::bson_time);
 
-    $replay->set('game.started'     => Mango::BSON::bson_time( ($replay->get('game.arena_id') & 4294967295) * 1000 );
+    $replay->set('game.started'     => Mango::BSON::bson_time( ($replay->get('game.arena_id') & 4294967295) * 1000 ));
 
     $self->debug('process minimal complete, replay data now: ', Dumper($replay->data));
 
