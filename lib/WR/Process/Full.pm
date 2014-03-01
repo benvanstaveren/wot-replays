@@ -120,9 +120,10 @@ sub process_replay {
             $self->_real_process($parser => $cb);
         } catch {
             my $e = $_;
-            $self->job->set_error('Process error: ', $e);
-            $self->error('Process error: ', $e);
-            $cb->($self, $e, undef);
+            $self->job->set_error('Process error: ', $e => sub {
+                $self->error('Process error: ', $e);
+                $cb->($self, $e, undef);
+            });
         };
     });
 }
@@ -374,12 +375,14 @@ sub _with_battle_result {
             # this really oughta move into the stream events
             if($replay->get('game.version_numeric') < $self->config->{wot}->{min_version}) {
                 $self->job->unlink;
-                $self->job->set_error('That replay is from an older version of World of Tanks which we cannot process...');
-                return $cb->($self, undef, 'That replay is from an older version of World of tanks which we cannot process...');
+                $self->job->set_error('That replay is from an older version of World of Tanks which we cannot process...' => sub {
+                    return $cb->($self, undef, 'That replay is from an older version of World of tanks which we cannot process...');
+                });
             } elsif($replay->get('game.version_numeric') > $self->config->{wot}->{version_numeric}) {
                 $self->job->unlink;
-                $self->job->set_error('That replay is from a newer version of World of Tanks which we cannot process...');
-                return $cb->($self, undef, 'That replay is from a newer version of World of tanks which we cannot process...');
+                $self->job->set_error('That replay is from a newer version of World of Tanks which we cannot process...' => sub {
+                    return $cb->($self, undef, 'That replay is from a newer version of World of tanks which we cannot process...');
+                });
             } else {
                 $replay->set('digest' => $self->job->_id);
                 $replay->set('site.visible' => ($self->job->data->{visible} < 1) ? Mango::BSON::bson_false : Mango::BSON::bson_true);
@@ -407,8 +410,9 @@ sub _with_battle_result {
 
                     if(defined($e)) {
                         $self->error('full store fail: ', $e);
-                        $self->job->set_error('store fail: ', $e);
-                        return $cb->($self, undef, $e);
+                        $self->job->set_error('store fail: ', $e => sub {
+                            return $cb->($self, undef, $e);
+                        });
                     } else {
                         $self->debug('full replay saved ok');
                         $self->job->set_complete($replay => sub {
@@ -438,13 +442,14 @@ sub _without_battle_result {
                 my ($c, $e, $d) = (@_);
 
                 if(defined($e)) {
-                    $self->error('ninimal store fail: ', $e);
-                    $self->job->set_error('ninimal store fail: ', $e);
-                    return $cb->($self, undef, $e);
+                    $self->error('minimal store fail: ', $e);
+                    $self->job->set_error('minimal store fail: ', $e => sub {
+                        return $cb->($self, undef, $e);
+                    });
                 } else {
-                    $self->debug('ninimal replay saved ok');
+                    $self->debug('minimal replay saved ok');
                     $self->job->set_complete($replay => sub {
-                        $self->debug('ninimal job complete cb');
+                        $self->debug('minimal job complete cb');
                         return $cb->($self, $replay, undef);
                     });
                 }
@@ -479,9 +484,10 @@ sub _real_process {
         $self->debug('stream replay callback with error ', $error, ' replay ', $replay);
 
         if(defined($error)) {
-            $self->job->set_error($error);
-            $self->error($error);
-            $cb->($self, undef, $error);
+            $self->job->set_error($error => sub {
+                $self->error($error);
+                $cb->($self, undef, $error);
+            });
         } else {
             # figure out if the replay has a battle result, if it doesn't, just store
             # it as a minimal replay
