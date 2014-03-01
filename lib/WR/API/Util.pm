@@ -24,6 +24,7 @@ sub battleresult_submit {
         if(defined($br)) {
             $self->model('wot-replays.battleresults')->save({
                 ctime           =>  Mango::BSON::bson_time,
+		arena_id	=> $data->{arena_id} . '',
                 battle_result   =>  $br,
             } => sub {
                 $self->render(text => 'DATA:OK BR:OK SAVE:OK', status => 200);
