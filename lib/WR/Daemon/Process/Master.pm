@@ -205,7 +205,7 @@ sub reload_work_list {
     $self->last_work_reload(time());
 
     $self->pause_work(1);
-    $self->db->collection('jobs')->find({ ready => Mango::BSON::bson_true, complete => Mango::BSON::bson_false })->sort({ priority => 1, ctime => 1 })->limit(64)->all(sub {
+    $self->db->collection('jobs')->find({ ready => Mango::BSON::bson_true, complete => Mango::BSON::bson_false })->sort({ priority => 1, ctime => 1 })->all(sub {
         my ($coll, $err, $docs) = (@_);
 
         if(defined($err) || !defined($docs)) {
@@ -225,7 +225,7 @@ sub reload_work_list {
                 }
             }
 
-            $self->debug('received new job list, ', scalar(@$work), ' work list entries, ', scalar(@$unlock), ' unlock entries');
+            $self->debug('received new job list, ', scalar(@$work), ' work list entries, ', scalar(@$unlock), ' unlock entries, current workers active: ', $self->child_count);
 
             if(scalar(@$unlock) > 0) {
                 my $delay = Mojo::IOLoop->delay(sub {
