@@ -26,7 +26,7 @@ has 'log_stdout'        => undef;
 has 'pause_work'        => 0;
 has 'cfile'             => sub { return sprintf('%s/%s', $FindBin::Bin, shift->config->{processd}->{worker}->{configfile}) }; # a bit over the top maybe but ...
 
-has 'last_work_reload'  => sub { time() };
+has 'last_work_reload'  => 0;
 
 has 'mango'             => sub { 
     my $self = shift;
