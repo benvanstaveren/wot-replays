@@ -28,6 +28,8 @@ $(document).ready(function() {
 
         var pbar = $('#uploadModal #file-progress div.progress-bar');
 
+        $(pbar).attr('aria-valuenow', 0).css({ 'width': '0%' }).empty();
+
         var fdata = new FormData();
         var file  = this.files[g_FileCount];
 
