@@ -26,6 +26,8 @@ has 'log_stdout'        => undef;
 has 'pause_work'        => 0;
 has 'cfile'             => sub { return sprintf('%s/%s', $FindBin::Bin, shift->config->{processd}->{worker}->{configfile}) }; # a bit over the top maybe but ...
 
+has 'last_work_reload'  => sub { time() };
+
 has 'mango'             => sub { 
     my $self = shift;
     return Mango->new($self->config->{mongodb}->{host});
@@ -195,8 +197,15 @@ sub fork_worker {
 sub reload_work_list {
     my $self   = shift;
 
+    if($self->last_work_reload + 30 > time()) {
+        $self->debug('not reloading work list, too soon');
+        return;
+    } 
+
+    $self->last_work_reload(time());
+
     $self->pause_work(1);
-    $self->db->collection('jobs')->find({ ready => Mango::BSON::bson_true, complete => Mango::BSON::bson_false })->sort({ priority => 1, ctime => 1 })->all(sub {
+    $self->db->collection('jobs')->find({ ready => Mango::BSON::bson_true, complete => Mango::BSON::bson_false })->sort({ priority => 1, ctime => 1 })->limit(64)->all(sub {
         my ($coll, $err, $docs) = (@_);
 
         if(defined($err) || !defined($docs)) {
