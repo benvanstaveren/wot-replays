@@ -1,26 +1,63 @@
-<div id="container-frm-upload-batch" class="well well-sm">
-</div>
-<div id="batch-tracker" class="well well-sm hide">
-    <table class="table">
-        <colgroup>
-            <col style="width: 50%"/>
-            <col style="width: 30%"/>
-            <col style="width: 20%"/>
-        </colgroup>
-        <tbody>
-
-        </tbody>
-    </table>
-</div>
-<script type="text/x-html-template" id="batch-form-template">
-    <form class="form-inline" action="/upload" method="post" enctype="multipart/form-data">
-        <input name="a" type="hidden" value="save"/>
-        <div class="input-group">
-            <span class="input-group-addon i18n">upload.legend.file</span>
-            <input type="file" name="replay" id="" class="form-control"/>
-            <span class="input-group-btn">
-                <button class="btn btn-primary i18n" type="button">upload.button.upload</button>
-            </span>
+[% WRAPPER wrapper.html.tt %]
+    <div class="page-header">
+        <h2>[% h.loc('upload.page.title') %]</h2>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <ul class="nav nav-tabs nav-inverse" id="upload-tabs">
+                <li><a href="/upload/single.html" class="i18n">upload.nav.single</a></li>
+                <li class="active"><a href="/upload/batch.html" class="i18n"">upload.nav.batch</a></li>
+            </ul>
         </div>
-    </form>
-</script>
+    </div>
+    <div class="row">
+        [% INCLUDE upload/upload_batch.html.tt %]
+    </div>
+    <div class="modal fade" id="uploadModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">[% h.loc('upload.modal.upload.header') %]</h4>
+                </div>
+                <div class="modal-body">
+                    <div id="total-progress">
+                        <h5>Total Progress</h5>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+                                <span>0%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="file-progress">
+                        <h5></h5>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+                                <span>0%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="completeModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Uploads Complete<h4>
+                </div>
+                <div class="modal-body">
+                    <p class="lead">All uploads completed</p>
+                    <div>
+                        <p>For processing results, see <a href="/profile/uploads">your upload list in your profile</a>.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="close-complete" href="">[% h.loc('upload.modal.complete.button.close') %]</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        [% INCLUDE upload/upload_batch.js %]
+    </script>
+[% END %]

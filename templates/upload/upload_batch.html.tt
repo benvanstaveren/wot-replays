@@ -1,0 +1,23 @@
+<div id="container-frm-upload-batch" class="well well-sm">
+    <form class="form-inline" action="/upload" method="post" enctype="multipart/form-data" id="frm-upload-batch">
+        <input name="a" type="hidden" value="save"/>
+        <div class="input-group">
+            <span class="input-group-addon i18n">upload.legend.file</span>
+            <input type="file" name="replay" class="form-control" multiple="true"/>
+            <span class="input-group-btn">
+                <button class="btn btn-primary i18n" type="button">upload.button.upload</button>
+            </span>
+        </div>
+    </form>
+</div>
+<div id="batch-tracker" class="well well-sm hide">
+    <table class="table">
+        <colgroup>
+            <col style="width: 55%"/>
+            <col style="width: 15%"/>
+            <col style="width: 30%"/>
+        </colgroup>
+        <tbody>
+        </tbody>
+    </table>
+</div>

@@ -1,7 +1,5 @@
 var handleProcess = null;
 var timerID = null;
-var jobIDstatus = {};
-var g_batchSequence = 1;
 
 function processBackground() {
     clearTimer(timerID); // and really that's all there's to it 
@@ -115,119 +113,7 @@ handleProcess = function(jobid) {
     });
 }
 
-function processBatch(jid, batchseq) {
-    return function() {
-        var jobid = jid;
-        var bs = batchseq;
-        var nonce = new Date().getTime();
-        var processURL = 'http://api.wotreplays.org/v1/process/status/' + jobid;
-        $.getJSON(processURL, { 'seq': nonce, 't': '[% config.secrets.apitoken %]' }, function(d) {
-            if(d.complete) {
-                if(d.status == 1) {
-                    $('#batch-tracker #batch-' + bs + ' td.status').empty().html(
-                        $('<div>').addClass('alert alert-success alert-sm').text('DONE')
-                    );
-                    $('#batch-tracker #batch-' + bs + ' td.statustext').empty();
-                    $('#frm-upload-batch-' + bs).stopTime();
-                } else if(d.status == -1) {
-                    $('#batch-tracker #batch-' + bs + ' td.status').empty().html(
-                        $('<div>').addClass('alert alert-danger alert-sm').text(d.error || 'Unknown error')
-                    );
-                    $('#batch-tracker #batch-' + bs + ' td.statustext').empty();
-                    $('#frm-upload-batch-' + bs).stopTime();
-                }
-            } else {
-                if(d.status == 0) {
-                    if(d.status_text.length > 0) {
-                        // pop the last one
-                        var last = d.status_text.pop()
-                        $('#batch-tracker #batch-' + bs + ' td.statustext').empty().text(last.text);
-                        if(last.type == 'spinner') {
-                            $('#batch-tracker #batch-' + bs + ' td.status').empty().html( $('<span/>').addClass('spinner') )
-                        } else if(last.type == 'progress') {
-                            var p = $('<div/>').addClass('progress')
-                                .append(
-                                    $('<div/>').addClass('progress-bar progress-bar-success').css({ 'width': last.perc + '%' })
-                                );
-                            $('#batch-tracker #batch-' + bs + ' td.status').empty().html( $(p) );
-                        }
-                    } else {
-                        $('#batch-tracker #batch-' + bs + ' td.statustext').empty().text('Queued');
-                        $('#batch-tracker #batch-' + bs + ' td.status').empty().text(d.position + ' of ' + d.pending);
-                    }
-                } else {
-                    $('#batch-tracker #batch-' + bs + ' td.status').empty().html(
-                        $('<div>').addClass('alert alert-danger').text(d.error || 'Unknown error')
-                    );
-                    $('#frm-upload-batch-' + bs).stopTime();
-                }
-            }
-        });
-    }
-}
-
-function newBatchForm(blseq) {
-    var f= function() {
-        var batchSequence = blseq;
-        var tmpl = $('script#batch-form-template').html();
-        // if we have a current one, hide it 
-        $('#container-frm-upload-batch .uploadform').addClass('hide');
-        var cont = $('<div>').attr('id', 'frm-upload-batch-' + batchSequence).addClass('uploadform').html(tmpl);
-
-        $(cont).find('.i18n').i18n();
-
-        $(cont).find('input[type="file"]').attr('id', 'replayFileBatch-' + batchSequence);
-        $('#container-frm-upload-batch').prepend($(cont));
-
-        $('#container-frm-upload-batch #frm-upload-batch-' + batchSequence + ' form button').on('click', function() {
-            if($(this).hasClass('disabled')) return false;
-            $(this).addClass('disabled');
-            var file = $(this).parent().parent().find('input[type="file"]').val();
-            $('#batch-tracker').removeClass('hide');
-            $('#batch-tracker table tbody').prepend( $('<tr>').attr('id', 'batch-' + batchSequence).append($('<td>').addClass('file').text(file.replace(/.*\\/g, '')), $('<td>').addClass('statustext').text('Uploading...'), $('<td>').addClass('status').text('') ) );
-            $('#batch-tracker #batch-' + batchSequence + ' td.status').html('<div class="progress"><div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div></div>');
-            $('#frm-upload-batch-' + batchSequence + ' form').ajaxSubmit({
-                uploadProgress: function(event, position, total, percentComplete) {
-                    var percentVal = percentComplete + '%';
-                    $('#batch-tracker #batch-' + batchSequence + ' td.status div.progress-bar').attr('aria-valuenow', percentVal).css({ width: percentVal + '%' });
-                },
-                error: function(x, t, e) {
-                    $('#batch-tracker #batch-' + batchSequence + ' td.status').empty().html(
-                        $('<div>').addClass('alert alert-danger').text(e)
-                    );
-                    $('#batch-tracker #batch-' + batchSequence + ' td.statustext').empty();
-                },
-                success: function(d, t, x) {
-                    if(d.ok && d.ok == 1) {
-                        $('#batch-tracker #batch-' + batchSequence + ' td.status').empty().html(
-                            $('<span>').addClass('spinner')
-                        );
-                        $('#frm-upload-batch-' + batchSequence).everyTime(2500, processBatch(d.jid, batchSequence));
-                    } else {
-                        if(d.error) {
-                            $('#batch-tracker #batch-' + batchSequence + ' td.status').empty().html(
-                                $('<div>').addClass('alert alert-danger alert-sm').text(d.error)
-                            );
-                            $('#batch-tracker #batch-' + batchSequence + ' td.statustext').empty();
-                        } else {
-                            $('#batch-tracker #batch-' + batchSequence + ' td.status').empty().html(
-                                $('<div>').addClass('alert alert-danger alert-sm').text('Store fail')
-                            );
-                            $('#batch-tracker #batch-' + batchSequence + ' td.statustext').empty();
-                        }
-                    }
-                },
-            });
-            newBatchForm(g_batchSequence)();
-        });
-    };
-    g_batchSequence = g_batchSequence + 1;
-    return f;
-}
-
 $(document).ready(function() {
-    newBatchForm(g_batchSequence)();
-
     $('button#process-background').click(function() {
         $('#processModal').modal('hide');
         processBackground();
@@ -237,7 +123,6 @@ $(document).ready(function() {
         $('#completeModal').modal('hide');
         document.location.href = href;
     });
-
     $('#frm-upload').ajaxForm({
         clearForm: true,
         resetForm: true,
@@ -303,5 +188,4 @@ $(document).ready(function() {
             }
         },
     });
-
 });    

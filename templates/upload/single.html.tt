@@ -1,42 +1,120 @@
-<div id="container-frm-upload" class="well well-sm">
-    <form class="form-horizontal" id="frm-upload" action="/upload" method="post" enctype="multipart/form-data">
-        <input name="a" type="hidden" value="save"/>
-        <fieldset>
-            <legend>[% h.loc('upload.legend.file') %]</legend>
-            <div class="form-group">
-                <label class="col-lg-2" for="replayFile">[% h.loc('upload.legend.file') %]</label>
-                <div class="col-lg-10">
-                    <input type="file" name="replay" id="replayFile" class="form-control"/>
+[% WRAPPER wrapper.html.tt %]
+    <div class="page-header">
+        <h2>[% h.loc('upload.page.title') %]</h2>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <ul class="nav nav-tabs nav-inverse" id="upload-tabs">
+                <li class="active"><a href="/upload/single.html" class="i18n">upload.nav.single</a></li>
+                <li><a href="/upload/batch.html" class="i18n"">upload.nav.batch</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        [% INCLUDE upload/upload_single.html.tt %]
+    </div>
+    <div class="modal fade" id="uploadModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">[% h.loc('upload.modal.upload.header') %]</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+                            <span>0%</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </fieldset>
-        <fieldset>
-            <legend>[% h.loc('upload.legend.details') %]</legend>
-            <div class="form-group">
-                <label class="col-lg-2" for="replayDescription">[% h.loc('upload.description') %] ([% h.loc('upload.optional') %])</label>
-                <div class="col-lg-10">
-                    <textarea class="form-control" rows="5" id="replayDescription" name="description">[% description %]</textarea>
-                    <span class="help-block">[% h.loc('upload.description.help') %]</span>
+        </div>
+    </div>
+    <div class="modal fade" id="processModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">[% h.loc('upload.modal.process.header') %]</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="process-log" style="min-height: 250px"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" id="process-background">[% h.loc('upload.modal.process.button.close') %]</button>
                 </div>
             </div>
-            <div class="form-group">
-                <label class="col-lg-2">[% h.loc('upload.privacy') %] <a href="/doc/replayprivacy" class="bs-tooltip" title="[% h.loc('upload.privacy.tooltip') %]">(?)</a></label>
-                <div class="col-lg-10">
-                    <select name="hide">
-                        <option selected="true" value="0">[% h.loc('privacy.public') %]</option>
-                        <option value="1">[% h.loc('privacy.unlisted') %]</option>
-                        <option value="2">[% h.loc('privacy.private') %]</option>
-                        <option [% IF !h.current_user.clan.defined %]disabled="true"[% END %] value="3">[% h.loc('privacy.clan') %]</option>
-                    </select>
+        </div>
+    </div>
+    <div class="modal fade" id="completeModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">[% h.loc('upload.modal.complete.header') %]</h4>
+                </div>
+                <div class="modal-body">
+                    <p class="lead">[% h.loc('upload.modal.complete.links') |ucfirst %]</p>
+                    <div>
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr><td><b>[% h.loc('upload.modal.complete.replay.page') |ucfirste %]</b></td><td id="replay-page-link"></td></tr>
+                                <tr><td><b>[% h.loc('upload.modal.complete.replay.file') |ucfirste %]</b></td><td id="replay-file-link"></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="lead">[% h.loc('upload.modal.complete.banner') %]</p>
+                    <div>
+                        <div id="banner-available">
+                            <div style="width: 545px; height: 98px; margin: 0px auto">
+                                <img style="width: 545px; height: 98px;" id="banner-image"/>
+                            </div>
+                            <div style="width: 545px; margin: 0px auto">
+                                <textarea style="resize: none; width: 545px;" rows="5" id="banner-bbcode"/></textarea>
+                            </div>
+                        </div>
+                        <div id="banner-unavailable">
+                            <div class="alert alert-danger">
+                                [% h.loc('upload.modal.complete.banner.error') %]
+                                There was an error generating the banner, we'll get around to re-generating it soon, and you will be able to find it using the 'Embed' button on the replay page.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="close-and-view" href="">[% h.loc('upload.modal.complete.button.closeview') %]</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">[% h.loc('upload.modal.complete.button.close') %]</button>
                 </div>
             </div>
-        </fieldset>
-        <fieldset>
-            <div class="form-group">
-                <div class="col-lg-offset-2 col-lg-10">
-                    <button class="btn btn-primary" type="submit">[% h.loc('upload.button.upload') %]</button>
+        </div>
+    </div>
+    <div class="modal fade" id="completeMinimalModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">[% h.loc('upload.modal.complete.header') %]</h4>
+                </div>
+                <div class="modal-body">
+                    <p class="lead">[% h.loc('upload.modal.complete.links') |ucfirst %]</p>
+                    <div>
+                        <div class="alert alert-danger">
+                            <p>
+                            Your replay did not contain a battle result, we have still stored it but it will be unlisted and unviewable. Statistics obtained
+                            from this replay are unreliable. In order to ensure that replays always have a battle result, even if you leave the match early.
+                            </p>
+                            <p>
+                                You can avoid this problem by using our <a href="https://github.com/benvanstaveren/wot-replays/wiki/WTR-Mod">WTR Mod</a> which will automatically upload battle results to wotreplays.org so it can match it against any replay that does not have a battle result.
+                            </p>
+                            <p>
+                                When you use the mod, you can also view a battle result (when available) for a replay you've already uploaded, and eventually we'll get around to re-processing your uploaded replay with the new battle result.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">[% h.loc('upload.modal.complete.button.close') %]</button>
                 </div>
             </div>
-        </fieldset>
-    </form>
-</div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        [% INCLUDE upload/upload_single.js %]
+    </script>
+[% END %]

@@ -58,7 +58,11 @@ sub install {
     });
 
     # funky bits
-    $r->route('/upload')->to('replays-upload#upload', pageid => 'upload');
+    my $upload = $r->under('/upload');
+        $upload->route('/')->to('replays-upload#upload', pageid => 'upload', upload_type => 'single');
+        $upload->route('/process')->to('replays-upload#process_upload');
+        $upload->route('/:upload_type')->to('replays-upload#upload', pageid => 'upload');
+
     $r->route('/postaction')->to('ui#nginx_post_action');
 
     my $xhr = $r->under('/xhr');
