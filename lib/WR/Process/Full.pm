@@ -734,13 +734,16 @@ sub process_battle_result {
                             available => Mango::BSON::bson_true,
                             data => { overall => $res->json(sprintf('/data/%s/wn8', $replay->get('game.recorder.account_id'))) }
                         });
+                        $self->debug('wn8 for player callback, wn8 set to: ', $replay->get('wn8.data.overall'));
                     }
                 } else {
                     $replay->set('wn8' => { 
                         available => Mango::BSON::bson_false,
                         data => { overall => undef }
                     });
+                    $self->debug('wn8 for player callback, status not ok');
                 }
+                $wn8player->();
             });
 
             $self->ua->post($all_url => form => {
@@ -750,7 +753,7 @@ sub process_battle_result {
             } => sub {
                 my ($ua, $tx) = (@_);
 
-                $self->debug('callback for ', $all_url);
+                $self->debug('wn8 all callback');
 
                 if(my $res = $tx->success) {
                     if($res->json('/status') eq 'ok') {
