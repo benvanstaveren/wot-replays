@@ -12,6 +12,8 @@ sub _fix_br_values {
     my $self = shift;
     my $br   = shift;
 
+    return $br unless(defined($br));
+
     if(ref($br) eq 'HASH') {
         foreach my $key (keys(%$br)) {
             if(ref($br->{$key}) eq 'HASH') {

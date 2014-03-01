@@ -731,7 +731,10 @@ sub process_battle_result {
                                         data => { overall => 0 }
                                     };
                                 }
-                                $replay->set('wn8' => $entry->{wn8}) if($entry->{player}->{name} eq $replay->get('game.recorder.name'));
+                                if($entry->{player}->{name} eq $replay->get('game.recorder.name')) {
+                                    $replay->set('wn8.available'    => $entry->{wn8}->{available});
+                                    $replay->set('wn8.data.overall' => $entry->{wn8}->{data}->{overall});
+                                }
                             } else {
                                 $self->error('no roster entry for ', $id);
                             }
