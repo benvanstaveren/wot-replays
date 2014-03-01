@@ -682,84 +682,83 @@ sub process_battle_result {
         # of WN8 values given that summaries can be obtained faster than individual WN8 ratings
         # (and we don't blast the WG API so hard)
 
-
         $self->emit('state.wn7.start' => { total => scalar(keys(%{$replay->get('players')})) } => sub {
+            $self->ua->inactivity_timeout(120);
+
+            my $roster     = $replay->get('roster');
+            my $account_id = join(',', map { $_->{player}->{accountDBID} } @$roster);
+
             my $ratingdelay = Mojo::IOLoop->delay(sub {
-                $self->debug('ratingdelay cb');
                 $self->emit('state.wn7.finish' => { total => scalar(@{$replay->get('roster')}) } => sub { 
                     $self->debug('ratingdelay emit cb');
                     $end->();
                 });
             });
 
-            $self->ua->inactivity_timeout(120);
-            
-            my $count = 0;
-            foreach my $entry (@{$replay->get('roster')}) {
-                my $url = 'http://api.statterbox.com/wot/account/wn8';
-                my $rend = $ratingdelay->begin(0);
-                my $form = {
-                    application_id  => $self->config->{'statterbox'}->{server},
-                    account_id      => $entry->{player}->{accountDBID},
-                    cluster         => $self->fix_server($replay->get('game.server')),
-                };
-                $self->debug('getting wn8 from statterbox via ', $url, ' -> ', Dumper($form));
-                $self->ua->post($url => form => $form => sub {
-                    my ($ua, $tx) = (@_);
+            my $all_url = 'http://api.statterbox.com/wot/account/wn8';
+            my $form = {
+                application_id  => $self->config->{'statterbox'}->{server},
+                account_id      => $account_id,
+                cluster         => $self->fix_server($replay->get('game.server')),
+            };
 
-                    $self->debug('callback for ', $url);
+            $self->debug('getting player wn8 info with: ', Dumper($form));
 
-                    if(my $res = $tx->success) {
-                        if($res->json->{status} eq 'ok') {
-                            my $data = $res->json->{data};
-                            my $wn8  = $data->{$entry->{player}->{accountDBID}};
-                            $self->debug('wn8 res ok, value: ', $wn8->{wn8});
-                            if(defined($wn8))  {
-                                $entry->{wn8} = { 
-                                    available => Mango::BSON::bson_true,
-                                    data => { overall => $wn8->{wn8} }
-                                };
+            my $wn8end = $ratingdelay->begin(0);
+            $self->ua->post($all_url => form => $form => sub {
+                my ($ua, $tx) = (@_);
+
+                $self->debug('callback for ', $all_url);
+
+                if(my $res = $tx->success) {
+                    if($res->json('/status') eq 'ok') {
+                        $self->debug('wn8 status ok');
+                        my $data = $res->json('/data');
+                        # unfortunately we now need to map each player ID to an entry in the roster 
+                        $self->debug('wn8 response: ', Dumper($data));
+                        foreach my $id (keys(%$data)) {
+                            if(my $entry = $self->roster_entry_by_account_id($roster, $id)) {
+                                if(defined($data->{$id}) && ref($data->{$id}) eq 'HASH') {
+                                    $self->debug('have roster entry for ', $id, ' wn8 is ', $data->{$id}->{wn8});
+                                    $entry->{wn8} = { 
+                                        available => Mango::BSON::bson_true,
+                                        data => { overall => $data->{$id}->{wn8} }
+                                    };
+                                } else {
+                                    $self->debug('have roster entry for ', $id, ' but no wn8 data');
+                                    $entry->{wn8} = { 
+                                        available => Mango::BSON::bson_false,
+                                        data => { overall => 0 }
+                                    };
+                                }
+                                $replay->set('wn8' => $entry->{wn8}) if($entry->{player}->{name} eq $replay->get('game.recorder.name'));
                             } else {
-                                $entry->{wn8} = { 
-                                    available => Mango::BSON::bson_false,
-                                    data => { overall => 0 }
-                                };
+                                $self->error('no roster entry for ', $id);
                             }
-                        } else {
-                            $self->debug('wn8 res error: ', Dumper($res->json));
-                            $entry->{wn8} = { 
-                                available => Mango::BSON::bson_false,
-                                data => { overall => 0 }
-                            };
                         }
                     } else {
-                        my ($err, $code) = $tx->error;
-                        $self->debug('wn8 res not success, code: ', $code, ' err: ', $err);
-                        $entry->{wn8} = { 
-                            available => Mango::BSON::bson_false,
-                            data => { overall => 0 }
-                        };
+                        $self->debug('wn8 status not ok', Dumper($res->json('/error')));
                     }
-                    $replay->set('wn8' => $entry->{wn8}) if($entry->{player}->{name} eq $replay->get('game.recorder.name'));
-                    $self->emit('state.wn7.progress' => { count => ++$count, total => scalar(@{$replay->get('roster')}) } => sub {
-                        $rend->();
-                    });
-                });
-            }
+                } else {
+                    my ($err, $code) = $tx->error;
+                    $self->debug('wn8 res not success, code: ', $code, ' err: ', $err);
+                }
+                $wn8end->();
+            });
 
             my $brend = $ratingdelay->begin(0);
-            my $roster = $replay->get('roster')->[ $replay->get('players')->{$replay->get('game.recorder.name')} ];
-            my $url = sprintf('http://statterbox.com/api/v1/%s/calc/wn8?t=%d&frags=%d&damage=%d&spots=%d&defense=%d',
+            my $entry = $replay->get('roster')->[ $replay->get('players')->{$replay->get('game.recorder.name')} ];
+            my $battle_url = sprintf('http://statterbox.com/api/v1/%s/calc/wn8?t=%d&frags=%d&damage=%d&spots=%d&defense=%d',
                 '5299a074907e1337e0010000',
-                $roster->{vehicle}->{typecomp},
+                $entry->{vehicle}->{typecomp},
                 $replay->get('stats.kills') + 0,
                 $replay->get('stats.damageDealt') + 0,
                 $replay->get('stats.spotted') + 0,
                 $replay->get('stats.droppedCapturePoints') + 0
                 );
 
-            $self->debug(sprintf('Getting battle WN8 from: %s', $url));
-            $self->ua->get($url => sub {
+            $self->debug(sprintf('Getting battle WN8 from: %s', $battle_url));
+            $self->ua->get($battle_url => sub {
                 my ($ua, $tx) = (@_);
                 if(my $res = $tx->success) {
                     $replay->set('wn8.data.battle' => $res->json('/wn8'));
@@ -775,6 +774,17 @@ sub process_battle_result {
     _misc($self, $replay, $delay->begin(0));
     _packetstore($self, $replay, $delay->begin(0));
     _ratings($self, $replay, $delay->begin(0));
+}
+
+sub roster_entry_by_account_id {
+    my $self   = shift;
+    my $roster = shift;
+    my $id     = shift;
+
+    foreach my $e (@$roster) {
+        return $e if($e->{player}->{accountDBID} + 0 == $id + 0);
+    }
+    return undef;
 }
 
 sub get_vehicle_from_battleresult_by_accountid {

@@ -70,7 +70,8 @@ sub do_login {
                     });
                 }
             } else {
-                $self->debug('tx not ok');
+                my ($err, $code) = $tx->error;
+                $self->debug('tx not ok: code: ', $code, ' err: ', $err);
                 $self->respond(template => 'login/form', stash => {
                     page => { title => 'Login' },
                     notify => { title => 'error', text => 'API timeout, try again' }
