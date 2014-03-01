@@ -125,9 +125,17 @@ sub make_pident {
     my $self = shift;
     my $p    = shift;
     my $i    = shift || 0;
+
     return 'unknown/unknown' unless(defined($p) && ref($p));
 
-    return ($i) ? sprintf('%02x/%02x', $p->type, $p->subtype || undef) : sprintf('%02x', $p->type);
+    my $type    = $p->type;
+    my $subtype = $p->subtype;
+
+    if(defined($type) && defined($subtype) && $i) {
+        return sprintf('%02x/%02x', $type, $subtype);
+    } else {
+        return sprintf('%02x/%02x', $type);
+    }
 }
 
 sub add_handlers {
