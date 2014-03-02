@@ -272,25 +272,14 @@ sub _setup_legacy_state_handlers {
             id      =>  'streaming',
             text    =>  'Streaming packets',
             i18n    =>  'process.state.streaming',
-            type    =>  'progress',
-            count   =>  0,
-            total   =>  $t->{total},
+            type    =>  'spinner',
             done    =>  Mango::BSON::bson_false,
-        });
-    });
-    $self->on('state.streaming.progress' => sub {
-        my ($o, $d) = (@_);
-        $self->job->set_status({
-            id      =>  'streaming',
-            count   =>  $d->{count},
         });
     });
     $self->on('state.streaming.finish' => sub {
         my ($o, $t) = (@_);
         $self->job->set_status({
             id      =>  'streaming',
-            count   =>  $t->{total},
-            total   =>  $t->{total},
             done    =>  Mango::BSON::bson_true
         });
     });
@@ -330,25 +319,14 @@ sub _setup_legacy_state_handlers {
             id      =>  'wn7',
             text    =>  'Fetching ratings from Statterbox',
             i18n    =>  'process.state.rating',
-            type    =>  'progress',
-            count   =>  0,
-            total   =>  $t->{total},
+            type    =>  'spinner',
             done    =>  Mango::BSON::bson_false,
-        });
-    });
-    $self->on('state.wn7.progress' => sub {
-        my ($o, $d) = (@_);
-        $self->job->set_status({
-            id      =>  'wn7',
-            count   =>  $d->{count},
         });
     });
     $self->on('state.wn7.finish' => sub {
         my ($o, $t) = (@_);
         $self->job->set_status({
             id      =>  'wn7',
-            count   =>  $t->{total},
-            total   =>  $t->{total},
             done    =>  Mango::BSON::bson_true,
         });
     });
@@ -712,12 +690,14 @@ sub process_battle_result {
     sub _ratings {
         my $self   = shift;
         my $replay = shift;
-        my $end    = shift;
+        my $_ratings_end = shift;
 
         # this needs to be replaced with a summary fetch from statterbox, and 
         # a direct db fetch for the expected values and then a manual calculation
         # of WN8 values given that summaries can be obtained faster than individual WN8 ratings
         # (and we don't blast the WG API so hard)
+
+        $self->debug('_ratings top');
 
         $self->emit('state.wn7.start' => { total => scalar(keys(%{$replay->get('players')})) } => sub {
             $self->ua->inactivity_timeout(120);
@@ -725,7 +705,7 @@ sub process_battle_result {
             my $ratingdelay = Mojo::IOLoop->delay(sub {
                 $self->emit('state.wn7.finish' => { total => scalar(@{$replay->get('roster')}) } => sub { 
                     $self->debug('ratingdelay emit cb');
-                    $end->();
+                    $_ratings_end->();
                 });
             });
 
@@ -741,7 +721,7 @@ sub process_battle_result {
 
                 my $account_id = join(',', (keys(%$phash)));
 
-                $self->debug('getting wn8 for all players except recorder');
+                $self->debug('[WN8:ALL]: getting wn8 for all players except recorder');
                 $self->ua->post('http://api.statterbox.com/wot/account/wn8' => form => {
                     application_id  => $self->config->{'statterbox'}->{server},
                     account_id      => $account_id,
@@ -749,39 +729,39 @@ sub process_battle_result {
                 } => sub {
                     my ($ua, $tx) = (@_);
 
-                    $self->debug('wn8 all callback');
+                    $self->debug('[WN8:ALL] wn8 all callback');
 
                     if(my $res = $tx->success) {
                         if($res->json('/status') eq 'ok') {
-                            $self->debug('wn8 status ok');
+                            $self->debug('[WN8:ALL] wn8 status ok');
                             my $data = $res->json('/data');
                             # unfortunately we now need to map each player ID to an entry in the roster 
-                            $self->debug('wn8 response: ', Dumper($data));
+                            $self->debug('[WN8:ALL] wn8 response: ', Dumper($data));
                             foreach my $id (keys(%$data)) {
                                 if(my $entry = $self->roster_entry_by_account_id($roster, $id)) {
                                     if(defined($data->{$id}) && ref($data->{$id}) eq 'HASH') {
-                                        $self->debug('have roster entry for ', $id, ' wn8 is ', $data->{$id}->{wn8});
+                                        $self->debug('[WN8:ALL] have roster entry for ', $id, ' wn8 is ', $data->{$id}->{wn8});
                                         $entry->{wn8} = { 
                                             available => Mango::BSON::bson_true,
                                             data => { overall => $data->{$id}->{wn8} }
                                         };
                                     } else {
-                                        $self->debug('have roster entry for ', $id, ' but no wn8 data');
+                                        $self->debug('[WN8:ALL] have roster entry for ', $id, ' but no wn8 data');
                                         $entry->{wn8} = { 
                                             available => Mango::BSON::bson_false,
                                             data => { overall => 0 }
                                         };
                                     }
                                 } else {
-                                    $self->error('no roster entry for ', $id);
+                                    $self->error('[WN8:ALL] no roster entry for ', $id);
                                 }
                             }
                         } else {
-                            $self->debug('wn8 status not ok', Dumper($res->json('/error')));
+                            $self->debug('[WN8:ALL] wn8 status not ok', Dumper($res->json('/error')));
                         }
                     } else {
                         my ($err, $code) = $tx->error;
-                        $self->debug('wn8 res not success, code: ', $code, ' err: ', $err);
+                        $self->debug('[WN8:ALL] wn8 res not success, code: ', $code, ' err: ', $err);
                     }
                     $end->();
                 });
@@ -792,7 +772,7 @@ sub process_battle_result {
                 my $replay = shift;
                 my $end = shift;
 
-                $self->debug('getting wn8 for recorder');
+                $self->debug('[WN8.RECORDER]: getting wn8 for recorder');
                 $self->ua->post('http://api.statterbox.com/wot/account/wn8' => form => {
                     application_id  => $self->config->{'statterbox'}->{server},
                     account_id      => $replay->get('game.recorder.account_id'),
@@ -800,22 +780,22 @@ sub process_battle_result {
                 } => sub {
                     my ($ua, $tx) = (@_);
 
-                    $self->debug('wn8 recorder callback');
+                    $self->debug('[WN8.RECORDER]: wn8 recorder callback');
 
                     if(my $res = $tx->success) {
                         if($res->json('/status') eq 'ok') {
                             $replay->set('wn8.available' => Mango::BSON::bson_true);
                             $replay->set('wn8.data.overall' => $res->json('/data')->{$replay->get('game.recorder.account_id')}->{wn8});
-                            $self->debug('wn8 for player callback, wn8 set to: ', $replay->get('wn8.data.overall'));
+                            $self->debug('[WN8.RECORDER]: wn8 for recorder callback, wn8 set to: ', $replay->get('wn8.data.overall'));
                         } else {
                             $replay->set('wn8.available' => Mango::BSON::bson_false);
                             $replay->set('wn8.data.overall' => undef);
-                            $self->debug('wn8 for player callback, status not ok');
+                            $self->debug('[WN8.RECORDER]: wn8 for player callback, status not ok');
                         }
                     } else {
                         $replay->set('wn8.available' => Mango::BSON::bson_false);
                         $replay->set('wn8.data.overall' => undef);
-                        $self->debug('wn8 for player callback, tx not ok');
+                        $self->debug('[WN8.RECORDER]: wn8 for player callback, tx not ok');
                     }
                     $end->();
                 });
@@ -826,7 +806,7 @@ sub process_battle_result {
                 my $replay = shift;
                 my $end = shift;
 
-                $self->debug('getting wn8 for battle');
+                $self->debug('[WN8.BATTLE]: getting wn8 for battle');
                 my $entry = $replay->get('roster')->[ $replay->get('players')->{$replay->get('game.recorder.name')} ];
                 my $battle_url = sprintf('http://statterbox.com/api/v1/%s/calc/wn8?t=%d&frags=%d&damage=%d&spots=%d&defense=%d',
                     '5299a074907e1337e0010000',
@@ -837,24 +817,26 @@ sub process_battle_result {
                     $replay->get('stats.droppedCapturePoints') + 0
                     );
 
-                $self->debug(sprintf('Getting battle WN8 from: %s', $battle_url));
+                $self->debug(sprintf('[WN8.BATTLE]: Getting battle WN8 from: %s', $battle_url));
                 $self->ua->get($battle_url => sub {
                     my ($ua, $tx) = (@_);
                     if(my $res = $tx->success) {
                         $replay->set('wn8.data.battle' => $res->json('/wn8'));
-                        $self->debug('wn8 battle callback, ok');
+                        $self->debug('[WN8.BATTLE]: wn8 battle callback, ok');
                     } else {
                         $replay->set('wn8.data.battle' => undef);
-                        $self->debug('wn8 battle callback, not ok');
+                        $self->debug('[WN8.BATTLE]: wn8 battle callback, not ok');
                     }
                     $end->();
                 });
             }
 
-            _wn8_all($self, $replay, $ratingdelay->begin(0));
-            _wn8_recorder($self, $replay, $ratingdelay->begin(0));
-            _wn8_battle($self, $replay, $ratingdelay->begin(0));
+            _wn8_all($self, $replay, $ratingdelay->begin);
+            _wn8_recorder($self, $replay, $ratingdelay->begin);
+            _wn8_battle($self, $replay, $ratingdelay->begin);
+
         });
+        $self->debug('_ratings bottom');
     }
 
     _misc($self, $replay, $delay->begin(0));
