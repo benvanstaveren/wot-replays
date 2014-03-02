@@ -736,7 +736,6 @@ sub process_battle_result {
                 });
             });
 
-
             my $wn8all     = $ratingdelay->begin(0);
             my $wn8player  = $ratingdelay->begin(0);
             my $wn8battle  = $ratingdelay->begin(0);
@@ -752,17 +751,13 @@ sub process_battle_result {
 
                 if(my $res = $tx->success) {
                     if($res->json('/status') eq 'ok') {
-                        $replay->set('wn8' => { 
-                            available => Mango::BSON::bson_true,
-                            data => { overall => $res->json(sprintf('/data/%s/wn8', $replay->get('game.recorder.account_id'))) }
-                        });
+                        $replay->set('wn8.available' => Mango::BSON::bson_true);
+                        $replay->set('wn8.data.overall' => $res->json('/data')->{$replay->get('game.recorder.account_id')}->{wn8});
                         $self->debug('wn8 for player callback, wn8 set to: ', $replay->get('wn8.data.overall'));
                     }
                 } else {
-                    $replay->set('wn8' => { 
-                        available => Mango::BSON::bson_false,
-                        data => { overall => undef }
-                    });
+                    $replay->set('wn8.available' => Mango::BSON::bson_false);
+                    $replay->set('wn8.data.overall' => undef);
                     $self->debug('wn8 for player callback, status not ok');
                 }
                 $wn8player->();
