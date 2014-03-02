@@ -389,7 +389,7 @@ sub _with_battle_result {
                     'game.arena_id'         =>  $replay->get('game.arena_id')
                 };
 
-                if($self->model('wot-replays.replays')->find_one($query => sub {
+                $self->model('wot-replays.replays')->find_one($query => sub {
                     my ($coll, $err, $doc) = (@_);
                     if(defined($doc)) {
                         $self->debug('*** REPLAY WITH SAME SERVER, RECORDER AND ARENA ID ALREADY EXISTS');
