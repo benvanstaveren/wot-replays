@@ -19,6 +19,7 @@ sub delete {
 sub set_status {
     my $self    = shift;
     my $status  = shift;
+    my $cb      = shift;
     my $current;
     my $u = 0;
 
@@ -45,12 +46,10 @@ sub set_status {
             status_text => $new,
         }
     } => sub {
-        # fire and forget, even though it may mean we clobber the status repeatedly 
+        return $cb->() if(defined($cb));
     });
-
     $self->status_text($new);
 }
-
 
 sub load {
     my $self = shift;
