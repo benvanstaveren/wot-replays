@@ -1,9 +1,7 @@
 package WR::Parser::Versions::Base;
 use Mojo::Base '-base';
 use IO::File ();
-use Digest::SHA1 qw/sha1_hex/;
 use Try::Tiny qw/try catch/;
-use boolean;
 use Data::Dumper;
 use Mojo::JSON;
 use WR::Parser::Unpack;

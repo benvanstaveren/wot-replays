@@ -5,6 +5,7 @@ use Mango::BSON;
 use Scalar::Util qw/blessed/;
 use Try::Tiny qw/try catch/;
 use WR::Provider::Mapgrid;
+use Digest::SHA qw/sha256_hex/;
 
 sub validate_token {
     my $self    = shift;
@@ -207,9 +208,7 @@ sub process_replay {
 
         make_path($replay_path);
 
-        my $sha = Digest::SHA1->new();
-        $sha->add($upload->asset->slurp);
-        my $digest = $sha->hexdigest;
+        my $digest = sha256_hex($upload->asset->slurp);
         
         my $prio_map = {
             'wotreplays.org' => 20,

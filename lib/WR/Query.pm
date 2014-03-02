@@ -1,7 +1,6 @@
 package WR::Query;
 use Mojo::Base '-base';
 use Mojo::JSON;
-use Digest::SHA1;
 use Mango::BSON;
 use Data::Dumper;
 use Time::HiRes qw/gettimeofday tv_interval/;

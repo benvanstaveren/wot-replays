@@ -3,7 +3,7 @@ use Mojo::Base 'WR::App::Controller';
 use Mango::BSON;
 use File::Path qw/make_path/;
 use Try::Tiny qw/try catch/;
-use Digest::SHA1;
+use Digest::SHA qw/sha256_hex/;
 
 sub r_error {
     my $self = shift;
@@ -76,12 +76,8 @@ sub process_upload {
 
         make_path($replay_path);
 
-        my $sha = Digest::SHA1->new();
-        $sha->add($upload->asset->slurp);
-        my $digest = $sha->hexdigest;
+        my $digest = sha256_hex($upload->asset->slurp);
         my $prio   = 50;
-
-        # priority wise, anything that is part of an event should get higher priority than other uploads, but... 
 
         # set this up as the job id
         $self->model('wot-replays.jobs')->save({
