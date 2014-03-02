@@ -130,18 +130,6 @@ sub process_replay {
     });
 }
 
-sub emit {
-    my $self = shift;
-    my $key  = shift;
-    my $data = shift;
-    my $cb   = shift;
-
-    $data->{job_id} = $self->job->_id;
-
-    $self->SUPER::emit($key => $data);
-    return $cb->() if(defined($cb));
-}
-
 sub _stream_replay {
     my $self    = shift;
     my $parser  = shift;
@@ -156,9 +144,7 @@ sub _stream_replay {
             my ($s, $v) = (@_);
             
             if(++$pcount % 100 == 0) {
-                $self->emit('state.streaming.progress' => { count => $v } => sub {
-                    # no-op but we want it to not block
-                });
+                $self->emit('state.streaming.progress' => { count => $v });
             }
         });
         $game->on('game.version' => sub {
@@ -225,24 +211,25 @@ sub _stream_replay {
         });
         $game->on(finish => sub {
             my ($game, $reason) = (@_);
-            $self->emit('state.streaming.finish' => { total => $game->stream->len } => sub {
-                if($reason->{ok} == 0) {
-                    return $cb->(undef, $reason->{reason});
-                } else {
-                    $replay->set('game.recorder.consumables' => $game->vcons_initial);
-                    $replay->set('game.recorder.ammo'        => $game->vshells_initial);
+            $self->debug('$game->on finish callback');
+            $self->emit('state.streaming.finish' => { total => $game->stream->len });
+            if($reason->{ok} == 0) {
+                return $cb->(undef, $reason->{reason});
+            } else {
+                $replay->set('game.recorder.consumables' => $game->vcons_initial);
+                $replay->set('game.recorder.ammo'        => $game->vshells_initial);
 
-                    $replay->set('temp.bperf'       => $game->bperf);
-                    $replay->set('temp.stats'       => $game->statistics);
-                    $replay->set('temp.personal'    => $game->personal);
+                $replay->set('temp.bperf'       => $game->bperf);
+                $replay->set('temp.stats'       => $game->statistics);
+                $replay->set('temp.personal'    => $game->personal);
 
-                    return $cb->($replay, undef);
-                }
-            });
+                return $cb->($replay, undef);
+            }
         });
-        $self->emit('state.streaming.start' => { total => $game->stream->len } => sub {
-            $game->start;
-        });
+        $self->emit('state.streaming.start' => { total => $game->stream->len });
+        $self->debug('pre $game->start');
+        $game->start;
+        $self->debug('post $game->start');
     } else {
         return $cb->(undef, 'Could not stream replay');
     }
@@ -252,6 +239,7 @@ sub _setup_legacy_state_handlers {
     my $self = shift;
 
     $self->on('state.prepare.start' => sub {
+        $self->debug('state.prepare.start');
         $self->job->set_status({
             id      =>  'prepare',
             text    =>  'Preparing replay...',
@@ -259,20 +247,20 @@ sub _setup_legacy_state_handlers {
             type    =>  'spinner',
             done    =>  Mango::BSON::bson_false,
         } => sub {
-            $self->debug('state.prepare.start');
         });
             
     });
     $self->on('state.prepare.finish' => sub {
+        $self->debug('state.prepare.finish');
         $self->job->set_status({
             id      =>  'prepare',
             done    =>  Mango::BSON::bson_true,
         } => sub {
-            $self->debug('state.prepare.finish');
         });
     });
     $self->on('state.streaming.start' => sub {
         my ($o, $t) = (@_);
+        $self->debug('state.streaming.start');
         $self->job->set_status({
             id      =>  'streaming',
             text    =>  'Streaming packets',
@@ -280,19 +268,19 @@ sub _setup_legacy_state_handlers {
             type    =>  'spinner',
             done    =>  Mango::BSON::bson_false,
         } => sub {
-            $self->debug('state.streaming.start');
         });
     });
     $self->on('state.streaming.finish' => sub {
         my ($o, $t) = (@_);
+        $self->debug('state.streaming.finish');
         $self->job->set_status({
             id      =>  'streaming',
             done    =>  Mango::BSON::bson_true
         } => sub {
-            $self->debug('state.streaming.finish');
         });
     });
     $self->on('state.generatebanner.start' => sub {
+        $self->debug('state.generatebanner.start');
         $self->job->set_status({
             id      =>  'generatebanner',
             text    =>  'Generating banner...',
@@ -300,18 +288,18 @@ sub _setup_legacy_state_handlers {
             type    =>  'spinner',
             done    =>  Mango::BSON::bson_false,
         } => sub {
-            $self->debug('state.generatebanner.start');
         });
     });
     $self->on('state.generatebanner.finish' => sub {
+        $self->debug('state.generatebanner.finish');
         $self->job->set_status({
             id      =>  'generatebanner',
             done    =>  Mango::BSON::bson_true,
         } => sub {
-            $self->debug('state.generatebanner.finish');
         });
     });
     $self->on('state.packet.save.start' => sub {
+        $self->debug('state.packet.save.start');
         $self->job->set_status({
             id      =>  'packetsave',
             text    =>  'Saving packets to disk...',
@@ -319,19 +307,19 @@ sub _setup_legacy_state_handlers {
             type    =>  'spinner',
             done    =>  Mango::BSON::bson_false,
         } => sub {
-            $self->debug('state.packet.save.start');
         });
     });
     $self->on('state.packet.save.finish' => sub {
+        $self->debug('state.packet.save.finish');
         $self->job->set_status({
             id      =>  'packetsave',
             done    =>  Mango::BSON::bson_true,
         } => sub {
-            $self->debug('state.packet.save.finish');
         });
     });
     $self->on('state.wn7.start' => sub {
         my ($o, $t) = (@_);
+        $self->debug('state.wn7.start');
         $self->job->set_status({
             id      =>  'wn7',
             text    =>  'Fetching ratings from Statterbox',
@@ -339,16 +327,15 @@ sub _setup_legacy_state_handlers {
             type    =>  'spinner',
             done    =>  Mango::BSON::bson_false,
         } => sub {
-            $self->debug('state.wn7.start');
         });
     });
     $self->on('state.wn7.finish' => sub {
         my ($o, $t) = (@_);
+        $self->debug('state.wn7.finish');
         $self->job->set_status({
             id      =>  'wn7',
             done    =>  Mango::BSON::bson_true,
         } => sub {
-            $self->debug('state.wn7.finish');
         });
     });
 }
@@ -580,15 +567,13 @@ sub p_br_generate_banner {
     my $replay = shift;
     my $end = shift;
 
-    $self->emit('state.generatebanner.start' => {} => sub {
-        $self->debug('preparing banner');
-        $self->generate_banner($replay => sub {
-            my $image = shift;
-            $self->emit('state.generatebanner.finish' => {} => sub {
-                $replay->set('site.banner' => $image);
-                $end->();
-            });
-        });
+    $self->emit('state.generatebanner.start' => {});
+    $self->debug('preparing banner');
+    $self->generate_banner($replay => sub {
+        my $image = shift;
+        $self->emit('state.generatebanner.finish' => {});
+        $replay->set('site.banner' => $image);
+        $end->();
     });
 }
 
@@ -598,27 +583,24 @@ sub p_br_packetstore {
     my $end = shift;
 
     $self->debug('storing packets for replay');
-    $self->emit('state.packet.save.start' => {} => sub {
-        my $base_path = sprintf('%s/%s', $self->packet_path, $self->hashbucket($replay->get('_id') . '', 7));
-        make_path($base_path) unless(-e $base_path);
-        my $packet_file = sprintf('%s/%s.json', $base_path, $replay->get('_id') . '');
-        if(my $fh = IO::File->new(sprintf('>%s', $packet_file))) {
-            my $json = Mojo::JSON->new();
-            $fh->print($json->encode($self->packets));
-            $fh->close;
-            $self->debug('wrote packets to file');
-            $replay->set('packets' => sprintf('%s/%s.json', $self->hashbucket($replay->get('_id') . '', 7), $replay->get('_id') . ''));
-            $self->emit('state.packet.save.finish' => {} => sub {
-                $end->();
-            });
-        } else {
-            $self->debug('could not write packets to file');
-            $replay->set('packets' => undef);
-            $self->emit('state.packet.save.finish' => {} => sub {
-                $end->();
-            });
-        }
-    });
+    $self->emit('state.packet.save.start' => {});
+    my $base_path = sprintf('%s/%s', $self->packet_path, $self->hashbucket($replay->get('_id') . '', 7));
+    make_path($base_path) unless(-e $base_path);
+    my $packet_file = sprintf('%s/%s.json', $base_path, $replay->get('_id') . '');
+    if(my $fh = IO::File->new(sprintf('>%s', $packet_file))) {
+        my $json = Mojo::JSON->new();
+        $fh->print($json->encode($self->packets));
+        $fh->close;
+        $self->debug('wrote packets to file');
+        $replay->set('packets' => sprintf('%s/%s.json', $self->hashbucket($replay->get('_id') . '', 7), $replay->get('_id') . ''));
+        $self->emit('state.packet.save.finish' => {});
+        $end->();
+    } else {
+        $self->debug('could not write packets to file');
+        $replay->set('packets' => undef);
+        $self->emit('state.packet.save.finish' => {});
+        $end->();
+    }
 }
 
 sub p_br_misc {
@@ -772,24 +754,28 @@ sub p_br_ratings {
     my $end    = shift;
 
     $self->debug('p_br_ratings top');
+    $self->emit('state.wn7.start' => { total => scalar(keys(%{$replay->get('players')})) });
+    $self->ua->inactivity_timeout(120);
 
-    $self->emit('state.wn7.start' => { total => scalar(keys(%{$replay->get('players')})) } => sub {
-        $self->ua->inactivity_timeout(120);
-
-        my $ratingdelay = Mojo::IOLoop->delay(sub {
+    my $delay = Mojo::IOLoop->delay(
+        sub {
+            $self->_wn8_battle($replay, sub { my $delay = shift; $delay->begin });
+        },
+        sub {
+            $self->_wn8_recorder($replay, sub { my $delay = shift; $delay->begin });
+        },
+        sub {
+            $self->_wn8_all($replay, sub { my $delay = shift; $delay->begin });
+        },
+        sub {
             $self->emit('state.wn7.finish' => { total => scalar(@{$replay->get('roster')}) } => sub { 
                 $self->debug('ratingdelay emit cb');
                 $end->();
             });
-        });
-
-        for(qw/all battle recorder/) {
-            my $m = sprintf('_wn8_%s', $_);
-            $self->debug('ratings fetch via ', $m);
-            $self->$m($replay, $ratingdelay->begin(0));
-        }
-    });
-    $self->debug('_ratings bottom');
+        },
+    );
+    $delay->wait unless Mojo::IOLoop->is_running;
+    $self->debug('p_br_ratings bottom');
 }
 
 sub process_battle_result {
@@ -851,23 +837,27 @@ sub process_battle_result {
     $replay->set('game.recorder.consumables' => $consumables);
     $replay->set('game.recorder.ammo'        => $ammo);
 
-    my @sublist = ();
-    my $delay;
-    for(qw/misc ratings generate_banner packetstore/) {
-        my $m = sprintf('p_br_%s', $_);
-        push(@sublist, sub { 
-            $self->debug('firing to ', $m);
-            $self->$m($replay, sub {
-                $delay->begin;
-            });
-        });
-    }
-    push(@sublist, sub {
-        $self->debug('process_battle_result main delay cb');
-        return $cb->($replay);
-    });
-    $delay = Mojo::IOLoop->delay(@sublist);
+    my $delay = Mojo::IOLoop->delay(
+        sub {
+            $self->pr_misc($replay, sub { my $delay = shift; $delay->begin });
+        },
+        sub {
+            $self->pr_ratings($replay, sub { my $delay = shift; $delay->begin });
+        },
+        sub {
+            $self->pr_generate_banner($replay, sub { my $delay = shift; $delay->begin });
+        },
+        sub {
+            $self->pr_packetstore($replay, sub { my $delay = shift; $delay->begin });
+        },
+        sub {
+            $self->debug('process_battle_result main delay cb');
+            return $cb->($replay);
+        }
+    );
     $delay->wait unless Mojo::IOLoop->is_running;
+
+    $self->debug('process_battle_result bottom');
 }
 
 sub roster_entry_by_account_id {
