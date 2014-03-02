@@ -759,19 +759,20 @@ sub p_br_ratings {
 
     my $delay = Mojo::IOLoop->delay(
         sub {
-            $self->_wn8_battle($replay, sub { my $delay = shift; $delay->begin });
+            my $delay = shift;
+            $self->_wn8_battle($replay, sub { $delay->begin });
         },
         sub {
-            $self->_wn8_recorder($replay, sub { my $delay = shift; $delay->begin });
+            my $delay = shift;
+            $self->_wn8_recorder($replay, sub { $delay->begin });
         },
         sub {
-            $self->_wn8_all($replay, sub { my $delay = shift; $delay->begin });
+            my $delay = shift;
+            $self->_wn8_all($replay, sub { $delay->begin });
         },
         sub {
-            $self->emit('state.wn7.finish' => { total => scalar(@{$replay->get('roster')}) } => sub { 
-                $self->debug('ratingdelay emit cb');
-                $end->();
-            });
+            $self->emit('state.wn7.finish' => { total => scalar(@{$replay->get('roster')}) });
+            $end->();
         },
     );
     $delay->wait unless Mojo::IOLoop->is_running;
@@ -839,18 +840,23 @@ sub process_battle_result {
 
     my $delay = Mojo::IOLoop->delay(
         sub {
-            $self->p_br_misc($replay, sub { my $delay = shift; $delay->begin });
+            my $delay = shift;
+            $self->p_br_misc($replay, sub { $delay->begin });
         },
         sub {
-            $self->p_br_ratings($replay, sub { my $delay = shift; $delay->begin });
+            my $delay = shift;
+            $self->p_br_ratings($replay, sub { $delay->begin });
         },
         sub {
-            $self->p_br_generate_banner($replay, sub { my $delay = shift; $delay->begin });
+            my $delay = shift;
+            $self->p_br_generate_banner($replay, sub { $delay->begin });
         },
         sub {
-            $self->p_br_packetstore($replay, sub { my $delay = shift; $delay->begin });
+            my $delay = shift;
+            $self->p_br_packetstore($replay, sub { $delay->begin });
         },
         sub {
+            my $delay = shift;
             $self->debug('process_battle_result main delay cb');
             return $cb->($replay);
         }
