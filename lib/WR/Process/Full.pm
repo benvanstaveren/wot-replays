@@ -852,6 +852,7 @@ sub process_battle_result {
     $replay->set('game.recorder.ammo'        => $ammo);
 
     my @sublist = ();
+    my $delay;
     for(qw/misc ratings generate_banner packetstore/) {
         my $m = sprintf('p_br_%s', $_);
         push(@sublist, sub { 
@@ -865,7 +866,7 @@ sub process_battle_result {
         $self->debug('process_battle_result main delay cb');
         return $cb->($replay);
     });
-    my $delay = Mojo::IOLoop->delay(@sublist);
+    $delay = Mojo::IOLoop->delay(@sublist);
     $delay->wait unless Mojo::IOLoop->is_running;
 }
 
