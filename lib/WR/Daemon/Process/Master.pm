@@ -197,7 +197,7 @@ sub fork_worker {
 sub reload_work_list {
     my $self   = shift;
 
-    return if($self->last_work_reload + 30 > time());
+    return if($self->last_work_reload + 10 > time());
 
     $self->last_work_reload(time());
 
@@ -284,9 +284,8 @@ sub start {
     });
 
     $self->push->on('open' => sub {
-        $self->timers->{'hb_check'} = Mojo::IOLoop->recurring(60 => sub {
-            $self->debug('hb_check, last_hb_received is: ', $self->last_hb_received);
-            $self->reload_work_list if($self->last_work_reload() + 120 < time());
+        $self->timers->{'hb_check'} = Mojo::IOLoop->recurring(10 => sub {
+            $self->reload_work_list if($self->last_work_reload() + 10 < time());
             $self->push->finish if($self->last_hb_received + 120 < time());
         });
         $self->last_hb_received(time());
