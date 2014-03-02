@@ -396,6 +396,10 @@ sub _with_battle_result {
                         $replay->set('_id' => $doc->{_id});
                         $replay->set('site' => $doc->{site});
                         $replay->set('site.orphan' => Mango::BSON::bson_false);
+
+                        # hashtable delete is not reliable so, do it like this. Need to clear the orphan table in order for this to
+                        # work reliably
+                        delete($replay->data->{site}->{minimal});
                     } else {
                         $replay->set('site.visible' => ($self->job->data->{visible} < 1) ? Mango::BSON::bson_false : Mango::BSON::bson_true);
                         $replay->set('site.privacy' => $self->job->data->{privacy} || 0);
