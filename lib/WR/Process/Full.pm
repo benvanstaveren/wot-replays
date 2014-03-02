@@ -839,16 +839,16 @@ sub process_battle_result {
 
     my $delay = Mojo::IOLoop->delay(
         sub {
-            $self->pr_misc($replay, sub { my $delay = shift; $delay->begin });
+            $self->p_br_misc($replay, sub { my $delay = shift; $delay->begin });
         },
         sub {
-            $self->pr_ratings($replay, sub { my $delay = shift; $delay->begin });
+            $self->p_br_ratings($replay, sub { my $delay = shift; $delay->begin });
         },
         sub {
-            $self->pr_generate_banner($replay, sub { my $delay = shift; $delay->begin });
+            $self->p_br_generate_banner($replay, sub { my $delay = shift; $delay->begin });
         },
         sub {
-            $self->pr_packetstore($replay, sub { my $delay = shift; $delay->begin });
+            $self->p_br_packetstore($replay, sub { my $delay = shift; $delay->begin });
         },
         sub {
             $self->debug('process_battle_result main delay cb');
