@@ -393,6 +393,7 @@ sub _with_battle_result {
                     my ($coll, $err, $doc) = (@_);
                     if(defined($doc)) {
                         $self->debug('*** REPLAY WITH SAME SERVER, RECORDER AND ARENA ID ALREADY EXISTS');
+                        $self->debug('     OLD ID: ', $replay->get('_id'), ' NEW ID: ', $doc->{_id});
                         $replay->set('_id' => $doc->{_id});
                         $replay->set('site' => $doc->{site});
                         $replay->set('site.orphan' => Mango::BSON::bson_false);
