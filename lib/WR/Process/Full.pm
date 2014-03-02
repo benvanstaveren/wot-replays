@@ -514,12 +514,12 @@ sub _real_process {
                 $self->debug('replay has battle result');
                 $self->_with_battle_result($parser, $replay, $parser->get_battle_result, $cb);
             } else {
-                $self->debug('replay has no battle result, attempting lookup');
+                $self->debug('replay has no battle result, attempting lookup using [', $replay->get('game.arena_id') . '', ']');
                 # see if we happen to have an uploaded battle result for this replay
                 my $arena_id = $replay->get('game.arena_id') . '';
 
                 $self->model('wot-replays.battleresults')->find_one({
-                    'arena_id'                           => $arena_id,
+                    'arena_id'                           => $arena_id . '',
                     'battle_result.personal.accountDBID' => $replay->get('game.recorder.account_id')
                 } => sub {
                     my ($c, $e, $d) = (@_);
