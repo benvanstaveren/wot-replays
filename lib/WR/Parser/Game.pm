@@ -31,6 +31,8 @@ sub inc_stat {
     my $k    = shift;
     my $v    = shift || 1;
 
+    return unless(defined($v));
+
     $self->set_stat($p, $k, $self->get_stat($p, $k, 0) + $v);
 }
 
@@ -54,6 +56,8 @@ sub inc_pers {
     my $self = shift;
     my $k    = shift;
     my $v    = shift;
+
+    return unless(defined($v));
 
     $self->set_pers($k, $self->get_pers($k, 0) + $v);
 }
@@ -107,7 +111,7 @@ sub add_handlers {
             $self->inc_pers('damageDealt' => $done);
             if(my $name = $self->player_name($update->{id})) {
                 $self->bperf->{$name} ||= {};
-                $self->bperf->{$name}->{damageDealt} += $done;
+                $self->bperf->{$name}->{damageDealt} += $done if(defined($done));
             }
         }
     });
