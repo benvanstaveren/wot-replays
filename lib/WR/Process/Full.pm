@@ -340,6 +340,19 @@ sub _setup_legacy_state_handlers {
     });
 }
 
+sub _fix_replay_junk {
+    my $self = shift;
+    my $replay = shift;
+
+    if($replay->get('game.winner') == 0) {
+        $replay->set('game.victory' => -1); # draw
+    } else {
+        $replay->set('game.victory' => ($replay->get('game.winner') == $replay->get('game.recorder.team')) ? 1 : 0);
+    }
+    $replay->set('stats.damageAssisted' => $replay->get('stats.damageAssistedTrack') + $replay->get('stats.damageAssistedRadio'));
+}
+
+
 sub _with_battle_result {
     my $self    = shift;
     my $parser  = shift;
@@ -349,13 +362,10 @@ sub _with_battle_result {
 
     $self->process_battle_result($replay, $br, sub {
         if(my $replay = shift) {
+            $self->debug('process_battleresult returned replay');
+
             # fix up the replay with some additional junk
-            if($replay->get('game.winner') == 0) {
-                $replay->set('game.victory' => -1); # draw
-            } else {
-                $replay->set('game.victory' => ($replay->get('game.winner') == $replay->get('game.recorder.team')) ? 1 : 0);
-            }
-            $replay->set('stats.damageAssisted' => $replay->get('stats.damageAssistedTrack') + $replay->get('stats.damageAssistedRadio'));
+            $self->_fix_replay_junk($replay);
 
             # this really oughta move into the stream events
             if($replay->get('game.version_numeric') < $self->config->{wot}->{min_version}) {
@@ -403,7 +413,6 @@ sub _with_battle_result {
                     # create the panel - we'll switch to using data mode here
                     my $data = $replay->data;
 
-
                     WR::Provider::Panelator->new(db => $self->mango->db('wot-replays'))->panelate($data => sub {
                         $data->{panel} = shift;
                         
@@ -430,6 +439,7 @@ sub _with_battle_result {
             }
         } else {
             # assume the job's been set to te proper status already
+            $self->debug('process_battleresult returned undef');
             return $cb->($self, undef, 'process_battleresult error');
         }
     });
@@ -764,11 +774,10 @@ sub process_battle_result {
         my $fe = $_;
         $self->job->set_error('finalize_roster: ', $fe => sub {
             $self->error('finalize_roster: ', $fe);
-            $cb->(undef);
         });
         $e = 1;
     };
-    return if(defined($e)); # this potentially may go really wrong
+    return $cb->(undef) if(defined($e)); # this potentially may go really wrong
 
     $replay->set('stats'                => $battle_result->{personal});
     $replay->set('game.duration'        => $battle_result->{common}->{duration} + 0);
@@ -816,6 +825,8 @@ sub process_battle_result {
     $self->p_br_ratings($replay);
 
     $self->debug('process_battle_result bottom');
+
+    return $cb->($replay);
 }
 
 sub roster_entry_by_account_id {
