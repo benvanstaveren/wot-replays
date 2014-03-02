@@ -565,7 +565,6 @@ sub process_minimal {
 sub p_br_generate_banner {
     my $self = shift;
     my $replay = shift;
-    my $end = shift;
 
     $self->emit('state.generatebanner.start' => {});
     $self->debug('preparing banner');
@@ -573,14 +572,12 @@ sub p_br_generate_banner {
         my $image = shift;
         $self->emit('state.generatebanner.finish' => {});
         $replay->set('site.banner' => $image);
-        $end->();
     });
 }
 
 sub p_br_packetstore {
     my $self = shift;
     my $replay = shift;
-    my $end = shift;
 
     $self->debug('storing packets for replay');
     $self->emit('state.packet.save.start' => {});
@@ -594,19 +591,16 @@ sub p_br_packetstore {
         $self->debug('wrote packets to file');
         $replay->set('packets' => sprintf('%s/%s.json', $self->hashbucket($replay->get('_id') . '', 7), $replay->get('_id') . ''));
         $self->emit('state.packet.save.finish' => {});
-        $end->();
     } else {
         $self->debug('could not write packets to file');
         $replay->set('packets' => undef);
         $self->emit('state.packet.save.finish' => {});
-        $end->();
     }
 }
 
 sub p_br_misc {
     my $self = shift;
     my $replay = shift;
-    my $end = shift;
 
     $replay->set('game.server'          => WR::Provider::ServerFinder->new->get_server_by_id($replay->get('game.recorder.account_id')));
     $replay->set('game.recorder.index'  => $replay->get('players')->{$replay->get('game.recorder.name')});
@@ -621,15 +615,11 @@ sub p_br_misc {
         clans       => [ keys(%$tc) ],
         vehicles    => [ map { $_->{vehicle}->{ident} } @{$replay->get('roster')} ],
     });
-    # noooo... cock!
-    # $replay->set('version' => $parser->version);
-    $end->();
 }
 
 sub _wn8_all {
     my $self = shift;
     my $replay = shift;
-    my $end = shift;
 
     my $roster     = $replay->get('roster');
     my $phash      = { map { $_->{player}->{accountDBID} => 1 } @$roster };
@@ -638,16 +628,13 @@ sub _wn8_all {
 
     my $account_id = join(',', (keys(%$phash)));
 
+
     $self->debug('[WN8:ALL]: getting wn8 for all players except recorder');
-    $self->ua->post('http://api.statterbox.com/wot/account/wn8' => form => {
+    if(my $tx = $self->ua->post('http://api.statterbox.com/wot/account/wn8' => form => {
         application_id  => $self->config->{'statterbox'}->{server},
         account_id      => $account_id,
         cluster         => $self->fix_server($replay->get('game.server')),
-    } => sub {
-        my ($ua, $tx) = (@_);
-
-        $self->debug('[WN8:ALL] wn8 all callback');
-
+    })) {
         if(my $res = $tx->success) {
             if($res->json('/status') eq 'ok') {
                 $self->debug('[WN8:ALL] wn8 status ok');
@@ -680,8 +667,9 @@ sub _wn8_all {
             my ($err, $code) = $tx->error;
             $self->debug('[WN8:ALL] wn8 res not success, code: ', $code, ' err: ', $err);
         }
-        $end->();
-    });
+    } else {
+        $self->debug('[WN8:ALL] no tx');
+    }
 }
 
 sub _wn8_recorder {
@@ -690,15 +678,11 @@ sub _wn8_recorder {
     my $end = shift;
 
     $self->debug('[WN8.RECORDER]: getting wn8 for recorder');
-    $self->ua->post('http://api.statterbox.com/wot/account/wn8' => form => {
+    if(my $tx = $self->ua->post('http://api.statterbox.com/wot/account/wn8' => form => {
         application_id  => $self->config->{'statterbox'}->{server},
         account_id      => $replay->get('game.recorder.account_id'),
         cluster         => $self->fix_server($replay->get('game.server')),
-    } => sub {
-        my ($ua, $tx) = (@_);
-
-        $self->debug('[WN8.RECORDER]: wn8 recorder callback');
-
+    })) {
         if(my $res = $tx->success) {
             if($res->json('/status') eq 'ok') {
                 $replay->set('wn8.available' => Mango::BSON::bson_true);
@@ -714,14 +698,14 @@ sub _wn8_recorder {
             $replay->set('wn8.data.overall' => undef);
             $self->debug('[WN8.RECORDER]: wn8 for player callback, tx not ok');
         }
-        $end->();
-    });
+    } else {
+        $self->debug('[WN8.RECORDER]: no tx');
+    }
 }
 
 sub _wn8_battle {
     my $self = shift;
     my $replay = shift;
-    my $end = shift;
 
     $self->debug('[WN8.BATTLE]: getting wn8 for battle');
     my $entry = $replay->get('roster')->[ $replay->get('players')->{$replay->get('game.recorder.name')} ];
@@ -735,8 +719,7 @@ sub _wn8_battle {
         );
 
     $self->debug(sprintf('[WN8.BATTLE]: Getting battle WN8 from: %s', $battle_url));
-    $self->ua->get($battle_url => sub {
-        my ($ua, $tx) = (@_);
+    if(my $tx = $self->ua->get($battle_url)) {
         if(my $res = $tx->success) {
             $replay->set('wn8.data.battle' => $res->json('/wn8'));
             $self->debug('[WN8.BATTLE]: wn8 battle callback, ok');
@@ -744,8 +727,9 @@ sub _wn8_battle {
             $replay->set('wn8.data.battle' => undef);
             $self->debug('[WN8.BATTLE]: wn8 battle callback, not ok');
         }
-        $end->();
-    });
+    } else {
+        $self->debug('[WN8.BATTLE]: no tx');
+    }
 }
 
 sub p_br_ratings {
@@ -754,28 +738,16 @@ sub p_br_ratings {
     my $end    = shift;
 
     $self->debug('p_br_ratings top');
-    $self->emit('state.wn7.start' => { total => scalar(keys(%{$replay->get('players')})) });
+
+    $self->emit('state.wn7.start' => {});
     $self->ua->inactivity_timeout(120);
 
-    my $delay = Mojo::IOLoop->delay(
-        sub {
-            my $delay = shift;
-            $self->_wn8_battle($replay, sub { $delay->begin });
-        },
-        sub {
-            my $delay = shift;
-            $self->_wn8_recorder($replay, sub { $delay->begin });
-        },
-        sub {
-            my $delay = shift;
-            $self->_wn8_all($replay, sub { $delay->begin });
-        },
-        sub {
-            $self->emit('state.wn7.finish' => { total => scalar(@{$replay->get('roster')}) });
-            $end->();
-        },
-    );
-    $delay->wait unless Mojo::IOLoop->is_running;
+    $self->_wn8_battle($replay);
+    $self->_wn8_recorder($replay);
+    $self->_wn8_all($replay);
+
+    $self->emit('state.wn7.finish' => {});
+
     $self->debug('p_br_ratings bottom');
 }
 
@@ -838,30 +810,10 @@ sub process_battle_result {
     $replay->set('game.recorder.consumables' => $consumables);
     $replay->set('game.recorder.ammo'        => $ammo);
 
-    my $delay = Mojo::IOLoop->delay(
-        sub {
-            my $delay = shift;
-            $self->p_br_misc($replay, sub { $delay->begin });
-        },
-        sub {
-            my $delay = shift;
-            $self->p_br_ratings($replay, sub { $delay->begin });
-        },
-        sub {
-            my $delay = shift;
-            $self->p_br_generate_banner($replay, sub { $delay->begin });
-        },
-        sub {
-            my $delay = shift;
-            $self->p_br_packetstore($replay, sub { $delay->begin });
-        },
-        sub {
-            my $delay = shift;
-            $self->debug('process_battle_result main delay cb');
-            return $cb->($replay);
-        }
-    );
-    $delay->wait unless Mojo::IOLoop->is_running;
+    $self->p_br_misc($replay);
+    $self->p_br_generate_banner($replay);
+    $self->p_br_packetstore($replay);
+    $self->p_br_ratings($replay);
 
     $self->debug('process_battle_result bottom');
 }
@@ -1023,11 +975,10 @@ sub generate_banner {
 
     unless(defined($self->banner_path)) {
         $self->warning('[generate_banner]: no banner path specified');
-        $cb->({
+        return $cb->({
             available => Mango::BSON::bson_false,
             error => 'No banner path specified',
         });
-        return;
     }
 
     my $pv = $res->get('roster')->[ $recorder ]->{vehicle}->{ident};
@@ -1087,10 +1038,10 @@ sub generate_banner {
             };
             $self->error('Creating image failed: ', $e);
         };
-        $cb->($image);
+        return $cb->($image);
     } else {
         $self->error('[generate_banner]: could not find map, disk paths set right? map: ', $res->get('game.map'));
-        $cb->({
+        return $cb->({
             available => Mango::BSON::bson_false,
             error => $_,
         });
