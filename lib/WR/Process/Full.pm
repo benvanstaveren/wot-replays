@@ -382,29 +382,20 @@ sub _with_battle_result {
                 $replay->set('digest' => $self->job->_id);
                 $replay->set('file' => $self->job->data->{file_base});
 
-                # see if we happen to have been an existing replay
-                $self->model('wot-replays.replays')->find_one({ digest => $self->job->_id } => sub {
+                # see if a replay like this already exists
+                my $query = {
+                    'game.server'           =>  $replay->get('game.server'),
+                    'game.recorder.name'    =>  $replay->get('game.recorder.name'),
+                    'game.arena_id'         =>  $replay->get('game.arena_id')
+                };
+
+                if($self->model('wot-replays.replays')->find_one($query => sub {
                     my ($coll, $err, $doc) = (@_);
                     if(defined($doc)) {
-                        # ah yes..
-                        $self->debug('*** REPLAY ALREADY EXISTS ***');
-
-                        # a minimal replay contains at least a game.recorder, 
-                        if(
-                            ($replay->get('game.server') eq $doc->{game}->{server}) &&
-                            ($replay->get('game.recorder.name') eq $doc->{game}->{recorder}->{name}) &&
-                            ($replay->get('game.arena_id') eq $doc->{game}->{arena_id})
-                        ) {
-                            $self->debug('*** REPLAY DUPLICATE UPLOAD, MERGING ***');
-                            $replay->set('_id' => $doc->{_id});
-                            $replay->set('site' => $doc->{site});
-                            $replay->set('site.orphan' => Mango::BSON::bson_false);
-                        } else {
-                            $self->error('*** REPLAY HAS SAME DIGEST AS EXISTING REPLAY BUT SERVER, PLAYER AND ARENA ID DO NOT MATCH ***');
-                            $self->job->set_error('SHA256 collision, please notify Scrambled and pass him this ID: ', $self->job->{_id} => sub {
-                                return $cb->($self, undef, 'SHA256 collision');
-                            });
-                        }
+                        $self->debug('*** REPLAY WITH SAME SERVER, RECORDER AND ARENA ID ALREADY EXISTS');
+                        $replay->set('_id' => $doc->{_id});
+                        $replay->set('site' => $doc->{site});
+                        $replay->set('site.orphan' => Mango::BSON::bson_false);
                     } else {
                         $replay->set('site.visible' => ($self->job->data->{visible} < 1) ? Mango::BSON::bson_false : Mango::BSON::bson_true);
                         $replay->set('site.privacy' => $self->job->data->{privacy} || 0);
@@ -413,15 +404,8 @@ sub _with_battle_result {
                     }
 
                     if($replay->get('game.bonus_type') == 5) {
-                        $self->debug('fix CW privacy');
                         $replay->set('site.visible' => Mango::BSON::bson_false);
                         $replay->set('site.privacy' => 3);
-                    }
-
-                    # see if we're processing an orphan, it's a bit of a waste to do it after all the work we went through,
-                    # but eh. 
-                    if($replay->get('site.orphan')) {
-                        # fix that up later, for now we'll just replace the entire thing, likes, downloads, etc. and all
                     }
 
                     # create the panel - we'll switch to using data mode here
