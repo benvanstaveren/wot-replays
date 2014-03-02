@@ -851,16 +851,22 @@ sub process_battle_result {
     $replay->set('game.recorder.consumables' => $consumables);
     $replay->set('game.recorder.ammo'        => $ammo);
 
-    my $delay = Mojo::IOLoop->delay(sub {
-        $self->debug('process_battle_result main delay cb');
-        $cb->($replay);
-    });
-
+    my @sublist = ();
     for(qw/misc ratings generate_banner packetstore/) {
         my $m = sprintf('p_br_%s', $_);
-        $self->debug('firing to ', $m);
-        $self->$m($replay, $delay->begin(0));
+        push(@sublist, sub { 
+            $self->debug('firing to ', $m);
+            $self->$m($replay, sub {
+                $delay->begin;
+            });
+        });
     }
+    push(@sublist, sub {
+        $self->debug('process_battle_result main delay cb');
+        return $cb->($replay);
+    });
+    my $delay = Mojo::IOLoop->delay(@sublist);
+    $delay->wait unless Mojo::IOLoop->is_running;
 }
 
 sub roster_entry_by_account_id {
