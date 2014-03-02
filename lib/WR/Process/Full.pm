@@ -652,7 +652,11 @@ sub _wn8_all {
                 foreach my $id (keys(%$data)) {
                     if(my $entry = $self->roster_entry_by_account_id($roster, $id)) {
                         if(defined($data->{$id}) && ref($data->{$id}) eq 'HASH') {
-                            $self->debug('[WN8:ALL] have roster entry for ', $id, ' wn8 is ', $data->{$id}->{wn8});
+                            if(defined($data->{$id}->{wn8})) {
+                                $self->debug('[WN8:ALL] have roster entry for ', $id, ' wn8 is ', $data->{$id}->{wn8});
+                            } else {
+                                $self->debug('[WN8:ALL] have roster entry for ', $id, 'no wn8 calculated');
+                            }
                             $entry->{wn8} = { 
                                 available => Mango::BSON::bson_true,
                                 data => { overall => $data->{$id}->{wn8} }
