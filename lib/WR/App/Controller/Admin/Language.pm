@@ -62,6 +62,7 @@ has 'layout' => sub {
                         { id => 'profile-settings', title => 'Settings' },
                     ],
                 },
+                { id => 'misc-pages',  title => 'Misc. Pages' },
             ],
         },
         { 
