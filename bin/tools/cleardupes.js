@@ -7,5 +7,6 @@ db.replay_duplicates.find({ value: { '$gt': 1 }}).toArray().forEach(function(dup
         print("remove: " + i + " id: " + a[i]._id);
     }
 });
+db.replay_duplicates.drop()
     
 
