@@ -4,7 +4,7 @@
         [% FOREACH notification IN notifications %]
             <div class="alert alert-[% notification.type %] dnotification" data-notification="[% notification.id %]">
                 <h4>[% notification.title |html %] <button type="button" class="close" data-notification="[% notification.id %]" aria-hidden="true">&times;</button></h4>
-                <p>[% notification.text |html %]</p>
+                <p>[% notification.text %]</p>
             </div>
         [% END %]
     </div>
