@@ -64,11 +64,13 @@ sub process_upload {
         # generate a random fragment 
         my $filename = $upload->filename;
         $filename =~ s/.*\\//g if($filename =~ /\\/);
-
+        $filename =~ s/[#\*\(\)\[\]\{\}\?\\\,\;\/]/_/g; 
         $filename = sprintf('%s-%s', $self->rfrag, $filename);
 
         my $hashbucket_size = length($filename);
         $hashbucket_size = 7 if($hashbucket_size > 7);
+
+
         my $replay_filename = $filename;
         my $replay_path = sprintf('%s/%s', $self->stash('config')->{paths}->{replays}, $self->hashbucket($filename, $hashbucket_size));
         my $replay_file = sprintf('%s/%s', $replay_path, $filename);

@@ -196,7 +196,7 @@ sub process_replay {
         # generate a random fragment 
         my $filename = $upload->filename;
         $filename =~ s/.*\\//g if($filename =~ /\\/);
-
+        $filename =~ s/[#\*\(\)\[\]\{\}\?\\\,\;\/]/_/g;
         $filename = sprintf('%s-%s', $self->rfrag, $filename);
 
         my $hashbucket_size = length($filename);
