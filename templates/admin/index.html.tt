@@ -59,17 +59,19 @@
                 $('#today-count').text(d.count);
             });
         }
-        function g_UPL() {
+        function g_UPL(skipTimer) {
             $('#uploads-spinner').addClass('hide');
             $('#uploads-list').load('/admin/uploadslist', {}, function() {
                 $('#uploads-spinner').addClass('hide');
             });
-            $('#uploads-list').everyTime(20000, function() {
-                $('#uploads-spinner').removeClass('hide');
-                $('#uploads-list').load('/admin/uploadslist', {}, function() {
-                    $('#uploads-spinner').addClass('hide');
+            if(!skipTimer) {
+                $('#uploads-list').everyTime(20000, function() {
+                    $('#uploads-spinner').removeClass('hide');
+                    $('#uploads-list').load('/admin/uploadslist', {}, function() {
+                        $('#uploads-spinner').addClass('hide');
+                    });
                 });
-            });
+            }
         }
         function g_USR() {
             $('#users-online-spinner').removeClass('hide');
@@ -84,10 +86,10 @@
             WR.on('replay.processed', function(e) {
                 g_RC();
                 g_TC();
-                g_UPL();
+                g_UPL(false);
             });
             WR.on('replay.upload', function(e) {
-                g_UPL();
+                g_UPL(true);
             });
 
             g_RC();
