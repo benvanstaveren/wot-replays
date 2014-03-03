@@ -2,6 +2,7 @@ package WR::App;
 use Mojo::Base 'Mojolicious';
 use Mojo::JSON;
 use Mango;
+use Mojo::Util qw/url_escape/;
 
 # this is a bit cheesy but... 
 #use FindBin;
@@ -63,6 +64,13 @@ sub startup {
                     my $text = shift;
 
                     return join(' ', map { ucfirst($_) } (split(/\s/, $text)));
+                },
+                'uri_path' => sub {
+                    my $text = shift;
+                    my @parts = split(/\//, $text);
+                    my $file  = url_escape(pop(@parts));
+
+                    return join('/', @parts, $file);
                 },
             },
             RELATIVE => 1,
