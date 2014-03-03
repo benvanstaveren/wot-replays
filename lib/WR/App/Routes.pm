@@ -69,6 +69,18 @@ sub install {
         $xhr->route('/qs')->to('ui#xhr_qs');
         $xhr->route('/ds')->to('ui#xhr_ds');
         $xhr->route('/du')->to('ui#xhr_du');
+        $xhr->route('/dn_d')->to(cb => sub {
+            my $self = shift;
+            
+            $self->render_later;
+            if($self->req->is_xhr) {
+                $self->dismiss_notification($self->req->param('id') => sub {
+                    $self->render(json => { ok => 1 });
+                });
+            } else {
+                $self->render(text => 'No.', status => 403);
+            }
+        });
     
     my $lang = $r->under('/lang');
         $lang->route('/:lang')->to('ui#xhr_po');

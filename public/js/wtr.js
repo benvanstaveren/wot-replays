@@ -98,6 +98,23 @@ Wotreplays.prototype = {
             });
             return false;
         });
+
+        $('div.dnotification button.close').on('click', function() {
+            var nid = $(this).data('notification');
+            var notification = $('div.dnotification[data-notification="' + nid + '"]');
+            if($(notification).hasClass('disabled')) return false;
+
+            $(notification).addClass('disabled');
+            console.log('dismissing ', nid);
+            
+            $.getJSON('/xhr/dn_d', { id: nid }, function() {
+                $(notification).fadeOut(2000, function() {
+                    $(notification).remove();
+                });
+            });
+            return false;
+        });
+
         this.emit('ready');
     },
     growl: function(text, options) {

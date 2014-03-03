@@ -30,6 +30,7 @@ sub startup {
     $self->secrets([ $config->{secrets}->{app} ]);
     $config->{wot}->{bf_key} = join('', map { chr(hex($_)) } (split(/\s/, $config->{wot}->{bf_key})));
 
+    # the session cookie stays for a year
     $self->sessions->default_expiration(86400 * 365); 
     $self->sessions->cookie_name('wrsession');
     $self->log->debug('we are in dev mode, cookie_domain not set') if(defined($config->{mode}) && $config->{mode} eq 'dev');

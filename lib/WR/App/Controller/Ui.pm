@@ -15,8 +15,9 @@ sub doc {
     })
 }
 
-sub frontpage {
-    my $self    = shift;
+sub _fp_competitions {
+    my $self = shift;
+    my $end  = shift;
 
     $self->model('wot-replays.competitions')->find()->sort({ start_time => 1 })->all(sub {
         my ($c, $e, $d) = (@_);
@@ -35,12 +36,31 @@ sub frontpage {
                     push(@$current, $doc);
                 }
             }
-            $self->stash(
-                competitions => $current,
-            );
+            $self->stash(competitions => $current);
         }
+        $end->();
+    });
+}
+
+sub _fp_notifications {
+    my $self = shift;
+    my $end  = shift;
+
+    $self->notification_list(sub {
+        my $n = shift;
+        $self->stash(notifications => $n);
+        $end->();
+    });
+}
+
+sub frontpage {
+    my $self    = shift;
+
+    my $delay   = Mojo::IOLoop->delay(sub {
         $self->continue;
     });
+    $self->_fp_competitions($delay->begin(0));
+    $self->_fp_notifications($delay->begin(0));
     return undef;
 }
 

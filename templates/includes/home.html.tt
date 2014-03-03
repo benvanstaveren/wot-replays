@@ -1,3 +1,16 @@
+[% IF notifications.defined && notifications.size > 0 %]
+<div class="row">
+    <div class="col-lg-12 col-md-12">
+        [% FOREACH notification IN notifications %]
+            <div class="alert alert-[% notification.type %] dnotification" data-notification="[% notification.id %]">
+                <h4>[% notification.title |html %] <button type="button" class="close" data-notification="[% notification.id %]" aria-hidden="true">&times;</button></h4>
+                <p>[% notification.text |html %]</p>
+            </div>
+        [% END %]
+    </div>
+</div>
+[% END %]
+
 [% IF competitions.defined && competitions.size > 0 %]
     <div class="list-group">
         [% FOREACH entry IN competitions %]
