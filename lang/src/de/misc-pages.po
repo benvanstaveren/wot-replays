@@ -1,0 +1,12 @@
+msgid "page.about.title"
+msgstr "Über diese Seite"
+
+msgid "page.credits.title"
+msgstr "Andere Danksagungen"
+
+msgid "page.donate.title"
+msgstr "Warum spenden?"
+
+msgid "page.missions.title"
+msgstr "Über Missionen"
+

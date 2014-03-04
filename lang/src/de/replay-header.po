@@ -74,7 +74,7 @@ msgid "replay.button.embed.label"
 msgstr "Einbetten"
 
 msgid "replay.button.embed.title"
-msgstr "UBB-Code zur Einbindung in Foren generieren"
+msgstr "UBB-Code zum Einbinden in Foren generieren"
 
 msgid "replay.button.battleviewer.label"
 msgstr "Gefechts-Betrachter"

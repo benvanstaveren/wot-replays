@@ -1,5 +1,14 @@
-msgid "competition.entries.view"
-msgstr "Beiträge ansehen"
+msgid "competition.page.entries.title"
+msgstr "%1 &raquo; %0"
+
+msgid "competition.server.enabled"
+msgstr "Spieler von diesem Server k&ouml;nnen an diesem Wettbewerb teilnehmen"
+
+msgid "competition.server.disabled"
+msgstr "Spieler von diesem Server k&ouml;nnen an diesem Wettbewerb nicht teilnehmen"
+
+msgid "competitions.page.header"
+msgstr "Wettbewerbe"
 
 msgid "competition.heading.active"
 msgstr "LAUFEND"
@@ -13,8 +22,8 @@ msgstr "Wettbewerbe endet"
 msgid "competition.heading.kills"
 msgstr "Zerstört"
 
-msgid "competition.heading.leaderboard"
-msgstr "Rangliste"
+msgid "competition.entries.view"
+msgstr "Beitr&auml;ge ansehen"
 
 msgid "competition.heading.links"
 msgstr "Wichtige Links"
@@ -43,8 +52,8 @@ msgstr "Regeln können hier eingesehen werden"
 msgid "competition.server.disabled"
 msgstr "Players from this server can not participate in this contest"
 
-msgid "competition.server.enabled"
-msgstr "layers from this server can participate in this contest"
+msgid "competition.rules.forum"
+msgstr "Regeln k&ouml;nnen hier eingesehen werden"
 
 msgid "competitions.current"
 msgstr "Laufende Wettbewerbe"
@@ -58,11 +67,8 @@ msgstr "Keine kommenden Wettbewerbe..."
 msgid "competitions.page.header"
 msgstr "Wettbewerbe"
 
-msgid "competitions.page.title"
-msgstr "Wettbewerbe"
-
-msgid "competitions.past"
-msgstr "Vergangene Wettbewerbe"
+msgid "competition.heading.kills"
+msgstr "Zerst&ouml;rt"
 
 msgid "competitions.past.none"
 msgstr "Keine vergangenen Wettbewerbe..."
