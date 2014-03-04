@@ -1,6 +1,3 @@
-msgid "replays.overview.damage.title"
-msgstr "Kerosakan"
-
 msgid "replays.overview.damage.direct.title"
 msgstr "Kerosakan dikenakan secara langsung oleh pemain"
 

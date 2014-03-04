@@ -59,7 +59,7 @@ msgid "replays.overview.damage.assist.text"
 msgstr "Assisted"
 
 msgid "replays.overview.damage.assist.title"
-msgstr "Team members contributed %0 points of damage via spotting, %1 points of damage via tracking"
+msgstr "Damage contributed by team members"
 
 msgid "replays.overview.damage.average.text"
 msgstr "Damage/Shot"
@@ -80,7 +80,7 @@ msgid "replays.overview.damage.received.title"
 msgstr "Damage done to the player"
 
 msgid "replays.overview.damage.title"
-msgstr "Damage"
+msgstr "Damage Received"
 
 msgid "replays.overview.description"
 msgstr "Description"
@@ -109,3 +109,23 @@ msgstr "Penetrations"
 msgid "replays.overview.shots.title"
 msgstr "Shots"
 
+msgid "replays.overview.damage.radio.title"
+msgstr "Damage contributed by team members as a result of spotting"
+
+msgid "replays.overview.damage.track.title"
+msgstr "Damage contributed by team members as a result of tracking"
+
+msgid "replays.overview.damage.radio.text"
+msgstr "Spotting"
+
+msgid "replays.overview.damage.track.text"
+msgstr "Tracking"
+
+msgid "replays.overview.damagereceived.title"
+msgstr "Damage Received"
+
+msgid "replays.overview.damage.potentialreceived.title"
+msgstr "Potential damage received by the player"
+
+msgid "replays.overview.damage.potentialreceived.text"
+msgstr "Potential damage received"

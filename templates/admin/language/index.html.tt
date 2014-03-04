@@ -5,7 +5,7 @@
             [% IF lang.defined %]
                 [% multi = 0 %]
                 [% IF h.is_the_boss || h.current_user.admin.languages.allowed.size > 1 %][% multi = 1 %][% END %]
-                <select class="form-control pull-right [% IF multi == 0 %]disabled[% END %]" [% IF multi == 0 %]disabled="true"[% END %] style="width: 100px" name="language-change">
+                <select class="form-control pull-right [% IF multi == 0 %]disabled[% END %]" [% IF multi == 0 %]disabled="true"[% END %] style="width: 125px" name="language-change">
                     [% IF h.is_the_boss %]
                         <option value="common" [% IF 'common' == lang %]selected="true"[% END %]>Common</option>
                     [% END %]
@@ -13,6 +13,14 @@
                         <option value="[% l.ident %]" [% IF l.ident == lang %]selected="true"[% END %]>[% l.ident |upper %]</option>
                     [% END %]
                 </select>
+                [% IF multi > 0 %]
+                <script type="text/javascript">
+                    $('select[name="language-change"]').change(function() {
+                        var v = $(this).val();
+                        document.location.href = '/admin/language/' + v;
+                    });
+                </script>
+                [% END %]
             [% END %]
         </h1>
     </div>
@@ -48,21 +56,7 @@
             [% IF section.defined && section != '--' %]
                 <h3>Editing Section <button class="btn-primary btn-sm pull-right save-all">Save All</button></h3>
                 [% FOREACH string IN common.keys.sort %]
-                    <div class="well well-sm">
-                        <form id="frm-[% string %]" class"form">
-                            <fieldset><legend>[% string %] <button type="button" role="button" class="btn btn-default btn-xs pull-right save-string" id="btn-save-[% bseq %]" data-bseq="[% bseq %]" data-string="[% string %]">Save</button><span class="spinner small pull-right hide" id="spinner-[% bseq %]"></span></legend>
-                            [% IF lang != 'common' %]
-                                <div class="form-group">
-                                    <label class="control-label">Original</label>
-                                    <pre>[% common.$string %]</pre>
-                                </div>
-                            [% END %]
-                            <div class="form-group">
-                                <label class="control-label">Translation</label>
-                                <input type="text" name="[% string %]" value="[% export.$string %]" class="form-control string"/>
-                            </div>
-                        </form>
-                    </div>
+                    [% INCLUDE admin/language/txform.html.tt %]
                     [% bseq = bseq + 1 %]
                 [% END %]
                 [% IF h.is_the_boss && lang == 'common' %]
@@ -71,11 +65,11 @@
                             <fieldset><legend>New String <button type="button" role="button" class="btn btn-default btn-xs pull-right new-string" id="btn-save-[% bseq %]" data-bseq="[% bseq %]"">Save</button><span class="spinner small pull-right hide" id="spinner-[% bseq %]"></span></legend>
                             <div class="form-group">
                                 <label class="control-label">String</label>
-                                <input type="text" name="new-string" value="" class="form-control"/>
+                                <input type="text" name="new-string" value="" class="form-control skip-save-all">
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Value</label>
-                                <input type="text" name="new-value" value="" class="form-control"/>
+                                <input type="text" name="new-value" value="" class="form-control skip-save-all">
                             </div>
                         </form>
                     </div>
@@ -94,7 +88,32 @@
                     </ul>
                 </p>
                 <p>If you have the rights to work on multiple languages, you can switch them by using the select box at the top of the page</p>
-                <p><strong>Check your work by opening a new tab on wotreplays.org, and switching your language to the one you are working on. Languages marked with (!) in front are not available to the general public, only to translatos. That way you can see what prompts still need to be translated.</strong></p>
+                <p><strong>Check your work by opening a new tab on wotreplays.org, and switching your language to the one you are working on. Languages marked with (!) in front are not available to the general public, only to translators. That way you can see what prompts still need to be translated.</strong></p>
+                [% IF missing.defined && missing.size > 0 %]
+                    <div class="page-header">
+                        <h4>Missing Entries</h4>
+                    </div>
+                    [% FOREACH item IN missing %]
+                        [% string = item.string %]
+                        [% section = item.section %]
+                        <div class="well well-sm" data-string="[% item.string %]">
+                            <form id="frm-[% item.string %]" class"form">
+                                <fieldset><legend>[% string %] <button type="button" role="button" class="btn btn-default btn-xs pull-right save-string" data-section="[% item.section %]" id="btn-save-[% bseq %]" data-bseq="[% bseq %]" data-string="[% item.string %]" data-missing="true">Save</button><span class="spinner small pull-right hide" id="spinner-[% bseq %]"></span></legend>
+                                [% IF lang != 'common' %]
+                                    <div class="form-group">
+                                        <label class="control-label">Original</label>
+                                        <pre>[% common.$section.$string %]</pre>
+                                    </div>
+                                [% END %]
+                                <div class="form-group">
+                                    <label class="control-label">Translation</label>
+                                    <input type="text" name="[% item.string %]" value="[% export.$section.$string %]" class="form-control string"/>
+                                </div>
+                            </form>
+                        </div>
+                        [% bseq = bseq + 1 %]
+                    [% END %]
+                [% END %]
             [% END %]
         </div>
     </div>
@@ -131,9 +150,8 @@
 
             $('button.save-all').on('click', function() {
                 var strings = {};
-
                 $('input.string').each(function(i, e) {
-                    strings[$(e).attr('name')] = $(e).val();
+                    if(!$(e).hasClass('skip-save-all')) strings[$(e).attr('name')] = $(e).val();
                 });
                 $.ajax({
                     url: '/admin/language/[% lang %]/[% section %]/all', 
@@ -143,21 +161,33 @@
                 });
                 return false;
             });
+
             $('button.save-string').on('click', function() {
-                var string = $(this).attr('data-string');
-                var bseq   = $(this).attr('data-bseq');
-                $('#btn-save-' + bseq).addClass('hide');
-                $('#spinner-' + bseq).removeClass('hide');
-                $.ajax({
-                    url: '/admin/language/[% lang %]/[% section %]/single', 
-                    data: { path: string, value: $('input[name="' + string + '"]').val() },
-                    type: 'POST',
-                    dataType: 'json',
-                    complete: function() {
-                        $('#btn-save-' + bseq).removeClass('hide');
-                        $('#spinner-' + bseq).addClass('hide');
-                    }
-                });
+                var string = $(this).data('string');
+                var bseq   = $(this).data('bseq');
+                var sect   = $(this).data('section');
+                var m      = $(this).data('missing');
+                var v      = $('input[name="' + string + '"]').val();
+                console.log('save-string: string: ', string, ' sect: ', sect, ' bseq: ', bseq, ' m: ', m, ' v: ', v);
+                if(v != null && v != undefined && v.length > 0) {
+                    $('#btn-save-' + bseq).addClass('hide');
+                    $('#spinner-' + bseq).removeClass('hide');
+                    $.ajax({
+                        url: '/admin/language/[% lang %]/' + sect + '/single', 
+                        data: { path: string, value: v },
+                        type: 'POST',
+                        dataType: 'json',
+                        complete: function() {
+                            $('#btn-save-' + bseq).removeClass('hide');
+                            $('#spinner-' + bseq).addClass('hide');
+                            if(m) {
+                                $('div.well[data-string="' + string + '"]').fadeOut(1000, function() {
+                                    $(this).remove();
+                                });
+                            }
+                        }
+                    });
+                }
                 return false;
             });
         });

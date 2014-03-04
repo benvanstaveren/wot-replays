@@ -73,9 +73,6 @@ msgstr "Erhalten"
 msgid "replays.overview.damage.received.title"
 msgstr "Vom Spieler erhaltener Schaden"
 
-msgid "replays.overview.damage.title"
-msgstr "Schaden"
-
 msgid "replays.overview.description"
 msgstr "Beschreibung"
 

@@ -1,0 +1,15 @@
+<div class="well well-sm">
+    <form id="frm-[% string %]" class"form">
+        <fieldset><legend>[% string %] <button type="button" role="button" class="btn btn-default btn-xs pull-right save-string" data-section="[% section %]" id="btn-save-[% bseq %]" data-bseq="[% bseq %]" data-string="[% string %]">Save</button><span class="spinner small pull-right hide" id="spinner-[% bseq %]"></span></legend>
+        [% IF lang != 'common' %]
+            <div class="form-group">
+                <label class="control-label">Original</label>
+                <pre>[% common.$string %]</pre>
+            </div>
+        [% END %]
+        <div class="form-group">
+            <label class="control-label">Translation</label>
+            <input type="text" name="[% string %]" value="[% export.$string %]" class="form-control string"/>
+        </div>
+    </form>
+</div>

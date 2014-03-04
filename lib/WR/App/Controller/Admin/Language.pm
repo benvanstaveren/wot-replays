@@ -127,6 +127,54 @@ sub get_data {
     return {};
 }
 
+sub get_id_list {
+    my $self = shift;
+    my $s    = shift;
+    my $id   = [];
+
+    push(@$id, $s->{id}) if(defined($s->{id}));
+    if(defined($s->{children})) {
+        foreach my $child (@{$s->{children}}) {
+            push(@$id, @{$self->get_id_list($child)});
+        }
+    }
+    return $id;
+}
+
+sub find_missing {
+    my $self     = shift;
+    my $lang     = $self->stash('lang');
+    my $sections = [];
+    my $missing  = [];
+
+    foreach my $entry (@{$self->layout}) {
+        push(@$sections, @{$self->get_id_list($entry)});
+    }
+
+    my $export = {};
+    my $common = {};
+
+    foreach my $section (@$sections) {
+        next if($section eq 'language');
+        if(my $langt = $self->load_section_for($lang, $section)) {
+            $export->{$section} = $langt->export;
+        }
+        if(my $commont = $self->load_section_for('common', $section)) {
+            $common->{$section} = $commont->export;
+        }
+
+        foreach my $key (keys(%{$common->{$section}})) {
+            next if($key eq 'new-value');
+            next if($key eq 'new-string');
+            push(@$missing, {
+                section => $section,
+                string  => $key
+            }) unless(defined($export->{$section}->{$key}) && length($export->{$section}->{$key}) > 0);
+        }
+    }
+    $self->stash(missing => [ sort { $a->{string} cmp $b->{string} } @$missing ], common => $common, export => $export);
+}
+
 sub publish {
     my $self = shift;
     my $ht   = WR::HashTable->new;
@@ -219,6 +267,8 @@ sub make_title {
 sub index {
     my $self = shift;
     my $lang = $self->stash('lang');
+
+    $self->find_missing if($lang ne 'common');
 
     $self->respond(template => 'admin/language/index', stash => {
         page => { title => 'Language Manager' },

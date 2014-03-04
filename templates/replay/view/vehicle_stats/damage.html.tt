@@ -1,6 +1,9 @@
 <h4>[% h.loc('replays.overview.damage.title') %]</h4>
-<div class="well">
 <table class="table table-bordered table-striped">
+    <colgroup>
+        <col style="width: 70%"/>
+        <col style="width: 30%"/>
+    </colgroup>
     <tbody>
         <tr>
             <td><h5 style="margin: 0px" class="bs-tooltip" data-placement="auto" data-toggle="tooltip" title="[% h.loc('replays.overview.damage.direct.title') %]">[% h.loc('replays.overview.damage.direct.text') %]</h5></td>
@@ -11,6 +14,23 @@
             <td><span class="green bs-tooltip" data-placement="auto" data-toggle="tooltip" title="[% h.loc('replays.overview.damage.assist.title', replay.stats.damageAssistedRadio + 0, replay.stats.damageAssistedTrack + 0) %]">[% replay.stats.damageAssistedRadio + replay.stats.damageAssistedTrack %]</span></td>
         </tr>
         <tr>
+            <td><h5 style="margin: 0px" data-toggle="tooltip" data-placement="auto" class="bs-tooltip" title="[% h.loc('replays.overview.damage.radio.title') %]">+ [% h.loc('replays.overview.damage.radio.text') %]</h5></td>
+            <td>[% replay.stats.damageAssistedRadio || '0' %]</td>
+        </tr>
+        <tr>
+            <td><h5 style="margin: 0px" data-toggle="tooltip" data-placement="auto" class="bs-tooltip" title="[% h.loc('replays.overview.damage.track.title') %]">+ [% h.loc('replays.overview.damage.track.text') %]</h5></td>
+            <td>[% replay.stats.damageAssistedTrack || '0' %]</td>
+        </tr>
+    </tbody>
+</table>
+<h4>[% h.loc('replays.overview.damagereceived.title') %]</h4>
+<table class="table table-bordered table-striped">
+    <colgroup>
+        <col style="width: 70%"/>
+        <col style="width: 30%"/>
+    </colgroup>
+    <tbody>
+        <tr>
             <td><h5 style="margin: 0px" class="bs-tooltip damagereceiveddetail" data-placement="auto" data-toggle="tooltip" title="[% h.loc('replays.overview.damage.received.title') %]">[% h.loc('replays.overview.damage.received.text') %]</h5></td>
             <td>
                 [% totalhealth = h.get_recorder_vehicle(replay).health.total %]
@@ -19,15 +39,10 @@
             </td>
         </tr>
         <tr>
-            <td><h5 style="margin: 0px" class="bs-tooltip"  data-placement="auto" data-toggle="tooltip" title="[% h.loc('replays.overview.damage.average.title') %]">[% h.loc('replays.overview.damage.average.text') %]</h5></td>
+            <td><h5 style="margin: 0px" class="bs-tooltip" data-placement="auto" data-toggle="tooltip" title="[% h.loc('replays.overview.damage.potentialreceived.title') %]">[% h.loc('replays.overview.damage.potentialreceived.text') %]</h5></td>
             <td>
-                [% IF replay.stats.damageDealt > 0 && replay.stats.pierced > 0 %]
-                    [% h.int(replay.stats.damageDealt / replay.stats.pierced) %]
-                [% ELSE %]
-                    0
-                [% END %]
+                <span class="red">[% replay.stats.potentialDamageReceived || '0' %]</span>
             </td>
         </tr>
     </tbody>
 </table>
-</div>

@@ -1,5 +1,4 @@
 <h4>[% h.loc('replays.overview.shots.title') %]</h4>
-<div class="well">
 <table class="table table-bordered table-striped">
     <tbody>
         <tr>
@@ -26,6 +25,17 @@
             <td><h5 style="margin: 0px">[% h.loc('replays.overview.shots.misses') %]</h5></td>
             <td>[% replay.stats.shots - replay.stats.hits || '0' %]</td>
         </tr>
+        [% IF 1 == 0 %]
+        <tr>
+            <td><h5 style="margin: 0px" class="bs-tooltip"  data-placement="auto" data-toggle="tooltip" title="[% h.loc('replays.overview.damage.average.title') %]">[% h.loc('replays.overview.damage.average.text') %]</h5></td>
+            <td>
+                [% IF replay.stats.damageDealt > 0 && replay.stats.pierced > 0 %]
+                    [% h.int(replay.stats.damageDealt / replay.stats.pierced) %]
+                [% ELSE %]
+                    0
+                [% END %]
+            </td>
+        </tr>
+        [% END %]
     </tbody>
 </table>
-</div>
