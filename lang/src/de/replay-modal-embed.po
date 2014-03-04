@@ -2,7 +2,6 @@ msgid "replay.modal.embed.title"
 msgstr "Replay einbetten"
 
 msgid "replay.modal.embed.text"
-msgstr "In order to embed this replay, use the supplied BBcode below"
 msgstr "Benutze den unten stehenden BBCode, um das Replay einzubetten"
 
 msgid "replay.modal.embed.button.close.text"
