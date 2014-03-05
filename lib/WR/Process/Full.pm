@@ -778,13 +778,16 @@ sub process_battle_result {
     try {
         $self->finalize_roster($replay, $battle_result);
     } catch {
-        my $fe = $_;
+        $e = $_;
+    };
+
+    if(defined($e)) {
         $self->job->set_error('finalize_roster: ', $fe => sub {
             $self->error('finalize_roster: ', $fe);
+            return $cb->(undef); # this potentially may go really wrong
         });
-        $e = 1;
-    };
-    return $cb->(undef) if(defined($e)); # this potentially may go really wrong
+        return undef;
+    }
 
     $replay->set('stats'                => $battle_result->{personal});
     $replay->set('game.duration'        => $battle_result->{common}->{duration} + 0);
