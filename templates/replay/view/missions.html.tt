@@ -37,6 +37,7 @@
                                         [% ELSE %]
                                             (unknown bonus type [% bonustype %])
                                         [% END %]
+                                        <br>
                                     [% END %]
                                 [% END %]
                             </td>
