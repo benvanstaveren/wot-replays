@@ -32,6 +32,8 @@
                                             [% h.loc('replay.missions.bonustype.premium', entry.bonuses.$bonustype) %]
                                         [% ELSIF bonustype == 'tokens' %]
                                             <!-- not sure what to make of these... -->
+                                        [% ELSIF bonustype == 'xp' %]
+                                            [% h.loc('replay.missions.bonustype.xp', entry.bonuses.$bonustype) %]
                                         [% ELSE %]
                                             (unknown bonus type [% bonustype %])
                                         [% END %]
