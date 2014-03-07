@@ -28,5 +28,8 @@ msgstr "%0x credits"
 msgid "replay.missions.bonustype.credits"
 msgstr "%0 credits"
 
+msgid "replay.missions.bonustype.xp"
+msgstr "%0 xp"
+
 msgid "replay.missions.bonustype.tankmenXPFactor"
 msgstr "%0x crew xp"
