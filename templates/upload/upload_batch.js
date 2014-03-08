@@ -81,11 +81,10 @@ $(document).ready(function() {
         if(g_FileList.length > 0) {
             g_FileTotal = g_FileList.length;
             $('#uploadModal').modal('show');
-            $('#frm-upload-batch input[type="file"]').trigger('ajax');
             _(g_FileList).each(function(file) {
                 g_FileSizeTotal += file.size;
             });
-            $('#uploadModal #total-progress div.progress-bar').css({ 'width': '0%' }).attr('aria-valuenow', 0).attr('aria-valuemax', g_FileSizeTotal).attr('aria-valuemin', 0);
+            $('#frm-upload-batch input[type="file"]').trigger('ajax');
         } else {
             $('#frm-upload-batch input[type="file"]').prop('disabled', false);
             $(this).removeClass('disabled');
