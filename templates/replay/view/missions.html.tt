@@ -52,7 +52,7 @@
         <tbody>
             [% FOREACH entry IN replay.mission_panel %]
                 [% IF !entry.is_awarded %]
-                    <tr>
+                    <tr style="height: 82px">
                         [% IF entry.is_unknown %]
                             <td style="vertical-align: top"><h5>[% entry.name %]<br/><small>([% h.loc('replay.missions.unknown') %])</small></h5></td>
                             <td style="width: 25%; vertical-align: middle; text-align: center">
@@ -63,10 +63,10 @@
                             <td style="width: 25%; vertical-align: middle; text-align: center">
                                 [% IF entry.progression_key.defined %]
                                     [% perc = h.percentage_of(entry.progress_max, entry.progress_current) %]
-                                    <div class="progress" style="position: relative">
+                                    <div class="progress" style="position: relative; top: 20px">
                                         <div class="progress-bar" role="progressbar" aria-valuenow="[% perc %]" aria-valuemin="0" aria-valuemax="100" style="width: [% perc %]%"></div>
                                     </div>
-                                    <span>[% entry.progress_current %] / [% entry.progress_max %]</span>
+                                    <span style="position: relative; top: -20px">[% entry.progress_current %] / [% entry.progress_max %]</span>
                                 [% ELSE %]
                                     [% h.loc('replay.missions.oopscondition') %]
                                 [% END %]
