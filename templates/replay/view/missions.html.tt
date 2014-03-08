@@ -63,7 +63,7 @@
                             <td style="width: 25%; vertical-align: middle; text-align: center">
                                 [% IF entry.progression_key.defined %]
                                     [% perc = h.percentage_of(entry.progress_max, entry.progress_current) %]
-                                    <div class="progress">
+                                    <div class="progress" style="position: relative">
                                         <div class="progress-bar" role="progressbar" aria-valuenow="[% perc %]" aria-valuemin="0" aria-valuemax="100" style="width: [% perc %]%"></div>
                                         <span>[% entry.progress_current %] / [% entry.progress_max %]</span>
                                     </div>
