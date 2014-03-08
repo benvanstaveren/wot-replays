@@ -2,6 +2,7 @@ package WR::Plugin::I18N;
 use utf8;
 use Mojo::Base 'Mojolicious::Plugin';
 use Data::Localize::Gettext;
+use WR::Plugin::I18N::Formatter;
 use Data::Dumper;
 use Try::Tiny qw/try catch/;
 use Encode qw/encode decode from_to/;
