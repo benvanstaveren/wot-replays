@@ -32,7 +32,7 @@ sub list {
 
         my $notifications = [];
 
-        $self->model('notifications')->find({ _id => { '$nin' => $seen_list } })->sort({ _ctime => 1 })->all(sub {
+        $self->model('notifications')->find({ _id => { '$nin' => $seen_list } })->sort({ _ctime => -1 })->all(sub {
             my ($c, $e, $d) = (@_);
 
             foreach my $n (@$d) {
