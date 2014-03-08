@@ -10,14 +10,3 @@
         </div>
     </form>
 </div>
-<div id="batch-tracker" class="well well-sm hide">
-    <table class="table">
-        <colgroup>
-            <col style="width: 55%"/>
-            <col style="width: 15%"/>
-            <col style="width: 30%"/>
-        </colgroup>
-        <tbody>
-        </tbody>
-    </table>
-</div>
