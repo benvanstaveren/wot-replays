@@ -4,7 +4,7 @@ use warnings;
 use WR::Query;
 use WR::Res;
 use WR::Util::CritDetails;
-use WR::HashTable;
+use WR::Util::HashTable;
 use WR::Provider::ServerFinder;
 use File::Slurp qw/read_file/;
 use WR::Constants qw/nation_id_to_name gameplay_id_to_name/;
@@ -1090,7 +1090,7 @@ sub install {
         my $path = shift;
 
         return undef unless($self->is_user_authenticated);
-        $self->stash('uset_ht' => WR::HashTable->new(data => $self->current_user->{settings})) if(!defined($self->stash('uset_ht')));
+        $self->stash('uset_ht' => WR::Util::HashTable->new(data => $self->current_user->{settings})) if(!defined($self->stash('uset_ht')));
         return $self->stash('uset_ht')->get($path);
     });
 

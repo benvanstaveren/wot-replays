@@ -11,7 +11,7 @@ use Mojo::Util qw/url_escape/;
 use WR;
 use WR::Res;
 use WR::Query;
-use WR::QuickDB;
+use WR::Util::QuickDB;
 use Time::HiRes qw/gettimeofday/;
 
 use WR::App::Helpers;
@@ -101,7 +101,7 @@ sub startup {
         my $aname = sprintf('data_%s', $type);
         $self->attr($aname => sub {
             my $self = shift;
-            return WR::QuickDB->new(data => $self->mango->db('wot-replays')->collection(sprintf('data.%s', $type))->find()->all());
+            return WR::Util::QuickDB->new(data => $self->mango->db('wot-replays')->collection(sprintf('data.%s', $type))->find()->all());
         });
         $self->helper($aname => sub {
             return shift->app->$aname();

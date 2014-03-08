@@ -1,5 +1,5 @@
 use Mojo::Base -strict;
 use Test::More tests => 1;
 
-use_ok('WR::HashTable');
+use_ok('WR::Util::HashTable');
 

@@ -5,10 +5,10 @@ use WR::Res::Achievements;
 use WR::Provider::ServerFinder;
 use WR::Provider::Imager;
 use WR::Provider::Panelator;
-use WR::HashTable;
+use WR::Util::HashTable;
 use WR::Constants qw/nation_id_to_name decode_arena_type_id ARENA_PERIOD_BATTLE gameplay_id_to_name/;
 use WR::Util::TypeComp qw/parse_int_compact_descr type_id_to_name/;
-use WR::QuickDB;
+use WR::Util::QuickDB;
 use Data::Dumper;
 
 use Mango;
@@ -60,7 +60,7 @@ sub _preload {
         $self->debug('preloading ', $type);
         $self->model(sprintf('wot-replays.data.%s', $type))->find()->all(sub {
             my ($c, $e, $d) = (@_);
-            $self->$attr(WR::QuickDB->new(data => $d));
+            $self->$attr(WR::Util::QuickDB->new(data => $d));
             $self->debug('preloading ', $type, ' callback');
             $end->();
         });
@@ -487,7 +487,7 @@ sub _real_process {
     my $parser = shift;
     my $cb     = shift;
 
-    my $replay = WR::HashTable->new(data => {});
+    my $replay = WR::Util::HashTable->new(data => {});
     if(defined($self->job->replayid)) {
         $self->debug('job has existing replayid');
         $replay->set('_id' => $self->job->replayid); # we're re-doing an existing replay

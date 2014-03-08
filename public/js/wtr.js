@@ -158,8 +158,11 @@ Wotreplays.prototype = {
     },
     i18n: function(key, args) {
         if(this._i18n_disabled) return key;
-        var formatted = (WR.catalog[key] != undefined)
-            ?   WR.catalog[key].replace(/{{(.*?)}}/gi, function(match, name) {
+
+        var trimmedkey = key.trim();
+
+        var formatted = (WR.catalog[trimmedkey] != undefined)
+            ?   WR.catalog[trimmedkey].replace(/{{(.*?)}}/gi, function(match, name) {
                     if(name.match(/:/)) {
                         // pluralisation support
                         var nm = name.match(/(.*?):(.*)/);
@@ -240,3 +243,9 @@ $.fn.extend({
         });
     }
 });
+
+if(!String.prototype.trim) {
+    String.prototype.trim = function() {
+        return this.replace(/^\s+|\s+$/g,'');
+    }
+}

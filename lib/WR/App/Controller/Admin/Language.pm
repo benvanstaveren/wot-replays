@@ -1,7 +1,7 @@
 package WR::App::Controller::Admin::Language;
 use utf8;
 use Mojo::Base 'WR::App::Controller';
-use WR::HashTable;
+use WR::Util::HashTable;
 use Data::Dumper;
 use Mojo::Util qw/xml_escape/;
 
@@ -177,7 +177,7 @@ sub find_missing {
 
 sub publish {
     my $self = shift;
-    my $ht   = WR::HashTable->new;
+    my $ht   = WR::Util::HashTable->new;
     my $lang  = $self->stash('lang');
     my $pub   = {};
 
@@ -377,7 +377,7 @@ sub load_section_for {
             }
         }
         $fh->close;
-        return WR::HashTable->new(data => $hash);
+        return WR::Util::HashTable->new(data => $hash);
     } else {
         return undef;
     }

@@ -1,8 +1,8 @@
 use Mojo::Base -strict;
 use Test::More tests => 8;
 
-use_ok('WR::QuickDB');
-my $db = new_ok('WR::QuickDB');
+use_ok('WR::Util::QuickDB');
+my $db = new_ok('WR::Util::QuickDB');
 
 # poke some data in
 push(@{$db->data}, 

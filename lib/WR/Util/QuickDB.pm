@@ -1,4 +1,4 @@
-package WR::QuickDB;
+package WR::Util::QuickDB;
 use Mojo::Base '-base';
 
 has data    => sub { [] };

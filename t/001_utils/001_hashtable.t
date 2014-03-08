@@ -1,8 +1,8 @@
 use Mojo::Base -strict;
 use Test::More tests => 9;
 
-use_ok('WR::HashTable');
-my $ht = new_ok('WR::HashTable');
+use_ok('WR::Util::HashTable');
+my $ht = new_ok('WR::Util::HashTable');
 
 # poke a bit of data in
 $ht->data({

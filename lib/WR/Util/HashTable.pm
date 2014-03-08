@@ -1,4 +1,4 @@
-package WR::HashTable;
+package WR::Util::HashTable;
 use Mojo::Base '-base';
 use Data::Dumper;
 
