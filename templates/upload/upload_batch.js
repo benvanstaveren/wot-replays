@@ -16,6 +16,7 @@ $(document).ready(function() {
 
     $('#frm-upload-batch input[type="file"]').on('ajax', function() {
         var that = $(this);
+
         if (typeof this.files[g_FileCount] === 'undefined') {
             $('#uploadModal').modal('hide');
             $('#completeModal').modal('show');
@@ -50,6 +51,7 @@ $(document).ready(function() {
                             $(pbar).attr('aria-valuenow', perc).css({ 'width': perc + '%' });
                             if(perc > 10) $(pbar).text(perc + '%');
                         }
+                        console.log('total size: ', g_FileSizeTotal, ' done ', g_FileSizeDone);
                         if(g_FileSizeTotal > 0 && g_FileSizeDone > 0) {
                             var tperc = Math.round(g_FileSizeDone / g_FileSizeTotal * 100);
                             $('#uploadModal #total-progress div.progress-bar').css({ 'width': tperc + '%' }).attr('aria-valuenow', tperc);
@@ -84,6 +86,7 @@ $(document).ready(function() {
             _(g_FileList).each(function(file) {
                 g_FileSizeTotal += file.size;
             });
+            console.log('total file size: ', g_FileSizeTotal);
             $('#frm-upload-batch input[type="file"]').trigger('ajax');
         } else {
             $('#frm-upload-batch input[type="file"]').prop('disabled', false);
