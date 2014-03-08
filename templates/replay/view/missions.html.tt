@@ -65,8 +65,8 @@
                                     [% perc = h.percentage_of(entry.progress_max, entry.progress_current) %]
                                     <div class="progress" style="position: relative">
                                         <div class="progress-bar" role="progressbar" aria-valuenow="[% perc %]" aria-valuemin="0" aria-valuemax="100" style="width: [% perc %]%"></div>
-                                        <span>[% entry.progress_current %] / [% entry.progress_max %]</span>
                                     </div>
+                                    <span>[% entry.progress_current %] / [% entry.progress_max %]</span>
                                 [% ELSE %]
                                     [% h.loc('replay.missions.oopscondition') %]
                                 [% END %]
