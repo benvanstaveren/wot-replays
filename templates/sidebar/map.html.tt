@@ -1,2 +1,4 @@
-[% INCLUDE sidebar/bricks/filter.html.tt %]
-[% INCLUDE sidebar/bricks/filter.js.tt %]
+[% WRAPPER sidebar/wrapper.html.tt %]
+    [% INCLUDE sidebar/bricks/filter.html.tt %]
+    [% INCLUDE sidebar/bricks/filter.js.tt %]
+[% END % 
