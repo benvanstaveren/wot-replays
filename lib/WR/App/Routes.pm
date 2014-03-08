@@ -7,7 +7,6 @@ sub install {
     my $self  = shift;
     my $r     = shift;
 
-    # dirty little trick to load the content required for the index page include
     $r->bridge('/')->to('ui#frontpage')->route('/')->to('replays#browse', 
         filter_opts => {},
         pageid      => 'home', 
@@ -384,22 +383,6 @@ sub install {
             my $bothunter = $modtools->under('/bothunter');
                 $bothunter->route('/')->to('admin-moderator-bothunter#index', pageid => 'admin/moderator');
                 $bothunter->route('/process')->to('admin-moderator-bothunter#process');
-
-    # this one caused issues
-=pod
-    $r->route('/*filter')->to('replays#browse', 
-        filter_opts => {}, 
-        pageid      => 'home', 
-        but_really  => 'browse',
-        filter_root => undef,
-        page        => { 
-            title       => 'browse.page.title' 
-        }, 
-        browse => { 
-            heading     => 'browse.page.title' 
-        },
-    );
-=cut
 }
 
 1;

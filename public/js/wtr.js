@@ -99,7 +99,7 @@ Wotreplays.prototype = {
             return false;
         });
 
-        $('div.dnotification button.close').on('click', function() {
+        $('div.dnotification button.dn-close').on('click', function() {
             var nid = $(this).data('notification');
             var notification = $('div.dnotification[data-notification="' + nid + '"]');
             if($(notification).hasClass('disabled')) return false;

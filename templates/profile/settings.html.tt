@@ -52,7 +52,28 @@
             </div>
         </div>
     </div>
+    [% IF 1 == 0 %]
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">[% h.loc('profile.settings.3rdparty.title') %]</div>
+                <div class="panel-body">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">[% h.loc('profile.settings.googledrive.title') %]</div>
+                <div class="panel-body">
+                </div>
+            </div>
+        </div>
+    </div>
+    [% END %]
     <script type="text/javascript">
+        // this needs to get replaced eventually with a single function that'll handle setting changes
         $(document).ready(function() {
             $('select[name="ratings"]').val('[% h.current_user.settings.display.ratings || 'simplified' %]').change(function() {
                 if($(this).hasClass('disabled')) return;

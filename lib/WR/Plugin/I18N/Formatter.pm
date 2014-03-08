@@ -1,4 +1,4 @@
-package WR::Localize::Formatter;
+package WR::Plugin::I18N::Formatter;
 use Moo;
 
 extends 'Data::Localize::Format::Gettext';

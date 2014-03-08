@@ -6,7 +6,6 @@ use WR::Res;
 use WR::Util::CritDetails;
 use WR::HashTable;
 use WR::Provider::ServerFinder;
-use WR::Localize::Formatter;
 use File::Slurp qw/read_file/;
 use WR::Constants qw/nation_id_to_name gameplay_id_to_name/;
 use WR::Util::TypeComp qw/parse_int_compact_descr type_id_to_name/;

@@ -114,31 +114,6 @@ sub heatmap {
     });
 }
 
-sub stats {
-    my $self = shift;
-
-    $self->render_later;
-    $self->load_replay(sub {
-        my ($c, $e, $r) = (@_);
-        $self->render(json => {
-            views => $r->{site}->{views} + 0,
-            downloads => $r->{site}->{downloads} + 0,
-            likes => $r->{site}->{like} + 0,
-        });
-    });
-}
-
-sub incview {
-    my $self = shift;
-
-    $self->render_later;
-    $self->model('wot-replays.replays')->update({ _id => Mango::BSON::bson_oid($self->stash('replay_id')) }, {
-        '$inc' => { 'site.views' => 1 }
-    } => sub {
-        $self->render(json => { ok => 1 });
-    });
-}
-
 sub generate_mission_panel {
     my $self    = shift;
     my $replay  = shift;
@@ -146,9 +121,9 @@ sub generate_mission_panel {
     my $mission_panel = [];
 
     # if there are no missions then we don't even need to bother and we can just bail out now
-    $cb->($mission_panel) and return unless(scalar(keys(%{$replay->{stats}->{questsProgress}})) > 0);
+    return $cb->($mission_panel) unless(scalar(keys(%{$replay->{stats}->{questsProgress}})) > 0);
 
-    my $delay   = Mojo::IOLoop->delay(sub {
+    my $delay = Mojo::IOLoop->delay(sub {
         $cb->($mission_panel);
     });
 
@@ -384,10 +359,8 @@ sub actual_view_replay {
         $pl_members->{$v->{player}->{name}} = $pl_indexes->{$v->{platoon}};
     }
 
-    $self->model('wot-replays.replays')->update({ _id => $replay->{_id} }, {
-        '$inc' => { 'site.views' => 1 },
-    } => sub {
-        $replay->{site}->{views} += 1; 
+    my $delay = Mojo::IOLoop->delay(sub {
+        $replay->{site}->{views} += 1;  # little holdover here...
 
         # generate the mission panel
         $self->generate_mission_panel($replay => sub {
@@ -410,6 +383,29 @@ sub actual_view_replay {
                 template => 'replay/view/index',
             );
         });
+    });
+
+    $self->_update_stats_total($replay->{_id}, $delay->begin(0));
+    $self->_update_stats_daily($replay->{_id}, $delay->begin(0));
+}
+
+sub _update_stats_total {
+    my $self = shift;
+    my $id   = shift;
+    my $end  = shift;
+    $self->model('wot-replays.replays')->update({ _id => $id }, { '$inc' => { 'site.views' => 1 }} => sub {
+        $end->();
+    });
+}
+
+sub _update_stats_daily {
+    my $self = shift;
+    my $id   = shift;
+    my $end  = shift;
+    my $now  = DateTime->now(time_zone => 'UTC')->strftime('%Y%m%d');
+
+    $self->model('wot-replays.stats_replay')->update({ replay => $id, date => $now }, { '$inc' => { 'views' => 1 } } => sub {
+        $end->();
     });
 }
 

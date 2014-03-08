@@ -82,7 +82,7 @@ sub register {
     $app->helper(get_localizer_for => sub {
         my $self = shift;
         my $lang = shift;
-        return Data::Localize::Gettext->new(encoding => 'utf8', formatter => WR::Localize::Formatter->new(), paths => $self->config('i18n_language_paths')->{$lang});
+        return Data::Localize::Gettext->new(encoding => 'utf8', formatter => WR::Plugin::I18N::Formatter->new(), paths => $self->config('i18n_language_paths')->{$lang});
     });
 
     $app->helper(fix_utf8_for_js => sub {
