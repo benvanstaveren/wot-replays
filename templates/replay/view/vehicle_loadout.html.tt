@@ -66,8 +66,8 @@
         [% IF replay.game.recorder.ammo.defined %]
             [% BLOCK ammo_row %]
                 <li class="list-group-item">
-                    <span [% h.i18n_attr({ title => [ h.ammo_name(replay.game.recorder.ammo.$index), {} ]}) %] class="equipment-icon rounded i18n" data-attributes-only="true" [% h.ammo_icon_style(replay.game.recorder.ammo.$index) %]></span>
                     [% an = h.ammo_name(replay.game.recorder.ammo.$index) %]
+                    <span [% h.i18n_attr({ title => [ an.1, {} ]}) %] class="equipment-icon rounded i18n" data-attributes-only="true" [% h.ammo_icon_style(replay.game.recorder.ammo.$index) %]></span>
                     <span class="equipment-name single"><span>[% an.0 %]</span> <span class="i18n">[% an.1 %]</span></span>
                 </li>
             [% END %]

@@ -102,7 +102,6 @@ sub register {
         return $new;
     });
 
-
     $app->helper(i18n_catalog => sub {
         my $self = shift;
         if(my $localizer = $self->stash('i18n_localizer')) {
@@ -161,6 +160,10 @@ sub register {
                     # okay, stupid WG inconsistency, some tanks have a _short, some don't, so if our str contains _short, retry it 
                     if($str =~ /_short$/) {
                         $ostr =~ s/_short$//g;
+                        $result = $self->loc($ostr);
+                    } elsif($str =~ /_(mk\d|class\d)$/i) {
+                        # another one
+                        $str =~ s/(.*?)_.*/$1/g;
                         $result = $self->loc($ostr);
                     } else {
                         $result = $ostr;

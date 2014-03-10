@@ -68,6 +68,11 @@ sub install {
         $self->app->log->debug($msg);
     });
 
+    $self->helper(concat => sub {
+        my $self = shift;
+        return join('', @_);
+    });
+
     $self->helper(error => sub {
         my $self = shift;
         my $msg = join(' ', @_);

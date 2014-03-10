@@ -165,6 +165,28 @@ Wotreplays.prototype = {
             }
         });
     },
+    _fmt_i18n: function(str, args) {
+        return str.replace(/{{(.*?)}}/gi, function(match, name) {
+            if(name.match(/:/)) {
+                // pluralisation support
+                var nm = name.match(/(.*?):(.*)/);
+                var n = nm[1];
+                var fmt = nm[2].split(/,\s*/);
+                if(fmt[2] == undefined) fmt[2] = fmt[1]; 
+
+                var f = (args[n] != null && args[n] != undefined) 
+                    ? (args[n] > 1) 
+                        ? fmt[1]
+                        : fmt[0]
+                    : fmt[2];
+                return f.replace(/%d/g, f);
+            } else {
+                return (args[name] != null && args[name] != undefined) 
+                    ? args[name]
+                    : '';
+            }
+        });
+    },
     i18n: function(key, args) {
         if(this._i18n_disabled) return key;
 
@@ -174,28 +196,18 @@ Wotreplays.prototype = {
             var trimmedkey = key;
         }
 
-        var formatted = (WR.catalog[trimmedkey] != undefined)
-            ?   WR.catalog[trimmedkey].replace(/{{(.*?)}}/gi, function(match, name) {
-                    if(name.match(/:/)) {
-                        // pluralisation support
-                        var nm = name.match(/(.*?):(.*)/);
-                        var n = nm[1];
-                        var fmt = nm[2].split(/,\s*/);
-                        if(fmt[2] == undefined) fmt[2] = fmt[1]; 
-
-                        var f = (args[n] != null && args[n] != undefined) 
-                            ? (args[n] > 1) 
-                                ? fmt[1]
-                                : fmt[0]
-                            : fmt[2];
-                        return f.replace(/%d/g, f);
-                    } else {
-                        return (args[name] != null && args[name] != undefined) 
-                            ? args[name]
-                            : '';
-                    }
-                })
-            :   key;
+        // do some checks
+        var catstr= WR.catalog[trimmedkey];
+        if(catstr) {
+            var formatted = this._fmt_i18n(catstr, args);
+        } else {
+            console.log('type of trimmedkey: ', typeof trimmedkey, ' ', trimmedkey);
+            if(trimmedkey.match(/.*_class\d/) || trimmedkey.match(/.*_mk\d/)) {
+                var formatted = this.i18n(trimmedkey.replace(/_(mk\d|class\d)/, ''), args);
+            } else {
+                var formatted = key;
+            }
+        }
         return formatted;
     },
 };
