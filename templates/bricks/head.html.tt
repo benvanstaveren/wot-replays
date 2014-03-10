@@ -16,6 +16,8 @@
 <script type="text/javascript" src="[% config.urls.static %]/js/thunderpush.js"></script>
 <script type="text/javascript" src="[% config.urls.static %]/js/bootstrap-slider.js"></script>
 
+<script type="text/javascript" src="//api.statterbox.com/sds.js"></script>
+
 <script type="text/javascript" src="[% config.urls.static %]/js/mapgrid.js"></script>
 <script type="text/javascript" src="[% config.urls.static %]/js/heatmap.js"></script>
 <script type="text/javascript" src="[% config.urls.static %]/js/heatmapviewer.js"></script>

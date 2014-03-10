@@ -115,10 +115,12 @@ Wotreplays.prototype = {
         });
 
         // SDS: we only do count loads, comment load is handled by the replay view page 
-        that.SDS = new SDS({ siteid: 'wotreplays', token: that.apikey });
-        that.SDS.on('error', function(data) {
-            console.log('SDS error: ', data);
-        }).getCounts();
+        if(window.SDS) {
+            that.SDS = new SDS({ siteid: 'wotreplays', token: that.apikey });
+            that.SDS.on('error', function(data) {
+                console.log('SDS error: ', data);
+            }).getCounts();
+        }
 
         this.emit('ready');
     },

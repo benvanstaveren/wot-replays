@@ -13,10 +13,10 @@
         $('.btn-battleheatmap').on('click', function() {
             if($(this).hasClass('disabled')) return false;
         });
-        var hash = document.location.hash;
-        if(hash != null && hash != undefined && hash.length > 0) {
-            $('#replay-tabs a[href="' + hash + '"]').tab('show');
-        }
+    });
+
+    WR.on('ready', function() {
+        this.SDS.setContainer($('#sds-comments')).getComments();
     });
 
     [% IF h.is_own_replay(replay) %]
