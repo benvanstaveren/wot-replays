@@ -51,7 +51,7 @@ $(document).ready(function() {
                         if(g_FileTotal > 0 && g_FileCount > 0) {
                             var tperc = Math.round(g_FileCount / g_FileTotal * 100);
                             $('#uploadModal #total-progress div.progress-bar').css({ 'width': tperc + '%' }).attr('aria-valuenow', tperc);
-                            if(tperc > 10) $('#uploadModal #total-progress div.progress-bar').text(g_FileCount + '/' + g_FileTotal);
+                            $('#uploadModal #total-progress div.progress-bar').text(g_FileCount + '/' + g_FileTotal + ' (' + tperc + '%)');
                         }
                     }, false);
                 }
