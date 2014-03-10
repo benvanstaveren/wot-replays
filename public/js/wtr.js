@@ -201,9 +201,8 @@ Wotreplays.prototype = {
         if(catstr) {
             var formatted = this._fmt_i18n(catstr, args);
         } else {
-            console.log('type of trimmedkey: ', typeof trimmedkey, ' ', trimmedkey);
-            if(trimmedkey.match(/.*_class\d/) || trimmedkey.match(/.*_mk\d/)) {
-                var formatted = this.i18n(trimmedkey.replace(/_(mk\d|class\d)/, ''), args);
+            if(trimmedkey.match(/.*_class\d/i) || trimmedkey.match(/.*_mk\d/i)) {
+                var formatted = this.i18n(trimmedkey.replace(/_(mk\d|class\d)/i, ''), args);
             } else {
                 var formatted = key;
             }
