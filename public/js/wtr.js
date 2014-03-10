@@ -159,7 +159,11 @@ Wotreplays.prototype = {
     i18n: function(key, args) {
         if(this._i18n_disabled) return key;
 
-        var trimmedkey = key.trim();
+        try {
+            var trimmedkey = key.trim();
+        } catch(ex) {
+            var trimmedkey = key;
+        }
 
         var formatted = (WR.catalog[trimmedkey] != undefined)
             ?   WR.catalog[trimmedkey].replace(/{{(.*?)}}/gi, function(match, name) {

@@ -1,27 +1,5 @@
-msgid "replay.missions.heading"
-msgstr "Missionen"
-
-msgid "replay.missions.completed"
-msgstr "Erf&uuml;llt"
-
-msgid "replay.missions.inprogress"
-msgstr "Laufend"
-
-msgid "replay.missions.whatsthis"
-msgstr "Was ist das?"
-
-msgid "replay.missions.oopscondition"
-msgstr "Oops, don't know how to handle this condition..."
+msgid ""
 msgstr "Ups, ich wei&szlig; nicht, wie ich damit umgehen soll..."
-
-msgid "replay.missions.unknown"
-msgstr "unbekannte Mission"
-
-msgid "replay.missions.bonustype.premium"
-msgstr "%0 %quant(%0,Tag,Tage) Premium"
-
-msgid "replay.missions.bonustype.xpFactor"
-msgstr "%0x XP"
 
 msgid "replay.missions.bonustype.creditFactor"
 msgstr "%0x Credits"
@@ -29,5 +7,33 @@ msgstr "%0x Credits"
 msgid "replay.missions.bonustype.credits"
 msgstr "%0 Credits"
 
+msgid "replay.missions.bonustype.premium"
+msgstr "%0 %quant(%0,Tag,Tage) Premium"
+
 msgid "replay.missions.bonustype.tankmenXPFactor"
 msgstr "%0x Crew-XP"
+
+msgid "replay.missions.bonustype.xp"
+msgstr "%0 XP"
+
+msgid "replay.missions.bonustype.xpFactor"
+msgstr "%0x XP"
+
+msgid "replay.missions.completed"
+msgstr "Erf&uuml;llt"
+
+msgid "replay.missions.heading"
+msgstr "Missionen"
+
+msgid "replay.missions.inprogress"
+msgstr "Laufend"
+
+msgid "replay.missions.oopscondition"
+msgstr "Oops, don&#39;t know how to handle this condition..."
+
+msgid "replay.missions.unknown"
+msgstr "unbekannte Mission"
+
+msgid "replay.missions.whatsthis"
+msgstr "Was ist das?"
+

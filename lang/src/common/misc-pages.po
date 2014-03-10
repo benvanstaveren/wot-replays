@@ -10,3 +10,12 @@ msgstr "Why Donate?"
 msgid "page.missions.title"
 msgstr "About Missions"
 
+msgid "page.replay.denied.title"
+msgstr "Access Denied"
+
+msgid "replay.view.denied.header"
+msgstr "Access Denied"
+
+msgid "replay.view.denied.text"
+msgstr "You do not have sufficient permissions to view this replay, sorry!"
+

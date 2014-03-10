@@ -67,11 +67,35 @@ msgstr "Direkt"
 msgid "replays.overview.damage.direct.title"
 msgstr "Direkt durch den Spieler verursachter Schaden"
 
+msgid "replays.overview.damage.potentialreceived.text"
+msgstr "Potentiell erhaltener Schaden"
+
+msgid "replays.overview.damage.potentialreceived.title"
+msgstr "Vom Spieler potentiell erhaltener Schaden"
+
+msgid "replays.overview.damage.radio.text"
+msgstr "Aufklärung"
+
+msgid "replays.overview.damage.radio.title"
+msgstr "Von Teammitgliedern durch Aufklärung verursachter Schaden"
+
 msgid "replays.overview.damage.received.text"
 msgstr "Erhalten"
 
 msgid "replays.overview.damage.received.title"
 msgstr "Vom Spieler erhaltener Schaden"
+
+msgid "replays.overview.damage.title"
+msgstr "Erhaltener Schaden"
+
+msgid "replays.overview.damage.track.text"
+msgstr "Tracking"
+
+msgid "replays.overview.damage.track.title"
+msgstr "Von Teammitgliedern durch Tracking verursachter Schaden"
+
+msgid "replays.overview.damagereceived.title"
+msgstr "Erhaltener Schaden"
 
 msgid "replays.overview.description"
 msgstr "Beschreibung"

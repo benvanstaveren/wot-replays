@@ -1,5 +1,5 @@
 msgid "footer.about"
-msgstr "Über diese Seite"
+msgstr "&Uuml;ber diese Seite"
 
 msgid "footer.credits"
 msgstr "Andere Danksagungen"
