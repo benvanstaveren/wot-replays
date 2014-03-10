@@ -11,8 +11,6 @@ $(document).ready(function() {
     var g_FileCount = 0;
     var g_FileTotal = 0;
     var g_FileList  = null;
-    var g_FileSizeTotal = 0;
-    var g_FileSizeDone  = 0;
 
     $('#frm-upload-batch input[type="file"]').on('ajax', function() {
         var that = $(this);
@@ -47,15 +45,13 @@ $(document).ready(function() {
                     xhr.upload.addEventListener('progress', function(evt) {
                         if(evt.lengthComputable) {
                             perc = Math.round(evt.loaded / evt.total * 100);
-                            g_FileSizeDone += evt.loaded;
                             $(pbar).attr('aria-valuenow', perc).css({ 'width': perc + '%' });
                             if(perc > 10) $(pbar).text(perc + '%');
                         }
-                        console.log('total size: ', g_FileSizeTotal, ' done ', g_FileSizeDone);
-                        if(g_FileSizeTotal > 0 && g_FileSizeDone > 0) {
-                            var tperc = Math.round(g_FileSizeDone / g_FileSizeTotal * 100);
+                        if(g_FileTotal > 0 && g_FileCount > 0) {
+                            var tperc = Math.round(g_FileCount / g_FileTotal * 100);
                             $('#uploadModal #total-progress div.progress-bar').css({ 'width': tperc + '%' }).attr('aria-valuenow', tperc);
-                            if(tperc > 10) $('#uploadModal #total-progress div.progress-bar').text(tperc + '%');
+                            if(tperc > 10) $('#uploadModal #total-progress div.progress-bar').text(g_FileCount + '/' + g_FileTotal);
                         }
                     }, false);
                 }
@@ -83,10 +79,6 @@ $(document).ready(function() {
         if(g_FileList.length > 0) {
             g_FileTotal = g_FileList.length;
             $('#uploadModal').modal('show');
-            _(g_FileList).each(function(file) {
-                g_FileSizeTotal += file.size;
-            });
-            console.log('total file size: ', g_FileSizeTotal);
             $('#frm-upload-batch input[type="file"]').trigger('ajax');
         } else {
             $('#frm-upload-batch input[type="file"]').prop('disabled', false);
