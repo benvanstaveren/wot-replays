@@ -726,8 +726,8 @@ sub _wn8_battle {
 
     $self->debug('[WN8.BATTLE]: getting wn8 for battle');
     my $entry = $replay->get('roster')->[ $replay->get('players')->{$replay->get('game.recorder.name')} ];
-    my $battle_url = sprintf('http://statterbox.com/api/v1/%s/calc/wn8?t=%d&frags=%d&damage=%d&spots=%d&defense=%d',
-        '5299a074907e1337e0010000',
+    my $battle_url = sprintf('http://api.statterbox.com/util/calc/wn8?application_id=%st=%d&frags=%d&damage=%d&spots=%d&defense=%d',
+        $self->config->{'statterbox'}->{server},
         $entry->{vehicle}->{typecomp},
         $replay->get('stats.kills') + 0,
         $replay->get('stats.damageDealt') + 0,

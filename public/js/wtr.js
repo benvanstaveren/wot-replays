@@ -5,6 +5,7 @@ window.Wotreplays = function(options) {
     this.apikey     = options.apikey;
     this.thunderkey = options.thunderkey;
     this.indev      = options.indev || false;
+    this.SDS        = null;
 
     this.catalog    = {};
     this._handlers  = {};
@@ -113,6 +114,12 @@ Wotreplays.prototype = {
             return false;
         });
 
+        // SDS: we only do count loads, comment load is handled by the replay view page 
+        that.SDS = new SDS({ siteid: 'wotreplays', token: that.apikey });
+        that.SDS.on('error', function(data) {
+            console.log('SDS error: ', data);
+        }).getCounts();
+
         this.emit('ready');
     },
     growl: function(text, options) {
@@ -159,7 +166,11 @@ Wotreplays.prototype = {
     i18n: function(key, args) {
         if(this._i18n_disabled) return key;
 
-        var trimmedkey = key.trim();
+        try {
+            var trimmedkey = key.trim();
+        } catch(e) {
+            var trimmedkey = key;
+        }
 
         var formatted = (WR.catalog[trimmedkey] != undefined)
             ?   WR.catalog[trimmedkey].replace(/{{(.*?)}}/gi, function(match, name) {

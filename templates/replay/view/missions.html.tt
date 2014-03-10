@@ -66,7 +66,7 @@
                                     <div class="progress" style="position: relative; top: 20px">
                                         <div class="progress-bar" role="progressbar" aria-valuenow="[% perc %]" aria-valuemin="0" aria-valuemax="100" style="width: [% perc %]%"></div>
                                     </div>
-                                    <span style="position: relative; top: -20px">[% entry.progress_current %] / [% entry.progress_max %]</span>
+                                    <span style="color: #fff; position: relative; top: -20px">[% entry.progress_current %] / [% entry.progress_max %]</span>
                                 [% ELSE %]
                                     [% h.loc('replay.missions.oopscondition') %]
                                 [% END %]
