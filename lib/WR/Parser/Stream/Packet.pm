@@ -96,7 +96,7 @@ sub enable {
     }
 }
 
-sub dump { return shift->to_hash }
+sub dump { return Dumper(shift) }
 sub to_hash {
     my $self = shift;
     my $h    = {};
@@ -119,8 +119,7 @@ sub read {
     my $l    = shift;
     my $f    = shift;
 
-    die ref($self), ': unsafe read, requested ', $l, ' bytes at offset ', $o, ', would require ', $o + $l, ' bytes of data, but length of payload only ', $self->payload_size, "\n", 'dump: ', $self->dump, "\n" if($o + $l > $self->payload_size);
-
+    die ref($self), ': unsafe read, requested ', $l, ' bytes at offset ', $o, ', would require ', $o + $l, ' bytes of data, but length of payload only ', $self->payload_size, "\n";
     my $raw = substr($self->payload, $o, $l);
     return (defined($f)) ? unpack($f, $raw) : $raw;
 }
