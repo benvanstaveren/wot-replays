@@ -96,6 +96,7 @@ sub enable {
     }
 }
 
+sub dump { return shift->to_hash }
 sub to_hash {
     my $self = shift;
     my $h    = {};

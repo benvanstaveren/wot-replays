@@ -137,6 +137,8 @@ sub _real_browse {
 
         $replays ||= [];
 
+        $self->res->headers->header('Cache-Control' => 'max-age=0, must-revalidate');
+
         $self->respond(
             template => 'browse/index',
             stash => {
