@@ -285,7 +285,7 @@ sub onGameInit {
     my $packet = shift;
 
     if($packet->version =~ /World/i) {
-        die 'Incompatible version; parser only supports replays from 0.8.9 and up', "\n";
+        die 'Incompatible version; parser only supports replays from 0.8.9 and up, this replay reports as ', $packet->version, "\n";
     }
 
     $self->emit('game.version'   => $packet->version);
