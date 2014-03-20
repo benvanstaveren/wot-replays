@@ -19,6 +19,7 @@ sub _generate_mastery_data {
         } elsif(defined($e)) {
             $refresh = 1;
         } else {
+            $self->stash('last_update' => $d->{last_update} * 1000);
             return $cb->();
         }
 
@@ -61,6 +62,8 @@ sub _generate_mastery_data {
                 mastery => $tstats->{$vid}
             } => sub { $end->() });
         }
+
+        $self->stash('last_update' => time() * 1000);
 
         my $uend = $delay->begin(0);
         $self->model('wot-replays.statistics')->save({ _id => 'mastery', last_update => time() } => sub { $uend->() });
