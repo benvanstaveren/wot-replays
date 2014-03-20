@@ -85,11 +85,21 @@ sub index {
             foreach my $name (sort { $a cmp $b } (keys(%$vd))) {
                 push(@$list, { name => $name, mastery => $vd->{$name} });
             }
-                
-            $self->respond(template => 'statistics/mastery', stash => {
-                page        => { title => 'statistics.mastery.page.title' },
-                mastery     => $list
-            });
+
+            # if we're doing CSV...
+            if($self->stash('format') eq 'csv') {
+                my $csv = Text::CSV_XS->new;
+                $csv->column_names('Vehicle', 'Class 1', 'Class 2', 'Class 3', 'Ace');
+                foreach my $item (@$list) {
+                    $csv->combine($item->{name}, @{$item->{mastery}});
+                }
+                $self->render(text => $csv->string, format => 'csv');
+            } else {
+                $self->respond(template => 'statistics/mastery', stash => {
+                    page        => { title => 'statistics.mastery.page.title' },
+                    mastery     => $list
+                });
+            }
         });
     });
 }
