@@ -84,7 +84,7 @@ sub as_csv {
 
             my $csv = sprintf(q|"Vehicle","Class 1","Class 2","Class 3","Ace"|) . "\n";
             foreach my $name (sort { $a cmp $b } (keys(%$vd))) {
-                $csv .= sprintf('"%s",%s,%s,%s,%s' . "\n", $name, @{$vd->{$nae}});
+                $csv .= sprintf('"%s",%s,%s,%s,%s' . "\n", $name, @{$vd->{$name}});
             }
             $self->render(text => $csv, format => 'csv');
         });

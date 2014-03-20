@@ -352,8 +352,9 @@ sub install {
             $pbj->route('/setting')->to('profile#setting', pageid => 'profile');
 
     my $statistics = $r->under('/statistics');
-        $statistics->route('/mastery')->to('statistics-mastery#index', pageid => 'statistics/mastery');
-        $statistics->route('/mastery/csv')->to('statistics-mastery#as_csv', pageid => 'statistics/mastery');
+        my $mastery = $statistics->under('/mastery');
+            $mastery->route('/')->to('statistics-mastery#index', pageid => 'statistics/mastery');
+            $mastery->route('/mastery')->to('statistics-mastery#as_csv', pageid => 'statistics/mastery');
 
     my $admin = $r->bridge('/admin')->to('admin#bridge');
         $admin->route('/')->to('admin#index', pageid => 'admin/home');

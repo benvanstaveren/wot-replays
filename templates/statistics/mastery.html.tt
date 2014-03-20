@@ -4,7 +4,7 @@
     </div>
     <div class="row">
         <div class="col-lg-12 col-md-12">
-            <a href="/statistics/mastery/csv" class="pull-right"><span class="fa fa-download"></span> <span class="i18n">statistics.mastery.download.csv</span></a>
+            <a href="/statistics/mastery/mastery.csv" class="pull-right"><span class="fa fa-download"></span> <span class="i18n">statistics.mastery.download.csv</span></a>
             <table class="table table-bordered table-striped">
                 <colgroup>
                     <col style="width: 60%; text-align: left"/>
