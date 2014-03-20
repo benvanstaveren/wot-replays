@@ -26,29 +26,22 @@ sub _generate_mastery_data {
         # only use last week's battles
         my $query = {
             'game.started' => { '$gte' => Mango::BSON::bson_time((time() - (86400 * 7)) * 1000) },
+            'stats.markOfMastery' => { '$gte' => 1 },
         };
 
         my $tstats = {};
 
         my $cursor = $self->model('wot-replays.replays')->find($query)->fields({ stats => 1, 'game.recorder' => 1});
         while(my $replay = $cursor->next()) {
-            foreach my $popup (@{$replay->{stats}->{dossierPopUps}}) {
-                if($popup->[0] == 79) {
-                    # 79 is the ID for markOfMastery, popup->[1] contains the level
-                    my $level = $popup->[1];
-                    my $xp    = $replay->{stats}->{originalXP};
-                    my $vid   = $replay->{game}->{recorder}->{vehicle}->{ident};
-
-                    $tstats->{$vid} ||= [];
-                    if(!defined($tstats->{$vid}->[$level])) {
-                        $tstats->{$vid}->[$level] = $xp;
-                    } elsif($xp < $tstats->{$vid}->[$level]) {
-                        $tstats->{$vid}->[$level] = $xp;
-                    }
-                }
+            my $xp = $replay->{stats}->{originalXP};
+            my $level = $replay->{stats}->{markOfMastery};
+            my $vid   = $replay->{game}->{recorder}->{vehicle}->{ident};
+            if(!defined($tstats->{$vid}->[$level])) {
+                $tstats->{$vid}->[$level] = $xp;
+            } elsif($xp < $tstats->{$vid}->[$level]) {
+                $tstats->{$vid}->[$level] = $xp;
             }
         }
-
         return $cb->() if(scalar(keys(%$tstats)) < 1);
 
         my $delay = Mojo::IOLoop->delay(sub {
