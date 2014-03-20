@@ -85,8 +85,6 @@ sub register {
         my $self = shift;
         my $lang = shift;
 
-        $lang = 'common' if($lang eq 'en');
-
         return Data::Localize::Gettext->new(encoding => 'utf8', formatter => WR::Plugin::I18N::Formatter->new(), paths => $self->config('i18n_language_paths')->{$lang});
     });
 
