@@ -351,6 +351,9 @@ sub install {
             $pbj->route('/cr')->to('profile#cr', pageid => 'profile');
             $pbj->route('/setting')->to('profile#setting', pageid => 'profile');
 
+    my $statistics = $r->under('/statistics');
+        $statistics->route('/mastery')->to('statistics-mastery#index', pageid => 'statistics/mastery');
+
     my $admin = $r->bridge('/admin')->to('admin#bridge');
         $admin->route('/')->to('admin#index', pageid => 'admin/home');
         $admin->route('/usersonline')->to('admin#get_online_users');

@@ -25,6 +25,13 @@
             <li class="[% IF pageid == 'competition' %]active[% END %]"><a class="i18n" href="/competitions/">nav.competitions</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
+            [% IF h.is_the_boss %]
+            <li class="dropdown [% IF pageid.match('statistics') %]active[% END %]"><a class="dropdown-toggle" data-toggle="dropdown" href="/statistics/"><span class="i18n">nav.statistics</span> <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li class="[% IF pageid == 'statistics/mastery' %]active[% END %]"><a class="i18n" href="/statistics/mastery/">nav.statistics.mastery</a></li>
+                </ul>
+            </li>
+            [% END %]
             <li class="[% IF pageid == 'blog' %]active[% END %]"><a href="http://blog.wotreplays.org/">[% h.loc('nav.blog') %]</a></li>
             <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">[% h.loc('nav.tools') %] <b class="caret"></b></a>
                 <ul class="dropdown-menu">
