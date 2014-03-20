@@ -34,6 +34,7 @@ sub register {
 
     if(defined($app->config->{languages})) {
         foreach my $language (@{$app->config->{languages}}) {
+            next if($language->{ident} eq 'en');
             $g->{$language->{ident}} = [ 
                 @{$g->{'common'}}, 
                 $self->get_paths(for => $language->{ident}, using => $app) ,
