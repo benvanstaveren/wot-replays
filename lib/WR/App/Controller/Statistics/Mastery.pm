@@ -60,6 +60,9 @@ sub _generate_mastery_data {
                 mastery => $tstats->{$vid}
             } => sub { $end->() });
         }
+
+        my $uend = $delay->begin(0);
+        $self->model('wot-replays.statistics')->save({ _id => 'mastery', last_update => time() } => sub { $uend->() });
     });
 }
 
