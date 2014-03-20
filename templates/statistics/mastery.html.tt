@@ -27,10 +27,8 @@
                             <td>[% IF entry.mastery.2.defined %][% entry.mastery.2 %][% ELSE %]-[% END %]</td>
                             <td>[% IF entry.mastery.3.defined %][% entry.mastery.3 %][% ELSE %]-[% END %]</td>
                             <td>[% IF entry.mastery.4.defined %][% entry.mastery.4 %][% ELSE %]-[% END %]</td>
+                            <td><pre>[% h.dumper(entry) %]</pre></td>
                         </tr>
-                        <!-- 
-                            [% h.dumper(entry) %]
-                        -->
                     [% END %]
                 </tbody>
             </table>
