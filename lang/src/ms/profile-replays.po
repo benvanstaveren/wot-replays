@@ -1,3 +1,6 @@
+msgid "profile.replays.allprivacies"
+msgstr "semua"
+
 msgid "profile.replays.any"
 msgstr "%1 %quant(%1,rakaman,rakaman) menampilkan anda"
 

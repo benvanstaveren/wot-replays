@@ -1,17 +1,23 @@
-msgid "replays.earnings.xp.title"
-msgstr "XP Diraih"
+msgid "replays.earnings.credits.title"
+msgstr "Kredit Diraih"
+
+msgid "replays.earnings.crewxp.title"
+msgstr "XP Kru Diraih"
 
 msgid "replays.earnings.freexp.title"
 msgstr "XP Bebas Diraih"
 
-msgid "replays.earnings.credits.title"
-msgstr "Kredit Diraih"
-
-msgid "replays.earnings.text.premium"
-msgstr "premium"
+msgid "replays.earnings.text.ammo"
+msgstr "amunisi"
 
 msgid "replays.earnings.text.base"
 msgstr "dasar"
+
+msgid "replays.earnings.text.compensation"
+msgstr "pampasan"
+
+msgid "replays.earnings.text.consumables"
+msgstr "barangpakai"
 
 msgid "replays.earnings.text.daily"
 msgstr "harian"
@@ -19,26 +25,24 @@ msgstr "harian"
 msgid "replays.earnings.text.earned"
 msgstr "diraih"
 
-msgid "replays.earnings.text.subtotal"
-msgstr "jumlah kecil"
-
-msgid "replays.earnings.text.penalty"
-msgstr "denda"
-
 msgid "replays.earnings.text.event"
 msgstr "acara"
 
 msgid "replays.earnings.text.mission"
 msgstr "misi"
 
-msgid "replays.earnings.text.ammo"
-msgstr "amunisi"
+msgid "replays.earnings.text.penalty"
+msgstr "denda"
 
-msgid "replays.earnings.text.consumables"
-msgstr "barangpakai"
+msgid "replays.earnings.text.premium"
+msgstr "premium"
 
 msgid "replays.earnings.text.repair"
 msgstr "baik pulih"
 
-msgid "replays.earnings.text.compensation"
-msgstr "pampasan"
+msgid "replays.earnings.text.subtotal"
+msgstr "jumlah kecil"
+
+msgid "replays.earnings.xp.title"
+msgstr "XP Diraih"
+

@@ -1,0 +1,12 @@
+msgid "statistics.mastery.class1"
+msgstr "Class 1"
+
+msgid "statistics.mastery.page.header"
+msgstr "Statistics » Mastery"
+
+msgid "statistics.mastery.page.title"
+msgstr "Statistics &raquo; Mastery"
+
+msgid "statistics.mastery.vehicle"
+msgstr "Vehicle"
+

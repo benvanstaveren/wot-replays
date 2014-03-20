@@ -1,11 +1,11 @@
-msgid "heatmaps.page.title"
-msgstr "Peta Haba &raquo; %0"
+msgid "heatmaps.options.damage"
+msgstr "Kerosakan Diterima"
+
+msgid "heatmaps.options.deaths"
+msgstr "Pemusnahan"
 
 msgid "heatmaps.options.heading"
 msgstr "Opsyen"
-
-msgid "heatmaps.options.matchtype"
-msgstr "Jenis Pertempuran"
 
 msgid "heatmaps.options.heatmaptype"
 msgstr "Jenis Peta Haba"
@@ -13,9 +13,21 @@ msgstr "Jenis Peta Haba"
 msgid "heatmaps.options.locations"
 msgstr "Lokasi"
 
-msgid "heatmaps.options.damage"
+msgid "heatmaps.options.matchtype"
+msgstr "Jenis Pertempuran"
+
+msgid "heatmaps.page.title"
+msgstr "Peta Haba &raquo; %0"
+
+msgid "heatmaps.type.damage.done"
+msgstr "Kerosakan Dikenakan"
+
+msgid "heatmaps.type.damage.received"
 msgstr "Kerosakan Diterima"
 
-msgid "heatmaps.options.deaths"
+msgid "heatmaps.type.deaths"
 msgstr "Pemusnahan"
+
+msgid "heatmaps.type.locations"
+msgstr "Lokasi"
 

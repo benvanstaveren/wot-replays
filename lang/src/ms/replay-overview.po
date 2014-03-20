@@ -1,29 +1,113 @@
-msgid "replays.overview.damage.direct.title"
-msgstr "Kerosakan dikenakan secara langsung oleh pemain"
+msgid "replays.overview.awards.noawards"
+msgstr "Tiada pingat dianugerahkan"
 
-msgid "replays.overview.damage.direct.text"
-msgstr "Dikenakan"
+msgid "replays.overview.awards.title"
+msgstr "Anugerah"
 
-msgid "replays.overview.damage.assist.title"
-msgstr "Ahli pasukan mengenakan %1 mata kerosakan akibat pengesanan, %2 mata kerosakan akibat pemusnahan tali rantai"
+msgid "replays.overview.battleperformance.assisted"
+msgstr "Ahli pasukan mengenakan %1 mata (%2%) kerosakan akibat pengesanan, dan %3 mata (%4%) kerosakan akibat pemusnahan tali rantai"
+
+msgid "replays.overview.battleperformance.critdetail.text"
+msgstr "Pemain mengenakan %0 %quant(%0,kenaan kritikal,kenaan kritikal), klik untuk butiran"
+
+msgid "replays.overview.battleperformance.critdetail.title"
+msgstr "Butiran Kenaan Kritikal"
+
+msgid "replays.overview.battleperformance.damage"
+msgstr "Pemain mengenakan %1 mata (%2%) kerosakan"
+
+msgid "replays.overview.battleperformance.kill"
+msgstr "Pemain memusnahkan musuh ini"
+
+msgid "replays.overview.battleperformance.noassist"
+msgstr "Tiada kerosakan sokongan dikenakan"
+
+msgid "replays.overview.battleperformance.spotted"
+msgstr "Pemain mengesan kenderaan ini"
+
+msgid "replays.overview.battleperformance.teamdamage"
+msgstr "Pemain mengenakan %1 mata (%2%) kerosakan kepada sekutu"
+
+msgid "replays.overview.battleperformance.teamkill"
+msgstr "Pemain memusnahkan sekutu ini"
+
+msgid "replays.overview.battleperformance.title"
+msgstr "Prestasi"
+
+msgid "replays.overview.capture.cap.text"
+msgstr "Ditawan"
+
+msgid "replays.overview.capture.cap.title"
+msgstr "Mata tawanan pangkalan"
+
+msgid "replays.overview.capture.defend.text"
+msgstr "Dipertahan"
+
+msgid "replays.overview.capture.defend.title"
+msgstr "Mata pertahanan pangkalan"
+
+msgid "replays.overview.capture.title"
+msgstr "Penawanan"
 
 msgid "replays.overview.damage.assist.text"
 msgstr "Disokong"
 
-msgid "replays.overview.damage.received.title"
-msgstr "Kerosakan diterima pemain"
-
-msgid "replays.overview.damage.received.text"
-msgstr "Diterima"
-
-msgid "replays.overview.damage.average.title"
-msgstr "Purata kerosakan dikenakan untuk setiap tembakan menembus"
+msgid "replays.overview.damage.assist.title"
+msgstr "Ahli pasukan mengenakan %1 mata kerosakan akibat pengesanan, %2 mata kerosakan akibat pemusnahan tali rantai"
 
 msgid "replays.overview.damage.average.text"
 msgstr "Kerosakan/Tembakan"
 
-msgid "replays.overview.shots.title"
-msgstr "Tembakan"
+msgid "replays.overview.damage.average.title"
+msgstr "Purata kerosakan dikenakan untuk setiap tembakan menembus"
+
+msgid "replays.overview.damage.direct.text"
+msgstr "Dikenakan"
+
+msgid "replays.overview.damage.direct.title"
+msgstr "Kerosakan dikenakan secara langsung oleh pemain"
+
+msgid "replays.overview.damage.potentialreceived.text"
+msgstr "Potensi kerosakan diterima"
+
+msgid "replays.overview.damage.potentialreceived.title"
+msgstr "Potensi kerosakan diterima pemain"
+
+msgid "replays.overview.damage.radio.text"
+msgstr "Pengesanan"
+
+msgid "replays.overview.damage.radio.title"
+msgstr "Kerosakan dikenakan oleh sekutu akibat pengesanan"
+
+msgid "replays.overview.damage.received.text"
+msgstr "Diterima"
+
+msgid "replays.overview.damage.received.title"
+msgstr "Kerosakan diterima pemain"
+
+msgid "replays.overview.damage.title"
+msgstr "Kerosakan Diterima"
+
+msgid "replays.overview.damage.track.text"
+msgstr "Pemusnahan Trek"
+
+msgid "replays.overview.damage.track.title"
+msgstr "Kerosakan dikenakan oleh sekutu akibat pemusnahan trek"
+
+msgid "replays.overview.damagereceived.title"
+msgstr "Kerosakan Diterima"
+
+msgid "replays.overview.description"
+msgstr "Huraian"
+
+msgid "replays.overview.description.button.save"
+msgstr "Simpan"
+
+msgid "replays.overview.description.edit"
+msgstr "edit"
+
+msgid "replays.overview.description.none"
+msgstr "Tiada huraian"
 
 msgid "replays.overview.shots.fired"
 msgstr "Dilepaskan"
@@ -31,71 +115,12 @@ msgstr "Dilepaskan"
 msgid "replays.overview.shots.hits"
 msgstr "Mengena"
 
-msgid "replays.overview.shots.penetrations"
-msgstr "Menembus"
-
 msgid "replays.overview.shots.misses"
 msgstr "Tersasar"
 
-msgid "replays.overview.capture.title"
-msgstr "Penawanan"
+msgid "replays.overview.shots.penetrations"
+msgstr "Menembus"
 
-msgid "replays.overview.capture.cap.title"
-msgstr "Mata tawanan pangkalan"
+msgid "replays.overview.shots.title"
+msgstr "Tembakan"
 
-msgid "replays.overview.capture.cap.text"
-msgstr "Ditawan"
-
-msgid "replays.overview.capture.defend.title"
-msgstr "Mata pertahanan pangkalan"
-
-msgid "replays.overview.capture.defend.text"
-msgstr "Dipertahan"
-
-msgid "replays.overview.awards.title"
-msgstr "Anugerah"
-
-msgid "replays.overview.awards.noawards"
-msgstr "Tiada pingat dianugerahkan"
-
-msgid "replays.overview.description"
-msgstr "Huraian"
-
-msgid "replays.overview.description.edit"
-msgstr "edit"
-
-msgid "replays.overview.description.button.save"
-msgstr "Simpan"
-
-msgid "replays.overview.description.none"
-msgstr "Tiada huraian"
-
-msgid "replays.overview.battleperformance.title"
-msgstr "Prestasi"
-
-msgid "replays.overview.battleperformance.spotted"
-msgstr "Pemain mengesan kenderaan ini"
-
-msgid "replays.overview.battleperformance.assisted"
-msgstr "Ahli pasukan mengenakan %1 mata (%2%) kerosakan akibat pengesanan, dan %3 mata (%4%) kerosakan akibat pemusnahan tali rantai"
-
-msgid "replays.overview.battleperformance.noassist"
-msgstr "Tiada kerosakan sokongan dikenakan"
-
-msgid "replays.overview.battleperformance.critdetail.title"
-msgstr "Butiran Kenaan Kritikal"
-
-msgid "replays.overview.battleperformance.critdetail.text"
-msgstr "Pemain mengenakan %0 %quant(%0,kenaan kritikal,kenaan kritikal), klik untuk butiran"
-
-msgid "replays.overview.battleperformance.teamdamage"
-msgstr "Pemain mengenakan %1 mata (%2%) kerosakan kepada sekutu"
-
-msgid "replays.overview.battleperformance.damage"
-msgstr "Pemain mengenakan %1 mata (%2%) kerosakan"
-
-msgid "replays.overview.battleperformance.teamkill"
-msgstr "Pemain memusnahkan sekutu ini"
-
-msgid "replays.overview.battleperformance.kill"
-msgstr "Pemain memusnahkan musuh ini"

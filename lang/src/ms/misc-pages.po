@@ -1,0 +1,21 @@
+msgid "page.about.title"
+msgstr "Tentang Laman Web ini"
+
+msgid "page.credits.title"
+msgstr "Penghargaan"
+
+msgid "page.donate.title"
+msgstr "Mengapa Derma?"
+
+msgid "page.missions.title"
+msgstr "Tentang Misi-misi"
+
+msgid "page.replay.denied.title"
+msgstr "Akses Tidak Dibenarkan"
+
+msgid "replay.view.denied.header"
+msgstr "Akses Tidak Dibenarkan"
+
+msgid "replay.view.denied.text"
+msgstr "Maaf, anda tidak mempunyai kebenaran yang mencukupi untuk melihat rakaman ini."
+
