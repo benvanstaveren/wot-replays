@@ -3,5 +3,34 @@
         <h1>[% h.loc('statistics.mastery.page.header') %]</h1>
     </div>
     <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <table class="table table-bordered table-striped">
+                <colgroup>
+                    <col style="width: 60%; text-align: left">
+                    <col style="width: 10%; text-align: right">
+                    <col style="width: 10%; text-align: right">
+                    <col style="width: 10%; text-align: right">
+                    <col style="width: 10%; text-align: right">
+                </colgroup>
+                <thead>
+                    <th class="i18n">statistics.mastery.vehicle</th>
+                    <th class="i18n">statistics.mastery.class1</th>
+                    <th class="i18n">statistics.mastery.class2</th>
+                    <th class="i18n">statistics.mastery.class3</th>
+                    <th class="i18n">statistics.mastery.ace</th>
+                </thead>
+                <tbody>
+                    [% FOREACH entry IN mastery %]
+                        <tr>
+                            <td>[% entry.name %]</td>
+                            <td>[% IF entry.mastery.1.defined %][% entry.mastery.1 %][% ELSE %]-[% END %]</td>
+                            <td>[% IF entry.mastery.2.defined %][% entry.mastery.2 %][% ELSE %]-[% END %]</td>
+                            <td>[% IF entry.mastery.3.defined %][% entry.mastery.3 %][% ELSE %]-[% END %]</td>
+                            <td>[% IF entry.mastery.4.defined %][% entry.mastery.4 %][% ELSE %]-[% END %]</td>
+                        </tr>
+                    [% END %]
+                </tbody>
+            </table>
+        </div>
     </div>
 [% END %]
