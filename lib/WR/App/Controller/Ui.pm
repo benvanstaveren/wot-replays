@@ -141,7 +141,7 @@ sub xhr_qs {
 
 sub xhr_po {
     my $self = shift;
-    $self->res->headers->header('Cache-Control' => 'max-age=0');
+    $self->res->headers->header('Cache-Control' => 'max-age=0; private');
     $self->stash(catalog => $self->i18n_catalog);
     $self->stash(public_cache => 1);
     $self->render(template => 'xhr/po');
