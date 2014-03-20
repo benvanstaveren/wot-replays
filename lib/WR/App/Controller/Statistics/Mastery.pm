@@ -83,7 +83,7 @@ sub index {
 
             my $list = [];
             foreach my $name (sort { $a cmp $b } (keys(%$vd))) {
-                push(@$list, { name => $name, mastery => $vd-{$name} });
+                push(@$list, { name => $name, mastery => $vd->{$name} });
             }
                 
             $self->respond(template => 'statistics/mastery', stash => {
