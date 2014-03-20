@@ -1,6 +1,7 @@
 package WR::App::Controller::Statistics::Mastery;
 use Mojo::Base 'WR::App::Controller';
 use Mango::BSON;
+use Text::CSV_XS;
 
 sub _generate_mastery_data {
     my $self = shift;
@@ -66,6 +67,32 @@ sub _generate_mastery_data {
     });
 }
 
+sub as_csv {
+    my $self = shift;
+
+    $self->render_later;
+    $self->_generate_mastery_data(sub {
+        $self->model('wot-replays.statistics_mastery')->find()->all(sub {
+            my ($c, $e, $d) = (@_);
+
+            # sort the list based on the actual vehicle name
+            my $vd = {};
+            foreach my $doc (@$d) {
+                my $name = $self->loc($self->vehicle_name($doc->{_id}));
+                $vd->{$name} = $doc->{mastery};
+            }
+
+            my $csv = Text::CSV_XS->new;
+            $csv->column_names('Vehicle', 'Class 1', 'Class 2', 'Class 3', 'Ace');
+
+            foreach my $name (sort { $a cmp $b } (keys(%$vd))) {
+                $csv->combine($name, @{$vd->{$name}});
+            }
+            $self->render(text => $csv->string, format => 'csv');
+        });
+    });
+}
+
 sub index {
     my $self = shift;
 
@@ -86,20 +113,10 @@ sub index {
                 push(@$list, { name => $name, mastery => $vd->{$name} });
             }
 
-            # if we're doing CSV...
-            if($self->stash('format') eq 'csv') {
-                my $csv = Text::CSV_XS->new;
-                $csv->column_names('Vehicle', 'Class 1', 'Class 2', 'Class 3', 'Ace');
-                foreach my $item (@$list) {
-                    $csv->combine($item->{name}, @{$item->{mastery}});
-                }
-                $self->render(text => $csv->string, format => 'csv');
-            } else {
-                $self->respond(template => 'statistics/mastery', stash => {
-                    page        => { title => 'statistics.mastery.page.title' },
-                    mastery     => $list
-                });
-            }
+            $self->respond(template => 'statistics/mastery', stash => {
+                page        => { title => 'statistics.mastery.page.title' },
+                mastery     => $list
+            });
         });
     });
 }

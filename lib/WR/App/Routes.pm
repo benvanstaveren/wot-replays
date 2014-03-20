@@ -353,6 +353,7 @@ sub install {
 
     my $statistics = $r->under('/statistics');
         $statistics->route('/mastery')->to('statistics-mastery#index', pageid => 'statistics/mastery');
+        $statistics->route('/mastery/csv')->to('statistics-mastery#as_csv', pageid => 'statistics/mastery');
 
     my $admin = $r->bridge('/admin')->to('admin#bridge');
         $admin->route('/')->to('admin#index', pageid => 'admin/home');
