@@ -26,6 +26,7 @@
                 [% awardcount = awardcount + 1 %]
             [% END %]
         [% END %]
+        mom: [% replay.stats.markOfMastery %]
         [% IF replay.stats.markOfMastery > 0 %]
             [% title = h.loc('#achievements:markOfMastery').replace('\"%\(name\)s\"','') _ h.loc('#achievements:markOfMasteryContent/' _ replay.stats.markOfMastery _ '/info') %]
             [% awardcount = awardcount + 1 %]
