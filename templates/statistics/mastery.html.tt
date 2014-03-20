@@ -6,11 +6,11 @@
         <div class="col-lg-12 col-md-12">
             <table class="table table-bordered table-striped">
                 <colgroup>
-                    <col style="width: 60%; text-align: left">
-                    <col style="width: 10%; text-align: right">
-                    <col style="width: 10%; text-align: right">
-                    <col style="width: 10%; text-align: right">
-                    <col style="width: 10%; text-align: right">
+                    <col style="width: 60%; text-align: left"/>
+                    <col style="width: 10%; text-align: right"/>
+                    <col style="width: 10%; text-align: right"/>
+                    <col style="width: 10%; text-align: right"/>
+                    <col style="width: 10%; text-align: right"/>
                 </colgroup>
                 <thead>
                     <th class="i18n">statistics.mastery.vehicle</th>
@@ -28,6 +28,9 @@
                             <td>[% IF entry.mastery.3.defined %][% entry.mastery.3 %][% ELSE %]-[% END %]</td>
                             <td>[% IF entry.mastery.4.defined %][% entry.mastery.4 %][% ELSE %]-[% END %]</td>
                         </tr>
+                        <!-- 
+                            [% h.dumper(entry) %]
+                        -->
                     [% END %]
                 </tbody>
             </table>
