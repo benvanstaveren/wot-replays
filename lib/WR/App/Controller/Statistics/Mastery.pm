@@ -82,13 +82,11 @@ sub as_csv {
                 $vd->{$name} = $doc->{mastery};
             }
 
-            my $csv = Text::CSV_XS->new;
-            $csv->column_names('Vehicle', 'Class 1', 'Class 2', 'Class 3', 'Ace');
-
+            my $csv = sprintf(q|"Vehicle","Class 1","Class 2","Class 3","Ace"|) . "\n";
             foreach my $name (sort { $a cmp $b } (keys(%$vd))) {
-                $csv->combine($name, @{$vd->{$name}});
+                $csv .= sprintf('"%s",%s,%s,%s,%s' . "\n", $name, @{$vd->{$nae}});
             }
-            $self->render(text => $csv->string, format => 'csv');
+            $self->render(text => $csv, format => 'csv');
         });
     });
 }
