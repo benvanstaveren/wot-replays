@@ -1,8 +1,20 @@
 msgid "statistics.mastery.class1"
 msgstr "Class 1"
 
+msgid "statistics.mastery.class2"
+msgstr "Class 2"
+
+msgid "statistics.mastery.class3"
+msgstr "Class 3"
+
+msgid "statistics.mastery.ace"
+msgstr "Ace Tanker"
+
+msgid "statistics.mastery.download.csv"
+msgstr "Download as CSV file"
+
 msgid "statistics.mastery.page.header"
-msgstr "Statistics » Mastery"
+msgstr "Statistics &raquo; Mastery"
 
 msgid "statistics.mastery.page.title"
 msgstr "Statistics &raquo; Mastery"
