@@ -1,47 +1,29 @@
-msgid "nav.home"
-msgstr "Home"
-
-msgid "nav.competitions"
-msgstr "Competitions"
-
-msgid "nav.browse"
-msgstr "Browse"
-
-msgid "nav.upload"
-msgstr "Upload Replay"
-
 msgid "nav.admin"
 msgstr "Admin Panel"
-
-msgid "nav.signin"
-msgstr "Sign In"
-
-msgid "nav.players"
-msgstr "Players"
-
-msgid "nav.clans"
-msgstr "Clans"
-
-msgid "nav.maps"
-msgstr "Maps"
-
-msgid "nav.vehicles"
-msgstr "Vehicles"
 
 msgid "nav.blog"
 msgstr "News and Updates"
 
-msgid "nav.tools"
-msgstr "Tools"
+msgid "nav.browse"
+msgstr "Browse"
+
+msgid "nav.clans"
+msgstr "Clans"
+
+msgid "nav.competitions"
+msgstr "Competitions"
 
 msgid "nav.heatmaps"
 msgstr "Heatmaps"
 
-msgid "nav.tools.issuetracker"
-msgstr "Issue Tracker"
+msgid "nav.home"
+msgstr "Home"
 
-msgid "nav.tools.wiki"
-msgstr "Wiki"
+msgid "nav.maps"
+msgstr "Maps"
+
+msgid "nav.players"
+msgstr "Players"
 
 msgid "nav.profile.header"
 msgstr "Your Profile"
@@ -49,11 +31,36 @@ msgstr "Your Profile"
 msgid "nav.profile.replays"
 msgstr "Replays"
 
-msgid "nav.profile.uploads"
-msgstr "Uploads"
-
 msgid "nav.profile.settings"
 msgstr "Settings"
 
 msgid "nav.profile.signout"
 msgstr "Sign Out"
+
+msgid "nav.profile.uploads"
+msgstr "Uploads"
+
+msgid "nav.signin"
+msgstr "Sign In"
+
+msgid "nav.statistics"
+msgstr "Statistics"
+
+msgid "nav.statistics.mastery"
+msgstr "Mastery XP"
+
+msgid "nav.tools"
+msgstr "Tools"
+
+msgid "nav.tools.issuetracker"
+msgstr "Issue Tracker"
+
+msgid "nav.tools.wiki"
+msgstr "Wiki"
+
+msgid "nav.upload"
+msgstr "Upload Replay"
+
+msgid "nav.vehicles"
+msgstr "Vehicles"
+
