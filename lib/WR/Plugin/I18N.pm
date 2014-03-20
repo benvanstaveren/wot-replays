@@ -120,6 +120,7 @@ sub register {
             }
             foreach my $id (keys(%{$localizer->get_lexicon_map('site')})) {
                 $catalog->{$id} = $localizer->get_lexicon('site', $id);
+                $app->log->debug('adding ' . $id . ' to site catalog');
             }
             return $catalog;
         } else {
