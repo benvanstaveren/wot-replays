@@ -28,11 +28,15 @@
             <table class="table table-bordered table-striped">
                 <thead>
                     <th>[% h.loc('players.label.player') %]</th>
+                    <th></th>
+                    <th></th>
                 </thead>
                 <tbody>
                     [% FOREACH entry IN search_results %]
                         <tr>
                             <td><a href="/player/[% IF server == 'asia' %]sea[% ELSE %][% server %][% END %]/[% entry.nickname |uri %]">[% entry.nickname |html %]</a></td>
+                            <td><a class="btn btn-primary btn-sm" href="/player/[% IF server == 'asia' %]sea[% ELSE %][% server %][% END %]/[% entry.nickname |uri %]/m/*/mm/*/mt/*/p/1/pi/0/pp/1/s/*/sr/upload/vp/1">[% h.loc('players.view.recorded') %]</a></td>
+                            <td><a class="btn btn-default btn-sm" href="/player/[% IF server == 'asia' %]sea[% ELSE %][% server %][% END %]/[% entry.nickname |uri %]/m/*/mm/*/mt/*/p/1/pi/1/pp/0/s/*/sr/upload/vp/1">[% h.loc('players.view.involved') %]</a></td>
                         </tr>
                     [% END %]
                 </tbody>
