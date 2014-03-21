@@ -16,9 +16,9 @@
                 </colgroup>
                 <thead>
                     <th class="i18n">statistics.mastery.vehicle</th>
-                    <th class="i18n">statistics.mastery.class1</th>
-                    <th class="i18n">statistics.mastery.class2</th>
                     <th class="i18n">statistics.mastery.class3</th>
+                    <th class="i18n">statistics.mastery.class2</th>
+                    <th class="i18n">statistics.mastery.class1</th>
                     <th class="i18n">statistics.mastery.ace</th>
                 </thead>
                 <tbody>

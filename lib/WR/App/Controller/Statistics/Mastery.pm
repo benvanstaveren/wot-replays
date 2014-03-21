@@ -78,9 +78,11 @@ sub as_csv {
                 $vd->{$name} = $doc->{mastery};
             }
 
-            my $csv = sprintf(q|"Vehicle","Class 1","Class 2","Class 3","Ace"|) . "\n";
+            my $csv = sprintf(q|"Vehicle","Class 3","Class 2","Class 1","Ace"|) . "\n";
             foreach my $name (sort { $a cmp $b } (keys(%$vd))) {
-                $csv .= sprintf('"%s",%s,%s,%s,%s' . "\n", $name, @{$vd->{$name}});
+                my $data = [ @{$vd->{$name}} ];
+                shift(@$data);
+                $csv .= sprintf('"%s",%s,%s,%s,%s' . "\n", $name, @$data);
             }
             $self->render(text => $csv, format => 'csv');
         });
