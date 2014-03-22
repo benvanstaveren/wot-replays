@@ -1,0 +1,24 @@
+msgid "statistics.mastery.ace"
+msgstr "Panzerass"
+
+msgid "statistics.mastery.class1"
+msgstr "1. Klasse"
+
+msgid "statistics.mastery.class2"
+msgstr "2. Klasse"
+
+msgid "statistics.mastery.class3"
+msgstr "3. Klasse"
+
+msgid "statistics.mastery.download.csv"
+msgstr "Als CSV-Datei herunterladen"
+
+msgid "statistics.mastery.page.header"
+msgstr "Statistiken » Überlegenheitsabzeichen"
+
+msgid "statistics.mastery.page.title"
+msgstr "Statistiken » Überlegenheitsabzeichen"
+
+msgid "statistics.mastery.vehicle"
+msgstr "Fahrzeug"
+

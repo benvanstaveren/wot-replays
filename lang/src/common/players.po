@@ -1,8 +1,14 @@
 msgid "players.button.search.label"
 msgstr "Search"
 
+msgid "players.heading.results"
+msgstr "Results"
+
 msgid "players.heading.search"
 msgstr "Search"
+
+msgid "players.label.player"
+msgstr "Player"
 
 msgid "players.label.query"
 msgstr "Query"
@@ -16,8 +22,9 @@ msgstr "Search Players"
 msgid "players.page.title"
 msgstr "Search Players"
 
-msgid "players.heading.results"
-msgstr "Results"
+msgid "players.view.involved"
+msgstr "View involved replays"
 
-msgid "players.label.player"
-msgstr "Player"
+msgid "players.view.recorded"
+msgstr "View recorded replays"
+
