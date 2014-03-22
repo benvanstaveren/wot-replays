@@ -31,7 +31,7 @@
     <td class="playerDetails">
         [% FOREACH award IN player.stats.achievements.nsort %]
             [% IF h.get_achievements.is_battle(award) || h.get_achievements.is_repeatable(award) %]
-                <img src="[% config.urls.assets %]/icon/awards/24/[% h.get_achievements.index_to_idstr(award) %].png" style="height: 24px;" title="[% h.achievement_name(h.get_achievements.index_to_idstr(award)) %]" alt="[% h.achievement_name(h.get_achievements.index_to_idstr(award)) %]" class="bs-tooltip" data-placement="auto" data-toggle="tooltip" data-container="body"/>
+                <img src="[% config.urls.assets %]/icon/awards/24/[% h.get_achievements.index_to_idstr(award) %].png" style="height: 24px;" title="[% h.loc(h.achievement_name(h.get_achievements.index_to_idstr(award))) %]" alt="[% h.loc(h.achievement_name(h.get_achievements.index_to_idstr(award))) %]" class="bs-tooltip" data-placement="auto" data-toggle="tooltip" data-container="body"/>
             [% END %]
         [% END %]
     </td>
