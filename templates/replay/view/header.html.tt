@@ -39,7 +39,7 @@
                             [% ELSE %]
                                 <span class="pull-right label label-primary">[% h.loc('privacy.public') %]</span>
                             [% END %]
-                            <span class="pull-right" style="margin-right: 8px"><span class="fa fa-clock-o"></span> [% h.usertime('%d/%m/%Y %H:%M', replay.game.started) %]</span>
+                            <span class="pull-right" style="margin-right: 16px"><span class="fa fa-clock-o"></span> [% h.usertime('%d/%m/%Y %H:%M %Z', replay.game.started) %]</span>
                     </h4>
                     <div class="btn-group btn-group-justified">
                         [% button_template = "replay/view/buttons/" _ context _ ".html.tt" %]
