@@ -4,13 +4,13 @@
             <div 
                 data-placement="auto"
                 data-toggle="tooltip"
-                style="background: transparent url([% config.urls.assets %]/mapscreen/[% h.map_icon(replay) %]) no-repeat scroll 0 0;"
+                style="background: transparent url([% config.urls.assets %]/mapscreen/[% h.map_icon(replay) %]) no-repeat scroll 0 0; height: 97px"
                 class="rounded-tl"
                 >
                 <div style="width: 231px; height: 97px; background: transparent url([% config.urls.assets %]/mapscreen/overlay.png) no-repeat scroll 0 0">
                     <img src="[% config.urls.assets %]/vehicles/100/[% h.get_recorder_vehicle(replay).vehicle.icon %]" style="width: 160px; height: 100px; position: relative; top: 0px; left: 110px"/>
                 </div>
-                <span style="position: relative;" class="label label-default">[% h.loc('server.' _ replay.game.server) %]</span>
+                <span style="top: -89px; left: 8px; position: relative;" class="label label-default">[% h.loc('server.' _ replay.game.server) %]</span>
             </div>
         </div>
         <div class="col-lg-9 col-md-9">
