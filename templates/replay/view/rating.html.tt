@@ -5,6 +5,7 @@
         </div>
     [% ELSE %]
         [% type = h.current_user.settings.display.ratings %]
+        [% IF !type.defined %][% type = 'none' %][% END %]
         [% battle = 'replay/view/rating/battle_' _ type _ '.html.tt' %]
         [% overall = 'replay/view/rating/overall_' _ type _ '.html.tt' %]
         <div class="col-md-6 col-lg-6">
