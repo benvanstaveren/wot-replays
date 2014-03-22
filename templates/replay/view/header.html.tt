@@ -28,7 +28,6 @@
                 <div class="col-lg-12 col-md-12">
                     <h4 style="padding: 0px; margin: 0px 0px 5px 0px">
                             <span style="font-weight: normal">[% h.loc('replay.header.result') %]:</span><span>[% INCLUDE replay/view/matchresult.html.tt %]</span> 
-                            <span class="pull-right"><span class="fa fa-clock-o"></span> [% h.usertime('%d/%m/%Y %H:%M', replay.game.started) %]</span>
                             [% IF !replay.site.visible %]
                                 [% IF replay.site.privacy == 1 %]
                                     <span class="pull-right label label-default">[% h.loc('privacy.unlisted') %]</span>
@@ -40,6 +39,7 @@
                             [% ELSE %]
                                 <span class="pull-right label label-primary">[% h.loc('privacy.public') %]</span>
                             [% END %]
+                            <span class="pull-right"><span class="fa fa-clock-o"></span> [% h.usertime('%d/%m/%Y %H:%M', replay.game.started) %]</span>
                     </h4>
                     <div class="btn-group btn-group-justified">
                         [% button_template = "replay/view/buttons/" _ context _ ".html.tt" %]
