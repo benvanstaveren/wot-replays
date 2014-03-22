@@ -31,23 +31,11 @@ msgstr "Pemain mengenakan %1 mata (%2%) kerosakan kepada sekutu"
 msgid "replays.overview.battleperformance.teamkill"
 msgstr "Pemain memusnahkan sekutu ini"
 
-msgid "replays.overview.battleperformance.title"
-msgstr "Prestasi"
-
-msgid "replays.overview.capture.cap.text"
-msgstr "Ditawan"
-
 msgid "replays.overview.capture.cap.title"
 msgstr "Mata tawanan pangkalan"
 
-msgid "replays.overview.capture.defend.text"
-msgstr "Dipertahan"
-
 msgid "replays.overview.capture.defend.title"
 msgstr "Mata pertahanan pangkalan"
-
-msgid "replays.overview.capture.title"
-msgstr "Penawanan"
 
 msgid "replays.overview.damage.assist.text"
 msgstr "Disokong"
@@ -84,9 +72,6 @@ msgstr "Diterima"
 
 msgid "replays.overview.damage.received.title"
 msgstr "Kerosakan diterima pemain"
-
-msgid "replays.overview.damage.title"
-msgstr "Kerosakan Diterima"
 
 msgid "replays.overview.damage.track.text"
 msgstr "Pemusnahan Trek"

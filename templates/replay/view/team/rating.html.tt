@@ -1,16 +1,15 @@
-[% IF player.wn8.available %]
+[% IF player.wn8.available && h.current_user.settings.display.ratings != 'none' %]
     [% IF player.wn8.data.overall.defined %]
-        [% class = h.rating_status(player.wn8.data.overall) %]
+        [% secondclass = (h.current_user.settings.display.ratings == 'simplified') ? 'rating' : 'wn8' %]
+        [% class = (secondclass == 'rating') ? h.rating_status(player.wn8.data.overall) : h.wn8_color(player.wn8.data.overall) %]
         [% IF class %]
             <div 
                 title="[% h.loc('tooltip.rating.overall.' _ class) %]"
                 data-placement="auto" 
                 data-toggle="tooltip" 
-                class="bs-tooltip rating [% class %] rounded overall"
+                class="bs-tooltip [% secondclass %] [% class %] rounded overall"
                 style="margin: 2px; font-weight: bold; text-align: center; cursor: pointer"
-                href="http://statterbox.com/[% h.fix_server(replay.panel.server) %]/[% player.player.name |uri %]/"
-                >
-            </div>
+                >[% IF secondclass == 'wn8' %][% player.wn8.data.overall %][% END %]</div>
         [% ELSE %]
             <div 
                 title="[% h.loc('tooltip.rating.overall.none') %]"

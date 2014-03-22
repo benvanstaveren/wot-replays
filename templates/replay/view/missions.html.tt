@@ -1,6 +1,6 @@
 <h4>[% h.loc('replay.missions.heading') %]</h4>
 [% IF replay.mission_panel.defined %]
-    <table class="table table-bordered table-striped">
+    <table class="table table-bordered table-striped" id="missions-completed">
         <thead><th colspan="2">[% h.loc('replay.missions.completed') %]</th></thead>
         <tbody>
             [% FOREACH entry IN replay.mission_panel %]
@@ -47,7 +47,7 @@
             [% END %]
         </tbody>
     </table>
-    <table class="table table-bordered table-striped">
+    <table class="table table-bordered table-striped" id="missions-inprogress">
         <thead><th colspan="2">[% h.loc('replay.missions.inprogress') %]</th></thead>
         <tbody>
             [% FOREACH entry IN replay.mission_panel %]

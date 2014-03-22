@@ -96,7 +96,6 @@ sub process_upload {
             priority    => $prio,
         } => sub {
             my ($coll, $err, $oid) = (@_);
-
             if(defined($oid)) {
                 $upload->asset->move_to($replay_file);
 

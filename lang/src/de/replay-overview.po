@@ -31,23 +31,11 @@ msgstr "Spieler machte %1 Schadenspunkte (%2%) an einem Team-Mitglied"
 msgid "replays.overview.battleperformance.teamkill"
 msgstr "Spieler zerst&ouml;rte dieses Team-Mitglied"
 
-msgid "replays.overview.battleperformance.title"
-msgstr "Leistung"
-
-msgid "replays.overview.capture.cap.text"
-msgstr "Erobert"
-
 msgid "replays.overview.capture.cap.title"
 msgstr "Eroberungspunkte"
 
-msgid "replays.overview.capture.defend.text"
-msgstr "Verteidigt"
-
 msgid "replays.overview.capture.defend.title"
 msgstr "Verteidigungspunkte"
-
-msgid "replays.overview.capture.title"
-msgstr "Eroberung"
 
 msgid "replays.overview.damage.assist.text"
 msgstr "Unterst&uuml;tzt"
@@ -84,9 +72,6 @@ msgstr "Erhalten"
 
 msgid "replays.overview.damage.received.title"
 msgstr "Vom Spieler erhaltener Schaden"
-
-msgid "replays.overview.damage.title"
-msgstr "Erhaltener Schaden"
 
 msgid "replays.overview.damage.track.text"
 msgstr "Tracking"

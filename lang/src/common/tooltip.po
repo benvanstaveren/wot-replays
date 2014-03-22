@@ -43,3 +43,29 @@ msgstr "Player WN8 for this battle only"
 msgid "tooltip.team.average.wn8"
 msgstr "Average WN8 for this team"
 
+msgid "tooltip.rating.overall.verybad"
+msgstr "Very Bad"
+
+msgid "tooltip.rating.overall.bad"
+msgstr "Bad"
+
+msgid "tooltip.rating.overall.belowaverage"
+msgstr "Below Average"
+
+msgid "tooltip.rating.overall.average"
+msgstr "Average"
+
+msgid "tooltip.rating.overall.good"
+msgstr "Good"
+
+msgid "tooltip.rating.overall.verygood"
+msgstr "Very Good"
+
+msgid "tooltip.rating.overall.great"
+msgstr "Great"
+
+msgid "tooltip.rating.overall.unicum"
+msgstr "Unicum"
+
+msgid "tooltip.rating.overall.superunicum"
+msgstr "Super Unicum"

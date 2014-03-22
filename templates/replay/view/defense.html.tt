@@ -1,0 +1,24 @@
+<h4>[% h.loc('replays.overview.stats.defense.title') %]</h4>
+<table class="table table-bordered table-striped">
+    <colgroup>
+        <col style="width: 70%"/>
+        <col style="width: 30%"/>
+    </colgroup>
+    <tbody>
+        <tr>
+            <td><h5 style="margin: 0px" class="bs-tooltip damagereceiveddetail" data-placement="auto" data-toggle="tooltip" title="[% h.loc('replays.overview.damage.received.title') %]">[% h.loc('replays.overview.damage.received.text') %]</h5></td>
+            <td>
+                [% totalhealth = h.get_recorder_vehicle(replay).health.total %]
+                [% damageperc  = h.percentage_of(totalhealth, replay.stats.damageReceived) %]
+                <span class="bs-tooltip red" data-placement="auto" data-toggle="tooltip" title="[% h.loc('replays.overview.damage.received.title') %]">[% replay.stats.damageReceived || '0' %]</span> / <span class="red bs-tooltip" data-placement="auto" data-toggle="tooltip" title="[% h.loc('replays.overview.damage.potentialreceived.title') %]">[% replay.stats.potentialDamageReceived || '0' %]</span> 
+                <span class="red">([% damageperc %]%)</span>
+            </td>
+        </tr>
+        <tr>
+            <td><h5 style="margin: 0px">[% h.loc('replay.header.survived') %]</h4></td>
+            <td>
+                [% INCLUDE replay/view/survived.html.tt %]
+            </td>
+        </tr>
+    </tbody>
+</table>

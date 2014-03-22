@@ -1,5 +1,0 @@
-[% IF replay.game.recorder.survived %]<span class="green">[% h.loc('replay.header.survived.yes') %]</span>
-[% ELSE %]
-    [% roster = h.get_roster_by_vid(replay, h.get_recorder_vehicle(replay).stats.killerID) %]
-    <span class="red">[% h.loc('replay.header.survived.no') %]</span> - [% h.loc('replay.header.killedby') %] <a href="/player/[% replay.game.server %]/[% roster.player.name |uri %]">[% roster.player.name %]</a>
-[% END %]

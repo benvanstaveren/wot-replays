@@ -1,111 +1,56 @@
 [% WRAPPER wrapper.html.tt %]
     [% INCLUDE replay/view/header.html.tt context="index" %]
-    <div class="row replay-view" style="margin: 25px 0px 0px 0px">
-        <div class="
-        <div class="col-lg-12 col-md-12">
-            <ul class="nav nav-tabs nav-inverse" id="replay-tabs">
-                <li class="active"><a href="#vehicle-stats" data-toggle="tab">[% h.loc('replay.nav.overview') %]</a></li>
-                <li><a href="#earned" data-toggle="tab">[% h.loc('replay.nav.earnings') %]</a></li>
-                <li><a href="#missions" data-toggle="tab">[% h.loc('replay.nav.missions') %]</a></li>
-                <li><a href="#teams" data-toggle="tab">[% h.loc('replay.nav.teams') %]</a></li>
-                <li><a href="#vehicle-loadout" data-toggle="tab">[% h.loc('replay.nav.loadout') %]</a></li>
-                <li class="[% IF replay.chat.size < 1 %]disabled [% END %]"><a href="#battle-chat" data-toggle="tab">[% h.loc('replay.nav.chat') %]</a></li>
-                [% IF 1 == 0 %]
-                <li><a href="#comments" data-toggle="tab"><span>[% h.loc('replay.nav.comments') %]</span> <span class="badge sds-count" data-sds-identifier="replay_[% h.get_id(replay) %]">0</span></a></li>
-                [% END %]
-                <li class="pull-right">
-                    <span style="position: relative; top: 11px">[% h.usertime('%d/%m/%Y %H:%M:%S', replay.game.started) %]</span>
-                </li>
-            </ul>
-            <div class="tab-content">
-                <div id="vehicle-stats" class="tab-pane fade in active">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6">
-                            [% INCLUDE replay/view/desc.html.tt %]
-                        </div>
-                        <div class="col-lg-6 col-md-6">
-                            [% INCLUDE replay/view/vehicle_stats/awards.html.tt %]
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12">
-                            [% INCLUDE replay/view/vehicle_stats.html.tt %]
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12">
-                            [% INCLUDE replay/view/battleperformance.html.tt %]
-                        </div>
-                    </div>
+    <div class="row replay-container">
+        <div class="col-lg-10 col-md-10">
+            <a id="performance"></a>
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    [% INCLUDE replay/view/battleperformance.html.tt %]
                 </div>
-                <div id="earned" class="tab-pane fade">
-                    [% INCLUDE replay/view/vehicle_stats/earned.html.tt %]
+            </div>
+            [% INCLUDE replay/view/rating.html.tt %]
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    [% INCLUDE replay/view/desc.html.tt %]
                 </div>
-                <div id="missions" class="tab-pane fade">
+                <div class="col-lg-6 col-md-6">
+                    [% INCLUDE replay/view/awards.html.tt %]
+                </div>
+            </div>
+            <div class="row" id="performance-attackdefense">
+                <div class="col-lg-6 col-md-6">
+                    [% INCLUDE replay/view/attack.html.tt %]
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    [% INCLUDE replay/view/defense.html.tt %]
+                </div>
+            </div>
+            <div class="row" id="performance-playmisc">
+                <div class="col-lg-6 col-md-6">
+                    [% INCLUDE replay/view/playmaker.html.tt %]
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    [% INCLUDE replay/view/misc.html.tt %]
+                </div>
+            </div>
+            [% INCLUDE replay/view/earned.html.tt %]
+            [% INCLUDE replay/view/teams.html.tt %]
+            <div class="row" id="missions">
+                <div class="col-lg-12 col-md-12">
                     [% INCLUDE replay/view/missions.html.tt %]
                 </div>
-                <div id="vehicle-loadout" class="tab-pane fade">
-                    [% INCLUDE replay/view/vehicle_loadout.html.tt %]
-                </div>
-                <div id="teams" class="tab-pane fade">
-                    [% INCLUDE replay/view/teams.html.tt %]
-                </div>
-                [% IF replay.chat.size > 0 %]
-                <div id="battle-chat" class="tab-pane fade">
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12">
-                            <h4>[% h.loc('replay.chat.heading') %]</h4>
-                            <div class="well well-lg">
-                                [% FOREACH message IN replay.chat %]
-                                    [% parsed = h.parse_message(message) %]
-                                    <div class="row">
-                                        <div class="col-lg-3 col-md-3" style="color: [% parsed.base %]; border-right: #aaa 1px solid">
-                                            [% parsed.name.name %][% IF parsed.name.clan.defined %][[% parsed.name.clan %]][% END %]
-                                            <span class="pull-right" style="margin-right: 10px;">[% parsed.name.vehicle %]</span>
-                                        </div>
-                                        <div class="col-lg-9 col-md-9" style="color: [% parsed.text %]">
-                                            [% parsed.message %]
-                                        </div>
-                                    </div>
-                                [% END %]
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                [% END %]
-                [% IF 1 == 0 %]
-                <div id="comments" class="tab-pane fade">
-                    <div id="sds-comments" data-sds-identifier="replay_[% h.get_id(replay) %]">
-                    </div>
-                </div>
-                [% END %]
             </div>
-        </div>
-    </div>
-    <div id="embedModal" class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">[% h.loc('replay.modal.embed.title') %]</h4>
-                </div>
-                <div class="modal-body">
-                    <p>[% h.loc('replay.modal.embed.text') %]</p>
-                    <p>
-                        <img class="banner" style="width: 545px; height: 98px; margin: 0px auto" src="[% config.urls.banners %]/[% replay.site.banner.url_path %]"/>
-                    </p>
-                    <p>
-                        <textarea class="bbcode" style="width: 545px; resize: none" rows="5">
-[url=[% config.urls.app %]/replay/[% h.get_id(replay) %].html]
-[img][% config.urls.banners %]/[% replay.site.banner.url_path %][/img]
-[/url]
-                        </textarea>
-                    </p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default bs-tooltip" title="[% h.loc('replay.modal.embed.button.close.title') %]" data-dismiss="modal">[% h.loc('replay.modal.embed.button.close.text') %]</button>
+            [% INCLUDE replay/view/loadout.html.tt %]
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    [% INCLUDE replay/view/chat.html.tt %]
                 </div>
             </div>
         </div>
+        <div class="col-lg-2 col-md-2">
+            [% INCLUDE replay/view/sidebar.html.tt %]
+        </div>
     </div>
+    [% INCLUDE replay/view/modals.html.tt %]
     [% INCLUDE replay/view/script.js.tt %]
 [% END %]

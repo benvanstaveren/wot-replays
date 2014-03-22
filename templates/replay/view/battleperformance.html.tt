@@ -1,26 +1,25 @@
-<h4>[% h.loc('replays.overview.battleperformance.title') %]</h4>
+<h4 style="margin-top: 0px" id="performance-overview">[% h.loc('replays.overview.battleperformance.title') %]</h4>
 <div class="well">
-<table class="table table-bordered team-list table-striped">
-    <colgroup>
-        <col class="vehicleIcon"/>
-        <col class="playerName"/>
-        <col class="iconBar"/>
-    </colgroup>
-    <tbody>
-        [% INCLUDE replay/view/battleperformance/list.html.tt %]
-    </tbody>
-</table>
+    <table class="table table-bordered team-list table-striped">
+        <colgroup>
+            <col class="vehicleIcon"/>
+            <col class="playerName"/>
+            <col class="iconBar"/>
+        </colgroup>
+        <tbody>
+            [% INCLUDE replay/view/battleperformance/list.html.tt %]
+        </tbody>
+    </table>
 </div>
 <script type="text/javascript">
     var critDetails = {};
-
     [% FOREACH pid IN replay.stats.details.keys %]
         [% details = replay.stats.details.$pid %]
         [% cd = h.get_crit_details(details.crits) %]
         [% IF cd.count > 0 %]
             critDetails['[% pid %]'] = {
                 'title': '[% h.loc('replays.overview.battleperformance.critdetail.title') %]',
-                'placement': 'right',
+                'placement': 'bottom',
                 'container': 'body',
                 'html': true,
                 'content': '<table class="table table-bordered"><thead><th>[% h.loc('critdetails.damaged') |ucfirst %]</th><th>[% h.loc('critdetails.destroyed') |ucfirst %]</th><th>[% h.loc('critdetails.crew') |ucfirst %]</th></thead><tbody><tr><td>' +
@@ -39,7 +38,6 @@
             }
         [% END %]
     [% END %]
-
     $(document).ready(function() {
         $('.bs-popover-cd').each(function(i, e) {
             var pid = $(e).attr('player');

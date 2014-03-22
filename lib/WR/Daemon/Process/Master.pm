@@ -281,6 +281,7 @@ sub start {
         } else {
             $self->debug('received connect, status 1');
         }
+        $self->last_hb_received(time);
     });
 
     $self->push->on('open' => sub {
@@ -322,7 +323,6 @@ sub start {
         }
     });
 
-    $self->reload_work_list; 
     $self->timers->{'work'} = Mojo::IOLoop->recurring(1 => sub {
         return unless($self->has_work);
         return if($self->pause_work);
@@ -336,6 +336,7 @@ sub start {
     });
     $self->debug('about to connect');
     $self->push->connect;
+    $self->reload_work_list; 
     Mojo::IOLoop->start unless Mojo::IOLoop->is_running;
 }
 

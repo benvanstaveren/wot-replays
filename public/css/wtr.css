@@ -1796,6 +1796,9 @@ div.map {
   div.map.map_87_ruinberg_on_fire {
     background: transparent url(//images.wotreplays.org/maps/768//87_ruinberg_on_fire.png) no-repeat scroll center center; }
 
+body {
+  position: relative; }
+
 div.row.replay-view h4 {
   margin: 15px 0px 10px 0px; }
 div.heroawardlist {
@@ -2000,3 +2003,88 @@ div.bs-popover div.foo {
 
 ul.section-list li ul li a {
   padding: 2px 15px; }
+
+.bs-replay-sidebar.affix {
+  position: static; }
+
+.bs-replay-sidebar .nav > li > a {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: #999;
+  padding: 4px 20px; }
+
+.bs-replay-sidebar .nav > li > a:hover,
+.bs-replay-sidebar .nav > li > a:focus {
+  padding-left: 19px;
+  color: #563d7c;
+  text-decoration: none;
+  background-color: transparent;
+  border-left: 1px solid #563d7c; }
+
+.bs-replay-sidebar .nav > .active > a,
+.bs-replay-sidebar .nav > .active:hover > a,
+.bs-replay-sidebar .nav > .active:focus > a {
+  padding-left: 18px;
+  font-weight: bold;
+  color: #007196;
+  background-color: transparent;
+  border-left: 2px solid #007196; }
+
+/* Nav: second level (shown on .active) */
+.bs-replay-sidebar .nav .nav {
+  padding-bottom: 10px; }
+
+.bs-replay-sidebar .nav .nav > li > a {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 30px;
+  font-size: 12px;
+  font-weight: normal; }
+
+.bs-replay-sidebar .nav .nav > li > a:hover,
+.bs-replay-sidebar .nav .nav > li > a:focus {
+  padding-left: 29px; }
+
+.bs-replay-sidebar .nav .nav > .active > a,
+.bs-replay-sidebar .nav .nav > .active:hover > a,
+.bs-replay-sidebar .nav .nav > .active:focus > a {
+  font-weight: 500;
+  padding-left: 28px; }
+
+@media (min-width: 992px) {
+  .bs-replay-sidebar .nav > .active > ul {
+    display: block; }
+
+  /* Widen the fixed sidebar */
+  .bs-replay-sidebar.affix {
+    position: fixed;
+    /* Undo the static from mobile first approach */ }
+
+  .bs-replay-sidebar.affix-bottom {
+    position: absolute;
+    /* Undo the static from mobile first approach */ }
+
+  .bs-replay-sidebar.affix-bottom .bs-docs-sidenav,
+  .bs-replay-sidebar.affix .bs-docs-sidenav {
+    margin-top: 0;
+    margin-bottom: 0; } }
+@media (min-width: 1200px) {
+  /* Widen the fixed sidebar again */ }
+.bs-replaysidebar.affix-top {
+  top: 170px; }
+
+.bs-replaysidebar.affix {
+  top: 170px; }
+
+.replay-container div div div h4 {
+  margin-top: 50px; }
+
+.replay-rating {
+  min-height: 64px;
+  height: 64px;
+  max-height: 64px;
+  font-size: 200%;
+  font-weight: bold;
+  padding: 12px 2px 2px 2px;
+  text-align: center; }

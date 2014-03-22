@@ -1,0 +1,24 @@
+<h4>[% h.loc('replays.overview.stats.attack.title') %]</h4>
+<table class="table table-bordered table-striped">
+    <tbody>
+        <tr>
+            <td><h5 style="margin: 0px">[% h.loc('replays.overview.shots.fired') %]</h5></td>
+            <td>
+                [% accuracy = h.percentage_of(replay.stats.shots, replay.stats.hits) %]
+                <span class="bs-tooltip [% IF accuracy >= 70 %]green[% ELSIF accuracy <= 30 %]red[% END %]" title="[% h.loc('replay.stats.hits.tooltip', replay.stats.hits, accuracy) %]">[% replay.stats.hits || '0' %]</span> / <span class="bs-tooltip" title="[% h.loc('replay.stats.shots.tooltip', replay.stats.shots, accuracy) %]">[% replay.stats.shots || '0' %]</span> <span class="bs-tooltip [% IF accuracy >= 70 %]green[% ELSIF accuracy <= 30 %]red[% END %]" title="[% h.loc('replay.stats.accuracy.tooltip') %]">([% accuracy %]%)</span>
+            </td>
+        </tr>
+        <tr>
+            <td><h5 style="margin: 0px;">[% h.loc('replays.overview.shots.penetrations') %]</h5></td>
+            <td>
+                [% penperc = h.percentage_of(replay.stats.hits, replay.stats.pierced) %]
+                <span class="bs-tooltip [% IF penperc >= 70 %]green[% ELSIF penperc <= 30 %]red[% END %]" title="[% h.loc('replay.stats.pierced.tooltip') %]">[% replay.stats.pierced || '0' %]</span> / <span>[% replay.stats.hits || '0' %]</span>
+                <span class="bs-tooltip [% IF penperc >= 70 %]green[% ELSIF penperc <= 30 %]red[% END %]" title="[% h.loc('replay.stats.penperc.tooltip') %]">([% penperc %]%)</span>
+            </td>
+        </tr>
+        <tr>
+            <td><h5 style="margin: 0px" class="bs-tooltip"  data-placement="auto" data-toggle="tooltip" title="[% h.loc('replays.overview.damage.tooltip') %]">[% h.loc('replays.overview.damage.text') %]</h5></td>
+            <td>[% replay.stats.damageDealt || '0' %]</td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,6 @@
+[% IF replay.game.recorder.survived %]
+    <span class="green">[% h.loc('replay.header.survived.yes') %]</span>
+[% ELSE %]
+    [% roster = h.get_roster_by_vid(replay, h.get_recorder_vehicle(replay).stats.killerID) %]
+    <span class="red bs-tooltip" title="[% h.loc('replay.killedby', roster.player.name) %]">[% h.loc('replay.header.survived.no') %]</span>
+[% END %]

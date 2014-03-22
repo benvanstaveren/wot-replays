@@ -1,0 +1,25 @@
+<div id="embedModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">[% h.loc('replay.modal.embed.title') %]</h4>
+            </div>
+            <div class="modal-body">
+                <p>[% h.loc('replay.modal.embed.text') %]</p>
+                <p>
+                    <img class="banner" style="width: 545px; height: 98px; margin: 0px auto" src="[% config.urls.banners %]/[% replay.site.banner.url_path %]"/>
+                </p>
+                <p>
+                    <textarea class="bbcode" style="width: 545px; resize: none" rows="5">
+[url=[% config.urls.app %]/replay/[% h.get_id(replay) %].html]
+[img][% config.urls.banners %]/[% replay.site.banner.url_path %][/img]
+[/url]
+                    </textarea>
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default bs-tooltip" title="[% h.loc('replay.modal.embed.button.close.title') %]" data-dismiss="modal">[% h.loc('replay.modal.embed.button.close.text') %]</button>
+            </div>
+        </div>
+    </div>
+</div>

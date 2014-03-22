@@ -1,0 +1,35 @@
+<h4>[% h.loc('replays.earnings.freexp.title') %]</h4>
+<table class="table table-bordered table-striped">
+    <colgroup>
+        <col style="width: 50%"/>
+        <col style="width: 50%"/>
+    </colgroup>
+    <tbody>
+        <tr>
+            <td><h5 style="margin: 0px">[% h.loc('replays.earnings.text.base') |ucfirst %]</h5></td>
+            <td>[% replay.stats.originalFreeXP %]</td>
+        </tr>
+        [% IF replay.stats.isPremium == 1 %]
+            <tr>
+                <td><h5 style="margin: 0px">+ [% h.loc('replays.earnings.text.premium') |ucfirst %] [% h.sprintf('%.1f', replay.stats.premiumXPFactor10 / 10) %]x</td>
+                <td>
+                    [% subtotal = (replay.stats.originalFreeXP * replay.stats.premiumXPFactor10) / 10 %]
+                    [% h.int(subtotal - replay.stats.originalFreeXP) %]
+                </td>
+            </tr>
+        [% END %]
+        [% IF replay.stats.dailyXPFactor10 > 10 %]
+            <tr>
+                <td><h5 style="margin: 0px">+ [% replay.stats.dailyXPFactor10 / 10 %]x [% h.loc('replays.earnings.text.daily') |ucfirst %]</td>
+                <td>
+                    [% subtotal = (replay.stats.originalFreeXP * replay.stats.dailyXPFactor10) / 10 %]
+                    [% h.int(subtotal - replay.stats.originalFreeXP) %]
+                </td>
+            </tr>
+        [% END %]
+        <tr>
+            <td><h5 style="margin: 0px">[% h.loc('replays.earnings.text.earned') |ucfirst %]</h5></td>
+            <td>[% replay.stats.freeXP %]</td>
+        </tr>
+    </tbody>
+</table>

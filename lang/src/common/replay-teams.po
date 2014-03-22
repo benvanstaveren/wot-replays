@@ -1,6 +1,12 @@
 msgid "replays.team.title"
 msgstr "Team %1"
 
+msgid "replays.team.title.1"
+msgstr "Player Team"
+
+msgid "replays.team.title.2"
+msgstr "Enemy Team"
+
 msgid "replays.team.tank.text"
 msgstr "Tank"
 

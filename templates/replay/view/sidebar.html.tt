@@ -1,0 +1,50 @@
+<div class="bs-replay-sidebar">
+    <ul class="bs-replay-sidenav nav">
+        <li class="active">
+            <a href="#performance">[% h.loc('replay.view.performance') %]</a>
+            <ul class="nav">
+                <li><a href="#performance-overview">[% h.loc('replay.view.performance.overview') %]</a></li>
+                <li><a href="#performance-ratings">[% h.loc('replay.view.performance.ratings') %]</a></li>
+                <li><a href="#performance-awards">[% h.loc('replay.view.performance.awards') %]</a></li>
+                <li><a href="#performance-attackdefense">[% h.loc('replay.view.performance.attackdefense') %]</a></li>
+                <li><a href="#performance-playmisc">[% h.loc('replay.view.performance.playmisc') %]</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#earned">[% h.loc('replay.view.earnings') %]</a>
+            <ul class="nav">
+                <li><a href="#earned-xp">[% h.loc('replay.view.earnings.xp') %]</a></li>
+                <li><a href="#earned-credits">[% h.loc('replay.view.earnings.credits') %]</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#teams">[% h.loc('replay.view.teams') %]</a>
+            <ul class="nav">
+                <li><a href="#teams-player">[% h.loc('replay.view.teams.player') %]</a></li>
+                <li><a href="#teams-enemy">[% h.loc('replay.view.teams.enemy') %]</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#missions">[% h.loc('replay.view.missions') %]</a>
+            <ul class="nav">
+                <li><a href="#missions-completed">[% h.loc('replay.view.missions.completed') %]</a></li>
+                <li><a href="#missions-inprogress">[% h.loc('replay.view.missions.inprogress') %]</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#loadout">[% h.loc('replay.view.loadout') %]</a>
+            <ul class="nav">
+                <li><a href="#loadout-equipment">[% h.loc('replay.view.loadout.equipment') %]</a></li>
+                <li><a href="#loadout-modules">[% h.loc('replay.view.loadout.modules') %]</a></li>
+                <li><a href="#loadout-consumables">[% h.loc('replay.view.loadout.consumables') %]</a></li>
+                <li><a href="#loadout-ammo">[% h.loc('replay.view.loadout.ammo') %]</a></li>
+                <li><a href="#loadout-camo">[% h.loc('replay.view.loadout.camo') %]</a></li>
+                <li><a href="#loadout-emblems">[% h.loc('replay.view.loadout.emblems') %]</a></li>
+                <li><a href="#loadout-inscriptions">[% h.loc('replay.view.loadout.inscriptions') %]</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#battle-chat">[% h.loc('replay.view.chat') %]</a>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,63 @@
+<h4>[% h.loc('replays.earnings.credits.title') %]</h4>
+<table class="table table-bordered table-striped">
+    <colgroup>
+        <col style="width: 50%"/>
+        <col style="width: 50%"/>
+    </colgroup>
+    <tbody>
+        <tr>
+            <td><h5 style="margin: 0px">[% h.loc('replays.earnings.text.base') |ucfirst %]</h5></td>
+            <td>[% replay.stats.originalCredits %]</td>
+        </tr>
+        [% IF replay.stats.isPremium == 1 %]
+            <tr>
+                <td><h5 style="margin: 0px">+ [% h.loc('replays.earnings.text.premium') |ucfirst %] [% h.sprintf('%.1f', replay.stats.premiumXPFactor10 / 10) %]x</td>
+                <td>
+                    [% subtotal = (replay.stats.originalCredits * replay.stats.premiumXPFactor10) / 10 %]
+                    [% h.int(subtotal - replay.stats.originalCredits) %]
+                </td>
+            </tr>
+        [% END %]
+        [% IF replay.stats.eventCredits > 0 %]
+            <tr>
+                <td><h5 style="margin: 0px">+ [% h.loc('replays.earnings.text.event') |ucfirst %]/[% h.loc('replays.earnings.text.mission') |ucfirst %]</td>
+                <td>
+                    [% replay.stats.eventCredits %]
+                </td>
+            </tr>
+        [% END %]
+        <tr>
+            <td><h5 style="margin: 0px">[% h.loc('replays.earnings.text.subtotal') |ucfirst %]</h5></td>
+            <td>[% replay.stats.credits %]</td>
+        </tr>
+        <tr>
+            <td><h5 style="margin: 0px">- [% h.loc('replays.earnings.text.ammo') |ucfirst %]</h5></td>
+            <td>[% replay.stats.autoLoadCost.0 %]</td>
+        </tr>
+        <tr>
+            <td><h5 style="margin: 0px">- [% h.loc('replays.earnings.text.consumables') |ucfirst %]</h5></td>
+            <td>[% replay.stats.autoEquipCost.0 %]</td>
+        </tr>
+        <tr>
+            <td><h5 style="margin: 0px">- [% h.loc('replays.earnings.text.repair') |ucfirst %]</h5></td>
+            <td>[% replay.stats.repair %]</td>
+        </tr>
+        [% IF replay.stats.creditsPenalty > 0 %]
+            <tr>
+                <td><h5 style="margin: 0px">- [% h.loc('replays.earnings.text.penalty') |ucfirst %]</h5></td>
+                <td>[% replay.stats.creditsPenalty %]</td>
+            </tr>
+        [% END %]
+        [% IF replay.stats.creditsContributionIn > 0 %]
+            <tr>
+                <td><h5 style="margin: 0px">+ [% h.loc('replays.earnings.text.compensation') |ucfirst %]</h5></td>
+                <td>[% replay.stats.creditsContributionIn %]</td>
+            </tr>
+        [% END %]
+        <tr>
+            <td><h5 style="margin: 0px">[% h.loc('replays.earnings.text.earned') |ucfirst %]</h5></td>
+            [% credits_earned = replay.stats.credits - (replay.stats.autoEquipCost.0 + replay.stats.autoLoadCost.0 + replay.stats.repair + replay.stats.creditsPenalty) + replay.stats.creditsContributionIn %]
+            <td><span class="[% IF credits_earned > 0 %]green[% ELSE %]red[% END %]">[% credits_earned %]</span></td>
+        </tr>
+    </tbody>
+</table>

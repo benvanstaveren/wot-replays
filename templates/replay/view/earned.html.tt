@@ -1,0 +1,17 @@
+<a id="earned"></a>
+<div class="row" id="earned-xp">
+    <div class="col-md-4 col-lg-4">
+        [% INCLUDE replay/view/earned/xp.html.tt %]
+    </div>
+    <div class="col-md-4 col-lg-4">
+        [% INCLUDE replay/view/earned/freexp.html.tt %]
+    </div>
+    <div class="col-md-4 col-lg-4">
+        [% INCLUDE replay/view/earned/crewxp.html.tt %]
+    </div>
+</div>
+<div class="row" id="earned-credits">
+    <div class="col-lg-12 col-md-12">
+        [% INCLUDE replay/view/earned/credits.html.tt %]
+    </div>
+</div>

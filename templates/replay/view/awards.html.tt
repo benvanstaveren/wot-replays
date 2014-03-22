@@ -1,4 +1,4 @@
-<h4>[% h.loc('replays.overview.awards.title') %]</h4>
+<h4 id="performance-awards">[% h.loc('replays.overview.awards.title') %]</h4>
 <div class="well">
     <div class="heroawardlist clearfix">
         [% awardcount = 0 %]

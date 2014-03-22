@@ -13,8 +13,12 @@
         $('.btn-battleheatmap').on('click', function() {
             if($(this).hasClass('disabled')) return false;
         });
+        $(document.body).scrollspy({ target: '.bs-replay-sidebar' });
+        $('.bs-replay-sidebar').affix();
+        $(window).on('load', function() {
+            $(document.body).scrollspy('refresh');
+        });
     });
-
     WR.on('ready', function() {
         this.SDS.setContainer($('#sds-comments')).getComments();
     });

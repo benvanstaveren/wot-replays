@@ -1,7 +1,8 @@
 [% recv    = h.get_recorder_vehicle(replay) %]
 [% fitting = recv.vehicle.fitting || recv.player.vehicleFitting %]
-<div class="row">
-    <div class="col-lg-6 col-md-6">
+<a id="loadout"></a>
+<div class="row" id="loadout-equipment">
+    <div class="col-lg-12 col-md-12">
         <h4>[% h.loc('replay.loadout.equipment.heading') |ucfirst %]</h4>
         <ul class="list-group">
             [% FOREACH eq IN fitting.optional_devices %]
@@ -20,7 +21,9 @@
             [% END %]
         </ul>
     </div>
-    <div class="col-lg-6 col-md-6">
+</div>
+<div class="row" id="loadout-modules">
+    <div class="col-lg-12 col-md-12">
         [% pv = h.get_recorder_vehicle(replay).vehicle %]
         <h4>[% h.loc('replay.loadout.modules.heading') |ucfirst %]</h4>
         [% BLOCK component_row %]
@@ -38,8 +41,9 @@
         </ul>
     </div>
 </div>
-<div class="row">
-    <div class="col-lg-6 col-md-6">
+<div class="row" id="loadout-consumables">
+    <div class="col-lg-12 col-md-12">
+        <h4>[% h.loc('replay.loadout.consumables.heading') |ucfirst %]</h4>
         [% IF replay.game.recorder.consumables.defined %]
             [% BLOCK consumable_row %]
                 <li class="list-group-item">
@@ -48,7 +52,6 @@
                     <span class="equipment-desc i18n">[% h.consumable_desc(replay.game.recorder.consumables.$index) %]</span>
                 </li>
             [% END %]
-            <h4>[% h.loc('replay.loadout.consumables.heading') |ucfirst %]</h4>
             <ul class="list-group">
                 [% IF replay.game.recorder.consumables.0.defined %]
                     [% INCLUDE consumable_row i18n_attr=h.i18n_attr({ title => [ h.consumable_name(replay.game.recorder.consumables.0), {} ]}) index=0  %]
@@ -60,9 +63,14 @@
                     [% INCLUDE consumable_row i18n_attr=h.i18n_attr({ title => [ h.consumable_name(replay.game.recorder.consumables.2), {} ]}) index=2  %]
                 [% END %]
             </ul>
+        [% ELSE %]
+            <em>[% h.loc('replay.view.consumables.none') %]</em>
         [% END %]
     </div>
-    <div class="col-lg-6 col-md-6">
+</div>
+<div class="row" id="loadout-ammo">
+    <div class="col-lg-12 col-md-12">
+        <h4>[% h.loc('replay.loadout.ammunition.heading') |ucfirst %]</h4>
         [% IF replay.game.recorder.ammo.defined %]
             [% BLOCK ammo_row %]
                 <li class="list-group-item">
@@ -71,7 +79,6 @@
                     <span class="equipment-name single"><span>[% an.0 %]</span> <span class="i18n">[% an.1 %]</span></span>
                 </li>
             [% END %]
-            <h4>[% h.loc('replay.loadout.ammunition.heading') |ucfirst %]</h4>
             <ul class="list-group">
                 [% IF replay.game.recorder.ammo.0.defined %]
                     [% INCLUDE ammo_row index=0 %]
@@ -83,17 +90,19 @@
                     [% INCLUDE ammo_row index=2 %]
                 [% END %]
             </ul>
+        [% ELSE %]
+            <em>[% h.loc('replay.view.ammo.none') %]</em>
         [% END %]
     </div>
 </div>
-<div class="row">
+<div class="row" id="loadout-camo">
     [% pv = h.get_recorder_vehicle(replay) %]
     [% camo = pv.player.vehicleFitting.camo %]
     [% emblems = pv.player.vehicleFitting.emblems %]
     [% inscriptions = pv.player.vehicleFitting.inscriptions %]
-    <div class="col-lg-6 col-md-6">
+    <div class="col-lg-12 col-md-12">
+        <h4>[% h.loc('replay.loadout.camouflage.heading') %]</h4>
         [% IF h.defined_count(camo) > 0 %]
-            <h4>[% h.loc('replay.loadout.camouflage.heading') %]</h4>
             <table class="table table-bordered rounded">
                 <tbody>
                 [% FOREACH entry IN camo %]
@@ -107,32 +116,44 @@
                 [% END %]
                 </tbody>
             </table>
+        [% ELSE %]
+            <em>[% h.loc('replay.view.camo.none') %]</em>
         [% END %]
     </div>
-    <div class="col-lg-6 col-md-6">
+</div>
+<div class="row" id="loadout-emblems">
+    <div class="col-lg-12 col-md-12">
+        <h4>[% h.loc('replay.loadout.emblems.heading') %]</h4>
         [% IF h.defined_count(emblems) > 0 %]
-            <h4>[% h.loc('replay.loadout.emblems.heading') %]</h4>
             <div class="row">
                 [% FOREACH entry IN emblems %]
                     [% IF entry.defined %]
                         [% e = h.get_emblem_by_id(entry.0) %]
-                        <div data-placement="bottom" data-toggle="tooltip" class="col-lg-6 col-md-6 bs-tooltip" title="[% h.loc(e.i18n) %]" style="min-height: 64px; background: transparent url([% config.urls.assets %]/[% e.icon %]) no-repeat scroll center center">
+                        <div data-placement="bottom" data-toggle="tooltip" class="col-lg-12 col-md-12 bs-tooltip" title="[% h.loc(e.i18n) %]" style="min-height: 64px; background: transparent url([% config.urls.assets %]/[% e.icon %]) no-repeat scroll center center">
                         </div>
                     [% END %]
                 [% END %]
             </div>
+        [% ELSE %]
+            <em>[% h.loc('replay.view.emblems.none') %]</em>
         [% END %]
+    </div>
+</div>
+<div class="row" id="loadout-inscriptions">
+    <div class="col-lg-12 col-md-12">
+        <h4>[% h.loc('replay.loadout.inscriptions.heading') %]</h4>
         [% IF h.defined_count(inscriptions) > 0 %]
-            <h4>[% h.loc('replay.loadout.inscriptions.heading') %]</h4>
             <div class="row">
                 [% FOREACH entry IN inscriptions %]
                     [% IF entry.defined %]
                         [% e = h.get_inscription_by_id(pv.vehicle.country, entry.0) %]
-                        <div data-placement="bottom" data-toggle="tooltip" class="col-lg-6 col-md-6 bs-tooltip" title="[% h.loc(e.i18n) %]" style="min-height: 128px; background: transparent url([% config.urls.assets %]/[% e.icon %]) no-repeat scroll center center">
+                        <div data-placement="bottom" data-toggle="tooltip" class="col-lg-12 col-md-12 bs-tooltip" title="[% h.loc(e.i18n) %]" style="min-height: 128px; background: transparent url([% config.urls.assets %]/[% e.icon %]) no-repeat scroll center center">
                         </div>
                     [% END %]
                 [% END %]
             </div>
+        [% ELSE %]
+            <em>[% h.loc('replay.view.inscriptions.none') %]</em>
         [% END %]
     </div>
 </div>

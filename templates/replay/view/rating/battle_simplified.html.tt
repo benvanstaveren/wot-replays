@@ -1,0 +1,28 @@
+[% IF replay.panel.wn8.battle.defined %]
+    [% class = h.rating_status(replay.panel.wn8.battle) %]
+    [% IF class && replay.panel.wn8.battle > 0 %]
+        <div 
+            title="[% h.loc('tooltip.rating.battle.' _ class) %]"
+            data-placement="auto" 
+            data-toggle="tooltip" 
+            class="bs-tooltip rating [% class %] rounded battle replay-rating"
+            >
+        </div>
+    [% ELSE %]
+        <div 
+            title="[% h.loc('tooltip.rating.battle.none') %]"
+            data-placement="auto" 
+            data-toggle="tooltip" 
+            class="bs-tooltip rating none rounded replay-rating"
+            >
+        </div>
+    [% END %] 
+[% ELSE %]
+    <div 
+        title="[% h.loc('tooltip.rating.battle.none') %]"
+        data-placement="auto" 
+        data-toggle="tooltip" 
+        class="bs-tooltip rating none rounded replay-rating"
+        >
+    </div>
+[% END %]

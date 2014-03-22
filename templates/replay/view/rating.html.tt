@@ -1,0 +1,19 @@
+<div class="row" id="performance-ratings">
+    [% IF h.current_user.settings.display.ratings == 'none' %]
+        <div class="col-md-12 col-lg-12">
+            <em>[% h.loc('replay.overview.ratings.disabled') %]</em>
+        </div>
+    [% ELSE %]
+        [% type = h.current_user.settings.display.ratings %]
+        [% battle = 'replay/view/rating/battle_' _ type _ '.html.tt' %]
+        [% overall = 'replay/view/rating/overall_' _ type _ '.html.tt' %]
+        <div class="col-md-6 col-lg-6">
+            <h4>[% h.loc('replay.rating.overall') %]</h4>
+            [% INCLUDE $overall %]
+        </div>
+        <div class="col-md-6 col-lg-6">
+            <h4>[% h.loc('replay.rating.battle') %]</h4>
+            [% INCLUDE $battle %]
+        </div>
+    [% END %]
+</div>
