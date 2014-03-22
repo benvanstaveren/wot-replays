@@ -1,0 +1,7 @@
+<div 
+    title="[% h.loc('tooltip.rating.overall.none') %]"
+    data-placement="auto" 
+    data-toggle="tooltip" 
+    class="bs-tooltip rating none rounded replay-rating"
+    >
+</div>
