@@ -20,12 +20,9 @@
                 channels: [],
                 indev: [% IF config.mode.defined && config.mode == 'dev' %]true[% ELSE %]false[% END %],
             });
-            WR.on('i18ndone', function() {
-                console.log('WR i18n ready');
+            WR.on('ready', function() {
                 $('.bs-tooltip').tooltip();
                 $('.bs-popover').popover();
-            });
-            WR.on('ready', function() {
                 console.log('WR ready');
             });
         </script>

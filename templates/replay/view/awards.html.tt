@@ -7,9 +7,8 @@
                 data-placement="bottom" 
                 data-toggle="tooltip" 
                 data-container="body" 
-                class="bs-tooltip award big [% h.get_achievements.index_to_idstr(award) %] i18n" 
-                data-attributes-only="true"
-                [% h.i18n_attr({ title => [ h.achievement_name(h.get_achievements.index_to_idstr(award)), {} ]}) %]
+                class="bs-tooltip award big [% h.get_achievements.index_to_idstr(award) %]" 
+                title="[% h.loc(h.achievement_name(h.get_achievements.index_to_idstr(award))) %]"
                 ></div>
             [% awardcount = awardcount + 1 %]
         [% END %]
@@ -21,7 +20,7 @@
                     [% ELSE %]
                         [% title = h.achievement_name(h.get_achievements.index_to_idstr(award.type)) %]
                     [% END %]
-                    <div data-toggle="tooltip" data-placement="bottom" data-container="body" class="bs-tooltip award big [% h.get_achievements.index_to_idstr(award.type) %][% IF award.class_suffix %][% award.class_suffix %][% END %] i18n" data-attributes-only="true" [% h.i18n_attr({ title => [ title, {} ]}) %]></div>
+                    <div data-toggle="tooltip" data-placement="bottom" data-container="body" class="bs-tooltip award big [% h.get_achievements.index_to_idstr(award.type) %][% IF award.class_suffix %][% award.class_suffix %][% END %]" title="[% h.loc(title) ]"></div>
                     [% awardcount = awardcount + 1 %]
                 [% END %]
             [% END %]
@@ -29,7 +28,7 @@
         [% IF replay.stats.markOfMastery > 0 %]
             [% title = h.loc('#achievements:markOfMastery').replace('\"%\(name\)s\"','') _ h.loc('#achievements:markOfMasteryContent/' _ replay.stats.markOfMastery _ '/info') %]
             [% awardcount = awardcount + 1 %]
-            <div data-toggle="tooltip" data-placement="bottom" data-container="body" class="bs-tooltip award big [% h.get_achievements.index_to_idstr(79) %][% replay.stats.markOfMastery %] i18n" data-attributes-only="true" [% h.i18n_attr({ title => [ title, {} ]}) %]></div>
+            <div data-toggle="tooltip" data-placement="bottom" data-container="body" class="bs-tooltip award big [% h.get_achievements.index_to_idstr(79) %][% replay.stats.markOfMastery %]" title="[% h.loc(title) %]"></div>
         [% END %]
         [% IF awardcount < 1 %]
             <p>[% h.loc('replays.overview.awards.noawards') %]</p>

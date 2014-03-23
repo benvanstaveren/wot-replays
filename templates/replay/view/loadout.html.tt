@@ -7,10 +7,10 @@
         <ul class="list-group">
             [% FOREACH eq IN fitting.optional_devices %]
                 [% IF eq %]
-                    <li class="list-group-item bs-tooltip" data-attributes-only="true" [% h.i18n_attr({ title => [ h.equipment_desc(eq), {} ]}) %]>
+                    <li class="list-group-item bs-tooltip" title="[% h.loc(h.equipment_desc(eq)) %]">
                         <span class="rounded equipment-icon pull-left" style="background: transparent url([% config.urls.assets %]/equipment/32x32/[% h.equipment_icon(eq) %]) no-repeat scroll 0 0;px;"></span>
-                        <span class="equipment-name i18n">[% h.equipment_name(eq) %]</span><br/>
-                        <span class="equipment-desc i18n">[% h.equipment_desc(eq) %]</span>
+                        <span class="equipment-name i18n">[% h.loc(h.equipment_name(eq)) %]</span><br/>
+                        <span class="equipment-desc i18n">[% h.loc(h.equipment_desc(eq)) %]</span>
                     </li>
                 [% ELSE %]
                     <li class="list-group-item">
@@ -28,16 +28,16 @@
         <div class="page-header"><h4>[% h.loc('replay.loadout.modules.heading') |ucfirst %]</h4></div>
         [% BLOCK component_row %]
             <li class="list-group-item">
-                <span [% i18n_attr %] class="bs-tooltip equipment-icon rounded i18n" style="background: transparent url([% config.urls.assets %]/icon/components/32x32/[% icon %].png) no-repeat scroll 0 0"></span>
-                <span class="equipment-name i18n bs-tooltip single" data-title-is-content="true">[% name %]</span>
+                <span title="[% h.loc(i18n_attr) %]" class="bs-tooltip equipment-icon rounded" style="background: transparent url([% config.urls.assets %]/icon/components/32x32/[% icon %].png) no-repeat scroll 0 0"></span>
+                <span class="equipment-name bs-tooltip single" title="[% h.loc(name) %]">[% h.loc(name) %]</span>
             </li>
         [% END %]
         <ul class="list-group">
-            [% INCLUDE component_row i18n_attr=h.i18n_attr({ title => [ '#item_types:engine/name', {} ] }) icon='engines' name=h.component_name(fitting.nation, 'engines', fitting.engine) %]
-            [% INCLUDE component_row i18n_attr=h.i18n_attr({ title => [ '#item_types:chassis/name', {} ] }) icon='chassis' name=h.component_name(fitting.nation, 'chassis', fitting.chassis) %]
-            [% INCLUDE component_row i18n_attr=h.i18n_attr({ title => [ '#item_types:radio/name', {} ] }) icon='radios' name=h.component_name(fitting.nation, 'radios', fitting.radio) %]
-            [% INCLUDE component_row i18n_attr=h.i18n_attr({ title => [ '#item_types:gun/name', {} ] }) icon='guns' name=h.component_name(fitting.nation, 'guns', fitting.gun) %]
-            [% INCLUDE component_row i18n_attr=h.i18n_attr({ title => [ '#item_types:turret/name', {} ] }) icon='turrets' name=h.component_name(fitting.nation, 'turrets', fitting.turret) %]
+            [% INCLUDE component_row i18n_attr='#item_types:engine/name' icon='engines' name=h.component_name(fitting.nation, 'engines', fitting.engine) %]
+            [% INCLUDE component_row i18n_attr='#item_types:chassis/name' icon='chassis' name=h.component_name(fitting.nation, 'chassis', fitting.chassis) %]
+            [% INCLUDE component_row i18n_attr='#item_types:radio/name' icon='radios' name=h.component_name(fitting.nation, 'radios', fitting.radio) %]
+            [% INCLUDE component_row i18n_attr='#item_types:gun/name' icon='guns' name=h.component_name(fitting.nation, 'guns', fitting.gun) %]
+            [% INCLUDE component_row i18n_attr='#item_types:turret/name' icon='turrets' name=h.component_name(fitting.nation, 'turrets', fitting.turret) %]
         </ul>
     </div>
 </div>
@@ -47,20 +47,20 @@
         [% IF replay.game.recorder.consumables.defined %]
             [% BLOCK consumable_row %]
                 <li class="list-group-item">
-                    <span [% i18n_attr %] class="pull-left equipment-icon rounded i18n" data-attributes-only="true" [% h.consumable_icon_style(replay.game.recorder.consumables.$index) %]></span>
-                    <span class="equipment-name i18n">[% h.consumable_name(replay.game.recorder.consumables.$index) %]</span><br/>
-                    <span class="equipment-desc i18n">[% h.consumable_desc(replay.game.recorder.consumables.$index) %]</span>
+                    <span title="[% h.loc(i18n_attr) %]" class="pull-left equipment-icon rounded" [% h.consumable_icon_style(replay.game.recorder.consumables.$index) %]></span>
+                    <span class="equipment-name">[% h.loc(h.consumable_name(replay.game.recorder.consumables.$index)) %]</span><br/>
+                    <span class="equipment-desc">[% h.loc(h.consumable_desc(replay.game.recorder.consumables.$index)) %]</span>
                 </li>
             [% END %]
             <ul class="list-group">
                 [% IF replay.game.recorder.consumables.0.defined %]
-                    [% INCLUDE consumable_row i18n_attr=h.i18n_attr({ title => [ h.consumable_name(replay.game.recorder.consumables.0), {} ]}) index=0  %]
+                    [% INCLUDE consumable_row i18n_attr=h.consumable_name(replay.game.recorder.consumables.0) index=0 %]
                 [% END %]
                 [% IF replay.game.recorder.consumables.1.defined %]
-                    [% INCLUDE consumable_row i18n_attr=h.i18n_attr({ title => [ h.consumable_name(replay.game.recorder.consumables.1), {} ]}) index=1  %]
+                    [% INCLUDE consumable_row i18n_attr=h.consumable_name(replay.game.recorder.consumables.1) index=1 %]
                 [% END %]
                 [% IF replay.game.recorder.consumables.2.defined %]
-                    [% INCLUDE consumable_row i18n_attr=h.i18n_attr({ title => [ h.consumable_name(replay.game.recorder.consumables.2), {} ]}) index=2  %]
+                    [% INCLUDE consumable_row i18n_attr=h.consumable_name(replay.game.recorder.consumables.2) index=2 %]
                 [% END %]
             </ul>
         [% ELSE %]
@@ -75,8 +75,8 @@
             [% BLOCK ammo_row %]
                 <li class="list-group-item">
                     [% an = h.ammo_name(replay.game.recorder.ammo.$index) %]
-                    <span [% h.i18n_attr({ title => [ an.1, {} ]}) %] class="equipment-icon rounded i18n" data-attributes-only="true" [% h.ammo_icon_style(replay.game.recorder.ammo.$index) %]></span>
-                    <span class="equipment-name single"><span>[% an.0 %]</span> <span class="i18n">[% an.1 %]</span></span>
+                    <span title="[% h.loc(an.1) %]" class="equipment-icon rounded" [% h.ammo_icon_style(replay.game.recorder.ammo.$index) %]></span>
+                    <span class="equipment-name single"><span>[% an.0 %]</span> <span>[% h.loc(an.1) %]</span></span>
                 </li>
             [% END %]
             <ul class="list-group">

@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-lg-12 col-md-12">
             <span class="pull-left"><span class="fa fa-clock-o"></span> [% h.usertime('%d/%m/%Y', last_update) %]</span>
-            <a href="/statistics/mastery/csv/mastery-[% h.usertime('%Y-%m-%d', last_update) %].csv" class="pull-right"><span class="fa fa-download"></span> <span class="i18n">statistics.mastery.download.csv</span></a>
+            <a href="/statistics/mastery/csv/mastery-[% h.usertime('%Y-%m-%d', last_update) %].csv" class="pull-right"><span class="fa fa-download"></span> <span>[% h.loc('statistics.mastery.download.csv') %]</span></a>
             <table class="table table-bordered table-striped">
                 <colgroup>
                     <col style="width: 60%; text-align: left"/>
@@ -15,11 +15,11 @@
                     <col style="width: 10%; text-align: right"/>
                 </colgroup>
                 <thead>
-                    <th class="i18n">statistics.mastery.vehicle</th>
-                    <th class="i18n">statistics.mastery.class3</th>
-                    <th class="i18n">statistics.mastery.class2</th>
-                    <th class="i18n">statistics.mastery.class1</th>
-                    <th class="i18n">statistics.mastery.ace</th>
+                    <th>[% h.loc('statistics.mastery.vehicle') %]</th>
+                    <th>[% h.loc('statistics.mastery.class3') %]</th>
+                    <th>[% h.loc('statistics.mastery.class2') %]</th>
+                    <th>[% h.loc('statistics.mastery.class1') %]</th>
+                    <th>[% h.loc('statistics.mastery.ace') %]</th>
                 </thead>
                 <tbody>
                     [% FOREACH entry IN mastery %]

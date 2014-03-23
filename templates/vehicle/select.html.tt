@@ -4,27 +4,27 @@
     </div>
     <div class="row">
         <div class="col-md-3">
-            <a href="/vehicles/china" class="btn btn-primary btn-block i18n">nations.china</a>
+            <a href="/vehicles/china" class="btn btn-primary btn-block">[% h.loc('nations.china') %]</a>
         </div>
         <div class="col-md-3">
-            <a href="/vehicles/france" class="btn btn-primary btn-block i18n">nations.france</a>
+            <a href="/vehicles/france" class="btn btn-primary btn-block">[% h.loc('nations.france') %]</a>
         </div>
         <div class="col-md-3">
-            <a href="/vehicles/germany" class="btn btn-primary btn-block i18n">nations.germany</a>
+            <a href="/vehicles/germany" class="btn btn-primary btn-block">[% h.loc('nations.germany') %]</a>
         </div>
         <div class="col-md-3">
-            <a href="/vehicles/japan" class="btn btn-primary btn-block i18n">nations.japan</a>
+            <a href="/vehicles/japan" class="btn btn-primary btn-block">[% h.loc('nations.japan') %]</a>
         </div>
     </div>
     <div class="row" style="margin-top: 25px">
         <div class="col-md-3">
-            <a href="/vehicles/uk" class="btn btn-primary btn-block i18n">nations.uk</a>
+            <a href="/vehicles/uk" class="btn btn-primary btn-block">[% h.loc('nations.uk') %]</a>
         </div>
         <div class="col-md-3">
-            <a href="/vehicles/usa" class="btn btn-primary btn-block i18n">nations.usa</a>
+            <a href="/vehicles/usa" class="btn btn-primary btn-block">[% h.loc('nations.usa') %]</a>
         </div>
         <div class="col-md-3">
-            <a href="/vehicles/ussr" class="btn btn-primary btn-block i18n">nations.ussr</a>
+            <a href="/vehicles/ussr" class="btn btn-primary btn-block">[% h.loc('nations.uss') %]r</a>
         </div>
     </div>
 [% END %]

@@ -1,42 +1,42 @@
-<li[% IF map_ident == '19_monastery' %] class="active"[% END %]><a href="/heatmaps/abbey" class="i18n [% map_ident %]">#arenas:19_monastery/name</a></li>
-<li[% IF map_ident == '31_airfield' %] class="active"[% END %]><a href="/heatmaps/airfield" class="i18n [% map_ident %]">#arenas:31_airfield/name</a></li>
-<li[% IF map_ident == '38_mannerheim_line' %] class="active"[% END %]><a href="/heatmaps/arcticregion" class="i18n [% map_ident %]">#arenas:38_mannerheim_line/name</a></li>
-<li[% IF map_ident == '18_cliff' %] class="active"[% END %]><a href="/heatmaps/cliff" class="i18n [% map_ident %]">#arenas:18_cliff/name</a></li>
-<li[% IF map_ident == '51_asia' %] class="active"[% END %]><a href="/heatmaps/dragonridge" class="i18n [% map_ident %]">#arenas:51_asia/name</a></li>
-<li[% IF map_ident == '29_el_hallouf' %] class="active"[% END %]><a href="/heatmaps/elhalluf" class="i18n [% map_ident %]">#arenas:29_el_hallouf/name</a></li>
-<li[% IF map_ident == '06_ensk' %] class="active"[% END %]><a href="/heatmaps/ensk" class="i18n [% map_ident %]">#arenas:06_ensk/name</a></li>
-<li[% IF map_ident == '13_erlenberg' %] class="active"[% END %]><a href="/heatmaps/erlenberg" class="i18n [% map_ident %]">#arenas:13_erlenberg/name</a></li>
-<li[% IF map_ident == '36_fishing_bay' %] class="active"[% END %]><a href="/heatmaps/fishermansbay" class="i18n [% map_ident %]">#arenas:36_fishing_bay/name</a></li>
-<li[% IF map_ident == '33_fjord' %] class="active"[% END %]><a href="/heatmaps/fjords" class="i18n [% map_ident %]">#arenas:33_fjord/name</a></li>
-<li[% IF map_ident == '53_japan' %] class="active"[% END %]><a href="/heatmaps/hiddenvillage" class="i18n [% map_ident %]">#arenas:53_japan/name</a></li>
-<li[% IF map_ident == '45_north_america' %] class="active"[% END %]><a href="/heatmaps/highway" class="i18n [% map_ident %]">#arenas:45_north_america/name</a></li>
-<li[% IF map_ident == '04_himmelsdorf' %] class="active"[% END %]><a href="/heatmaps/himmelsdorf" class="i18n [% map_ident %]">#arenas:04_himmelsdorf/name</a></li>
-<li[% IF map_ident == '01_karelia' %] class="active"[% END %]><a href="/heatmaps/karelia" class="i18n [% map_ident %]">#arenas:01_karelia/name</a></li>
-<li[% IF map_ident == '15_komarin' %] class="active"[% END %]><a href="/heatmaps/komarin" class="i18n [% map_ident %]">#arenas:15_komarin/name</a></li>
-<li[% IF map_ident == '07_lakeville' %] class="active"[% END %]><a href="/heatmaps/lakeville" class="i18n [% map_ident %]">#arenas:07_lakeville/name</a></li>
-<li[% IF map_ident == '44_north_america' %] class="active"[% END %]><a href="/heatmaps/liveoaks" class="i18n [% map_ident %]">#arenas:44_north_america/name</a></li>
-<li[% IF map_ident == '02_malinovka' %] class="active"[% END %]><a href="/heatmaps/malinovka" class="i18n [% map_ident %]">#arenas:02_malinovka/name</a></li>
-<li[% IF map_ident == '10_hills' %] class="active"[% END %]><a href="/heatmaps/mines" class="i18n [% map_ident %]">#arenas:10_hills/name</a></li>
-<li[% IF map_ident == '37_caucasus' %] class="active"[% END %]><a href="/heatmaps/mountainpass" class="i18n [% map_ident %]">#arenas:37_caucasus/name</a></li>
-<li[% IF map_ident == '11_murovanka' %] class="active"[% END %]><a href="/heatmaps/murovanka" class="i18n [% map_ident %]">#arenas:11_murovanka/name</a></li>
-<li[% IF map_ident == '43_north_america' %] class="active"[% END %]><a href="/heatmaps/northwest" class="i18n [% map_ident %]">#arenas:43_north_america/name</a></li>
-<li[% IF map_ident == '60_asia_miao' %] class="active"[% END %]><a href="/heatmaps/pearlriver" class="i18n [% map_ident %]">#arenas:60_asia_miao/name</a></li>
-<li[% IF map_ident == '42_north_america' %] class="active"[% END %]><a href="/heatmaps/port" class="i18n [% map_ident %]">#arenas:42_north_america/name</a></li>
-<li[% IF map_ident == '05_prohorovka' %] class="active"[% END %]><a href="/heatmaps/prokhorovka" class="i18n [% map_ident %]">#arenas:05_prohorovka/name</a></li>
-<li[% IF map_ident == '03_campania' %] class="active"[% END %]><a href="/heatmaps/province" class="i18n [% map_ident %]">#arenas:03_campania/name</a></li>
-<li[% IF map_ident == '34_redshire' %] class="active"[% END %]><a href="/heatmaps/redshire" class="i18n [% map_ident %]">#arenas:34_redshire/name</a></li>
-<li[% IF map_ident == '08_ruinberg' %] class="active"[% END %]><a href="/heatmaps/ruinberg" class="i18n [% map_ident %]">#arenas:08_ruinberg/name</a></li>
-<li[% IF map_ident == '87_ruinberg_on_fire' %] class="active"[% END %]><a href="/heatmaps/ruinbergonfire" class="i18n [% map_ident %]">#arenas:87_ruinberg_on_fire/name</a></li>
-<li[% IF map_ident == '73_asia_korea' %] class="active"[% END %]><a href="/heatmaps/sacredvalley" class="i18n [% map_ident %]">#arenas:73_asia_korea/name</a></li>
-<li[% IF map_ident == '28_desert' %] class="active"[% END %]><a href="/heatmaps/sandriver" class="i18n [% map_ident %]">#arenas:28_desert/name</a></li>
-<li[% IF map_ident == '47_canada_a' %] class="active"[% END %]><a href="/heatmaps/serenecoast" class="i18n [% map_ident %]">#arenas:47_canada_a/name</a></li>
-<li[% IF map_ident == '85_winter' %] class="active"[% END %]><a href="/heatmaps/severogorsk" class="i18n [% map_ident %]">#arenas:85_winter/name</a></li>
-<li[% IF map_ident == '14_siegfried_line' %] class="active"[% END %]><a href="/heatmaps/siegfriedline" class="i18n [% map_ident %]">#arenas:14_siegfried_line/name</a></li>
-<li[% IF map_ident == '39_crimea' %] class="active"[% END %]><a href="/heatmaps/southcoast" class="i18n [% map_ident %]">#arenas:39_crimea/name</a></li>
-<li[% IF map_ident == '35_steppes' %] class="active"[% END %]><a href="/heatmaps/steppes" class="i18n [% map_ident %]">#arenas:35_steppes/name</a></li>
-<li[% IF map_ident == '22_slough' %] class="active"[% END %]><a href="/heatmaps/swamp" class="i18n [% map_ident %]">#arenas:22_slough/name</a></li>
-<li[% IF map_ident == '63_tundra' %] class="active"[% END %]><a href="/heatmaps/tundra" class="i18n [% map_ident %]">#arenas:63_tundra/name</a></li>
-<li[% IF map_ident == '23_westfeld' %] class="active"[% END %]><a href="/heatmaps/westfield" class="i18n [% map_ident %]">#arenas:23_westfeld/name</a></li>
-<li[% IF map_ident == '17_munchen' %] class="active"[% END %]><a href="/heatmaps/widepark" class="i18n [% map_ident %]">#arenas:17_munchen/name</a></li>
-<li[% IF map_ident == '84_winter' %] class="active"[% END %]><a href="/heatmaps/windstorm" class="i18n [% map_ident %]">#arenas:84_winter/name</a></li>
-<li[% IF map_ident == '86_himmelsdorf_winter' %] class="active"[% END %]><a href="/heatmaps/winterhimmelsdorf" class="i18n [% map_ident %]">#arenas:86_himmelsdorf_winter/name</a></li>
+<li[% IF map_ident == '19_monastery' %] class="active"[% END %]><a href="/heatmaps/abbey" class="[% map_ident %]">[% h.loc('#arenas:19_monastery/name') %]</a></li>
+<li[% IF map_ident == '31_airfield' %] class="active"[% END %]><a href="/heatmaps/airfield" class="[% map_ident %]">[% h.loc('#arenas:31_airfield/name') %]</a></li>
+<li[% IF map_ident == '38_mannerheim_line' %] class="active"[% END %]><a href="/heatmaps/arcticregion" class="[% map_ident %]">[% h.loc('#arenas:38_mannerheim_line/name') %]</a></li>
+<li[% IF map_ident == '18_cliff' %] class="active"[% END %]><a href="/heatmaps/cliff" class="[% map_ident %]">[% h.loc('#arenas:18_cliff/name') %]</a></li>
+<li[% IF map_ident == '51_asia' %] class="active"[% END %]><a href="/heatmaps/dragonridge" class="[% map_ident %]">[% h.loc('#arenas:51_asia/name') %]</a></li>
+<li[% IF map_ident == '29_el_hallouf' %] class="active"[% END %]><a href="/heatmaps/elhalluf" class="[% map_ident %]">[% h.loc('#arenas:29_el_hallouf/name') %]</a></li>
+<li[% IF map_ident == '06_ensk' %] class="active"[% END %]><a href="/heatmaps/ensk" class="[% map_ident %]">[% h.loc('#arenas:06_ensk/name') %]</a></li>
+<li[% IF map_ident == '13_erlenberg' %] class="active"[% END %]><a href="/heatmaps/erlenberg" class="[% map_ident %]">[% h.loc('#arenas:13_erlenberg/name') %]</a></li>
+<li[% IF map_ident == '36_fishing_bay' %] class="active"[% END %]><a href="/heatmaps/fishermansbay" class="[% map_ident %]">[% h.loc('#arenas:36_fishing_bay/name') %]</a></li>
+<li[% IF map_ident == '33_fjord' %] class="active"[% END %]><a href="/heatmaps/fjords" class="[% map_ident %]">[% h.loc('#arenas:33_fjord/name') %]</a></li>
+<li[% IF map_ident == '53_japan' %] class="active"[% END %]><a href="/heatmaps/hiddenvillage" class="[% map_ident %]">[% h.loc('#arenas:53_japan/name') %]</a></li>
+<li[% IF map_ident == '45_north_america' %] class="active"[% END %]><a href="/heatmaps/highway" class="[% map_ident %]">[% h.loc('#arenas:45_north_america/name') %]</a></li>
+<li[% IF map_ident == '04_himmelsdorf' %] class="active"[% END %]><a href="/heatmaps/himmelsdorf" class="[% map_ident %]">[% h.loc('#arenas:04_himmelsdorf/name') %]</a></li>
+<li[% IF map_ident == '01_karelia' %] class="active"[% END %]><a href="/heatmaps/karelia" class="[% map_ident %]">[% h.loc('#arenas:01_karelia/name') %]</a></li>
+<li[% IF map_ident == '15_komarin' %] class="active"[% END %]><a href="/heatmaps/komarin" class="[% map_ident %]">[% h.loc('#arenas:15_komarin/name') %]</a></li>
+<li[% IF map_ident == '07_lakeville' %] class="active"[% END %]><a href="/heatmaps/lakeville" class="[% map_ident %]">[% h.loc('#arenas:07_lakeville/name') %]</a></li>
+<li[% IF map_ident == '44_north_america' %] class="active"[% END %]><a href="/heatmaps/liveoaks" class="[% map_ident %]">[% h.loc('#arenas:44_north_america/name') %]</a></li>
+<li[% IF map_ident == '02_malinovka' %] class="active"[% END %]><a href="/heatmaps/malinovka" class="[% map_ident %]">[% h.loc('#arenas:02_malinovka/name') %]</a></li>
+<li[% IF map_ident == '10_hills' %] class="active"[% END %]><a href="/heatmaps/mines" class="[% map_ident %]">[% h.loc('#arenas:10_hills/name') %]</a></li>
+<li[% IF map_ident == '37_caucasus' %] class="active"[% END %]><a href="/heatmaps/mountainpass" class="[% map_ident %]">[% h.loc('#arenas:37_caucasus/name') %]</a></li>
+<li[% IF map_ident == '11_murovanka' %] class="active"[% END %]><a href="/heatmaps/murovanka" class="[% map_ident %]">[% h.loc('#arenas:11_murovanka/name') %]</a></li>
+<li[% IF map_ident == '43_north_america' %] class="active"[% END %]><a href="/heatmaps/northwest" class="[% map_ident %]">[% h.loc('#arenas:43_north_america/name') %]</a></li>
+<li[% IF map_ident == '60_asia_miao' %] class="active"[% END %]><a href="/heatmaps/pearlriver" class="[% map_ident %]">[% h.loc('#arenas:60_asia_miao/name') %]</a></li>
+<li[% IF map_ident == '42_north_america' %] class="active"[% END %]><a href="/heatmaps/port" class="[% map_ident %]">[% h.loc('#arenas:42_north_america/name') %]</a></li>
+<li[% IF map_ident == '05_prohorovka' %] class="active"[% END %]><a href="/heatmaps/prokhorovka" class="[% map_ident %]">[% h.loc('#arenas:05_prohorovka/name') %]</a></li>
+<li[% IF map_ident == '03_campania' %] class="active"[% END %]><a href="/heatmaps/province" class="[% map_ident %]">[% h.loc('#arenas:03_campania/name') %]</a></li>
+<li[% IF map_ident == '34_redshire' %] class="active"[% END %]><a href="/heatmaps/redshire" class="[% map_ident %]">[% h.loc('#arenas:34_redshire/name') %]</a></li>
+<li[% IF map_ident == '08_ruinberg' %] class="active"[% END %]><a href="/heatmaps/ruinberg" class="[% map_ident %]">[% h.loc('#arenas:08_ruinberg/name') %]</a></li>
+<li[% IF map_ident == '87_ruinberg_on_fire' %] class="active"[% END %]><a href="/heatmaps/ruinbergonfire" class="[% map_ident %]">[% h.loc('#arenas:87_ruinberg_on_fire/name') %]</a></li>
+<li[% IF map_ident == '73_asia_korea' %] class="active"[% END %]><a href="/heatmaps/sacredvalley" class="[% map_ident %]">[% h.loc('#arenas:73_asia_korea/name') %]</a></li>
+<li[% IF map_ident == '28_desert' %] class="active"[% END %]><a href="/heatmaps/sandriver" class="[% map_ident %]">[% h.loc('#arenas:28_desert/name') %]</a></li>
+<li[% IF map_ident == '47_canada_a' %] class="active"[% END %]><a href="/heatmaps/serenecoast" class="[% map_ident %]">[% h.loc('#arenas:47_canada_a/name') %]</a></li>
+<li[% IF map_ident == '85_winter' %] class="active"[% END %]><a href="/heatmaps/severogorsk" class="[% map_ident %]">[% h.loc('#arenas:85_winter/name') %]</a></li>
+<li[% IF map_ident == '14_siegfried_line' %] class="active"[% END %]><a href="/heatmaps/siegfriedline" class="[% map_ident %]">[% h.loc('#arenas:14_siegfried_line/name') %]</a></li>
+<li[% IF map_ident == '39_crimea' %] class="active"[% END %]><a href="/heatmaps/southcoast" class="[% map_ident %]">[% h.loc('#arenas:39_crimea/name') %]</a></li>
+<li[% IF map_ident == '35_steppes' %] class="active"[% END %]><a href="/heatmaps/steppes" class="[% map_ident %]">[% h.loc('#arenas:35_steppes/name') %]</a></li>
+<li[% IF map_ident == '22_slough' %] class="active"[% END %]><a href="/heatmaps/swamp" class="[% map_ident %]">[% h.loc('#arenas:22_slough/name') %]</a></li>
+<li[% IF map_ident == '63_tundra' %] class="active"[% END %]><a href="/heatmaps/tundra" class="[% map_ident %]">[% h.loc('#arenas:63_tundra/name') %]</a></li>
+<li[% IF map_ident == '23_westfeld' %] class="active"[% END %]><a href="/heatmaps/westfield" class="[% map_ident %]">[% h.loc('#arenas:23_westfeld/name') %]</a></li>
+<li[% IF map_ident == '17_munchen' %] class="active"[% END %]><a href="/heatmaps/widepark" class="[% map_ident %]">[% h.loc('#arenas:17_munchen/name') %]</a></li>
+<li[% IF map_ident == '84_winter' %] class="active"[% END %]><a href="/heatmaps/windstorm" class="[% map_ident %]">[% h.loc('#arenas:84_winter/name') %]</a></li>
+<li[% IF map_ident == '86_himmelsdorf_winter' %] class="active"[% END %]><a href="/heatmaps/winterhimmelsdorf" class="[% map_ident %]">[% h.loc('#arenas:86_himmelsdorf_winter/name') %]</a></li>

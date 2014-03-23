@@ -5,8 +5,8 @@
     <div class="row">
         <div class="col-lg-12 col-md-12">
             <ul class="nav nav-tabs nav-inverse" id="upload-tabs">
-                <li><a href="/upload/single.html" class="i18n">upload.nav.single</a></li>
-                <li class="active"><a href="/upload/batch.html" class="i18n"">upload.nav.batch</a></li>
+                <li><a href="/upload/single.html">[% h.loc('upload.nav.single') %]</a></li>
+                <li class="active"><a href="/upload/batch.html">[% h.loc('upload.nav.batch') %]</a></li>
             </ul>
         </div>
     </div>
