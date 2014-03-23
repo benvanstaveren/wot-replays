@@ -52,6 +52,12 @@ msgstr "Current version"
 msgid "panel.version.incompatible"
 msgstr "Incompatible version"
 
+msgid "panel.button.comment.label"
+msgstr "Comment"
+
+msgid "panel.button.comment.title"
+msgstr "Comment on this replay"
+
 msgid "panel.button.view.label"
 msgstr "View"
 
