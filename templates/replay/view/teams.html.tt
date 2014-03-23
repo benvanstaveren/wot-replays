@@ -1,13 +1,13 @@
 <a id="teams"></a>
 <div class="row" id="teams-player">
     <div class="col-md-12 col-lg-12">
-        <h4>[% h.loc('replays.team.title.1') %]</h4>
+        <div class="page-header"><h4>[% h.loc('replays.team.title.1') %]</h4></div>
         [% INCLUDE replay/view/team/list.html.tt players=replay.teams_sorted.xp.0 %]
     </div>
 </div>
 <div class="row" id="teams-enemy">
     <div class="col-md-12 col-lg-12">
-        <h4>[% h.loc('replays.team.title.2') %]</h4>
+        <div class="page-header"><h4>[% h.loc('replays.team.title.2') %]</h4></div>
         [% INCLUDE replay/view/team/list.html.tt players=replay.teams_sorted.xp.1 %]
     </div>
 </div>

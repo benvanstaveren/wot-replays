@@ -242,6 +242,50 @@ sub comparison {
     });
 }
 
+sub addcomment {
+    my $self = shift;
+
+    $self->load_replay(sub {
+        my ($c, $e, $replay) = (@_);
+
+        if(defined($replay)) {
+            unless($self->is_allowed_to_view($replay)) {
+                $self->redirect_to(sprintf('/replay/%s.html#comments', $replay->{_id} . ''));
+            } else {
+                my $comment_id = sprintf('c%s', Mango::BSON::bson_oid . '');
+                my $text = $self->req->param('comment');
+                if(defined($text) && length($text) > 0) {
+                    my $comment    = {
+                        id      => $comment_id,
+                        author  => {
+                            name    => $self->current_user->{player_name},
+                            server  => $self->current_user->{player_server},
+                            clan    => $self->current_user_clan,
+                        },
+                        posted      => Mango::BSON::bson_time,
+                        text        => $self->req->param('comment'),
+                    };
+                    $self->model('wot-replays.replays')->update({ _id => $replay->{_id} }, {
+                        '$push' => { 'site.comments' => $comment },
+                    } => sub {
+                        my ($c, $e, $d) = (@_);
+
+                        if(defined($e)) {
+                            $self->redirect_to(sprintf('/replay/%s.html#comments', $replay->{_id} . ''));
+                        } else {
+                            $self->redirect_to(sprintf('/replay/%s.html#comments-%s', $replay->{_id} . '', $comment_id));
+                        }
+                    });
+                } else {
+                    $self->redirect_to(sprintf('/replay/%s.html#comments', $replay->{_id} . ''));
+                }
+            }
+        } else {
+            $self->redirect_to('/');
+        }
+    });
+}
+
 sub view {
     my $self  = shift;
     my $start = [ gettimeofday ];
@@ -348,17 +392,21 @@ sub actual_view_replay {
     }
 
     # and here one thing we need to do is generate the platoons and their counts
+    my $idx = [0, 0];
     my $pl_indexes = {};
-    my $idx = 0;
     my $pl_members = {}; 
 
     foreach my $v (@{$replay->{roster}}) {
-        next unless(defined($v->{platoon}));
-        # platoon contains the prebattleID
-        unless(defined($pl_indexes->{$v->{platoon}})) {
-            $pl_indexes->{$v->{platoon}} = ++$idx;
+        my $team = $v->{player}->{team};
+        my $pbid = $v->{player}->{prebattleID};
+
+        next unless($pbid > 0);
+
+        unless(defined($pl_indexes->{$pbid})) {
+            $pl_indexes->{$pbid} = ++$idx->[$team-1];
         }
-        $pl_members->{$v->{player}->{name}} = $pl_indexes->{$v->{platoon}};
+
+        $pl_members->{$v->{player}->{name}} = $pl_indexes->{$pbid};
     }
 
     my $delay = Mojo::IOLoop->delay(sub {

@@ -1,0 +1,11 @@
+msgid "replay.comments.heading"
+msgstr "Comments"
+
+msgid "replay.comments.addcomment"
+msgstr "Post Comment"
+
+msgid "replay.comments.logintocomment"
+msgstr "Log in to comment"
+
+msgid "replay.comments.nocomments"
+msgstr "No comments yet..."

@@ -1,0 +1,26 @@
+<div class="page-header">
+    <h4>[% h.loc('replay.comments.heading') %]</h4>
+    <a style="position: relative; top: -34px" class="pull-right btn btn-primary btn-sm" [% IF h.is_user_authenticated %]href="#" id="addcomment"[% ELSE %]href="/login"[% END %]">
+        [% IF h.is_user_authenticated %]<span class="fa fa-comments"></span> [% h.loc('replay.comments.addcomment') %][% ELSE %][% h.loc('replay.comments.logintocomment') %][% END %]
+    </a>
+</div>
+[% IF replay.site.comments.size < 1 %]
+    <div class="row"><div class="col-lg-12 col-md-12"><em>[% h.loc('replay.comments.nocomments') %]</em></div></div>
+[% ELSE %]
+    [% FOREACH comment IN replay.site.comments %]
+        <a name="comments-[% comment.id %]"></a>
+        <div class="row">
+            <div class="col-lg-3 col-md-3">
+                <div>
+                    <span class="label label-primary author-server [% comment.author.server %]">[% comment.author.server |upper %]</span> <span class="author-name">[% comment.author.name %]</span>[% IF comment.author.clan.defined %]<span class="author-clan">[[% comment.author.clan %]]</span>[% END %]
+                </div>
+                <div style="margin-top: 10px">
+                    <span><span class="fa fa-clock-o"></span> [% h.usertime('%d/%m/%Y %H:%M', comment.posted) %]</span>
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-9">
+                <div class="well well-sm">[% comment.text |html |html_para %]</div>
+            </div>
+        </div>
+    [% END %]
+[% END %]

@@ -93,12 +93,14 @@ has 'layout' => sub {
                         { id => 'replay-teams', title => 'Teams' },
                         { id => 'replay-loadout', title => 'Loadout' },
                         { id => 'replay-chat', title => 'Chat' },
+                        { id => 'replay-comments', title => 'Comments' },
                     ],
                 },
                 { 
                     title => 'Modals' ,
                     children => [
                         { id => 'replay-modal-embed', title => 'Embed' },
+                        { id => 'replay-modal-comment', title => 'Comments' },
                     ],
                 },
             ],

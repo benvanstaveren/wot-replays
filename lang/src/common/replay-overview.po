@@ -1,3 +1,111 @@
+msgid "replay.killedby"
+msgstr "Killed by %0"
+
+msgid "replay.rating.battle"
+msgstr "Battle"
+
+msgid "replay.rating.overall"
+msgstr "Overall"
+
+msgid "replay.stats.accuracy.tooltip"
+msgstr "Accuracy percentage"
+
+msgid "replay.stats.hits.tooltip"
+msgstr "Shots that hit the target"
+
+msgid "replay.stats.penperc.tooltip"
+msgstr "Penetration percentage"
+
+msgid "replay.stats.pierced.tooltip"
+msgstr "Penetrating hits"
+
+msgid "replay.stats.shots.tooltip"
+msgstr "Shots fired"
+
+msgid "replay.view.camo.none"
+msgstr "No camo applied"
+
+msgid "replay.view.chat"
+msgstr "Battle Chat"
+
+msgid "replay.view.comments"
+msgstr "Comments"
+
+msgid "replay.view.earnings"
+msgstr "Earnings"
+
+msgid "replay.view.earnings.credits"
+msgstr "Credits"
+
+msgid "replay.view.earnings.xp"
+msgstr "XP"
+
+msgid "replay.view.emblems.none"
+msgstr "No emblems applied"
+
+msgid "replay.view.inscriptions.none"
+msgstr "No inscriptions applied"
+
+msgid "replay.view.loadout"
+msgstr "Loadout"
+
+msgid "replay.view.loadout.ammo"
+msgstr "Ammo"
+
+msgid "replay.view.loadout.camo"
+msgstr "Camouflage"
+
+msgid "replay.view.loadout.consumables"
+msgstr "Consumables"
+
+msgid "replay.view.loadout.emblems"
+msgstr "Emblems"
+
+msgid "replay.view.loadout.equipment"
+msgstr "Equipment"
+
+msgid "replay.view.loadout.inscriptions"
+msgstr "Inscriptions"
+
+msgid "replay.view.loadout.modules"
+msgstr "Modules"
+
+msgid "replay.view.missions"
+msgstr "Missions"
+
+msgid "replay.view.missions.completed"
+msgstr "Completed"
+
+msgid "replay.view.missions.inprogress"
+msgstr "In Progress"
+
+msgid "replay.view.performance"
+msgstr "Performance"
+
+msgid "replay.view.performance.attackdefense"
+msgstr "Attack/Defense"
+
+msgid "replay.view.performance.awards"
+msgstr "Awards"
+
+msgid "replay.view.performance.overview"
+msgstr "Overview"
+
+msgid "replay.view.performance.playmisc"
+msgstr "Playmaker/Misc"
+
+msgid "replay.view.performance.ratings"
+msgstr "Ratings"
+
+msgid "replay.view.teams"
+msgstr "Teams"
+
+msgid "replay.view.teams.enemy"
+msgstr "Enemy"
+
+msgid "replay.view.teams.player"
+msgstr "Player"
+
 msgid "replays.overview.awards.noawards"
 msgstr "No medals awarded"
 
@@ -67,14 +175,41 @@ msgstr "Direct"
 msgid "replays.overview.damage.direct.title"
 msgstr "Damage done directly by the player"
 
+msgid "replays.overview.damage.potentialreceived.text"
+msgstr "Potential damage received"
+
+msgid "replays.overview.damage.potentialreceived.title"
+msgstr "Potential damage received by the player"
+
+msgid "replays.overview.damage.radio.text"
+msgstr "Spotting"
+
+msgid "replays.overview.damage.radio.title"
+msgstr "Damage contributed by team members as a result of spotting"
+
 msgid "replays.overview.damage.received.text"
 msgstr "Damage Received"
 
 msgid "replays.overview.damage.received.title"
 msgstr "Damage done to the player"
 
+msgid "replays.overview.damage.text"
+msgstr "Damage Dealt"
+
 msgid "replays.overview.damage.title"
 msgstr "Playmaker Statistics"
+
+msgid "replays.overview.damage.tooltip"
+msgstr "Damage dealt to enemy players"
+
+msgid "replays.overview.damage.track.text"
+msgstr "Tracking"
+
+msgid "replays.overview.damage.track.title"
+msgstr "Damage contributed by team members as a result of tracking"
+
+msgid "replays.overview.damagereceived.title"
+msgstr "Damage Received"
 
 msgid "replays.overview.description"
 msgstr "Description"
@@ -103,140 +238,9 @@ msgstr "Penetrations"
 msgid "replays.overview.shots.title"
 msgstr "Shots"
 
-msgid "replays.overview.damage.radio.title"
-msgstr "Damage contributed by team members as a result of spotting"
-
-msgid "replays.overview.damage.track.title"
-msgstr "Damage contributed by team members as a result of tracking"
-
-msgid "replays.overview.damage.radio.text"
-msgstr "Spotting"
-
-msgid "replays.overview.damage.track.text"
-msgstr "Tracking"
-
-msgid "replays.overview.damagereceived.title"
-msgstr "Damage Received"
-
-msgid "replays.overview.damage.potentialreceived.title"
-msgstr "Potential damage received by the player"
-
-msgid "replays.overview.damage.potentialreceived.text"
-msgstr "Potential damage received"
-
-msgid "replay.view.performance"
-msgstr "Performance"
-
-msgid "replay.view.performance.overview"
-msgstr "Overview"
-
-msgid "replay.view.performance.awards"
-msgstr "Awards"
-
-msgid "replay.view.performance.attackdefense"
-msgstr "Attack/Defense"
-
-msgid "replay.view.performance.playmisc"
-msgstr "Playmaker/Misc"
-
-msgid "replay.view.earnings"
-msgstr "Earnings"
-
-msgid "replay.view.earnings.xp"
-msgstr "XP"
-
-msgid "replay.view.earnings.credits"
-msgstr "Credits"
-
-msgid "replay.view.loadout"
-msgstr "Loadout"
-
-msgid "replay.view.loadout.equipment"
-msgstr "Equipment"
-
-msgid "replay.view.loadout.modules"
-msgstr "Modules"
-
-msgid "replay.view.loadout.consumables"
-msgstr "Consumables"
-
-msgid "replay.view.loadout.ammo"
-msgstr "Ammo"
-
-msgid "replay.view.loadout.camo"
-msgstr "Camouflage"
-
-msgid "replay.view.loadout.emblems"
-msgstr "Emblems"
-
-msgid "replay.view.loadout.inscriptions"
-msgstr "Inscriptions"
-
-msgid "replay.view.teams"
-msgstr "Teams"
-
-msgid "replay.view.chat"
-msgstr "Battle Chat"
-
-msgid "replay.view.emblems.none"
-msgstr "No emblems applied"
-
-msgid "replay.view.camo.none"
-msgstr "No camo applied"
-
-msgid "replay.view.inscriptions.none"
-msgstr "No inscriptions applied"
-
-msgid "replay.view.teams.enemy"
-msgstr "Enemy"
-
-msgid "replay.view.teams.player"
-msgstr "Player"
-
-msgid "replay.view.performance.ratings"
-msgstr "Ratings"
+msgid "replays.overview.stats.attack.title"
+msgstr "Attack Statistics"
 
 msgid "replays.overview.stats.defense.title"
 msgstr "Defense Statistics"
 
-msgid "replays.overview.stats.attack.title"
-msgstr "Attack Statistics"
-
-msgid "replay.stats.hits.tooltip"
-msgstr "Shots that hit the target"
-
-msgid "replay.stats.shots.tooltip"
-msgstr "Shots fired"
-
-msgid "replay.stats.accuracy.tooltip"
-msgstr "Accuracy percentage"
-
-msgid "replay.stats.penperc.tooltip"
-msgstr "Penetration percentage"
-
-msgid "replay.stats.pierced.tooltip"
-msgstr "Penetrating hits"
-
-msgid "replays.overview.damage.text"
-msgstr "Damage Dealt"
-
-msgid "replays.overview.damage.tooltip"
-msgstr "Damage dealt to enemy players"
-
-msgid "replay.rating.overall"
-msgstr "Overall"
-
-msgid "replay.rating.battle"
-msgstr "Battle"
-
-msgid "replay.killedby"
-msgstr "Killed by %0"
-
-msgid "replay.view.missions"
-msgstr "Missions"
-
-msgid "replay.view.missions.completed"
-msgstr "Completed"
-
-msgid "replay.view.missions.inprogress"
-msgstr "In Progress"

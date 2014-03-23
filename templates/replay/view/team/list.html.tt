@@ -1,6 +1,15 @@
 [% rating = 'wn7' %]
 [% IF replay.panel.wn8.defined %][% rating = 'wn8' %][% END %]
 <table class="table table-bordered table-striped team-list">
+    <colgroup>
+        <col style="width: 31px"/>
+        <col style="width: 90px"/>
+        <col style="width: 250px"/>
+        <col style="width: 90px"/>
+        <col style="width: 150px"/>
+        <col style="width: 105px"/>
+        <col style="width: 105px"/>
+    </colgroup>
     <thead>
         <th></th>
         <th>[% h.loc('replays.team.tank.text') %]</th>

@@ -1,4 +1,4 @@
-<h4 id="battle-chat">[% h.loc('replay.chat.heading') %]</h4>
+<div class="page-header"><h4>[% h.loc('replay.chat.heading') %]</h4></div>
 <div class="well well-lg">
     [% FOREACH message IN replay.chat %]
         [% parsed = h.parse_message(message) %]

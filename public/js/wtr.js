@@ -5,7 +5,6 @@ window.Wotreplays = function(options) {
     this.apikey     = options.apikey;
     this.thunderkey = options.thunderkey;
     this.indev      = options.indev || false;
-    this.SDS        = null;
 
     this.catalog    = {};
     this._handlers  = {};
@@ -113,14 +112,6 @@ Wotreplays.prototype = {
             });
             return false;
         });
-
-        // SDS: we only do count loads, comment load is handled by the replay view page 
-        if(window.SDS) {
-            that.SDS = new SDS({ siteid: 'wotreplays', token: that.apikey });
-            that.SDS.on('error', function(data) {
-                console.log('SDS error: ', data);
-            }).getCounts();
-        }
 
         this.emit('ready');
     },

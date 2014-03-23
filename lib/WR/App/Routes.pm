@@ -91,14 +91,14 @@ sub install {
         $bhm->route('/')->to('replays-view#heatmap', pageid => 'battleheatmap', page => { title => 'replay.heatmap.page.title' });
 
     my $rb = $r->under('/replay/:replay_id');
-        $rb->route('/')->to('replays-view#view', pageid => undef)->name('viewreplay');
-        $rb->route('/desc')->to('replays#desc', pageid => undef);
+        $rb->route('/battleviewer')->to('replays-view#battleviewer', pageid => 'battleviewer', page => { title => 'replay.battleviewer.page.title' });
         $rb->route('/download')->to('replays-export#download', pageid => undef);
         $rb->route('/packets')->to('replays-view#packets', pageid => undef);
+        $rb->route('/comment')->to('replays-view#addcomment');
+        $rb->route('/heatmap')->to('replays-view#heatmap', pageid => 'battleheatmap', page => { title => 'replay.heatmap.page.title' });
+        $rb->route('/desc')->to('replays#desc', pageid => undef);
         $rb->route('/up')->to('replays-rate#rate_up', pageid => undef);
-        $rb->route('/comparison')->to('replays-view#comparison', pageid => undef);
-        $bv->route('/battleviewer')->to('replays-view#battleviewer', pageid => 'battleviewer', page => { title => 'replay.battleviewer.page.title' });
-        $bv->route('/heatmap')->to('replays-view#heatmap', pageid => 'battleheatmap', page => { title => 'replay.heatmap.page.title' });
+        $rb->route('/')->to('replays-view#view', pageid => undef)->name('viewreplay');
 
     $r->route('/clans')->to('clan#index', pageid => 'clan', page => { title => 'clans.page.title' });
     my $clan = $r->under('/clan');

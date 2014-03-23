@@ -1,0 +1,21 @@
+msgid "replay.modal.comment.title"
+msgstr "Post new comment"
+
+msgid "replay.modal.comment.cancel.text"
+msgstr "Cancel"
+
+msgid "replay.modal.comment.cancel.title"
+msgstr "Cancel posting this comment"
+
+msgid "replay.modal.comment.post.text"
+msgstr "Post"
+
+msgid "replay.modal.comment.post.title"
+msgstr "Post this comment"
+
+msgid "replay.modal.comment.form.heading"
+msgstr "Comment"
+
+msgid "replay.modal.comment.form.help"
+msgstr "Text only, HTML is not allowed"
+

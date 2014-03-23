@@ -46,5 +46,8 @@
         <li>
             <a href="#battle-chat">[% h.loc('replay.view.chat') %]</a>
         </li>
+        <li>
+            <a href="#comments">[% h.loc('replay.view.comments') %]</a>
+        </li>
     </ul>
 </div>

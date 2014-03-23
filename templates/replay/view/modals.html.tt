@@ -23,3 +23,25 @@
         </div>
     </div>
 </div>
+<div id="commentModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">[% h.loc('replay.modal.comment.title') %]</h4>
+            </div>
+            <div class="modal-body">
+                <form action="/replay/[% h.get_id(replay) %]/comment" method="post" id="frm-add-comment">
+                    <div class="form-group">
+                        <label for="comment">[% h.loc('replay.modal.comment.form.heading') %]</label>
+                        <textarea style="resize: none; height: 150px;" class="form-control" name="comment"></textarea>
+                        <p class="help-block">[% h.loc('replay.modal.comment.form.help') %]</p>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default bs-tooltip" title="[% h.loc('replay.modal.comment.cancel.title') %]" data-dismiss="modal">[% h.loc('replay.modal.comment.cancel.text') %]</button>
+                <button type="button" class="btn btn-primary bs-tooltip" title="[% h.loc('replay.modal.comment.post.title') %]">[% h.loc('replay.modal.comment.post.text') %]</button>
+            </div>
+        </div>
+    </div>
+</div>

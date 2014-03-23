@@ -4,8 +4,18 @@
             $('#embedModal').modal('show');
             return false;
         });
+        $('a#addcomment').click(function() {
+            $('#commentModal').modal('show');
+            return false;
+        });
         $('#embedModal').modal({
             show: false,
+        });
+        $('#commentModal').modal({
+            show: false,
+        });
+        $('#commentModal .btn-primary').on('click', function() {
+            $('#frm-add-comment').submit();
         });
         $('.btn-battleviewer').on('click', function() {
             if($(this).hasClass('disabled')) return false;
@@ -19,10 +29,6 @@
             $(document.body).scrollspy('refresh');
         });
     });
-    WR.on('ready', function() {
-        this.SDS.setContainer($('#sds-comments')).getComments();
-    });
-
     [% IF h.is_own_replay(replay) %]
         $('a#edit-desc-link').click(function() {
             $('#desc-show').addClass('hide');

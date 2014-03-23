@@ -9,11 +9,11 @@
         [% battle = 'replay/view/rating/battle_' _ type _ '.html.tt' %]
         [% overall = 'replay/view/rating/overall_' _ type _ '.html.tt' %]
         <div class="col-md-6 col-lg-6">
-            <h4>[% h.loc('replay.rating.overall') %]</h4>
+            <div class="page-header"><h4>[% h.loc('replay.rating.overall') %]</h4></div>
             [% INCLUDE $overall %]
         </div>
         <div class="col-md-6 col-lg-6">
-            <h4>[% h.loc('replay.rating.battle') %]</h4>
+            <div class="page-header"><h4>[% h.loc('replay.rating.battle') %]</h4></div>
             [% INCLUDE $battle %]
         </div>
     [% END %]

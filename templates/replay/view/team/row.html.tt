@@ -7,7 +7,7 @@
     [% class = 'died' %]
 [% END %]
 <tr>
-    <td></td>
+    <td>[% IF platoon > 0 %]<span class="platoon24">[% platoon %]</span>[% END %]</td>
     <td class="bs-tooltip playerVehicle" style="background: transparent url([% config.urls.assets %]/vehicles/48/[% player.vehicle.icon %]) no-repeat scroll center center" title="[% h.loc(player.vehicle.i18n) %]" data-toggle="tooltip" data-placement="auto" data-container="body">
         <div class="playerHealth">
             [% totalhealth = player.health.total %]

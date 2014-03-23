@@ -1,4 +1,4 @@
-<h4 style="margin-top: 0px" id="performance-overview">[% h.loc('replays.overview.battleperformance.title') %]</h4>
+<div class="page-header" style="margin-top: 0px"><h4 style="margin-top: 0px">[% h.loc('replays.overview.battleperformance.title') %]</h4></div>
 <div class="well">
     <table class="table table-bordered team-list table-striped">
         <colgroup>

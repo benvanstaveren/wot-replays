@@ -403,3 +403,15 @@ ul.section-list li ul li a {
     padding: 12px 2px 2px 2px;
     text-align: center
 }
+
+span.platoon24 {
+    background: transparent url(#{$image_base}/misc/platoon24.png) no-repeat scroll center center;
+    height: 24px;
+    width: 32px;
+    display: inline-block;
+    font-size: 9px;
+    font-weight: bold;
+    color: #fff;
+    padding-top: 4px;
+    padding-left: 14px;
+}

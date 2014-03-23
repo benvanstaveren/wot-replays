@@ -3,7 +3,7 @@
     <div class="row replay-container">
         <div class="col-lg-10 col-md-10">
             <a id="performance"></a>
-            <div class="row">
+            <div class="row" id="performance-overview">
                 <div class="col-lg-12 col-md-12">
                     [% INCLUDE replay/view/battleperformance.html.tt %]
                 </div>
@@ -41,9 +41,14 @@
                 </div>
             </div>
             [% INCLUDE replay/view/loadout.html.tt %]
-            <div class="row">
+            <div class="row" id="battle-chat">
                 <div class="col-lg-12 col-md-12">
                     [% INCLUDE replay/view/chat.html.tt %]
+                </div>
+            </div>
+            <div class="row" id="comments">
+                <div class="col-lg-12 col-md-12">
+                    [% INCLUDE replay/view/comments.html.tt %]
                 </div>
             </div>
         </div>

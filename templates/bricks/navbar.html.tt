@@ -8,26 +8,26 @@
     </div>
     <div class="navbar-collapse collapse" id="navbar-main">
         <ul class="nav navbar-nav">
-            <li class="[% IF pageid == 'home' && !but_really.defined %]active[% END %]"><a class="i18n" href="/">nav.home</a></li>
-            <li class="dropdown [% IF pageid == 'player' || pageid == 'clan' || pageid == 'map' || pageid == 'vehicle' || but_really == 'browse' %]active[% END %]"><a class="dropdown-toggle" data-toggle="dropdown" href="/"><span class="i18n">nav.browse</span> <b class="caret"></b></a>
+            <li class="[% IF pageid == 'home' && !but_really.defined %]active[% END %]"><a  href="/">[% h.loc('nav.home') %]</a></li>
+            <li class="dropdown [% IF pageid == 'player' || pageid == 'clan' || pageid == 'map' || pageid == 'vehicle' || but_really == 'browse' %]active[% END %]"><a class="dropdown-toggle" data-toggle="dropdown" href="/"><span>[% h.loc('nav.browse') %]</span> <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <li class="[% IF pageid == 'player' %]active[% END %]"><a class="i18n" href="/players/">nav.players</a></li>
-                    <li class="[% IF pageid == 'clan' %]active[% END %]"><a class="i18n" href="/clans/">nav.clans</a></li>
-                    <li class="[% IF pageid == 'vehicle' %]active[% END %]"><a class="i18n" href="/vehicles/">nav.vehicles</a></li>
-                    <li class="[% IF pageid == 'map' %]active[% END %]"><a class="i18n" href="/maps/">nav.maps</a></li>
+                    <li class="[% IF pageid == 'player' %]active[% END %]"><a href="/players/">[% h.loc('nav.players') %]</a></li>
+                    <li class="[% IF pageid == 'clan' %]active[% END %]"><a href="/clans/">[% h.loc('nav.clans') %]</a></li>
+                    <li class="[% IF pageid == 'vehicle' %]active[% END %]"><a href="/vehicles/">[% h.loc('nav.vehicles') %]</a></li>
+                    <li class="[% IF pageid == 'map' %]active[% END %]"><a href="/maps/">[% h.loc('nav.maps') %]</a></li>
                 </ul>
             </li>
-            <li class="dropdown [% IF pageid == 'heatmap' %]active[% END %]"><a class="dropdown-toggle" data-toggle="dropdown" href="/heatmaps/"><span class="i18n">nav.heatmaps</span> <b class="caret"></b></a>
+            <li class="dropdown [% IF pageid == 'heatmap' %]active[% END %]"><a class="dropdown-toggle" data-toggle="dropdown" href="/heatmaps/"><span>[% h.loc('nav.heatmaps') %]</span> <b class="caret"></b></a>
                 <ul class="dropdown-menu" style="column-count: 3; -moz-column-count: 3; -webkit-column-count: 3; width: 500px">
                     [% INCLUDE generated/heatmap_list.html.tt %]
                 </ul>
             </li>
-            <li class="[% IF pageid == 'competition' %]active[% END %]"><a class="i18n" href="/competitions/">nav.competitions</a></li>
+            <li class="[% IF pageid == 'competition' %]active[% END %]"><a  href="/competitions/">[% h.loc('nav.competitions') %]</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown [% IF pageid.match('statistics') %]active[% END %]"><a class="dropdown-toggle" data-toggle="dropdown" href="/statistics/"><span class="i18n">nav.statistics</span> <b class="caret"></b></a>
+            <li class="dropdown [% IF pageid.match('statistics') %]active[% END %]"><a class="dropdown-toggle" data-toggle="dropdown" href="/statistics/"><span>[% h.loc('nav.statistics') %]</span> <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <li class="[% IF pageid == 'statistics/mastery' %]active[% END %]"><a class="i18n" href="/statistics/mastery/">nav.statistics.mastery</a></li>
+                    <li class="[% IF pageid == 'statistics/mastery' %]active[% END %]"><a href="/statistics/mastery/">[% h.loc('nav.statistics.mastery') %]</a></li>
                 </ul>
             </li>
             <li class="[% IF pageid == 'blog' %]active[% END %]"><a href="http://blog.wotreplays.org/">[% h.loc('nav.blog') %]</a></li>
