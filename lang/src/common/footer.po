@@ -1,6 +1,9 @@
 msgid "footer.about"
 msgstr "about the site"
 
+msgid "footer.donate"
+msgstr "donate"
+
 msgid "footer.credits"
 msgstr "additional credits"
 
