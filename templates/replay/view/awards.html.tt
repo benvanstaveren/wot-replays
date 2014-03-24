@@ -20,7 +20,7 @@
                     [% ELSE %]
                         [% title = h.achievement_name(h.get_achievements.index_to_idstr(award.type)) %]
                     [% END %]
-                    <div data-toggle="tooltip" data-placement="bottom" data-container="body" class="bs-tooltip award big [% h.get_achievements.index_to_idstr(award.type) %][% IF award.class_suffix %][% award.class_suffix %][% END %]" title="[% h.loc(title) ]"></div>
+                    <div data-toggle="tooltip" data-placement="bottom" data-container="body" class="bs-tooltip award big [% h.get_achievements.index_to_idstr(award.type) %][% IF award.class_suffix %][% award.class_suffix %][% END %]" title="[% h.loc(title) %]"></div>
                     [% awardcount = awardcount + 1 %]
                 [% END %]
             [% END %]
