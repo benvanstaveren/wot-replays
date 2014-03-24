@@ -17,6 +17,11 @@
                 <div style="margin-top: 10px">
                     <span><span class="fa fa-clock-o"></span> [% h.usertime('%d/%m/%Y %H:%M', comment.posted) %]</span>
                 </div>
+                [% IF h.is_user_authenticated && (h.is_the_boss || h.has_role('comment_moderator')) %]
+                    <div>
+                        <a href="/replay/[% h.get_id(replay) %]/delcomment/[% comment.id %]"><span class="fa fa-trash"></span> delete</a>
+                    </div>
+                [% END %]
             </div>
             <div class="col-lg-9 col-md-9">
                 <div class="well well-sm">[% comment.text |html |html_para %]</div>

@@ -242,6 +242,30 @@ sub comparison {
     });
 }
 
+sub delcomment {
+    my $self = shift;
+    my $comment_id = $self->stash('comment_id');
+
+    $self->load_replay(sub {
+        my ($c, $e, $replay) = (@_);
+
+        if(defined($replay)) {
+            if($self->is_user_authenticated && ($self->is_the_boss || $self->has_role('comment_moderator'))) {
+                $self->model('wot-replays.replays')->update({ _id => $replay->{_id} }, {
+                    '$pull' => { 'site.comments' => { id => $comment_id } },
+                } => sub {
+                    my ($c, $e, $d) = (@_);
+                    $self->redirect_to(sprintf('/replay/%s.html#comments', $replay->{_id} . ''));
+                });
+            } else {
+                $self->redirect_to(sprintf('/replay/%s.html#comments', $replay->{_id} . ''));
+            }
+        } else {
+            $self->redirect_to(sprintf('/replay/%s.html#comments', $replay->{_id} . ''));
+        } 
+    });
+}
+
 sub addcomment {
     my $self = shift;
 
@@ -252,30 +276,34 @@ sub addcomment {
             unless($self->is_allowed_to_view($replay)) {
                 $self->redirect_to(sprintf('/replay/%s.html#comments', $replay->{_id} . ''));
             } else {
-                my $comment_id = sprintf('c%s', Mango::BSON::bson_oid . '');
-                my $text = $self->req->param('comment');
-                if(defined($text) && length($text) > 0) {
-                    my $comment    = {
-                        id      => $comment_id,
-                        author  => {
-                            name    => $self->current_user->{player_name},
-                            server  => $self->current_user->{player_server},
-                            clan    => $self->current_user_clan,
-                        },
-                        posted      => Mango::BSON::bson_time,
-                        text        => $self->req->param('comment'),
-                    };
-                    $self->model('wot-replays.replays')->update({ _id => $replay->{_id} }, {
-                        '$push' => { 'site.comments' => $comment },
-                    } => sub {
-                        my ($c, $e, $d) = (@_);
+                if($self->is_user_authenticated) {
+                    my $comment_id = sprintf('c%s', Mango::BSON::bson_oid . '');
+                    my $text = $self->req->param('comment');
+                    if(defined($text) && length($text) > 0) {
+                        my $comment    = {
+                            id      => $comment_id,
+                            author  => {
+                                name    => $self->current_user->{player_name},
+                                server  => $self->current_user->{player_server},
+                                clan    => $self->current_user_clan,
+                            },
+                            posted      => Mango::BSON::bson_time,
+                            text        => $self->req->param('comment'),
+                        };
+                        $self->model('wot-replays.replays')->update({ _id => $replay->{_id} }, {
+                            '$push' => { 'site.comments' => $comment },
+                        } => sub {
+                            my ($c, $e, $d) = (@_);
 
-                        if(defined($e)) {
-                            $self->redirect_to(sprintf('/replay/%s.html#comments', $replay->{_id} . ''));
-                        } else {
-                            $self->redirect_to(sprintf('/replay/%s.html#comments-%s', $replay->{_id} . '', $comment_id));
-                        }
-                    });
+                            if(defined($e)) {
+                                $self->redirect_to(sprintf('/replay/%s.html#comments', $replay->{_id} . ''));
+                            } else {
+                                $self->redirect_to(sprintf('/replay/%s.html#comments-%s', $replay->{_id} . '', $comment_id));
+                            }
+                        });
+                    } else {
+                        $self->redirect_to(sprintf('/replay/%s.html#comments', $replay->{_id} . ''));
+                    }
                 } else {
                     $self->redirect_to(sprintf('/replay/%s.html#comments', $replay->{_id} . ''));
                 }

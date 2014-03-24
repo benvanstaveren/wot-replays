@@ -95,6 +95,7 @@ sub install {
         $rb->route('/download')->to('replays-export#download', pageid => undef);
         $rb->route('/packets')->to('replays-view#packets', pageid => undef);
         $rb->route('/comment')->to('replays-view#addcomment');
+        $rb->route('/delcomment/:comment_id')->to('replays-view#delcomment');
         $rb->route('/heatmap')->to('replays-view#heatmap', pageid => 'battleheatmap', page => { title => 'replay.heatmap.page.title' });
         $rb->route('/desc')->to('replays#desc', pageid => undef);
         $rb->route('/up')->to('replays-rate#rate_up', pageid => undef);
