@@ -1,3 +1,9 @@
+msgid "panel.button.comment.label"
+msgstr "Kommentieren"
+
+msgid "panel.button.comment.title"
+msgstr "Dieses Replay kommentieren"
+
 msgid "panel.button.like.label"
 msgstr "Gef&auml;llt mir"
 

@@ -1,0 +1,12 @@
+msgid "replay.comments.addcomment"
+msgstr "Kommentieren"
+
+msgid "replay.comments.heading"
+msgstr "Kommentare"
+
+msgid "replay.comments.logintocomment"
+msgstr "Melde dich an, um zu kommentieren"
+
+msgid "replay.comments.nocomments"
+msgstr "Noch keine Kommentare..."
+

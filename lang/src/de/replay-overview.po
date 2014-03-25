@@ -1,3 +1,111 @@
+msgid "replay.killedby"
+msgstr "Von %0 zerst&ouml;rt"
+
+msgid "replay.rating.battle"
+msgstr "Gefecht"
+
+msgid "replay.rating.overall"
+msgstr "Insgesamt"
+
+msgid "replay.stats.accuracy.tooltip"
+msgstr "Genauigkeit in Prozent"
+
+msgid "replay.stats.hits.tooltip"
+msgstr "Schüsse, die das Ziel getroffen haben"
+
+msgid "replay.stats.penperc.tooltip"
+msgstr "Wirkungstreffer in Prozent"
+
+msgid "replay.stats.pierced.tooltip"
+msgstr "Wirkungstreffer"
+
+msgid "replay.stats.shots.tooltip"
+msgstr "Abgegebene Sch&uuml;sse"
+
+msgid "replay.view.camo.none"
+msgstr "Keine Tarnung"
+
+msgid "replay.view.chat"
+msgstr "Gefechtschat"
+
+msgid "replay.view.comments"
+msgstr "Kommentare"
+
+msgid "replay.view.earnings"
+msgstr "Einkommen"
+
+msgid "replay.view.earnings.credits"
+msgstr "Credits"
+
+msgid "replay.view.earnings.xp"
+msgstr "XP"
+
+msgid "replay.view.emblems.none"
+msgstr "Keine Wappen"
+
+msgid "replay.view.inscriptions.none"
+msgstr "Keine Inschriften"
+
+msgid "replay.view.loadout"
+msgstr "Ausstattung"
+
+msgid "replay.view.loadout.ammo"
+msgstr "Munition"
+
+msgid "replay.view.loadout.camo"
+msgstr "Tarnung"
+
+msgid "replay.view.loadout.consumables"
+msgstr "Verbrauchsmaterialien"
+
+msgid "replay.view.loadout.emblems"
+msgstr "Wappen"
+
+msgid "replay.view.loadout.equipment"
+msgstr "Zubeh&ouml;r"
+
+msgid "replay.view.loadout.inscriptions"
+msgstr "Inschriften"
+
+msgid "replay.view.loadout.modules"
+msgstr "Module"
+
+msgid "replay.view.missions"
+msgstr "Missionen"
+
+msgid "replay.view.missions.completed"
+msgstr "Erf&uuml;llt"
+
+msgid "replay.view.missions.inprogress"
+msgstr "Laufend"
+
+msgid "replay.view.performance"
+msgstr "Leistung"
+
+msgid "replay.view.performance.attackdefense"
+msgstr "Angriff/Verteidigung"
+
+msgid "replay.view.performance.awards"
+msgstr "Auszeichnungen"
+
+msgid "replay.view.performance.overview"
+msgstr "&Uuml;bersicht"
+
+msgid "replay.view.performance.playmisc"
+msgstr "Anderes"
+
+msgid "replay.view.performance.ratings"
+msgstr "Wertungen"
+
+msgid "replay.view.teams"
+msgstr "Teams"
+
+msgid "replay.view.teams.enemy"
+msgstr "Gegner"
+
+msgid "replay.view.teams.player"
+msgstr "Spieler"
+
 msgid "replays.overview.awards.noawards"
 msgstr "Keine Auszeichnungen"
 
@@ -31,11 +139,23 @@ msgstr "Spieler machte %1 Schadenspunkte (%2%) an einem Team-Mitglied"
 msgid "replays.overview.battleperformance.teamkill"
 msgstr "Spieler zerst&ouml;rte dieses Team-Mitglied"
 
+msgid "replays.overview.battleperformance.title"
+msgstr "Leistungs&uuml;bersicht"
+
+msgid "replays.overview.capture.cap.text"
+msgstr "Eroberungspunkte"
+
 msgid "replays.overview.capture.cap.title"
 msgstr "Eroberungspunkte"
 
+msgid "replays.overview.capture.defend.text"
+msgstr "Verteidigungspunkte"
+
 msgid "replays.overview.capture.defend.title"
 msgstr "Verteidigungspunkte"
+
+msgid "replays.overview.capture.title"
+msgstr "Andere Statistiken"
 
 msgid "replays.overview.damage.assist.text"
 msgstr "Unterst&uuml;tzt"
@@ -73,6 +193,15 @@ msgstr "Erhalten"
 msgid "replays.overview.damage.received.title"
 msgstr "Vom Spieler erhaltener Schaden"
 
+msgid "replays.overview.damage.text"
+msgstr "Verursachter Schaden"
+
+msgid "replays.overview.damage.title"
+msgstr "Unterst&uuml;tzungs-Statistiken"
+
+msgid "replays.overview.damage.tooltip"
+msgstr "An Gegnern verursachter Schaden"
+
 msgid "replays.overview.damage.track.text"
 msgstr "Tracking"
 
@@ -108,4 +237,10 @@ msgstr "Wirkungstreffer"
 
 msgid "replays.overview.shots.title"
 msgstr "Sch&uuml;sse"
+
+msgid "replays.overview.stats.attack.title"
+msgstr "Angriffs-Statistiken"
+
+msgid "replays.overview.stats.defense.title"
+msgstr "Verteidigungs-Statistiken"
 

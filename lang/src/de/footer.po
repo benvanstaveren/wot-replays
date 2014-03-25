@@ -4,3 +4,6 @@ msgstr "&Uuml;ber diese Seite"
 msgid "footer.credits"
 msgstr "Andere Danksagungen"
 
+msgid "footer.donate"
+msgstr "Spenden"
+

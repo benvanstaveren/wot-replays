@@ -1,9 +1,3 @@
-msgid "tooltip.rating.none"
-msgstr "Nicht verf&uuml;gbar"
-
-msgid "tooltip.rating.battle.none"
-msgstr "Es konnte keine Wertung berechnet werden"
-
 msgid "tooltip.rating.battle.above"
 msgstr "Spieler war in diesem Gefecht besser als der Durchschnitt"
 
@@ -13,33 +7,66 @@ msgstr "Spieler war in diesem Gefecht schlechter als der Durchschnitt"
 msgid "tooltip.rating.battle.equal"
 msgstr "Spieler war in diesem Gefecht durchschnittlich"
 
-msgid "tooltip.rating.overall.none"
+msgid "tooltip.rating.battle.none"
 msgstr "Es konnte keine Wertung berechnet werden"
+
+msgid "tooltip.rating.none"
+msgstr "Nicht verf&uuml;gbar"
 
 msgid "tooltip.rating.overall.above"
 msgstr "Spieler ist insgesamt besser als der Durchschnitt"
 
+msgid "tooltip.rating.overall.average"
+msgstr "Durchschnitt"
+
+msgid "tooltip.rating.overall.bad"
+msgstr "Schlecht"
+
 msgid "tooltip.rating.overall.below"
 msgstr "Spieler ist insgesamt schlechter als der Durchschnitt"
+
+msgid "tooltip.rating.overall.belowaverage"
+msgstr "Unter dem Durchschnitt"
 
 msgid "tooltip.rating.overall.equal"
 msgstr "Spieler ist insgesamt durchschnittlich"
 
-msgid "tooltip.wn7.overall"
-msgstr "Gesamt-WN7 des Spielers"
+msgid "tooltip.rating.overall.good"
+msgstr "Gut"
 
-msgid "tooltip.wn7.battle"
-msgstr "WN7 des Spielers in diesem Gefecht"
+msgid "tooltip.rating.overall.great"
+msgstr "Sehr gut"
+
+msgid "tooltip.rating.overall.none"
+msgstr "Es konnte keine Wertung berechnet werden"
+
+msgid "tooltip.rating.overall.superunicum"
+msgstr "Extrem einzigartig"
+
+msgid "tooltip.rating.overall.unicum"
+msgstr "Einzigartig"
+
+msgid "tooltip.rating.overall.verybad"
+msgstr "Sehr schlecht"
+
+msgid "tooltip.rating.overall.verygood"
+msgstr "Sehr gut"
 
 msgid "tooltip.team.average.wn7"
 msgstr "Durchschnitts-WN7 f&uuml;r dieses Team"
 
-msgid "tooltip.wn8.overall"
-msgstr "Gesamt-WN8 des Spielers"
+msgid "tooltip.team.average.wn8"
+msgstr "Durchschnitts-WN8 f&uuml;r dieses Team"
+
+msgid "tooltip.wn7.battle"
+msgstr "WN7 des Spielers in diesem Gefecht"
+
+msgid "tooltip.wn7.overall"
+msgstr "Gesamt-WN7 des Spielers"
 
 msgid "tooltip.wn8.battle"
 msgstr "WN8 des Spielers in diesem Gefecht"
 
-msgid "tooltip.team.average.wn8"
-msgstr "Durchschnitts-WN8 f&uuml;r dieses Team"
+msgid "tooltip.wn8.overall"
+msgstr "Gesamt-WN8 des Spielers"
 

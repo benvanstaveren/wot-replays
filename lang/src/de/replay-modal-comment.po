@@ -1,0 +1,21 @@
+msgid "replay.modal.comment.cancel.text"
+msgstr "Abbrechen"
+
+msgid "replay.modal.comment.cancel.title"
+msgstr "Kommentieren abbrechen"
+
+msgid "replay.modal.comment.form.heading"
+msgstr "Kommentar"
+
+msgid "replay.modal.comment.form.help"
+msgstr "Nur Text, kein HTML"
+
+msgid "replay.modal.comment.post.text"
+msgstr "Kommentieren"
+
+msgid "replay.modal.comment.post.title"
+msgstr "Diesen Kommentar absenden"
+
+msgid "replay.modal.comment.title"
+msgstr "Neuen Kommentar verfassen"
+
