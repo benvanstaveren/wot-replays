@@ -42,10 +42,10 @@
             <td><h5 style="margin: 0px">- [% h.loc('replays.earnings.text.repair') |ucfirst %]</h5></td>
             <td>[% replay.stats.repair %]</td>
         </tr>
-        [% IF replay.stats.creditsPenalty > 0 %]
+        [% IF replay.stats.creditsPenalty + replay.stats.creditsContributionOut > 0 %]
             <tr>
                 <td><h5 style="margin: 0px">- [% h.loc('replays.earnings.text.penalty') |ucfirst %]</h5></td>
-                <td>[% replay.stats.creditsPenalty %]</td>
+                <td>[% replay.stats.creditsPenalty + replay.stats.creditsContributionOut %]</td>
             </tr>
         [% END %]
         [% IF replay.stats.creditsContributionIn > 0 %]
