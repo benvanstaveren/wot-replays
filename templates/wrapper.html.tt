@@ -10,7 +10,11 @@
         [% END %]
 
         [% INCLUDE bricks/head.html.tt %]
-        [% INCLUDE extra_head %]
+
+        [% TRY %]
+            [% INCLUDE extra_head %]
+        [% CATCH %]
+        [% END %]
 
 	    <script type="text/javascript">
             var WR = new Wotreplays({
