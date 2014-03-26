@@ -62,7 +62,7 @@
                         [% FOREACH row IN toplist %]
                             <tr>
                                 <td>[% position %]</td>
-                                <td>[% h.get_id(row).player %] <span class="label label-default">[% h.get_id(row).server |uc %]</span></td>
+                                <td>[% h.get_id(row).player %] <span class="label label-default">[% h.get_id(row).server |upper %]</span></td>
                                 <td>
                                     <span>[% row.kills || row.replays %]</span>
                                     <a href="/competition/[% competition_id %]/[% h.get_id(row).server %]/[% h.get_id(row).player %]/" class="btn btn-primary btn-xs pull-right i18n">competition.entries.view</a>
