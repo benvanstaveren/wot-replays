@@ -1,3 +1,8 @@
+[% BLOCK extra_head %]
+    [% IF replay.site.banner.available %]
+        <meta property="og:image" content="[% config.urls.banners %]/[% replay.site.banner.url_path %]">
+    [% END %]
+[% END %]
 [% WRAPPER wrapper.html.tt %]
     [% INCLUDE replay/view/header.html.tt context="index" %]
     <div class="row replay-container">
