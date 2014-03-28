@@ -10,7 +10,6 @@ use Data::Dumper;
 sub doc {
     my $self = shift;
 
-    $self->res->headers->header('Cache-Control' => 'max-age=86400, must-revalidate');
     $self->respond(template => 'doc/index', stash => {
         page => { title => $self->loc(sprintf('page.%s.title', $self->stash('docfile'))) }
     })
@@ -72,7 +71,6 @@ sub xhr_du {
 
     my $bytes = du($self->stash('config')->{paths}->{replays});
     
-    $self->res->headers->header('Cache-Control' => 'max-age=0');
     $self->render(
         json => {
             bytes => $bytes,
@@ -86,7 +84,6 @@ sub xhr_ds {
     my $self = shift;
 
     $self->render_later;
-    $self->res->headers->header('Cache-Control' => 'max-age=0');
     $self->get_database->command(Mango::BSON::bson_doc('dbStats' => 1, 'scale' => (1024 * 1024)) => sub {
         my ($db, $err, $doc) = (@_);
 
@@ -108,13 +105,13 @@ sub nginx_post_action {
     my $stat = $self->req->param('s');
 
     $self->render_later;
-    $self->res->headers->header('Cache-Control' => 'max-age=0');
     if(defined($stat) && lc($stat) eq 'ok') {
         my $real_file = substr($file, 1); # because we want to ditch that leading slash
         if($real_file =~ /^(mods|patches)/) {
             $self->render(text => 'OK');
         } else {
             $self->model('replays')->update({ file => $real_file }, { '$inc' => { 'site.downloads' => 1 } } => sub {
+                # kick something to piwik here? 
                 $self->render(text => 'OK');
             });
         }
@@ -127,7 +124,6 @@ sub xhr_qs {
     my $self = shift;
 
     $self->render_later;
-    $self->res->headers->header('Cache-Control' => 'max-age=0');
     $self->model('jobs')->find({ ready => Mango::BSON::bson_true, complete => Mango::BSON::bson_false })->count(sub {
         my ($c, $e, $d) = (@_);
 
@@ -141,7 +137,6 @@ sub xhr_qs {
 
 sub xhr_po {
     my $self = shift;
-    $self->res->headers->header('Cache-Control' => 'max-age=0; private');
     $self->stash(catalog => $self->i18n_catalog);
     $self->stash(public_cache => 1);
     $self->render(template => 'xhr/po');

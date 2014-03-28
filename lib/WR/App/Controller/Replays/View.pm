@@ -322,8 +322,6 @@ sub view {
     $self->render_later;
     $self->stash('cachereplay' => 1);
 
-    $self->res->headers->header('Cache-Control' => 'max-age=0');
-
     $self->load_replay(sub {
         my ($c, $e, $replay) = (@_);
 
