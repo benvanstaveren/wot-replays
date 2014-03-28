@@ -1,6 +1,0 @@
-[% USE cache = Cache %]
-[% cache.inc(
-    template => 'bricks/servers/wr_name.html.tt',
-    keys => { 'server' => server },
-    ttl  => 'never'
-    ) %]

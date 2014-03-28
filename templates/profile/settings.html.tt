@@ -11,10 +11,10 @@
                         [% FOREACH language IN config.languages %]
                             [% IF language.active == 0 %]
                                 [% IF h.is_translator_for(language.ident) %]
-                                    <option class="i18n" value="[% language.ident %]" [% IF user_lang == language.ident %]selected[% END %] data-i18n-format="(!) %s">language.[% language.ident %]</option>
+                                    <option value="[% language.ident %]" [% IF user_lang == language.ident %]selected[% END %]>(!) [% h.loc('language.' _ language.ident) %]</option>
                                 [% END %]
                             [% ELSE %]
-                                <option class="i18n" value="[% language.ident %]" [% IF user_lang == language.ident %]selected[% END %]><span class="i18n">language.[% language.ident %]</span></option>
+                                <option value="[% language.ident %]" [% IF user_lang == language.ident %]selected[% END %]>[% h.loc('language.' _ language.ident) %]</span></option>
                             [% END %]
                         [% END %]
                     </select>

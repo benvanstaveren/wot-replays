@@ -10,12 +10,8 @@
                     style="margin-right: 4px" 
                     data-toggle="tooltip" 
                     data-placement="bottom" 
-                    [% IF h.competition_server(entry, s) %]
-                        [% h.i18n_attr({ title => [ 'competition.server.enabled', {} ]}) %]
-                    [% ELSE %]
-                        [% h.i18n_attr({ title => [ 'competition.server.disabled', {} ]}) %]
-                    [% END %]
-                    class="label bs-tooltip [% IF h.competition_server(entry, s) %]label-success[% ELSE %]label-default[% END %] pull-right i18n">server.[% s %]</span>
+                    title="[% IF h.competition_server(entry, s) %][% h.loc('competition.server.enabled') %][% ELSE %] [% h.loc('competition.server.disabled') %][% END %]"
+                    class="label bs-tooltip [% IF h.competition_server(entry, s) %]label-success[% ELSE %]label-default[% END %] pull-right">[% h.loc('server.' _ s) %]</span>
             [% END %]
         </span>
     </p>

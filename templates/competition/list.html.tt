@@ -5,9 +5,9 @@
     <div class="row">
         <div class="col-md-12 col-lg-12">
             <ul class="nav nav-tabs nav-inverse" id="competition-tabs">
-                <li class="active"><a href="#c-current" class="i18n" data-toggle="tab">competitions.current</a></li>
-                <li><a href="#c-upcoming" class="i18n" data-toggle="tab">competitions.upcoming</a></li>
-                <li><a href="#c-past" class="i18n" data-toggle="tab">competitions.past</a></li>
+                <li class="active"><a href="#c-current" data-toggle="tab">[% h.loc('competitions.current') %]</a></li>
+                <li><a href="#c-upcoming" data-toggle="tab">[% h.loc('competitions.upcoming') %]</a></li>
+                <li><a href="#c-past" data-toggle="tab">[% h.loc('competitions.past') %]</a></li>
             </ul>
             <div class="tab-content">
                 <div id="c-current" class="tab-pane fade in active">
@@ -18,7 +18,7 @@
                             [% END %]
                         </div>
                     [% ELSE %]
-                        <em class="i18n">competitions.current.none</em>
+                        <em">[% h.loc('competitions.current.none') %]</em>
                     [% END %]
                 </div>
                 <div id="c-upcoming" class="tab-pane fade">
@@ -29,7 +29,7 @@
                             [% END %]
                         </div>
                     [% ELSE %]
-                        <em class="i18n">competitions.future.none</em>
+                        <em>[% h.loc('competitions.future.none') %]</em>
                     [% END %]
                 </div>
                 <div id="c-past" class="tab-pane fade">
@@ -40,7 +40,7 @@
                             [% END %]
                         </div>
                     [% ELSE %]
-                        <em class="i18n">competitions.past.none</em>
+                        <em>[% h.loc('competitions.past.none') %]</em>
                     [% END %]
                 </div>
             </div>
