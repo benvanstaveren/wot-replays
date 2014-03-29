@@ -104,7 +104,7 @@ sub register {
         return $new;
     });
 
-    $app->helper(i18n_catalog => sub {
+    $app->helper(get_catalog_for_js => sub {
         my $self = shift;
         if(my $localizer = $self->stash('i18n_localizer')) {
             my $catalog = {};

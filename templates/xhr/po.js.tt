@@ -1,10 +1,6 @@
 $(document).ready(function() {
-    WR.catalog = [% h.as_json(catalog) %];
-    if(window.location.search.match(/no-i18n/)) {
-        WR.disableI18N();
-    }
+    WR.catalog = [% h.as_json(lang_catalog) %];
     WR.on('ready', function() {
-        console.log('WR.ready -> running i18n');
         $('.i18n').i18n();
         WR.emit('i18ndone', {});
     });

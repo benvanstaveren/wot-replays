@@ -127,33 +127,6 @@ sub startup {
             $c->debug('request to host: ', $host);
         }
     });
-
-    # this hook does some evil shenanigans and if the public_cache stash key is set,
-    # will write out the content that was rendered to the exact location under the public path,
-    # e.g. a request for '/foo/bar.html' gets written to <public>/foo/bar.html
-    #
-    # this is for use with nginx' try_files directive:
-    #
-    # try_files $uri $uri/ @application
-    $self->hook(after_render => sub {
-        my $c = shift;
-        my $output = shift;
-        my $format = shift;
-
-        if(defined($c->stash('public_cache') )) {
-            my $path = $c->req->url->to_abs->path;
-            my $full_file = sprintf('%s%s', $self->config('paths')->{public}, $path);
-            my @parts = split(/\//, $full_file);
-            my $file = pop(@parts);
-            my $dir = join('/', $file);
-
-            File::Path::make_path($dir) unless(-e $dir);
-            if(my $fh = IO::File->new('>' . $full_file)) {
-                $fh->print($$output);
-                $fh->close;
-            }
-        }
-    });
 }
 
 1;

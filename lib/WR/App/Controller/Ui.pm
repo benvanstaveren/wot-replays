@@ -137,7 +137,8 @@ sub xhr_qs {
 
 sub xhr_po {
     my $self = shift;
-    $self->stash(catalog   => $self->i18n_catalog);
+
+    $self->stash(lang_catalog => $self->get_catalog_for_js);
     $self->render(template => 'xhr/po');
 }
 
