@@ -107,18 +107,13 @@ sub register {
     $app->helper(i18n_catalog => sub {
         my $self = shift;
         if(my $localizer = $self->stash('i18n_localizer')) {
-            # aw yiss, grab the entire catalog and construct a single hash out of it, site comes last
             my $catalog = {};
-            foreach my $cat (keys(%{$localizer->lexicon_map})) {
-                next if($cat eq 'site');
-                foreach my $id (keys(%{$localizer->get_lexicon_map($cat)})) {
-                    my $val = $localizer->get_lexicon($cat, $id);
-                    $catalog->{sprintf('#%s:%s', $cat, $id)} = $self->fix_utf8_for_js($val);
-                }
-            }
             foreach my $id (keys(%{$localizer->get_lexicon_map('site')})) {
-                $catalog->{$id} = $localizer->get_lexicon('site', $id);
-                $app->log->debug('adding ' . $id . ' to site catalog');
+                # only add certain keys to it
+                if($id =~ /^(growl)\./) {
+                    $catalog->{$id} = $localizer->get_lexicon('site', $id);
+                    $self->app->log->debug('adding ' . $id . ' to site catalog');
+                }
             }
             return $catalog;
         } else {
