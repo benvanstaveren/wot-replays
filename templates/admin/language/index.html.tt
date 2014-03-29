@@ -181,7 +181,7 @@
                             $('#btn-save-' + bseq).removeClass('hide');
                             $('#spinner-' + bseq).addClass('hide');
                             if(m) {
-                                $('div.well[data-string="' + string + '"]').fadeOut(1000, function() {
+                                $('div.well[data-string="' + string + '"]').fadeOut(500, function() {
                                     $(this).remove();
                                 });
                             }
