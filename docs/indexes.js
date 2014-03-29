@@ -12,6 +12,12 @@ db.replays.ensureIndex({
     }
 );
 db.replays.ensureIndex({
+    'game.battle_level': -1
+    }, { 
+        name: 'wr.query.sort.battle_level',
+    }
+);
+db.replays.ensureIndex({
     'site.downloads': -1
     }, { 
         name: 'wr.query.sort.downloads',
@@ -94,6 +100,15 @@ db.replays.ensureIndex({
     'game.recorder.name': 1,
     'game.recorder.account_id': 1,
     'involved.players': 1
+    'site.uploaded_at': -1,
+    'site.likes': -1,
+    'site.downloads': -1,
+    'site.uploaded_at': -1,
+    'game.started': -1,
+    'stats.originalXP': -1,
+    'stats.damageDealt': -1,
+    'stats.damageAssistedRadio': -1,
+    'game.battle_level': -1,
     }, {
         name: 'filter.all',
     }
