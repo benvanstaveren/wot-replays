@@ -107,6 +107,7 @@
                     <select name="sr" class="form-control">
                         <option value="upload">[% h.loc('sidebar.filter.sorting.upload') %]</option>
                         <option value="matchtime">[% h.loc('sidebar.filter.sorting.matchtime') %]</option>
+                        <option value="battlelevel">[% h.loc('sidebar.filter.sorting.battlelevel') %]</option>
                         <option value="xp">[% h.loc('sidebar.filter.sorting.xp') %]</option>
                         <option value="credits">[% h.loc('sidebar.filter.sorting.credits') %]</option>
                         <option value="damage">[% h.loc('sidebar.filter.sorting.damage') %]</option>

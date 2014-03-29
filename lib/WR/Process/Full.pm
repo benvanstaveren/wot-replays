@@ -170,7 +170,7 @@ sub _stream_replay {
         $game->on('arena.initialize' => sub {
             my ($s, $init) = (@_);
 
-            $replay->set('game.battle_level'    => (defined($init->{battleLevel})) ? $init->{battleLevel} + 0 : undef);
+            $replay->set('game.battle_level'    => (defined($init->{battle_level})) ? $init->{battle_level} + 0 : undef);
             $replay->set('game.opponents'       => (defined($init->{opponents})) ? $init->{opponents} : undef);
             $replay->set('game.arena_id'        => $init->{arena_unique_id} . '');
             $replay->set('game.started'         => undef);

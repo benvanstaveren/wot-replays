@@ -46,6 +46,9 @@ msgstr "Sorting"
 msgid "sidebar.filter.sorting.upload"
 msgstr "Upload Date"
 
+msgid "sidebar.filter.sorting.battlelevel"
+msgstr "Battle Level"
+
 msgid "sidebar.filter.sorting.matchtime"
 msgstr "Match Time"
 

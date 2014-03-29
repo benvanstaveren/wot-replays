@@ -77,6 +77,7 @@ sub _real_browse {
         likes       => { 'site.likes'               => -1 },
         downloads   => { 'site.downloads'           => -1 },
         scouted     => { 'stats.damageAssistedRadio' => -1 },
+        battlelevel => { 'game.battle_level'        => -1 },
         };
     my $query_add = undef;
 

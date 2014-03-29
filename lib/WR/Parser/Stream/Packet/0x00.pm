@@ -33,7 +33,6 @@ has 'gui_type' => sub {
 
 has 'gameplay_id' => sub {
     return shift->arena_type_id >> 16;
-    
 };
 
 has 'map_id' => sub {
