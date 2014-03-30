@@ -30,6 +30,7 @@ sub is_allowed_to_view {
             ($replay->{game}->{server} eq $self->current_user->{player_server}) &&
             ($replay->{game}->{recorder}->{name} eq $self->current_user->{player_name})
         );
+        return 1 if($self->req->param('bypass') == 1 && $self->is_the_boss);
         return 0;
     } elsif($replay->{site}->{privacy} == 3) {
         return 0 unless(defined($self->current_user->{clan}));
@@ -37,6 +38,7 @@ sub is_allowed_to_view {
             ($replay->{game}->{server} eq $self->current_user->{player_server}) &&
             ($replay->{game}->{recorder}->{clan} eq $self->current_user->{clan}->{abbreviation})
         );
+        return 1 if($self->req->param('bypass') == 1 && $self->is_the_boss);
         return 0;
     }
     return 0; # should never get here
