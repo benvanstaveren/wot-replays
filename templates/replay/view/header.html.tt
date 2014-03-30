@@ -36,7 +36,7 @@
                                 [% IF replay.site.privacy == 1 %]
                                     <span class="pull-right label label-default">[% h.loc('privacy.unlisted') %]</span>
                                 [% ELSIF replay.site.privacy == 2 %]
-                                    <span class="pull-right label label-danger">[% h.loc('privacy.privte') %]</span>
+                                    <span class="pull-right label label-danger">[% h.loc('privacy.private') %]</span>
                                 [% ELSIF replay.site.privacy == 3 %]
                                     <span class="pull-right label label-warning">[% h.loc('privacy.clan') %]</span>
                                 [% END %]
