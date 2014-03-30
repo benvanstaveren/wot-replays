@@ -12,7 +12,7 @@
                 </div>
                 <span style="top: 7px; left: 7px; position: absolute;" class="label label-default">[% h.loc('server.' _ replay.game.server) %]</span>
                 [% IF replay.game.battle_level.defined %]
-                    <span style="top: 75px; left: 7px; position: absolute;" class="label label-primary">Battle Level [% replay.game.battle_level %]</span>
+                    <span style="top: 75px; left: 7px; position: absolute;" class="label label-primary">[% h.loc('sidebar.filter.sorting.battlelevel') %] [% replay.game.battle_level %]</span>
                 [% END %]
             </div>
         </div>
