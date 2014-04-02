@@ -22,3 +22,9 @@ msgstr "Cari Pemain"
 msgid "players.page.title"
 msgstr "Cari Pemain"
 
+msgid "players.view.involved"
+msgstr "Lihat rakaman terlibat"
+
+msgid "players.view.recorded"
+msgstr "Lihat rakaman pemain"
+

@@ -1,0 +1,12 @@
+msgid "replay.comments.addcomment"
+msgstr "Pos Komen"
+
+msgid "replay.comments.heading"
+msgstr "Komen-komen"
+
+msgid "replay.comments.logintocomment"
+msgstr "Log masuk untuk komen"
+
+msgid "replay.comments.nocomments"
+msgstr "Tiada komen..."
+

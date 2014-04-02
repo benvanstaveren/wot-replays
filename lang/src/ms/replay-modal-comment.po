@@ -1,0 +1,21 @@
+msgid "replay.modal.comment.cancel.text"
+msgstr "Batal"
+
+msgid "replay.modal.comment.cancel.title"
+msgstr "Batalkan komen ini"
+
+msgid "replay.modal.comment.form.heading"
+msgstr "Komen"
+
+msgid "replay.modal.comment.form.help"
+msgstr "Teks sahaja, HTML tidak dibenarkan"
+
+msgid "replay.modal.comment.post.text"
+msgstr "Pos"
+
+msgid "replay.modal.comment.post.title"
+msgstr "Pos komen ini"
+
+msgid "replay.modal.comment.title"
+msgstr "Pos komen baru"
+

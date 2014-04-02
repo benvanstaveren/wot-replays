@@ -4,3 +4,6 @@ msgstr "tentang laman web ini"
 msgid "footer.credits"
 msgstr "penghargaan"
 
+msgid "footer.donate"
+msgstr "derma"
+

@@ -1,3 +1,111 @@
+msgid "replay.killedby"
+msgstr "Dimusnahkan oleh %0"
+
+msgid "replay.rating.battle"
+msgstr "Pertempuran"
+
+msgid "replay.rating.overall"
+msgstr "Keseluruhan"
+
+msgid "replay.stats.accuracy.tooltip"
+msgstr "Peratusan ketepatan"
+
+msgid "replay.stats.hits.tooltip"
+msgstr "Tembakan mengena"
+
+msgid "replay.stats.penperc.tooltip"
+msgstr "Peratusan penembusan"
+
+msgid "replay.stats.pierced.tooltip"
+msgstr "Tembakan menembus"
+
+msgid "replay.stats.shots.tooltip"
+msgstr "Tembakan dilepaskan"
+
+msgid "replay.view.camo.none"
+msgstr "Tiada penyamaran digunakan"
+
+msgid "replay.view.chat"
+msgstr "Chat Pertempuran"
+
+msgid "replay.view.comments"
+msgstr "Komen-komen"
+
+msgid "replay.view.earnings"
+msgstr "Perolehan"
+
+msgid "replay.view.earnings.credits"
+msgstr "Kredit"
+
+msgid "replay.view.earnings.xp"
+msgstr "XP"
+
+msgid "replay.view.emblems.none"
+msgstr "Tiada lambang digunakan"
+
+msgid "replay.view.inscriptions.none"
+msgstr "Tiada inskripsi digunakan"
+
+msgid "replay.view.loadout"
+msgstr "Muatan"
+
+msgid "replay.view.loadout.ammo"
+msgstr "Amunisi"
+
+msgid "replay.view.loadout.camo"
+msgstr "Penyamaran"
+
+msgid "replay.view.loadout.consumables"
+msgstr "Barangpakai"
+
+msgid "replay.view.loadout.emblems"
+msgstr "Lambang"
+
+msgid "replay.view.loadout.equipment"
+msgstr "Kelengkapan"
+
+msgid "replay.view.loadout.inscriptions"
+msgstr "Inskripsi"
+
+msgid "replay.view.loadout.modules"
+msgstr "Modul-modul"
+
+msgid "replay.view.missions"
+msgstr "Misi-misi"
+
+msgid "replay.view.missions.completed"
+msgstr "Selesai"
+
+msgid "replay.view.missions.inprogress"
+msgstr "Sedang Dijalankan"
+
+msgid "replay.view.performance"
+msgstr "Prestasi"
+
+msgid "replay.view.performance.attackdefense"
+msgstr "Serangan/Pertahanan"
+
+msgid "replay.view.performance.awards"
+msgstr "Anugerah"
+
+msgid "replay.view.performance.overview"
+msgstr "Ringkasan"
+
+msgid "replay.view.performance.playmisc"
+msgstr "Sokongan/Lain-lain"
+
+msgid "replay.view.performance.ratings"
+msgstr "Penilaian"
+
+msgid "replay.view.teams"
+msgstr "Pasukan-pasukan"
+
+msgid "replay.view.teams.enemy"
+msgstr "Musuh"
+
+msgid "replay.view.teams.player"
+msgstr "Sekutu"
+
 msgid "replays.overview.awards.noawards"
 msgstr "Tiada pingat dianugerahkan"
 
@@ -31,11 +139,23 @@ msgstr "Pemain mengenakan %1 mata (%2%) kerosakan kepada sekutu"
 msgid "replays.overview.battleperformance.teamkill"
 msgstr "Pemain memusnahkan sekutu ini"
 
+msgid "replays.overview.battleperformance.title"
+msgstr "Ringkasan Prestasi"
+
+msgid "replays.overview.capture.cap.text"
+msgstr "Tawanan Pangkalan"
+
 msgid "replays.overview.capture.cap.title"
 msgstr "Mata tawanan pangkalan"
 
+msgid "replays.overview.capture.defend.text"
+msgstr "Pertahanan Pangkalan"
+
 msgid "replays.overview.capture.defend.title"
 msgstr "Mata pertahanan pangkalan"
+
+msgid "replays.overview.capture.title"
+msgstr "Lain-lain Statistik"
 
 msgid "replays.overview.damage.assist.text"
 msgstr "Disokong"
@@ -73,6 +193,15 @@ msgstr "Diterima"
 msgid "replays.overview.damage.received.title"
 msgstr "Kerosakan diterima pemain"
 
+msgid "replays.overview.damage.text"
+msgstr "Kerosakan Dikenakan"
+
+msgid "replays.overview.damage.title"
+msgstr "Statistik Sokongan"
+
+msgid "replays.overview.damage.tooltip"
+msgstr "Kerosakan dikenakan kepada pemain musuh"
+
 msgid "replays.overview.damage.track.text"
 msgstr "Pemusnahan Trek"
 
@@ -108,4 +237,10 @@ msgstr "Menembus"
 
 msgid "replays.overview.shots.title"
 msgstr "Tembakan"
+
+msgid "replays.overview.stats.attack.title"
+msgstr "Statistik Serangan"
+
+msgid "replays.overview.stats.defense.title"
+msgstr "Statistik Pertahanan"
 

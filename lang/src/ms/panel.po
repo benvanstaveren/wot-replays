@@ -1,62 +1,14 @@
-msgid "panel.result.heading"
-msgstr "keputusan"
+msgid "panel.button.comment.label"
+msgstr "Komen"
 
-msgid "panel.result.victory"
-msgstr "menang"
+msgid "panel.button.comment.title"
+msgstr "Beri komen untuk rakaman ini"
 
-msgid "panel.result.draw"
-msgstr "seri"
+msgid "panel.button.like.label"
+msgstr "Suka"
 
-msgid "panel.result.defeat"
-msgstr "kalah"
-
-msgid "panel.xp.heading"
-msgstr "xp"
-
-msgid "panel.xp.tooltip"
-msgstr "%0 xp diraih termasuk premium dan bonus misi"
-
-msgid "panel.credits.heading"
-msgstr "kredit"
-
-msgid "panel.credits.tooltip"
-msgstr "%0 kredit diraih termasuk premium dan bonus misi"
-
-msgid "panel.spotted.heading"
-msgstr "dikesan"
-
-msgid "panel.damaged.heading"
-msgstr "dirosakkan"
-
-msgid "panel.killed.heading"
-msgstr "dimusnahkan"
-
-msgid "panel.server.heading"
-msgstr "server"
-
-msgid "panel.survived.heading"
-msgstr "terselamat"
-
-msgid "panel.survived.yes"
-msgstr "ya"
-
-msgid "panel.survived.no"
-msgstr "tidak"
-
-msgid "panel.version.heading"
-msgstr "versi"
-
-msgid "panel.version.current"
-msgstr "Versi kini"
-
-msgid "panel.version.incompatible"
-msgstr "Versi tidak sepadan"
-
-msgid "panel.button.view.label"
-msgstr "Lihat"
-
-msgid "panel.button.view.title"
-msgstr "Lihat rakaman ini"
+msgid "panel.button.like.title"
+msgstr "Sukakan rakaman ini"
 
 msgid "panel.button.save.label"
 msgstr "Simpan"
@@ -64,9 +16,63 @@ msgstr "Simpan"
 msgid "panel.button.save.title"
 msgstr "Muat turun rakaman ini"
 
-msgid "panel.button.like.label"
-msgstr "Suka"
+msgid "panel.button.view.label"
+msgstr "Lihat"
 
-msgid "panel.button.like.title"
-msgstr "Sukakan rakaman ini"
+msgid "panel.button.view.title"
+msgstr "Lihat rakaman ini"
+
+msgid "panel.credits.heading"
+msgstr "kredit"
+
+msgid "panel.credits.tooltip"
+msgstr "%0 kredit diraih termasuk premium dan bonus misi"
+
+msgid "panel.damaged.heading"
+msgstr "dirosakkan"
+
+msgid "panel.killed.heading"
+msgstr "dimusnahkan"
+
+msgid "panel.result.defeat"
+msgstr "kalah"
+
+msgid "panel.result.draw"
+msgstr "seri"
+
+msgid "panel.result.heading"
+msgstr "keputusan"
+
+msgid "panel.result.victory"
+msgstr "menang"
+
+msgid "panel.server.heading"
+msgstr "server"
+
+msgid "panel.spotted.heading"
+msgstr "dikesan"
+
+msgid "panel.survived.heading"
+msgstr "terselamat"
+
+msgid "panel.survived.no"
+msgstr "tidak"
+
+msgid "panel.survived.yes"
+msgstr "ya"
+
+msgid "panel.version.current"
+msgstr "Versi kini"
+
+msgid "panel.version.heading"
+msgstr "versi"
+
+msgid "panel.version.incompatible"
+msgstr "Versi tidak sepadan"
+
+msgid "panel.xp.heading"
+msgstr "xp"
+
+msgid "panel.xp.tooltip"
+msgstr "%0 xp diraih termasuk premium dan bonus misi"
 

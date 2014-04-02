@@ -1,9 +1,3 @@
-msgid "tooltip.rating.none"
-msgstr "Tidak Sedia Ada"
-
-msgid "tooltip.rating.battle.none"
-msgstr "Tiada penilaian didapati"
-
 msgid "tooltip.rating.battle.above"
 msgstr "Prestasi pemain agak baik dalam pertempuran ini"
 
@@ -13,33 +7,66 @@ msgstr "Prestasi pemain kurang baik dalam pertempuran ini"
 msgid "tooltip.rating.battle.equal"
 msgstr "Prestasi pemain agak biasa dalam pertempuran ini"
 
-msgid "tooltip.rating.overall.none"
+msgid "tooltip.rating.battle.none"
 msgstr "Tiada penilaian didapati"
+
+msgid "tooltip.rating.none"
+msgstr "Tidak Sedia Ada"
 
 msgid "tooltip.rating.overall.above"
 msgstr "Prestasi keseluruhan pemain agak baik"
 
+msgid "tooltip.rating.overall.average"
+msgstr "Biasa"
+
+msgid "tooltip.rating.overall.bad"
+msgstr "Teruk"
+
 msgid "tooltip.rating.overall.below"
 msgstr "Prestasi keseluruhan pemain kurang baik"
+
+msgid "tooltip.rating.overall.belowaverage"
+msgstr "Kurang Baik"
 
 msgid "tooltip.rating.overall.equal"
 msgstr "Prestasi keseluruhan pemain agak biasa"
 
-msgid "tooltip.wn7.overall"
-msgstr "WN7 keseluruhan pemain"
+msgid "tooltip.rating.overall.good"
+msgstr "Baik"
 
-msgid "tooltip.wn7.battle"
-msgstr "WN7 pemain untuk pertempuran ini sahaja"
+msgid "tooltip.rating.overall.great"
+msgstr "Hebat"
+
+msgid "tooltip.rating.overall.none"
+msgstr "Tiada penilaian didapati"
+
+msgid "tooltip.rating.overall.superunicum"
+msgstr "Super Unicum"
+
+msgid "tooltip.rating.overall.unicum"
+msgstr "Unicum"
+
+msgid "tooltip.rating.overall.verybad"
+msgstr "Sangat Teruk"
+
+msgid "tooltip.rating.overall.verygood"
+msgstr "Sangat Baik"
 
 msgid "tooltip.team.average.wn7"
 msgstr "Purata WN7 pasukan ini"
 
-msgid "tooltip.wn8.overall"
-msgstr "WN8 keseluruhan pemain"
+msgid "tooltip.team.average.wn8"
+msgstr "Purata WN8 pasukan ini"
+
+msgid "tooltip.wn7.battle"
+msgstr "WN7 pemain untuk pertempuran ini sahaja"
+
+msgid "tooltip.wn7.overall"
+msgstr "WN7 keseluruhan pemain"
 
 msgid "tooltip.wn8.battle"
 msgstr "WN8 pemain untuk pertempuran ini sahaja"
 
-msgid "tooltip.team.average.wn8"
-msgstr "Purata WN8 pasukan ini"
+msgid "tooltip.wn8.overall"
+msgstr "WN8 keseluruhan pemain"
 

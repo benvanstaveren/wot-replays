@@ -26,7 +26,7 @@ msgid "upload.modal.complete.button.closeview"
 msgstr "Tutup &amp; Lihat"
 
 msgid "upload.modal.complete.header"
-msgstr "Selese Memproses"
+msgstr "Selesai Memproses"
 
 msgid "upload.modal.complete.links"
 msgstr "Pautan"

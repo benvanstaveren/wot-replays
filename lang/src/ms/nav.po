@@ -43,6 +43,12 @@ msgstr "Dimuat Naik"
 msgid "nav.signin"
 msgstr "Log Masuk"
 
+msgid "nav.statistics"
+msgstr "Statistik"
+
+msgid "nav.statistics.mastery"
+msgstr "XP Kecekapan"
+
 msgid "nav.tools"
 msgstr "Peralatan"
 
