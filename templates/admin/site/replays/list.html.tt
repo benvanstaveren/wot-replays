@@ -65,6 +65,10 @@
                                     private
                                 [% ELSIF replay.site.privacy == 3 %]
                                     clan
+                                [% ELSIF replay.site.privacy == 4 %]
+                                    participants
+                                [% ELSIF replay.site.privacy == 5 %]
+                                    team
                                 [% END %]
                             [% END %]
                         </td>

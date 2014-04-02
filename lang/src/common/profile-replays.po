@@ -4,6 +4,12 @@ msgstr "%1 %quant(%1,replay,replays) featuring you"
 msgid "profile.replays.clan"
 msgstr "%1 clan %quant(%1,replay,replays) featuring you"
 
+msgid "profile.replays.team"
+msgstr "%1 team %quant(%1,replay,replays) featuring you"
+
+msgid "profile.replays.participants"
+msgstr "%1 participant %quant(%1,replay,replays) featuring you"
+
 msgid "profile.replays.defeat"
 msgstr "defeat"
 

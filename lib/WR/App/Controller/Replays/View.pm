@@ -26,6 +26,7 @@ sub is_allowed_to_view {
     return 0 unless $self->is_user_authenticated;
 
     if($replay->{site}->{privacy} == 2) {
+        $self->debug('privacy: private');
         return 1 if( 
             ($replay->{game}->{server} eq $self->current_user->{player_server}) &&
             ($replay->{game}->{recorder}->{name} eq $self->current_user->{player_name})
@@ -33,6 +34,7 @@ sub is_allowed_to_view {
         return 1 if($self->req->param('bypass') == 1 && $self->is_the_boss);
         return 0;
     } elsif($replay->{site}->{privacy} == 3) {
+        $self->debug('privacy: clan');
         return 0 unless(defined($self->current_user->{clan}));
         return 1 if( 
             ($replay->{game}->{server} eq $self->current_user->{player_server}) &&
@@ -40,6 +42,42 @@ sub is_allowed_to_view {
         );
         return 1 if($self->req->param('bypass') == 1 && $self->is_the_boss);
         return 0;
+    } elsif($replay->{site}->{privacy} == 4) {
+        $self->debug('privacy: participants');
+        foreach my $player (@{$replay->{involved}->{players}}) {
+            $self->debug('check ', $player, ' against ', $self->current_user->{player_name});
+            return 1 if(
+                ($replay->{game}->{server} eq $self->current_user->{player_server}) &&
+                ($player eq $self->current_user->{player_name})
+            );
+        }
+        return 1 if($self->req->param('bypass') == 1 && $self->is_the_boss);
+        return 0;
+    } elsif($replay->{site}->{privacy} == 5) {
+        $self->debug('privacy: team');
+        if(!defined($replay->{involved}->{team})) {
+            $self->debug('replay has no team list, fixing...');
+            my $rteam = $replay->{game}->{recorder}->{team};
+            my $t = [];
+            foreach my $entry (@{$replay->{roster}}) {
+                if($entry->{player}->{team} == $rteam) {
+                    push(@$t, $entry->{player}->{name});
+                }
+            }
+            $self->model('wot-replays.replays')->update({ _id => $replay->{_id} }, { '$set' => { 'involved.team' => $t } } => sub {
+                $self->redirect_to(sprintf('/replay/%s.html', $replay->{_id} . ''));
+            });
+            return -1;
+        } else {
+            foreach my $player (@{$replay->{involved}->{team}}) {
+                return 1 if(
+                    ($replay->{game}->{server} eq $self->current_user->{player_server}) &&
+                    ($player eq $self->current_user->{player_name})
+                );
+            }
+            return 1 if($self->req->param('bypass') == 1 && $self->is_the_boss);
+            return 0;
+        }
     }
     return 0; # should never get here
 }
@@ -328,11 +366,15 @@ sub view {
         my ($c, $e, $replay) = (@_);
 
         if(defined($replay)) {
-            unless($self->is_allowed_to_view($replay)) {
+            my $r = $self->is_allowed_to_view($replay);
+            if($r == 0) {
                 $self->respond(template => 'replay/view/denied', stash => { page => { title => $self->loc('page.replay.denied.title') }});
                 return;
+            } elsif($r == -1 ) {
+                return;
+            } else {
+                $self->actual_view_replay($replay, $start);
             }
-            $self->actual_view_replay($replay, $start);
         } else {
             $self->redirect_to('/');
         }

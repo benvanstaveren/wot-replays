@@ -10,3 +10,16 @@
         <a id="na" type="button" class="please-wait btn btn-primary btn-lg btn-block" href="/login/na">North America</a>
     </div>
 </div>
+[% IF notify.defined %]
+<script type="text/javascript">
+    $(document).ready(function() {
+        $.bootstrapGrowl({
+            type: 'danger',
+            allow_dismiss: true,
+            delay: 60000,
+            text: '[% notify.text |js %]',
+        });
+    });
+</script>
+[% END %]
+

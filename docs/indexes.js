@@ -99,7 +99,7 @@ db.replays.ensureIndex({
     'game.recorder.vehicle.ident': 1,
     'game.recorder.name': 1,
     'game.recorder.account_id': 1,
-    'involved.players': 1
+    'involved.players': 1,
     'site.uploaded_at': -1,
     'site.likes': -1,
     'site.downloads': -1,

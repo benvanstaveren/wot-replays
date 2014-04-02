@@ -10,6 +10,10 @@
                     [% h.loc('profile.replays.clan', total_replays) %]
                 [% ELSIF type == 'pr' %]
                     [% h.loc('profile.replays.private', total_replays) %]
+                [% ELSIF type == 'pl' %]
+                    [% h.loc('profile.replays.participants', total_replays) %]
+                [% ELSIF type == 't' %]
+                    [% h.loc('profile.replays.team', total_replays) %]
                 [% ELSE %]
                     [% h.loc('profile.replays.any', total_replays) %]
                 [% END %]
@@ -39,6 +43,8 @@
                             <option value="u">[% h.loc('privacy.unlisted') |lower %]</option>
                             <option value="pr">[% h.loc('privacy.private') |lower %]</option>
                             <option value="c">[% h.loc('privacy.clan') |lower %]</option>
+                            <option value="pl">[% h.loc('privacy.participants') |lower %]</option>
+                            <option value="t">[% h.loc('privacy.team') |lower %]</option>
                         </select>
                     </th>
                 </tr>
@@ -92,6 +98,8 @@
                                 <option value="1" [% IF replay.site.privacy == 1 %]selected[% END %]>[% h.loc('privacy.unlisted') |lower %]</option>
                                 <option value="2" [% IF replay.site.privacy == 2 %]selected[% END %]>[% h.loc('privacy.private') |lower %]</option>
                                 <option value="3" [% IF replay.site.privacy == 3 %]selected[% END %]>[% h.loc('privacy.clan') |lower %]</option>
+                                <option value="4" [% IF replay.site.privacy == 4 %]selected[% END %]>[% h.loc('privacy.participants') |lower %]</option>
+                                <option value="5" [% IF replay.site.privacy == 5 %]selected[% END %]>[% h.loc('privacy.team') |lower %]</option>
                             </select>
                         </td>
                     </tr>
@@ -149,9 +157,13 @@
                 u = '/profile/j/hr';
             } else if(s == 2) {
                 u = '/profile/j/pr';
-            } else {
+            } else if(s == 3) {
                 u = '/profile/j/cr';
-            }
+            } else if(s == 4) {
+                u = '/profile/j/plr';
+            } else if(s == 5) {
+                u = '/profile/j/tr';
+            } 
             var select = this;
             $.getJSON(u, { id: id }, function(d) {
                 if(d.ok == 1) {

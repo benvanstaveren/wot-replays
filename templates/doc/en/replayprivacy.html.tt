@@ -84,3 +84,41 @@
             </tbody>
         </table>
     </div>
+    <div class="well well-lg">
+        <h4>Participants</h4>
+        <table class="table table-bordered">
+            <colgroup>
+                <col style="width: 50%"/>
+                <col style="width: 50%"/>
+            </colgroup>
+            <thead>
+                <th>Shows Up In Browse Results For</th>
+                <th>Viewable By</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Any player in the replay</td>
+                    <td>Any player in the replay</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="well well-lg">
+        <h4>Team</h4>
+        <table class="table table-bordered">
+            <colgroup>
+                <col style="width: 50%"/>
+                <col style="width: 50%"/>
+            </colgroup>
+            <thead>
+                <th>Shows Up In Browse Results For</th>
+                <th>Viewable By</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Any player in the recorders' team</td>
+                    <td>Any player in the recorders' team</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>

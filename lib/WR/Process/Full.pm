@@ -9,6 +9,7 @@ use WR::Util::HashTable;
 use WR::Constants qw/nation_id_to_name decode_arena_type_id ARENA_PERIOD_BATTLE gameplay_id_to_name/;
 use WR::Util::TypeComp qw/parse_int_compact_descr type_id_to_name/;
 use WR::Util::QuickDB;
+use WR::PrivacyManager;
 use Data::Dumper;
 
 use Mango;
@@ -403,14 +404,53 @@ sub _with_battle_result {
                         delete($replay->data->{site}->{minimal});
                     } else {
                         $replay->set('site.visible' => ($self->job->data->{visible} < 1) ? Mango::BSON::bson_false : Mango::BSON::bson_true);
-                        $replay->set('site.privacy' => $self->job->data->{privacy} || 0);
+                        if($self->job->data->{privacy} == -1) {
+                            $self->debug('Privacy set to default, adjusting');
+                            my $bonus_type = $replay->get('game.bonus_type');
+                            if($bonus_type == 1) { # random
+                                $replay->set('site.visible' => Mango::BSON::bson_true);
+                                $replay->set('site.privacy' => WR::PrivacyManager->PRIVACY_PUBLIC);
+                                $self->debug('privacy: public');
+                            } elsif($bonus_type == 2) { # training
+                                $replay->set('site.visible' => Mango::BSON::bson_false);
+                                $replay->set('site.privacy' => WR::PrivacyManager->PRIVACY_PARTICIPANTS);
+                                $self->debug('privacy: participants');
+                            } elsif($bonus_type == 3) { # company
+                                $replay->set('site.visible' => Mango::BSON::bson_false);
+                                $replay->set('site.privacy' => WR::PrivacyManager->PRIVACY_TEAM);
+                                $self->debug('privacy: team');
+                            } elsif($bonus_type == 4) { # tournament
+                                $replay->set('site.visible' => Mango::BSON::bson_true);
+                                $replay->set('site.privacy' => WR::PrivacyManager->PRIVACY_PUBLIC);
+                                $self->debug('privacy: public');
+                            } elsif($bonus_type == 5) { # clan
+                                $replay->set('site.visible' => Mango::BSON::bson_false);
+                                $replay->set('site.privacy' => WR::PrivacyManager->PRIVACY_CLAN);
+                                $self->debug('privacy: clan');
+                            } elsif($bonus_type == 6) { # tutorial
+                                $replay->set('site.visible' => Mango::BSON::bson_false);
+                                $replay->set('site.privacy' => WR::PrivacyManager->PRIVACY_PRIVATE);
+                                $self->debug('privacy: private');
+                            } elsif($bonus_type == 7) { # cybersport
+                                $replay->set('site.visible' => Mango::BSON::bson_false);
+                                $replay->set('site.privacy' => WR::PrivacyManager->PRIVACY_TEAM);
+                                $self->debug('privacy: team');
+                            } else {
+                                $replay->set('site.visible' => Mango::BSON::bson_true);
+                                $replay->set('site.privacy' => WR::PrivacyManager->PRIVACY_PUBLIC);
+                                $self->debug('privacy: public');
+                            }
+                        } else {
+                            $self->debug('preselected privacy');
+                            if($self->job->data->{privacy} > 0) {
+                                $replay->set('site.visible' => Mango::BSON::bson_false);
+                            } else {
+                                $replay->set('site.visible' => Mango::BSON::bson_true);
+                            }
+                            $replay->set('site.privacy' => $self->job->data->{privacy} || 0);
+                        }
                         $replay->set('site.description' => (defined($self->job->data->{desc}) && length($self->job->data->{desc}) > 0) ? $self->job->data->{desc} : undef);
                         $replay->set('site.uploaded_at' => Mango::BSON::bson_time());
-                    }
-
-                    if($replay->get('game.bonus_type') == 5) {
-                        $replay->set('site.visible' => Mango::BSON::bson_false);
-                        $replay->set('site.privacy' => 3);
                     }
 
                     # create the panel - we'll switch to using data mode here
@@ -619,14 +659,18 @@ sub p_br_misc {
     $replay->set('game.recorder.index'  => $replay->get('players')->{$replay->get('game.recorder.name')});
 
     my $tc = {};
+    my $pt = [];
     foreach my $entry (@{$replay->get('roster')}) {
+        push(@$pt, $entry->{player}->{name}) if($entry->{player}->{team} == $replay->get('game.recorder.team'));
         next unless(length($entry->{player}->{clanAbbrev}) > 0);
         $tc->{$entry->{player}->{clanAbbrev}}++;
     }
+
     $replay->set('involved' => {
         players     => [ keys(%{$replay->get('players')}) ],
         clans       => [ keys(%$tc) ],
         vehicles    => [ map { $_->{vehicle}->{ident} } @{$replay->get('roster')} ],
+        team        => $pt,
     });
 }
 

@@ -350,6 +350,8 @@ sub install {
             $pbj->route('/hr')->to('profile#hr', pageid => 'profile');
             $pbj->route('/pr')->to('profile#pr', pageid => 'profile');
             $pbj->route('/cr')->to('profile#cr', pageid => 'profile');
+            $pbj->route('/plr')->to('profile#plr', pageid => 'profile');
+            $pbj->route('/tr')->to('profile#tr', pageid => 'profile');
             $pbj->route('/setting')->to('profile#setting', pageid => 'profile');
 
     my $statistics = $r->under('/statistics');

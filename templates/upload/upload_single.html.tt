@@ -22,10 +22,13 @@
                 <label class="col-lg-2">[% h.loc('upload.privacy') %] <a href="/doc/replayprivacy" class="bs-tooltip" title="[% h.loc('upload.privacy.tooltip') %]">(?)</a></label>
                 <div class="col-lg-10">
                     <select name="hide">
-                        <option selected="true" value="0">[% h.loc('privacy.public') %]</option>
+                        <option selected="true" value="-1">[% h.loc('privacy.default') %]</option>
+                        <option value="0">[% h.loc('privacy.public') %]</option>
                         <option value="1">[% h.loc('privacy.unlisted') %]</option>
                         <option value="2">[% h.loc('privacy.private') %]</option>
                         <option [% IF !h.current_user.clan.defined %]disabled="true"[% END %] value="3">[% h.loc('privacy.clan') %]</option>
+                        <option value="4">[% h.loc('privacy.participants') %]</option>
+                        <option value="5">[% h.loc('privacy.team') %]</option>
                     </select>
                 </div>
             </div>

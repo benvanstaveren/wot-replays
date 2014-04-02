@@ -30,6 +30,10 @@
                             <span class="label label-danger">[% h.loc('privacy.private') %]</span>
                         [% ELSIF replay.site.privacy == 3 %]
                             <span class="label label-warning">[% h.loc('privacy.clan') %]</span>
+                        [% ELSIF replay.site.privacy == 4 %]
+                            <span class="label label-info">[% h.loc('privacy.participants') %]</span>
+                        [% ELSIF replay.site.privacy == 5 %]
+                            <span class="label label-info">[% h.loc('privacy.team') %]</span>
                         [% END %]
                     [% ELSE %]
                         <span class="label label-primary">[% h.loc('privacy.public') %]</span>

@@ -4,6 +4,7 @@ use Mojo::JSON;
 use Mango::BSON;
 use Data::Dumper;
 use Time::HiRes qw/gettimeofday tv_interval/;
+use WR::PrivacyManager;
 
 # args
 has 'coll'    => undef;
@@ -21,6 +22,10 @@ has 'total'   => 0;
 has 'log'     => undef;
 has 'panel'   => 0;
 
+has 'pm' => sub { 
+    my $self = shift;
+    return WR::PrivacyManager->new(user => $self->user);
+};
 
 sub error { shift->_log('error', @_) }
 sub info { shift->_log('info', @_) }
@@ -127,37 +132,6 @@ sub fixargs {
     }
 }
 
-# these fragments are combined in an '$or' statement for the visible and privacy level settings
-sub _privacy_public {
-    my $self = shift;
-
-    return {
-        'site.visible' => Mango::BSON::bson_true,
-    };
-}
-
-sub _privacy_recorder {
-    my $self = shift;
-
-    return {
-        'site.visible'       => Mango::BSON::bson_false,
-        'site.privacy'       => 2,
-        'game.recorder.name' => $self->user->{player_name},
-        'game.server'        => $self->user->{player_server},
-    };
-}
-
-sub _privacy_clan {
-    my $self = shift;
-
-    return {
-        'site.visible'       => Mango::BSON::bson_false,
-        'site.privacy'       => 3,
-        'game.server'        => $self->user->{player_server},
-        'game.recorder.clan' => $self->user->{clan}->{abbreviation},
-    };
-}
-
 sub _build_query {
     my $self = shift;
     my %args = (
@@ -196,11 +170,7 @@ sub _build_query {
 
     $self->debug('raw args: ', Dumper({%args}));
 
-    my $priv = [
-        $self->_privacy_public,
-    ];
-    push(@$priv, $self->_privacy_recorder) if(defined($self->user) && defined($self->user->{player_name}));
-    push(@$priv, $self->_privacy_clan) if(defined($self->user) && defined($self->user->{clan}));
+    my $priv = $self->pm->for_query;
 
     if($args{'pl'}) {
         if($args{'pp'} > 0) {

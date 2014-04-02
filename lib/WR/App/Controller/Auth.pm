@@ -122,7 +122,6 @@ sub openid_return {
                     };
                     $self->model('wot-replays.accounts')->update({ _id => $id }, { '$set' => $set }, { upsert => 1 }  => sub {
                         my ($coll, $err, $oid) = (@_);
-
                         $self->model('wot-replays.openid_nonce_cache')->save({ _id => $self->session('auth_nonce'), used => Mango::BSON::bson_time, used_by => (defined($err)) ? undef : $oid } => sub {
                             $self->session('openid' => sprintf('%s-%s', lc($self->session('auth_server')), lc($params->{nickname})));
                             $self->session('notify' => { type => 'info', text => 'Login successful', close => 1 }),

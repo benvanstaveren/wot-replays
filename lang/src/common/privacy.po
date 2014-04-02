@@ -1,3 +1,6 @@
+msgid "privacy.default"
+msgstr "Default"
+
 msgid "privacy.public"
 msgstr "Public"
 
@@ -10,3 +13,8 @@ msgstr "Private"
 msgid "privacy.unlisted"
 msgstr "Unlisted"
 
+msgid "privacy.participants"
+msgstr "Participants"
+
+msgid "privacy.team"
+msgstr "Team"

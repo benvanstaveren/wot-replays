@@ -67,6 +67,44 @@ sub pr {
     });
 }
 
+sub plr {
+    my $self = shift;
+    my $id = Mango::BSON::bson_oid($self->req->param('id'));
+
+    $self->render_later;
+    $self->model('wot-replays.replays')->find_one({ _id => $id, 'game.recorder.name' => $self->current_user->{player_name}, 'game.server' => $self->current_user->{player_server} } => sub {
+        my ($c, $e, $d) = (@_);
+
+        if($d) {
+            $self->model('wot-replays.replays')->update({ _id => $id }, { '$set' => { 'site.visible' => Mango::BSON::bson_false, 'site.privacy' => 4 }} => sub {
+                my ($c, $e, $d) = (@_);
+                $self->render(json => { ok => 1 });
+            });
+        } else {
+            $self->render(json => { ok => 0, error => 'Replay does not exist, or it is not yours' });
+        }
+    });
+}
+
+sub tr {
+    my $self = shift;
+    my $id = Mango::BSON::bson_oid($self->req->param('id'));
+
+    $self->render_later;
+    $self->model('wot-replays.replays')->find_one({ _id => $id, 'game.recorder.name' => $self->current_user->{player_name}, 'game.server' => $self->current_user->{player_server} } => sub {
+        my ($c, $e, $d) = (@_);
+
+        if($d) {
+            $self->model('wot-replays.replays')->update({ _id => $id }, { '$set' => { 'site.visible' => Mango::BSON::bson_false, 'site.privacy' => 5 }} => sub {
+                my ($c, $e, $d) = (@_);
+                $self->render(json => { ok => 1 });
+            });
+        } else {
+            $self->render(json => { ok => 0, error => 'Replay does not exist, or it is not yours' });
+        }
+    });
+}
+
 sub setting {
     my $self = shift;
     my $s    = $self->req->param('setting');
@@ -131,7 +169,6 @@ sub replays {
         'game.server' => lc($self->stash('current_player_server')),
         };
 
-
     if($type eq 'p') {  
         $query->{'site.visible'} = Mango::BSON::bson_true;
     } elsif($type eq 'u') {
@@ -143,6 +180,12 @@ sub replays {
     } elsif($type eq 'c') {
         $query->{'site.visible'} = Mango::BSON::bson_false;
         $query->{'site.privacy'} = 3;
+    } elsif($type eq 'pl') {
+        $query->{'site.visible'} = Mango::BSON::bson_false;
+        $query->{'site.privacy'} = 4;
+    } elsif($type eq 't') {
+        $query->{'site.visible'} = Mango::BSON::bson_false;
+        $query->{'site.privacy'} = 5;
     }
 
     $self->render_later;
