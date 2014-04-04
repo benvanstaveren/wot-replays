@@ -10,6 +10,9 @@ msgstr "Why Donate?"
 msgid "page.missions.title"
 msgstr "About Missions"
 
+msgid "page.replayprivacy.title"
+msgstr "Replay Privacy Settings"
+
 msgid "page.replay.denied.title"
 msgstr "Access Denied"
 
