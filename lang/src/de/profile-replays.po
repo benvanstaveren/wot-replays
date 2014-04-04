@@ -1,8 +1,11 @@
+msgid "profile.replays.allprivacies"
+msgstr "Alle"
+
 msgid "profile.replays.any"
-msgstr "%1 %quant(%1,Replay,Replays) mit dir"
+msgstr "%1 %quant(%1,Replay,Replays) von dir"
 
 msgid "profile.replays.clan"
-msgstr "%1 Clan-%quant(%1,Replay,Replays) mit dir"
+msgstr "%1 %quant(%1,Replay,Replays) von dir, %quant(%1,das,die) f&uuml;r deinen Clan sichtbar %quant(%1,ist,sind)"
 
 msgid "profile.replays.defeat"
 msgstr "Niederlage"
@@ -46,11 +49,14 @@ msgstr "XP"
 msgid "profile.replays.page.title"
 msgstr "Profil » Replays"
 
+msgid "profile.replays.participants"
+msgstr "%1 %quant(%1,Replay,Replays) von dir, %quant(%1,das,die) f&uuml;r Teilnehmer des Gefechtes sichtbar %quant(%1,ist,sind)"
+
 msgid "profile.replays.private"
-msgstr "%1 %quant(%1,privates Replay,private Replays) mit dir"
+msgstr "%1 private%quant(%1,s Replay, Replays) von dir"
 
 msgid "profile.replays.public"
-msgstr "%1 %quant(%1,&ouml;ffentliches Replay,&ouml;ffentliche Replays) mit dir"
+msgstr "%1 öffentliche%quant(%1,s Replay, Replays) von dir"
 
 msgid "profile.replays.survived.no"
 msgstr "Nein"
@@ -58,8 +64,11 @@ msgstr "Nein"
 msgid "profile.replays.survived.yes"
 msgstr "Ja"
 
+msgid "profile.replays.team"
+msgstr "%1 %quant(%1,Replay,Replays) von dir, %quant(%1,das,die) f&uuml;r Spieler deine Teams sichtbar %quant(%1,ist,sind)"
+
 msgid "profile.replays.unlisted"
-msgstr "%1 nicht %quant(%1,gelistetes Replay,gelistete Replays) mit dir"
+msgstr "%1 nicht gelistete%quant(%1,s Replay, Replays) von dir"
 
 msgid "profile.replays.victory"
 msgstr "Sieg"
@@ -67,5 +76,3 @@ msgstr "Sieg"
 msgid "profile.replays.view"
 msgstr "Anschauen"
 
-msgid "profile.replays.allprivacies"
-msgstr "Alle"

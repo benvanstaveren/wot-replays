@@ -40,3 +40,9 @@ msgstr "Team-Gefecht"
 msgid "bonustype.7.short"
 msgstr "Team"
 
+msgid "bonustype.9"
+msgstr "Event-Gefecht"
+
+msgid "bonustype.9.short"
+msgstr "Event"
+

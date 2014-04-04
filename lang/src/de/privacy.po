@@ -1,11 +1,20 @@
-msgid "privacy.public"
-msgstr "&Ouml;ffentlich"
-
 msgid "privacy.clan"
 msgstr "Clan"
 
+msgid "privacy.default"
+msgstr "Standard"
+
+msgid "privacy.participants"
+msgstr "Teilnehmer"
+
 msgid "privacy.private"
 msgstr "Privat"
+
+msgid "privacy.public"
+msgstr "&Ouml;ffentlich"
+
+msgid "privacy.team"
+msgstr "Team"
 
 msgid "privacy.unlisted"
 msgstr "Nicht gelistet"
