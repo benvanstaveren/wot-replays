@@ -10,6 +10,9 @@ msgstr "Warum spenden?"
 msgid "page.missions.title"
 msgstr "Über Missionen"
 
+msgid "page.replayprivacy.title"
+msgstr "Replay-Privatsph&auml;re-Einstellungen"
+
 msgid "page.replay.denied.title"
 msgstr "Zugriff verweigert"
 
