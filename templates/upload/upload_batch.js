@@ -29,6 +29,7 @@ $(document).ready(function() {
 
         fdata.append('replay', file);
         fdata.append('a', 'save');
+        fdata.append('hide', -1);
 
         $('#uploadModal #file-progress h5').text(s_truncate(file.name, 50));
 
