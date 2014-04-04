@@ -47,7 +47,7 @@
     </table>
 </div>
 <div class="well well-lg">
-    <h4>Private</h4>
+    <h4>Privat</h4>
     <table class="table table-bordered">
         <colgroup>
         <col style="width: 50%"/>
@@ -84,3 +84,41 @@
     </tbody>
 </table>
 </div>
+<div class="well well-lg">
+        <h4>Teilnehmer</h4>
+        <table class="table table-bordered">
+            <colgroup>
+                <col style="width: 50%"/>
+                <col style="width: 50%"/>
+            </colgroup>
+            <thead>
+                <th>Wird in den Suchergebnissen angezeigt bei</th>
+                <th>Anschaubar von</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Jedem Spieler im Replay</td>
+                    <td>Jedem Spieler im Replay</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="well well-lg">
+        <h4>Team</h4>
+        <table class="table table-bordered">
+            <colgroup>
+                <col style="width: 50%"/>
+                <col style="width: 50%"/>
+            </colgroup>
+            <thead>
+                <th>Wird in den Suchergebnissen angezeigt bei</th>
+                <th>Anschaubar von</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Jeder Spieler im Team des Aufzeichner</td>
+                    <td>Jeder Spieler im Team des Aufzeichner</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
