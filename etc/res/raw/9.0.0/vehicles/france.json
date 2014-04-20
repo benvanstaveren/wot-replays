@@ -1,0 +1,363 @@
+{
+   "AMX_12t" : {
+      "userString" : "#france_vehicles:AMX_12t",
+      "level" : 6,
+      "shortUserString" : "#france_vehicles:AMX_12t_short",
+      "price" : 875000,
+      "id" : 25,
+      "description" : "#france_vehicles:AMX_12t_descr",
+      "tags" : "lightTank scout wetCombatPack_class1_user enhancedTorsions1t_user"
+   },
+   "AMX_Ob_Am105" : {
+      "userString" : "#france_vehicles:AMX_Ob_Am105",
+      "level" : 4,
+      "shortUserString" : "#france_vehicles:AMX_Ob_Am105_short",
+      "price" : 124000,
+      "id" : 57,
+      "description" : "#france_vehicles:AMX_Ob_Am105_descr",
+      "tags" : "SPG lightSPG mediumCaliberHowitzerRammer_user wetCombatPack_class1_user"
+   },
+   "Bat_Chatillon155_55" : {
+      "userString" : "#france_vehicles:Bat_Chatillon155_55",
+      "level" : 9,
+      "shortUserString" : "#france_vehicles:Bat_Chatillon155_55_short",
+      "price" : 3500000,
+      "id" : 56,
+      "description" : "#france_vehicles:Bat_Chatillon155_55_descr",
+      "tags" : "SPG mediumSPG wetCombatPack_class2_user mediumCaliberHowitzerRammer_user enhancedTorsions3t_user"
+   },
+   "BDR_G1B" : {
+      "userString" : "#france_vehicles:BDR_G1B",
+      "level" : 5,
+      "shortUserString" : "#france_vehicles:BDR_G1B_short",
+      "price" : 400000,
+      "id" : 26,
+      "description" : "#france_vehicles:BDR_G1B_descr",
+      "tags" : "heavyTank mediumCaliberTankRammer_user wetCombatPack_class2_user enhancedSprings_class3_user"
+   },
+   "RenaultBS" : {
+      "userString" : "#france_vehicles:RenaultBS",
+      "level" : 2,
+      "shortUserString" : "#france_vehicles:RenaultBS_short",
+      "price" : 3700,
+      "id" : 3,
+      "description" : "#france_vehicles:RenaultBS_descr",
+      "tags" : "SPG lightSPG improvedVentilation_class1_user mediumCaliberHowitzerRammer_user wetCombatPack_class1_user"
+   },
+   "AMX_AC_Mle1948" : {
+      "userString" : "#france_vehicles:AMX_AC_Mle1948",
+      "level" : 8,
+      "shortUserString" : "#france_vehicles:AMX_AC_Mle1948_short",
+      "price" : 2570000,
+      "id" : 47,
+      "description" : "#france_vehicles:AMX_AC_Mle1948_descr",
+      "tags" : "AT-SPG heavyAT-SPG largeCaliberTankRammer_user wetCombatPack_class2_user enhancedTorsions5t_user"
+   },
+   "ARL_V39" : {
+      "userString" : "#france_vehicles:ARL_V39",
+      "level" : 6,
+      "shortUserString" : "#france_vehicles:ARL_V39_short",
+      "price" : 900000,
+      "id" : 45,
+      "description" : "#france_vehicles:ARL_V39_descr",
+      "tags" : "AT-SPG mediumAT-SPG wetCombatPack_class1_user mediumCaliberTankRammer_user enhancedSprings_class2_user"
+   },
+   "AMX_AC_Mle1946" : {
+      "userString" : "#france_vehicles:AMX_AC_Mle1946",
+      "level" : 7,
+      "shortUserString" : "#france_vehicles:AMX_AC_Mle1946_short",
+      "price" : 1350000,
+      "id" : 42,
+      "description" : "#france_vehicles:AMX_AC_Mle1946_descr",
+      "tags" : "AT-SPG heavyAT-SPG enhancedLongitudinalTorsions_user largeCaliberTankRammer_user wetCombatPack_class2_user"
+   },
+   "FCM_50t" : {
+      "userString" : "#france_vehicles:FCM_50t",
+      "level" : 8,
+      "shortUserString" : "#france_vehicles:FCM_50t_short",
+      "price" : 11900,
+      "id" : 250,
+      "description" : "#france_vehicles:FCM_50t_descr",
+      "tags" : "heavyTank aimingStabilizer_Mk2_user largeCaliberTankRammer_user wetCombatPack_class2_user enhancedTorsions5t_user"
+   },
+   "Somua_Sau_40" : {
+      "userString" : "#france_vehicles:Somua_Sau_40",
+      "level" : 4,
+      "shortUserString" : "#france_vehicles:Somua_Sau_40_short",
+      "price" : 110000,
+      "id" : 38,
+      "description" : "#france_vehicles:Somua_Sau_40_descr",
+      "tags" : "AT-SPG lightAT-SPG wetCombatPack_class1_user mediumCaliberTankRammer_user improvedVentilation_class1_user enhancedSprings_user"
+   },
+   "RenaultFT" : {
+      "userString" : "#france_vehicles:RenaultFT",
+      "level" : 1,
+      "shortUserString" : "#france_vehicles:RenaultFT_short",
+      "price" : "",
+      "id" : 2,
+      "description" : "#france_vehicles:RenaultFT_descr",
+      "tags" : "lightTank"
+   },
+   "Lorraine40t" : {
+      "userString" : "#france_vehicles:Lorraine40t",
+      "level" : 9,
+      "shortUserString" : "#france_vehicles:Lorraine40t_short",
+      "price" : 3450000,
+      "id" : 22,
+      "description" : "#france_vehicles:Lorraine40t_descr",
+      "tags" : "mediumTank wetCombatPack_class1_user aimingStabilizer_Mk1_user enhancedTorsions3t_user"
+   },
+   "ELC_AMX" : {
+      "userString" : "#france_vehicles:ELC_AMX",
+      "level" : 5,
+      "shortUserString" : "#france_vehicles:ELC_AMX_short",
+      "price" : 315000,
+      "id" : 55,
+      "description" : "#france_vehicles:ELC_AMX_descr",
+      "tags" : "lightTank scout wetCombatPack_class1_user mediumCaliberTankRammer_user enhancedTorsions1t_user"
+   },
+   "B1" : {
+      "userString" : "#france_vehicles:B1",
+      "level" : 4,
+      "shortUserString" : "#france_vehicles:B1_short",
+      "price" : 185000,
+      "id" : 4,
+      "description" : "#france_vehicles:B1_descr",
+      "tags" : "heavyTank wetCombatPack_class2_user enhancedSprings_class3_user"
+   },
+   "AMX38" : {
+      "userString" : "#france_vehicles:AMX38",
+      "level" : 3,
+      "shortUserString" : "#france_vehicles:AMX38_short",
+      "price" : 41000,
+      "id" : 23,
+      "description" : "#france_vehicles:AMX38_descr",
+      "tags" : "lightTank wetCombatPack_class1_user enhancedVertical_springs_user"
+   },
+   "AMX40" : {
+      "userString" : "#france_vehicles:AMX40",
+      "level" : 4,
+      "shortUserString" : "#france_vehicles:AMX40_short",
+      "price" : 147500,
+      "id" : 11,
+      "description" : "#france_vehicles:AMX40_descr",
+      "tags" : "lightTank wetCombatPack_class1_user mediumCaliberTankRammer_user enhancedVertical_springs_user"
+   },
+   "Lorraine155_50" : {
+      "userString" : "#france_vehicles:Lorraine155_50",
+      "level" : 7,
+      "shortUserString" : "#france_vehicles:Lorraine155_50_short",
+      "price" : 1420000,
+      "id" : 28,
+      "description" : "#france_vehicles:Lorraine155_50_descr",
+      "tags" : "SPG mediumSPG mediumCaliberHowitzerRammer_user wetCombatPack_class1_user enhancedTorsions3t_user"
+   },
+   "Bat_Chatillon25t" : {
+      "userString" : "#france_vehicles:Bat_Chatillon25t",
+      "level" : 10,
+      "shortUserString" : "#france_vehicles:Bat_Chatillon25t_short",
+      "price" : 6100000,
+      "id" : 14,
+      "description" : "#france_vehicles:Bat_Chatillon25t_descr",
+      "tags" : "mediumTank wetCombatPack_class1_user aimingStabilizer_Mk1_user enhancedTorsions3t_user"
+   },
+   "AMX_105AM" : {
+      "userString" : "#france_vehicles:AMX_105AM",
+      "level" : 5,
+      "shortUserString" : "#france_vehicles:AMX_105AM_short",
+      "price" : 410000,
+      "id" : 16,
+      "description" : "#france_vehicles:AMX_105AM_descr",
+      "tags" : "SPG lightSPG mediumCaliberHowitzerRammer_user wetCombatPack_class1_user"
+   },
+   "Lorraine155_51" : {
+      "userString" : "#france_vehicles:Lorraine155_51",
+      "level" : 8,
+      "shortUserString" : "#france_vehicles:Lorraine155_51_short",
+      "price" : 2550000,
+      "id" : 29,
+      "description" : "#france_vehicles:Lorraine155_51_descr",
+      "tags" : "SPG mediumSPG mediumCaliberHowitzerRammer_user wetCombatPack_class1_user enhancedTorsions3t_user"
+   },
+   "F10_AMX_50B" : {
+      "userString" : "#france_vehicles:AMX_50_68t",
+      "level" : 10,
+      "shortUserString" : "#france_vehicles:AMX_50_68t_short",
+      "price" : 6100000,
+      "id" : 24,
+      "description" : "#france_vehicles:AMX_50_68t_descr",
+      "tags" : "heavyTank wetCombatPack_class2_user aimingStabilizer_Mk2_user enhancedTorsions5t_user"
+   },
+   "D2" : {
+      "userString" : "#france_vehicles:D2",
+      "level" : 3,
+      "shortUserString" : "#france_vehicles:D2_short",
+      "price" : 42500,
+      "id" : 1,
+      "description" : "#france_vehicles:D2_descr",
+      "tags" : "mediumTank wetCombatPack_class1_user enhancedVertical_springs_user"
+   },
+   "ARL_44" : {
+      "userString" : "#france_vehicles:ARL_44",
+      "level" : 6,
+      "shortUserString" : "#france_vehicles:ARL_44_short",
+      "price" : 925000,
+      "id" : 10,
+      "description" : "#france_vehicles:ARL_44_descr",
+      "tags" : "heavyTank largeCaliberTankRammer_user wetCombatPack_class2_user enhancedSprings_class3_user"
+   },
+   "AMX_13_75" : {
+      "userString" : "#france_vehicles:AMX_13_75",
+      "level" : 7,
+      "shortUserString" : "#france_vehicles:AMX_13_75_short",
+      "price" : 1345000,
+      "id" : 20,
+      "description" : "#france_vehicles:AMX_13_75_descr",
+      "tags" : "lightTank scout wetCombatPack_class1_user enhancedTorsions1t_user"
+   },
+   "Lorraine39_L_AM" : {
+      "userString" : "#france_vehicles:Lorraine39_L_AM",
+      "level" : 3,
+      "shortUserString" : "#france_vehicles:Lorraine39_L_AM_short",
+      "price" : 51000,
+      "id" : 13,
+      "description" : "#france_vehicles:Lorraine39_L_AM_descr",
+      "tags" : "SPG lightSPG mediumCaliberHowitzerRammer_user wetCombatPack_class1_user enhancedSprings_user"
+   },
+   "AMX_13F3AM" : {
+      "userString" : "#france_vehicles:AMX_13F3AM",
+      "level" : 6,
+      "shortUserString" : "#france_vehicles:AMX_13F3AM_short",
+      "price" : 935000,
+      "id" : 18,
+      "description" : "#france_vehicles:AMX_13F3AM_descr",
+      "tags" : "SPG lightSPG mediumCaliberHowitzerRammer_user wetCombatPack_class1_user enhancedTorsions1t_user"
+   },
+   "AMX_50Fosh_155" : {
+      "userString" : "#france_vehicles:AMX_50Fosh_155",
+      "level" : 10,
+      "shortUserString" : "#france_vehicles:AMX_50Fosh_155_short",
+      "price" : 6100000,
+      "id" : 54,
+      "description" : "#france_vehicles:AMX_50Fosh_155_descr",
+      "tags" : "AT-SPG heavyAT-SPG enhancedLongitudinalTorsions_user  wetCombatPack_class2_user"
+   },
+   "Bat_Chatillon155_58" : {
+      "userString" : "#france_vehicles:Bat_Chatillon155",
+      "level" : 10,
+      "shortUserString" : "#france_vehicles:Bat_Chatillon155_short",
+      "price" : 6100000,
+      "id" : 46,
+      "description" : "#france_vehicles:Bat_Chatillon155_descr",
+      "tags" : "SPG mediumSPG wetCombatPack_class2_user enhancedTorsions3t_user"
+   },
+   "AMX_13_90" : {
+      "userString" : "#france_vehicles:AMX_13_90",
+      "level" : 8,
+      "shortUserString" : "#france_vehicles:AMX_13_90_short",
+      "price" : 2370000,
+      "id" : 19,
+      "description" : "#france_vehicles:AMX_13_90_descr",
+      "tags" : "lightTank scout wetCombatPack_class1_user enhancedTorsions1t_user"
+   },
+   "AMX_50_120" : {
+      "userString" : "#france_vehicles:AMX_50_120",
+      "level" : 9,
+      "shortUserString" : "#france_vehicles:AMX_50_120_short",
+      "price" : 3565000,
+      "id" : 15,
+      "description" : "#france_vehicles:AMX_50_120_descr",
+      "tags" : "heavyTank aimingStabilizer_Mk2_user wetCombatPack_class2_user enhancedTorsions5t_user"
+   },
+   "FCM_36Pak40" : {
+      "userString" : "#france_vehicles:FCM_36Pak40",
+      "level" : 3,
+      "shortUserString" : "#france_vehicles:FCM_36Pak40_short",
+      "price" : 850,
+      "id" : 9,
+      "description" : "#france_vehicles:FCM_36Pak40_descr",
+      "tags" : "AT-SPG lightAT-SPG wetCombatPack_class1_user enhancedSprings_user"
+   },
+   "Hotchkiss_H35" : {
+      "userString" : "#france_vehicles:_Hotchkiss_H35",
+      "level" : 2,
+      "shortUserString" : "#france_vehicles:Hotchkiss_H35_short",
+      "price" : 4200,
+      "id" : 5,
+      "description" : "#france_vehicles:Hotchkiss_H35_descr",
+      "tags" : "lightTank wetCombatPack_class1_user enhancedHorizontal_springs_user enhancedHorizontal_springs_user"
+   },
+   "AMX_M4_1945" : {
+      "userString" : "#france_vehicles:AMX_M4_1945",
+      "level" : 7,
+      "shortUserString" : "#france_vehicles:AMX_M4_1945_short",
+      "price" : 1395000,
+      "id" : 27,
+      "description" : "#france_vehicles:AMX_M4_1945_descr",
+      "tags" : "heavyTank largeCaliberTankRammer_user wetCombatPack_class2_user enhancedSprings_class3_user"
+   },
+   "RenaultFT_AC" : {
+      "userString" : "#france_vehicles:RenaultFT_AC",
+      "level" : 2,
+      "shortUserString" : "#france_vehicles:RenaultFT_AC_short",
+      "price" : 3600,
+      "id" : 30,
+      "description" : "#france_vehicles:RenaultFT_AC_descr",
+      "tags" : "AT-SPG lightAT-SPG wetCombatPack_class1_user"
+   },
+   "RenaultUE57" : {
+      "userString" : "#france_vehicles:RenaultUE57",
+      "level" : 3,
+      "shortUserString" : "#france_vehicles:RenaultUE57_short",
+      "price" : 42500,
+      "id" : 32,
+      "description" : "#france_vehicles:RenaultUE57_descr",
+      "tags" : "AT-SPG lightAT-SPG wetCombatPack_class1_user enhancedSprings_user"
+   },
+   "D1" : {
+      "userString" : "#france_vehicles:D1",
+      "level" : 2,
+      "shortUserString" : "#france_vehicles:D1_short",
+      "price" : 3800,
+      "id" : 6,
+      "description" : "#france_vehicles:D1_descr",
+      "tags" : "lightTank wetCombatPack_class1_user enhancedVertical_springs_user"
+   },
+   "AMX_50_100" : {
+      "userString" : "#france_vehicles:AMX_50_100",
+      "level" : 8,
+      "shortUserString" : "#france_vehicles:AMX_50_100_short",
+      "price" : 2552500,
+      "id" : 12,
+      "description" : "#france_vehicles:AMX_50_100_descr",
+      "tags" : "heavyTank aimingStabilizer_Mk2_user wetCombatPack_class2_user enhancedTorsions5t_user"
+   },
+   "S_35CA" : {
+      "userString" : "#france_vehicles:S_35CA",
+      "level" : 5,
+      "shortUserString" : "#france_vehicles:S_35CA_short",
+      "price" : 403000,
+      "id" : 39,
+      "description" : "#france_vehicles:S_35CA_descr",
+      "tags" : "AT-SPG lightAT-SPG wetCombatPack_class1_user mediumCaliberTankRammer_user enhancedSprings_user"
+   },
+   "AMX50_Foch" : {
+      "userString" : "#france_vehicles:AMX50_Foch",
+      "level" : 9,
+      "shortUserString" : "#france_vehicles:AMX50_Foch_short",
+      "price" : 3670000,
+      "id" : 43,
+      "description" : "#france_vehicles:AMX50_Foch_descr",
+      "tags" : "AT-SPG heavyAT-SPG enhancedLongitudinalTorsions_user largeCaliberTankRammer_user wetCombatPack_class2_user"
+   },
+   "_105_leFH18B2" : {
+      "description" : "#france_vehicles:_105_leFH18B2_descr",
+      "tags" : "SPG lightSPG noImprovedVentilation mediumCaliberHowitzerRammer_user wetCombatPack_class1_user enhancedSprings_class3_user",
+      "userString" : "#france_vehicles:_105_leFH18B2",
+      "level" : 5,
+      "shortUserString" : "#france_vehicles:_105_leFH18B2_short",
+      "id" : 8,
+      "price" : 1500,
+      "notInShop" : true
+   }
+}

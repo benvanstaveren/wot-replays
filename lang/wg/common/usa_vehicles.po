@@ -1,3 +1,15 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: World Of Tanks\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-06-01 10:00+0300\n"
+"PO-Revision-Date: 2010-06-01 10:00+0300\n"
+"Last-Translator: WoT Translator <noreply@wargaming.net>\n"
+"Language-Team: WoT Team <noreply@wargaming.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
 msgid "AN-ARC-27"
 msgstr "AN/GRC-7"
 
@@ -46,9 +58,6 @@ msgstr "Wireless Set No. 19"
 
 msgid "Buick_series_60"
 msgstr "Buick Series 60"
-
-msgid "Cadillac_42series"
-msgstr "Cadillac 42series"
 
 msgid "Chassis_M103"
 msgstr "T97E1"
@@ -131,9 +140,6 @@ msgstr "VVS T16"
 msgid "Chassis_M8A1_2"
 msgstr "T36 E6"
 
-msgid "Chassis_Panther_M10"
-msgstr "PzKpfw-V-Ketten Ausf. 1943"
-
 msgid "Chassis_Sherman_Jumbo"
 msgstr "VVSST48E2"
 
@@ -164,9 +170,6 @@ msgstr "VVSS T48M1A1"
 msgid "Chassis_T21_2"
 msgstr "VVSS T48M1A2"
 
-msgid "Chassis_T24"
-msgstr "T24VVSS T41"
-
 msgid "Chassis_T25_2"
 msgstr "T25/2T1"
 
@@ -180,7 +183,7 @@ msgid "Chassis_T25_AT_2"
 msgstr "T25T2"
 
 msgid "Chassis_T26_E4_SuperPershing"
-msgstr "М26Т80Е1"
+msgstr "M26T80E1"
 
 msgid "Chassis_T28"
 msgstr "T28VVSS T46"
@@ -239,9 +242,6 @@ msgstr "T82T55E4"
 msgid "Chassis_T92"
 msgstr "T92 T80E1"
 
-msgid "Chassis_T92_2"
-msgstr "T92 T82E4"
-
 msgid "Chassis_T95"
 msgstr "T95HVSS"
 
@@ -250,14 +250,6 @@ msgstr "T95HVSSM2"
 
 msgid "Chassis_T95_E6"
 msgstr "T95E6"
-
-msgid "Continental AV-1790-3"
-msgstr "Continental AV-1790-3"
-
-msgid "Continental AV-1790-3_short"
-msgstr ""
-"Continental\n"
-"AV-1790-3"
 
 msgid "Continental_AOI-1195-5"
 msgstr "Continental AOI-1195-5"
@@ -425,9 +417,6 @@ msgstr ""
 "Continental\n"
 "W-670 Series 12"
 
-msgid "Continental_W-670-5"
-msgstr "Continental W-670-5"
-
 msgid "Continental_W-670-9A"
 msgstr "Continental W-670"
 
@@ -490,17 +479,11 @@ msgstr "D51066"
 msgid "D51072"
 msgstr "D51072"
 
-msgid "D51074"
-msgstr "D51074"
-
 msgid "D51080"
 msgstr "D51080"
 
 msgid "Ford_GAA"
 msgstr "Ford GAA"
-
-msgid "Ford_GAA_1"
-msgstr "Ford GAA M1"
 
 msgid "Ford_GAA_R"
 msgstr "Ford GAA early"
@@ -611,9 +594,6 @@ msgstr ""
 "vehicles manufactured. American soldiers dubbed the vehicle King Kong. The "
 "M12 fought well in battles on the Siegfried Line."
 
-msgid "M14"
-msgstr "M14"
-
 msgid "M18_Hellcat"
 msgstr "M18 Hellcat"
 
@@ -629,9 +609,6 @@ msgstr ""
 msgid "M18_Hellcat_short"
 msgstr "Hellcat"
 
-msgid "M19"
-msgstr "M19"
-
 msgid "M22_Locust"
 msgstr "M22 Locust"
 
@@ -644,9 +621,6 @@ msgstr ""
 
 msgid "M22_Locust_short"
 msgstr "Locust"
-
-msgid "M24"
-msgstr "M24"
 
 msgid "M24A1"
 msgstr "M24A1"
@@ -723,9 +697,6 @@ msgstr ""
 "Developed in 1945 on the basis of the M24, with a total of 150 vehicles "
 "manufactured. The tank was never used in combat during World War II, but it "
 "did see action during the Korean War."
-
-msgid "M3_A3_short"
-msgstr "M3A3"
 
 msgid "M3_Grant"
 msgstr "M3 Lee"
@@ -948,9 +919,6 @@ msgstr "MTLS D1"
 
 msgid "MTLS_T1"
 msgstr "MTLS T1"
-
-msgid "MTU_MB837_Ka-500"
-msgstr "MTU MB837 Ka-500"
 
 msgid "Maybach_HL_230P45"
 msgstr "Maybach HL 230 P45"
@@ -1352,9 +1320,6 @@ msgstr ""
 "trials from the spring of 1946 until the end of the year. Never saw mass "
 "production."
 
-msgid "T34T5"
-msgstr "T34T5"
-
 msgid "T34T7"
 msgstr "T34T7"
 
@@ -1439,9 +1404,6 @@ msgstr ""
 msgid "T69_short"
 msgstr "T69"
 
-msgid "T6_M_short"
-msgstr "T6"
-
 msgid "T71"
 msgstr "T71"
 
@@ -1470,9 +1432,6 @@ msgstr ""
 
 msgid "T7_Combat_Car_short"
 msgstr "T7 Car"
-
-msgid "T80E1"
-msgstr "T80E1"
 
 msgid "T80E3"
 msgstr "T80E3"
@@ -1595,17 +1554,11 @@ msgstr "M6A2E1D4"
 msgid "Turret_1_M8A1"
 msgstr "M8A1"
 
-msgid "Turret_1_Panther_M10"
-msgstr "PzKpfw-V-Turm Ausf. G"
-
 msgid "Turret_1_Pershing"
 msgstr "M26M67"
 
 msgid "Turret_1_Sherman_Jumbo"
 msgstr "M4A2E2T110"
-
-msgid "Turret_1_Shinhoto_Chi-Ha"
-msgstr "Type 2597"
 
 msgid "Turret_1_T110E3"
 msgstr "T110E3"
@@ -1615,9 +1568,6 @@ msgstr "T110E4"
 
 msgid "Turret_1_T1_E6"
 msgstr "T1"
-
-msgid "Turret_1_T21"
-msgstr "T21M47"
 
 msgid "Turret_1_T25_2"
 msgstr "T25/2T3"
@@ -1769,9 +1719,6 @@ msgstr "VVSS T55E1"
 msgid "VVSS_T80"
 msgstr "VVSS T80"
 
-msgid "VVSS_T80 "
-msgstr "VVSS T80 "
-
 msgid "VVSS_WE210"
 msgstr "VVSS WE210"
 
@@ -1885,9 +1832,6 @@ msgstr "105 mm Gun M68"
 msgid "_105mm_Gun_T140E2"
 msgstr "105mm Gun T140E2"
 
-msgid "_105mm_Gun_T210"
-msgstr "105 mm Gun T210"
-
 msgid "_105mm_Gun_T5E1"
 msgstr "105 mm Gun T5E1"
 
@@ -1963,9 +1907,6 @@ msgstr "120 mm Gun T123E6"
 msgid "_120mm_Gun_T179"
 msgstr "120 mm Gun T179"
 
-msgid "_120mm_Gun_T53"
-msgstr "120 mm Gun T53"
-
 msgid "_120mm_Gun_T53A1"
 msgstr "120 mm Gun T53A1"
 
@@ -1977,9 +1918,6 @@ msgstr "HEAT-T M469"
 
 msgid "_120mm_HE_Shot"
 msgstr "HE Shell"
-
-msgid "_120mm_HVAP_Shot"
-msgstr "HVAP"
 
 msgid "_155mm_AP_M111"
 msgstr "AP M111"
@@ -2165,23 +2103,11 @@ msgstr "37 mm Semiautomatic Gun M1924A1"
 msgid "_37mm_semiautomatic_gun_M1924A1_short"
 msgstr "37 mm M1924A1"
 
-msgid "_37mm_semiautomatic_gun_M1924_A"
-msgstr "37 mm Semiautomatic Gun M1924 M1"
-
 msgid "_37mm_semiautomatic_gun_M1924_short"
 msgstr "37 mm M1924"
 
-msgid "_47mm_APCR_MkI"
-msgstr "APCR Mk. 1"
-
-msgid "_47mm_AP_MkI"
-msgstr "AP Mk. 1"
-
 msgid "_47mm_Gun_L40"
 msgstr "47 mm Gun L/40"
-
-msgid "_47mm_HE_MkI"
-msgstr "HE Mk. 1"
 
 msgid "_57mm_APC_M86"
 msgstr "APC M86"

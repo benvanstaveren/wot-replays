@@ -1,3 +1,15 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: World Of Tanks\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-06-01 10:00+0300\n"
+"PO-Revision-Date: 2010-06-01 10:00+0300\n"
+"Last-Translator: WoT Translator <noreply@wargaming.net>\n"
+"Language-Team: WoT Team <noreply@wargaming.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
 msgid "A-20"
 msgstr "A-20"
 
@@ -33,7 +45,7 @@ msgid "A43_descr"
 msgstr ""
 "Developed at Factory No. 183 in 1941 under the designation A-43. The vehicle "
 "was to replace the T-34. The A-43 was conceived to feature a torsion bar "
-"suspension, a B-5 engine, a new transmission, a commander’s cupola, and "
+"suspension, a V-5 engine, a new transmission, a commander’s cupola, and "
 "front armor enhanced to 60 mm."
 
 msgid "A44"
@@ -46,9 +58,6 @@ msgstr ""
 "different armor, armament, combat weight, and speed. The prototype was "
 "scheduled to be built by the beginning of 1942. However, the project was "
 "discontinued due to the outbreak of the Soviet–German war."
-
-msgid "AEC"
-msgstr "AEC"
 
 msgid "AEC3"
 msgstr "AEC3"
@@ -105,9 +114,6 @@ msgstr "BT-7 mod. 1935"
 
 msgid "BT-7"
 msgstr "BT-7"
-
-msgid "BT-7M"
-msgstr "BT-7M"
 
 msgid "BT-7_conic"
 msgstr "BT-7 mod. 1937"
@@ -185,12 +191,6 @@ msgstr "KV-4 Bis"
 msgid "Chassis_LTP"
 msgstr "LTP"
 
-msgid "Chassis_Object252"
-msgstr "Object 252"
-
-msgid "Chassis_Object252_2"
-msgstr "Object 252M"
-
 msgid "Chassis_Object263"
 msgstr "Object 263"
 
@@ -206,9 +206,6 @@ msgstr "Object 416 mod. 1953"
 msgid "Chassis_Object_140"
 msgstr "Object 140"
 
-msgid "Chassis_Object_140_2"
-msgstr "Object 140 OMSH"
-
 msgid "Chassis_Object_212"
 msgstr "212A"
 
@@ -217,9 +214,6 @@ msgstr "212A enhanced"
 
 msgid "Chassis_Object_261"
 msgstr "Object 261"
-
-msgid "Chassis_Object_261_2"
-msgstr "Object 261-3"
 
 msgid "Chassis_Object_430"
 msgstr "Object 430"
@@ -232,9 +226,6 @@ msgstr "Object 704M"
 
 msgid "Chassis_Object_907"
 msgstr "Object 907"
-
-msgid "Chassis_PzV_capt"
-msgstr "T-5 Mod. A"
 
 msgid "Chassis_R100_SU122A"
 msgstr "SU-122A"
@@ -274,9 +265,6 @@ msgstr "SU-100M1 Bis"
 
 msgid "Chassis_SU100Y"
 msgstr "SU-100Y"
-
-msgid "Chassis_SU122_44"
-msgstr "T-44A"
 
 msgid "Chassis_SU122_44_2"
 msgstr "SU-122-44"
@@ -379,20 +367,11 @@ msgstr ""
 "Continental\n"
 "W-670"
 
-msgid "D-36"
-msgstr "D-36"
-
 msgid "D-744"
 msgstr "D-744"
 
 msgid "D37812_LL"
 msgstr "D37812"
-
-msgid "Ford_V-8"
-msgstr "Ford V-8"
-
-msgid "GAZ-11"
-msgstr "GAZ-11"
 
 msgid "GAZ-202"
 msgstr "GAZ 202"
@@ -429,9 +408,6 @@ msgstr "IS-1"
 msgid "IS-122"
 msgstr "IS-122"
 
-msgid "IS-2Bis"
-msgstr "IS-2 Bis"
-
 msgid "IS-2M"
 msgstr "IS-2M"
 
@@ -454,9 +430,6 @@ msgstr ""
 
 msgid "IS-4"
 msgstr "IS-4"
-
-msgid "IS-4M"
-msgstr "IS-4M"
 
 msgid "IS-4_descr"
 msgstr ""
@@ -633,12 +606,6 @@ msgstr "KV-1"
 msgid "KV_2"
 msgstr "KV-2"
 
-msgid "KV_2A"
-msgstr "KV"
-
-msgid "KV_2B"
-msgstr "KV-2"
-
 msgid "KV_descr"
 msgstr ""
 "Developed by the Special Design Bureau No. 2 at the Kirov Plant in Leningrad "
@@ -746,12 +713,6 @@ msgstr "WS No. 19R"
 
 msgid "Mod_T-10"
 msgstr "IS-3"
-
-msgid "Object252"
-msgstr "Object 252"
-
-msgid "Object252_short"
-msgstr "Object 252"
 
 msgid "Object263"
 msgstr "Object 263"
@@ -914,9 +875,6 @@ msgstr ""
 "The S-51 passed trials successfully in the spring of 1944, but never entered "
 "mass production."
 
-msgid "S-51b"
-msgstr "S-51b"
-
 msgid "S-51bis"
 msgstr "S-51 Bis"
 
@@ -1026,15 +984,6 @@ msgstr "SU-5 Bis"
 msgid "SU-76"
 msgstr "SU-76"
 
-msgid "SU-76I"
-msgstr "SU-76"
-
-msgid "SU-76I_descr"
-msgstr ""
-"A light infantry support self-propelled gun on the hull of the T-70, with a "
-"total of 14,292 vehicles (360 the SU-76 vehicles and 13,932 the SU-76M "
-"vehicles) produced from December 1942 through June 1945."
-
 msgid "SU-76_1"
 msgstr "SU-76"
 
@@ -1076,9 +1025,6 @@ msgstr "SU-85-II"
 
 msgid "SU-85_mod_1943"
 msgstr "SU-85"
-
-msgid "SU-85_mod_1943A"
-msgstr "SU-85 mod. 1943"
 
 msgid "SU-85_mod_1943_short"
 msgstr "SU-85"
@@ -1177,9 +1123,6 @@ msgstr "SU-26"
 
 msgid "Su-26B"
 msgstr "SU-26 Bis"
-
-msgid "Su-8"
-msgstr "SU-8"
 
 msgid "T-127"
 msgstr "T-127"
@@ -1298,9 +1241,6 @@ msgid "T-34_mod_1942"
 msgstr "T-34 mod. 1942"
 
 msgid "T-34_mod_1943"
-msgstr "T-34 mod. 1943"
-
-msgid "T-34_mod_1943A"
 msgstr "T-34 mod. 1943"
 
 msgid "T-34_mod_1943_short"
@@ -1526,9 +1466,6 @@ msgstr "KV-4"
 msgid "Turret_1_LTP"
 msgstr "LTP"
 
-msgid "Turret_1_Object252"
-msgstr "Object 252"
-
 msgid "Turret_1_Object263"
 msgstr "Object 263"
 
@@ -1582,9 +1519,6 @@ msgstr "SU-122/54"
 
 msgid "Turret_1_SU14_1"
 msgstr "SU-14-1"
-
-msgid "Turret_1_SU45"
-msgstr "SU-45"
 
 msgid "Turret_1_SU76I"
 msgstr "SU-76I"
@@ -1652,9 +1586,6 @@ msgstr "MT-2"
 msgid "Turret_2_KV4"
 msgstr "KV-4-5"
 
-msgid "Turret_2_Object252"
-msgstr "Object 252M"
-
 msgid "Turret_2_Object416"
 msgstr "Object 416 mod. 1953"
 
@@ -1666,9 +1597,6 @@ msgstr "Object 430 Version II enhanced"
 
 msgid "Turret_2_ST_I"
 msgstr "ST-I"
-
-msgid "Turret_2_T-50"
-msgstr "T-50M"
 
 msgid "Turret_2_T-54_2"
 msgstr "T-54 mod. 1949"
@@ -1684,9 +1612,6 @@ msgstr "T-150-220"
 
 msgid "Turret_2_T_50_2"
 msgstr "T-50-2M"
-
-msgid "Turret_710_mod_4"
-msgstr "Mod.701 No 4"
 
 msgid "Turret_710_mod_5"
 msgstr "IS-4M"
@@ -1766,9 +1691,6 @@ msgstr "2x V-2K-F"
 msgid "V-3"
 msgstr "V-3"
 
-msgid "V-34-M11"
-msgstr "V-34-M11"
-
 msgid "V-4"
 msgstr "V-4"
 
@@ -1811,14 +1733,8 @@ msgstr ""
 "vehicles were sent to the Soviet Union, with some lost at sea during "
 "transport to Murmansk."
 
-msgid "ZIS-16"
-msgstr "ZiS-16"
-
 msgid "ZiS-16"
 msgstr "ZiS-16"
-
-msgid "ZiS-16F"
-msgstr "ZiS-16F"
 
 msgid "_100mm_3UBK4"
 msgstr "ZUBK4"
@@ -1828,9 +1744,6 @@ msgstr "ZUBK4M"
 
 msgid "_100mm_3UOF10"
 msgstr "ZUOF10"
-
-msgid "_100mm_BK5M"
-msgstr "BK5M"
 
 msgid "_100mm_BR-412D"
 msgstr "UBR-412D"
@@ -1880,12 +1793,6 @@ msgstr "UBR-412"
 msgid "_100mm_UBR-412B"
 msgstr "UBR-412B"
 
-msgid "_100mm_UBR-412K"
-msgstr "UBR-412K"
-
-msgid "_100mm_UBR-412O"
-msgstr "UBR-412O"
-
 msgid "_100mm_UBR-412P"
 msgstr "UBR-412P"
 
@@ -1901,14 +1808,8 @@ msgstr "UOF-412B"
 msgid "_107mm_UBR-420"
 msgstr "UBR-420"
 
-msgid "_107mm_UBR-420K"
-msgstr "UBR-420K"
-
 msgid "_107mm_UBR-420M"
 msgstr "UBR-420M"
-
-msgid "_107mm_UBR-420O"
-msgstr "UBR-420O"
 
 msgid "_107mm_UBR-420P"
 msgstr "UBR-420P"
@@ -1979,9 +1880,6 @@ msgstr "122 mm A-19 mod. 1937"
 msgid "_122mm_A-19_short"
 msgstr "122 mm A-19"
 
-msgid "_122mm_BF460NS"
-msgstr "BF-460NS"
-
 msgid "_122mm_BL-9"
 msgstr "122 mm BL-9"
 
@@ -2036,12 +1934,6 @@ msgstr "OF-420-SOMSh"
 msgid "_122mm_UBR-471"
 msgstr "UBR-471"
 
-msgid "_122mm_UBR-471K"
-msgstr "UBR-471K"
-
-msgid "_122mm_UBR-471O"
-msgstr "UBR-471O"
-
 msgid "_122mm_UBR-471P"
 msgstr "UBR-471P"
 
@@ -2086,9 +1978,6 @@ msgstr "130 mm S-70"
 
 msgid "_130mm_S-70A"
 msgstr "130 mm S-70A"
-
-msgid "_130mm_S-70S"
-msgstr "130 mm S-70S"
 
 msgid "_130mm_UBR-482"
 msgstr "UBR-482"
@@ -2213,9 +2102,6 @@ msgstr "G-620"
 msgid "_20mm_BC-20"
 msgstr "BC-20"
 
-msgid "_20mm_OF-20"
-msgstr "OF-20"
-
 msgid "_20mm_TNSH"
 msgstr "20 mm TNSh"
 
@@ -2224,9 +2110,6 @@ msgstr "UBR-20"
 
 msgid "_23mm_BC-23"
 msgstr "BC-23"
-
-msgid "_23mm_OF-23"
-msgstr "OF-23"
 
 msgid "_23mm_PT-23TB"
 msgstr "23 mm PT-23TB"
@@ -2261,9 +2144,6 @@ msgstr "37 mm B-3"
 msgid "_37mm_BPT1"
 msgstr "BPT1"
 
-msgid "_37mm_BRT1"
-msgstr "BRT1"
-
 msgid "_37mm_Gochkins"
 msgstr "37 mm Hotchkiss"
 
@@ -2272,15 +2152,6 @@ msgstr "M63"
 
 msgid "_37mm_M-5_LL"
 msgstr "37 mm M5"
-
-msgid "_37mm_UB-160"
-msgstr "UB-160"
-
-msgid "_37mm_UBK160A"
-msgstr "UBK-160A"
-
-msgid "_37mm_UBO160"
-msgstr "UBO-160"
 
 msgid "_37mm_UBR-160"
 msgstr "UBR-160"
@@ -2327,17 +2198,8 @@ msgstr "45 mm 20KL"
 msgid "_45mm_20K_S"
 msgstr "45 mm 20KS"
 
-msgid "_45mm_UBK-240A"
-msgstr "UBK-240A"
-
-msgid "_45mm_UBK-243A"
-msgstr "UBK-243A"
-
 msgid "_45mm_UBR-240A"
 msgstr "UBR-240A"
-
-msgid "_45mm_UBR-240O"
-msgstr "UBR-240O"
 
 msgid "_45mm_UBR-240PA"
 msgstr "UBR-240PA"
@@ -2347,9 +2209,6 @@ msgstr "UBR-243SP"
 
 msgid "_45mm_UBR-243SPA"
 msgstr "UBR-243SPA"
-
-msgid "_45mm_UBR-243US"
-msgstr "UBR-243US"
 
 msgid "_45mm_UOF-240A"
 msgstr "UOF-240A"
@@ -2362,12 +2221,6 @@ msgstr "45 mm VT-42"
 
 msgid "_45mm_VT-43"
 msgstr "45 mm VT-43"
-
-msgid "_45mm_ZiS-19BM"
-msgstr "45 mm ZiS-19BM"
-
-msgid "_45mm_ZiS-19BM_S"
-msgstr "45 mm ZiS-19BMS"
 
 msgid "_45mm_mod_1932"
 msgstr "45 mm mod. 1932"
@@ -2387,12 +2240,6 @@ msgstr "76/57 UBR"
 msgid "_57mm_413"
 msgstr "57 mm project 413"
 
-msgid "_57mm_UBK-271A"
-msgstr "UBK-271A"
-
-msgid "_57mm_UBK-271AO"
-msgstr "UBK-271AO"
-
 msgid "_57mm_UBR-271K"
 msgstr "UBR-271K"
 
@@ -2405,12 +2252,6 @@ msgstr "UBR-271N"
 msgid "_57mm_UBR-271NO"
 msgstr "UBR-271NO"
 
-msgid "_57mm_UBR-271O"
-msgstr "UBR-271O"
-
-msgid "_57mm_UBR-271OO"
-msgstr "UBR-271OO"
-
 msgid "_57mm_UO-271U"
 msgstr "UO-271U"
 
@@ -2422,9 +2263,6 @@ msgstr "57 mm ZiS-2"
 
 msgid "_57mm_ZiS-4"
 msgstr "57 mm ZiS-4"
-
-msgid "_57mm_ZiS-4S"
-msgstr "57 mm ZiS-4S"
 
 msgid "_57mm_ZiS-8"
 msgstr "57 mm ZiS-8"
@@ -2440,9 +2278,6 @@ msgstr "APCR Mk. 1T"
 
 msgid "_6pdr_AP_MKs_4"
 msgstr "AP Mk. 1T"
-
-msgid "_6pdr_HE_MK_10T"
-msgstr "HE Mk. 10T"
 
 msgid "_71-TK-1"
 msgstr "71-TK-1"
@@ -2483,47 +2318,23 @@ msgstr "76 mm L-10S"
 msgid "_76mm_L-11"
 msgstr "76 mm L-11"
 
-msgid "_76mm_PS-3"
-msgstr "76 mm PS-3"
-
-msgid "_76mm_PS-3_S"
-msgstr "76 mm PS-3S"
-
 msgid "_76mm_S-54"
 msgstr "76 mm S-54"
 
 msgid "_76mm_S-54_S"
 msgstr "76 mm S-54S"
 
-msgid "_76mm_UBK-354M"
-msgstr "UBK-354M"
-
-msgid "_76mm_UBR-354"
-msgstr "UBR-354"
-
 msgid "_76mm_UBR-354A"
 msgstr "UBR-354A"
-
-msgid "_76mm_UBR-354K"
-msgstr "UBR-354K"
 
 msgid "_76mm_UBR-354KA"
 msgstr "UBR-354KA"
 
-msgid "_76mm_UBR-354KO"
-msgstr "UBR-354KO"
-
 msgid "_76mm_UBR-354MA"
 msgstr "UBR-354MA"
 
-msgid "_76mm_UBR-354MO"
-msgstr "UBR-354MO"
-
 msgid "_76mm_UBR-354MP"
 msgstr "UBR-354MP"
-
-msgid "_76mm_UBR-354O"
-msgstr "UBR-354O"
 
 msgid "_76mm_UOF-354"
 msgstr "UOF-354"
@@ -2539,9 +2350,6 @@ msgstr "76 mm ZiS-3"
 
 msgid "_76mm_ZiS-5"
 msgstr "76 mm ZiS-5"
-
-msgid "_76mm_ZiS-5_L50"
-msgstr "ZiS-5 L/50"
 
 msgid "_76mm_ZiS-96"
 msgstr "76 mm ZiS-96"
@@ -2573,32 +2381,17 @@ msgstr "85 mm D5T-85BM"
 msgid "_85mm_F-30"
 msgstr "85 mm F-30"
 
-msgid "_85mm_LB-2"
-msgstr "85 mm LB-2"
-
 msgid "_85mm_LB-2S"
 msgstr "85 mm LB-2S"
 
 msgid "_85mm_S-31"
 msgstr "85 mm S-31"
 
-msgid "_85mm_UBK-365K"
-msgstr "UBK-365K"
-
-msgid "_85mm_UBK-365KBM"
-msgstr "UBK-365KBM"
-
 msgid "_85mm_UBR-365K"
 msgstr "UBR-365K"
 
 msgid "_85mm_UBR-365KBM"
 msgstr "UBR-365KBM"
-
-msgid "_85mm_UBR-365O"
-msgstr "UBR-365O"
-
-msgid "_85mm_UBR-365OBM"
-msgstr "UBR-365OBM"
 
 msgid "_85mm_UBR-365P"
 msgstr "UBR-365P"
@@ -2641,9 +2434,6 @@ msgstr "9RS"
 
 msgid "_9RU"
 msgstr "9RU"
-
-msgid "_RT-26E"
-msgstr "RT-26E"
 
 msgid "chassisE1_LL"
 msgstr "Stuart E1"

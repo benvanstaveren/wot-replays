@@ -1,3 +1,15 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: World Of Tanks\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-06-01 10:00+0300\n"
+"PO-Revision-Date: 2010-06-01 10:00+0300\n"
+"Last-Translator: WoT Translator <noreply@wargaming.net>\n"
+"Language-Team: WoT Team <noreply@wargaming.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
 msgid "AEC"
 msgstr "2x AEC"
 
@@ -15,9 +27,6 @@ msgstr "Signal flags"
 
 msgid "Armstrong-Siddeley"
 msgstr "2x Armstrong Siddeley"
-
-msgid "Bedford_V8"
-msgstr "Bedford V8"
 
 msgid "British_Wireless_set_N19"
 msgstr "WS No. 19 Special"
@@ -280,9 +289,6 @@ msgstr "FV207"
 msgid "Chassis_Sexton_I"
 msgstr "Sexton I"
 
-msgid "Continental_AVDS-1790-2"
-msgstr "Continental AVDS-1790-2"
-
 msgid "Continental_R-975"
 msgstr "Continental R-975"
 
@@ -443,11 +449,6 @@ msgstr ""
 "the production model, this modification featured rear placement of the "
 "fighting compartment. No prototypes were manufactured."
 
-msgid "GB18_Sherman_II_I_descr"
-msgstr ""
-"American medium tank M4A2 was exported to Great Britain under Lend-Lease, "
-"where it was nicknamed Sherman III. The vehicle featured a diesel engine."
-
 msgid "GB20_Crusader"
 msgstr "Crusader"
 
@@ -553,10 +554,10 @@ msgstr "Bishop"
 
 msgid "GB28_Bishop_descr"
 msgstr ""
-"Developed by Birmigham Carriage and Wagon in June 1941 on the basis of the "
-"Valentine II infantry support vehicle. From 1942 through 1943, a total of "
-"149 SPGs were produced. In general the vehicle was unsuccessful. The vehicle "
-"was used for training purposes since 1943."
+"Developed by Birmingham Carriage and Wagon in June 1941 on the basis of the "
+"Valentine II infantry support tank. From 1942 through 1943, a total of 149 "
+"SPGs were produced. In general they were considered unsuccessful. From 1943 "
+"onward, they were relegated to use as training vehicles."
 
 msgid "GB28_Bishop_short"
 msgstr "Bishop"
@@ -876,26 +877,11 @@ msgstr "2x Leyland E164"
 msgid "Leyland_V6"
 msgstr "2x Leyland E165"
 
-msgid "Liberty_MkIII"
-msgstr "Liberty Mk. III"
-
-msgid "Liberty_MkIV"
-msgstr "Liberty Mk. IV"
-
-msgid "MTU_V12_Diesel"
-msgstr "MTU V12 Diesel"
-
-msgid "Meadows"
-msgstr "Meadows"
-
 msgid "Meadows_DAV"
 msgstr "Meadows D.A.V."
 
 msgid "Meadows_DAV_MkI"
 msgstr "Meadows D.A.V. O.C."
-
-msgid "Meadows_DAV_MkIII"
-msgstr "Meadows DAV Mk. III"
 
 msgid "Meadows_ESTB"
 msgstr "Meadows E.S.T.L."
@@ -912,9 +898,6 @@ msgstr "WS No. 11"
 msgid "N14"
 msgstr "WS No. 14"
 
-msgid "N19A"
-msgstr "Wireless Set No.19 Mk. II"
-
 msgid "N19Mk1"
 msgstr "WS No. 19 Mk. I"
 
@@ -924,20 +907,11 @@ msgstr "WS No. 19 Mk. II"
 msgid "N19Mk3"
 msgstr "WS No. 19 Mk. III"
 
-msgid "N19_HP"
-msgstr "N19 HP"
-
 msgid "N22"
 msgstr "WS No. 22"
 
-msgid "N49A"
-msgstr "WS No. 49A"
-
 msgid "N9"
 msgstr "WS No. 9"
-
-msgid "Nuffield_liberty"
-msgstr "Nuffield liberty"
 
 msgid "Nuffield_liberty_MKII"
 msgstr "Nuffield Liberty Mk. II"
@@ -1065,9 +1039,6 @@ msgstr "Churchill I"
 msgid "Turret_1_GB09_Churchill_VII"
 msgstr "Churchill IV"
 
-msgid "Turret_1_GB10_Black_Prince"
-msgstr "А22F"
-
 msgid "Turret_1_GB11_Caernarvon"
 msgstr "Black Prince"
 
@@ -1076,9 +1047,6 @@ msgstr "Centurion Mk. III"
 
 msgid "Turret_1_GB13_FV215b"
 msgstr "FV215"
-
-msgid "Turret_1_GB16_Stuart_VI"
-msgstr "M23"
 
 msgid "Turret_1_GB20_Crusader"
 msgstr "Crusader Mk. I"
@@ -1106,9 +1074,6 @@ msgstr "FV3805"
 
 msgid "Turret_1_GB32_Tortoise"
 msgstr "Tortoise"
-
-msgid "Turret_1_GB34_RAM"
-msgstr "RAM"
 
 msgid "Turret_1_GB39_Universal_CarrierQF2"
 msgstr "Universal Carrier 2-pdr"
@@ -1202,9 +1167,6 @@ msgstr "Centurion Mk. II"
 
 msgid "Turret_2_GB12_Conqueror"
 msgstr "Conqueror Mk. II"
-
-msgid "Turret_2_GB16_Stuart_VI"
-msgstr "M44"
 
 msgid "Turret_2_GB20_Crusader"
 msgstr "Crusader Mk. III"
@@ -1424,14 +1386,8 @@ msgstr "3.7-inch AT Howitzer"
 msgid "_3.7inch_HE"
 msgstr "HE Mk. 1C"
 
-msgid "_3.7inch_HEAT_Mk.1"
-msgstr "HEAT Mk. 1"
-
 msgid "_3.7inch_HEAT_Mk1"
 msgstr "HEAT Mk. 1"
-
-msgid "_3.7inch_HE_Mk.3"
-msgstr "HE Mk. 3"
 
 msgid "_3.7inch_HE_Mk3"
 msgstr "HE Mk. 3"

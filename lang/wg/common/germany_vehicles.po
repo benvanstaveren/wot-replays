@@ -1,3 +1,15 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: World Of Tanks\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-06-01 10:00+0300\n"
+"PO-Revision-Date: 2010-06-01 10:00+0300\n"
+"Last-Translator: WoT Translator <noreply@wargaming.net>\n"
+"Language-Team: WoT Team <noreply@wargaming.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
 msgid "AN-GRC-4"
 msgstr "AN/GRC-4"
 
@@ -6,15 +18,6 @@ msgstr "Pzgr. 41 HK"
 
 msgid "APCNR.erz"
 msgstr "Pzgr. 41 StK"
-
-msgid "Agrimotor"
-msgstr "Agrimotor"
-
-msgid "Agrimotorketten"
-msgstr "SuperMegaketten"
-
-msgid "Agrimotorturm"
-msgstr "Agrimotorturm"
 
 msgid "Argus"
 msgstr "Argus"
@@ -115,6 +118,12 @@ msgstr "E 50 Ausf. M"
 msgid "Chassis_G100_Gtraktor_Krupp"
 msgstr "Großtraktor - Krupp"
 
+msgid "Chassis_G101_StuG_III"
+msgstr "StuG III Ausf. B"
+
+msgid "Chassis_G101_StuG_III_2"
+msgstr "StuG III Ausf. E"
+
 msgid "Chassis_GW_Elefant"
 msgstr "G.W. Tiger (P)"
 
@@ -135,9 +144,6 @@ msgstr "Light Tank Mk. VIB"
 
 msgid "Chassis_G_E"
 msgstr "G.W. E 100"
-
-msgid "Chassis_G_E_2"
-msgstr "Sd. Fgst. E-100"
 
 msgid "Chassis_G_Panther_1"
 msgstr "G.W. Panther"
@@ -176,6 +182,9 @@ msgstr "Jagdpanzer E 100"
 
 msgid "Chassis_JagdTiger_SdKfz_185"
 msgstr "Jagdtiger 8,8"
+
+msgid "Chassis_Karl"
+msgstr "Karl Ketten"
 
 msgid "Chassis_Leopard1"
 msgstr "Leopard 1"
@@ -266,6 +275,24 @@ msgstr "VK 9.01"
 
 msgid "Chassis_Pz_II_AusfG_2"
 msgstr "Pz.Kpfw. II Ausf. G"
+
+msgid "Chassis_Pz_IV_AusfA"
+msgstr "Pz.Kpfw. IV Ausf. A"
+
+msgid "Chassis_Pz_IV_AusfA_2"
+msgstr "Pz.Kpfw. IV Ausf. B"
+
+msgid "Chassis_Pz_IV_AusfD"
+msgstr "Pz.Kpfw. IV Ausf. C"
+
+msgid "Chassis_Pz_IV_AusfD_2"
+msgstr "Pz.Kpfw. IV Ausf. D"
+
+msgid "Chassis_Pz_IV_AusfH"
+msgstr "Pz.Kpfw. IV Ausf. G"
+
+msgid "Chassis_Pz_IV_AusfH_2"
+msgstr "Pz.Kpfw. IV Ausf. H"
 
 msgid "Chassis_Pz_Sfl_IVb"
 msgstr "Pz.Sfl. IVb"
@@ -491,9 +518,6 @@ msgstr "FuG 12"
 msgid "FuG12A"
 msgstr "FuG 12 A"
 
-msgid "FuG16"
-msgstr "FuG 16"
-
 msgid "FuG2"
 msgstr "FuG 2"
 
@@ -543,6 +567,20 @@ msgstr ""
 
 msgid "G100_Gtraktor_Krupp_short"
 msgstr "Gr.Tr."
+
+msgid "G101_StuG_III"
+msgstr "StuG III Ausf. B"
+
+msgid "G101_StuG_III_descr"
+msgstr ""
+"In 1935, Erich von Manstein of the German Army General Staff, in a letter to "
+"General Ludwig Beck, described the idea of building assault artillery to "
+"support attacking infantry units. Five prototypes of the \"zero\" series "
+"were manufactured in 1937. Early modifications from Ausf.A to Ausf.F/8 were "
+"produced until December 1942."
+
+msgid "G101_StuG_III_short"
+msgstr "StuG III B"
 
 msgid "G20_Marder_II"
 msgstr "Marder II"
@@ -663,9 +701,6 @@ msgstr "Hetzer"
 msgid "Hetzer_0"
 msgstr "Jagdpanzer 38 (t)"
 
-msgid "Hetzer_0_1"
-msgstr "Hetzer 0 1"
-
 msgid "Hetzer_Ausf_A"
 msgstr "Jagdpanzer 38 (t)"
 
@@ -690,20 +725,11 @@ msgstr "Hummel"
 msgid "Hummel_0"
 msgstr "Hummel"
 
-msgid "Hummel_01"
-msgstr "Hummel 01"
-
 msgid "Hummel_Ausf_1943"
 msgstr "Hummel"
 
-msgid "Hummel_Ausf_1943B"
-msgstr "Hummelketten Ausf. 1943B"
-
 msgid "Hummel_Ausf_1944"
 msgstr "Hummel verstärkteketten"
-
-msgid "Hummel_B"
-msgstr "Hummel B"
 
 msgid "Hummel_descr"
 msgstr ""
@@ -754,9 +780,6 @@ msgstr "Jagdpanzer IV"
 
 msgid "JagdPzIV_0"
 msgstr "Jagdpanzer IV"
-
-msgid "JagdPzIV_01"
-msgstr "JagdPz IV 01"
 
 msgid "JagdPzIV_Ausf_1940"
 msgstr "Jagdpanzer IV 0-Serie"
@@ -828,6 +851,21 @@ msgstr "Jagdpanther"
 
 msgid "JgPzV_Vetstaerktketten"
 msgstr "Jagdpanther verstärkteketten"
+
+msgid "Karl"
+msgstr "Karl"
+
+msgid "Karl_descr"
+msgstr ""
+"Karl was a World War II German self-propelled siege mortar. It was the "
+"largest self-propelled weapon to see service. Seven guns were built. It was "
+"used in attacking enemy fortresses and fortified positions."
+
+msgid "Karlengine"
+msgstr "MB 503A"
+
+msgid "Karlradio"
+msgstr "Karl Funkgerät"
 
 msgid "Krupp_M301"
 msgstr "Krupp M301"
@@ -1315,9 +1353,6 @@ msgstr ""
 "Pz.Kpfw. Panther\n"
 "Ausf. G"
 
-msgid "Pz-V_ketten"
-msgstr "PzKpfw-V-Ketten"
-
 msgid "Pz35t"
 msgstr "Pz.Kpfw. 35 (t)"
 
@@ -1336,9 +1371,6 @@ msgstr "Pz.Kpfw. 35 (t)"
 msgid "Pz35t_Verstaerktturm"
 msgstr "Pz.Kpfw. 35 (t) verstärkterturm"
 
-msgid "Pz35t_VerstaerktturmA"
-msgstr "PzKpfw 35 (t) verstärkter Turm Ausf. A"
-
 msgid "Pz35t_Verstaerktturm_short"
 msgstr ""
 "Pz.Kpfw. 35 (t)\n"
@@ -1346,9 +1378,6 @@ msgstr ""
 
 msgid "Pz35t_Vetstaerktketten"
 msgstr "Pz.Kpfw. 35 (t) verstärkteketten"
-
-msgid "Pz35t_VetstaerktkettenA"
-msgstr "PzKpfw 35 (t) verstärkte Ketten Ausf. A"
 
 msgid "Pz35t_Vetstaerktketten_short"
 msgstr ""
@@ -1403,9 +1432,6 @@ msgstr "Pz.Kpfw. I"
 msgid "PzII"
 msgstr "Pz.Kpfw. II"
 
-msgid "PzIII"
-msgstr "Pz.Kpfw. III"
-
 msgid "PzIII-IV"
 msgstr "Pz.Kpfw. III/IV"
 
@@ -1422,6 +1448,18 @@ msgstr ""
 
 msgid "PzIII_A_short"
 msgstr "Pz. III A"
+
+msgid "PzIII_AusfJ"
+msgstr "Pz.Kpfw. III"
+
+msgid "PzIII_AusfJ_descr"
+msgstr ""
+"Used the \"classic\" chassis starting with the Ausführung E. Produced from "
+"December 1938 to February 1943, a total of 4,958 tanks and 321 command "
+"vehicles were manufactured."
+
+msgid "PzIII_AusfJ_short"
+msgstr "Pz. III"
 
 msgid "PzIII_Ausf_A"
 msgstr "Pz.Kpfw. III Ausf. A"
@@ -1465,15 +1503,6 @@ msgstr ""
 
 msgid "PzIII_IV_short"
 msgstr "Pz. III/IV"
-
-msgid "PzIII_descr"
-msgstr ""
-"Used the \"classic\" chassis starting with the Ausführung E. Produced from "
-"December 1938 to February 1943, a total of 4,958 tanks and 321 command "
-"vehicles were manufactured."
-
-msgid "PzIII_short"
-msgstr "Pz. III"
 
 msgid "PzIIIketten_Ausf_A"
 msgstr "Pz.Kpfw. III Ausf. A"
@@ -1557,9 +1586,6 @@ msgstr ""
 "and from March 1941 through December 1942, with a total of 1,637 vehicles "
 "built."
 
-msgid "PzII_ketten"
-msgstr "PzKpfw-II-Ketten"
-
 msgid "PzII_ketten_Ausf_A"
 msgstr "Pz.Kpfw. II Ausf. A"
 
@@ -1579,9 +1605,6 @@ msgstr ""
 msgid "PzII_short"
 msgstr "Pz. II"
 
-msgid "PzII_turm"
-msgstr "PzKpfw-II-Turm"
-
 msgid "PzIIturm_ausf_J"
 msgstr "Pz.Kpfw. II Ausf. J"
 
@@ -1593,9 +1616,6 @@ msgstr "Pz.Kpfw. IV Ausf. G"
 
 msgid "PzIV_Ausf_1942"
 msgstr "Pz.Kpfw. IV Ausf. H"
-
-msgid "PzIV_Ausf_1942A"
-msgstr "PzKpfw-IV-Ketten Ausf. 1942 A"
 
 msgid "PzIV_Hydro"
 msgstr "Pz.Kpfw. IV hydrostat."
@@ -1622,9 +1642,6 @@ msgstr ""
 
 msgid "PzIV_Standart"
 msgstr "Pz.Kpfw. IV Ausf. G"
-
-msgid "PzIV_StandartA"
-msgstr "PzKpfw-IV-Turm Standard A"
 
 msgid "PzIV_Standart_short"
 msgstr ""
@@ -1768,9 +1785,6 @@ msgstr ""
 msgid "PzVI_Porsche_Turm"
 msgstr "Pz.Kpfw. Tiger Ausf. E"
 
-msgid "PzVI_Porsche_Turm1"
-msgstr "PzKpfw-VI-Porscheturm A"
-
 msgid "PzVI_Porsche_Turm_short"
 msgstr ""
 "Pz.Kpfw. Tiger\n"
@@ -1793,9 +1807,6 @@ msgstr "Tiger (P)"
 
 msgid "PzVI_Vetstaerktketten"
 msgstr "Pz.Kpfw. Tiger Ausf. E"
-
-msgid "PzVI_Vetstaerktketten1"
-msgstr "PzKpfw VI verstärkte Ketten"
 
 msgid "PzVI_descr"
 msgstr ""
@@ -1849,6 +1860,43 @@ msgstr ""
 
 msgid "Pz_II_AusfG_short"
 msgstr "Pz. II G"
+
+msgid "Pz_IV_AusfA"
+msgstr "Pz.Kpfw. IV Ausf. A"
+
+msgid "Pz_IV_AusfA_descr"
+msgstr ""
+"Development of the vehicle started in 1935. It was nicknamed Pz Kpfw IV in "
+"April 1936. Mass production began in the fall of 1937, and the first "
+"vehicles saw service starting in 1938. A total of 35 vehicles were "
+"manufactured and were in service until 1941."
+
+msgid "Pz_IV_AusfA_short"
+msgstr "Pz. IV A"
+
+msgid "Pz_IV_AusfD"
+msgstr "Pz.Kpfw. IV Ausf. D"
+
+msgid "Pz_IV_AusfD_descr"
+msgstr ""
+"This modification of the Pz IV was developed in October 1939. The vehicle "
+"had enhanced armor and an improved, external gun mantlet. The tank was mass-"
+"produced until May 1940, with a total of 229 vehicles manufactured."
+
+msgid "Pz_IV_AusfD_short"
+msgstr "Pz. IV D"
+
+msgid "Pz_IV_AusfH"
+msgstr "Pz.Kpfw. IV Ausf. H"
+
+msgid "Pz_IV_AusfH_descr"
+msgstr ""
+"The most widely produced Pz IV variant, the \"H\" version was developed in "
+"1942. For some time it was mass-produced along with the Ausf. G. A total of "
+"3,774 tanks of the H version were manufactured."
+
+msgid "Pz_IV_AusfH_short"
+msgstr "Pz. IV H"
 
 msgid "Pz_Sfl_IVb"
 msgstr "Pz.Sfl. IVb"
@@ -1923,12 +1971,6 @@ msgstr "SEM 25A"
 msgid "Scania_Vabis1664"
 msgstr "Scania Vabis 1664"
 
-msgid "Siemens_Electric_motors_Typ_D1495A"
-msgstr "Siemens-Elektromotoren Typ D 1495 A"
-
-msgid "Siemens_Generators_Typ_aGV"
-msgstr "Siemens-Generatoren Typ aGV"
-
 msgid "Skoda_T-11"
 msgstr "Škoda T-11"
 
@@ -1941,17 +1983,8 @@ msgstr "Somua S-40"
 msgid "Somuaturm"
 msgstr "Pz.Kpfw. S35 739 (f)"
 
-msgid "StuGIII"
-msgstr "StuG III"
-
-msgid "StuGIIIH"
-msgstr "StuG III Ausf. H"
-
 msgid "StuGIII_0"
-msgstr "StuG III"
-
-msgid "StuGIII_01"
-msgstr "StuG III"
+msgstr "StuG III Ausf. G"
 
 msgid "StuGIII_Ausf_1940"
 msgstr "StuG III Ausf. F"
@@ -1959,14 +1992,17 @@ msgstr "StuG III Ausf. F"
 msgid "StuGIII_Ausf_1943"
 msgstr "StuG III Ausf. G"
 
-msgid "StuGIII_descr"
+msgid "StuG_40_AusfG"
+msgstr "StuG III Ausf. G"
+
+msgid "StuG_40_AusfG_descr"
 msgstr ""
 "Originally designed as an assault vehicle, this self-propelled gun was "
 "converted into a tank destroyer beginning with the F series. A total of "
 "9,265 vehicles of this series and 1,211 of the Stu.H. 42 were produced."
 
-msgid "StuGIII_short"
-msgstr "StuG III"
+msgid "StuG_40_AusfG_short"
+msgstr "StuG III G"
 
 msgid "Sturer_Emil"
 msgstr "Pz.Sfl. V"
@@ -2045,9 +2081,6 @@ msgstr "T-25"
 msgid "T_Bison"
 msgstr "Sturmpanzer I Bison"
 
-msgid "T_Bison1"
-msgstr "T Bison1"
-
 msgid "Tatra_V-103"
 msgstr "Tatra Typ 103"
 
@@ -2071,9 +2104,6 @@ msgstr "D.W.-Versuchsturm"
 msgid "Turret_1_DickerMax"
 msgstr "Dicker Max"
 
-msgid "Turret_1_E-100"
-msgstr "E-100-Turm Ausf. A"
-
 msgid "Turret_1_E-25"
 msgstr "E 25"
 
@@ -2088,6 +2118,9 @@ msgstr "E 50 Ausf. M"
 
 msgid "Turret_1_G100_Gtraktor_Krupp"
 msgstr "Großtraktor - Krupp"
+
+msgid "Turret_1_G101_StuG_III"
+msgstr "StuG III Ausf. B"
 
 msgid "Turret_1_GW_Elefant"
 msgstr "G.W. Tiger (P)"
@@ -2104,9 +2137,6 @@ msgstr "G.W. Panther"
 msgid "Turret_1_G_Tiger"
 msgstr "G.W. Tiger"
 
-msgid "Turret_1_Indien_Panzer"
-msgstr "Porsche Turm Ausf. A"
-
 msgid "Turret_1_JagdPantherII"
 msgstr "Jagdpanther II"
 
@@ -2115,6 +2145,9 @@ msgstr "Jagdpanzer E 100"
 
 msgid "Turret_1_JagdTiger_SdKfz_185"
 msgstr "8,8 cm Pak 43 Jagdtiger"
+
+msgid "Turret_1_Karl"
+msgstr "Karl Turm"
 
 msgid "Turret_1_Leopard1"
 msgstr "Leopard 1"
@@ -2164,6 +2197,15 @@ msgstr ""
 
 msgid "Turret_1_Pz_II_AusfG"
 msgstr "Pz.Kpfw. II Ausf. C"
+
+msgid "Turret_1_Pz_IV_AusfA"
+msgstr "Pz.Kpfw. IV Ausf. A"
+
+msgid "Turret_1_Pz_IV_AusfD"
+msgstr "Pz.Kpfw. IV Ausf. C"
+
+msgid "Turret_1_Pz_IV_AusfH"
+msgstr "Pz.Kpfw. IV Ausf. G"
 
 msgid "Turret_1_Pz_Sfl_IVb"
 msgstr "Pz.Sfl. IVb"
@@ -2250,6 +2292,15 @@ msgstr ""
 
 msgid "Turret_2_Pz_II_AusfG"
 msgstr "Pz.Kpfw. II Ausf. G"
+
+msgid "Turret_2_Pz_IV_AusfA"
+msgstr "Pz.Kpfw. IV Ausf. B"
+
+msgid "Turret_2_Pz_IV_AusfD"
+msgstr "Pz.Kpfw. IV Ausf. D"
+
+msgid "Turret_2_Pz_IV_AusfH"
+msgstr "Pz.Kpfw. IV Ausf. H"
 
 msgid "Turret_2_Pz_Sfl_IVc"
 msgstr "Pz.Sfl. IVc Flak 41"
@@ -2641,14 +2692,8 @@ msgstr "10,5 cm Kw.K. L/68"
 msgid "_105mm_KwK46_L70"
 msgstr "10,5 cm Kw.K. L/70"
 
-msgid "_105mm_KwK_54_L65"
-msgstr "10,5 cm Bordkanone"
-
 msgid "_105mm_L7A1"
 msgstr "10,5 cm L7A1"
-
-msgid "_105mm_PaK46_L68"
-msgstr "10,5 cm Pak L/68"
 
 msgid "_105mm_PzGr.40Rot"
 msgstr "PzGr 40 rot"
@@ -2665,14 +2710,8 @@ msgstr "Pzgr 39 L"
 msgid "_105mm_PzGr39L1"
 msgstr "Pzgr 39 L1"
 
-msgid "_105mm_PzGr39L2"
-msgstr "Pzgr 39 L2"
-
 msgid "_105mm_PzGrRot"
 msgstr "PzGr rot"
-
-msgid "_105mm_PzGr_K"
-msgstr "Pzgr K"
 
 msgid "_105mm_Pzgr.40"
 msgstr "Pzgr 40"
@@ -2685,9 +2724,6 @@ msgstr "Pzgr 40 K"
 
 msgid "_105mm_Pzgr.40L1"
 msgstr "Pzgr 40 L1"
-
-msgid "_105mm_Pzgr.40L2"
-msgstr "Pzgr 40 L2"
 
 msgid "_105mm_Sprg.18G"
 msgstr "Sprgr 18G"
@@ -2706,9 +2742,6 @@ msgstr "Sprgr L"
 
 msgid "_105mm_Sprg_L1"
 msgstr "Sprgr L1"
-
-msgid "_105mm_Sprg_L2"
-msgstr "Sprgr L2"
 
 msgid "_105mm_StuH42_L28"
 msgstr "10,5 cm Stu.H. 42 L/28"
@@ -2730,9 +2763,6 @@ msgstr "12,8 cm Kanone L/61"
 
 msgid "_128mm_K44_L55"
 msgstr "12,8 cm Kanone 44 L/55"
-
-msgid "_128mm_KwK44_2_L61"
-msgstr "12,8 cm Kw.K. 44/2 L/61"
 
 msgid "_128mm_KwK44_L55"
 msgstr "12,8 cm Kw.K. 44 L/55"
@@ -2787,9 +2817,6 @@ msgstr "Gr 39 H3A G"
 
 msgid "_150mm_KwK44_L38"
 msgstr "15 cm Kw.K. L/38"
-
-msgid "_150mm_KwK45_L67"
-msgstr "15 cm Kw.K. L/67"
 
 msgid "_150mm_PzGr42"
 msgstr "Pzgr 42"
@@ -2884,14 +2911,8 @@ msgstr "2 cm Kw.K. 38"
 msgid "_20mm_KwK_38_L55A"
 msgstr "2 cm Kw.K. 38"
 
-msgid "_20mm_Pzgr33"
-msgstr "Pzgr 33"
-
 msgid "_20mm_Pzgr39"
 msgstr "Pzgr 39"
-
-msgid "_20mm_Sprg.18"
-msgstr "Sprgr 18"
 
 msgid "_210mm_Gr.18Be"
 msgstr "Gr. 18Be"
@@ -2907,6 +2928,12 @@ msgstr "Gr. 18 Stg"
 
 msgid "_210mm_Sprg18_Ausf_G"
 msgstr "Gr. 18"
+
+msgid "_300mm_Karl"
+msgstr "Mörser Karl"
+
+msgid "_300mm_Sprg40"
+msgstr "Sprenggranate 041"
 
 msgid "_30mm_M"
 msgstr "Spgr. Patr. 103 M"
@@ -2941,17 +2968,8 @@ msgstr "3,7 cm Kw.K. 36 L/46.5"
 msgid "_37mm_PaK_38t_L47"
 msgstr "3,7 cm Pak (t) L/47"
 
-msgid "_37mm_Pzgr33"
-msgstr "Pzgr 33"
-
-msgid "_37mm_Pzgr33t"
-msgstr "Pzgr 33 (t)"
-
 msgid "_37mm_Pzgr36"
 msgstr "Pzgr 36"
-
-msgid "_37mm_Pzgr39"
-msgstr "Pzgr 39"
 
 msgid "_37mm_Pzgr39t"
 msgstr "Pzgr 39 (t)"
@@ -3001,9 +3019,6 @@ msgstr "5 cm Kw.K. 39 L/60"
 msgid "_50mm_PaK_39_L60"
 msgstr "5 cm Pak 38 L/60"
 
-msgid "_50mm_Pzgr33"
-msgstr "Pzgr 33"
-
 msgid "_50mm_Pzgr39"
 msgstr "Pzgr 39"
 
@@ -3022,9 +3037,6 @@ msgstr "Patrone 318 SmKH-Rs-L'spur"
 msgid "_7.92mm_Mauser_EW_141"
 msgstr "7,92 mm Mauser E.W. 141"
 
-msgid "_75mmK.Gr.rot_Pz"
-msgstr "K.Gr. rot Pz"
-
 msgid "_75mm_A18KwK"
 msgstr "7,5 cm Škoda A18"
 
@@ -3041,7 +3053,7 @@ msgid "_75mm_KwK45_L100"
 msgstr "7,5 cm Kw.K. L/100"
 
 msgid "_75mm_KwK_37_L24"
-msgstr "7,5 cm KwK 37 L/24"
+msgstr "7,5 cm Kw.K. 37 L/24"
 
 msgid "_75mm_KwK_37_L24A"
 msgstr "7,5 cm Kw.K. 37 L/24"
@@ -3076,12 +3088,6 @@ msgstr "Pzgr 40"
 msgid "_75mm_Pzgr.40L"
 msgstr "Pzgr 40 L"
 
-msgid "_75mm_Pzgr33"
-msgstr "Pzgr 33"
-
-msgid "_75mm_Pzgr33L"
-msgstr "Pzgr 33 L"
-
 msgid "_75mm_Pzgr39"
 msgstr "Pzgr 39"
 
@@ -3091,9 +3097,6 @@ msgstr "Pzgr 39 L"
 msgid "_75mm_Sprg.18"
 msgstr "Sprgr 18"
 
-msgid "_75mm_Sprg.18A"
-msgstr "Sprgr 18 A"
-
 msgid "_75mm_Sprg.18L"
 msgstr "Sprgr 18 L"
 
@@ -3102,6 +3105,9 @@ msgstr "7,5 cm Pak 42 L/70"
 
 msgid "_75mm_StuK42_L70A"
 msgstr "7,5 cm Pak 42 L/70"
+
+msgid "_75mm_StuK_37_L24"
+msgstr "7,5 cm Kanone L/24"
 
 msgid "_75mm_StuK_40_L43"
 msgstr "7,5 cm Stu.K. 40 L/43"
@@ -3141,9 +3147,6 @@ msgstr "8,8 cm Pak L/56"
 
 msgid "_88mm_PaK_43_L71"
 msgstr "8,8 cm Pak 43 L/71"
-
-msgid "_88mm_Pzgr"
-msgstr "Pzgr"
 
 msgid "_88mm_Pzgr.40"
 msgstr "Pzgr 40"
@@ -3190,20 +3193,8 @@ msgstr "Pzgr 40/48"
 msgid "_90mm_Sprg48"
 msgstr "Sprgr 48"
 
-msgid "_9cm_KwK_48_L53"
-msgstr "9 cm Bordkanone L/53"
-
 msgid "_9cm_KwK_51_L71"
 msgstr "9 cm Bordkanone"
 
 msgid "_Gr_38_HL_A"
 msgstr "Gr 38 HL A"
-
-msgid "ketten"
-msgstr "City"
-
-msgid "ketten2"
-msgstr "Summer"
-
-msgid "ketten3"
-msgstr "Winter"

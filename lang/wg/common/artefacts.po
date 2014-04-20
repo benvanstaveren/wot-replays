@@ -1,3 +1,15 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: World Of Tanks\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-06-01 10:00+0300\n"
+"PO-Revision-Date: 2010-06-01 10:00+0300\n"
+"Last-Translator: WoT Translator <noreply@wargaming.net>\n"
+"Language-Team: WoT Team <noreply@wargaming.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
 msgid "afterburning/descr"
 msgstr "+15% to engine power for one minute"
 
@@ -332,7 +344,7 @@ msgid "largeCaliberHowitzerRammer/name"
 msgstr "Large-Caliber Artillery-Shell Rammer"
 
 msgid "largeCaliberTankRammer/name"
-msgstr "Large-Caliber Tank Gun Rammer"
+msgstr "Large-Сaliber Tank Gun Rammer"
 
 msgid "largeMedkit/always"
 msgstr "+15% to protection of the crew from injuries."

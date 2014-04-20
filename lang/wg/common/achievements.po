@@ -1,3 +1,15 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: World Of Tanks\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-06-01 10:00+0300\n"
+"PO-Revision-Date: 2010-06-01 10:00+0300\n"
+"Last-Translator: WoT Translator <noreply@wargaming.net>\n"
+"Language-Team: WoT Team <noreply@wargaming.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
 msgid "achievement/master1"
 msgstr "3rd Class"
 
@@ -54,6 +66,19 @@ msgstr ""
 msgid "armoredFist_descr"
 msgstr "Destroy all enemy vehicles while losing only one friendly vehicle."
 
+msgid "battleCitizen"
+msgstr "Operation Nostalgia"
+
+msgid "battleCitizen_condition"
+msgstr ""
+"• Awarded to all members of a victorious team.\n"
+"• The player must not destroy any allies.\n"
+"• Awarded only once for all the battles fought on April 1–3, 2014.\n"
+"• Can be obtained in Random Battles only."
+
+msgid "battleCitizen_descr"
+msgstr "Win a battle with the Karl mortar."
+
 msgid "beasthunter"
 msgstr "Hunter"
 
@@ -96,6 +121,18 @@ msgstr ""
 
 msgid "bombardier_descr"
 msgstr "Destroy at least 2 enemy vehicles with one shell."
+
+msgid "crucialShotMedal"
+msgstr "Crucial Shot"
+
+msgid "crucialShotMedal_condition"
+msgstr ""
+"• Win the battle.\n"
+"• Newly received awards are added together.\n"
+"• Can be obtained in Team Battles only."
+
+msgid "crucialShotMedal_descr"
+msgstr "In 20 battles, destroy the last enemy vehicle."
 
 msgid "defender"
 msgstr "Defender"
@@ -140,12 +177,36 @@ msgstr ""
 msgid "evileye_descr"
 msgstr "Help your team damage at least 6 enemy vehicles by spotting them."
 
+msgid "fightingReconnaissanceMedal"
+msgstr "Fighting Reconnaissance"
+
+msgid "fightingReconnaissanceMedal_condition"
+msgstr ""
+"• Spot at least 2 enemy vehicles.\n"
+"• Be among the top three damage dealers.\n"
+"• Newly received awards are added together.\n"
+"• Can be obtained in Team Battles only."
+
+msgid "fightingReconnaissanceMedal_descr"
+msgstr "In 50 battles, comply with the following conditions:"
+
+msgid "forTacticalOperations"
+msgstr "For Tactical Operations %s"
+
+msgid "forTacticalOperations_condition"
+msgstr "• Can be obtained in Team Battles only."
+
+msgid "forTacticalOperations_descr"
+msgstr ""
+"Awarded to the player for a certain number of victories on randomly selected "
+"teams."
+
 msgid "geniusForWarMedal"
 msgstr "War Genius"
 
 msgid "geniusForWarMedal_condition"
 msgstr ""
-"• Win the battle.\n"
+"• Only victorious battles are counted.\n"
 "• Newly received awards are added together.\n"
 "• Can be obtained in Team Battles only."
 
@@ -157,8 +218,8 @@ msgstr "Personal Rating"
 
 msgid "globalRating_descr"
 msgstr ""
-"Personal Rating is a measure of a player’s skills and experience, on the "
-"basis of:\n"
+"Personal rating is a measure of player’s skills and experience, on the basis "
+"of:\n"
 "\n"
 "• Victories\n"
 "• Damage due to your assistance\n"
@@ -166,7 +227,33 @@ msgstr ""
 "• Average experience per battle\n"
 "• Battles survived\n"
 "\n"
-"Personal Rating is updated with increasing number of battles fought."
+"Personal rating is updated with increasing number of battles fought."
+
+msgid "godOfWar"
+msgstr "God of War"
+
+msgid "godOfWar_condition"
+msgstr ""
+"• Newly received awards are added together.\n"
+"• Can be obtained in Team Battles only."
+
+msgid "godOfWar_descr"
+msgstr "While driving an SPG, be the last survivor and win the battle."
+
+msgid "guardsman"
+msgstr "Guardsman %s"
+
+msgid "guardsman_condition"
+msgstr ""
+"• For example, when fighting for a team consisting of T-34 and BT-7 "
+"vehicles, it is required to drive a BT-7 tank.\n"
+"• Specific vehicles can be used as support vehicles in certain Historical "
+"Battles.\n"
+"• Can be obtained in Historical Battles only."
+
+msgid "guardsman_descr"
+msgstr ""
+"For the number of victories that were won while driving support vehicles."
 
 msgid "handOfDeath"
 msgstr "Reaper"
@@ -197,6 +284,69 @@ msgstr ""
 "with approximately 100 vehicles. A single KV tank managed to hold off the "
 "German advance for a full day while being pummeled by a variety of antitank "
 "weapons, until finally the KV ran out of ammunition and was knocked out."
+
+msgid "histBattle1_battlefield"
+msgstr "Battlefield: Operation Spring Awakening"
+
+msgid "histBattle1_battlefield_condition"
+msgstr "• Can be obtained in Historical Battles only."
+
+msgid "histBattle1_battlefield_descr"
+msgstr ""
+"Win at least one battle on each of the belligerent sides in all vehicles "
+"that fought in the actual battle."
+
+msgid "histBattle1_historyLessons"
+msgstr "Lessons of History: Operation Spring Awakening"
+
+msgid "histBattle1_historyLessons_condition"
+msgstr "• Can be obtained in Historical Battles only."
+
+msgid "histBattle1_historyLessons_descr"
+msgstr ""
+"Win at least one battle on each of the belligerent sides in any vehicle."
+
+msgid "histBattle2_battlefield"
+msgstr "Battlefield: Battle of Kursk"
+
+msgid "histBattle2_battlefield_condition"
+msgstr "• Can be obtained in Historical Battles only."
+
+msgid "histBattle2_battlefield_descr"
+msgstr ""
+"Win at least one battle on each of the belligerent sides in all vehicles "
+"that fought in the actual battle."
+
+msgid "histBattle2_historyLessons"
+msgstr "Lessons of History: Battle of Kursk"
+
+msgid "histBattle2_historyLessons_condition"
+msgstr "• Can be obtained in Historical Battles only."
+
+msgid "histBattle2_historyLessons_descr"
+msgstr ""
+"Win at least one battle on each of the belligerent sides in any vehicle."
+
+msgid "histBattle3_battlefield"
+msgstr "Battlefield: Battle of the Bulge (1944)"
+
+msgid "histBattle3_battlefield_condition"
+msgstr "• Can be obtained in Historical Battles only."
+
+msgid "histBattle3_battlefield_descr"
+msgstr ""
+"Win at least one battle on each of the belligerent sides in all vehicles "
+"that fought in the actual battle."
+
+msgid "histBattle3_historyLessons"
+msgstr "Lessons of History: Battle of the Bulge (1944)"
+
+msgid "histBattle3_historyLessons_condition"
+msgstr "• Can be obtained in Historical Battles only."
+
+msgid "histBattle3_historyLessons_descr"
+msgstr ""
+"Win at least one battle on each of the belligerent sides in any vehicles."
 
 msgid "huntsman"
 msgstr "Naydin's Medal"
@@ -293,8 +443,8 @@ msgstr "High Caliber"
 
 msgid "mainGun_condition"
 msgstr ""
-"• Caused damage must be at least 20% of the total HP of enemy vehicles.\n"
-"• Caused damage should be at least 1,000 HP.\n"
+"• Damage caused must be at least 20% of the total HP of enemy vehicles.\n"
+"• Damage caused must be at least 1,000 HP.\n"
 "• The player must not hit any allies by direct shots.\n"
 "• If two or more players have caused equal damage to enemy vehicles, the "
 "achievement is awarded to the player who earned more XP for the battle.\n"
@@ -302,6 +452,16 @@ msgstr ""
 
 msgid "mainGun_descr"
 msgstr "Cause the highest damage per battle."
+
+msgid "makerOfHistory"
+msgstr "History Maker %s"
+
+msgid "makerOfHistory_condition"
+msgstr "• Can be obtained in Historical Battles only."
+
+msgid "makerOfHistory_descr"
+msgstr ""
+"For the number of victories that were won on each of the belligerent sides."
 
 msgid "markOfMastery"
 msgstr "Mastery Badge: \"%(name)s\""
@@ -459,11 +619,12 @@ msgstr "Brothers in Arms"
 
 msgid "medalBrothersInArms_condition"
 msgstr ""
-"• All platoon members must survive the battle.\n"
-"• All platoon members receive the award."
+"• All Platoon members must survive the battle.\n"
+"• All Platoon members receive the award.\n"
+"• Can be obtained in Random Battles only."
 
 msgid "medalBrothersInArms_descr"
-msgstr "Each platoon member must destroy at least 3 enemy vehicles."
+msgstr "Each Platoon member must destroy at least 3 enemy vehicles."
 
 msgid "medalBrunoPietro"
 msgstr "Bruno's Medal"
@@ -519,7 +680,9 @@ msgid "medalCrucialContribution"
 msgstr "Crucial Contribution"
 
 msgid "medalCrucialContribution_condition"
-msgstr "• All platoon members receive the award."
+msgstr ""
+"• All Platoon members receive the award.\n"
+"• Can be obtained in Random Battles only."
 
 msgid "medalCrucialContribution_descr"
 msgstr "Platoon must destroy at least 12 enemy vehicles."
@@ -929,6 +1092,18 @@ msgstr ""
 "Remain undetected throughout the entire battle and be the only player who "
 "captures the enemy base."
 
+msgid "rare100003"
+msgstr "The Maus Reborn"
+
+msgid "rare100003_condition"
+msgstr ""
+"• Can be obtained by any participant in the project \"The Maus Reborn.\""
+
+msgid "rare100003_descr"
+msgstr ""
+"For contribution and participation in the restoration of the Maus tank in "
+"the Central Museum of Armored Fighting Vehicles in Kubinka."
+
 msgid "scout"
 msgstr "Scout"
 
@@ -960,6 +1135,7 @@ msgstr ""
 "\t• Object 268\n"
 "\t• Object 704\n"
 "\n"
+"• Only vehicles in the U.S.S.R. Tech Tree are included.\n"
 "• Series achieved in all vehicles are added together.\n"
 "• Newly received awards are added together."
 
@@ -1015,17 +1191,20 @@ msgstr "Steel Wall"
 msgid "steelwall_condition"
 msgstr ""
 "• Survive the battle.\n"
-"• If two or more players receive the same amount of potential damage, the "
-"achievement is awarded to the player who received the greatest amount of "
-"hits.\n"
-"• If two or more players receive the same amount of potential damage and an "
-"equal number of hits, the achievement is awarded to the player who earned "
-"more XP for the battle.\n"
+"• Receive at least 11 hits and the highest damage blocked by armor.\n"
+"• If two or more players received the same amount of damage blocked by "
+"armor, the achievement is awarded to the player who received the greatest "
+"number of hits.\n"
+"• If two or more players received the same amount of damage blocked by armor "
+"and an equal number of hits, the achievement is awarded to the player who "
+"earned more experience for the battle.\n"
 "• The achievement is only awarded once per battle.\n"
 "• Can be obtained in Random Battles only."
 
 msgid "steelwall_descr"
-msgstr "Receive at least 1,000 HP of potential damage and at least 11 hits."
+msgstr ""
+"Receive the highest damage (at least 1,000 HP), including damage blocked by "
+"armor."
 
 msgid "sturdy"
 msgstr "Spartan"
@@ -1053,7 +1232,9 @@ msgstr ""
 "• Can be obtained in Random Battles only."
 
 msgid "supporter_descr"
-msgstr "Damage at least 6 enemy vehicles or destroy their tracks."
+msgstr ""
+"Damage more enemy vehicles or destroy their tracks, at least 6, than any "
+"other player."
 
 msgid "tacticalBreakthrough"
 msgstr "Tactical Genius"
@@ -1150,6 +1331,17 @@ msgstr "• Unavailable since 1 July, 2012."
 
 msgid "whiteTiger_descr"
 msgstr "Destroy a White Tiger phantom tank."
+
+msgid "willToWinSpirit"
+msgstr "Will-to-Win Spirit"
+
+msgid "willToWinSpirit_condition"
+msgstr ""
+"• Newly received awards are added together.\n"
+"• Can be obtained in Team Battles only."
+
+msgid "willToWinSpirit_descr"
+msgstr "Fight alone against at least 3 enemy vehicles and win the battle."
 
 msgid "wolfAmongSheepMedal"
 msgstr "Wolf Among Sheep"

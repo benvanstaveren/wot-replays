@@ -1,3 +1,15 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: World Of Tanks\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-06-01 10:00+0300\n"
+"PO-Revision-Date: 2010-06-01 10:00+0300\n"
+"Last-Translator: WoT Translator <noreply@wargaming.net>\n"
+"Language-Team: WoT Team <noreply@wargaming.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
 msgid "A-220"
 msgstr "A-220"
 
@@ -663,9 +675,6 @@ msgstr "AP M74"
 
 msgid "_37mm_FrtPrf1935"
 msgstr "Frt.Prf. mle. 1935"
-
-msgid "_37mm_Gun_M1A1"
-msgstr "37 mm Gun M1A1"
 
 msgid "_37mm_HE_M63"
 msgstr "HE M63"

@@ -1,5 +1,14 @@
-msgid "37mm_OE_mle._1916"
-msgstr "OE mle. 1916"
+msgid ""
+msgstr ""
+"Project-Id-Version: World Of Tanks\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-06-01 10:00+0300\n"
+"PO-Revision-Date: 2010-06-01 10:00+0300\n"
+"Last-Translator: WoT Translator <noreply@wargaming.net>\n"
+"Language-Team: WoT Team <noreply@wargaming.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 
 msgid "AMX38"
 msgstr "AMX 38"
@@ -171,18 +180,6 @@ msgstr ""
 
 msgid "AMX_AC_Mle1948_short"
 msgstr "AMX AC 48"
-
-msgid "AMX_AC_de120_46"
-msgstr "AMX AC Mle. 1946 (old)"
-
-msgid "AMX_AC_de120_46_descr"
-msgstr ""
-"The first design project of a heavy tank destroyer on the basis of the M4. "
-"Development was started in 1946. The configuration of the vehicle had a "
-"strong resemblance to the Jagdpanther. Existed only in blueprints."
-
-msgid "AMX_AC_de120_46_short"
-msgstr "AC Mle.1946"
 
 msgid "AMX_B_270"
 msgstr "AMX B 270"
@@ -358,9 +355,6 @@ msgstr ""
 "Canon de 155 mm\n"
 "de 33 calibres"
 
-msgid "Chassis Hotchkiss H35"
-msgstr "H35"
-
 msgid "Chassis_105_leFH18B2"
 msgstr "leFH18B2"
 
@@ -412,9 +406,6 @@ msgstr "AMX 13 Type 2R"
 msgid "Chassis_AMX_13_90_2"
 msgstr "AMX 13 Type 2D"
 
-msgid "Chassis_AMX_50Fosh_155"
-msgstr "Suspension mle.1952"
-
 msgid "Chassis_AMX_50Fosh_155_2"
 msgstr "AMX 50 Foch (155)"
 
@@ -444,12 +435,6 @@ msgstr "AMX AC mle. 48"
 
 msgid "Chassis_AMX_AC_Mle1948_2"
 msgstr "AMX AC mle. 49"
-
-msgid "Chassis_AMX_AC_de120_46"
-msgstr "AMX AC de 100"
-
-msgid "Chassis_AMX_AC_de120_46_2"
-msgstr "AMX AC de 100 Bis"
 
 msgid "Chassis_AMX_M4_1945"
 msgstr "AMX M4 mle. 45"
@@ -490,17 +475,11 @@ msgstr "BDR G1 B bis"
 msgid "Chassis_Bat_Chatillon155"
 msgstr "Batignolles-Châtillon 155 mle. 58"
 
-msgid "Chassis_Bat_Chatillon155_2"
-msgstr "Batignolles-Châtillon 155 mle. 58"
-
 msgid "Chassis_Bat_Chatillon155_55"
 msgstr "Batignolles-Châtillon 155 mle. 55"
 
 msgid "Chassis_Bat_Chatillon155_55_2"
 msgstr "Batignolles-Châtillon 155 mle. 56"
-
-msgid "Chassis_Bat_Chatillon25t"
-msgstr "Bat Chatillon 25t A"
 
 msgid "Chassis_Bat_Chatillon25t_2"
 msgstr "Batignolles-Châtillon 25 t"
@@ -546,9 +525,6 @@ msgstr "Lorraine 155 mle. 51"
 
 msgid "Chassis_Lorraine155_51_2"
 msgstr "Lorraine 155 mle. 51 bis"
-
-msgid "Chassis_Lorraine37_L_AC"
-msgstr "Lorraine 37L AC"
 
 msgid "Chassis_Lorraine39_L_AM"
 msgstr "Lorraine 39L AM"
@@ -655,7 +631,7 @@ msgid "ELC_AMX_descr"
 msgstr ""
 "In 1956, the French Ministry of Defense launched the ELC (Engin Leger de "
 "Combat) project. The aim was to create a light tank for airborne transport. "
-"The ELС AMX prototype featured a low silouette and a turret placement of "
+"The ELС AMX prototype featured a low silhouette and a turret placement of "
 "both crew members. The vehicle never saw mass production, nor entered "
 "service."
 
@@ -718,14 +694,8 @@ msgstr "Fu.Spr.Ger. \"f\""
 msgid "Hispano-Suiza_HS110"
 msgstr "Hispano-Suiza HS 110"
 
-msgid "Hotchkiss_35"
-msgstr "Hotchkiss 35"
-
 msgid "Hotchkiss_35_1"
 msgstr "Hotchkiss 35"
-
-msgid "Hotchkiss_39_1"
-msgstr "Hotchkiss 39"
 
 msgid "Hotchkiss_H35_descr"
 msgstr ""
@@ -842,14 +812,6 @@ msgstr "Maybach HL 295"
 
 msgid "Maybach_HL_295_F"
 msgstr "Maybach HL 295 F"
-
-msgid "Obusier_de_105mm_mod_1950"
-msgstr "105 mm obusier mle. 1950"
-
-msgid "Obusier_de_105mm_mod_1950_short"
-msgstr ""
-"105 mm obusier\n"
-" mle. 1950"
 
 msgid "Obusier_de_155mm_C_mle.1917"
 msgstr "Obusier de 155 mm C mle. 1917"
@@ -1002,9 +964,6 @@ msgstr "Somua S-40"
 msgid "Somua_S-40Bis"
 msgstr "Somua S-40 Bis"
 
-msgid "Somua_S35_short"
-msgstr "Somua S35"
-
 msgid "Somua_Sau_40"
 msgstr "Somua SAu 40"
 
@@ -1064,9 +1023,6 @@ msgstr "AMX AC mle. 46"
 msgid "Turret_1_AMX_AC_Mle1948"
 msgstr "AMX AC mle. 48"
 
-msgid "Turret_1_AMX_AC_de120_46"
-msgstr "AMX AC de 100"
-
 msgid "Turret_1_AMX_M4_1945"
 msgstr "ARL 44"
 
@@ -1120,9 +1076,6 @@ msgstr "APX R"
 msgid "Turret_1_Lorraine155_50"
 msgstr "Lorraine 155 mle. 50"
 
-msgid "Turret_1_Lorraine155_51"
-msgstr "Lorraine 155 mle. 51"
-
 msgid "Turret_1_Lorraine39_L_AM"
 msgstr "Lorraine 39L AM"
 
@@ -1147,17 +1100,8 @@ msgstr "S35 CA"
 msgid "Turret_1_Somua_Sau_40"
 msgstr "Somua SAu 40"
 
-msgid "Turret_2_AMX38"
-msgstr "ARL 2C"
-
 msgid "Turret_2_AMX40"
 msgstr "Renault-Balland"
-
-msgid "Turret_2_AMX_105AM"
-msgstr "AMX 105AM B"
-
-msgid "Turret_2_AMX_13F3AM"
-msgstr "Affût 155"
 
 msgid "Turret_2_AMX_M4_1945"
 msgstr "AMX M4 mle. 45"
@@ -1179,9 +1123,6 @@ msgstr "Schneider Tourelle 2"
 
 msgid "Turret_2_D2"
 msgstr "D2 APX 4"
-
-msgid "Turret_2_Hotchkiss_H35"
-msgstr "H35D1"
 
 msgid "Turret_2_Lorraine155_51"
 msgstr "Lorraine 155 mle. 51 bis"
@@ -1226,14 +1167,8 @@ msgstr "OFL-105-E1"
 msgid "_105mm_CN_105_57"
 msgstr "105 mm mle. 57 (D. 1504)"
 
-msgid "_105mm_FA_mle_1946"
-msgstr "FA mle. 1946"
-
 msgid "_105mm_FrtPrf1943"
 msgstr "Frt.Prf. mle. 1943"
-
-msgid "_105mm_FrtPrf1946"
-msgstr "Frt.Prf. mle. 1946"
 
 msgid "_105mm_HEAT_OCC_F1"
 msgstr "OCC-105-F1"
@@ -1244,9 +1179,6 @@ msgstr "OE-105-F1"
 msgid "_105mm_OCO_mle._1936"
 msgstr "OCO mle. 1936"
 
-msgid "_105mm_OCO_mle_1947"
-msgstr "OCO mle. 1947"
-
 msgid "_105mm_OE_mle_1920"
 msgstr "OE mle. 1920"
 
@@ -1256,14 +1188,8 @@ msgstr "OE mle. 1924"
 msgid "_105mm_OE_mle_1930"
 msgstr "OE mle. 1930"
 
-msgid "_105mm_OE_mle_1944"
-msgstr "OE mle. 1944"
-
 msgid "_105mm_Prf1940"
 msgstr "Prf. mle. 1940"
-
-msgid "_105mm_Prf1944"
-msgstr "Prf. mle. 1944"
 
 msgid "_105mm_PzGr39K"
 msgstr "Pzgr. 39K"
@@ -1378,9 +1304,6 @@ msgstr ""
 "25 mm automatique\n"
 "mle. 1936"
 
-msgid "_2CBis_short"
-msgstr "Char 2C bis"
-
 msgid "_37mm_APX_SA18"
 msgstr "37 mm APX SA18"
 
@@ -1438,12 +1361,6 @@ msgstr "47 mm SA37"
 msgid "_57mm_6_pdr_AT_Gun_Mk_IV"
 msgstr "6-pdr AT Gun Mk. IV"
 
-msgid "_57mm_6_pdr_AT_Gun_Mk_IV_A1"
-msgstr "6 pdr AT Gun Mk IV A1"
-
-msgid "_57mm_6_pdr_AT_Gun_Mk_IV_A1_short"
-msgstr "57 mm Gun MkIV A1"
-
 msgid "_57mm_6_pdr_AT_Gun_Mk_IV_short"
 msgstr "6-pdr AT Gun Mk. IV"
 
@@ -1464,9 +1381,6 @@ msgstr "Frt.Prf. mle. 1940"
 
 msgid "_75mm_FrtPrf1944"
 msgstr "Frt.Prf. mle. 1944"
-
-msgid "_75mm_HE_MK_1T"
-msgstr "HE Mk. 1T"
 
 msgid "_75mm_Long_44"
 msgstr "75 mm SA44"
@@ -1521,12 +1435,6 @@ msgstr "AP Mk. 3T"
 
 msgid "_76.2_mm_HE_Mk._1T"
 msgstr "HE Mk. 1T"
-
-msgid "_76mm_17_pdr_AT_Gun_MK_II"
-msgstr "17-pdr AT Gun Mk. II"
-
-msgid "_76mm_17_pdr_AT_Gun_MK_II_short"
-msgstr "17-pdr AT Gun Mk. II"
 
 msgid "_76mm_AP_M79"
 msgstr "AP M79"

@@ -1,0 +1,702 @@
+{
+   "enhancedHorizontal_springs" : {
+      "icon" : "../maps/icons/artefact/steelRollers.png 0 0",
+      "script" : "EnhancedSuspension",
+      "vehicleFilter" : {
+         "include" : {
+            "vehicle" : {
+               "tags" : "enhancedHorizontal_springs_user"
+            }
+         }
+      },
+      "description" : "#artefacts:enhancedHorizontal_springs/descr",
+      "userString" : "#artefacts:enhancedHorizontal_springs/name",
+      "removable" : false,
+      "id" : 33,
+      "price" : 20000
+   },
+   "enhancedTorsions1t" : {
+      "icon" : "../maps/icons/artefact/steelRollers.png 0 0",
+      "script" : "EnhancedSuspension",
+      "vehicleFilter" : {
+         "include" : {
+            "vehicle" : {
+               "tags" : "enhancedTorsions1t_user"
+            }
+         }
+      },
+      "description" : "#artefacts:enhancedSuspension/descr",
+      "userString" : "#artefacts:enhancedTorsions1t/name",
+      "removable" : false,
+      "id" : 10,
+      "price" : 100000
+   },
+   "enhancedHorizontal_elastic_elements" : {
+      "icon" : "../maps/icons/artefact/steelRollers.png 0 0",
+      "script" : "EnhancedSuspension",
+      "vehicleFilter" : {
+         "include" : {
+            "vehicle" : {
+               "tags" : "enhancedHorizontal_elastic_elements_user"
+            }
+         }
+      },
+      "description" : "#artefacts:enhancedHorizontal_elastic_elements/descr",
+      "userString" : "#artefacts:enhancedHorizontal_elastic_elements/name",
+      "removable" : false,
+      "id" : 41,
+      "price" : 200000
+   },
+   "enhancedSprings" : {
+      "icon" : "../maps/icons/artefact/steelRollers.png 0 0",
+      "script" : "EnhancedSuspension",
+      "vehicleFilter" : {
+         "include" : {
+            "vehicle" : {
+               "tags" : "enhancedSprings_user"
+            }
+         }
+      },
+      "description" : "#artefacts:enhancedSuspension/descr",
+      "userString" : "#artefacts:enhancedSprings/name",
+      "removable" : false,
+      "id" : 13,
+      "price" : 20000
+   },
+   "grousers" : {
+      "icon" : "../maps/icons/artefact/grousers.png 0 0",
+      "script" : "AAAAAAAA",
+      "vehicleFilter" : {
+         "include" : {
+            "vehicle" : {
+               "tags" : "grousers_user"
+            }
+         }
+      },
+      "description" : "#artefacts:grousers/descr",
+      "userString" : "#artefacts:grousers/name",
+      "removable" : false,
+      "id" : 20,
+      "price" : 250000
+   },
+   "improvedVentilation_class3" : {
+      "icon" : "../maps/icons/artefact/improvedVentilation.png 0 0",
+      "script" : "AAAAAAAAAAAAAAAAAAAA",
+      "vehicleFilter" : {
+         "include" : {
+            "vehicle" : {
+               "tags" : "heavyTank heavyAT-SPG improvedVentilation_class3_user"
+            }
+         },
+         "exclude" : {
+            "vehicle" : {
+               "tags" : "noImprovedVentilation"
+            }
+         }
+      },
+      "description" : "#artefacts:improvedVentilation/descr",
+      "userString" : "#artefacts:improvedVentilation_class3/name",
+      "removable" : false,
+      "id" : 19,
+      "price" : 600000
+   },
+   "enhancedSprings_class2" : {
+      "icon" : "../maps/icons/artefact/steelRollers.png 0 0",
+      "script" : "EnhancedSuspension",
+      "vehicleFilter" : {
+         "include" : {
+            "vehicle" : {
+               "tags" : "enhancedSprings_class2_user"
+            }
+         }
+      },
+      "description" : "#artefacts:enhancedSprings_class2/descr",
+      "userString" : "#artefacts:enhancedSprings_class2/name",
+      "removable" : false,
+      "id" : 34,
+      "price" : 200000
+   },
+   "mediumCaliberTankRammer" : {
+      "icon" : "../maps/icons/artefact/rammer.png 0 0",
+      "script" : "StaticFactorDevice",
+      "vehicleFilter" : {
+         "include" : {
+            "vehicle" : {
+               "tags" : "mediumCaliberTankRammer_user"
+            }
+         }
+      },
+      "description" : "#artefacts:rammer/descr",
+      "userString" : "#artefacts:mediumCaliberTankRammer/name",
+      "removable" : false,
+      "id" : 21,
+      "price" : 200000
+   },
+   "largeCaliberHowitzerRammer" : {
+      "icon" : "../maps/icons/artefact/rammer.png 0 0",
+      "script" : "StaticFactorDevice",
+      "vehicleFilter" : {
+         "include" : [
+            {
+               "vehicle" : {
+                  "tags" : "largeCaliberHowitzerRammer_user"
+               }
+            },
+            {
+               "vehicle" : {
+                  "maxLevel" : 10,
+                  "minLevel" : 8,
+                  "tags" : "SPG"
+               },
+               "nations" : "usa"
+            }
+         ]
+      },
+      "description" : "#artefacts:rammer/descr",
+      "userString" : "#artefacts:largeCaliberHowitzerRammer/name",
+      "removable" : false,
+      "id" : 24,
+      "price" : 600000
+   },
+   "enhancedHorizontal_springs_class2" : {
+      "icon" : "../maps/icons/artefact/steelRollers.png 0 0",
+      "script" : "EnhancedSuspension",
+      "vehicleFilter" : {
+         "include" : {
+            "vehicle" : {
+               "tags" : "enhancedHorizontal_springs_class2_user"
+            }
+         }
+      },
+      "description" : "#artefacts:enhancedHorizontal_springs_class2/descr",
+      "userString" : "#artefacts:enhancedHorizontal_springs_class2/name",
+      "removable" : false,
+      "id" : 36,
+      "price" : 200000
+   },
+   "enhancedHorizontal_springs_class3" : {
+      "icon" : "../maps/icons/artefact/steelRollers.png 0 0",
+      "script" : "EnhancedSuspension",
+      "vehicleFilter" : {
+         "include" : {
+            "vehicle" : {
+               "tags" : "enhancedHorizontal_springs_class3_user"
+            }
+         }
+      },
+      "description" : "#artefacts:enhancedHorizontal_springs_class3/descr",
+      "userString" : "#artefacts:enhancedHorizontal_springs_class3/name",
+      "removable" : false,
+      "id" : 37,
+      "price" : 500000
+   },
+   "enhancedBelwillWashers" : {
+      "icon" : "../maps/icons/artefact/steelRollers.png 0 0",
+      "script" : "EnhancedSuspension",
+      "vehicleFilter" : {
+         "include" : {
+            "vehicle" : {
+               "tags" : "enhancedBelwillWashers_user"
+            }
+         }
+      },
+      "description" : "#artefacts:enhancedSuspension/descr",
+      "userString" : "#artefacts:enhancedBelwillWashers/name",
+      "removable" : false,
+      "id" : 15,
+      "price" : 600000
+   },
+   "camouflageNet" : {
+      "icon" : "../maps/icons/artefact/camouflageNet.png 0 0",
+      "userString" : "#artefacts:camouflageNet/name",
+      "script" : "CamouflageNet",
+      "removable" : true,
+      "price" : 100000,
+      "id" : 6,
+      "description" : "#artefacts:camouflageNet/descr"
+   },
+   "antifragmentationLining_light" : {
+      "icon" : "../maps/icons/artefact/antifragmentationLining.png 0 0",
+      "script" : "AntifragmentationLining",
+      "vehicleFilter" : {
+         "include" : {
+            "vehicle" : {
+               "tags" : "lightTank lightSPG lightAT-SPG lightTankArtefacts_User"
+            }
+         }
+      },
+      "description" : "#artefacts:antifragmentationLining_light/descr",
+      "userString" : "#artefacts:antifragmentationLining_light/name",
+      "removable" : false,
+      "id" : 1,
+      "price" : 50000
+   },
+   "enhancedSuspension_candle" : {
+      "icon" : "../maps/icons/artefact/steelRollers.png 0 0",
+      "script" : "EnhancedSuspension",
+      "vehicleFilter" : {
+         "include" : {
+            "vehicle" : {
+               "tags" : "enhancedSuspension_candle_user"
+            }
+         }
+      },
+      "description" : "#artefacts:enhancedSuspension/descr",
+      "userString" : "#artefacts:enhancedSuspension_candle/name",
+      "removable" : false,
+      "id" : 8,
+      "price" : 40000
+   },
+   "enhancedAimDrives" : {
+      "icon" : "../maps/icons/artefact/enhancedAimDrives.png 0 0",
+      "userString" : "#artefacts:enhancedAimDrives/name",
+      "script" : "StaticFactorDevice",
+      "removable" : false,
+      "price" : 500000,
+      "id" : 25,
+      "description" : "#artefacts:enhancedAimDrives/descr"
+   },
+   "coatedOptics" : {
+      "icon" : "../maps/icons/artefact/coatedOptics.png 0 0",
+      "userString" : "#artefacts:coatedOptics/name",
+      "script" : "StaticFactorDevice",
+      "removable" : false,
+      "price" : 500000,
+      "id" : 5,
+      "description" : "#artefacts:coatedOptics/descr"
+   },
+   "stereoscope" : {
+      "icon" : "../maps/icons/artefact/stereoscope.png 0 0",
+      "userString" : "#artefacts:stereoscope/name",
+      "script" : "Stereoscope",
+      "removable" : true,
+      "price" : 500000,
+      "id" : 4,
+      "description" : "#artefacts:stereoscope/descr"
+   },
+   "enhancedVertical_springs_class2" : {
+      "icon" : "../maps/icons/artefact/steelRollers.png 0 0",
+      "script" : "EnhancedSuspension",
+      "vehicleFilter" : {
+         "include" : {
+            "vehicle" : {
+               "tags" : "enhancedVertical_springs_class2_user"
+            }
+         }
+      },
+      "description" : "#artefacts:enhancedVertical_springs_class2/descr",
+      "userString" : "#artefacts:enhancedVertical_springs_class2/name",
+      "removable" : false,
+      "id" : 38,
+      "price" : 200000
+   },
+   "enhancedSuspension_Vikkers" : {
+      "icon" : "../maps/icons/artefact/steelRollers.png 0 0",
+      "script" : "EnhancedSuspension",
+      "vehicleFilter" : {
+         "include" : {
+            "vehicle" : {
+               "tags" : "enhancedSuspension_Vikkers_user"
+            }
+         }
+      },
+      "description" : "#artefacts:enhancedSuspension/descr",
+      "userString" : "#artefacts:enhancedSuspension_Vikkers/name",
+      "removable" : false,
+      "id" : 7,
+      "price" : 20000
+   },
+   "aimingStabilizer_Mk1" : {
+      "icon" : "../maps/icons/artefact/aimingStabilizer.png 0 0",
+      "script" : "StaticFactorDevice",
+      "vehicleFilter" : {
+         "include" : {
+            "vehicle" : {
+               "tags" : "aimingStabilizer_Mk1_user"
+            }
+         }
+      },
+      "description" : "#artefacts:aimingStabilizer/descr",
+      "userString" : "#artefacts:aimingStabilizer_Mk1/name",
+      "removable" : false,
+      "id" : 30,
+      "price" : 500000
+   },
+   "enhancedSprings_class3" : {
+      "icon" : "../maps/icons/artefact/steelRollers.png 0 0",
+      "script" : "EnhancedSuspension",
+      "vehicleFilter" : {
+         "include" : {
+            "vehicle" : {
+               "tags" : "enhancedSprings_class3_user"
+            }
+         }
+      },
+      "description" : "#artefacts:enhancedSprings_class3/descr",
+      "userString" : "#artefacts:enhancedSprings_class3/name",
+      "removable" : false,
+      "id" : 35,
+      "price" : 500000
+   },
+   "enhancedVertical_springs_class3" : {
+      "icon" : "../maps/icons/artefact/steelRollers.png 0 0",
+      "script" : "EnhancedSuspension",
+      "vehicleFilter" : {
+         "include" : {
+            "vehicle" : {
+               "tags" : "enhancedVertical_springs_class3_user"
+            }
+         }
+      },
+      "description" : "#artefacts:enhancedVertical_springs_class3/descr",
+      "userString" : "#artefacts:enhancedVertical_springs_class3/name",
+      "removable" : false,
+      "id" : 39,
+      "price" : 500000
+   },
+   "toolbox" : {
+      "icon" : "../maps/icons/artefact/toolbox.png 0 0",
+      "userString" : "#artefacts:toolbox/name",
+      "script" : "StaticFactorDevice",
+      "removable" : true,
+      "price" : 500000,
+      "id" : "",
+      "description" : "#artefacts:toolbox/descr"
+   },
+   "antifragmentationLining_medium" : {
+      "icon" : "../maps/icons/artefact/antifragmentationLining.png 0 0",
+      "script" : "AntifragmentationLining",
+      "vehicleFilter" : {
+         "include" : {
+            "vehicle" : {
+               "tags" : "mediumTank mediumSPG mediumAT-SPG"
+            }
+         },
+         "exclude" : {
+            "vehicle" : {
+               "tags" : "lightTankArtefacts_User"
+            }
+         }
+      },
+      "description" : "#artefacts:antifragmentationLining_medium/descr",
+      "userString" : "#artefacts:antifragmentationLining_medium/name",
+      "removable" : false,
+      "id" : 2,
+      "price" : 200000
+   },
+   "enhancedTorsions5t" : {
+      "icon" : "../maps/icons/artefact/steelRollers.png 0 0",
+      "script" : "EnhancedSuspension",
+      "vehicleFilter" : {
+         "include" : {
+            "vehicle" : {
+               "tags" : "enhancedTorsions5t_user"
+            }
+         }
+      },
+      "description" : "#artefacts:enhancedSuspension/descr",
+      "userString" : "#artefacts:enhancedTorsions5t/name",
+      "removable" : false,
+      "id" : 12,
+      "price" : 500000
+   },
+   "enhancedLongitudinalTorsions" : {
+      "icon" : "../maps/icons/artefact/steelRollers.png 0 0",
+      "script" : "EnhancedSuspension",
+      "vehicleFilter" : {
+         "include" : {
+            "vehicle" : {
+               "tags" : "enhancedLongitudinalTorsions_user"
+            }
+         }
+      },
+      "description" : "#artefacts:enhancedSuspension/descr",
+      "userString" : "#artefacts:enhancedLongitudinalTorsions/name",
+      "removable" : false,
+      "id" : 16,
+      "price" : 500000
+   },
+   "enhancedLevers" : {
+      "icon" : "../maps/icons/artefact/steelRollers.png 0 0",
+      "script" : "EnhancedSuspension",
+      "vehicleFilter" : {
+         "include" : {
+            "vehicle" : {
+               "tags" : "enhancedLevers_user"
+            }
+         }
+      },
+      "description" : "#artefacts:enhancedSuspension/descr",
+      "userString" : "#artefacts:enhancedLevers/name",
+      "removable" : false,
+      "id" : 14,
+      "price" : 200000
+   },
+   "wetCombatPack_class2" : {
+      "icon" : "../maps/icons/artefact/wetCombatPack.png 0 0",
+      "script" : "StaticFactorDevice",
+      "vehicleFilter" : {
+         "include" : {
+            "vehicle" : {
+               "tags" : "wetCombatPack_class2_user"
+            }
+         }
+      },
+      "description" : "#artefacts:wetCombatPack/descr",
+      "userString" : "#artefacts:wetCombatPack_class2/name",
+      "removable" : false,
+      "id" : 27,
+      "price" : 600000
+   },
+   "enhancedTorsions3t" : {
+      "icon" : "../maps/icons/artefact/steelRollers.png 0 0",
+      "script" : "EnhancedSuspension",
+      "vehicleFilter" : {
+         "include" : {
+            "vehicle" : {
+               "tags" : "enhancedTorsions3t_user"
+            }
+         }
+      },
+      "description" : "#artefacts:enhancedSuspension/descr",
+      "userString" : "#artefacts:enhancedTorsions3t/name",
+      "removable" : false,
+      "id" : 11,
+      "price" : 200000
+   },
+   "antifragmentationLining_heavy" : {
+      "icon" : "../maps/icons/artefact/antifragmentationLining.png 0 0",
+      "script" : "AntifragmentationLining",
+      "vehicleFilter" : {
+         "include" : {
+            "vehicle" : {
+               "tags" : "heavyTank heavySPG heavyAT-SPG"
+            }
+         },
+         "exclude" : {
+            "vehicle" : {
+               "tags" : "antifragmentationLining_superheavy_user"
+            }
+         }
+      },
+      "description" : "#artefacts:antifragmentationLining_heavy/descr",
+      "userString" : "#artefacts:antifragmentationLining_heavy/name",
+      "removable" : false,
+      "id" : 3,
+      "price" : 500000
+   },
+   "largeCaliberTankRammer" : {
+      "icon" : "../maps/icons/artefact/rammer.png 0 0",
+      "script" : "StaticFactorDevice",
+      "vehicleFilter" : {
+         "include" : {
+            "vehicle" : {
+               "tags" : "largeCaliberTankRammer_user"
+            }
+         }
+      },
+      "description" : "#artefacts:rammer/descr",
+      "userString" : "#artefacts:largeCaliberTankRammer/name",
+      "removable" : false,
+      "id" : 22,
+      "price" : 500000
+   },
+   "improvedVentilation_class1" : {
+      "icon" : "../maps/icons/artefact/improvedVentilation.png 0 0",
+      "script" : "AAAAAAAAAAAAAAAAAAAA",
+      "vehicleFilter" : {
+         "include" : {
+            "vehicle" : {
+               "tags" : "lightTank improvedVentilation_class1_user"
+            }
+         },
+         "exclude" : {
+            "vehicle" : {
+               "tags" : "noImprovedVentilation"
+            }
+         }
+      },
+      "description" : "#artefacts:improvedVentilation/descr",
+      "userString" : "#artefacts:improvedVentilation_class1/name",
+      "removable" : false,
+      "id" : 17,
+      "price" : 50000
+   },
+   "mediumCaliberHowitzerRammer" : {
+      "icon" : "../maps/icons/artefact/rammer.png 0 0",
+      "script" : "StaticFactorDevice",
+      "vehicleFilter" : {
+         "include" : [
+            {
+               "vehicle" : {
+                  "tags" : "mediumCaliberHowitzerRammer_user"
+               }
+            },
+            {
+               "vehicle" : {
+                  "maxLevel" : 6,
+                  "tags" : "SPG"
+               },
+               "nations" : "usa"
+            }
+         ]
+      },
+      "description" : "#artefacts:rammer/descr",
+      "userString" : "#artefacts:mediumCaliberHowitzerRammer/name",
+      "removable" : false,
+      "id" : 23,
+      "price" : 300000
+   },
+   "enhancedSuspension_Christie" : {
+      "icon" : "../maps/icons/artefact/steelRollers.png 0 0",
+      "script" : "EnhancedSuspension",
+      "vehicleFilter" : {
+         "include" : {
+            "vehicle" : {
+               "tags" : "enhancedSuspension_Christie_user"
+            }
+         }
+      },
+      "description" : "#artefacts:enhancedSuspension/descr",
+      "userString" : "#artefacts:enhancedSuspension_Christie/name",
+      "removable" : false,
+      "id" : 9,
+      "price" : 80000
+   },
+   "antifragmentationLining_superheavy" : {
+      "icon" : "../maps/icons/artefact/antifragmentationLining.png 0 0",
+      "script" : "AntifragmentationLining",
+      "vehicleFilter" : {
+         "include" : {
+            "vehicle" : {
+               "tags" : "antifragmentationLining_superheavy_user"
+            }
+         }
+      },
+      "description" : "#artefacts:antifragmentationLining_superheavy/descr",
+      "userString" : "#artefacts:antifragmentationLining_superheavy/name",
+      "removable" : false,
+      "id" : 42,
+      "price" : 750000
+   },
+   "carbonDioxide" : {
+      "icon" : "../maps/icons/artefact/carbonDioxide.png 0 0",
+      "script" : "StaticFactorDevice",
+      "vehicleFilter" : {
+         "include" : {
+            "vehicle" : {
+               "minLevel" : 6
+            }
+         }
+      },
+      "description" : "#artefacts:carbonDioxide/descr",
+      "userString" : "#artefacts:carbonDioxide/name",
+      "removable" : false,
+      "id" : 28,
+      "price" : 500000
+   },
+   "enhancedVertical_springs" : {
+      "icon" : "../maps/icons/artefact/steelRollers.png 0 0",
+      "script" : "EnhancedSuspension",
+      "vehicleFilter" : {
+         "include" : {
+            "vehicle" : {
+               "tags" : "enhancedVertical_springs_user"
+            }
+         }
+      },
+      "description" : "#artefacts:enhancedVertical_springs/descr",
+      "userString" : "#artefacts:enhancedVertical_springs/name",
+      "removable" : false,
+      "id" : 32,
+      "price" : 20000
+   },
+   "improvedVentilation_class2" : {
+      "icon" : "../maps/icons/artefact/improvedVentilation.png 0 0",
+      "script" : "AAAAAAAAAAAAAAAAAAAA",
+      "vehicleFilter" : {
+         "include" : {
+            "vehicle" : {
+               "tags" : "mediumTank mediumAT-SPG improvedVentilation_class2_user"
+            }
+         },
+         "exclude" : {
+            "vehicle" : {
+               "tags" : "noImprovedVentilation lightTankArtefacts_User"
+            }
+         }
+      },
+      "description" : "#artefacts:improvedVentilation/descr",
+      "userString" : "#artefacts:improvedVentilation_class2/name",
+      "removable" : false,
+      "id" : 18,
+      "price" : 150000
+   },
+   "filterCyclone" : {
+      "icon" : "../maps/icons/artefact/filterCyclone.png 0 0",
+      "script" : "StaticFactorDevice",
+      "vehicleFilter" : {
+         "include" : {
+            "nations" : "AAAA"
+         },
+         "exclude" : {
+            "vehicle" : {
+               "tags" : "AAAAAAAAAAAAAAAA"
+            }
+         }
+      },
+      "description" : "#artefacts:filterCyclone/descr",
+      "userString" : "#artefacts:filterCyclone/name",
+      "removable" : false,
+      "id" : 29,
+      "price" : 500000
+   },
+   "enhancedVertical_elastic_elements" : {
+      "icon" : "../maps/icons/artefact/steelRollers.png 0 0",
+      "script" : "EnhancedSuspension",
+      "vehicleFilter" : {
+         "include" : {
+            "vehicle" : {
+               "tags" : "enhancedVertical_elastic_elements_user"
+            }
+         }
+      },
+      "description" : "#artefacts:enhancedVertical_elastic_elements/descr",
+      "userString" : "#artefacts:enhancedVertical_elastic_elements/name",
+      "removable" : false,
+      "id" : 40,
+      "price" : 20000
+   },
+   "wetCombatPack_class1" : {
+      "icon" : "../maps/icons/artefact/wetCombatPack.png 0 0",
+      "script" : "StaticFactorDevice",
+      "vehicleFilter" : {
+         "include" : {
+            "vehicle" : {
+               "tags" : "wetCombatPack_class1_user"
+            }
+         }
+      },
+      "description" : "#artefacts:wetCombatPack/descr",
+      "userString" : "#artefacts:wetCombatPack_class1/name",
+      "removable" : false,
+      "id" : 26,
+      "price" : 200000
+   },
+   "aimingStabilizer_Mk2" : {
+      "icon" : "../maps/icons/artefact/aimingStabilizer.png 0 0",
+      "script" : "StaticFactorDevice",
+      "vehicleFilter" : {
+         "include" : {
+            "vehicle" : {
+               "tags" : "aimingStabilizer_Mk2_user"
+            }
+         }
+      },
+      "description" : "#artefacts:aimingStabilizer/descr",
+      "userString" : "#artefacts:aimingStabilizer_Mk2/name",
+      "removable" : false,
+      "id" : 31,
+      "price" : 600000
+   }
+}

@@ -1,3 +1,14 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: World Of Tanks\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-06-01 10:00+0300\n"
+"Last-Translator: i_maliavko <i_maliavko@wargaming.net>\n"
+"Language-Team: WoT Team <noreply@wargaming.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
 msgid "IGR/free/cut"
 msgstr "Free"
 
@@ -1195,6 +1206,12 @@ msgstr "Flag of India"
 
 msgid "emblem/group4/signs_87"
 msgstr "Flag of Indonesia"
+
+msgid "emblem/group4/signs_88"
+msgstr "Coat of arms of Kharkov"
+
+msgid "emblem/group4/signs_89"
+msgstr "Coat of arms of Nizhny Novgorod"
 
 msgid "emblem/group4/signs_9"
 msgstr "Flag of Portugal"
