@@ -401,7 +401,7 @@ sub actual_view_replay {
 
     my $title = sprintf('%s - %s - %s (%s)',
         $replay->{game}->{recorder}->{name},
-        $self->get_recorder_vehicle($replay)->{vehicle}->{label},
+        $self->loc($self->get_recorder_vehicle($replay)->{vehicle}->{i18n}),
         $self->loc($self->map_name($replay)),
         $self->loc(sprintf('gametype.%s', $replay->{game}->{type}))
         );
@@ -409,7 +409,7 @@ sub actual_view_replay {
     my $description = sprintf('This is a replay of a %s match fought by %s, using the %s vehicle, on map %s', 
         lc($self->loc(sprintf('gametype.%s', $replay->{game}->{type}))),
         $replay->{game}->{recorder}->{name}, 
-        $self->get_recorder_vehicle($replay)->{vehicle}->{label},
+        $self->loc($self->get_recorder_vehicle($replay)->{vehicle}->{i18n}),
         $self->loc($self->map_name($replay)),
         );
 
