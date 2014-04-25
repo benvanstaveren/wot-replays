@@ -48,7 +48,7 @@ sub progress_max {
     my $cond = $self->mission->{conditions}->{bonus};
 
     if(defined($cond->{battles})) {
-        return $cond->{battles}->{value};
+        return $cond->{battles}->{count}->{value};
     } elsif(defined($cond->{cumulative}->{value})) {
         return $cond->{cumulative}->{value}->[1];
     } elsif(defined($cond->{vehicleKills})) {
