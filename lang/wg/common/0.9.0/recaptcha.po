@@ -1,0 +1,36 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: World Of Tanks\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-06-01 10:00+0300\n"
+"PO-Revision-Date: 2010-06-01 10:00+0300\n"
+"Last-Translator: WoT Translator <noreply@wargaming.net>\n"
+"Language-Team: WoT Team <noreply@wargaming.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "error-codes/incorrect-captcha-sol"
+msgstr "Invalid code."
+
+msgid "error-codes/invalid-referrer"
+msgstr ""
+"The CAPTCHA API keys are restricted to specified domains for security "
+"reasons."
+
+msgid "error-codes/invalid-request-cookie"
+msgstr "Incorrect challenge parameter."
+
+msgid "error-codes/invalid-site-private-key"
+msgstr "Invalid private key."
+
+msgid "error-codes/invalid-site-public-key"
+msgstr "Invalid public key."
+
+msgid "error-codes/unknown"
+msgstr "Unknown error."
+
+msgid "error-codes/verify-params-incorrect"
+msgstr ""
+"The parameters are incorrect. Please make sure that all required parameters "
+"are correct."

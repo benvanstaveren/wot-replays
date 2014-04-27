@@ -1,0 +1,665 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: World Of Tanks\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-06-01 10:00+0300\n"
+"PO-Revision-Date: 2010-06-10 22:04+0200\n"
+"Last-Translator: i_maliavko <i_maliavko@wargaming.net>\n"
+"Language-Team: WoT Team <noreply@wargaming.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "profile/dropdown/battlesType"
+msgstr "Battle Mode:"
+
+msgid "profile/dropdown/existence"
+msgstr "Available:"
+
+msgid "profile/dropdown/labels/all"
+msgstr "Random, Tank Company Battle"
+
+msgid "profile/dropdown/labels/clan"
+msgstr "Special Battle"
+
+msgid "profile/dropdown/labels/company"
+msgstr "Tank Company Battle"
+
+msgid "profile/dropdown/labels/historical"
+msgstr "Historical Battle"
+
+msgid "profile/dropdown/labels/random"
+msgstr "Random Battle"
+
+msgid "profile/dropdown/labels/team"
+msgstr "Team"
+
+msgid "profile/params/tooltip/achievementsCount/body"
+msgstr "Awards received in Battlefield category"
+
+msgid "profile/params/tooltip/achievementsCount/header"
+msgstr "Awards"
+
+msgid "profile/params/tooltip/armorUsing/body"
+msgstr ""
+"Ratio of damage blocked by armor from non-penetrations and ricochets of AP, "
+"HEAT, and APCR shells to damage received from these types of shells.\n"
+"• Average damage blocked by armor from these types of shells: %(value_0)s"
+
+msgid "profile/params/tooltip/armorUsing/header"
+msgstr "Armor-Use Efficiency"
+
+msgid "profile/params/tooltip/avgAssistedDamage/body"
+msgstr ""
+"Including:\n"
+"• Damage upon your spotting\n"
+"• Damage upon your shooting the track"
+
+msgid "profile/params/tooltip/avgAssistedDamage/header"
+msgstr "Average Damage Due to Your Assistance"
+
+msgid "profile/params/tooltip/avgAssistedDamage/short/body"
+msgstr ""
+"Including:\n"
+"• Damage upon your spotting\n"
+"• Damage upon your shooting the track"
+
+msgid "profile/params/tooltip/avgAssistedDamage/short/header"
+msgstr "Damage due to Your Assistance"
+
+msgid "profile/params/tooltip/avgDamage/body"
+msgstr "Ratio of total damage caused to number of battles fought"
+
+msgid "profile/params/tooltip/avgDamage/header"
+msgstr "Average Damage per Battle"
+
+msgid "profile/params/tooltip/avgDestroyedVehicles/body"
+msgstr ""
+"Ratio of total number of enemy vehicles destroyed to number of battles fought"
+
+msgid "profile/params/tooltip/avgDestroyedVehicles/header"
+msgstr "Enemy Vehicles Destroyed"
+
+msgid "profile/params/tooltip/avgDetectedEnemies/body"
+msgstr ""
+"Ratio of total number of enemy vehicles spotted to number of battles fought"
+
+msgid "profile/params/tooltip/avgDetectedEnemies/header"
+msgstr "Enemy Vehicles Spotted"
+
+msgid "profile/params/tooltip/avgDmg/short/body"
+msgstr "Ratio of total damage caused to number of battles fought"
+
+msgid "profile/params/tooltip/avgDmg/short/header"
+msgstr "Damage Caused"
+
+msgid "profile/params/tooltip/avgEx/short/body"
+msgstr "Ratio of total experience points earned to number of battles fought"
+
+msgid "profile/params/tooltip/avgEx/short/header"
+msgstr "Experience"
+
+msgid "profile/params/tooltip/avgExp/body"
+msgstr "Ratio of total experience points earned to number of battles fought"
+
+msgid "profile/params/tooltip/avgExp/header"
+msgstr "Average Experience per Battle"
+
+msgid "profile/params/tooltip/avgReceivedDamage/body"
+msgstr "Ratio of total damage received to number of battles fought"
+
+msgid "profile/params/tooltip/avgReceivedDamage/header"
+msgstr "Damage Received"
+
+msgid "profile/params/tooltip/battlesCount/body"
+msgstr ""
+"Total number of battles fought, including:\n"
+"• Victories: %(value_0)s\n"
+"• Defeats: %(value_1)s\n"
+"• Draws: %(value_2)s"
+
+msgid "profile/params/tooltip/battlesCount/header"
+msgstr "Battles"
+
+msgid "profile/params/tooltip/capturePoints/body"
+msgstr "Number of enemy base capture points earned"
+
+msgid "profile/params/tooltip/capturePoints/header"
+msgstr "Base Capture Points"
+
+msgid "profile/params/tooltip/damageCoeff/body"
+msgstr ""
+"Ratio of \"Damage caused\" to \"Damage received,\" considering that:\n"
+"• Damage caused: %(value_0)s\n"
+"• Damage received: %(value_1)s"
+
+msgid "profile/params/tooltip/damageCoeff/header"
+msgstr "Damage Ratio"
+
+msgid "profile/params/tooltip/destroyCoeff/body"
+msgstr ""
+"Ratio of enemy vehicles destroyed to number of times the player's vehicle "
+"was destroyed, considering that:\n"
+"• Enemy vehicles destroyed: %(value_0)s\n"
+"• Player's vehicle destroyed: %(value_1)s"
+
+msgid "profile/params/tooltip/destroyCoeff/header"
+msgstr "Destruction Ratio"
+
+msgid "profile/params/tooltip/droppedCapturePoints/body"
+msgstr "Number of ally base defense points earned"
+
+msgid "profile/params/tooltip/droppedCapturePoints/header"
+msgstr "Base Defense Points"
+
+msgid "profile/params/tooltip/hits/body"
+msgstr "Accuracy in firing at enemy vehicles"
+
+msgid "profile/params/tooltip/hits/header"
+msgstr "Hit Ratio"
+
+msgid "profile/params/tooltip/markOfMastery/body"
+msgstr ""
+"Mastery Badges received: Ace Tanker / Number of vehicles that have fought in "
+"at least one battle"
+
+msgid "profile/params/tooltip/markOfMastery/header"
+msgstr "Mastery Badge: Ace Tanker"
+
+msgid "profile/params/tooltip/markOfMasteryDisabled/body"
+msgstr "Mastery Badges are not granted in this battle mode."
+
+msgid "profile/params/tooltip/markOfMasteryDisabled/header"
+msgstr "Mastery Badge: Ace Tanker"
+
+msgid "profile/params/tooltip/maxDamage/body"
+msgstr "Record achieved in %(value_0)s"
+
+msgid "profile/params/tooltip/maxDamage/header"
+msgstr "Maximum Damage per Battle"
+
+msgid "profile/params/tooltip/maxDestroyed/body"
+msgstr "Record achieved in %(value_0)s"
+
+msgid "profile/params/tooltip/maxDestroyed/header"
+msgstr "Maximum Destroyed per Battle"
+
+msgid "profile/params/tooltip/maxExp/body"
+msgstr "Record achieved in %(value_0)s"
+
+msgid "profile/params/tooltip/maxExp/header"
+msgstr "Maximum Experience per Battle"
+
+msgid "profile/params/tooltip/maxExpDisabled/body"
+msgstr "Maximum experience is not displayed in this battle mode."
+
+msgid "profile/params/tooltip/maxExpDisabled/header"
+msgstr "Maximum experience per battle"
+
+msgid "profile/params/tooltip/survival/body"
+msgstr "Percentage of battles in which player's vehicle was not destroyed"
+
+msgid "profile/params/tooltip/survival/header"
+msgstr "Battles Survived"
+
+msgid "profile/params/tooltip/usedTechnics/body"
+msgstr "Vehicles that have fought at least one Historical Battle."
+
+msgid "profile/params/tooltip/usedTechnics/header"
+msgstr "Vehicles Used"
+
+msgid "profile/params/tooltip/wins/body"
+msgstr "Total rate of victories"
+
+msgid "profile/params/tooltip/wins/header"
+msgstr "Victories"
+
+msgid "profile/summary/nextAwards/tooltip/body"
+msgstr "Upcoming awards are attached to the ribbon."
+
+msgid "profile/summary/nextAwards/tooltip/header"
+msgstr "Subsequent Awards"
+
+msgid "profile/summary/significantAwards/tooltip/body"
+msgstr "The player's most significant awards are attached to the ribbon."
+
+msgid "profile/summary/significantAwards/tooltip/header"
+msgstr "Valuable Awards"
+
+msgid "profile/tabs/tooltip/awards/body"
+msgstr "View awards and their descriptions."
+
+msgid "profile/tabs/tooltip/awards/header"
+msgstr "Awards"
+
+msgid "profile/tabs/tooltip/statistics/body"
+msgstr "View battle statistics in vehicles of all types."
+
+msgid "profile/tabs/tooltip/statistics/header"
+msgstr "Statistics"
+
+msgid "profile/tabs/tooltip/summary/body"
+msgstr "View battle performance."
+
+msgid "profile/tabs/tooltip/summary/header"
+msgstr "Summary"
+
+msgid "profile/tabs/tooltip/technique/body"
+msgstr "View battle statistics on each vehicle."
+
+msgid "profile/tabs/tooltip/technique/header"
+msgstr "Vehicles"
+
+msgid "profile/title"
+msgstr "Player's Statistics %s"
+
+msgid "section/awards/dropdown/labels/all"
+msgstr "All"
+
+msgid "section/awards/dropdown/labels/inProcess"
+msgstr "Received"
+
+msgid "section/awards/dropdown/labels/none"
+msgstr "Not received"
+
+msgid "section/awards/dropdown/tooltip/body"
+msgstr ""
+"Enable filter to view either all awards or awards received, or awards not "
+"received."
+
+msgid "section/awards/dropdown/tooltip/header"
+msgstr "Award Sorting"
+
+msgid "section/awards/labels/battleHeroes"
+msgstr "Battle Heroes"
+
+msgid "section/awards/labels/epic"
+msgstr "Epic Medals"
+
+msgid "section/awards/labels/group"
+msgstr "Group Awards"
+
+msgid "section/awards/labels/honorary"
+msgstr "Honorary Ranks"
+
+msgid "section/awards/labels/memory"
+msgstr "Commemorative Tokens"
+
+msgid "section/awards/labels/special"
+msgstr "Special"
+
+msgid "section/awards/labels/stage"
+msgstr "Stage Awards"
+
+msgid "section/awards/title"
+msgstr "Awards"
+
+msgid "section/statistics/bodyBar/label/charts"
+msgstr "Infographics"
+
+msgid "section/statistics/bodyBar/label/detailed"
+msgstr "Statistics"
+
+msgid "section/statistics/bodyParams/label/average"
+msgstr "Average Score per Battle"
+
+msgid "section/statistics/bodyParams/label/common"
+msgstr "General Parameters"
+
+msgid "section/statistics/bodyParams/label/record"
+msgstr "Record Score"
+
+msgid "section/statistics/chart/level/tooltip/body"
+msgstr "Number of battles in vehicles of this tier"
+
+msgid "section/statistics/chart/level/tooltip/header"
+msgstr "Vehicle Tier: %(value)s"
+
+msgid "section/statistics/chart/levelDisabled/tooltip/body"
+msgstr "Vehicles of Tiers IX and X cannot fight in this battle mode."
+
+msgid "section/statistics/chart/levelDisabled/tooltip/header"
+msgstr "Vehicle Tier: %(value)s"
+
+msgid "section/statistics/chart/nation/tooltip/body"
+msgstr "Number of battles in vehicles of this nation"
+
+msgid "section/statistics/chart/nation/tooltip/header"
+msgstr "Vehicle Nation: %(value)s"
+
+msgid "section/statistics/chart/type/tooltip/body"
+msgstr "Number of battles in vehicles of this type"
+
+msgid "section/statistics/chart/type/tooltip/header"
+msgstr "Vehicle Type: %(value)s"
+
+msgid "section/statistics/charts/byLevelLabel"
+msgstr "By tier"
+
+msgid "section/statistics/charts/byNationLabel"
+msgstr "By nation"
+
+msgid "section/statistics/charts/byTypeLabel"
+msgstr "By type"
+
+msgid "section/statistics/detailed/avgDamage"
+msgstr "Damage caused to enemy vehicles"
+
+msgid "section/statistics/detailed/avgDestroyedVehicles"
+msgstr "Enemy vehicles destroyed"
+
+msgid "section/statistics/detailed/avgDetectedEnemies"
+msgstr "Enemy vehicles spotted"
+
+msgid "section/statistics/detailed/avgReceivedDamage"
+msgstr "Damage received"
+
+msgid "section/statistics/detailed/damageCoefficient"
+msgstr "Damage ratio"
+
+msgid "section/statistics/detailed/dealOutDamage"
+msgstr "Damage"
+
+msgid "section/statistics/detailed/destroyed"
+msgstr "Destroyed"
+
+msgid "section/statistics/detailed/destructionCoefficient"
+msgstr "Destruction ratio"
+
+msgid "section/statistics/detailed/killed"
+msgstr "Enemy vehicles destroyed"
+
+msgid "section/statistics/detailed/maxDestroyedVehicles"
+msgstr "Maximum destroyed per battle"
+
+msgid "section/statistics/detailed/receivedDamage"
+msgstr "Damage received"
+
+msgid "section/statistics/headerText/all"
+msgstr "Random and Tank Company Battles"
+
+msgid "section/statistics/headerText/historical"
+msgstr "Historical Battles"
+
+msgid "section/statistics/headerText/team"
+msgstr "Team Battles"
+
+msgid "section/statistics/labels/battlesOnTech"
+msgstr "Battles Fought in Vehicles"
+
+msgid "section/statistics/scores/achievementsCount"
+msgstr "Awards"
+
+msgid "section/statistics/scores/armorUsing"
+msgstr "Armor-use efficiency"
+
+msgid "section/statistics/scores/avgAssistedDamage"
+msgstr "Average damage due to your assistance"
+
+msgid "section/statistics/scores/avgAssistedDamage/short"
+msgstr "Damage due to your assistance"
+
+msgid "section/statistics/scores/avgDamage"
+msgstr "Average damage per battle"
+
+msgid "section/statistics/scores/avgExperience"
+msgstr "Average experience per battle"
+
+msgid "section/statistics/scores/avgExperience/short"
+msgstr "Experience"
+
+msgid "section/statistics/scores/capturePoints"
+msgstr "Base capture points"
+
+msgid "section/statistics/scores/coolSigns"
+msgstr "Mastery Badges: Ace Tanker"
+
+msgid "section/statistics/scores/droppedCapturePoints"
+msgstr "Base defense points"
+
+msgid "section/statistics/scores/hits"
+msgstr "Hits"
+
+msgid "section/statistics/scores/maxDamage"
+msgstr "Maximum damage per battle"
+
+msgid "section/statistics/scores/maxExperience"
+msgstr "Maximum experience per battle"
+
+msgid "section/statistics/scores/survival"
+msgstr "Battles survived"
+
+msgid "section/statistics/scores/totalBattles"
+msgstr "Battles"
+
+msgid "section/statistics/scores/totalWins"
+msgstr "Victories"
+
+msgid "section/statistics/scores/usedTechnics"
+msgstr "Vehicles used"
+
+msgid "section/statistics/title"
+msgstr "Statistics"
+
+msgid "section/summary/bottomBar/clansRoleLbl"
+msgstr "of clan:"
+
+msgid "section/summary/errorText/nextAwards"
+msgstr "No Subsequent Awards"
+
+msgid "section/summary/errorText/significantAwards"
+msgstr "No Valuable Awards"
+
+msgid "section/summary/labels/nextAwards"
+msgstr "Subsequent Awards"
+
+msgid "section/summary/labels/significantAwards"
+msgstr "Valuable Awards"
+
+msgid "section/summary/scores/avgDamage"
+msgstr "Average damage per battle"
+
+msgid "section/summary/scores/avgExperience"
+msgstr "Average experience per battle"
+
+msgid "section/summary/scores/coolSigns"
+msgstr "Mastery Badges: Ace Tanker"
+
+msgid "section/summary/scores/hits"
+msgstr "Hit ratio"
+
+msgid "section/summary/scores/maxDestroyed"
+msgstr "Maximum destroyed per battle"
+
+msgid "section/summary/scores/maxExperience"
+msgstr "Maximum experience per battle"
+
+msgid "section/summary/scores/personalScore"
+msgstr "Personal rating"
+
+msgid "section/summary/scores/totalBattles"
+msgstr "Battles"
+
+msgid "section/summary/scores/totalWins"
+msgstr "Victories"
+
+msgid "section/summary/title"
+msgstr "Summary"
+
+msgid "section/summary/warning/personalScore"
+msgstr ""
+"Not enough data to calculate Personal rating <font "
+"color='#c1ba9c'>Participate in</font><font color='#cbad78'> %(count)s </"
+"font><font color='#c1ba9c'>battles</font>"
+
+msgid "section/technique/awards/noAchievements"
+msgstr "No awards received yet"
+
+msgid "section/technique/buttonBar/avgExperience"
+msgstr ""
+"Average XP\n"
+"per Battle"
+
+msgid "section/technique/buttonBar/classiness"
+msgstr "Mastery"
+
+msgid "section/technique/buttonBar/totalBattles"
+msgstr "Battles"
+
+msgid "section/technique/buttonBar/totalWins"
+msgstr "Victories"
+
+msgid "section/technique/buttonBar/vehicleName"
+msgstr "Vehicle's Name"
+
+msgid "section/technique/checkBoxHangarVehicles/tooltip/body"
+msgstr "View vehicles in Garage."
+
+msgid "section/technique/checkBoxHangarVehicles/tooltip/header"
+msgstr "Available in Garage"
+
+msgid "section/technique/emptyScreenLabel/battleType/all"
+msgstr ""
+"No vehicles in the Garage that have fought in Random Battles or Tank Company "
+"Battles."
+
+msgid "section/technique/emptyScreenLabel/battleType/historical"
+msgstr "No vehicles in the Garage that have fought in Historical Battles."
+
+msgid "section/technique/emptyScreenLabel/battleType/team"
+msgstr "No vehicles in the Garage that have fought in Team Battles."
+
+msgid "section/technique/sort/tooltip/avgexp/body"
+msgstr "Sort by average experience per battle."
+
+msgid "section/technique/sort/tooltip/avgexp/header"
+msgstr "Average Experience"
+
+msgid "section/technique/sort/tooltip/battlesCount/body"
+msgstr "Sort by number of battles."
+
+msgid "section/technique/sort/tooltip/battlesCount/header"
+msgstr "Battles"
+
+msgid "section/technique/sort/tooltip/lvl/body"
+msgstr "Sort by vehicles' tier."
+
+msgid "section/technique/sort/tooltip/lvl/header"
+msgstr "Tier"
+
+msgid "section/technique/sort/tooltip/marksofmastery/body"
+msgstr "Sort by Mastery Badges."
+
+msgid "section/technique/sort/tooltip/marksofmastery/header"
+msgstr "Mastery"
+
+msgid "section/technique/sort/tooltip/name/body"
+msgstr "Sort by vehicles' names."
+
+msgid "section/technique/sort/tooltip/name/header"
+msgstr "Vehicle's Name"
+
+msgid "section/technique/sort/tooltip/nation/body"
+msgstr "Sort by nation."
+
+msgid "section/technique/sort/tooltip/nation/header"
+msgstr "Nation"
+
+msgid "section/technique/sort/tooltip/technique/body"
+msgstr "Sort by vehicles' type."
+
+msgid "section/technique/sort/tooltip/technique/header"
+msgstr "Type"
+
+msgid "section/technique/sort/tooltip/wins/body"
+msgstr "Sort by rate of victories."
+
+msgid "section/technique/sort/tooltip/wins/header"
+msgstr "Victories"
+
+msgid "section/technique/statistics/accuracy"
+msgstr "Hits"
+
+msgid "section/technique/statistics/avgDamage"
+msgstr "Damage caused to enemy vehicles"
+
+msgid "section/technique/statistics/avgDestroyedVehicles"
+msgstr "Enemy vehicles destroyed"
+
+msgid "section/technique/statistics/avgDetectedEnemies"
+msgstr "Enemy vehicles spotted"
+
+msgid "section/technique/statistics/avgExperience"
+msgstr "Experience"
+
+msgid "section/technique/statistics/avgReceivedDamage"
+msgstr "Damage received"
+
+msgid "section/technique/statistics/avgScoutingDamage"
+msgstr "Damage due to player's assistance"
+
+msgid "section/technique/statistics/avgStats"
+msgstr "Average score per battle"
+
+msgid "section/technique/statistics/common"
+msgstr "General parameters"
+
+msgid "section/technique/statistics/damageCoefficient"
+msgstr "Damage ratio"
+
+msgid "section/technique/statistics/destructionCoefficient"
+msgstr "Destruction ratio"
+
+msgid "section/technique/statistics/maxDamage"
+msgstr "Maximum damage per battle"
+
+msgid "section/technique/statistics/maxDestroyedVehicles"
+msgstr "Maximum destroyed per battle"
+
+msgid "section/technique/statistics/maxExperience"
+msgstr "Maximum experience"
+
+msgid "section/technique/statistics/records"
+msgstr "Record score"
+
+msgid "section/technique/statistics/survival"
+msgstr "Battles survived"
+
+msgid "section/technique/statistics/tankingCoefficient"
+msgstr "Armor-use efficiency"
+
+msgid "section/technique/statistics/totalBattles"
+msgstr "Battles"
+
+msgid "section/technique/statistics/totalWins"
+msgstr "Victories"
+
+msgid "section/technique/tabBtn/achievements"
+msgstr "Awards"
+
+msgid "section/technique/tabBtn/awards/tooltip/body"
+msgstr "View awards for selected vehicles."
+
+msgid "section/technique/tabBtn/awards/tooltip/header"
+msgstr "Awards"
+
+msgid "section/technique/tabBtn/statistic"
+msgstr "Statistics"
+
+msgid "section/technique/tabBtn/statistic/tooltip/body"
+msgstr "View statistics for selected vehicles."
+
+msgid "section/technique/tabBtn/statistic/tooltip/header"
+msgstr "Statistics"
+
+msgid "section/technique/title"
+msgstr "Vehicles"
+
+msgid "section/technique/window/hangarVehiclesLabel"
+msgstr "Available in Garage"
+
+msgid "tooltip/dropdown/battleType/body"
+msgstr "Enable filter to view statistics on battle modes."
+
+msgid "tooltip/dropdown/battleType/header"
+msgstr "Sort by Battle Modes"

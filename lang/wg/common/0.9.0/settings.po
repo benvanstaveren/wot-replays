@@ -1,0 +1,1367 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: World Of Tanks\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-06-01 10:00+0300\n"
+"PO-Revision-Date: 2010-06-01 10:00+0300\n"
+"Last-Translator: WoT Translator <noreply@wargaming.net>\n"
+"Language-Team: WoT Team <noreply@wargaming.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "COLOR_GRADING_TECHNIQUE"
+msgstr "Color Filter"
+
+msgid "COLOR_GRADING_TECHNIQUE/description"
+msgstr ""
+"Change the visual style of the graphics using different color filters.\n"
+"\n"
+"Does not influence game performance."
+
+msgid "DECALS_QUALITY"
+msgstr "Decals Quality"
+
+msgid "DECALS_QUALITY/description"
+msgstr ""
+"Determines the display quality of dirt traces, pathholes, fallen leaves, and "
+"other small objects."
+
+msgid "EFFECTS_QUALITY"
+msgstr "Extra Effects Quality"
+
+msgid "EFFECTS_QUALITY/description"
+msgstr ""
+"Determines the display quality of sparks from ricochets, explosions, smoke, "
+"and other visual effects.\n"
+"\n"
+"Reducing the value of this parameter can improve game performance."
+
+msgid "FAR_PLANE"
+msgstr "Draw Distance"
+
+msgid "FAR_PLANE/description"
+msgstr ""
+"Determines the display distance of relief features, buildings, enemy "
+"vehicles and other game objects."
+
+msgid "FLORA_QUALITY"
+msgstr "Flora Density"
+
+msgid "FLORA_QUALITY/description"
+msgstr ""
+"Determines the density and draw quality of grass and bushes.\n"
+"\n"
+"Reducing the value of this parameter can improve game performance."
+
+msgid "LANGUAGE_CODE"
+msgstr "en"
+
+msgid "LIGHTING_QUALITY"
+msgstr "Lighting Quality"
+
+msgid "LIGHTING_QUALITY/description"
+msgstr ""
+"Accuracy of setting sun rays, lighting, and optical effects. \n"
+"\n"
+"Increasing the value of this parameter considerably increases load on video "
+"card."
+
+msgid "MOTION_BLUR_QUALITY"
+msgstr "Motion Blur Effect"
+
+msgid "MOTION_BLUR_QUALITY/description"
+msgstr ""
+"Determines the quality of motion blur effect of an image when a vehicle "
+"moves and camera rotates."
+
+msgid "OBJECT_LOD"
+msgstr "Object LOD"
+
+msgid "OBJECT_LOD/description"
+msgstr "Determines the number of displayed objects and their quality."
+
+msgid "POST_PROCESSING_QUALITY"
+msgstr "Post Processing"
+
+msgid "POST_PROCESSING_QUALITY/description"
+msgstr ""
+"Determines the quality of fog, glow effects, and other post-processing "
+"visual effects.\n"
+"\n"
+"Reducing the value of this parameter can improve game performance."
+
+msgid "RENDER_PIPELINE"
+msgstr "Graphics"
+
+msgid "RENDER_PIPELINE/description"
+msgstr ""
+"Improved: allows for maximum image quality.\n"
+"\n"
+"Standard: allows for maximum performance by simplifying or disabling some "
+"visual effects."
+
+msgid "RENDER_PIPELINE/label"
+msgstr "Graphics:"
+
+msgid "RENDER_PIPELINE/warning"
+msgstr "Change of this parameter will be applied upon game restart."
+
+msgid "RIGHT_UPPER"
+msgstr "RIGHT_UPPER"
+
+msgid "SHADER_VERSION_CAP"
+msgstr "Shader version"
+
+msgid "SHADOWS_QUALITY"
+msgstr "Shadow Quality"
+
+msgid "SHADOWS_QUALITY/description"
+msgstr ""
+"Determines the quality of dynamic shadow processing over the entire draw "
+"distance. Full disabling of shadows can cause strong visual inconsistency.\n"
+"\n"
+"Reducing the value of this parameter can considerably improve game "
+"performance."
+
+msgid "SMOKE_ENABLED"
+msgstr "Smoke"
+
+msgid "SNIPER_MODE_EFFECTS_QUALITY"
+msgstr "Extra Effects in Sniper Mode"
+
+msgid "SNIPER_MODE_EFFECTS_QUALITY/description"
+msgstr ""
+"Determines the display quality of sparks from ricochets, explosions, smoke, "
+"and other realistic effects in Sniper mode.\n"
+"\n"
+"Reducing the value of this parameter can improve the game performance."
+
+msgid "SNIPER_MODE_GRASS_ENABLED"
+msgstr "Grass in Sniper mode"
+
+msgid "SNIPER_MODE_GRASS_ENABLED/description"
+msgstr ""
+"Displays grass in Sniper mode.\n"
+"\n"
+"Disabling this parameter can improve game performance."
+
+msgid "SPEEDTREE_QUALITY"
+msgstr "Foliage Quality"
+
+msgid "SPEEDTREE_QUALITY/description"
+msgstr "Determines the draw quality of foliage."
+
+msgid "TERRAIN_QUALITY"
+msgstr "Terrain Quality"
+
+msgid "TERRAIN_QUALITY/description"
+msgstr ""
+"Determines the draw quality of map relief features.\n"
+"\n"
+"Use the minimum landscape quality only in the case of low computer "
+"performance.\n"
+"\n"
+"Reducing the value of this parameter can cause desynchronization of "
+"landscape display between client and server."
+
+msgid "TERRAIN_QUALITY/warning"
+msgstr "Applying the specified parameter may take some time."
+
+msgid "TEXTURE_QUALITY"
+msgstr "Texture Quality"
+
+msgid "TEXTURE_QUALITY/description"
+msgstr ""
+"Quality of surfaces of game objects, especially under close examination.\n"
+"\n"
+"Reducing the value of this parameter can improve game performance."
+
+msgid "TEXTURE_QUALITY/warning"
+msgstr "Applying the specified parameter may take some time."
+
+msgid "VEHICLE_DUST_ENABLED"
+msgstr "Enable track effects"
+
+msgid "VEHICLE_DUST_ENABLED/description"
+msgstr ""
+"Displays ground, snow, and water splashes behind the tracks.\n"
+"\n"
+"Disabling this parameter can improve game performance."
+
+msgid "VEHICLE_TRACES_ENABLED"
+msgstr "Enable track traces"
+
+msgid "VEHICLE_TRACES_ENABLED/description"
+msgstr "Displays track traces on the surface."
+
+msgid "WATER_QUALITY"
+msgstr "Water Quality"
+
+msgid "WATER_QUALITY/description"
+msgstr "Determines the draw quality of water surfaces."
+
+msgid "WRONG_UPPER"
+msgstr "WRONG_UPPER"
+
+msgid "alternativeVoices/fieldset/header"
+msgstr "Voice Messages"
+
+msgid "alternativeVoices/labels/voiceBattle"
+msgstr "Voice Messages in Battle"
+
+msgid "apply_button"
+msgstr "Apply"
+
+msgid "arcade/cassette"
+msgstr "Containers"
+
+msgid "arcade/centralTag"
+msgstr "Central Marker"
+
+msgid "arcade/centralTag/type0"
+msgstr "A-shaped I"
+
+msgid "arcade/centralTag/type1"
+msgstr "A-shaped II"
+
+msgid "arcade/centralTag/type10"
+msgstr "O-shaped I"
+
+msgid "arcade/centralTag/type11"
+msgstr "O-shaped II"
+
+msgid "arcade/centralTag/type12"
+msgstr "A-shaped IV"
+
+msgid "arcade/centralTag/type13"
+msgstr "A-shaped V"
+
+msgid "arcade/centralTag/type2"
+msgstr "A-shaped III"
+
+msgid "arcade/centralTag/type3"
+msgstr "V-shaped"
+
+msgid "arcade/centralTag/type4"
+msgstr "Crosshair I"
+
+msgid "arcade/centralTag/type5"
+msgstr "Crosshair II"
+
+msgid "arcade/centralTag/type6"
+msgstr "T-shaped"
+
+msgid "arcade/centralTag/type7"
+msgstr "I-shaped"
+
+msgid "arcade/centralTag/type8"
+msgstr "Aimpoint I"
+
+msgid "arcade/centralTag/type9"
+msgstr "Aimpoint II"
+
+msgid "arcade/condition"
+msgstr "Condition"
+
+msgid "arcade/gunTag"
+msgstr "Gun Marker"
+
+msgid "arcade/gunTag/type0"
+msgstr "A-shaped I (with armor penetration indicator)"
+
+msgid "arcade/gunTag/type1"
+msgstr "A-shaped II (with load indicator)"
+
+msgid "arcade/gunTag/type10"
+msgstr "O-shaped II (with load indicator)"
+
+msgid "arcade/gunTag/type11"
+msgstr "O-shaped III"
+
+msgid "arcade/gunTag/type12"
+msgstr "A-shaped IV (with armor penetration indicator)"
+
+msgid "arcade/gunTag/type13"
+msgstr "A-shaped V (with load indicator)"
+
+msgid "arcade/gunTag/type14"
+msgstr "A-shaped VI"
+
+msgid "arcade/gunTag/type2"
+msgstr "A-shaped III"
+
+msgid "arcade/gunTag/type3"
+msgstr "Crosshair I (with armor penetration indicator)"
+
+msgid "arcade/gunTag/type4"
+msgstr "Crosshair II (with load indicator)"
+
+msgid "arcade/gunTag/type5"
+msgstr "Crosshair III"
+
+msgid "arcade/gunTag/type6"
+msgstr "Aimpoint I (with armor penetration indicator)"
+
+msgid "arcade/gunTag/type7"
+msgstr "Aimpoint II (with load indicator)"
+
+msgid "arcade/gunTag/type8"
+msgstr "Aimpoint III"
+
+msgid "arcade/gunTag/type9"
+msgstr "O-shaped I (with armor penetration indicator)"
+
+msgid "arcade/mixing"
+msgstr "Dispersion Indicator"
+
+msgid "arcade/mixing/type0"
+msgstr "Circle I (with load indicator) "
+
+msgid "arcade/mixing/type1"
+msgstr "Circle II (with shifting load indicator)"
+
+msgid "arcade/mixing/type2"
+msgstr "Circle III (without load indicator)"
+
+msgid "arcade/mixing/type3"
+msgstr "Crosshair (with shifting load indicator)"
+
+msgid "arcade/mixing/type4"
+msgstr "Crosshair II"
+
+msgid "arcade/mixing/type5"
+msgstr "Test"
+
+msgid "arcade/net"
+msgstr "Indicator"
+
+msgid "arcade/net/type0"
+msgstr "Diagonal"
+
+msgid "arcade/net/type1"
+msgstr "Horizontal"
+
+msgid "arcade/net/type2"
+msgstr "Radial"
+
+msgid "arcade/net/type3"
+msgstr "Dashed"
+
+msgid "arcade/reloader"
+msgstr "Load"
+
+msgid "arcade/reloaderTimer"
+msgstr "Loading Timer"
+
+msgid "aspectRatio"
+msgstr "Screen Aspect Ratio"
+
+msgid "aspectRatio/description"
+msgstr ""
+"Select height-to-width aspect ratio of the image. Mismatch of set height-to-"
+"width aspect ratio with your current monitor ratio can cause horizontal "
+"compression or stretching of the image.\n"
+"\n"
+"Does not influence game performance."
+
+msgid "autodetectButton"
+msgstr "Recommended"
+
+msgid "autodetectButton/description"
+msgstr ""
+"Determines optimum image quality for your computer.\n"
+"\n"
+"This may take some time."
+
+msgid "cancel_button"
+msgstr "Cancel"
+
+msgid "chat/censorshipMessages"
+msgstr "Censor offensive words in chat messages"
+
+msgid "chat/disableBattleChat"
+msgstr "Disable battle chat (in Random Battles only)"
+
+msgid "chat/enableStoreChannelsWindows"
+msgstr "Remember position of camera and channel windows"
+
+msgid "chat/enableStoreManagementWindows"
+msgstr "Remember position of camera and other windows"
+
+msgid "chat/invitesFromFriendsOnly"
+msgstr "Accept invitations only from players in Friends list"
+
+msgid "chat/removeSpam"
+msgstr "Hide spam"
+
+msgid "chat/showDateMessage"
+msgstr "Display date in messages"
+
+msgid "chat/showJoinLeaveMessages"
+msgstr "Notify when users connect/disconnect"
+
+msgid "chat/showTimeMessage"
+msgstr "Display time in messages"
+
+msgid "chat/storeReceiverInBattle"
+msgstr "Save message recipient"
+
+msgid "colorFilterIntensity"
+msgstr "Filter Intensity"
+
+msgid "colorFilterIntensity/description"
+msgstr "Change efficiency of the selected color filter."
+
+msgid "cursor/ArcadeTitle"
+msgstr "Arcade"
+
+msgid "cursor/ServerAim"
+msgstr "Enable server reticle"
+
+msgid "cursor/SnipperTitle"
+msgstr "Sniper"
+
+msgid "cursorTitle"
+msgstr "Reticle"
+
+msgid "customAAMode/mode0"
+msgstr "OFF"
+
+msgid "customAAMode/mode1"
+msgstr "FXAA"
+
+msgid "defaultBtn"
+msgstr "Default"
+
+msgid "dynamicCamera"
+msgstr "Enable dynamic camera"
+
+msgid "dynamicRenderer"
+msgstr "3D Render Resolution"
+
+msgid "dynamicRenderer/description"
+msgstr ""
+"Determines game scene quality and details.\n"
+"\n"
+"3D render resolution in a battle can be changed by using [RShift +] and "
+"[RShift -]. Does not influence the interface.\n"
+"\n"
+"Reducing this parameter can improve game performance for computers with a "
+"low-performance video card."
+
+msgid "edgeDetectAA"
+msgstr "Edge detect AA"
+
+msgid "fov"
+msgstr "Field of View (FoV)"
+
+msgid "fov/description"
+msgstr ""
+"Visibility range of game camera.\n"
+"\n"
+"95° is the normal FoV (field of view). The smaller the FoV, the closer "
+"objects appear, while peripheral view is reduced. \n"
+"\n"
+"Does not influence game performance."
+
+msgid "fpsPerfomancer"
+msgstr "Dynamic change of effects quality"
+
+msgid "fpsPerfomancer/description"
+msgstr "Automatic simplification of effects with low system performance."
+
+msgid "fullScreen"
+msgstr "Full-screen mode"
+
+msgid "fullScreen/description"
+msgstr ""
+"Switching between fullscreen and windowed modes. Game performance is "
+"decreased in a windowed mode."
+
+msgid "game/dynamicCamera"
+msgstr "Enable dynamic camera"
+
+msgid "game/enableDelayPostEffect"
+msgstr "Show in Postmortem mode vehicle that destroyed your vehicle"
+
+msgid "game/enableMortalPostEffect"
+msgstr "Enable post-effect in Postmortem mode"
+
+msgid "game/enableOpticalSnpEffect"
+msgstr "Enable optics effect in Sniper mode"
+
+msgid "game/enableVoIP"
+msgstr "Voice Chat"
+
+msgid "game/fieldset/headerChat"
+msgstr "Chat"
+
+msgid "game/fieldset/headerGameplay"
+msgstr "Random Battle Types"
+
+msgid "game/fieldset/headerMinimap"
+msgstr "Minimap"
+
+msgid "game/fieldset/headerVehicleMarker"
+msgstr "Vehicle Markers"
+
+msgid "game/horStabilizationSnp"
+msgstr "Horizontal stabilization in Sniper mode"
+
+msgid "game/playerPanelSettings"
+msgstr "Team Panel"
+
+msgid "game/playersPanelState/large"
+msgstr "Full Panel"
+
+msgid "game/playersPanelState/medium"
+msgstr "Medium"
+
+msgid "game/playersPanelState/none"
+msgstr "No Panel"
+
+msgid "game/playersPanelState/short"
+msgstr "Short Panel"
+
+msgid "game/ppShowLevels"
+msgstr "Show vehicle tier"
+
+msgid "game/ppShowTypes"
+msgstr "Show vehicle type"
+
+msgid "game/ppStartStateLabel"
+msgstr "Type"
+
+msgid "game/replayEnabled"
+msgstr "Enable Battle Recording"
+
+msgid "game/replayEnabled/all"
+msgstr "All"
+
+msgid "game/replayEnabled/last"
+msgstr "Last"
+
+msgid "game/replayEnabled/none"
+msgstr "None"
+
+msgid "game/showExInfoForDestroyVehicle"
+msgstr "Show destroyed vehicles' info"
+
+msgid "game/showLanguageBar"
+msgstr "Show Language Panel"
+
+msgid "game/showVehicleIcon"
+msgstr "Show vehicle icon"
+
+msgid "game/showVehicleLevel"
+msgstr "Show vehicle tier"
+
+msgid "game/showVehiclesCounter"
+msgstr "Show vehicle markers on Battle Score Panel"
+
+msgid "gameTitle"
+msgstr "General"
+
+msgid "gameplay/assault"
+msgstr "Assault (after researching Tier VI vehicles)"
+
+msgid "gameplay/ctf"
+msgstr "Standard Battle"
+
+msgid "gameplay/domination"
+msgstr "Encounter Battle (after researching Tier IV vehicles)"
+
+msgid "gameplay/nations"
+msgstr "Confrontation"
+
+msgid "gamma"
+msgstr "Gamma"
+
+msgid "gamma/description"
+msgstr ""
+"Change image brightness. Can be used in a fullscreen mode only.\n"
+"\n"
+"In a windowed mode, current operating system settings are used."
+
+msgid "graficTitle"
+msgstr "Graphics"
+
+msgid "graphics/significantlyAffecting"
+msgstr "Significantly Affecting Game Performance"
+
+msgid "graphics/tabAdvanced"
+msgstr "Details"
+
+msgid "graphics/tabScreen"
+msgstr "Screen"
+
+msgid "graphicsQuality"
+msgstr "Graphics Quality"
+
+msgid "graphicsQuality/description"
+msgstr ""
+"Determines the general quality of the image. \n"
+"\n"
+"Determines the parameters of the \"Details\" tab.\n"
+"\n"
+"Reducing graphics quality can improve game performance."
+
+msgid "graphicsSettingsOptions/ANISOTROPIC_16X"
+msgstr "Anisotropic 16x"
+
+msgid "graphicsSettingsOptions/ANISOTROPIC_2X"
+msgstr "Anisotropic 2x"
+
+msgid "graphicsSettingsOptions/ANISOTROPIC_4X"
+msgstr "Anisotropic 4x"
+
+msgid "graphicsSettingsOptions/ANISOTROPIC_8X"
+msgstr "Anisotropic 8x"
+
+msgid "graphicsSettingsOptions/BILINEAR"
+msgstr "Bilinear"
+
+msgid "graphicsSettingsOptions/CUSTOM"
+msgstr "Custom"
+
+msgid "graphicsSettingsOptions/Colorization"
+msgstr "1940s cine film"
+
+msgid "graphicsSettingsOptions/Contrasty"
+msgstr "Contrast"
+
+msgid "graphicsSettingsOptions/DEFERRED"
+msgstr "Improved"
+
+msgid "graphicsSettingsOptions/FAR"
+msgstr "Far"
+
+msgid "graphicsSettingsOptions/FORWARD"
+msgstr "Standard"
+
+msgid "graphicsSettingsOptions/HIGH"
+msgstr "High"
+
+msgid "graphicsSettingsOptions/LOW"
+msgstr "Low"
+
+msgid "graphicsSettingsOptions/LOWEST"
+msgstr "Very Low"
+
+msgid "graphicsSettingsOptions/MAX"
+msgstr "Maximum"
+
+msgid "graphicsSettingsOptions/MEDIUM"
+msgstr "Medium"
+
+msgid "graphicsSettingsOptions/MIN"
+msgstr "Minimum"
+
+msgid "graphicsSettingsOptions/Muted"
+msgstr "Muted"
+
+msgid "graphicsSettingsOptions/NEAR"
+msgstr "Near"
+
+msgid "graphicsSettingsOptions/NONE"
+msgstr "OFF"
+
+msgid "graphicsSettingsOptions/OFF"
+msgstr "OFF"
+
+msgid "graphicsSettingsOptions/ON"
+msgstr "ON"
+
+msgid "graphicsSettingsOptions/POINT"
+msgstr "Point"
+
+msgid "graphicsSettingsOptions/Photochromatic"
+msgstr "Photochromatic"
+
+msgid "graphicsSettingsOptions/SHADER_MODEL_0"
+msgstr "0"
+
+msgid "graphicsSettingsOptions/SHADER_MODEL_1"
+msgstr "1"
+
+msgid "graphicsSettingsOptions/SHADER_MODEL_2"
+msgstr "2"
+
+msgid "graphicsSettingsOptions/SHADER_MODEL_3"
+msgstr "3"
+
+msgid "graphicsSettingsOptions/Soft"
+msgstr "Deep"
+
+msgid "graphicsSettingsOptions/Soft Colors"
+msgstr "Soft colors"
+
+msgid "graphicsSettingsOptions/TRILINEAR"
+msgstr "Trilinear"
+
+msgid "graphicsSettingsOptions/VERYHIGH"
+msgstr "Very High"
+
+msgid "graphicsSettingsOptions/VERY_HIGH"
+msgstr "Very High"
+
+msgid "isColorBlind"
+msgstr "Colorblind mode"
+
+msgid "isColorBlind/description"
+msgstr ""
+"Adaptation of the color palette for people with color vision deficiency."
+
+msgid "keyboard/backDraftInvert"
+msgstr "Reverse inversion"
+
+msgid "keyboard/keyboard"
+msgstr "Keyboard"
+
+msgid "keyboard/keysBlocks/command/alternate_mode"
+msgstr "Switch Reticle Mode"
+
+msgid "keyboard/keysBlocks/command/attack"
+msgstr "Requesting fire!"
+
+msgid "keyboard/keysBlocks/command/attack/ext"
+msgstr "(reticle on enemy)"
+
+msgid "keyboard/keysBlocks/command/auto_rotation"
+msgstr "Lock Hull (SPGs, Tank Destroyers)"
+
+msgid "keyboard/keysBlocks/command/backward"
+msgstr "Back"
+
+msgid "keyboard/keysBlocks/command/backward_cruise"
+msgstr "Back"
+
+msgid "keyboard/keysBlocks/command/camera_down"
+msgstr "Down"
+
+msgid "keyboard/keysBlocks/command/camera_left"
+msgstr "Left"
+
+msgid "keyboard/keysBlocks/command/camera_right"
+msgstr "Right"
+
+msgid "keyboard/keysBlocks/command/camera_up"
+msgstr "Up"
+
+msgid "keyboard/keysBlocks/command/fire"
+msgstr "Fire"
+
+msgid "keyboard/keysBlocks/command/follow_me"
+msgstr "Follow me!"
+
+msgid "keyboard/keysBlocks/command/follow_me/ext"
+msgstr "(reticle on ally)"
+
+msgid "keyboard/keysBlocks/command/forward"
+msgstr "Forward"
+
+msgid "keyboard/keysBlocks/command/forward_cruise"
+msgstr "Forward"
+
+msgid "keyboard/keysBlocks/command/help_me"
+msgstr "Help!"
+
+msgid "keyboard/keysBlocks/command/help_me_temp"
+msgstr "Help!"
+
+msgid "keyboard/keysBlocks/command/help_me_temp/ext"
+msgstr "(reticle on ally)"
+
+msgid "keyboard/keysBlocks/command/help_me_temp2"
+msgstr "Requesting fire!"
+
+msgid "keyboard/keysBlocks/command/item01"
+msgstr "Consumable 1"
+
+msgid "keyboard/keysBlocks/command/item02"
+msgstr "Consumable 2"
+
+msgid "keyboard/keysBlocks/command/item03"
+msgstr "Consumable 3"
+
+msgid "keyboard/keysBlocks/command/item04"
+msgstr "Consumable 4"
+
+msgid "keyboard/keysBlocks/command/item05"
+msgstr "Consumable 5"
+
+msgid "keyboard/keysBlocks/command/item06"
+msgstr "Consumable 6"
+
+msgid "keyboard/keysBlocks/command/item07"
+msgstr "Consumable 7"
+
+msgid "keyboard/keysBlocks/command/item08"
+msgstr "Consumable 8"
+
+msgid "keyboard/keysBlocks/command/left"
+msgstr "Left"
+
+msgid "keyboard/keysBlocks/command/lock_target"
+msgstr "Auto-Aim"
+
+msgid "keyboard/keysBlocks/command/lock_target_off"
+msgstr "Disable Auto-Aim"
+
+msgid "keyboard/keysBlocks/command/my_target"
+msgstr "Attacking!"
+
+msgid "keyboard/keysBlocks/command/my_target/ext"
+msgstr "(SPG reticle on enemy)"
+
+msgid "keyboard/keysBlocks/command/negative"
+msgstr "Negative!"
+
+msgid "keyboard/keysBlocks/command/positive"
+msgstr "Affirmative!"
+
+msgid "keyboard/keysBlocks/command/pushToTalk"
+msgstr "Push-to-Talk"
+
+msgid "keyboard/keysBlocks/command/reload"
+msgstr "Reloading!"
+
+msgid "keyboard/keysBlocks/command/reloadPartialClip"
+msgstr "Reload Shell Container"
+
+msgid "keyboard/keysBlocks/command/right"
+msgstr "Right"
+
+msgid "keyboard/keysBlocks/command/showHUD"
+msgstr "Hide Battle Interface"
+
+msgid "keyboard/keysBlocks/command/showRadialMenu"
+msgstr "Display Command Menu"
+
+msgid "keyboard/keysBlocks/command/sizeDown"
+msgstr "Zoom Out"
+
+msgid "keyboard/keysBlocks/command/sizeUp"
+msgstr "Zoom In"
+
+msgid "keyboard/keysBlocks/command/stop"
+msgstr "Halt!"
+
+msgid "keyboard/keysBlocks/command/stop/ext"
+msgstr "(reticle on ally)"
+
+msgid "keyboard/keysBlocks/command/stop_fire"
+msgstr "Stop and Fire"
+
+msgid "keyboard/keysBlocks/command/switch_view"
+msgstr "Mode selection"
+
+msgid "keyboard/keysBlocks/command/to_back"
+msgstr "Fall back!"
+
+msgid "keyboard/keysBlocks/command/to_back/ext"
+msgstr "(reticle on ally)"
+
+msgid "keyboard/keysBlocks/command/to_base"
+msgstr "Defend the base!"
+
+msgid "keyboard/keysBlocks/command/useHorn"
+msgstr "Set sound signal"
+
+msgid "keyboard/keysBlocks/command/visible"
+msgstr "Hide/Show"
+
+msgid "keyboard/keysBlocks/group/camera"
+msgstr "Camera"
+
+msgid "keyboard/keysBlocks/group/cruis_control"
+msgstr "Cruise Control"
+
+msgid "keyboard/keysBlocks/group/equipment"
+msgstr "Consumables"
+
+msgid "keyboard/keysBlocks/group/firing"
+msgstr "Fire"
+
+msgid "keyboard/keysBlocks/group/logitech_keyboard"
+msgstr "Logitech keyboard"
+
+msgid "keyboard/keysBlocks/group/minimap"
+msgstr "Minimap"
+
+msgid "keyboard/keysBlocks/group/movement"
+msgstr "Move"
+
+msgid "keyboard/keysBlocks/group/shortcuts"
+msgstr "Messages"
+
+msgid "keyboard/keysBlocks/group/vehicle_other"
+msgstr "Other"
+
+msgid "keyboard/keysBlocks/group/voicechat"
+msgstr "Voice Chat"
+
+msgid "keyboard/mouse"
+msgstr "Mouse"
+
+msgid "keyboardTitle"
+msgstr "Controls"
+
+msgid "marker/AllyTitle"
+msgstr "Our Team"
+
+msgid "marker/DeadTitle"
+msgstr "Destroyed"
+
+msgid "marker/EnemyTitle"
+msgstr "Enemy Team"
+
+msgid "marker/alt"
+msgstr "Alternative"
+
+msgid "marker/base"
+msgstr "Default"
+
+msgid "marker/damage"
+msgstr "Damage received"
+
+msgid "marker/dead"
+msgstr "Destroyed vehicles marker"
+
+msgid "marker/hp"
+msgstr "Vehicle Health"
+
+msgid "marker/hp/type0"
+msgstr "Percent %"
+
+msgid "marker/hp/type1"
+msgstr "HP left / total"
+
+msgid "marker/hp/type2"
+msgstr "HP left"
+
+msgid "marker/hp/type3"
+msgstr "Hide"
+
+msgid "marker/hpIndicator"
+msgstr "Health indicator"
+
+msgid "marker/icon"
+msgstr "Vehicle icon"
+
+msgid "marker/level"
+msgstr "Vehicle tier"
+
+msgid "marker/name"
+msgstr "Vehicle model"
+
+msgid "marker/name/type2"
+msgstr "Hide"
+
+msgid "marker/nickname"
+msgstr "Player's name"
+
+msgid "markerTitle"
+msgstr "Marker"
+
+msgid "minimap/labels/alpha"
+msgstr "Minimap Transparency"
+
+msgid "minimap/labels/size"
+msgstr "Maximum size"
+
+msgid "monitor"
+msgstr "Monitor"
+
+msgid "monitor/description"
+msgstr "Select the primary monitor for the game."
+
+msgid "mouse/sensitivity/art"
+msgstr "Artillery Aim"
+
+msgid "mouse/sensitivity/header"
+msgstr "Sensitivity"
+
+msgid "mouse/sensitivity/invertationHor"
+msgstr "Horizontal inversion"
+
+msgid "mouse/sensitivity/invertationVert"
+msgstr "Vertical inversion"
+
+msgid "mouse/sensitivity/main"
+msgstr "Arcade Aim"
+
+msgid "mouse/sensitivity/sniper"
+msgstr "Sniper Aim"
+
+msgid "mouse/startDist"
+msgstr "Camera position"
+
+msgid "multisamplingType/type0"
+msgstr "OFF"
+
+msgid "multisamplingType/type1032"
+msgstr "CSAA 8x"
+
+msgid "multisamplingType/type1040"
+msgstr "CSAA 16x"
+
+msgid "multisamplingType/type12"
+msgstr "12x"
+
+msgid "multisamplingType/type16"
+msgstr "16x"
+
+msgid "multisamplingType/type2"
+msgstr "2x"
+
+msgid "multisamplingType/type2056"
+msgstr "CSAA 8xQ"
+
+msgid "multisamplingType/type2064"
+msgstr "CSAA 16xQ"
+
+msgid "multisamplingType/type4"
+msgstr "4x"
+
+msgid "multisamplingType/type6"
+msgstr "6x"
+
+msgid "multisamplingType/type8"
+msgstr "8x"
+
+msgid "ok_button"
+msgstr "OK"
+
+msgid "refreshRate"
+msgstr "Monitor Refresh Rate"
+
+msgid "refreshRate/default"
+msgstr "Default"
+
+msgid "refreshRate/description"
+msgstr ""
+"Monitor refresh rate in the game.\n"
+"\n"
+"Mismatch with monitor refresh rate can cause a blinking screen effect.\n"
+"\n"
+"Does not influence game performance."
+
+msgid "resolution"
+msgstr "Screen Resolution"
+
+msgid "resolution/description"
+msgstr ""
+"Horizontal and vertical screen resolution in a fullscreen mode. Higher "
+"resolution improves image quality. Mismatch of set resolution in a "
+"fullscreen mode with current monitor resolution can distort the image.\n"
+"\n"
+"Increasing this parameter increases load on video card and can reduce game "
+"performance.\n"
+"\n"
+"Load on video card can be reduced by setting 3D render resolution."
+
+msgid "smoothing"
+msgstr "Antialiasing"
+
+msgid "smoothing/description"
+msgstr ""
+"Determines degree of additional processing of thin lines and contours of "
+"game objects. Minimizes aliasing effect. Contours of objects look more "
+"natural."
+
+msgid "sniper/cassette"
+msgstr "Containers"
+
+msgid "sniper/centralTag"
+msgstr "Central Marker"
+
+msgid "sniper/centralTag/type0"
+msgstr "A-shaped I"
+
+msgid "sniper/centralTag/type1"
+msgstr "A-shaped II"
+
+msgid "sniper/centralTag/type10"
+msgstr "O-shaped I"
+
+msgid "sniper/centralTag/type11"
+msgstr "O-shaped II"
+
+msgid "sniper/centralTag/type12"
+msgstr "A-shaped IV"
+
+msgid "sniper/centralTag/type13"
+msgstr "A-shaped V"
+
+msgid "sniper/centralTag/type2"
+msgstr "A-shaped III"
+
+msgid "sniper/centralTag/type3"
+msgstr "V-shaped"
+
+msgid "sniper/centralTag/type4"
+msgstr "Crosshair I"
+
+msgid "sniper/centralTag/type5"
+msgstr "Crosshair II"
+
+msgid "sniper/centralTag/type6"
+msgstr "T-shaped"
+
+msgid "sniper/centralTag/type7"
+msgstr "I-shaped"
+
+msgid "sniper/centralTag/type8"
+msgstr "Aimpoint I"
+
+msgid "sniper/centralTag/type9"
+msgstr "Aimpoint II"
+
+msgid "sniper/condition"
+msgstr "Condition"
+
+msgid "sniper/gunTag"
+msgstr "Gun Marker"
+
+msgid "sniper/gunTag/type0"
+msgstr "A-shaped I (with armor penetration indicator)"
+
+msgid "sniper/gunTag/type1"
+msgstr "A-shaped II (with load indicator)"
+
+msgid "sniper/gunTag/type10"
+msgstr "O-shaped II (with load indicator)"
+
+msgid "sniper/gunTag/type11"
+msgstr "O-shaped III"
+
+msgid "sniper/gunTag/type12"
+msgstr "A-shaped IV (with armor penetration indicator)"
+
+msgid "sniper/gunTag/type13"
+msgstr "A-shaped V (with load indicator)"
+
+msgid "sniper/gunTag/type14"
+msgstr "A-shaped VI"
+
+msgid "sniper/gunTag/type2"
+msgstr "A-shaped III"
+
+msgid "sniper/gunTag/type3"
+msgstr "Crosshair I (with armor penetration indicator)"
+
+msgid "sniper/gunTag/type4"
+msgstr "Crosshair II (with load indicator)"
+
+msgid "sniper/gunTag/type5"
+msgstr "Crosshair III"
+
+msgid "sniper/gunTag/type6"
+msgstr "Aimpoint I (with armor penetration indicator)"
+
+msgid "sniper/gunTag/type7"
+msgstr "Aimpoint II (with load indicator)"
+
+msgid "sniper/gunTag/type8"
+msgstr "Aimpoint III"
+
+msgid "sniper/gunTag/type9"
+msgstr "O-shaped I (with armor penetration indicator)"
+
+msgid "sniper/mixing"
+msgstr "Dispersion Indicator"
+
+msgid "sniper/mixing/type0"
+msgstr "Circle I (with load indicator)"
+
+msgid "sniper/mixing/type1"
+msgstr "Circle II (with shifting load indicator)"
+
+msgid "sniper/mixing/type2"
+msgstr "Circle III (without load indicator)"
+
+msgid "sniper/net"
+msgstr "Indicator"
+
+msgid "sniper/net/type0"
+msgstr "Diagonal"
+
+msgid "sniper/net/type1"
+msgstr "Horizontal"
+
+msgid "sniper/net/type2"
+msgstr "Radial"
+
+msgid "sniper/net/type3"
+msgstr "Dashed"
+
+msgid "sniper/reloader"
+msgstr "Load"
+
+msgid "sniper/reloaderTimer"
+msgstr "Loading Timer"
+
+msgid "sound/fieldset/header"
+msgstr "Volume"
+
+msgid "sound/nationalVoices"
+msgstr "Tankers' voices by nation"
+
+msgid "sound/players_notifications"
+msgstr "Notifications from other players"
+
+msgid "sound/soundModes/U01"
+msgstr "User 1"
+
+msgid "sound/soundModes/U02"
+msgstr "User 2"
+
+msgid "sound/soundModes/U03"
+msgstr "User 3"
+
+msgid "sound/soundModes/U04"
+msgstr "User 4"
+
+msgid "sound/soundModes/default"
+msgstr "Standard"
+
+msgid "sound/soundModes/nationalDefault"
+msgstr "National"
+
+msgid "sound/vivox/buttons/capture_devices_refresh"
+msgstr "Refresh Devices"
+
+msgid "sound/vivox/buttons/test_finish"
+msgstr "Finish Test"
+
+msgid "sound/vivox/buttons/test_start"
+msgstr "Start Test"
+
+msgid "sound/vivox/fade_volume"
+msgstr "General Ambiance Level during Chat"
+
+msgid "sound/vivox/master_volume"
+msgstr "Voice Chat Volume"
+
+msgid "sound/vivox/mic_sensitivity"
+msgstr "Microphone Sensitivity"
+
+msgid "sound/vivox/vivox_test"
+msgstr "Vivox Test"
+
+msgid "soundTitle"
+msgstr "Sound"
+
+msgid "sounds/ambient"
+msgstr "Ambiance"
+
+msgid "sounds/arena"
+msgstr "Music"
+
+msgid "sounds/effects"
+msgstr "Effects"
+
+msgid "sounds/gui"
+msgstr "Interface Sound Effects"
+
+msgid "sounds/masterVolume"
+msgstr "General Volume Level"
+
+msgid "sounds/vehicles"
+msgstr "Vehicle"
+
+msgid "sounds/voice"
+msgstr "Voice Messages"
+
+msgid "title"
+msgstr "Settings"
+
+msgid "tripleBuffered"
+msgstr "Triple buffering"
+
+msgid "vertSync"
+msgstr "Vertical synchronization"
+
+msgid "vertSync/Off"
+msgstr "OFF"
+
+msgid "vertSync/On"
+msgstr "ON"
+
+msgid "vertSync/description"
+msgstr ""
+"Synchronization of frame rate with monitor refresh rate.\n"
+"\n"
+"60 frames per second is the frame rate limit. This option may help correct a "
+"shaking image effect or image delay at the bottom of the screen relative to "
+"the top."
+
+msgid "vibro/device/state/connected"
+msgstr "Status: connected"
+
+msgid "vibro/device/state/notConnected"
+msgstr "Status: disconnected"
+
+msgid "vibro/fieldset/header"
+msgstr "Gametrix JetSeat"
+
+msgid "vibro/labels/acceleration"
+msgstr "Acceleration"
+
+msgid "vibro/labels/collisions"
+msgstr "Collisions"
+
+msgid "vibro/labels/damage"
+msgstr "Damage"
+
+msgid "vibro/labels/engine"
+msgstr "Engine"
+
+msgid "vibro/labels/gain"
+msgstr "Effects intensity"
+
+msgid "vibro/labels/gui"
+msgstr "Effects"
+
+msgid "vibro/labels/hits"
+msgstr "Hits"
+
+msgid "vibro/labels/shots"
+msgstr "Gun loading and fire"
+
+msgid "voice_chat/PTT"
+msgstr "Push-to-Talk"
+
+msgid "voice_chat/fieldset/header"
+msgstr "Voice Chat"
+
+msgid "voice_chat/header/common"
+msgstr "General"
+
+msgid "voice_chat/header/microphone"
+msgstr "Microphone"
+
+msgid "voice_chat/header/speakers"
+msgstr "Headphones"
+
+msgid "voice_chat/microphone"
+msgstr "Microphone"
+
+msgid "voice_chat/microphoneEnabled"
+msgstr "Enable microphone"
+
+msgid "voice_chat/voiceChatEnable"
+msgstr "Enable voice chat"
+
+msgid "windowSize"
+msgstr "Window Size"
+
+msgid "windowSize/description"
+msgstr ""
+"Horizontal and vertical screen resolution of game client window. When "
+"switching to a fullscreen mode, the setting changes to \"Screen Resolution\"."
+
+msgid "windowTitle"
+msgstr "W.o.T. Client"
