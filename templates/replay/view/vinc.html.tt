@@ -3,5 +3,12 @@
 [% incfile   = incpath _ file %]
 [% defpath   = 'version/default/' %]
 [% deffile   = defpath _ file %]
-[% incfile %]
-[% deffile %]
+[% TRY %]
+    [% INCLUDE $incfile %]
+[% CATCH %]
+    [% TRY %]
+        [% INCLUDE $deffile %}
+    [% CATCH %]
+        <em>Error including: [% file %]</em>
+    [% END %]
+[% END %]
