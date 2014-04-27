@@ -7,6 +7,7 @@ use WR::Provider::Mapgrid;
 use File::Slurp qw/read_file/;
 use Time::HiRes qw/gettimeofday tv_interval/;
 use WR::Mission;
+use JSON::XS;
 
 sub load_replay {
     my $self = shift;
@@ -373,7 +374,12 @@ sub view {
             } elsif($r == -1 ) {
                 return;
             } else {
-                $self->actual_view_replay($replay, $start);
+                if($self->stash('format') eq 'json') {
+                    my $j = JSON::XS->new->pretty(1)->allow_blessed(1)->convert_blessed(1);
+                    $self->render(data => $j->encode($replay), format => 'json');
+                } else {
+                    $self->actual_view_replay($replay, $start);
+                }
             }
         } else {
             $self->redirect_to('/');
