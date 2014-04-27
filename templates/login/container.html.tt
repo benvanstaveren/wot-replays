@@ -10,6 +10,16 @@
         <a id="na" type="button" class="please-wait btn btn-primary btn-lg btn-block" href="/login/na">North America</a>
     </div>
 </div>
+<div class="row locationselect">
+    <div class="col-lg-4 col-md-4">
+        <a id="ru" type="button" class="please-wait btn btn-primary btn-lg btn-block" href="/login/ru">Russia</a>
+    </div>
+    <div class="col-lg-4 col-md-4">
+        <a id="kr" type="button" class="please-wait btn btn-primary btn-lg btn-block" href="/login/kr">Korea</a>
+    </div>
+    <div class="col-lg-4 col-md-4">
+    </div>
+</div>
 [% IF notify.defined %]
 <script type="text/javascript">
     $(document).ready(function() {
