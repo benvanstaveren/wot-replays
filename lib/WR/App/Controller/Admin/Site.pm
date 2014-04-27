@@ -2,6 +2,18 @@ package WR::App::Controller::Admin::Site;
 use Mojo::Base 'WR::App::Controller';
 use Mango::BSON;
 
+sub notifications {
+    my $self = shift;
+
+    $self->render_later;
+
+    $self->model('wot-replays.notifications')->find()->sort({ _ctime => -1 })->all(sub {
+        my ($c, $e, $docs) = (@_);
+
+        $self->respond(template => 'admin/site/notifications', stash => { notifications => $docs, page => { title => 'Site - Notifications' } });
+    });
+}
+
 sub replays {
     my $self = shift;
     my $page = $self->stash('page');

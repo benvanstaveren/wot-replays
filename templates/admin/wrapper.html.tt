@@ -41,6 +41,7 @@
                         <ul class="dropdown-menu">
                             <li><a href="/admin/site/replays/page/1">Replays</a></li>
                             <li><a href="/admin/site/uploads/page/1">Uploads</a></li>
+                            <li><a href="/admin/site/notifications">Notifications</a></li>
                         </ul>
                     [% END %]
                     [% IF h.has_admin_role('events') %]
