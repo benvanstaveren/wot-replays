@@ -1,0 +1,639 @@
+msgid "Alarm_flags"
+msgstr "Bendera Isyarat"
+
+msgid "Chassis_Chi_Ha"
+msgstr "Type 97 Chi-Ha"
+
+msgid "Chassis_Chi_Ha_2"
+msgstr "Type 97 Chi-Ha Kai"
+
+msgid "Chassis_Chi_He"
+msgstr "Type 1 Chi-He"
+
+msgid "Chassis_Chi_He_2"
+msgstr "Type 2 Ho-I"
+
+msgid "Chassis_Chi_Ni"
+msgstr "Medium Tank Plan 2"
+
+msgid "Chassis_Chi_Ni_2"
+msgstr "Chi-Ni"
+
+msgid "Chassis_Chi_Nu"
+msgstr "New Medium Tank Hei (19)"
+
+msgid "Chassis_Chi_Nu_2"
+msgstr "Type 3 Chi-Nu"
+
+msgid "Chassis_Chi_Nu_Kai"
+msgstr "Type 3 Chi-Nu Kai"
+
+msgid "Chassis_Chi_Ri"
+msgstr "Type 5 Chi-Ri Plan 1"
+
+msgid "Chassis_Chi_Ri_2"
+msgstr "Type 5 Chi-Ri Plan 2"
+
+msgid "Chassis_Chi_To"
+msgstr "Type 4 Chi-To Prototype"
+
+msgid "Chassis_Chi_To_2"
+msgstr "Type 4 Chi-To Production"
+
+msgid "Chassis_Ha_Go"
+msgstr "Type 95 Ha-Go"
+
+msgid "Chassis_Ha_Go_2"
+msgstr "Type 4 Ke-Nu"
+
+msgid "Chassis_Ke_Ho"
+msgstr "Type 5 Ke-Ho"
+
+msgid "Chassis_Ke_Ho_2"
+msgstr "Type 5 Ke-Ho Kai"
+
+msgid "Chassis_Ke_Ni"
+msgstr "Type 98 Ke-Ni"
+
+msgid "Chassis_Ke_Ni_2"
+msgstr "Type 2 Ke-To"
+
+msgid "Chassis_Ke_Ni_B"
+msgstr "Type 98 Ke-Ni Otsu"
+
+msgid "Chassis_NC27"
+msgstr "Renault NC-27"
+
+msgid "Chassis_NC27_2"
+msgstr "Renault Otsu"
+
+msgid "Chassis_STA_1"
+msgstr "STA-1"
+
+msgid "Chassis_STA_1_2"
+msgstr "STA-3"
+
+msgid "Chassis_ST_B1"
+msgstr "STB-1"
+
+msgid "Chassis_Type_61"
+msgstr "STA-4"
+
+msgid "Chassis_Type_61_2"
+msgstr "Type 61"
+
+msgid "Chi_Ha"
+msgstr "Type 97 Chi-Ha"
+
+msgid "Chi_Ha_descr"
+msgstr ""
+"Dibangunkan oleh Mitsubishi dari tahun 1935 hingga 1937. Kenderaan ini telah "
+"dihasilkan secara besar-besaran dari tahun 1938 hingga 1942 bersama-sama "
+"Shinhoto Chi-Ha yang dinaik taraf dari tahun 1941 hingga 1942. Sejumlah "
+"2,880 kenderaan kedua-dua jenis telah dikeluarkan. Kereta kebal Chi-Ha dan "
+"Shinhoto Chi-Ha digunakan secara meluas oleh angkatan Jepun di China, dan "
+"selepas Jepun menyerah kalah ia digunakan oleh kedua-dua angkatan PLA dan "
+"Kuomintang dalam Perang Saudara China dari tahun 1946 hingga 1949."
+
+msgid "Chi_Ha_short"
+msgstr "Chi-Ha"
+
+msgid "Chi_He"
+msgstr "Type 1 Chi-He"
+
+msgid "Chi_He_descr"
+msgstr ""
+"Kereta kebal sederhana Type 1 Chi-He dibangunkan pada tahun 1941. Kenderaan "
+"ini merupakan pembangunan lanjutan dari Type 97 Chi-Ha. Bagaimanapun, "
+"disebabkan kekurangan bahan keluli, hanya 170 buah dihasilkan. Kebanyakannya "
+"digunakan untuk mempertahankan tanah Jepun dan tidak pernah bertempur."
+
+msgid "Chi_He_short"
+msgstr "Chi-He"
+
+msgid "Chi_Ni"
+msgstr "Chi-Ni"
+
+msgid "Chi_Ni_descr"
+msgstr ""
+"Dibangunkan oleh Senjata Artileri Osaka sebagai pengganti Type 2589. Chi-Ni "
+"dan Chi-Ha menjalani ujian bersama pada tahun 1937. Chi-Ha dianggap lebih "
+"berjaya. Hanya satu prototaip dikeluarkan."
+
+msgid "Chi_Ni_short"
+msgstr "Chi-Ni"
+
+msgid "Chi_Nu"
+msgstr "Type 3 Chi-Nu"
+
+msgid "Chi_Nu_Kai"
+msgstr "Type 3 Chi-Nu Kai"
+
+msgid "Chi_Nu_Kai_descr"
+msgstr ""
+"Kereta kebal sederhana Type 3 Chi-Nu Kai adalah sebuah gabungan suspensi dan "
+"menara meriam Type 3 Chi-Nu dengan meriam Type 4 Chi-To. Hanya sebuah "
+"prototaip dibina. Ianya sedia untuk ujian pada bulan Mac 1945."
+
+msgid "Chi_Nu_Kai_short"
+msgstr "Chi-Nu Kai"
+
+msgid "Chi_Nu_descr"
+msgstr ""
+"Kereta kebal sederhana Type 3 Chi-Nu merupakan pengubahsuaian Type 1 Chi-He "
+"dengan menara meriam dan meriam baru. Kereta kebal ini merupakan yang paling "
+"berkuasa dalam kalangan kereta kebal lain yang dihasilkan secara besar-"
+"besaran oleh Jepun semasa peperangan. Bagaimanapun, hanya sejumlah 60 "
+"kenderaan ini telah dikeluarkan akibat kekurangan komponen dan bahan-bahan."
+
+msgid "Chi_Nu_short"
+msgstr "Chi-Nu"
+
+msgid "Chi_Ri"
+msgstr "Type 5 Chi-Ri"
+
+msgid "Chi_Ri_descr"
+msgstr ""
+"Sebuah prototaip dihasilkan pada permulaan tahun 1945. Kenderaan ini "
+"menjalani ujian dan disyorkan untuk memasuki perkhidmatan. Bagaimanapun, "
+"Jepun telah ditewaskan sebelum penghasilan secara besar-besaran kenderaan "
+"ini dimulakan. Selepas menyerah kalah, prototaip tersebut dirampas oleh "
+"pihak berkuasa jajahan Amerika dan dihantar ke Amerika Syarikat."
+
+msgid "Chi_Ri_short"
+msgstr "Chi-Ri"
+
+msgid "Chi_To"
+msgstr "Type 4 Chi-To"
+
+msgid "Chi_To_descr"
+msgstr ""
+"Kereta kebal sederhana Chi-To dibangunkan pada tahun 1943 berdasarkan Chi-"
+"Nu. Kenderaan ini telah diilhamkan sebagai pengganti Chi-Ha. Bagaimanapun, "
+"penghasilan secara besar-besaran tidak dapat dilancarkan kerana kekurangan "
+"bahan-bahan dan komponen. Sejumlah enam rangka cesi dihasilkan dan hanya dua "
+"kenderaan dibina menggunakannya."
+
+msgid "Chi_To_short"
+msgstr "Chi-To"
+
+msgid "Ha_Go"
+msgstr "Type 95 Ha-Go"
+
+msgid "Ha_Go_descr"
+msgstr ""
+"Kereta kebal ringan Jepun yang juga dikenali sebagai Type 95. Dibangunkan "
+"dari tahun 1933 hingga 1935. Sejumlah 2,378 kenderaan telah dihasilkan "
+"secara besar-besaran dari tahun 1936 hingga 1943."
+
+msgid "Ha_Go_short"
+msgstr "Ha-Go"
+
+msgid "JAN-GRC-3Z"
+msgstr "JAN/GRC-3Z"
+
+msgid "JAN-GRC-4Z"
+msgstr "JAN/GRC-4Z"
+
+msgid "Ke_Ho"
+msgstr "Type 5 Ke-Ho"
+
+msgid "Ke_Ho_descr"
+msgstr ""
+"Menjelang tahun 1945, reka bentuk Type 95 Ha-Go sudah dianggap usang. Pada "
+"tahun 1942, syarikat Hino Jidosha mula membangunkan kereta kebal baru. "
+"Sebuah prototaip yang ditetapkan sebagai Type 5 Ke-Ho dihasilkan pada tahun "
+"1944. Reka bentuknya serupa dengan LT vz.38 dari Czechoslovakia dan Chi-Ha "
+"dari Jepun sendiri. Bagaimanapun, kenderaan ini tidak memasuki penghasilan "
+"secara besar-besaran."
+
+msgid "Ke_Ho_short"
+msgstr "Ke-Ho"
+
+msgid "Ke_Ni"
+msgstr "Type 98 Ke-Ni"
+
+msgid "Ke_Ni_B"
+msgstr "Type 98 Ke-Ni Otsu"
+
+msgid "Ke_Ni_B_descr"
+msgstr ""
+"Sebuah pengubahsuaian kereta kebal ringan Type 98A Ke-Ni dengan suspensi "
+"jenis Christie. Dibangunkan oleh Mitsubishi pada tahun 1939 dan dipengaruhi "
+"oleh kenderaan Soviet BT-7. Hanya satu prototaip dikeluarkan."
+
+msgid "Ke_Ni_B_short"
+msgstr "Ke-Ni Otsu"
+
+msgid "Ke_Ni_descr"
+msgstr ""
+"Sebuah pengubahsuaian lanjutan Ha-Go oleh Hino Jidosha Kogyo. Walaupun ciri-"
+"cirinya telah dinaiktaraf, kereta kebal ini tidak menggantikan Ha-Go. Lebih "
+"kurang 100 buah kenderaan dikeluarkan oleh Mitsubishi dan Hino."
+
+msgid "Ke_Ni_short"
+msgstr "Ke-Ni"
+
+msgid "Mitsubishi"
+msgstr "Mitsubishi A475VD"
+
+msgid "NC27"
+msgstr "Renault Otsu"
+
+msgid "NC27_descr"
+msgstr ""
+"Dibangunkan dari tahun 1925 hingga 1928 di Perancis sebagai pengubahsuaian "
+"naik taraf Renault FT. Projek pemodenan ini disiapkan dan kenderaan ini mula "
+"dihasilkan secara besar-besaran. Pada tahun 1929, sejumlah 10 kenderaan "
+"telah dibeli oleh Jepun dan ditetapkan sebagai Otsu-Gata Sensha (Tank B "
+"Model). Kenderaan-kenderaan Jepun telah dimodenkan sedikit dan digunakan "
+"secara meluas dalam pertempuran dan latihan."
+
+msgid "NC27_short"
+msgstr "R. Otsu"
+
+msgid "STA_1"
+msgstr "STA-1"
+
+msgid "STA_1_descr"
+msgstr ""
+"Kereta kebal Jepun pertama pasca perang dibangunkan berdasarkan kenderaan "
+"Amerika Syarikat. STA-1 dibangunkan dengan mengambil kira rupa muka bumi "
+"Jepun, spesifikasi rangkaian landasan kereta api dan data antropometri kru "
+"Jepun. Hanya satu prototaip dibina pada bulan Disember 1956."
+
+msgid "STA_1_short"
+msgstr "STA-1"
+
+msgid "ST_B1"
+msgstr "STB-1"
+
+msgid "ST_B1_descr"
+msgstr ""
+"Pada awal 1960an, Mitsubishi memulakan pembangunan kereta kebal baru yang "
+"menepati keperluan kerajaan untuk persenjataan dan pertahanan. Dua prototaip "
+"pertama STB-1 telah dikeluarkan pada bulan September 1969 untuk ujian. Pada "
+"tahun 1970 prototaip-prototaip tersebut dipersembahkan kepada wartawan dan "
+"menyertai perarakan ketenteraan."
+
+msgid "ST_B1_short"
+msgstr "STB-1"
+
+msgid "Turret_1_Chi_Ha"
+msgstr "Type 97 Chi-Ha"
+
+msgid "Turret_1_Chi_He"
+msgstr "Type 1 Chi-He"
+
+msgid "Turret_1_Chi_Ni"
+msgstr "Chi-Ni"
+
+msgid "Turret_1_Chi_Nu"
+msgstr "Type 4 Chi-To I-Go"
+
+msgid "Turret_1_Chi_Nu_Kai"
+msgstr "Type 3 Chi-Nu Kai"
+
+msgid "Turret_1_Chi_Ri"
+msgstr "Type 5 Chi-Ri Plan 1"
+
+msgid "Turret_1_Chi_To"
+msgstr "Type 4 Chi-To Prototype"
+
+msgid "Turret_1_Ha_Go"
+msgstr "Type 95 Ha-Go"
+
+msgid "Turret_1_Ke_Ho"
+msgstr "Type 5 Ke-Ho"
+
+msgid "Turret_1_Ke_Ni"
+msgstr "Type 98 Ke-Ni"
+
+msgid "Turret_1_Ke_Ni_B"
+msgstr "Type 98 Ke-Ni Otsu"
+
+msgid "Turret_1_NC27"
+msgstr "Renault Kou"
+
+msgid "Turret_1_STA_1"
+msgstr "STA-1"
+
+msgid "Turret_1_ST_B1"
+msgstr "STB-1"
+
+msgid "Turret_1_Type_61"
+msgstr "STA-4"
+
+msgid "Turret_2_Chi_Ha"
+msgstr "Type 97 Chi-Ha Shinhoto"
+
+msgid "Turret_2_Chi_He"
+msgstr "Type 2 Ho-I"
+
+msgid "Turret_2_Chi_Nu"
+msgstr "Type 3 Chi-Nu"
+
+msgid "Turret_2_Chi_Ri"
+msgstr "Type 5 Chi-Ri Plan 2"
+
+msgid "Turret_2_Chi_To"
+msgstr "Type 4 Chi-To Production"
+
+msgid "Turret_2_Ha_Go"
+msgstr "Type 4 Ke-Nu"
+
+msgid "Turret_2_Ke_Ni"
+msgstr "Type 2 Ke-To"
+
+msgid "Turret_2_NC27"
+msgstr "Renault Otsu"
+
+msgid "Turret_2_STA_1"
+msgstr "STA-3"
+
+msgid "Turret_2_Type_61"
+msgstr "Type 61"
+
+msgid "Type_61"
+msgstr "Type 61"
+
+msgid "Type_61_descr"
+msgstr ""
+"Kereta kebal pertama yang dibangunkan di Jepun selepas Perang Dunia ke-II "
+"tamat. Dibangunkan dari tahun 1954 hingga 1961 berdasarkan kereta kebal "
+"Amerika M47. Dimensi kenderaan telah dikecilkan dan perisainya dikurangkan. "
+"Hasilnya, kereta kebal tersebut menjadi lebih ringan dan mengikuti kehendak "
+"angkatan tentera Jepun."
+
+msgid "Type_61_short"
+msgstr "Type 61"
+
+msgid "_105mm_APDS_L28A1"
+msgstr "L28A1"
+
+msgid "_105mm_HEAT-T_T384E4"
+msgstr "M456"
+
+msgid "_105mm_HEPT_Type75"
+msgstr "Type 75"
+
+msgid "_105mm_Rifled_Gun"
+msgstr "105 mm Rifled Gun"
+
+msgid "_13.2mm_AP"
+msgstr "Type 92"
+
+msgid "_13.2mm_Balle_T.P."
+msgstr "Balle T.P."
+
+msgid "_13.2mm_Type93"
+msgstr "13 mm Autocannon Type Ho"
+
+msgid "_37mm_APHE_Ichi_Go"
+msgstr "Ichi-Go"
+
+msgid "_37mm_APHE_Type1"
+msgstr "Type 1"
+
+msgid "_37mm_APHE_Type1_Kai"
+msgstr "Type 1 Kai"
+
+msgid "_37mm_APHE_Type94"
+msgstr "Type 94"
+
+msgid "_37mm_APX_SA18"
+msgstr "37 mm APX SA18"
+
+msgid "_37mm_AP_Type4"
+msgstr "Type 4"
+
+msgid "_37mm_FrtPrf1935"
+msgstr "Frt.Prf. mle. 1935"
+
+msgid "_37mm_HE_Type12"
+msgstr "Type 12"
+
+msgid "_37mm_HE_Type4"
+msgstr "Type 4"
+
+msgid "_37mm_HE_Type4_Kai"
+msgstr "Type 4 Kai"
+
+msgid "_37mm_OE_mle._1916"
+msgstr "OE mle. 1916"
+
+msgid "_37mm_Odr_mle._1935"
+msgstr "ODR mle. 1935"
+
+msgid "_37mm_Sogekiho"
+msgstr "37 mm Sogekihou"
+
+msgid "_37mm_Type1"
+msgstr "37 mm Gun Type 1"
+
+msgid "_37mm_Type11"
+msgstr "37 mm Infantry Gun Type 11"
+
+msgid "_37mm_Type_100"
+msgstr "37 mm Gun Type 100"
+
+msgid "_37mm_Type_100_1"
+msgstr "37 mm Gun Type 100"
+
+msgid "_37mm_Type_94"
+msgstr "37 mm Gun Type 94"
+
+msgid "_37mm_Type_98"
+msgstr "37 mm Gun Type 98"
+
+msgid "_47mm_APHE_Type1"
+msgstr "Type 1"
+
+msgid "_47mm_APHE_Type1_TK"
+msgstr "Type 1 Toku Kou"
+
+msgid "_47mm_Gun_Type1"
+msgstr "47 mm Gun Type 1"
+
+msgid "_47mm_HE_Type94"
+msgstr "Type 94"
+
+msgid "_57mm_APHE_Type1"
+msgstr "Type 1"
+
+msgid "_57mm_APHE_Type1_TK"
+msgstr "Type 1 Toku Kou"
+
+msgid "_57mm_AP_Type97"
+msgstr "Type 92"
+
+msgid "_57mm_Gun_Shin"
+msgstr "Experimental 57 mm Tank Gun Shin"
+
+msgid "_57mm_Gun_Type97"
+msgstr "5.7 cm Gun Type 97"
+
+msgid "_57mm_HEAT_Type97"
+msgstr "Type 3"
+
+msgid "_57mm_HE_Type2"
+msgstr "Type 2"
+
+msgid "_57mm_HE_Type97"
+msgstr "Type 90"
+
+msgid "_62CV"
+msgstr "Renault L4"
+
+msgid "_75mm_APHE_Type1_185"
+msgstr "Type 1 185R"
+
+msgid "_75mm_AP_Type_1_424"
+msgstr "Type 1 424R"
+
+msgid "_75mm_AP_Type_1_604"
+msgstr "Type 1 604R"
+
+msgid "_75mm_AP_Type_1_SK_604"
+msgstr "Type 1 Toku Kou 604R"
+
+msgid "_75mm_AP_Type_1_TKK_604"
+msgstr "Type 1 Toku Kou Kai"
+
+msgid "_75mm_AP_Type_1_TK_424"
+msgstr "Type 1 Toku Kou 424R"
+
+msgid "_75mm_AP_Type_1_TO_604"
+msgstr "Type 1 Toku Otsu"
+
+msgid "_75mm_Gun_Type3"
+msgstr "7.5 cm Tank Gun Type 3"
+
+msgid "_75mm_Gun_Type5"
+msgstr "7.5 cm Tank Gun Type 5"
+
+msgid "_75mm_Gun_Type5_M1"
+msgstr "7.5 cm Tank Gun Type 5 Model I"
+
+msgid "_75mm_Gun_Type5_M1_auto"
+msgstr "7.5 cm Autoloading Tank Gun Type 5"
+
+msgid "_75mm_Gun_Type_99"
+msgstr "7.5 cm Tank Gun Type 99"
+
+msgid "_75mm_HEAT_Type2_185"
+msgstr "Type 2"
+
+msgid "_75mm_HE_Type94_185"
+msgstr "Type 94 185R"
+
+msgid "_75mm_HE_Type_4_604"
+msgstr "Type 4 604R"
+
+msgid "_75mm_HE_Type_4_K_604"
+msgstr "Type 4 Kai"
+
+msgid "_75mm_HE_Type_94_424"
+msgstr "Type 94 424R"
+
+msgid "_75mm_Type5_1"
+msgstr "7.5 cm Tank Gun Type 5"
+
+msgid "_90mm_AP_M318A1"
+msgstr "M318A1"
+
+msgid "_90mm_AP_M82_late"
+msgstr "M82 late"
+
+msgid "_90mm_Gun_M3A1"
+msgstr "90 mm Gun M3A1"
+
+msgid "_90mm_Gun_Type61"
+msgstr "90 mm Gun Type 61"
+
+msgid "_90mm_HEAT_Type70"
+msgstr "Type 70"
+
+msgid "_90mm_HE_M71"
+msgstr "M71"
+
+msgid "_90mm_HVAP_M304"
+msgstr "M304"
+
+msgid "_90mm_Rifled_Gun"
+msgstr "90 mm Rifled Gun"
+
+msgid "_A6120VDe"
+msgstr "Mitsubishi A6120VDe"
+
+msgid "_A6120VDe_S"
+msgstr "Mitsubishi A6120VDe S"
+
+msgid "_Hei"
+msgstr "Hei"
+
+msgid "_Mitsubishi_10ZF21WT"
+msgstr "Mitsubishi 10ZF21WT"
+
+msgid "_Mitsubishi_12HM20WT"
+msgstr "Mitsubishi 12HM20WT"
+
+msgid "_Mitsubishi_12HM21WT"
+msgstr "Mitsubishi 12HM21WT"
+
+msgid "_Mitsubishi_DL10T"
+msgstr "Mitsubishi DL10T"
+
+msgid "_Type100_A"
+msgstr "Type 100 Kuurei V-12"
+
+msgid "_Type100_A_1"
+msgstr "Type 100 V-12"
+
+msgid "_Type100_V12_Kakyuu"
+msgstr "Type 100 Kakyuu V-12"
+
+msgid "_Type100_V6_A_1"
+msgstr "Mitsubishi Type 100 V-6 A"
+
+msgid "_Type100_V6_Kakyuu"
+msgstr "Type 100 Kakyuu V-6"
+
+msgid "_Type100_V6_Kuurei"
+msgstr "Type 100 Kuurei V-6"
+
+msgid "_Type100_W"
+msgstr "Type 100 Suirei V-12"
+
+msgid "_Type3_Ko"
+msgstr "Type 3 Ko"
+
+msgid "_Type3_Otsu"
+msgstr "Type 3 Otsu"
+
+msgid "_Type4_V12_Kakyuu"
+msgstr "Mitsubishi AL Type 4 Kakyuu V-12"
+
+msgid "_Type4_V12_Kuurei"
+msgstr "Mitsubishi AL Type 4 Kuurei V-12"
+
+msgid "_Type67"
+msgstr "Type 67"
+
+msgid "_Type94_Hei"
+msgstr "Type 94 Mk. 4 Hei"
+
+msgid "_Type94_Hei_1"
+msgstr "Type 94 Mk. 4 Hei Kai"
+
+msgid "_Type94_Otsu"
+msgstr "Type 94 Mk. 4 Otsu"
+
+msgid "_Type96_Bo"
+msgstr "Type 96 Mk. 4 Bo"
+
+msgid "_Type97"
+msgstr "Mitsubishi SA12200VD"
+
+msgid "_Type98_V12"
+msgstr "Kawasaki Type 98 V-12"

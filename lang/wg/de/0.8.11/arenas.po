@@ -1,0 +1,496 @@
+msgid "00_planb_testsite/description"
+msgstr "?empty?"
+
+msgid "00_planb_testsite/name"
+msgstr "Übungsgelände"
+
+msgid "00_tank_tutorial/description"
+msgstr "?empty?"
+
+msgid "00_tank_tutorial/name"
+msgstr "Übungsgelände"
+
+msgid "01_karelia/description"
+msgstr ""
+"Zwei Hauptangriffslinien werden durch den Sumpf getrennt. Die östliche Seite "
+"ist durch seine Felsen gut zu verteidigen, kann aber durch eine flinke "
+"Angriffsgruppe durchstoßen werden. Die Westseite ist für einen schnellen "
+"Vorstoß geeignet. Ein Angriff durch den Sumpf ist zwar gewagt, aber "
+"vielleicht unerwartet."
+
+msgid "01_karelia/name"
+msgstr "Karelien"
+
+msgid "02_malinovka/description"
+msgstr ""
+"Die beiden durch eine offene Fläche getrennten Bereitstellungsräume sind "
+"ideal für Artillerie- und Verteidigungsoperationen. Nutzen Sie "
+"Flankenmanöver und die vorhandenen Deckungsmöglichkeiten (Wälder, Hügel und "
+"Bauernhöfe), da diese entscheidend sein können. Eine weitere Option ist ein "
+"gut koordinierter schneller Vorstoß über das offene Feld, der den Sieg "
+"bringen könnte, verbunden mit dem Risiko hoher Verluste."
+
+msgid "02_malinovka/name"
+msgstr "Malinowka"
+
+msgid "03_campania/description"
+msgstr ""
+"Die Hügel am Rand der Karte sind mit unzähligen Häusern und sich windenden "
+"Straßen überdeckt und eignen sich für Überraschungsangriffe. Die offene "
+"Fläche zwischen den Basen eignet sich für wagemutige Vorstöße."
+
+msgid "03_campania/name"
+msgstr "Provinz"
+
+msgid "04_himmelsdorf/description"
+msgstr ""
+"Ein Irrgarten aus Straßen und Plätzen, unpassierbar für Artilleriefahrzeuge "
+"und Jagdpanzer, aber ideale Gelände für einen schnellen Durchbruch mit "
+"mittleren und leichten Fahrzeugen. Nutzen Sie die Zufahrtsstraßen zum "
+"Schlossberg, der das Gebiet beherrscht, und entlang der Eisenbahnstrecken, "
+"um eine verfahrene Situation zu verbessern."
+
+msgid "04_himmelsdorf/name"
+msgstr "Himmelsdorf"
+
+msgid "05_prohorovka/description"
+msgstr ""
+"Im Großen und Ganzen offenes, aber hügeliges Gelände entlang einer "
+"Bahnlinie, Baumgruppen bieten Deckung für Jagdpanzer. Achten Sie auf Ihre "
+"Flanken, wenn Sie gegen die gegnerischen Flanken vorgehen. Die Artillerie "
+"hat hier gute Voraussetzungen, auch wenn sie durch Angriffe leichter "
+"Fahrzeuge verwundbar ist."
+
+msgid "05_prohorovka/name"
+msgstr "Prokhorowka"
+
+msgid "06_ensk/description"
+msgstr ""
+"Eine Mischung aus Stadtrand und waldigem Vorort, geteilt durch Gleise. "
+"Berücksichtigen Sie bei der Wahl Ihrer Taktik die verteidigungstechnisch "
+"relevanten Engstellen und positionieren Sie Ihre Fahrzeuge strategisch im "
+"offenen Gelände. Die Artillerie ist hervorragend geeignet, feindliche "
+"Vorstöße abzuwehren, kann aber feindlichen Panzern, die aus der Deckung "
+"angreifen, fast nichts entgegensetzen."
+
+msgid "06_ensk/name"
+msgstr "Ensk"
+
+msgid "07_lakeville/description"
+msgstr ""
+"Ein isoliertes Tal auf der einen Flanke und die Häuserzeilen auf der anderen "
+"ermöglichen es Ihnen, nahe an den Feind heranzurücken. Der große See in der "
+"Mitte gibt guten Schützen die Möglichkeit, ihre Fertigkeit über extreme "
+"Reichweite unter Beweis zu stellen."
+
+msgid "07_lakeville/name"
+msgstr "Lakeville"
+
+msgid "08_ruinberg/description"
+msgstr ""
+"Die Ringstraßen der Stadt, zusammen mit dichten Wäldern und Sträuchern im "
+"verwilderten Park erlauben verdeckte Manöver und die Umgruppierung Ihrer "
+"Truppen. Obwohl Artilleriefeuer im Stadtgebiet nur beschränkt einsetzbar "
+"ist, bietet der Schutt wirksame Deckung für Ihre Truppen."
+
+msgid "08_ruinberg/name"
+msgstr "Ruinberg"
+
+msgid "10_hills/description"
+msgstr ""
+"Das Plateau in der Mitte bietet die perfekte Ausgangsposition für Ihre "
+"Angriffe. Das Dorf im Nordosten des Plateaus und die westlich gelegene Insel "
+"eröffnen taktische Vorteile, sind allerdings vom Plateau aus angreifbar."
+
+msgid "10_hills/name"
+msgstr "Minen"
+
+msgid "11_murovanka/description"
+msgstr ""
+"Sümpfe, Hügelketten und Schluchten bestimmen Ihre Taktik. Der Mangel an "
+"Gebäuden gibt der Artillerie einen strategischen Vorteil. Das Konzentrieren "
+"Ihres Angriffs entlang einer Richtung kann sich als die beste Strategie "
+"erweisen."
+
+msgid "11_murovanka/name"
+msgstr "Murowanka"
+
+msgid "13_erlenberg/description"
+msgstr ""
+"Zweigeteilt durch einen Fluss, gibt es drei Haupt-Angriffswege. Die mittlere "
+"Brücke befindet sich in den Überresten einer kleinen Stadt. Das Gelände an "
+"der Süd- und Nordbrücke bietet einige Versteckmöglichkeiten. Die Burg und "
+"die gegenüberliegende Hügelkette sind gute Feuerstellungen für die "
+"Artillerie."
+
+msgid "13_erlenberg/name"
+msgstr "Erlenberg"
+
+msgid "14_siegfried_line/description"
+msgstr ""
+"Diese Karte ist eine Kombination aus offenen Flächen und bebautem Gebiet. "
+"Verwinkelte Gassen helfen bei Ihrem Überraschungsangriff hinter die "
+"feindlichen Linien, vielzählige Bunker dienen als Deckung."
+
+msgid "14_siegfried_line/name"
+msgstr "Siegfriedlinie"
+
+msgid "15_komarin/description"
+msgstr ""
+"Die Karte ist in drei Sektoren unterteilt: West, Mitte und Ost. Obwohl "
+"Flankenangriffe den Ausgang bestimmen könnten, bietet der mittlere Sektor "
+"ebenso taktische Vorteile und sollte nicht außer Acht gelassen werden."
+
+msgid "15_komarin/name"
+msgstr "Komarin"
+
+msgid "17_munchen/description"
+msgstr ""
+"Diese Karte stellt eine durch den Krieg verwüstete Industriestadt dar. Ein "
+"Gleisdamm teilt die Karte in zwei Hälften, was ein Konzentrieren der Kräfte "
+"für Angriff oder Gegenangriff erleichtert."
+
+msgid "17_munchen/name"
+msgstr "Weitpark"
+
+msgid "18_cliff/description"
+msgstr ""
+"Die Basen der Teams sind durch Felsvorsprünge und Grate getrennt. "
+"Vielzählige Versteckmöglichkeiten ermöglichen gezielte Angriffe in "
+"entscheidende Richtungen. Die Mitte könnte sich als ideal für einen "
+"Durchstoß erweisen, jedoch sollte man auf seine Flanken achten!"
+
+msgid "18_cliff/name"
+msgstr "Klippe"
+
+msgid "19_monastery/description"
+msgstr ""
+"Das Kloster und das Dorf sind zentrale Punkte der Karte. Drei Straßen, die "
+"von Nord nach Süd laufen, bieten schnellen Zugriff auf die gegenüberliegende "
+"Seite. Der Innenhof des Klosters bietet gute, aber einsehbare "
+"Feuerstellungen für Panzer und Artillerie. Der langgestreckte Hügel im "
+"Westen und die Schlucht im Osten bieten gute Deckung gegen Feindfeuer."
+
+msgid "19_monastery/name"
+msgstr "Kloster"
+
+msgid "22_slough/description"
+msgstr ""
+"Der Sumpf in der Kartenmitte teilt die Karte in zwei Hauptsektoren. "
+"Kontrolle über die Mitte macht es gegnerischen Einheiten schwer zu "
+"flankieren. Die Hügel bieten zusätzliche Schlüsselpositionen für Aufklärung "
+"und Feuer."
+
+msgid "22_slough/name"
+msgstr "Moor"
+
+msgid "23_westfeld/description"
+msgstr ""
+"Üppige Vegetation mit zahlreichen Wäldern, kleine Dörfer überall und ein "
+"riesiges, verfallenes Aquädukt im Osten zeichnen diese Karte aus. Eine "
+"Vielzahl von Felsvorsprüngen eignet sich hervorragend für Überfallaktionen, "
+"gut einsehbare und offene Flächen machen Stellungswechsel aber riskant."
+
+msgid "23_westfeld/name"
+msgstr "Westfield"
+
+msgid "28_desert/description"
+msgstr ""
+"Auf den ersten Blick mag das Gelände übersichtlich erscheinen, doch der "
+"Schein trügt. Die Häuser des Dorfs bieten gute Deckung gegen Feindfeuer oder "
+"Artillerie. Flankenangriffe sind durch die Dünen und Grate gut gedeckt."
+
+msgid "28_desert/name"
+msgstr "Wadi"
+
+msgid "29_el_hallouf/description"
+msgstr ""
+"Das weitläufige Tal in der Mitte ist gespickt mit Baumgruppen und Felsen. "
+"Die hohen Bergketten an den Seiten des Tals bieten eine Vielzahl von "
+"Feuerstellungen. Das Erobern der gegnerischen Basis könnte ein schwieriges "
+"Unterfangen werden, da die Basen in leicht zu verteidigenden Hügelgelände "
+"liegen."
+
+msgid "29_el_hallouf/name"
+msgstr "El Halluf"
+
+msgid "31_airfield/description"
+msgstr ""
+"Es gibt eine Vielzahl guter Stellungen für Hinterhalte auf dieser Karte, "
+"ebenso viele Möglichkeiten für Manöver und schnelle Vorstöße. Der Flugplatz "
+"im oberen Teil der Karte und das felsige Hochland in der Mitte erfordern "
+"taktisches Geschick. Nehmen Sie das Plateau ein, um einen guten Überblick "
+"über das umliegende Gebiet zu haben und die Zugänge zu den Basen zu "
+"kontrollieren."
+
+msgid "31_airfield/name"
+msgstr "Flugplatz"
+
+msgid "33_fjord/description"
+msgstr ""
+"Hohe Berge und enge Täler bieten große Vorteile im Kampf. Sie können Duelle "
+"über den Golf hinweg austragen, in der nahegelegenen Hafenstadt in den "
+"Nahkampf gehen oder über die Flanke direkt die gegnerische Basis einnehmen."
+
+msgid "33_fjord/name"
+msgstr "Fjorde"
+
+msgid "34_redshire/description"
+msgstr ""
+"Diese Karte ist wirklich einzigartig. Felder und Hügeln wechseln sich hier "
+"ab und bieten Ihnen eine hervorragende Möglichkeit für aggressive Vorstöße. "
+"Der Fluss in der Mitte der Karte ist eher eine sichere Orientierungshilfe "
+"als Hindernis."
+
+msgid "34_redshire/name"
+msgstr "Redshire"
+
+msgid "35_steppes/description"
+msgstr ""
+"Sie können Ihre Truppen auf dieser weitläufigen Karte in vielfältige "
+"Richtungen vorstoßen lassen, doch dünnen Sie diese nicht zu sehr aus. Eine "
+"Straße in der Mitte bringt Sie zwar rasch zur gegnerischen Basis, dort ist "
+"jedoch mit Widerstand zu rechnen. Diese Karte ist ideal für Flankenmanöver "
+"oder Finten."
+
+msgid "35_steppes/name"
+msgstr "Steppen"
+
+msgid "36_fishing_bay/description"
+msgstr ""
+"Auf dieser Karte findet sich ein Wechselspiel aus offenen Flächen und "
+"unwegsamem Gelände. Die engen und winkeligen Gassen der Hafenstadt an der "
+"Flanke können für Angriffe oder Verteidigung dienlich sein. Die mit Büschen "
+"bewachsenen, flachen Hügel bieten hervorragende Möglichkeiten, einen "
+"Hinterhalt zu legen."
+
+msgid "36_fishing_bay/name"
+msgstr "Fischerbucht"
+
+msgid "37_caucasus/description"
+msgstr ""
+"Nutzen Sie das unebene Gelände der Karte aus, um sich vor dem Feindfeuer zu "
+"schützen, Hinterhalte zu legen oder unentdeckt über die sich windenden "
+"Gebirgspfade Ihren Weg in die Feindbasis zu schleichen."
+
+msgid "37_caucasus/name"
+msgstr "Bergpass"
+
+msgid "38_mannerheim_line/description"
+msgstr ""
+"Diese schneebedeckte und felsige Gegend ist reich an unterschiedlichen "
+"Hindernissen und Deckungen. Kurvenreiche Wege um die felsigen Berggruppen "
+"und den Fluss entlang begünstigen Überraschungsangriffe hinter die "
+"feindlichen Linien und bieten unzählige Möglichkeiten für Hinterhalte."
+
+msgid "38_mannerheim_line/name"
+msgstr "Polargebiet"
+
+msgid "39_crimea/description"
+msgstr ""
+"Auf dieser zerklüfteten Karte können Sie vielfältige Gefechtstaktiken "
+"anwenden: Flankenangriffe, Hinterhalte oder direkte Angriffe. Die Senken "
+"zwischen den Felsen können für ausweidende Angriffe mit konzentrierten "
+"Truppen genutzt werden."
+
+msgid "39_crimea/name"
+msgstr "Südküste"
+
+msgid "43_north_america/description"
+msgstr ""
+"Diese Karte bietet ausreichend Felsen und Bäume. Klippen, Häuser und große "
+"Felsen bieten selbst in den offensten Gebieten der Karte genug Deckung. "
+"Einige Siedlungen und Minen können als Stützpunkte für die Verteidigung "
+"fungieren."
+
+msgid "43_north_america/name"
+msgstr "Nordwesten"
+
+msgid "44_north_america/description"
+msgstr ""
+"In der Mitte der Karte befindet sich ein großer Sumpf. Eine Eisenbahnbrücke "
+"und eine Furt auf der einen Flanke ermöglichen die Verteidigung dieses "
+"Bereichs durch geringen Truppenaufwand und den gebündelten Einsatz der "
+"Hauptstreitkräfte auf der anderen Flanke."
+
+msgid "44_north_america/name"
+msgstr "Live Oaks"
+
+msgid "45_north_america/description"
+msgstr ""
+"Die Industriestadt ist das bevorzugte Gelände für schwere Panzer. Das Dorf "
+"am Fluß gibt mittleren Panzern gute Möglichkeiten für Positionierung und "
+"Manöver."
+
+msgid "45_north_america/name"
+msgstr "Highway"
+
+msgid "47_canada_a/description"
+msgstr ""
+"Diese Karte bietet mehrere Angriffsrouten, jede mit gewissen Vorteilen. "
+"Langsame, schwere Fahrzeuge sollten sich entlang der Eisenbahnlinie "
+"positionieren. Schnelle Fahrzeuge sollten zeitnah Schlüsselpositionen "
+"einnehmen, wie die Halbinsel und hohe Ebenen, um ihr Team zu unterstützen."
+
+msgid "47_canada_a/name"
+msgstr "Küste"
+
+msgid "51_asia/description"
+msgstr ""
+"Die wilde Landschaft weiß mit ihrer faszinierenden Würde zu begeistern. Ein "
+"See, Bambuswäldchen und Bergkämme machen diese Karte besonders und "
+"einzigartig. Die Karte bietet vielfältige Möglichkeiten für verschiedene "
+"Angriffsspitzen, jede davon hat ihre eigenen Vorzüge."
+
+msgid "51_asia/name"
+msgstr "Drachenkamm"
+
+msgid "53_japan/description"
+msgstr ""
+"Die geschützte Basis in den Bergen ist die bevorzugte Route der schweren "
+"Panzer. Schnelle und bewegliche Fahrzeuge sollten sich einen Angriff auf das "
+"Dorf überlegen. Der zentral gelegene Hügel bietet jedoch einen guten "
+"Aussichtspunkt zur Kontrolle über das umliegenden Gebiet. Die Kontrolle über "
+"den Hügel ist meist unentbehrlich."
+
+msgid "53_japan/name"
+msgstr "Verstecktes Dorf"
+
+msgid "59_asia_great_wall/description"
+msgstr ""
+"Diese Karte bietet durch viele Straßen und Schluchten beste Möglichkeiten "
+"für leichte Panzer und Selbstfahrlafetten zu brillieren. Eine Lücke in der "
+"Wand ist ein perfekter Ort für schnelle Panzer, Blitzangriffe durchzuführen. "
+"Andere Fahrzeuge sollten sich auf die Hauptangriffslinie konzentrieren."
+
+msgid "59_asia_great_wall/name"
+msgstr "Reichsgrenze"
+
+msgid "60_asia_miao/description"
+msgstr ""
+"Das schroffe Gelände eignet sich für eine Vielzahl an Gefechtstaktiken - "
+"Hinterhalte, unerwartete Flankenmanöver und Nahkämpfe. Bewegung entlang des "
+"Flussbetts erlaubt schnelle Vorstöße in die gegnerische Basis. Lassen Sie "
+"jedoch Ihren Rücken nie ungedeckt!"
+
+msgid "60_asia_miao/name"
+msgstr "Perlenfluss"
+
+msgid "63_tundra/description"
+msgstr ""
+"Ein Berg im Osten bietet die Möglichkeit, die erhöhte Position zu "
+"dominieren, während der Mittelteil der Karte vielfältige taktische Vorteile "
+"bietet. Der Sumpf im Westen eröffnet Möglichkeiten, den Rücken des Feinds "
+"auszuspähen oder einen Überraschungsangriff durchzuführen."
+
+msgid "63_tundra/name"
+msgstr "Tundra"
+
+msgid "73_asia_korea/description"
+msgstr ""
+"Der Hauptteil des Geländes weist ein verstecktes Tal inmitten der Berge auf. "
+"Zahlreiche Dörfer, Felsen, Bäume und Büsche beeinflussen die "
+"Gefechtstaktiken."
+
+msgid "73_asia_korea/name"
+msgstr "Heiliges Tal"
+
+msgid "84_winter/description"
+msgstr ""
+"Eine Stadt ist die am Besten geschützte Umgebung für eine stabile "
+"Verteidigung. Die offene Fläche im Norden bietet optimale Möglichkeiten für "
+"einen Durchbruch in die gegnersiche Basis und aggessive Manöver mit leichten "
+"Fahrzeugen."
+
+msgid "84_winter/name"
+msgstr "Windsturm"
+
+msgid "85_winter/description"
+msgstr ""
+"Eine Stadt bietet Deckung und Tarnung, was sie zu einer perfekten Position "
+"für eine stabile Verteidigung macht. Die offene Fläche bietet großartige "
+"Möglichkeiten für schnelle Fahrzeuge, um aggressiv vorzugehen und einen "
+"Durchbruch in die gegnerische Basis zu unternehmen."
+
+msgid "85_winter/name"
+msgstr "Sewerogorsk"
+
+msgid "86_himmelsdorf_winter/description"
+msgstr ""
+"Ein Irrgarten aus Straßen und Plätzen, unpassierbar für Artilleriefahrzeuge "
+"und Jagdpanzer, aber ideale Gelände für einen schnellen Durchbruch mit "
+"mittleren und leichten Fahrzeugen. Nutzen Sie die Zufahrtsstraßen zum "
+"Schlossberg, der das Gebiet beherrscht, und entlang der Eisenbahnstrecken, "
+"um eine verfahrene Situation zu verbessern."
+
+msgid "86_himmelsdorf_winter/name"
+msgstr "Himmelsdorf im Winter"
+
+msgid "87_ruinberg_on_fire/description"
+msgstr ""
+"Die Ringstraßen der Stadt, zusammen mit dichten Wäldern und Sträuchern im "
+"verwilderten Park erlauben verdeckte Manöver und die Umgruppierung Ihrer "
+"Truppen. Obwohl Artilleriefeuer im Stadtgebiet nur beschränkt einsetzbar "
+"ist, bietet der Schutt wirksame Deckung für Ihre Truppen."
+
+msgid "87_ruinberg_on_fire/name"
+msgstr "Ruinberg in Flammen"
+
+msgid "type/assault/description1"
+msgstr ""
+"Auftrag: Sichern Sie die verbündete Basis oder zerstören Sie alle "
+"gegnerischen Fahrzeuge."
+
+msgid "type/assault/description2"
+msgstr ""
+"Auftrag: Nehmen Sie die gegnerische Basis ein oder zerstören Sie alle "
+"gegnerischen Fahrzeuge."
+
+msgid "type/assault/name"
+msgstr "Angriff"
+
+msgid "type/ctf/description"
+msgstr ""
+"Auftrag: Nehmen Sie die gegnerische Basis ein oder zerstören Sie alle "
+"gegnerischen Fahrzeuge."
+
+msgid "type/ctf/name"
+msgstr "Standardgefecht"
+
+msgid "type/ctf2/description"
+msgstr ""
+"Auftrag: Nehmen Sie wenigstens eine gegnerische Basis ein oder zerstören Sie "
+"alle gegnerischen Fahrzeuge."
+
+msgid "type/ctf2/name"
+msgstr "Eroberung"
+
+msgid "type/domination/description"
+msgstr ""
+"Auftrag: Nehmen Sie die Basis ein oder zerstören Sie alle gegnerischen "
+"Fahrzeuge."
+
+msgid "type/domination/name"
+msgstr "Begegnungsgefecht"
+
+msgid "type/escort/description1"
+msgstr ""
+"Auftrag: Sichern Sie die verbündete Basis oder zerstören Sie die ersten drei "
+"Fahrzeuge in der Gegnerliste."
+
+msgid "type/escort/description2"
+msgstr ""
+"Auftrag: Nehmen Sie die gegnerische Basis ein oder zerstören Sie alle "
+"gegnerischen Fahrzeuge; mindestens eines der ersten drei Fahrzeuge in der "
+"Verbündetenliste muss überleben."
+
+msgid "type/escort/name"
+msgstr "Eskorte"
+
+msgid "type/nations/description"
+msgstr ""
+"Auftrag: Nehmen Sie die Basis ein oder zerstören Sie alle gegnerischen "
+"Fahrzeuge."
+
+msgid "type/nations/name"
+msgstr "Konfrontation"

@@ -1,0 +1,534 @@
+msgid "afterburning/descr"
+msgstr "+15% kuasa enjin untuk satu minit"
+
+msgid "afterburning/name"
+msgstr "Pelonjak Kuasa Enjin"
+
+msgid "aimingStabilizer/descr"
+msgstr "+20% ketepatan semasa bergerak dan putaran menara"
+
+msgid "aimingStabilizer_Mk1/name"
+msgstr "Penstabil Vertikal Mk 1"
+
+msgid "aimingStabilizer_Mk2/name"
+msgstr "Penstabil Vertikal Mk 2"
+
+msgid "antifragmentationLining_heavy/descr"
+msgstr ""
+"+30% perlindungan perisai daripada rempuhan dan letupan\n"
+"+30% perlindungan kru daripada kecederaan"
+
+msgid "antifragmentationLining_heavy/name"
+msgstr "Pelapik Serpihan Berat"
+
+msgid "antifragmentationLining_light/descr"
+msgstr ""
+"+20% perlindungan perisai daripada rempuhan dan letupan\n"
+"+20% perlindungan kru daripada kecederaan"
+
+msgid "antifragmentationLining_light/name"
+msgstr "Pelapik Serpihan Ringan"
+
+msgid "antifragmentationLining_medium/descr"
+msgstr ""
+"+25% perlindungan perisai daripada rempuhan dan letupan\n"
+"+25% perlindungan kru daripada kecederaan"
+
+msgid "antifragmentationLining_medium/name"
+msgstr "Pelapik Serpihan Sederhana"
+
+msgid "antifragmentationLining_superheavy/descr"
+msgstr ""
+"+50% perlindungan perisai daripada rempuhan dan letupan\n"
+"+50% perlindungan kru daripada kecederaan"
+
+msgid "antifragmentationLining_superheavy/name"
+msgstr "Pelapik Serpihan Sangat Berat"
+
+msgid "autoExtinguishers/always"
+msgstr "+10% pencegahan kebakaran."
+
+msgid "autoExtinguishers/descr"
+msgstr "Memadam api dalam kenderaan secara automatik."
+
+msgid "autoExtinguishers/name"
+msgstr "Pemadam Api Automatik"
+
+msgid "autoExtinguishers/onUse"
+msgstr "memadam api secara automatik dalam kenderaan. Sekali guna sahaja."
+
+msgid "autoExtinguishers/restriction"
+msgstr "?empty?"
+
+msgid "camouflageNet/descr"
+msgstr "Kenderaan tidak bergerak akan lebih sukar dikesan"
+
+msgid "camouflageNet/name"
+msgstr "Jaring Penyamaran"
+
+msgid "carbonDioxide/descr"
+msgstr "+50% ketahanan tangki bahan api"
+
+msgid "carbonDioxide/name"
+msgstr "Isi Tangki dengan CO2"
+
+msgid "chocolate/always"
+msgstr "+10% semua kemahiran dan kebolehan kru sepanjang pertempuran."
+
+msgid "chocolate/descr"
+msgstr "+10% semua kemahiran dan kebolehan kru."
+
+msgid "chocolate/name"
+msgstr "Coklat"
+
+msgid "chocolate/onUse"
+msgstr "?empty?"
+
+msgid "chocolate/restriction"
+msgstr "Terhad kepada: Kenderaan Jerman."
+
+msgid "coatedOptics/descr"
+msgstr "+10% jarak penglihatan, sehingga 500 m"
+
+msgid "coatedOptics/name"
+msgstr "Optik Bersalut"
+
+msgid "cocacola/always"
+msgstr "+10% semua kemahiran dan kebolehan kru sepanjang pertempuran."
+
+msgid "cocacola/descr"
+msgstr "+10% semua kemahiran dan kebolehan kru."
+
+msgid "cocacola/name"
+msgstr "Sebekas Cola"
+
+msgid "cocacola/onUse"
+msgstr "?empty?"
+
+msgid "cocacola/restriction"
+msgstr "Terhad kepada: Kenderaan A.S."
+
+msgid "enhancedAimDrives/descr"
+msgstr "+10% kelajuan mensasar"
+
+msgid "enhancedAimDrives/name"
+msgstr "Pemacu Pembentang Meriam Dipertingkat"
+
+msgid "enhancedBelwillWashers/name"
+msgstr "Belleville Washers Dipertingkat"
+
+msgid "enhancedHorizontal_elastic_elements/descr"
+msgstr ""
+"+10% kapasiti muatan suspensi\n"
+"+20% ketahanan suspensi\n"
+" -50% kerosakan badan akibat kerosakan suspensi dalam impak"
+
+msgid "enhancedHorizontal_elastic_elements/name"
+msgstr "Spring Daun Mendatar Dipertingkat"
+
+msgid "enhancedHorizontal_springs/descr"
+msgstr ""
+"+10% kapasiti muatan suspensi\n"
+"+20% ketahanan suspensi\n"
+" -50% kerosakan badan akibat kerosakan suspensi dalam impak"
+
+msgid "enhancedHorizontal_springs/name"
+msgstr "Spring Gegelung Dipertingkat Kelas 1"
+
+msgid "enhancedHorizontal_springs_class2/descr"
+msgstr ""
+"+10% kapasiti muatan suspensi\n"
+"+20% ketahanan suspensi\n"
+" -50% kerosakan badan akibat kerosakan suspensi dalam impak"
+
+msgid "enhancedHorizontal_springs_class2/name"
+msgstr "Spring Gegelung Dipertingkat Kelas 2"
+
+msgid "enhancedHorizontal_springs_class3/descr"
+msgstr ""
+"+10% kapasiti muatan suspensi\n"
+"+20% ketahanan suspensi\n"
+" -50% kerosakan badan akibat kerosakan suspensi dalam impak"
+
+msgid "enhancedHorizontal_springs_class3/name"
+msgstr "Spring Gegelung Dipertingkat Kelas 3"
+
+msgid "enhancedLevers/name"
+msgstr "Tuil Dipertingkat"
+
+msgid "enhancedLongitudinalTorsions/name"
+msgstr "Palang Kilasan Bujur Dipertingkat"
+
+msgid "enhancedSprings/name"
+msgstr "Spring Dipertingkat"
+
+msgid "enhancedSprings_class2/descr"
+msgstr ""
+"+10% kapasiti muatan suspensi\n"
+"+20% ketahanan suspensi\n"
+" -50% kerosakan badan akibat kerosakan suspensi dalam impak"
+
+msgid "enhancedSprings_class2/name"
+msgstr "Spring Daun Dipertingkat Kelas 2"
+
+msgid "enhancedSprings_class3/descr"
+msgstr ""
+"+10% kapasiti muatan suspensi\n"
+"+20% ketahanan suspensi\n"
+" -50% kerosakan badan akibat kerosakan suspensi dalam impak"
+
+msgid "enhancedSprings_class3/name"
+msgstr "Spring Daun Dipertingkat Kelas 3"
+
+msgid "enhancedSuspension/descr"
+msgstr ""
+"+10% kapasiti muatan suspensi\n"
+"+20% ketahanan suspensi\n"
+" -50% kerosakan badan akibat kerosakan suspensi dalam impak"
+
+msgid "enhancedSuspension_Christie/name"
+msgstr "Suspensi Christie Dipertingkat"
+
+msgid "enhancedSuspension_Vikkers/name"
+msgstr "Suspensi Vickers Dipertingkat"
+
+msgid "enhancedSuspension_candle/name"
+msgstr "Suspensi Candle Dipertingkat"
+
+msgid "enhancedTorsions1t/name"
+msgstr "Palang Kilasan 1 t Dipertingkat"
+
+msgid "enhancedTorsions3t/name"
+msgstr "Palang Kilasan 3 t Dipertingkat"
+
+msgid "enhancedTorsions5t/name"
+msgstr "Palang Kilasan 5+ t Dipertingkat"
+
+msgid "enhancedVertical_elastic_elements/descr"
+msgstr ""
+"+10% kapasiti muatan suspensi\n"
+"+20% ketahanan suspensi\n"
+" -50% kerosakan badan akibat kerosakan suspensi dalam impak"
+
+msgid "enhancedVertical_elastic_elements/name"
+msgstr "Spring Daun Menegak Dipertingkat"
+
+msgid "enhancedVertical_springs/descr"
+msgstr ""
+"+10% kapasiti muatan suspensi\n"
+"+20% ketahanan suspensi\n"
+" -50% kerosakan badan akibat kerosakan suspensi dalam impak"
+
+msgid "enhancedVertical_springs/name"
+msgstr "Spring Gegelung Menegak Dipertingkat Kelas 1"
+
+msgid "enhancedVertical_springs_class2/descr"
+msgstr ""
+"+10% kapasiti muatan suspensi\n"
+"+20% ketahanan suspensi\n"
+" -50% kerosakan badan akibat kerosakan suspensi dalam impak"
+
+msgid "enhancedVertical_springs_class2/name"
+msgstr "Spring Gegelung Menegak Dipertingkat Kelas 2"
+
+msgid "enhancedVertical_springs_class3/descr"
+msgstr ""
+"+10% kapasiti muatan suspensi\n"
+"+20% ketahanan suspensi\n"
+" -50% kerosakan badan akibat kerosakan suspensi dalam impak"
+
+msgid "enhancedVertical_springs_class3/name"
+msgstr "Spring Gegelung Menegak Dipertingkat Kelas 3"
+
+msgid "filterCyclone/descr"
+msgstr "+50% kepada ketahanan enjin"
+
+msgid "filterCyclone/name"
+msgstr "Penapis Siklon"
+
+msgid "gasoline100/always"
+msgstr "+5% kuasa enjin dan kelajuan putaran menara sepanjang pertempuran."
+
+msgid "gasoline100/descr"
+msgstr "+5% kuasa enjin dan kelajuan putaran menara meriam."
+
+msgid "gasoline100/name"
+msgstr "Petrol 100-Oktan"
+
+msgid "gasoline100/onUse"
+msgstr "?empty?"
+
+msgid "gasoline100/restriction"
+msgstr ""
+"Terhad kepada: Kenderaan Jerman, A.S., Britain dan enjin petrol Perancis."
+
+msgid "gasoline105/always"
+msgstr "+10% kuasa enjin dan kelajuan putaran menara sepanjang pertempuran."
+
+msgid "gasoline105/descr"
+msgstr "+10% kuasa enjin dan kelajuan putaran menara meriam."
+
+msgid "gasoline105/name"
+msgstr "Petrol 105-Oktan"
+
+msgid "gasoline105/onUse"
+msgstr "?empty?"
+
+msgid "gasoline105/restriction"
+msgstr ""
+"Terhad kepada: Kenderaan Jerman, A.S., Britain dan enjin petrol Perancis."
+
+msgid "grousers/descr"
+msgstr ""
+"+10% prestasi di atas tanah lembut,\n"
+"+5% prestasi di atas tanah biasa"
+
+msgid "grousers/name"
+msgstr "Grouser Tambahan"
+
+msgid "handExtinguishers/always"
+msgstr "?empty?"
+
+msgid "handExtinguishers/descr"
+msgstr "Memadam api dalam kenderaan."
+
+msgid "handExtinguishers/name"
+msgstr "Pemadam Api Manual"
+
+msgid "handExtinguishers/onUse"
+msgstr "memadam api dalam kenderaan. Sekali guna sahaja."
+
+msgid "handExtinguishers/restriction"
+msgstr "?empty?"
+
+msgid "hotCoffee/always"
+msgstr "+10% semua kemahiran dan kebolehan kru sepanjang pertempuran."
+
+msgid "hotCoffee/descr"
+msgstr "+10% semua kemahiran dan kebolehan kru."
+
+msgid "hotCoffee/name"
+msgstr "Kopi Pekat"
+
+msgid "hotCoffee/onUse"
+msgstr "?empty?"
+
+msgid "hotCoffee/restriction"
+msgstr "Terhad kepada: Kenderaan Perancis."
+
+msgid "improvedVentilation/descr"
+msgstr "+5% semua kemahiran kru"
+
+msgid "improvedVentilation_class1/name"
+msgstr "Ventilasi Diperbaik Kelas 1"
+
+msgid "improvedVentilation_class2/name"
+msgstr "Ventilasi Diperbaik Kelas 2"
+
+msgid "improvedVentilation_class3/name"
+msgstr "Ventilasi Diperbaik Kelas 3"
+
+msgid "largeCaliberHowitzerRammer/name"
+msgstr "Pelantak Peluru Artileri Kaliber Besar"
+
+msgid "largeCaliberTankRammer/name"
+msgstr "Pelantak Peluru Meriam Kaliber Besar"
+
+msgid "largeMedkit/always"
+msgstr "+15% perlindungan kru daripada kecederaan."
+
+msgid "largeMedkit/descr"
+msgstr "Merawat semua anggota kru yang tercedera."
+
+msgid "largeMedkit/name"
+msgstr "Alat Pertolongan Cemas Besar"
+
+msgid "largeMedkit/onUse"
+msgstr "merawat semua anggota kru tercedera. Sekali guna sahaja."
+
+msgid "largeMedkit/restriction"
+msgstr "?empty?"
+
+msgid "largeRepairkit/always"
+msgstr "+10% kepada kelajuan membaik pulih modul."
+
+msgid "largeRepairkit/descr"
+msgstr "Membaik pulih semua modul rosak."
+
+msgid "largeRepairkit/name"
+msgstr "Perkakas Membaik Pulih Besar"
+
+msgid "largeRepairkit/onUse"
+msgstr "membaik pulih semua modul rosak. Sekali guna sahaja."
+
+msgid "largeRepairkit/restriction"
+msgstr "?empty?"
+
+msgid "lendLeaseOil/always"
+msgstr "+5% kuasa enjin sepanjang pertempuran."
+
+msgid "lendLeaseOil/descr"
+msgstr "+5% kuasa enjin."
+
+msgid "lendLeaseOil/name"
+msgstr "Minyak Pajak-Pinjam"
+
+msgid "lendLeaseOil/onUse"
+msgstr "?empty?"
+
+msgid "lendLeaseOil/restriction"
+msgstr "Terhad kepada: Kenderaan Soviet."
+
+msgid "mediumCaliberHowitzerRammer/name"
+msgstr "Pelantak Peluru Artileri Kaliber Sederhana"
+
+msgid "mediumCaliberTankRammer/name"
+msgstr "Pelantak Peluru Meriam Kaliber Sederhana"
+
+msgid "qualityOil/always"
+msgstr "+5% kuasa enjin sepanjang pertempuran."
+
+msgid "qualityOil/descr"
+msgstr "+5% kuasa enjin."
+
+msgid "qualityOil/name"
+msgstr "Minyak Berkualiti"
+
+msgid "qualityOil/onUse"
+msgstr "?empty?"
+
+msgid "qualityOil/restriction"
+msgstr "Terhad kepada: Kenderaan China dan Jepun."
+
+msgid "rammer/descr"
+msgstr "-10% masa memuat peluru"
+
+msgid "ration/always"
+msgstr "+10% semua kemahiran dan kebolehan kru sepanjang pertempuran."
+
+msgid "ration/descr"
+msgstr "+10% semua kemahiran dan kebolehan kru."
+
+msgid "ration/name"
+msgstr "Bekalan Makanan Tambahan"
+
+msgid "ration/onUse"
+msgstr "?empty?"
+
+msgid "ration/restriction"
+msgstr "Terhad kepada: Kenderaan Soviet."
+
+msgid "ration_china/always"
+msgstr "+10% semua kemahiran dan kebolehan kru sepanjang pertempuran."
+
+msgid "ration_china/descr"
+msgstr "+10% semua kemahiran dan kebolehan kru."
+
+msgid "ration_china/name"
+msgstr "Bekalan Makanan Diperbaik"
+
+msgid "ration_china/onUse"
+msgstr "?empty?"
+
+msgid "ration_china/restriction"
+msgstr "Terhad kepada: Kenderaan China."
+
+msgid "ration_japan/always"
+msgstr "+10% semua kemahiran dan kebolehan kru sepanjang pertempuran."
+
+msgid "ration_japan/descr"
+msgstr "+10% semua kemahiran dan kebolehan kru."
+
+msgid "ration_japan/name"
+msgstr "Onigiri"
+
+msgid "ration_japan/onUse"
+msgstr "?empty?"
+
+msgid "ration_japan/restriction"
+msgstr "Terhad kepada: Kenderaan Jepun."
+
+msgid "ration_uk/always"
+msgstr "+10% semua kemahiran dan kebolehan kru sepanjang pertempuran."
+
+msgid "ration_uk/descr"
+msgstr "+10% semua kemahiran dan kebolehan kru."
+
+msgid "ration_uk/name"
+msgstr "Puding dan Teh"
+
+msgid "ration_uk/onUse"
+msgstr "?empty?"
+
+msgid "ration_uk/restriction"
+msgstr "Terhad kepada: Kenderaan Britain."
+
+msgid "removedRpmLimiter/always"
+msgstr "?empty?"
+
+msgid "removedRpmLimiter/descr"
+msgstr "+10% kuasa enjin tetapi merosakan enjin."
+
+msgid "removedRpmLimiter/name"
+msgstr "Penanggalan Pengawal Kelajuan"
+
+msgid "removedRpmLimiter/onUse"
+msgstr "+10% kuasa enjin tetapi merosakkan enjin. Penggunaan berbilang kali."
+
+msgid "removedRpmLimiter/restriction"
+msgstr "Terhad kepada: Kenderaan Soviet dan China."
+
+msgid "smallMedkit/always"
+msgstr "?empty?"
+
+msgid "smallMedkit/descr"
+msgstr "Merawat seorang anggota kru yang cedera."
+
+msgid "smallMedkit/name"
+msgstr "Alat Pertolongan Cemas Kecil"
+
+msgid "smallMedkit/onUse"
+msgstr "merawat seorang anggota kru tercedera. Sekali guna sahaja."
+
+msgid "smallMedkit/restriction"
+msgstr "?empty?"
+
+msgid "smallRepairkit/always"
+msgstr "?empty?"
+
+msgid "smallRepairkit/descr"
+msgstr "Membaik pulih satu modul rosak atau dua tali rantai rosak."
+
+msgid "smallRepairkit/name"
+msgstr "Perkakas Membaik Pulih Kecil"
+
+msgid "smallRepairkit/onUse"
+msgstr ""
+"membaik pulih satu modul rosak atau dua tali rantai rosak. Sekali guna "
+"sahaja."
+
+msgid "smallRepairkit/restriction"
+msgstr "?empty?"
+
+msgid "stereoscope/descr"
+msgstr ""
+"+25% jarak penglihatan semasa kenderaan tidak bergerak,\n"
+"sehingga 500 m"
+
+msgid "stereoscope/name"
+msgstr "Teleskop Binokular"
+
+msgid "toolbox/descr"
+msgstr "+25% kelajuan membaik pulih"
+
+msgid "toolbox/name"
+msgstr "Alat Perkakas"
+
+msgid "wetCombatPack/descr"
+msgstr "+50% ketahanan rak amunisi"
+
+msgid "wetCombatPack_class1/name"
+msgstr "Rak Amunisi \"Basah\" Kelas 1"
+
+msgid "wetCombatPack_class2/name"
+msgstr "Rak Amunisi \"Basah\" Kelas 2"

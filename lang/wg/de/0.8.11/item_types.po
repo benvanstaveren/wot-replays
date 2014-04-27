@@ -1,0 +1,449 @@
+msgid "ammoBay/name"
+msgstr "Munitionslager"
+
+msgid "chassis/desc"
+msgstr "?empty?"
+
+msgid "chassis/name"
+msgstr "Kettenlaufwerke"
+
+msgid "chassis/tags"
+msgstr "?empty?"
+
+msgid "engine/desc"
+msgstr "?empty?"
+
+msgid "engine/name"
+msgstr "Motor"
+
+msgid "engine/tags"
+msgstr "?empty?"
+
+msgid "equipment/desc"
+msgstr "?empty?"
+
+msgid "equipment/name"
+msgstr "Verbrauchsmaterial"
+
+msgid "equipment/tags"
+msgstr "?empty?"
+
+msgid "fuelTank/name"
+msgstr "Treibstofftank"
+
+msgid "fuel_tank/desc"
+msgstr "?empty?"
+
+msgid "fuel_tank/name"
+msgstr "Treibstofftank"
+
+msgid "fuel_tank/tags"
+msgstr "?empty?"
+
+msgid "gun/desc"
+msgstr "?empty?"
+
+msgid "gun/name"
+msgstr "Geschütz"
+
+msgid "gun/tags"
+msgstr "?empty?"
+
+msgid "optionalDevice/desc"
+msgstr "?empty?"
+
+msgid "optionalDevice/name"
+msgstr "Zubehör"
+
+msgid "optionalDevice/tags"
+msgstr "?empty?"
+
+msgid "radio/desc"
+msgstr "?empty?"
+
+msgid "radio/name"
+msgstr "Funkgerät"
+
+msgid "radio/tags"
+msgstr "?empty?"
+
+msgid "shell/dimension/inch"
+msgstr "\""
+
+msgid "shell/dimension/mm"
+msgstr "mm"
+
+msgid "shell/dimension/sm"
+msgstr "cm"
+
+msgid "shell/kinds/ARMOR_PIERCING"
+msgstr "Panzerbrechend"
+
+msgid "shell/kinds/ARMOR_PIERCING_CR"
+msgstr "Hartkerngeschoss"
+
+msgid "shell/kinds/ARMOR_PIERCING_HE"
+msgstr "Panzerbrechend Hochexplosiv"
+
+msgid "shell/kinds/HIGH_EXPLOSIVE"
+msgstr "Hochexplosiv"
+
+msgid "shell/kinds/HOLLOW_CHARGE"
+msgstr "Hohlladungsgeschoss"
+
+msgid "shell/kindsAbbreviation/ARMOR_PIERCING"
+msgstr "AP"
+
+msgid "shell/kindsAbbreviation/ARMOR_PIERCING_CR"
+msgstr "APCR"
+
+msgid "shell/kindsAbbreviation/ARMOR_PIERCING_HE"
+msgstr "APHE"
+
+msgid "shell/kindsAbbreviation/HIGH_EXPLOSIVE"
+msgstr "HE"
+
+msgid "shell/kindsAbbreviation/HOLLOW_CHARGE"
+msgstr "HEAT"
+
+msgid "shell/name"
+msgstr "%(caliber)s%(dimension)s %(kind)s %(name)s"
+
+msgid "shot/desc"
+msgstr "?empty?"
+
+msgid "shot/name"
+msgstr "Granate"
+
+msgid "shot/tags"
+msgstr "?empty?"
+
+msgid "surveyingDevice/name"
+msgstr "Winkelspiegel"
+
+msgid "tankman/Skill_not_be_used"
+msgstr "Einige Fertigkeiten und Vorteile werden bei Fahrzeugwechsel unwirksam."
+
+msgid "tankman/roles/commander"
+msgstr "Kommandant"
+
+msgid "tankman/roles/driver"
+msgstr "Fahrer"
+
+msgid "tankman/roles/gunner"
+msgstr "Richtschütze"
+
+msgid "tankman/roles/loader"
+msgstr "Ladeschütze"
+
+msgid "tankman/roles/radioman"
+msgstr "Funker"
+
+msgid "tankman/skills/brotherhood"
+msgstr "Waffenbrüder"
+
+msgid "tankman/skills/brotherhood_descr"
+msgstr ""
+"<shortDesc>Dieser Vorteil verbessert die Hauptspezialisierungen und alle "
+"Fertigkeiten der gesamten Besatzung.</shortDesc> Wirksamer in Verbindung mit "
+"Verbesserter Lüftung, Zusätzliche Rationen, Schokolade, Kiste Cola, "
+"Verbesserte Rationen, Pudding und Tee oder Starker Kaffee."
+
+msgid "tankman/skills/camouflage"
+msgstr "Tarnung"
+
+msgid "tankman/skills/camouflage_descr"
+msgstr ""
+"<shortDesc>Verringert die Sichtbarkeit.</shortDesc> Effektiver "
+"Fertigkeitswert wird über gesamte Besatzung gemittelt. Kumulativ mit dem "
+"Effekt von Tarnung und Tarnnetz."
+
+msgid "tankman/skills/commander_eagleEye"
+msgstr "Späher"
+
+msgid "tankman/skills/commander_eagleEye_descr"
+msgstr ""
+"<shortDesc>Erhöht die maximale Sichtweite.</shortDesc> Die Fertigkeit ist "
+"bei beschädigten Winkelspiegeln oder in Verbindung mit Weitsicht, "
+"Entspiegelter Optik und Scherenfernrohr."
+
+msgid "tankman/skills/commander_expert"
+msgstr "Adlerauge"
+
+msgid "tankman/skills/commander_expert_descr"
+msgstr ""
+"<shortDesc>Lässt den Kommandanten kritische beschädigte Module am "
+"Zielfahrzeug innerhalb Sichtweite erkennen.</shortDesc> Sowohl im direkten "
+"als auch indirekten Feuern wirksam."
+
+msgid "tankman/skills/commander_sixthSense"
+msgstr "Sechster Sinn"
+
+msgid "tankman/skills/commander_sixthSense_descr"
+msgstr ""
+"<shortDesc>Ein Kommandant mit diesem Vorteil kann erkennen, ob sein Fahrzeug "
+"vom Feind aufgeklärt wurde.</shortDesc>"
+
+msgid "tankman/skills/commander_tutor"
+msgstr "Mentor"
+
+msgid "tankman/skills/commander_tutor_descr"
+msgstr ""
+"<shortDesc>Alle Besatzungsmitglieder, außer dem Kommandanten, erhalten "
+"zusätzliche Erfahrung.</shortDesc>"
+
+msgid "tankman/skills/commander_universalist"
+msgstr "Tausendsassa"
+
+msgid "tankman/skills/commander_universalist_descr"
+msgstr ""
+"<shortDesc>Der Kommandant kann jede Position im Panzer besetzen und ersetzt "
+"ausgefallene Besatzungsmitglieder.</shortDesc> Es werden nur "
+"Spezialisierungen ersetzt. Je mehr Soldaten ausfallen, desto geringer ist "
+"die Leistung des Ersatzes."
+
+msgid "tankman/skills/driver_badRoadsKing"
+msgstr "Geländespezialist"
+
+msgid "tankman/skills/driver_badRoadsKing_descr"
+msgstr ""
+"<shortDesc>Verringert die negativen Auswirkungen von weichen und "
+"mittelweichen Böden auf das Fahrverhalten.</shortDesc> Durch die "
+"verringerten negativen Auswirkungen lässt sich das Fahrzeug besser lenken "
+"und beschleunigen. Wirksamer in Verbindung mit Zusätzlichen Laufpolstern."
+
+msgid "tankman/skills/driver_rammingMaster"
+msgstr "Rammbock"
+
+msgid "tankman/skills/driver_rammingMaster_descr"
+msgstr ""
+"<shortDesc>Verringert den Rammschaden am eigenen Fahrzeug und erhöht den "
+"Rammschaden am gegnerischen Fahrzeug.</shortDesc> Die Fertigkeit ist nur "
+"wirksam, wenn Ihr Fahrzeuge in Bewegung ist, jedoch nicht, wenn zwei "
+"verbündete Fahrzeuge zusammenstoßen."
+
+msgid "tankman/skills/driver_smoothDriving"
+msgstr "Fahren wie auf Schienen"
+
+msgid "tankman/skills/driver_smoothDriving_descr"
+msgstr ""
+"<shortDesc>Erhöht die Genauigkeit beim Feuern während der Fahrt.</shortDesc> "
+"Die Fertigkeit wirkt nicht, wenn das Fahrzeug steht oder sich dreht. Ein "
+"vertikaler Stabilisator erhöht den Effekt der Fertigkeit."
+
+msgid "tankman/skills/driver_tidyPerson"
+msgstr "Ordnungsfanatiker"
+
+msgid "tankman/skills/driver_tidyPerson_descr"
+msgstr ""
+"<shortDesc>Verhindert Auslaufen von Öl oder Kraftstoff in den Motorraum und "
+"verringert dadurch die Wahrscheinlichkeit eines Motorbrandes.</shortDesc> "
+"Eine Automatische Feuerlöschanlage erhöht den Effekt."
+
+msgid "tankman/skills/driver_virtuoso"
+msgstr "Meister am Bremshebel"
+
+msgid "tankman/skills/driver_virtuoso_descr"
+msgstr ""
+"<shortDesc>Erhöht die Wendegeschwindigkeit des Fahrzeugs.</shortDesc> "
+"Zusätzliche Laufpolster, Leih-und-Pachtgesetz-Öl, Qualitätsöl, entfernter "
+"Drehzahlbegrenzer, 100-Oktan-Benzin und 105-Oktan-Benzin erhöhen den Effekt "
+"der Fertigkeit."
+
+msgid "tankman/skills/fire_fighting"
+msgstr "Brandbekämpfung"
+
+msgid "tankman/skills/fire_fighting_descr"
+msgstr ""
+"<shortDesc>Diese Fertigkeit verbessert die Brandbekämpfungsfähigkeit.</"
+"shortDesc> Es gilt der Mittelwert aller Besatzungsmitglieder."
+
+msgid "tankman/skills/gunner_gunsmith"
+msgstr "Büchsenmacher"
+
+msgid "tankman/skills/gunner_gunsmith_descr"
+msgstr ""
+"<shortDesc>Erhöht die Genauigkeit eines beschädigten Geschützes.</shortDesc> "
+"Haben zwei Richtschützen diese Fertigkeit, gilt die bessere Fertigkeit. Ein "
+"vertikaler Stabilisator erhöht den Effekt."
+
+msgid "tankman/skills/gunner_rancorous"
+msgstr "Angesetztes Ziel"
+
+msgid "tankman/skills/gunner_rancorous_descr"
+msgstr ""
+"<shortDesc>Das anvisierte Ziel bleibt durch diesen Vorteil zwei Sekunden "
+"länger sichtbar.</shortDesc> Der Vorteil wirkt sowohl im normalem "
+"Fadenkreuzmodus als auch Zielfernrohrmodus. Haben zwei Richtschützen diesen "
+"Vorteil, zählt dieser nur einfach."
+
+msgid "tankman/skills/gunner_smoothTurret"
+msgstr "Ruhige Hand"
+
+msgid "tankman/skills/gunner_smoothTurret_descr"
+msgstr ""
+"<shortDesc>Diese Fertigkeit erhöht die Genauigkeit bei Turmdrehung.</"
+"shortDesc> Haben zwei Richtschützen diese Fertigkeit, gilt die bessere "
+"Fertigkeit. Ein vertikaler Stabilisator erhöht den Effekt."
+
+msgid "tankman/skills/gunner_sniper"
+msgstr "Scharfschütze"
+
+msgid "tankman/skills/gunner_sniper_descr"
+msgstr ""
+"<shortDesc>Dieser Vorteil erhöht die Wahrscheinlichkeit, Module oder "
+"Besatzung zu beschädigen.</shortDesc> Nur in Verbindung mit AP-, APCR- oder "
+"HEAT-Granaten einsetzbar. Haben zwei Richtschützen diesen Vorteil, zählt "
+"dieser nur einfach."
+
+msgid "tankman/skills/gunner_woodHunter"
+msgstr "Waidmann"
+
+msgid "tankman/skills/gunner_woodHunter_descr"
+msgstr ""
+"<shortDesc>Die von Büschen oder Bäumen nicht behinderte Sichtweite wird "
+"durch diesen Vorteil um einen Meter erweitert.</shortDesc> Haben zwei "
+"Richtschützen diesen Vorteil, zählt dieser nur einfach."
+
+msgid "tankman/skills/loader_desperado"
+msgstr "Adrenalinrausch"
+
+msgid "tankman/skills/loader_desperado_descr"
+msgstr ""
+"<shortDesc>Beschleunigt das Laden des Geschützes, sobald die Struktur des "
+"Fahrzeugs unter 10% fällt.</shortDesc> Haben zwei Ladeschützen diesen "
+"Vorteil, zählt dieser nur einfach. Ein Ansetzer erhöht den Effekt."
+
+msgid "tankman/skills/loader_intuition"
+msgstr "Vorahnung"
+
+msgid "tankman/skills/loader_intuition_descr"
+msgstr ""
+"<shortDesc>Mit diesem Vorteil besteht die Chance, dass die richtige Granate "
+"bereits geladen ist, wenn man zwischen den Granatentypen wechselt.</"
+"shortDesc> Das Laden eines neuen Granatentyps wird von dem Punkt "
+"fortgesetzt, bei dem es gestoppt wurde. Haben zwei Ladeschützen diesen "
+"Vorteil, erhöht sich der Effekt."
+
+msgid "tankman/skills/loader_pedant"
+msgstr "Sichere Lagerung"
+
+msgid "tankman/skills/loader_pedant_descr"
+msgstr ""
+"<shortDesc>Erhöht die Strapazierfähigkeit des Munitionslagers: die Granaten "
+"berühren sich nicht gegenseitig.</shortDesc> Haben zwei Ladeschützen diesen "
+"Vorteil, zählt dieser nur einfach. Ein \"Nasses\" Munitionslager erhöht den "
+"Effekt."
+
+msgid "tankman/skills/main"
+msgstr "Hauptfertigkeit"
+
+msgid "tankman/skills/radioman_finder"
+msgstr "Weitsicht"
+
+msgid "tankman/skills/radioman_finder_descr"
+msgstr ""
+"<shortDesc>Erhöht die Sichtweite.</shortDesc> Haben zwei Funker diese "
+"Fertigkeit, gilt die bessere Fertigkeit. Späher, Entspiegelte Optik und "
+"Scherenfernrohr erhöhen den Effekt."
+
+msgid "tankman/skills/radioman_inventor"
+msgstr "Signalverstärker"
+
+msgid "tankman/skills/radioman_inventor_descr"
+msgstr ""
+"<shortDesc>Erweitert die Funkreichweite.</shortDesc> Der Effekt nimmt mit "
+"Ausbildungsgrad zu. Haben zwei Funker diese Fertigkeit, gilt nur die bessere "
+"Fertigkeit."
+
+msgid "tankman/skills/radioman_lastEffort"
+msgstr "Ruf nach Vergeltung"
+
+msgid "tankman/skills/radioman_lastEffort_descr"
+msgstr ""
+"<shortDesc>Ein Funker mit diesem Vorteil, der die Zerstörung seines "
+"Fahrzeugs überlebt hat, kann zwei weitere Sekunden die Positionen des "
+"Feindes übermitteln.</shortDesc> Haben zwei Funker diesen Vorteil, zählt "
+"dieser nur einfach."
+
+msgid "tankman/skills/radioman_retransmitter"
+msgstr "Relaisstation"
+
+msgid "tankman/skills/radioman_retransmitter_descr"
+msgstr ""
+"<shortDesc>Erhöht die Funkreichweite verbündeter Funkgeräte innerhalb der "
+"Funkreichweite des Fahrzeugfunkgeräts.</shortDesc> Haben zwei Funker diese "
+"Fertigkeit, gilt die bessere Fertigkeit."
+
+msgid "tankman/skills/repair"
+msgstr "Reparatur"
+
+msgid "tankman/skills/repair_descr"
+msgstr ""
+"<shortDesc>Beschleunigt die Reparatur beschädigter Module.</shortDesc> Es "
+"gilt der Mittelwert aller Besatzungsmitglieder. Werkzeugkiste und große "
+"Ersatzteilkiste erhöhen den Effekt."
+
+msgid "tankman/skills/type/perk"
+msgstr "Vorteil. Wird erst mit 100% wirksam."
+
+msgid "tankman/skills/type/perk_common"
+msgstr ""
+"Vorteil. Wird erst mit wirksam,<br/>wenn alle Besatzungsmitglieder 100% "
+"haben."
+
+msgid "tankman/skills/type/skill"
+msgstr ""
+"Fertigkeit. Wird mit Anfang der Ausbildung wirksam.<br/>Der Effekt nimmt mit "
+"Ausbildungsgrad zu."
+
+msgid "track/name"
+msgstr "Kette"
+
+msgid "turret/desc"
+msgstr "?empty?"
+
+msgid "turret/name"
+msgstr "Turm"
+
+msgid "turret/tags"
+msgstr "?empty?"
+
+msgid "turretRotator/name"
+msgstr "Turm"
+
+msgid "vehicle/desc"
+msgstr "?empty?"
+
+msgid "vehicle/name"
+msgstr "Fahrzeug"
+
+msgid "vehicle/tags/at-spg/desc"
+msgstr "?empty?"
+
+msgid "vehicle/tags/at-spg/name"
+msgstr "Jagdpanzer"
+
+msgid "vehicle/tags/heavy_tank/desc"
+msgstr "?empty?"
+
+msgid "vehicle/tags/heavy_tank/name"
+msgstr "Schwerer Panzer"
+
+msgid "vehicle/tags/light_tank/desc"
+msgstr "?empty?"
+
+msgid "vehicle/tags/light_tank/name"
+msgstr "Leichter Panzer"
+
+msgid "vehicle/tags/medium_tank/desc"
+msgstr "?empty?"
+
+msgid "vehicle/tags/medium_tank/name"
+msgstr "Mittlerer Panzer"
+
+msgid "vehicle/tags/spg/desc"
+msgstr "?empty?"
+
+msgid "vehicle/tags/spg/name"
+msgstr "Selbstfahrlafette"

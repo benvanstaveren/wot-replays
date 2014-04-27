@@ -1,0 +1,2391 @@
+msgid "AN-ARC-27"
+msgstr "AN/GRC-7"
+
+msgid "AN-GRC-3"
+msgstr "AN/GRC-3"
+
+msgid "AN-VRC-12"
+msgstr "AN/VRC-12"
+
+msgid "AN-VRC-7"
+msgstr "AN/VRC-7"
+
+msgid "AN_GRC_8"
+msgstr "AN/GRC-8"
+
+msgid "AN_PRC_10"
+msgstr "AN/PRC-10"
+
+msgid "AN_PRC_25"
+msgstr "AN/PRC-25"
+
+msgid "AN_VRC-3"
+msgstr "AN/VRC-3"
+
+msgid "AOI-1490"
+msgstr "Continental AOI-1490"
+
+msgid "AOI-1490_short"
+msgstr ""
+"Continental\n"
+"AOI-1490"
+
+msgid "Alarm_flags"
+msgstr "Signalflaggen"
+
+msgid "American_LFF_Corporation_V12"
+msgstr "American LaFrance 312A V-12"
+
+msgid "American_LFF_Corporation_V12_short"
+msgstr ""
+"American LaFrance\n"
+"312A V-12"
+
+msgid "British_Wireless_set_N19"
+msgstr "Wireless Set No. 19"
+
+msgid "Buick_series_60"
+msgstr "Buick Series 60"
+
+msgid "Cadillac_42series"
+msgstr "Cadillac 42series"
+
+msgid "Chassis_M103"
+msgstr "T97E1"
+
+msgid "Chassis_M103_2"
+msgstr "T97E2"
+
+msgid "Chassis_M10_Wolverine"
+msgstr "M10T41"
+
+msgid "Chassis_M10_Wolverine_2"
+msgstr "M10T42"
+
+msgid "Chassis_M12"
+msgstr "M12T48"
+
+msgid "Chassis_M12_2"
+msgstr "M12T51"
+
+msgid "Chassis_M18_Hellcat"
+msgstr "M18 T67"
+
+msgid "Chassis_M18_Hellcat_2"
+msgstr "M18 T69"
+
+msgid "Chassis_M22_Locust"
+msgstr "VVST78"
+
+msgid "Chassis_M24_Chaffee"
+msgstr "M24T91"
+
+msgid "Chassis_M24_Chaffee_2"
+msgstr "M24T95"
+
+msgid "Chassis_M36_Slagger_4"
+msgstr "M36T41"
+
+msgid "Chassis_M36_Slagger_5"
+msgstr "M36T42"
+
+msgid "Chassis_M40M43"
+msgstr "M40"
+
+msgid "Chassis_M40M43_2"
+msgstr "M43"
+
+msgid "Chassis_M44"
+msgstr "T99E1"
+
+msgid "Chassis_M44_2"
+msgstr "M44"
+
+msgid "Chassis_M46_Patton"
+msgstr "M46T80E1"
+
+msgid "Chassis_M46_Patton_2"
+msgstr "M46T81"
+
+msgid "Chassis_M48A1"
+msgstr "T97E2"
+
+msgid "Chassis_M4A2E4"
+msgstr "M4A2E4T42"
+
+msgid "Chassis_M53_55"
+msgstr "T97/T108"
+
+msgid "Chassis_M53_55_2"
+msgstr "M53/M55"
+
+msgid "Chassis_M60"
+msgstr "M60"
+
+msgid "Chassis_M6A2E1"
+msgstr "M6A2E1HVSS"
+
+msgid "Chassis_M8A1"
+msgstr "VVS T16"
+
+msgid "Chassis_M8A1_2"
+msgstr "T36 E6"
+
+msgid "Chassis_Panther_M10"
+msgstr "PzKpfw-V-Ketten Ausf. 1943"
+
+msgid "Chassis_Sherman_Jumbo"
+msgstr "VVSST48E2"
+
+msgid "Chassis_Sherman_Jumbo_2"
+msgstr "VVSST51E2"
+
+msgid "Chassis_T110"
+msgstr "T110E27"
+
+msgid "Chassis_T110E3"
+msgstr "T110E3"
+
+msgid "Chassis_T110E4"
+msgstr "T110E4"
+
+msgid "Chassis_T18"
+msgstr "T18E1"
+
+msgid "Chassis_T18_2"
+msgstr "T18E2"
+
+msgid "Chassis_T1_E6"
+msgstr "Vickers E"
+
+msgid "Chassis_T21"
+msgstr "VVSS T48M1A1"
+
+msgid "Chassis_T21_2"
+msgstr "VVSS T48M1A2"
+
+msgid "Chassis_T24"
+msgstr "T24VVSS T41"
+
+msgid "Chassis_T25_2"
+msgstr "T25/2T1"
+
+msgid "Chassis_T25_2_2"
+msgstr "T25/2T4"
+
+msgid "Chassis_T25_AT"
+msgstr "T25T1"
+
+msgid "Chassis_T25_AT_2"
+msgstr "T25T2"
+
+msgid "Chassis_T26_E4_SuperPershing"
+msgstr "М26Т80Е1"
+
+msgid "Chassis_T28"
+msgstr "T28VVSS T46"
+
+msgid "Chassis_T28_2"
+msgstr "T28VVSS T56"
+
+msgid "Chassis_T28_Prototype"
+msgstr "T28P E2"
+
+msgid "Chassis_T28_Prototype_2"
+msgstr "T28P E4"
+
+msgid "Chassis_T40"
+msgstr "T40T41"
+
+msgid "Chassis_T40_2"
+msgstr "T40T48"
+
+msgid "Chassis_T49"
+msgstr "T49E1"
+
+msgid "Chassis_T49_2"
+msgstr "T49E2"
+
+msgid "Chassis_T54E1"
+msgstr "T54E1"
+
+msgid "Chassis_T54E1_2"
+msgstr "T54E1M2"
+
+msgid "Chassis_T57_58"
+msgstr "T97"
+
+msgid "Chassis_T69"
+msgstr "T84E1"
+
+msgid "Chassis_T69_2"
+msgstr "T95"
+
+msgid "Chassis_T71"
+msgstr "T71"
+
+msgid "Chassis_T71_2"
+msgstr "T71A1"
+
+msgid "Chassis_T7_Combat_Car"
+msgstr "T7 Combat Car"
+
+msgid "Chassis_T82_1"
+msgstr "T82T55E2"
+
+msgid "Chassis_T82_2"
+msgstr "T82T55E4"
+
+msgid "Chassis_T92"
+msgstr "T92 T80E1"
+
+msgid "Chassis_T92_2"
+msgstr "T92 T82E4"
+
+msgid "Chassis_T95"
+msgstr "T95HVSS"
+
+msgid "Chassis_T95_2"
+msgstr "T95HVSSM2"
+
+msgid "Chassis_T95_E6"
+msgstr "T95E6"
+
+msgid "Continental AV-1790-3"
+msgstr "Continental AV-1790-3"
+
+msgid "Continental AV-1790-3_short"
+msgstr ""
+"Continental\n"
+"AV-1790-3"
+
+msgid "Continental_AOI-1195-5"
+msgstr "Continental AOI-1195-5"
+
+msgid "Continental_AOI-1195-5_short"
+msgstr ""
+"Continental\n"
+"AOI-1195-5"
+
+msgid "Continental_AOI-628-1"
+msgstr "Continental AOI-628-1"
+
+msgid "Continental_AOI-628-1_short"
+msgstr ""
+"Continental\n"
+"AOI-628-1"
+
+msgid "Continental_AOI-628-2"
+msgstr "Continental AOI-628-2"
+
+msgid "Continental_AOI-628-2_short"
+msgstr ""
+"Continental\n"
+"AOI-628-2"
+
+msgid "Continental_AOS-895-1"
+msgstr "Continental AOS-895-1"
+
+msgid "Continental_AOS-895-1_short"
+msgstr ""
+"Continental\n"
+"AOS-895-1"
+
+msgid "Continental_AOS-895-3"
+msgstr "Continental AOS-895-3"
+
+msgid "Continental_AOS-895-3_short"
+msgstr ""
+"Continental\n"
+"AOS-895-3"
+
+msgid "Continental_AOSI-895-5"
+msgstr "Continental AOSI-895-5"
+
+msgid "Continental_AOSI-895-5_short"
+msgstr ""
+"Continental\n"
+"AOSI-895-5"
+
+msgid "Continental_AV-1790-1"
+msgstr "Continental AV-1790-1"
+
+msgid "Continental_AV-1790-1M2"
+msgstr "Continental AV-1790-5A"
+
+msgid "Continental_AV-1790-1M2_short"
+msgstr ""
+"Continental\n"
+"AV-1790-5A"
+
+msgid "Continental_AV-1790-1_short"
+msgstr ""
+"Continental\n"
+"AV-1790-1"
+
+msgid "Continental_AV-1790-2A"
+msgstr "Continental AV-1790-2A"
+
+msgid "Continental_AV-1790-3"
+msgstr "Continental AV-1790-3"
+
+msgid "Continental_AV-1790-3A1"
+msgstr "Continental AV-1790-3A1"
+
+msgid "Continental_AV-1790-3A1_short"
+msgstr ""
+"Continental\n"
+"AV-1790-3A1"
+
+msgid "Continental_AV-1790-3_short"
+msgstr ""
+"Continental\n"
+"AV-1790-3"
+
+msgid "Continental_AV-1790-5"
+msgstr "Continental AV-1790-5"
+
+msgid "Continental_AV-1790-5B"
+msgstr "Continental AV-1790-5B"
+
+msgid "Continental_AV-1790-5B_short"
+msgstr ""
+"Continental\n"
+"AV-1790-5B"
+
+msgid "Continental_AV-1790-5_short"
+msgstr ""
+"Continental\n"
+"AV-1790-5"
+
+msgid "Continental_AV-1790-7B"
+msgstr "Continental AV-1790-7B"
+
+msgid "Continental_AV-1790-7B_short"
+msgstr ""
+"Continental\n"
+"AV-1790-7B"
+
+msgid "Continental_AV-1790-7C"
+msgstr "Continental AV-1790-7C"
+
+msgid "Continental_AV-1790-7C_short"
+msgstr ""
+"Continental\n"
+"AV-1790-7C"
+
+msgid "Continental_AVDS-1790-2"
+msgstr "Continental AVDS-1790-2"
+
+msgid "Continental_AVDS-1790-2_short"
+msgstr ""
+"Continental\n"
+"AVDS-1790-2"
+
+msgid "Continental_AV_1790_5C"
+msgstr "Continental AV-1790-5C"
+
+msgid "Continental_AV_1790_5C_short"
+msgstr ""
+"Continental\n"
+"AV-1790-5C"
+
+msgid "Continental_R-670-5"
+msgstr "Continental R-670-5"
+
+msgid "Continental_R-670-5_short"
+msgstr ""
+"Continental\n"
+"R-670-5"
+
+msgid "Continental_R-975-C1"
+msgstr "Continental R-975-C1"
+
+msgid "Continental_R-975-C1_short"
+msgstr ""
+"Continental\n"
+"R-975-C1"
+
+msgid "Continental_R670-7"
+msgstr "Continental R670-7"
+
+msgid "Continental_R670-7_short"
+msgstr ""
+"Continental\n"
+"R670-7"
+
+msgid "Continental_W-670"
+msgstr "Continental W-670"
+
+msgid "Continental_W-670-12"
+msgstr "Continental W-670 Series 12"
+
+msgid "Continental_W-670-12_short"
+msgstr ""
+"Continental\n"
+"W-670 Series 12"
+
+msgid "Continental_W-670-5"
+msgstr "Continental W-670-5"
+
+msgid "Continental_W-670-9A"
+msgstr "Continental W-670"
+
+msgid "Continental_W-670-9A_short"
+msgstr ""
+"Continental\n"
+"W-670"
+
+msgid "Continental_W-670_short"
+msgstr ""
+"Continental\n"
+"W-670"
+
+msgid "Continental_W670-7"
+msgstr "Continental W-670-7"
+
+msgid "Continental_W670-7_short"
+msgstr ""
+"Continental\n"
+"W-670-7"
+
+msgid "Crysler_A57"
+msgstr "Chrysler A57"
+
+msgid "Cuiberson_T-10204"
+msgstr "Guiberson T-10204"
+
+msgid "Cuiberson_T-10204_short"
+msgstr ""
+"Guiberson\n"
+"T-10204"
+
+msgid "Cunningham"
+msgstr "Cunningham V-type"
+
+msgid "Cunningham_D1"
+msgstr "Cunningham D1"
+
+msgid "Cunningham_D2"
+msgstr "Cunningham D2"
+
+msgid "Cunningham_E1"
+msgstr "Cunningham E1"
+
+msgid "Cunningham_E2"
+msgstr "Cunningham E2"
+
+msgid "Cunningham_type_3"
+msgstr "Cunningham V8"
+
+msgid "D37812"
+msgstr "D37812"
+
+msgid "D39273"
+msgstr "D39273"
+
+msgid "D51066"
+msgstr "D51066"
+
+msgid "D51072"
+msgstr "D51072"
+
+msgid "D51074"
+msgstr "D51074"
+
+msgid "D51080"
+msgstr "D51080"
+
+msgid "Ford_GAA"
+msgstr "Ford GAA"
+
+msgid "Ford_GAA_1"
+msgstr "Ford GAA M1"
+
+msgid "Ford_GAA_R"
+msgstr "Ford GAA early"
+
+msgid "Ford_GAC"
+msgstr "Ford GAZ"
+
+msgid "Ford_GAC_R"
+msgstr "Ford GAC"
+
+msgid "Ford_GAF"
+msgstr "Ford GAF"
+
+msgid "Ford_GAFM2"
+msgstr "Ford GAFM2A1"
+
+msgid "Ford_GAFM4"
+msgstr "Ford GAFM2A2"
+
+msgid "Ford_GAF_R1"
+msgstr "Ford GAF T92"
+
+msgid "Ford_GAF_V8"
+msgstr "Ford GAF V8"
+
+msgid "Ford_GAN"
+msgstr "Ford GAN"
+
+msgid "Ford_GAN_T"
+msgstr "Ford GAN No. 17"
+
+msgid "GMC_6046"
+msgstr "GMC 6046"
+
+msgid "GMC_Allison_V1710-E32"
+msgstr "GMC Allison V1710-E32"
+
+msgid "GMC_Allison_V1710-E32_short"
+msgstr ""
+"GMC Allison\n"
+"V1710-E32"
+
+msgid "General_Motors_6046"
+msgstr "General Motors 6046"
+
+msgid "Guiberson_T-1020-4"
+msgstr "Guiberson T-1020-4"
+
+msgid "Guiberson_T-1020-4_short"
+msgstr ""
+"Guiberson\n"
+"T-1020-4"
+
+msgid "HVS1"
+msgstr "HVS1"
+
+msgid "HVS2"
+msgstr "HVS2"
+
+msgid "HVSST31"
+msgstr "HVSS T31"
+
+msgid "HVSST35"
+msgstr "HVSS T35"
+
+msgid "HVSS_T48"
+msgstr "HVSS T48"
+
+msgid "HVSS_T51"
+msgstr "HVSS T51"
+
+msgid "Hercules_HXE"
+msgstr "Hercules HXE"
+
+msgid "Liberty"
+msgstr "Liberty"
+
+msgid "Licoming_0-435t"
+msgstr "Lycoming O-435T"
+
+msgid "M103"
+msgstr "M103"
+
+msgid "M103_descr"
+msgstr ""
+"Die Entwicklung wurde 1948 aufgenommen. 1952 wurde der Auftrag über die "
+"Produktion von 300 Einheiten erteilt, die schließlich im Korea-Krieg "
+"kämpften. Der Panzer wurde als M103 bezeichnet."
+
+msgid "M10_Wolverine"
+msgstr "M10 Wolverine"
+
+msgid "M10_Wolverine_descr"
+msgstr ""
+"Mit 6.706 Einheiten der am häufigsten produzierte Jagdpanzer der US-Truppen. "
+"Zwei Ausführungen wurden September 1942 bis Januar 1944 gebaut. Mehr als "
+"zwei Drittel der Wolverines wurden an Alliierte im Zuge des Leih- und "
+"Pachtgesetzes übergeben."
+
+msgid "M10_Wolverine_short"
+msgstr "Wolverine"
+
+msgid "M12"
+msgstr "M12"
+
+msgid "M12_descr"
+msgstr ""
+"Die M12 wurde vom Rock Island Arsenal entwickelt. 100 dieser "
+"Selbstfahrlafetten wurden gefertigt, sie wurden von den US-amerikanischen "
+"Soldaten King Kong genannt. Die M12 spielte eine entscheidende Rolle bei den "
+"Schlachten am Westwall."
+
+msgid "M14"
+msgstr "M14"
+
+msgid "M18_Hellcat"
+msgstr "M18 Hellcat"
+
+msgid "M18_Hellcat_descr"
+msgstr ""
+"Die Entwicklung des Fahrzeugs wurde 1942 aufgenommen. General Motors konnte "
+"im April 1943 den ersten Prototypen fertigen. Der M18 hatte als einer der "
+"wenigen US-amerikanischen Jagdpanzer ein eigenes Fahrgestell und wurde nicht "
+"auf Basis eines anderen Panzers gebaut. Dieser Jagdpanzer war während des "
+"Zweiten Weltkrieges das schnellste gepanzerte Fahrzeug seiner Art. Es wurden "
+"zwischen Juli 1943 und Oktober 1944 2.507 Einheiten hergestellt."
+
+msgid "M18_Hellcat_short"
+msgstr "Hellcat"
+
+msgid "M19"
+msgstr "M19"
+
+msgid "M22_Locust"
+msgstr "M22 Locust"
+
+msgid "M22_Locust_descr"
+msgstr ""
+"Ursprünglich als luftverlastbarer Panzer entwickelt, wurde das Fahrzeug nie "
+"von den USA in dieser Funktion während des Zweiten Weltkriegs eingesetzt. Da "
+"der US Air Force Frachtflugzeuge mit ausreichender Ladekapazität fehlten, "
+"verlor das U.S. Army Ordnance Corps das Interesse an einer Weiterführung des "
+"Projektes."
+
+msgid "M22_Locust_short"
+msgstr "Locust"
+
+msgid "M24"
+msgstr "M24"
+
+msgid "M24A1"
+msgstr "M24A1"
+
+msgid "M24_Chaffee"
+msgstr "M24 Chaffee"
+
+msgid "M24_Chaffee_descr"
+msgstr ""
+"Im Frühling 1943 wurde die Entwicklung in Auftrag gegeben. Der M24 sollte "
+"der Nachfolger des M3 Stuarts werden und ging im Herbst 1943 in die "
+"Serienproduktion. Bis Juli 1945 wurden in den Massey-Harris- und General-"
+"Motors-Werken 4731 Fahrzeuge hergestellt."
+
+msgid "M24_Chaffee_short"
+msgstr "Chaffee"
+
+msgid "M2D27810"
+msgstr "M2D27810"
+
+msgid "M2D27812"
+msgstr "M2D27812"
+
+msgid "M2M19"
+msgstr "M2M19"
+
+msgid "M2M7"
+msgstr "M2M7"
+
+msgid "M2_lt"
+msgstr "M2 Light Tank"
+
+msgid "M2_lt_descr"
+msgstr ""
+"Infanterieunterstützungspanzer. 696 Fahrzeuge wurden von 1935 bis 1942 "
+"hergestellt. Dieser Panzer wurde mit den U.S. Marines auf Guadalcanal "
+"eingesetzt. 1942 wurde er ausrangiert."
+
+msgid "M2_lt_short"
+msgstr "M2 Light"
+
+msgid "M2_med"
+msgstr "M2 Medium Tank"
+
+msgid "M2_med_descr"
+msgstr ""
+"Der einzige mittlere Panzer der US-Amerikaner, der in der Zwischenkriegszeit "
+"eingeführt wurde. Es wurden zwischen 1939 und 1941 146 Fahrzeuge in zwei "
+"Ausführungen gebaut. Nie auf dem Schlachtfeld eingesetzt."
+
+msgid "M2_med_short"
+msgstr "M2 Medium"
+
+msgid "M36_Slagger"
+msgstr "M36 Jackson"
+
+msgid "M36_Slagger_descr"
+msgstr ""
+"Der schlagkräftigste Jagdpanzer der USA. Entwickelt auf Basis der "
+"Selbstfahrlafetten M10A1 und M10. Zwischen November 1943 und September 1945 "
+"wurden 2.324 Einheiten gebaut."
+
+msgid "M36_Slagger_short"
+msgstr "Jackson"
+
+msgid "M37"
+msgstr "M37"
+
+msgid "M37D1"
+msgstr "M37D1"
+
+msgid "M37_descr"
+msgstr ""
+"Weiterentwicklung des M24 im Jahre 1945, 150 Fahrzeuge wurden gebaut. Kein "
+"Einsatz im Zweiten Weltkrieg, der erste Einsatz erfolgte im Koreakrieges."
+
+msgid "M3_A3_short"
+msgstr "M3A3"
+
+msgid "M3_Grant"
+msgstr "M3 Lee"
+
+msgid "M3_Grant_descr"
+msgstr ""
+"Auf Basis des M2 entwickelt wurden 6.258 Fahrzeuge von Juni 1941 bis "
+"Dezember 1942 gebaut. Eingesetzt in Nordafrika und auf den Philippinen. Der "
+"M3 Grant wurde nach dem Leih-und-Pachtgesetz an das Vereinigte Königreich "
+"und die UdSSR ausgeliefert."
+
+msgid "M3_S"
+msgstr "M3 S"
+
+msgid "M3_Stuart"
+msgstr "M3 Stuart"
+
+msgid "M3_Stuart_descr"
+msgstr ""
+"Der bekannteste leichte Panzer des Zweiten Weltkrieges. Es wurden ab 1941 "
+"bis September 1943 13.859 Fahrzeuge produziert. Der M3 Stuart wurde auf "
+"allen Kriegsschauplätzen verwendet."
+
+msgid "M40M43"
+msgstr "M40/M43"
+
+msgid "M40M43_descr"
+msgstr ""
+"Die Long Tom und deren Weiterentwicklung M43 gehörten zu den stärksten "
+"Selbstfahrlafetten der Alliierten. Die M40 nahm an der Schlacht von Köln "
+"1945 teil. Beide Fahrzeuge wurden im Koreakrieg eingesetzt."
+
+msgid "M41"
+msgstr "M41"
+
+msgid "M41_descr"
+msgstr ""
+"Selbstfahrlafette auf Basis des M24, es wurden 60 der 250 bestellten "
+"Fahrzeuge gebaut. Der M41 kam im Zweiten Weltkrieg nicht mehr zum Einsatz. "
+"Der Ersteinsatz erfolgte im Koreakrieg."
+
+msgid "M44"
+msgstr "M5"
+
+msgid "M46_Patton"
+msgstr "M46 Patton"
+
+msgid "M46_Patton_descr"
+msgstr ""
+"Zwischen den Jahren 1948 und 1949 wurde der M26 Pershing weiterentwickelt "
+"und schließlich als M46 Patton in den Jahren 1949 bis 1951 produziert. 1.168 "
+"Fahrzeuge wurden gefertigt. Eines der Hauptfahrzeuge im Koreakrieg."
+
+msgid "M46_Patton_short"
+msgstr "M46 Patton"
+
+msgid "M47"
+msgstr "M47"
+
+msgid "M48A1"
+msgstr "M48A1 Patton"
+
+msgid "M48A1_descr"
+msgstr ""
+"Der erfolgreichste mittlere Panzer der USA in der unmittelbaren "
+"Nachkriegszeit. Die Entwicklung wurde 1950 begonnen. Indienststellung im "
+"April 1953. Es wurden insgesamt 11.703 Fahrzeuge in verschiedenen "
+"Ausführungen zwischen 1952 und 1959 gebaut."
+
+msgid "M48A1_short"
+msgstr "M48 Patton"
+
+msgid "M4A2E4"
+msgstr "M4A2E4 Sherman"
+
+msgid "M4A2E4_descr"
+msgstr ""
+"Die Entwicklung dieses Versuchsfahrzeugs im März 1943 begonnen. Zwei "
+"Prototypen wurden bis Juli fertiggestellt. Trotz erfolgreicher Erprobung "
+"wurde das Fahrzeug nie in Serie produziert oder eingesetzt."
+
+msgid "M4A2E4_short"
+msgstr "M4A2E4"
+
+msgid "M4A3E8_Sherman"
+msgstr "M4A3E8 Sherman"
+
+msgid "M4A3E8_Sherman_descr"
+msgstr ""
+"Auch bekannt als M4A3(76)W HVSS. Ende August 1944 wurde eine neue "
+"Drehgestell-Aufhängung entwickelt. Diese Ausführung wurde produziert und "
+"Ende März 1945 indienstgestellt, es wurden insgesamt 4.542 Fahrzeuge mit "
+"beiden Laufwerkstypen gefertigt."
+
+msgid "M4A3E8_Sherman_short"
+msgstr "M4A3E8"
+
+msgid "M4_Sherman"
+msgstr "M4 Sherman"
+
+msgid "M4_Sherman_descr"
+msgstr ""
+"Die erste Baureihe des Shermans ist mit 49.234 Fahrzeugen der meistgebaute "
+"Panzer der USA. Die Feuertaufe erfolgte in Nordafrika."
+
+msgid "M4_Sherman_short"
+msgstr "M4"
+
+msgid "M53_55"
+msgstr "M53/M55"
+
+msgid "M53_55_descr"
+msgstr ""
+"Eine Selbstfahrlafette auf dem Chassis des Mittleren Panzers M47. Der "
+"Prototyp wurde 1952 gebaut, 1956 kam die Selbstfahrlafette in zwei "
+"Ausführungen zur Truppe: Die M55 für die Army, die M53 für die Marines. Von "
+"beiden Typen wurden 30 Fahrzeuge gebaut."
+
+msgid "M5_Stuart"
+msgstr "M5 Stuart"
+
+msgid "M5_Stuart_descr"
+msgstr ""
+"Der M5 Stuart ging April 1942 als Weiterentwicklung des M3 in Serie. Bis "
+"Juni 1944 wurden 10.884 Stück gebaut. Dieser Panzer wurde auf allen "
+"Kriegsschauplätzen eingesetzt."
+
+msgid "M5_Stuart_short"
+msgstr "M5 Stuart"
+
+msgid "M6"
+msgstr "M6"
+
+msgid "M60"
+msgstr "M60"
+
+msgid "M60_descr"
+msgstr ""
+"Der M60 ist die schwerwiegende Verbesserung des M48. Die Entwicklung eines "
+"Prototyps wurde 1957 begonnen, 1959 wurde der Auftrag zum Bau des ersten "
+"Panzers an Chrysler erteilt."
+
+msgid "M62T80"
+msgstr "T23E3"
+
+msgid "M6A2E1"
+msgstr "M6A2E1"
+
+msgid "M6A2E1_descr"
+msgstr ""
+"Der M6A2E1 ist eine Weiterentwicklung der schweren Panzer T1 und M6. Das "
+"1944 entwickelte Fahrzeug wurde mit einem größeren Turm und einem 105-mm-"
+"Geschütz ausgerüstet. Keine Serienfertigung."
+
+msgid "M6D1"
+msgstr "M6D1"
+
+msgid "M6D2"
+msgstr "M6D2"
+
+msgid "M6_descr"
+msgstr ""
+"Entwickelt in den Jahren 1940 bis 1942. Es wurden 40 Fahrzeuge dieses Typs "
+"von November 1942 bis Februar 1944 gebaut. Dieser Panzer nahm nie an "
+"Gefechten teil."
+
+msgid "M7"
+msgstr "M5A1"
+
+msgid "M7D1"
+msgstr "M7D1"
+
+msgid "M7_Priest"
+msgstr "M7 Priest"
+
+msgid "M7_Priest_descr"
+msgstr ""
+"Der M7 Priest wurde auf Basis des M3 und M4 zwischen April 1942 und Februar "
+"1945 in 4.316 Einheiten gebaut. Der erste Einsatz des M7 Priest erfolgte in "
+"der Schlacht von El Alamein."
+
+msgid "M7_med"
+msgstr "M7"
+
+msgid "M7_med_descr"
+msgstr ""
+"Die Entwicklung dieses Panzers begann im Frühling 1941. Der Bau eines "
+"Prototypen wurde im Januar 1942 aufgenommen, bereits ein Jahr später hatte "
+"der Panzer die Tests bestanden, dennoch wurde er nie für eine "
+"Serienfertigung in Betracht gezogen."
+
+msgid "M7_med_short"
+msgstr "M7"
+
+msgid "M8A1"
+msgstr "M8A1"
+
+msgid "M8A1_descr"
+msgstr ""
+"Das Fahrzeug auf Basis des Panzers M5 war als Infanterie-Unterstützungs-"
+"Geschütz auf Selbstfahrlafette gedacht. Die Ausführung M8A1 besaß einen "
+"geänderten Turm und verbesserte Panzerung. Die Cadillac Car Division hat "
+"zwischen September 1943 und Januar 1944 insgesamt 1778 Einheiten hergestellt."
+
+msgid "M8A1_short"
+msgstr "M8A1"
+
+msgid "MTLS-1G14"
+msgstr "MTLS-1G14"
+
+msgid "MTLS-1G14_descr"
+msgstr ""
+"Entwickelt im Auftrag Niederländisch-Ostindiens. 125 Fahrzeuge wurden von "
+"1941 bis 1942 gebaut, jedoch nur 20 abgefordert. Niemals im Kampf eingesetzt."
+
+msgid "MTLS_D1"
+msgstr "MTLS D1"
+
+msgid "MTLS_T1"
+msgstr "MTLS T1"
+
+msgid "MTU_MB837_Ka-500"
+msgstr "MTU MB837 Ka-500"
+
+msgid "Maybach_HL_230P45"
+msgstr "Maybach HL 230 P45"
+
+msgid "NVSS_T66"
+msgstr "NVSS T66"
+
+msgid "NVSS_T80"
+msgstr "NVSS T80"
+
+msgid "Ordnance_QF_2pdr_AT_Gun_Mk.X"
+msgstr "QF 2-pdr Mk. IX"
+
+msgid "Ordnance_QF_2pdr_AT_Gun_Mk.X_short"
+msgstr "QF 2-pdr Mk. IX"
+
+msgid "Pershing"
+msgstr "M26 Pershing"
+
+msgid "Pershing_descr"
+msgstr ""
+"Speziell zur Bekämpfung schwerer deutscher Panzer entwickelt. Zunächst als "
+"schwer eingestuft, wurde das Modell nach dem Krieg auf mittel zurückgestuft. "
+"Einige wenige wurden gegen Ende des Zweiten Weltkrieges eingesetzt."
+
+msgid "Pershing_short"
+msgstr "Pershing"
+
+msgid "Pershingchassis1"
+msgstr "M26T80E1"
+
+msgid "Pershingchassis2"
+msgstr "M26T81"
+
+msgid "QF_6_pounder_Mk_III"
+msgstr "QF 6-pdr Mk. III"
+
+msgid "QF_6_pounder_Mk_IIIA"
+msgstr "QF 6-pdr Mk. IIIA"
+
+msgid "Ram-II"
+msgstr "Ram II"
+
+msgid "Ram-II_descr"
+msgstr ""
+"Der Ram Mk II wurde auf Basis des M3 entwickelt und in Kanada von 1942 bis "
+"Sommer 1943 hergestellt. Keines der 1.849 Fahrzeuge wurde im Kampf "
+"eingesetzt, sie wurden als Übungsfahrzeuge benutzt."
+
+msgid "Ram_II_D1"
+msgstr "Ram II D1"
+
+msgid "SCR_200"
+msgstr "SCR 200"
+
+msgid "SCR_200A"
+msgstr "SCR 193"
+
+msgid "SCR_210"
+msgstr "SCR 210"
+
+msgid "SCR_506"
+msgstr "SCR 506"
+
+msgid "SCR_508"
+msgstr "SCR 508"
+
+msgid "SCR_508_1"
+msgstr "SCR 508/1"
+
+msgid "SCR_510"
+msgstr "SCR 510"
+
+msgid "SCR_510M2"
+msgstr "SCR 510 M2"
+
+msgid "SCR_528"
+msgstr "SCR 528"
+
+msgid "SCR_528A1"
+msgstr "SCR 528AM"
+
+msgid "SCR_528R1"
+msgstr "SCR 528A"
+
+msgid "SCR_528T"
+msgstr "SCR 528T"
+
+msgid "SCR_538"
+msgstr "SCR 538"
+
+msgid "SCR_610"
+msgstr "SCR 610"
+
+msgid "SCR_619"
+msgstr "SCR 619"
+
+msgid "Sherman_Jumbo"
+msgstr "M4A3E2 Sherman Jumbo"
+
+msgid "Sherman_Jumbo_descr"
+msgstr ""
+"Schwer gepanzerter Sturmpanzer. Zunächst als Infanterie-Unterstützungspanzer "
+"geplant. Allerdings wurden einige der М4А3Е2 mit dem M1A1-Geschütz "
+"ausgerüstet und als Panzerjäger eingesetzt."
+
+msgid "Sherman_Jumbo_short"
+msgstr "M4A3E2"
+
+msgid "T-14"
+msgstr "T14"
+
+msgid "T110"
+msgstr "T110E5"
+
+msgid "T110E3"
+msgstr "T110E3"
+
+msgid "T110E3_descr"
+msgstr ""
+"1954 wurde eine Konferenz über zukünftige schwere Panzer in Detroit "
+"abgehalten. Neben anderen fortschrittlichen Projekten schlug die Chrysler "
+"Corporation einen neuen Panzer auf Basis des Projektes TS-31 vor. Die "
+"Grundvoraussetzung war, dass der Panzer in den Berner Tunnel passen sollte. "
+"Verschiedene Varianten wurden in Erwägung gezogen. Das Projekt wurde jedoch "
+"aufgegeben."
+
+msgid "T110E3_short"
+msgstr "T110E3"
+
+msgid "T110E4"
+msgstr "T110E4"
+
+msgid "T110E4_descr"
+msgstr ""
+"1954 wurde eine Konferenz über zukünftige schwere Panzer in Detroit "
+"abgehalten. Neben anderen fortschrittlichen Projekten schlug die Chrysler "
+"Corporation einen neuen Panzer auf Basis des Projektes TS-31 vor. Die "
+"Grundvoraussetzung war, dass der Panzer in den Berner Tunnel passen sollte. "
+"Verschiedene Varianten wurden in Erwägung gezogen. Das Projekt wurde jedoch "
+"aufgegeben."
+
+msgid "T110E4_short"
+msgstr "T110E4"
+
+msgid "T110_descr"
+msgstr ""
+"In den frühen 50ern wurde die Entwicklung begonnen. Es wurden strenge "
+"Begrenzungen für die Größe des Fahrzeugs vorgegeben, da es durch die engen "
+"Tunnel der Berner Alpen passen musste. Nur in Blaupausen vorhanden."
+
+msgid "T119"
+msgstr "T119"
+
+msgid "T123"
+msgstr "T123"
+
+msgid "T136"
+msgstr "T136"
+
+msgid "T14"
+msgstr "T14"
+
+msgid "T14_descr"
+msgstr ""
+"Entwickelt zwischen Mai 1942 und Mai 1943. Zwei Prototypen wurden gebaut und "
+"erprobt. Die geplante Serienfertigung wurde aber wieder verworfen und so "
+"blieb der T14 ein Experimentalfahrzeug."
+
+msgid "T16E2"
+msgstr "T16E2"
+
+msgid "T18"
+msgstr "T18"
+
+msgid "T18T47"
+msgstr "T18T47"
+
+msgid "T18_descr"
+msgstr ""
+"Die Entwicklung dieser Selbstfahrlafette auf Basis des M3 Light Tank wurde "
+"im Oktober 1941 aufgenommen. Die Erprobung war im Frühling 1942 "
+"abgeschlossen, es gab dennoch keine Serienproduktion oder Indienststellung."
+
+msgid "T1D5"
+msgstr "T1D5"
+
+msgid "T1D6"
+msgstr "T1D6"
+
+msgid "T1_Cunningham"
+msgstr "T1 Cunningham"
+
+msgid "T1_Cunningham_descr"
+msgstr ""
+"Prototypen wurden von James Cunningham, Son & Company (Rochester, NY) in den "
+"Jahren 1927 bis 1928 entwickelt. Zahlreiche Versionen wurden bis 1934 "
+"getestet. Dieses Fahrzeug ging nie in Serienfertigung oder an die Truppe."
+
+msgid "T1_Cunningham_short"
+msgstr "T1"
+
+msgid "T1_E6"
+msgstr "T1E6"
+
+msgid "T1_E6_descr"
+msgstr ""
+"Die Versuchsfahrzeuge T1E4 bis T1E6 waren stark vom britischen Vickers E "
+"beeinflusst. Der erste Prototyp wurde durch die Firma Cunningham 1931 "
+"gebaut. Nach den Erprobungen 1932 wurde eine aufgewertete Variante gebaut. "
+"Letztendlich wurde einem anderen Versuchsfahrzeug, dem T2 der Vorzug gegeben."
+
+msgid "T1_E6_short"
+msgstr "T1E6"
+
+msgid "T1_hvy"
+msgstr "T1 Heavy Tank"
+
+msgid "T1_hvy_descr"
+msgstr ""
+"Die Entwicklung wurde im Frühling 1940 aufgenommen. Im September 1940 und "
+"Dezember 1941 wurden Prototypen in die Truppenversuche geschickt, der Panzer "
+"ging aber nie in Serienfertigung. Später wurde er der Vorläufer des M6."
+
+msgid "T1_hvy_short"
+msgstr "T1 Heavy"
+
+msgid "T20"
+msgstr "T20"
+
+msgid "T20D1"
+msgstr "T20D1"
+
+msgid "T20D2"
+msgstr "T20D2"
+
+msgid "T20_descr"
+msgstr ""
+"Der experimentelle mittlere Panzer wurde zwischen Mai 1942 und Februar 1944 "
+"entwickelt und bei Truppenversuchen getestet. Es gab weder eine "
+"Massenfertigung noch eine Erprobung im Gefecht."
+
+msgid "T21"
+msgstr "T21"
+
+msgid "T21_descr"
+msgstr ""
+"Leichte Version des mittleren Panzers T20 mit einem verlängerten Laufwerk "
+"des M7. Das Fahrzeug wurde im ersten Halbjahr 1943 entwickelt. Im Gegensatz "
+"zum T20 hatte der T21 weniger Panzerung und ein kleineres, leichteres "
+"Geschütz. Der Panzer ging nie in Serie und kam nie zum Einsatz."
+
+msgid "T23"
+msgstr "T23"
+
+msgid "T23D51080"
+msgstr "T23D51080"
+
+msgid "T23E3"
+msgstr "T23E3"
+
+msgid "T23E3_descr"
+msgstr ""
+"Die Entwicklung wurde im April 1943 begonnen. Der Prototyp wurde im August "
+"1944 gebaut. Im Gegensatz zu seinem Vorgänger, der T23, hatte diese "
+"Ausführung Drehstabfederung. Das Fahrzeug wurde weder in Serie gefertigt, "
+"noch eingesetzt."
+
+msgid "T23T80"
+msgstr "T23T80"
+
+msgid "T23_descr"
+msgstr ""
+"Der experimentelle mittlere Panzer wurde zwischen Ende 1942 und Sommer 1944 "
+"entwickelt. Dieses Fahrzeug ging nie in Serienfertigung oder in Dienst."
+
+msgid "T25_2"
+msgstr "T25/2"
+
+msgid "T25_2_descr"
+msgstr ""
+"Jagdpanzer auf Basis des T23. Die Entwicklung wurde 1943 aufgenommen. Da der "
+"T23 nicht in die Truppe übernommen wurde, hat man die Arbeit an dem "
+"Jagdpanzer aufgegeben. Es existierten nur Blaupausen."
+
+msgid "T25_2_short"
+msgstr "T25/2"
+
+msgid "T25_AT"
+msgstr "T25 AT"
+
+msgid "T25_AT_descr"
+msgstr ""
+"Der T25 wurde auf dem Chassis des mittleren Panzers T23 entwickelt, aber nie "
+"fertiggestellt."
+
+msgid "T25_AT_short"
+msgstr "T25 AT"
+
+msgid "T26_E4_SuperPershing"
+msgstr "T26E4 SuperPershing"
+
+msgid "T26_E4_SuperPershing_descr"
+msgstr ""
+"Um die Leistungsfähigkeit zu erhöhen, wurde im Januar 1945 ein neues 90-mm-"
+"Geschütz mit langem Rohr auf dem T26E1 montiert. Der Prototyp wurde T26E4 "
+"getauft. Die Entwicklung wurde im Januar 1947 abgebrochen, da es Probleme "
+"mit dem Geschütz und dem Lademechanismus gab. 25 Fahrzeuge wurden in dieser "
+"Zeit gebaut, keines davon wurde je eingesetzt."
+
+msgid "T26_E4_SuperPershing_short"
+msgstr "T26E4"
+
+msgid "T28"
+msgstr "T28"
+
+msgid "T28_Prototype"
+msgstr "T28 Prototype"
+
+msgid "T28_Prototype_descr"
+msgstr ""
+"Jagdpanzer mit drehbarem Turm. Er war eine frühe Anpassung der schweren "
+"Selbstfahrlafetten, die für den Kampf am Westwall konzipiert wurden."
+
+msgid "T28_Prototype_short"
+msgstr "T28 Prot."
+
+msgid "T28_descr"
+msgstr ""
+"Der überschwere Panzer T28 wurde als Prototyp eines schwer gepanzerten "
+"Jagdpanzers für die US Army während des Zweiten Weltkriegs entwickelt. 1945 "
+"wurde der T28 zur 105-mm-Selbstfahrlafette T95 weiterentwickelt."
+
+msgid "T28_short"
+msgstr "T28"
+
+msgid "T29"
+msgstr "T29"
+
+msgid "T29_descr"
+msgstr ""
+"Die Entwicklung des schweren Versuchspanzers wurde September 1944 "
+"aufgenommen. Die Konstruktion und Erprobung der Prototypen dauert bis "
+"Oktober 1947, das Projekt wurde danach aber eingestellt."
+
+msgid "T2D1"
+msgstr "T2D1"
+
+msgid "T2E1"
+msgstr "T2E1"
+
+msgid "T2E4"
+msgstr "T2E4"
+
+msgid "T2T1"
+msgstr "T2T1"
+
+msgid "T2T2"
+msgstr "T2T2"
+
+msgid "T2_lt"
+msgstr "T2 Light Tank"
+
+msgid "T2_lt_descr"
+msgstr ""
+"M2-Prototyp mit Vickers-Laufwerk. Nach der Erprobung 1934 musste das Design "
+"überarbeitet werden, da das Laufwerk zu wenig Laufruhe hatte. Keine "
+"Serienfertigung."
+
+msgid "T2_lt_short"
+msgstr "T2 Light"
+
+msgid "T2_med"
+msgstr "T2 Medium Tank"
+
+msgid "T2_med_descr"
+msgstr ""
+"Dieser experimentelle mittlere Panzer wurde zwischen 1930 und 1932 "
+"entwickelt. Keine Serienfertigung."
+
+msgid "T2_med_short"
+msgstr "T2 Medium"
+
+msgid "T30"
+msgstr "T30"
+
+msgid "T30D1"
+msgstr "T30D1"
+
+msgid "T30_descr"
+msgstr ""
+"Der T30D1 war nahe an den T29 angelehnt, da beide Panzer zur gleichen Zeit "
+"entwickelt wurden. Die Prototypen wurden bis 1948 erprobt. Keine "
+"Serienfertigung."
+
+msgid "T32"
+msgstr "T32"
+
+msgid "T32_descr"
+msgstr ""
+"Die Arbeit an diesem Panzer begann im Februar 1945. Im Frühling 1946 standen "
+"vier Prototypen für die Erprobung bereit, die Versuche gingen bis Ende des "
+"Jahres. Keine Serienfertigung."
+
+msgid "T34T5"
+msgstr "T34T5"
+
+msgid "T34T7"
+msgstr "T34T7"
+
+msgid "T34_hvy"
+msgstr "T34"
+
+msgid "T34_hvy_descr"
+msgstr ""
+"1945 wurden zwei T30-Prototypen mit 120-mm-Geschützen ausgerüstet und "
+"umbenannt in T34 Heavy Tank. Keine Serienfertigung oder Indienststellung."
+
+msgid "T40"
+msgstr "T40"
+
+msgid "T40_descr"
+msgstr ""
+"Dieser experimentelle Jagdpanzer wurde im Frühjahr 1942 auf Basis des M3 "
+"entwickelt. Keine Serienfertigung oder Einsatz."
+
+msgid "T41"
+msgstr "T41"
+
+msgid "T42"
+msgstr "T42"
+
+msgid "T48"
+msgstr "T48"
+
+msgid "T49"
+msgstr "T49"
+
+msgid "T49_descr"
+msgstr ""
+"Die Entwicklung wurde im Frühjahr 1942 aufgenommen. Nach der Erprobung "
+"entschied man sich, das 57-mm-Geschütz gegen ein 75-mm-Geschütz "
+"auszutauschen. Das Fahrzeug bestand die weitere Erprobungsphase im Herbst "
+"1942, wurde aber nie der Truppe übergeben."
+
+msgid "T51D1"
+msgstr "T51D1"
+
+msgid "T54E1"
+msgstr "T54E1"
+
+msgid "T54E1_descr"
+msgstr ""
+"Ein mittlerer Panzer mit Wiegeturm und Selbstlademechanismus. Entwickelt auf "
+"Basis des M48 Mitte der 1950er. Zwei Prototypen wurden gebaut. Während der "
+"Erprobung zeigte sich der Selbstlademechanismus als zu störanfällig und "
+"daher wurde die Entwicklung 1957 aufgegeben."
+
+msgid "T57"
+msgstr "T57"
+
+msgid "T57_58"
+msgstr "T57 Heavy Tank"
+
+msgid "T57_58_descr"
+msgstr ""
+"Studie eines schweren Panzers mit Wiegeturm und Selbstlademechanismus. Ab "
+"1951 entwickelt. Erprobungstürme für 120- und 155-mm-Geschütze wurden 1957 "
+"gebaut. Das Projekt wurde jedoch als nicht aussichtsreich abgebrochen."
+
+msgid "T57_58_short"
+msgstr "T57 Heavy"
+
+msgid "T57_descr"
+msgstr ""
+"Experimentelle Selbstfahrlafette auf Basis des M3A3. Die T57 wurde im Herbst "
+"1942 entwickelt und erprobt, erreichte aber nie die Serienreife."
+
+msgid "T69"
+msgstr "T69"
+
+msgid "T69_descr"
+msgstr ""
+"Ein mittlerer Panzer mit Wiegeturm und Selbstlademechanismus. Mitte der 50er "
+"auf Basis des experimentellen Panzers T42 entwickelt. Keine Serienfertigung."
+
+msgid "T69_short"
+msgstr "T69"
+
+msgid "T6_M_short"
+msgstr "T6"
+
+msgid "T71"
+msgstr "T71"
+
+msgid "T71_descr"
+msgstr ""
+"Leichter Versuchs-Luftlandepanzer mit Wiegeturm. Von 1952 bis 1953 als "
+"Ersatz für den M41 entwickelt. Die Bewaffnung wurde als unwirksam angesehen "
+"und das Projekt daher aufgegeben. Es wurde nur ein Holzprototyp gebaut."
+
+msgid "T72"
+msgstr "T72"
+
+msgid "T72E1"
+msgstr "T72E1"
+
+msgid "T7_Combat_Car"
+msgstr "T7 Combat Car"
+
+msgid "T7_Combat_Car_descr"
+msgstr ""
+"Das leichte bereifte Raupenkettenfahrzeug mit Maschinengewehren wurde für "
+"die US Cavalry entwickelt. Die Erprobung des ersten Prototyps begann April "
+"1937 und lief bis 1939. Der T7 wurde jedoch zugunsten eines "
+"Vollkettenfahrzeugs aufgegeben."
+
+msgid "T7_Combat_Car_short"
+msgstr "T7 Car"
+
+msgid "T80E1"
+msgstr "T80E1"
+
+msgid "T80E3"
+msgstr "T80E3"
+
+msgid "T80E3A"
+msgstr "T80E3A"
+
+msgid "T82"
+msgstr "T82"
+
+msgid "T82T47"
+msgstr "T82T47"
+
+msgid "T82_descr"
+msgstr ""
+"Dezember 1943 wurde die Entwicklung des T82 in Angriff genommen, August 1944 "
+"wurde ein Prototyp erprobt. Keine Serienfertigung oder Einsatz."
+
+msgid "T84E1"
+msgstr "T84E1"
+
+msgid "T84E1A"
+msgstr "T84E1A"
+
+msgid "T84E3"
+msgstr "T84E3"
+
+msgid "T84E38"
+msgstr "T84E38"
+
+msgid "T84E3A"
+msgstr "T84E3A"
+
+msgid "T85E1"
+msgstr "T85E1"
+
+msgid "T85E2"
+msgstr "T85E2"
+
+msgid "T92"
+msgstr "T92"
+
+msgid "T92_descr"
+msgstr ""
+"Anfang 1945 wurde die Entwicklung des T92 begonnen. Bei diesem Fahrzeug "
+"fanden viele Teile und Komponenten des M26 Verwendung. Im März 1945 wurde "
+"das Fahrzeug in den Aberdeen Proving Grounds erprobt, eine Serienfertigung "
+"erfolgte aber nie."
+
+msgid "T95"
+msgstr "T95"
+
+msgid "T95_E6"
+msgstr "T95E6"
+
+msgid "T95_E6_descr"
+msgstr ""
+"Einige Militäranalysten bewerteten die Experimentalfahrzeuge der T29-Serie "
+"als unterbewaffnet. Um die Feuerkraft des Panzers zu erhöhen sollte ein "
+"neuer, schwerer Turm namens T96 auf der Wanne platziert werden. Damit hätte "
+"die 105-mm-Kanone gegen eine 120-mm-Kanone ausgetauscht werden können. Die "
+"Entwicklung war jedoch zum Scheitern verurteilt und das Projekt wurde am 7. "
+"Juli 1960 eingestellt. Es wurde eine Attrappe gebaut."
+
+msgid "T95_descr"
+msgstr ""
+"Die Entwicklung dieses Fahrzeug hatte man 1943 in Auftrag gegeben, es war "
+"die Fertigung von 25 Fahrzeugen innerhalb eines Jahres geplant. Zwei "
+"Prototypen haben die Erprobung erfolgreich absolviert, dennoch kamen die "
+"Fahrzeuge nie zum Einsatz."
+
+msgid "T99E2"
+msgstr "T99E2"
+
+msgid "Torsion_bar_T80"
+msgstr "T23E3"
+
+msgid "Turret_1_M103"
+msgstr "M89"
+
+msgid "Turret_1_M10_Wolverine"
+msgstr "M10T72"
+
+msgid "Turret_1_M12"
+msgstr "M12M4"
+
+msgid "Turret_1_M18_Hellcat"
+msgstr "M18 M34A1"
+
+msgid "Turret_1_M22_Locust"
+msgstr "M22D1"
+
+msgid "Turret_1_M24_Chaffee"
+msgstr "T24"
+
+msgid "Turret_1_M36_Slagger_4"
+msgstr "M36T74"
+
+msgid "Turret_1_M40M43"
+msgstr "M40M43"
+
+msgid "Turret_1_M44"
+msgstr "M44"
+
+msgid "Turret_1_M46_Patton"
+msgstr "M46M73"
+
+msgid "Turret_1_M48A1"
+msgstr "M87"
+
+msgid "Turret_1_M4A2E4"
+msgstr "M4A2E4D51066"
+
+msgid "Turret_1_M53_55"
+msgstr "M53/M55"
+
+msgid "Turret_1_M60"
+msgstr "M60"
+
+msgid "Turret_1_M6A2E1"
+msgstr "M6A2E1D4"
+
+msgid "Turret_1_M8A1"
+msgstr "M8A1"
+
+msgid "Turret_1_Panther_M10"
+msgstr "PzKpfw-V-Turm Ausf. G"
+
+msgid "Turret_1_Pershing"
+msgstr "M26M67"
+
+msgid "Turret_1_Sherman_Jumbo"
+msgstr "M4A2E2T110"
+
+msgid "Turret_1_Shinhoto_Chi-Ha"
+msgstr "Type 2597"
+
+msgid "Turret_1_T110E3"
+msgstr "T110E3"
+
+msgid "Turret_1_T110E4"
+msgstr "T110E4"
+
+msgid "Turret_1_T1_E6"
+msgstr "T1"
+
+msgid "Turret_1_T21"
+msgstr "T21M47"
+
+msgid "Turret_1_T25_2"
+msgstr "T25/2T3"
+
+msgid "Turret_1_T25_AT"
+msgstr "T25M1"
+
+msgid "Turret_1_T26_E4_SuperPershing"
+msgstr "T26E4"
+
+msgid "Turret_1_T28"
+msgstr "T28"
+
+msgid "Turret_1_T28_Prototype"
+msgstr "T28P D1"
+
+msgid "Turret_1_T40"
+msgstr "T40"
+
+msgid "Turret_1_T49"
+msgstr "T42"
+
+msgid "Turret_1_T54E1"
+msgstr "T157"
+
+msgid "Turret_1_T57_58"
+msgstr "T169"
+
+msgid "Turret_1_T69"
+msgstr "T178"
+
+msgid "Turret_1_T71"
+msgstr "T71"
+
+msgid "Turret_1_T7_Combat_Car"
+msgstr "T7 Combat Car"
+
+msgid "Turret_1_T92"
+msgstr "T92"
+
+msgid "Turret_1_T95"
+msgstr "T95"
+
+msgid "Turret_1_T95_E6"
+msgstr "T95E6"
+
+msgid "Turret_2_M103"
+msgstr "T140"
+
+msgid "Turret_2_M10_Wolverine"
+msgstr "M10T72M1"
+
+msgid "Turret_2_M18_Hellcat"
+msgstr "M18 M1"
+
+msgid "Turret_2_M24_Chaffee"
+msgstr "M24"
+
+msgid "Turret_2_M36_Slagger_4"
+msgstr "M36T78"
+
+msgid "Turret_2_M46_Patton"
+msgstr "M46T119"
+
+msgid "Turret_2_M8A1"
+msgstr "T87"
+
+msgid "Turret_2_Pershing"
+msgstr "M26M71"
+
+msgid "Turret_2_Sherman_Jumbo"
+msgstr "M4A2E2D51080"
+
+msgid "Turret_2_T110"
+msgstr "T53"
+
+msgid "Turret_2_T21"
+msgstr "T21"
+
+msgid "Turret_2_T25_2"
+msgstr "T25/2T7"
+
+msgid "Turret_2_T49"
+msgstr "T49"
+
+msgid "Twin_Cadillac_42A_series"
+msgstr "Twin Cadillac, Series 42A"
+
+msgid "Twin_Cadillac_42A_series_short"
+msgstr ""
+"Twin Cadillac,\n"
+"Series 42A"
+
+msgid "Twin_Cadillac_42series"
+msgstr "Twin Cadillac, Series 42"
+
+msgid "Twin_Cadillac_42series_short"
+msgstr ""
+"Twin Cadillac,\n"
+"Series 42"
+
+msgid "Twin_Cadillac_series_44T4"
+msgstr "Twin Cadillac, Series 44T4"
+
+msgid "Twin_Cadillac_series_44T4_short"
+msgstr ""
+"Twin Cadillac,\n"
+"Series 44T4"
+
+msgid "VVSST41"
+msgstr "VVSS T41"
+
+msgid "VVSST48"
+msgstr "VVSS T48"
+
+msgid "VVSST49"
+msgstr "VVSS T49"
+
+msgid "VVSST51"
+msgstr "VVSS T51"
+
+msgid "VVSS_T16E1"
+msgstr "VVSS T16E1"
+
+msgid "VVSS_T16E2"
+msgstr "VVSS T16E2"
+
+msgid "VVSS_T16E3"
+msgstr "VVSS T16E3"
+
+msgid "VVSS_T36E6"
+msgstr "VVSS T36E6"
+
+msgid "VVSS_T36E8"
+msgstr "VVSS T36E8"
+
+msgid "VVSS_T48"
+msgstr "VVSS T48"
+
+msgid "VVSS_T48A"
+msgstr "VVSS T48A"
+
+msgid "VVSS_T51"
+msgstr "VVSS T51"
+
+msgid "VVSS_T55E1"
+msgstr "VVSS T55E1"
+
+msgid "VVSS_T80"
+msgstr "VVSS T80"
+
+msgid "VVSS_T80 "
+msgstr "VVSS T80 "
+
+msgid "VVSS_WE210"
+msgstr "VVSS WE210"
+
+msgid "Wright_Continental_R-975C1"
+msgstr "Wright Continental R-975C1"
+
+msgid "Wright_Continental_R-975C1_short"
+msgstr "Wright C. R-975C1"
+
+msgid "Wright_Continental_R-975C2"
+msgstr "Wright Continental R-975C2"
+
+msgid "Wright_Continental_R-975C2_short"
+msgstr "Wright C. R-975C2"
+
+msgid "Wright_Continental_R-975C3"
+msgstr "Wright Continental R-975C3"
+
+msgid "Wright_Continental_R-975C3_short"
+msgstr "Wright C. R-975C3"
+
+msgid "Wright_Continental_R-975C4"
+msgstr "Wright Continental R-975C4"
+
+msgid "Wright_Continental_R-975C4_short"
+msgstr "Wright C. R-975C4"
+
+msgid "Wright_Continental_R-975EC2"
+msgstr "Wright Continental R-975EC2"
+
+msgid "Wright_Continental_R-975EC2_short"
+msgstr "Wright C. R-975EC2"
+
+msgid "Wright_G200_m_781C9GC1"
+msgstr "Wright G200 M781C9GC1"
+
+msgid "Wright_G200_m_781C9GC1_short"
+msgstr ""
+"Wright G200\n"
+"M781C9GC1"
+
+msgid "Wright_G200_m_781C9GC5"
+msgstr "Wright G200 M781C9GC5"
+
+msgid "Wright_G200_m_781C9GC5_short"
+msgstr ""
+"Wright G200\n"
+"M781C9GC5"
+
+msgid "Wright_G200_m_795C9GC1"
+msgstr "Wright G200 M795C9GC1"
+
+msgid "Wright_G200_m_795C9GC1_short"
+msgstr ""
+"Wright G200\n"
+"M795C9GC1"
+
+msgid "Wright_G2X_m_781C9GC1"
+msgstr "Wright G2X M781C9GC1"
+
+msgid "Wright_G2X_m_781C9GC1_short"
+msgstr ""
+"Wright G2X\n"
+"M781C9GC1"
+
+msgid "Wright_R-975EC2"
+msgstr "Wright R-975EC2"
+
+msgid "_105mm_APCR_M68M2"
+msgstr "APDS-T M392"
+
+msgid "_105mm_APCR_T140E3"
+msgstr "HVAPDS-T T279"
+
+msgid "_105mm_APCR_T210M2"
+msgstr "APCR T210M2"
+
+msgid "_105mm_APCR_T29E3"
+msgstr "APCR T29E3"
+
+msgid "_105mm_APCR_T29E3M2"
+msgstr "APCR T29E3M2"
+
+msgid "_105mm_AP_M68M2"
+msgstr "AP M68M2"
+
+msgid "_105mm_AP_T140E3"
+msgstr "AP-T T182E1"
+
+msgid "_105mm_AP_T210M2"
+msgstr "AP T210M2"
+
+msgid "_105mm_AP_T32"
+msgstr "AP T32"
+
+msgid "_105mm_AP_T32M2"
+msgstr "AP T32M2"
+
+msgid "_105mm_AT_Gun_T5E1"
+msgstr "105 mm AT Gun T5E1"
+
+msgid "_105mm_AT_Howitzer_M3"
+msgstr "105 mm AT Howitzer M3"
+
+msgid "_105mm_AT_SPH_M4_L23"
+msgstr "105 mm AT M4"
+
+msgid "_105mm_Gun_M68"
+msgstr "105 mm Gun M68"
+
+msgid "_105mm_Gun_T140E2"
+msgstr "105mm Gun T140E2"
+
+msgid "_105mm_Gun_T210"
+msgstr "105 mm Gun T210"
+
+msgid "_105mm_Gun_T5E1"
+msgstr "105 mm Gun T5E1"
+
+msgid "_105mm_Gun_T5E1M2"
+msgstr "105 mm Gun T5E1M2"
+
+msgid "_105mm_Gun_T5E1_1"
+msgstr "105 mm Gun T5E1E"
+
+msgid "_105mm_HEAT-T_T384E4"
+msgstr "HEAT-T T384E4"
+
+msgid "_105mm_HEAT_M67"
+msgstr "HEAT M67"
+
+msgid "_105mm_HE_M1"
+msgstr "HE M1"
+
+msgid "_105mm_HE_M11"
+msgstr "HE M11"
+
+msgid "_105mm_HE_M11A2"
+msgstr "HE M11A2"
+
+msgid "_105mm_HE_M68M2"
+msgstr "HEP-T M393"
+
+msgid "_105mm_HE_T210M2"
+msgstr "HE T210M2"
+
+msgid "_105mm_Howitzer_M2A1"
+msgstr "105 mm Howitzer M2A1"
+
+msgid "_105mm_Howitzer_M3"
+msgstr "105 mm Howitzer M3"
+
+msgid "_105mm_Howitzer_M4"
+msgstr "105 mm Howitzer M4"
+
+msgid "_105mm_SPH_M4_L23"
+msgstr "105 mm M4"
+
+msgid "_12.7mm_AP_M2"
+msgstr "AP M2"
+
+msgid "_12.7mm_MG_HB_M2"
+msgstr "Browning MG caliber .50 HB, M2"
+
+msgid "_120mm_AP-T_M358"
+msgstr "AP-T M358"
+
+msgid "_120mm_APCR_T62"
+msgstr "APCR T62"
+
+msgid "_120mm_AP_Shot"
+msgstr "AP"
+
+msgid "_120mm_AP_T42"
+msgstr "AP T42"
+
+msgid "_120mm_AT_Gun_T53"
+msgstr "120 mm AT Gun T53"
+
+msgid "_120mm_Gun_M58"
+msgstr "120 mm Gun M58"
+
+msgid "_120mm_Gun_T122"
+msgstr "120 mm Gun T122"
+
+msgid "_120mm_Gun_T123E6"
+msgstr "120 mm Gun T123E6"
+
+msgid "_120mm_Gun_T179"
+msgstr "120 mm Gun T179"
+
+msgid "_120mm_Gun_T53"
+msgstr "120 mm Gun T53"
+
+msgid "_120mm_Gun_T53A1"
+msgstr "120 mm Gun T53A1"
+
+msgid "_120mm_HE-T67"
+msgstr "HE T67"
+
+msgid "_120mm_HEAT-T_M469"
+msgstr "HEAT-T M469"
+
+msgid "_120mm_HE_Shot"
+msgstr "HE Shell"
+
+msgid "_120mm_HVAP_Shot"
+msgstr "HVAP"
+
+msgid "_155mm_AP_M111"
+msgstr "AP M111"
+
+msgid "_155mm_AP_M111E1"
+msgstr "AP M111E1"
+
+msgid "_155mm_AP_M112"
+msgstr "AP M112"
+
+msgid "_155mm_AP_M112E1"
+msgstr "APCR M112E1"
+
+msgid "_155mm_AT_Gun_T7"
+msgstr "155 mm AT Gun T7"
+
+msgid "_155mm_AT_Gun_T7E2"
+msgstr "155 mm AT Gun T7E2"
+
+msgid "_155mm_Gun_M1918M1"
+msgstr "155 mm Gun M1918M1"
+
+msgid "_155mm_Gun_M1A1"
+msgstr "155 mm Gun M1A1"
+
+msgid "_155mm_Gun_M46"
+msgstr "155 mm Gun M46"
+
+msgid "_155mm_HEAT_M167"
+msgstr "HEAT M167"
+
+msgid "_155mm_HE_M101"
+msgstr "HE M101"
+
+msgid "_155mm_HE_M101E1"
+msgstr "HE M101E1"
+
+msgid "_155mm_HE_M101M2"
+msgstr "HE M101M2"
+
+msgid "_155mm_HE_M101M4"
+msgstr "HE M101M4"
+
+msgid "_155mm_HE_M101M6"
+msgstr "HE M101M6"
+
+msgid "_155mm_HE_M102"
+msgstr "HE M102"
+
+msgid "_155mm_Howitzer_M1"
+msgstr "155 mm Howitzer M1"
+
+msgid "_155mm_Howitzer_M45"
+msgstr "155 mm Howitzer M45"
+
+msgid "_203mm_HE_A1M1"
+msgstr "HE M106"
+
+msgid "_203mm_HE_M106"
+msgstr "HE A1M1"
+
+msgid "_203mm_Howitzer_M1"
+msgstr "8-inch Howitzer M1"
+
+msgid "_203mm_Howitzer_M47"
+msgstr "8-inch Howitzer M47"
+
+msgid "_203mm_M106_M78"
+msgstr "M106/M78"
+
+msgid "_20mm_AP"
+msgstr "AP"
+
+msgid "_20mm_APCR"
+msgstr "APCR"
+
+msgid "_20mm_Hispano_Suiza_Birgikt_gun"
+msgstr "20 mm Hispano-Suiza Birkigt Gun"
+
+msgid "_20mm_Hispano_Suiza_Birgikt_gun_A"
+msgstr "20 mm Hispano-Suiza Birkigt Gun"
+
+msgid "_20mm_Hispano_Suiza_Birgikt_gun_A_short"
+msgstr "20 mm Hispano-Suiza"
+
+msgid "_20mm_Hispano_Suiza_Birgikt_gun_short"
+msgstr "20 mm Hispano-Suiza"
+
+msgid "_240mm_HE_M146"
+msgstr "HE M146"
+
+msgid "_240mm_HE_M160"
+msgstr "HE M160"
+
+msgid "_240mm_Howitzer_M1"
+msgstr "240 mm Howitzer M1"
+
+msgid "_240mm_M114_M78"
+msgstr "M114/M78"
+
+msgid "_2pdr_APCNR_Mk.1"
+msgstr "APCNR Mk. 1"
+
+msgid "_2pdr_AP_Mk.1T"
+msgstr "AP Mk. 1T"
+
+msgid "_2pdr_HE_Mk.2"
+msgstr "HE Mk. 2"
+
+msgid "_2x44E24_V-8_Cadillac"
+msgstr "2x 44E24 V-8 Cadillac"
+
+msgid "_2x44E24_V-8_Cadillac_short"
+msgstr ""
+"2x 44E24 V-8\n"
+"Cadillac"
+
+msgid "_37mm_44_caliber_automatic_cannon"
+msgstr "37 mm dual automatic cannon"
+
+msgid "_37mm_44_caliber_automatic_cannon_short"
+msgstr ""
+"37 mm dual\n"
+"automatic cannon"
+
+msgid "_37mm_AP1937"
+msgstr "AP 1937"
+
+msgid "_37mm_APCBC1935"
+msgstr "APCBC 1935"
+
+msgid "_37mm_APC_M51"
+msgstr "APC M51"
+
+msgid "_37mm_APC_M59A1"
+msgstr "APC M59A1"
+
+msgid "_37mm_APC_M59A5"
+msgstr "APC M59A5"
+
+msgid "_37mm_AP_M74"
+msgstr "AP M74"
+
+msgid "_37mm_Browning_semiautomatic_gun"
+msgstr "37 mm Browning Semiautomatic Gun"
+
+msgid "_37mm_Browning_semiautomatic_gun_short"
+msgstr "37 mm Browning"
+
+msgid "_37mm_Gun_M1916"
+msgstr "37 mm Gun M1916"
+
+msgid "_37mm_HE1916"
+msgstr "HE 1916"
+
+msgid "_37mm_HE_M54"
+msgstr "HE M54"
+
+msgid "_37mm_HE_M63"
+msgstr "HE M63"
+
+msgid "_37mm_M-3_antitank_gun"
+msgstr "37 mm AT Gun M3"
+
+msgid "_37mm_M-5"
+msgstr "37 mm Gun M5"
+
+msgid "_37mm_M-6_L53"
+msgstr "37 mm Gun M6"
+
+msgid "_37mm_M-6_L53M2"
+msgstr "37 mm Gun M6"
+
+msgid "_37mm_T19"
+msgstr "37 mm Gun T19"
+
+msgid "_37mm_semiautomatic_gun_M1924"
+msgstr "37 mm Semiautomatic Gun M1924"
+
+msgid "_37mm_semiautomatic_gun_M1924A1"
+msgstr "37 mm Semiautomatic Gun M1924A1"
+
+msgid "_37mm_semiautomatic_gun_M1924A1_short"
+msgstr "37 mm M1924A1"
+
+msgid "_37mm_semiautomatic_gun_M1924_A"
+msgstr "37 mm Semiautomatic Gun M1924 M1"
+
+msgid "_37mm_semiautomatic_gun_M1924_short"
+msgstr "37 mm M1924"
+
+msgid "_47mm_APCR_MkI"
+msgstr "APCR Mk. 1"
+
+msgid "_47mm_AP_MkI"
+msgstr "AP Mk. 1"
+
+msgid "_47mm_Gun_L40"
+msgstr "47 mm Gun L/40"
+
+msgid "_47mm_HE_MkI"
+msgstr "HE Mk. 1"
+
+msgid "_57mm_APC_M86"
+msgstr "APC M86"
+
+msgid "_57mm_AP_M70"
+msgstr "AP M70"
+
+msgid "_57mm_Gun_M1_L50"
+msgstr "57 mm Gun M1"
+
+msgid "_57mm_HE_T18"
+msgstr "HE T18"
+
+msgid "_6pdr_APCR_MK_1T"
+msgstr "APCR Mk. 1T"
+
+msgid "_6pdr_AP_MKs_4"
+msgstr "AP Mk. 4"
+
+msgid "_75mm_AT_Gun_M3_L37"
+msgstr "75 mm AT Gun M3"
+
+msgid "_75mm_AT_Gun_M7_L50"
+msgstr "3-inch AT Gun M7"
+
+msgid "_75mm_AT_Howitzer_M3"
+msgstr "75 mm AT Howitzer M3"
+
+msgid "_75mm_Gun_M17"
+msgstr "75 mm Gun M17"
+
+msgid "_75mm_Gun_M2_L28"
+msgstr "75 mm Gun M2"
+
+msgid "_75mm_Gun_M3_L37"
+msgstr "75 mm Gun M3"
+
+msgid "_75mm_Gun_M6"
+msgstr "75 mm Gun M6"
+
+msgid "_75mm_Gun_M7_L50"
+msgstr "3-inch Gun M7"
+
+msgid "_75mm_HEAT_M66"
+msgstr "HEAT M66"
+
+msgid "_75mm_Howitzer_M1A1"
+msgstr "75 mm Howitzer M1A1"
+
+msgid "_75mm_Howitzer_M3"
+msgstr "75 mm Howitzer M3"
+
+msgid "_75mm_KwK_L70"
+msgstr "7.5 cm KwK L70"
+
+msgid "_75mm_M48"
+msgstr "M48"
+
+msgid "_75mm_M61"
+msgstr "M61"
+
+msgid "_75mm_M72"
+msgstr "M72"
+
+msgid "_75mm_Pzgr.40L"
+msgstr "Pzgr.40L (captured)"
+
+msgid "_75mm_Pzgr39L"
+msgstr "Pzgr39L (captured)"
+
+msgid "_75mm_Sprg.18L"
+msgstr "Sprg.18L (captured)"
+
+msgid "_76mm_APDS_M331A2"
+msgstr "HVAP-DS-T M331A2"
+
+msgid "_76mm_AP_M339"
+msgstr "AP M339"
+
+msgid "_76mm_AP_M79"
+msgstr "AP M62"
+
+msgid "_76mm_AT_Gun_M1918"
+msgstr "3-inch AT Gun M1918"
+
+msgid "_76mm_AT_Gun_M1A1"
+msgstr "76 mm AT Gun M1A1"
+
+msgid "_76mm_AT_Gun_M1A2"
+msgstr "76 mm AT Gun M1A2"
+
+msgid "_76mm_Gun_M1918"
+msgstr "3-inch Gun T9"
+
+msgid "_76mm_Gun_M1A1"
+msgstr "76 mm Gun M1A1"
+
+msgid "_76mm_Gun_M1A1T"
+msgstr "76 mm Gun M1A1"
+
+msgid "_76mm_Gun_M1A2"
+msgstr "76 mm Gun M1A2"
+
+msgid "_76mm_Gun_T185"
+msgstr "76 mm Gun T185"
+
+msgid "_76mm_Gun_T94"
+msgstr "76 mm Gun T94"
+
+msgid "_76mm_HEAT"
+msgstr "HEAT"
+
+msgid "_76mm_HEAT_M496"
+msgstr "HEAT-T M496"
+
+msgid "_76mm_HE_M352"
+msgstr "HE M352"
+
+msgid "_76mm_HE_M42A1"
+msgstr "HE M42A1"
+
+msgid "_76mm_HE_M42B1"
+msgstr "HE M42B1"
+
+msgid "_76mm_HVAP_M319"
+msgstr "HVAP M319"
+
+msgid "_76mm_HVAP_M93"
+msgstr "HVAP M93"
+
+msgid "_76mm_M42A1"
+msgstr "HE M42A1(M7)"
+
+msgid "_76mm_M62"
+msgstr "AP M62(M7)"
+
+msgid "_76mm_M64"
+msgstr "M64"
+
+msgid "_76mm_M79"
+msgstr "HVAP M93(M7)"
+
+msgid "_90mm_AP_M318"
+msgstr "AP M318"
+
+msgid "_90mm_AP_M77"
+msgstr "AP M77"
+
+msgid "_90mm_AT_Gun_M3"
+msgstr "90 mm AT Gun M3"
+
+msgid "_90mm_AT_Gun_T15E2"
+msgstr "90 mm AT Gun T15E2"
+
+msgid "_90mm_Gun_M3"
+msgstr "90 mm Gun M3"
+
+msgid "_90mm_Gun_M36"
+msgstr "90 mm Gun M36"
+
+msgid "_90mm_Gun_M41"
+msgstr "90 mm Gun M41"
+
+msgid "_90mm_Gun_T15E1"
+msgstr "90 mm Gun T15E1"
+
+msgid "_90mm_Gun_T15E2"
+msgstr "90 mm Gun T15E2"
+
+msgid "_90mm_Gun_T15E2M2"
+msgstr "90 mm Gun T15E2M2"
+
+msgid "_90mm_Gun_T178"
+msgstr "90 mm Gun T178"
+
+msgid "_90mm_HEAT_M348"
+msgstr "HEAT-T M348"
+
+msgid "_90mm_HE_M71"
+msgstr "HE M71"
+
+msgid "_90mm_HE_T91E3"
+msgstr "HE T91E3"
+
+msgid "_90mm_HVAP_M304"
+msgstr "HVAP M304"
+
+msgid "_M44"
+msgstr "M44"
+
+msgid "_M44_descr"
+msgstr ""
+"Eine 155-mm-Selbstfahrlafette auf dem Chassis des leichten Panzers M41. "
+"Entwickelt von 1947 bis 1951. Eine Vielzahl an Fehlern wurde nach "
+"Indienststellung entdeckt. Die Serienfertigung der M44 wurde eingestellt, da "
+"eine verbesserte Selbstfahrlafette dieser Klasse entwickelt wurde. Je nach "
+"Quelle wurden zwischen 1953 und 1954 etwa 250 bis 600 Fahrzeuge dieses Typs "
+"gebaut."
+
+msgid "chassisE1"
+msgstr "Stuart E1"
+
+msgid "chassisE2"
+msgstr "Stuart E2"

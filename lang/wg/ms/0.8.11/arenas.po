@@ -1,0 +1,485 @@
+msgid "00_planb_testsite/description"
+msgstr "?empty?"
+
+msgid "00_planb_testsite/name"
+msgstr "Kawasan Latihan"
+
+msgid "00_tank_tutorial/description"
+msgstr "?empty?"
+
+msgid "00_tank_tutorial/name"
+msgstr "Kawasan latihan"
+
+msgid "01_karelia/description"
+msgstr ""
+"Dua haluan serangan dibahagi dua oleh kawasan paya. Bahagian timur sesuai "
+"untuk pertahanan yang lasak, tetapi boleh ditembusi oleh angkatan menyerang "
+"yang tangkas. Bahagian barat pula menggalakkan kemaraan yang tegas. Kawasan "
+"paya boleh digunakan sebagai haluan serangan yang berisiko yang mungkin "
+"tidak dijangka musuh."
+
+msgid "01_karelia/name"
+msgstr "Karelia"
+
+msgid "02_malinovka/description"
+msgstr ""
+"Kawasan persediaan awal dipisahkan oleh dataran yang terbuka luas, sesuai "
+"untuk artileri dan operasi pertahanan. Tempat persembunyian dan perlindungan "
+"seperti belukar, kawasan berbukit dan rumah-rumah ladang boleh menjadi "
+"penentu pertempuran. Penyerang harus pertimbangkan gerakan mengapit, satu "
+"lagi pilihan adalah menggunakan serangan kilat menyeberangi dataran, yang "
+"boleh membawa kemenangan atau kemusnahan teruk."
+
+msgid "02_malinovka/name"
+msgstr "Malinovka"
+
+msgid "03_campania/description"
+msgstr ""
+"Bukit-bukit di pinggir medan ini terdapat berbilang rumah dan jalan berliku-"
+"liku yang sesuai untuk serangan hendap dan tembakan sasar. Kawasan terbuka "
+"di antara pangkalan pula memihak kepada serbuan yang berani."
+
+msgid "03_campania/name"
+msgstr "Provinsi"
+
+msgid "04_himmelsdorf/description"
+msgstr ""
+"Satu jaringan jalanan dan dataran, susah dilalui artileri dan pemusnah "
+"perisai tetapi sesuai untuk serbuan dan pemintasan pantas oleh kenderaan "
+"ringan dan sederhana. Gunakan jalan-jalan yang melalui lereng bukit, dengan "
+"istana yang tersergam besar, dan sepanjang landasan keretapi untuk membantu "
+"anda memecah kebuntuan."
+
+msgid "04_himmelsdorf/name"
+msgstr "Himmelsdorf"
+
+msgid "05_prohorovka/description"
+msgstr ""
+"Secara amnya kawasan yang terbuka dengan sebuah bukit besar dan tambak "
+"landasan keretapi. Kawasan belukar memberi perlindungan kepada pemusnah "
+"perisai. Serang bahagian susuk musuh tetapi awasi susuk sendiri. Artileri "
+"mempunyai medan menembak yang baik tetapi masih terdedah kepada serbuan dari "
+"perisai ringan."
+
+msgid "05_prohorovka/name"
+msgstr "Prokhorovka"
+
+msgid "06_ensk/description"
+msgstr ""
+"Sebuah campuran kawasan bandar dan hutan belukar yang dibahagi oleh landasan "
+"keretapi. Rancangkan taktik untuk mengambil kesempatan di kawasan sekatan "
+"pertahanan dan awasi kawasan terbuka dengan kenderaan-kenderaan anda. "
+"Artileri amat berguna untuk mencegah penyerbuan musuh, tetapi tidak berdaya "
+"apabila terdedah kepada serangan kenderaan musuh daripada kawasan terlindung."
+
+msgid "06_ensk/name"
+msgstr "Ensk"
+
+msgid "07_lakeville/description"
+msgstr ""
+"Sebuah lembah gunung yang terpencil di satu susuk dan pekan di satu lagi "
+"membenarkan anda bergerak mendekati musuh. Sebuah tasik ditengah memberi "
+"kesempatan kepada penembak tepat untuk menunjuk bakat mereka."
+
+msgid "07_lakeville/name"
+msgstr "Lakeville"
+
+msgid "08_ruinberg/description"
+msgstr ""
+"Jalan-jalan bandar yang berpusat, serta hutan dan semak-samun tebal di taman "
+"membolehkan gerakan tersembunyi dan pengerahan semula pasukan. Meskipun "
+"penggunaan artileri dalam bandar adalah terhad, runtuhan bangunan memberi "
+"perlindungan yang berkesan kepada pasukan anda."
+
+msgid "08_ruinberg/name"
+msgstr "Ruinberg"
+
+msgid "10_hills/description"
+msgstr ""
+"Sebuah bukit yang tinggi di tengah medan memberi tempat yang sempurna untuk "
+"melancarkan serangan. Sebuah kampung di timur laut dan sebuah pulau di barat "
+"menawarkan pelbagai kelebihan taktikal, tetapi ianya terdedah kepada "
+"tembakan dari kawasan tengah."
+
+msgid "10_hills/name"
+msgstr "Lombong"
+
+msgid "11_murovanka/description"
+msgstr ""
+"Paya, lurah-lurah dan bukit-bukit menentukan taktik pertempuran anda. "
+"Kekurangan bangunan memberi kelebihan kepada artileri. Menumpukan kesemua "
+"serangan sepanjang satu paksi serangan mungkin adalah strategi terbaik."
+
+msgid "11_murovanka/name"
+msgstr "Murovanka"
+
+msgid "13_erlenberg/description"
+msgstr ""
+"Dipisahkan oleh sebatang sungai, medan ini memberi tiga haluan serangan "
+"utama. Ditengah terdapat sebuah jambatan yang terletak diantara runtuhan "
+"sebuah pekan kecil. Rupa bentuk bumi di jambatan utara dan selatan memberi "
+"perlindungan yang sedikit. Gunakan istana dan jajaran bukit di kawasan "
+"bertentangan di medan ini sebagai posisi menembak untuk artileri anda."
+
+msgid "13_erlenberg/name"
+msgstr "Erlenberg"
+
+msgid "14_siegfried_line/description"
+msgstr ""
+"Medan ini merupakan kombinasi kawasan terbuka dan blok-blok bandar. Lorong-"
+"lorong berliku akan memudahkan anda membuat serangan mengejut dari belakang "
+"barisan musuh sementara beberapa kubu boleh dijadikan tempat berlindung."
+
+msgid "14_siegfried_line/name"
+msgstr "Garisan Siegfried"
+
+msgid "15_komarin/description"
+msgstr ""
+"Medan ini dibahagikan kepada tiga sektor: barat, tengah dan timur. Walaupun "
+"serangan ke atas satu sayap atau yang lain boleh menentukan keputusan, "
+"sektor tengah menawarkan kelebihan taktikal yang tidak patut diabaikan."
+
+msgid "15_komarin/name"
+msgstr "Komarin"
+
+msgid "17_munchen/description"
+msgstr ""
+"Medan ini mempamerkan bandar perindustrian yang musnah akibat peperangan. "
+"Tambak landasan keretapi yang membahagikan medan ini kepada dua membolehkan "
+"pasukan ditumpukan untuk serangan atau serangan balas."
+
+msgid "17_munchen/name"
+msgstr "Widepark"
+
+msgid "18_cliff/description"
+msgstr ""
+"Pangkalan bertentangan di medan ini dipisahkan oleh tebing-tebing dan rabung-"
+"rabung berbatu. Pelbagai jenis perlindungan membenarkan serangan tertumpu ke "
+"haluan yang mustahak. Laluan terus mungkin sesuai untuk membuat serbuan "
+"tetapi jangan abaikan bahagian susuk anda!"
+
+msgid "18_cliff/name"
+msgstr "Tebing"
+
+msgid "19_monastery/description"
+msgstr ""
+"Sebuah biara dan pekan adalah tempat tumpuan medan ini. Tiga jalan dari "
+"utara ke selatan memberi laluan yang mudah untuk pergi dari satu hujung "
+"medan ke hujung yang satu lagi. Halaman biara menawarkan posisi menembak "
+"yang sempurna bagi perisai dan artileri tetapi mudah diramalkan oleh musuh. "
+"Bukit yang panjang di barat dan jurang yang berliku di timur boleh memberi "
+"perlindungan yang sempurna dari ancaman musuh."
+
+msgid "19_monastery/name"
+msgstr "Biara"
+
+msgid "22_slough/description"
+msgstr ""
+"Kawasan paya di bahagian tengah medan membahagikannya kepada dua sektor "
+"utama. Mengawal bahagian tengah akan menyukarkan musuh daripada bergerak "
+"bebas di bahagian sayap. Bukit-bukit memberi tempat pemandangan yang penting "
+"untuk mengesan dan menembak."
+
+msgid "22_slough/name"
+msgstr "Paya"
+
+msgid "23_westfeld/description"
+msgstr ""
+"Muka bumi medan yang subur menampilkan hutan dan kampung-kampung yang "
+"tersebar sekeliling dan sebuah saluran air gergasi yang hampir runtuh "
+"tersergam tinggi menyeberang lembah. Pelbagai tebing dan rabung memberi "
+"tempat yang sempurna untuk serangan hendap, tetapi kawasan yang terbuka "
+"membuatkan cubaan untuk menukar kedudukan agak berisiko."
+
+msgid "23_westfeld/name"
+msgstr "Westfield"
+
+msgid "28_desert/description"
+msgstr ""
+"Medan ini nampak terbuka, tetapi rupa luaran boleh mengelirukan! Rumah-rumah "
+"kampung boleh digunakan sebagai perlindungan untuk kenderaan dan artileri. "
+"Serangan ke atas susuk musuh dari perlindungan tebing-tebing dan gumuk-gumuk "
+"pasir harus diberi pertimbangan."
+
+msgid "28_desert/name"
+msgstr "Sungai Pasir"
+
+msgid "29_el_hallouf/description"
+msgstr ""
+"Sebuah lembah dengan taburan batu-batuan dan pokok-pokok terletak di tengah "
+"medan. Rabung gunung yang tinggi mengapit lembah ini memberikan banyak "
+"tempat untuk menembak sasar. Menawan pangkalan menjadi cabaran yang hebat "
+"kerana kedua-dua pasukan bertempat di rantau bukit yang senang dipertahankan."
+
+msgid "29_el_hallouf/name"
+msgstr "El Halluf"
+
+msgid "31_airfield/description"
+msgstr ""
+"Medan ini penuh dengan tempat yang sesuai untuk membuat serangan hendap dan "
+"pelbagai kesempatan untuk membuat gerakan dan serbuan. Sebuah lapangan "
+"terbang yang besar di bahagian utara medan dan kawasan tinggi yang berbatu "
+"di tengah menawarkan cabaran taktikal yang besar. Takluki kawasan tinggi "
+"tersebut untuk mendapatkan tempat pemerhatian sempurna muka bumi sekeliling "
+"dan kuasai haluan-haluan ke pangkalan musuh."
+
+msgid "31_airfield/name"
+msgstr "Lapangan Terbang"
+
+msgid "33_fjord/description"
+msgstr ""
+"Gunung-gunung tinggi dan lembah-lembah sempit menawarkan kelebihan dalam "
+"pertempuran. Anda boleh berbalas tembakan merentasi teluk atau berjuang pada "
+"jarak dekat dalam pekan pelabuhan ataupun melencong untuk menawan pangkalan "
+"musuh."
+
+msgid "33_fjord/name"
+msgstr "Fiord"
+
+msgid "34_redshire/description"
+msgstr ""
+"Medan ini amat unik. Dataran hijau diselangi bukit-bukit memberi peluang "
+"yang baik untuk serangan agresif. Sungai yang merentasi medan di tengah "
+"merupakan lebih kepada mercu tanda daripada rintangan."
+
+msgid "34_redshire/name"
+msgstr "Redshire"
+
+msgid "35_steppes/description"
+msgstr ""
+"Secara amnya kawasan yang terbuka, medan ini membenarkan anda menyerang "
+"dalam pelbagai arah, tetapi jangan sebarkan pasukan anda terlalu jauh. Jalan "
+"di tengah akan membawa anda terus ke pangkalan musuh, tetapi dengan lebih "
+"banyak kesulitan. Pinggir medan ini mungkin memberi haluan yang lebih baik "
+"untuk gerakan bertempur."
+
+msgid "35_steppes/name"
+msgstr "Steppe"
+
+msgid "36_fishing_bay/description"
+msgstr ""
+"Medan ini mempunyai kombinasi kawasan terbuka dan muka bumi yang beralun. "
+"Jalan-jalan kampung nelayan yang berliku boleh memberi banyak kelebihan "
+"untuk serangan atau pertahanan. Rabung-rabung rendah dan bukit-bukit "
+"berimbun menawarkan peluang yang baik untuk serangan hendap."
+
+msgid "36_fishing_bay/name"
+msgstr "Teluk Nelayan"
+
+msgid "37_caucasus/description"
+msgstr ""
+"Gunakan muka bumi yang curam untuk bersembunyi dari tembakan musuh, "
+"menyediakan serangan hendap, atau untuk mencoroboh pangkalan musuh tanpa "
+"dikesani melalui lorong-lorong tinggi berliku."
+
+msgid "37_caucasus/name"
+msgstr "Genting Gunung"
+
+msgid "38_mannerheim_line/description"
+msgstr ""
+"Medan diliputi batu-batuan dan salji ini penuh dengan pelbagai rintangan dan "
+"benteng perlindungan. Lorong-lorong berliku disekitar gunung batu dan "
+"sepanjang sungai memberi pelbagai pilihan untuk strategi serangan, tetapi "
+"awas: pasukan bertahan akan mempunyai banyak peluang untuk membuat serangan "
+"hendap."
+
+msgid "38_mannerheim_line/name"
+msgstr "Rantau Artik"
+
+msgid "39_crimea/description"
+msgstr ""
+"Gunakan pelbagai taktik perang di medan yang bermuka bumi kasar ini: "
+"mengapit, menghendap musuh, atau buat serangan hadapan secara terus. Gunakan "
+"juga ruang-ruang diantara batu-batuan untuk serangan penembusan tertumpu."
+
+msgid "39_crimea/name"
+msgstr "Pantai Selatan"
+
+msgid "43_north_america/description"
+msgstr ""
+"Medan ini menampilkan banyak batu-batuan dan pokok-pokok. Tebing-tebing, "
+"rumah-rumah dan batu besar menawarkan perlindungan walaupun di kawasan "
+"paling terbuka medan ini. Beberapa penempatan dan lombong boleh digunakan "
+"sebagai pusat operasi pertahanan."
+
+msgid "43_north_america/name"
+msgstr "Barat Laut"
+
+msgid "44_north_america/description"
+msgstr ""
+"Di tengah medan ini terdapat tasik paya yang besar. Sebuah jambatan keretapi "
+"dan tebing merentas di satu susuk membenarkan pertahanan kawasan tersebut "
+"dengan pasukan yang kecil manakala pasukan utama bertumpu di susuk yang lagi "
+"satu."
+
+msgid "44_north_america/name"
+msgstr "Live Oaks"
+
+msgid "45_north_america/description"
+msgstr ""
+"Sebuah bandar perindustrian menjadi persekitaran yang digemari oleh perisai "
+"berat. Sebuah perkampungan sungai memberi peluang yang baik untuk perisai "
+"sederhana untuk membuat pergerakan dan mengambil posisi."
+
+msgid "45_north_america/name"
+msgstr "Lebuhraya"
+
+msgid "47_canada_a/description"
+msgstr ""
+"Medan ini menawarkan pelbagai haluan serangan, setiap satu dengan kelebihan "
+"tertentu. Kenderan berat yang perlahan harus bertumpu sepanjang landasan "
+"keretapi. Kenderaan pantas harus cepat mengambil posisi penting seperti "
+"peninsula dan kawasan tinggi untuk memberi sokongan kepada ahli pasukan lain."
+
+msgid "47_canada_a/name"
+msgstr "Pantai Aman"
+
+msgid "51_asia/description"
+msgstr ""
+"Dengan tasik, belukar-belukar buluh dan rabung-rabung berceranggah, medan "
+"ini amat indah untuk dipandang dan juga unik dari segi taktikal. Terdapat "
+"beberapa haluan serangan di medan ini, setiap satu mempunyai kelebihan dan "
+"kelemahan masing-masing."
+
+msgid "51_asia/name"
+msgstr "Rabung Naga"
+
+msgid "53_japan/description"
+msgstr ""
+"Kaki gunung yang terlindung menjadi haluan pilihan untuk perisai berat. "
+"Kenderaan pantas dan lincah boleh pertimbangkan serangan melalui kampung. "
+"Bagaimanapun, bukit di tengah medan memberi pemandangan yang sempurna untuk "
+"kawasan sekeliling. Penguasaan bukit ini adalah amat penting."
+
+msgid "53_japan/name"
+msgstr "Kampung Tersembunyi"
+
+msgid "59_asia_great_wall/description"
+msgstr ""
+"Medan ini menawarkan banyak jalan dan gaung yang memberi peluang yang baik "
+"untuk perisai ringan dan artileri untuk menyerlah. Jurang dalam benteng "
+"merupakan tempat sesuai untuk perisai pantas membuat serangan kilat. "
+"Kenderaan-kenderaan lain harus memberi tumpuan pada barisan serangan utama."
+
+msgid "59_asia_great_wall/name"
+msgstr "Sempadan Empayar"
+
+msgid "60_asia_miao/description"
+msgstr ""
+"Muka bumi yang sukar menggalakkan pelbagai taktik pertempuran—serangan "
+"hendap, serangan susuk yang tidak dijangka dan pertempuran jarak dekat. "
+"Bergerak melalui dasar sungai untuk mencapai pangkalan musuh dan beraksi "
+"dengan pantas. Bagaimanapun, jangan biarkan bahagian belakang anda tanpa "
+"perlindungan!"
+
+msgid "60_asia_miao/name"
+msgstr "Sungai Mutiara"
+
+msgid "63_tundra/description"
+msgstr ""
+"Gunung di bahagian timur memberi peluang untuk menguasai medan dari kawasan "
+"tinggi manakala bahagian tengah medan menawarkan pelbagai kelebihan "
+"taktikal. Kawasan paya di barat mungkin membenarkan peninjauan bahagian "
+"belakang musuh atau serangan mengejut."
+
+msgid "63_tundra/name"
+msgstr "Tundra"
+
+msgid "73_asia_korea/description"
+msgstr ""
+"Medan ini menampilkan sebuah lembah tersembunyi di tengah-tengah "
+"pergunungan. Berbilang kampung, batu-batuan, pokok dan rimbunan akan "
+"mempengaruhi taktik pertempuran."
+
+msgid "73_asia_korea/name"
+msgstr "Lembah Suci"
+
+msgid "84_winter/description"
+msgstr ""
+"Sebuah pekan merupakan persekitaran yang sesuai untuk pertahanan lasak. "
+"Kawasan terbuka di utara menawarkan pelbagai peluang untuk menembus ke dalam "
+"pangkalan musuh dan pergerakan agresif menggunakan kenderaan ringan."
+
+msgid "84_winter/name"
+msgstr "Ribut Angin"
+
+msgid "85_winter/description"
+msgstr ""
+"Sebuah pekan menawarkan tempat berlindung dan bersembunyi, menjadikannya "
+"posisi yang baik untuk pertahanan lasak. Kawasan terbuka di utara menawarkan "
+"pelbagai peluang untuk kenderaan ringan bergerak agresif dan menembus ke "
+"dalam pangkalan musuh."
+
+msgid "85_winter/name"
+msgstr "Severogorsk"
+
+msgid "86_himmelsdorf_winter/description"
+msgstr ""
+"Satu jaringan jalanan dan dataran, susah dilalui artileri dan pemusnah "
+"perisai tetapi sesuai untuk serbuan dan pemintasan pantas oleh kenderaan "
+"ringan dan sederhana. Gunakan jalan-jalan yang melalui lereng bukit, dengan "
+"istana yang tersergam besar, dan sepanjang landasan keretapi untuk membantu "
+"anda memecah kebuntuan."
+
+msgid "86_himmelsdorf_winter/name"
+msgstr "Musim Dingin di Himmelsdorf"
+
+msgid "87_ruinberg_on_fire/description"
+msgstr ""
+"Jalan-jalan bandar yang berpusat, serta hutan dan semak-samun tebal di taman "
+"membolehkan gerakan tersembunyi dan pengerahan semula pasukan. Meskipun "
+"penggunaan artileri dalam bandar adalah terhad, runtuhan bangunan memberi "
+"perlindungan yang berkesan kepada pasukan anda."
+
+msgid "87_ruinberg_on_fire/name"
+msgstr "Ruinberg Terbakar"
+
+msgid "type/assault/description1"
+msgstr ""
+"Misi: pertahankan pangkalan sekutu atau musnahkan semua kenderaan musuh."
+
+msgid "type/assault/description2"
+msgstr "Misi: tawan pangkalan musuh atau musnahkan semua kenderaan musuh."
+
+msgid "type/assault/name"
+msgstr "Serangan"
+
+msgid "type/ctf/description"
+msgstr "Misi: tawan pangkalan musuh atau musnahkan semua kenderaan musuh."
+
+msgid "type/ctf/name"
+msgstr "Pertempuran Biasa"
+
+msgid "type/ctf2/description"
+msgstr ""
+"Misi: tawan sekurang-kurangya satu pangkalan musuh atau musnahkan semua "
+"kenderaan musuh."
+
+msgid "type/ctf2/name"
+msgstr "Penawanan"
+
+msgid "type/domination/description"
+msgstr "Misi: tawan pangkalan atau musnahkan semua kenderaan musuh."
+
+msgid "type/domination/name"
+msgstr "Pertempuran Pertemuan"
+
+msgid "type/escort/description1"
+msgstr ""
+"Misi: pertahankan pangkalan sekutu atau musnahkan ketiga-tiga kenderaan "
+"musuh teratas dalam senarai."
+
+msgid "type/escort/description2"
+msgstr ""
+"Misi: tawan pangkalan musuh atau musnahkan semua kenderaan musuh; tetapi, "
+"sekurang-kurangnya satu daripada tiga kenderaan sekutu tertinggi dalam "
+"senarai mesti terselamat."
+
+msgid "type/escort/name"
+msgstr "Pengiringan"
+
+msgid "type/nations/description"
+msgstr "Misi: tawan pangkalan atau musnahkan semua kenderaan musuh."
+
+msgid "type/nations/name"
+msgstr "Konfrontasi"

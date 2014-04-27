@@ -1,0 +1,1232 @@
+msgid "achievement/master1"
+msgstr "3. Klasse"
+
+msgid "achievement/master2"
+msgstr "2. Klasse"
+
+msgid "achievement/master3"
+msgstr "1. Klasse"
+
+msgid "achievement/master4"
+msgstr "Panzerass"
+
+msgid "achievement/maxMedalValue"
+msgstr ">%s"
+
+msgid "achievement/rank"
+msgstr "?empty?"
+
+msgid "achievement/rank1"
+msgstr " I. Klasse"
+
+msgid "achievement/rank2"
+msgstr " II. Klasse"
+
+msgid "achievement/rank3"
+msgstr " III. Klasse"
+
+msgid "achievement/rank4"
+msgstr " IV. Klasse"
+
+msgid "armorPiercer"
+msgstr "Panzerbrecher"
+
+msgid "armorPiercer_condition"
+msgstr ""
+"• Eine Serie, die nicht durch einen Fehlschuss, nicht-durchschlagenden "
+"Treffer oder ein Abpraller unterbrochen wurde, wird im nächsten Gefecht auf "
+"dem aktuellen Fahrzeug fortgesetzt.\n"
+"• Jedes Fahrzeug hat eine eigene Serie. Es zählt nur die längste Serie.\n"
+"• Nur in Zufallsgefechten verliehen."
+
+msgid "armorPiercer_descr"
+msgstr ""
+"Durchschlagen Sie mit mindestens fünf aufeinanderfolgenden Treffern die "
+"Panzerung Ihrer Gegner."
+
+msgid "armoredFist"
+msgstr "Gepanzerte Faust"
+
+msgid "armoredFist_condition"
+msgstr ""
+"• Gewinnen Sie das Gefecht.\n"
+"• Wird an alle Teammitglieder verliehen.\n"
+"• Wird nur in Teamgefechten verliehen."
+
+msgid "armoredFist_descr"
+msgstr ""
+"Zerstören Sie alle gegnerischen Fahrzeuge, wobei Sie nur ein verbündetes "
+"Fahrzeug verlieren."
+
+msgid "beasthunter"
+msgstr "Großwildjäger"
+
+msgid "beasthunter_condition"
+msgstr ""
+"\t• Aufklärungspanzer Panther\n"
+"\t• PzKpfw V Panther\n"
+"\t• Panther II\n"
+"\t• Panther-M10\n"
+"\t• Jagdpanther\n"
+"\t• Jagdpanther II\n"
+"\t• GW Panther\n"
+"\n"
+"\t• PzKpfw VI Tiger\n"
+"\t• PzKpfw VI Tiger (P)\n"
+"\t• PzKpfw VI Ausf. B Tiger II\n"
+"\t• Jagdtiger\n"
+"\t• 8.8 cm Pak43 Jagdtiger\n"
+"\t• GW Tiger\n"
+"\t• GW Tiger (P)\n"
+"\n"
+"\t• Löwe\n"
+"\n"
+"\t• Leopard prototyp A\n"
+"\t• Leopard 1\n"
+"\n"
+"• Gesamtergebnisse aller Fahrzeuge gelten.\n"
+"• Neu erhaltene Auszeichnungen werden addiert."
+
+msgid "beasthunter_descr"
+msgstr "Zerstören Sie mindestens 100 folgender \"Raubkatzen\":"
+
+msgid "bombardier"
+msgstr "Artillerist"
+
+msgid "bombardier_condition"
+msgstr ""
+"• Serien auf allen Fahrzeugen werden addiert.\n"
+"• Nur in Zufallsgefechten verliehen."
+
+msgid "bombardier_descr"
+msgstr "Zerstören Sie mindestens 2 Fahrzeuge mit einer einzigen Granate."
+
+msgid "defender"
+msgstr "Verteidiger"
+
+msgid "defender_condition"
+msgstr ""
+"• Haben zwei Spieler die gleiche Anzahl Eroberungspunkte, wird die "
+"Auszeichnung an den Spieler verliehen, der die meisten EP in diesem Gefecht "
+"erhalten hat.\n"
+"• Die Auszeichnung wird in jedem Gefecht nur einmal vergeben.\n"
+"• Nur in Zufallsgefechten verliehen."
+
+msgid "defender_descr"
+msgstr ""
+"Reduzieren Sie die gegnerischen Eroberungspunkte um mindestens 70 bei der "
+"Verteidigung einer eigenen Basis."
+
+msgid "diehard"
+msgstr "Überlebenskünstler"
+
+msgid "diehard_condition"
+msgstr ""
+"• Die Serie wird im nächsten Gefecht mit demselben Fahrzeug fortgeführt, "
+"solange diese nicht unterbrochen wird.\n"
+"• Jedes Fahrzeug hat eine eigene Serie. Es wird nur die längste Folge "
+"gezählt.\n"
+"• Gefechte auf Selbstfahrlafetten zählen nicht.\n"
+"• Nur in Zufallsgefechten verliehen."
+
+msgid "diehard_descr"
+msgstr "Überleben Sie mindestens zwanzig Gefechte in Folge."
+
+msgid "evileye"
+msgstr "Wachposten"
+
+msgid "evileye_condition"
+msgstr ""
+"• Der Spieler muss der einzige sein, der das Fahrzeug aufklärt, während es "
+"beschädigt wird.\n"
+"• Haben zwei oder mehr Spieler die gleiche Anzahl gegnerischer Fahrzeuge "
+"aufgeklärt, die durch das Team beschädigt wurden, wird die Auszeichnung an "
+"den Spieler mit den meisten EP verliehen.\n"
+"• Die Auszeichnung wird in jedem Gefecht nur einmal vergeben.\n"
+"• Nur in Zufallsgefechten verliehen."
+
+msgid "evileye_descr"
+msgstr ""
+"Klären Sie mindestens 6 Fahrzeuge auf, die dadurch von Ihrem Team beschädigt "
+"werden."
+
+msgid "geniusForWarMedal"
+msgstr "Kriegsgenie"
+
+msgid "geniusForWarMedal_condition"
+msgstr ""
+"• Gewinnen Sie das Gefecht.\n"
+"• Neu verliehene Auszeichnungen werden zusammengezählt.\n"
+"• Wird nur in Teamgefechten verliehen."
+
+msgid "geniusForWarMedal_descr"
+msgstr "Erhalten Sie in 100 Gefechten die meisten Erfahrungspunkte."
+
+msgid "globalRating"
+msgstr "Persönliche Wertung"
+
+msgid "globalRating_descr"
+msgstr ""
+"Die Persönliche Wertung ist eine Bemessung des Könnens eines Spielers, auf "
+"Basis von:\n"
+"\n"
+"• Siege\n"
+"• Schaden durch Ihre Unterstützung\n"
+"• Mittlerer Schaden je Gefecht\n"
+"• Mittlere Erfahrung je Gefecht\n"
+"• Überlebte Gefechte\n"
+"\n"
+"Die Persönliche Wertung wird mit steigender Anzahl an teilgenommenen "
+"Gefechten aktualisiert."
+
+msgid "handOfDeath"
+msgstr "Sensenmann"
+
+msgid "handOfDeath_condition"
+msgstr ""
+"• Die nicht unterbrochene Serie wird im nächsten Gefecht mit dem aktuellen "
+"Fahrzeug fortgeführt.\n"
+"• Jedes Fahrzeug hat eine eigene Serie. Es wird nur die längste Folge "
+"gezählt.\n"
+"• Diese Auszeichnung wird nach Vervollständigung einer Serie verliehen.\n"
+"• Nur in Zufallsgefechten verliehen."
+
+msgid "handOfDeath_descr"
+msgstr ""
+"Zerstören Sie mindestens drei Fahrzeuge in Folge mit jeweils einer einzigen "
+"Granate."
+
+msgid "heroesOfRassenay"
+msgstr "Held-von-Raseiniai-Medaille"
+
+msgid "heroesOfRassenay_condition"
+msgstr "• Nur in Zufallsgefechten verliehen."
+
+msgid "heroesOfRassenay_descr"
+msgstr ""
+"Verliehen an einen Spieler, der im Alleingang mindestens 14 gegnerische "
+"Fahrzeuge zerstört."
+
+msgid "heroesOfRassenay_heroInfo"
+msgstr ""
+"Im Juni 1941 trafen rund 20 KV-Panzer des sowjetischen 3. Mechanisierten "
+"Korps nahe der litauischen Stadt Raseiniai auf den Sturm der 6. "
+"Panzerdivision mit etwa 100 Fahrzeugen. Einem einzelnen KV-2-Panzer gelang "
+"es, den deutschen Vorstoß einen ganzen Tag lang aufzuhalten, obwohl er durch "
+"eine Vielzahl von Panzerabwehrwaffen beharkt wurde. Schließlich ging dem "
+"KV-2 die Munition aus und er wurde ausgeschaltet."
+
+msgid "huntsman"
+msgstr "Najdin-Medaille"
+
+msgid "huntsman_condition"
+msgstr "• Nur in Zufallsgefechten verliehen."
+
+msgid "huntsman_descr"
+msgstr ""
+"Zerstören Sie alle gegnerischen leichten Panzer (mindestens 3) im Laufe "
+"eines Gefechts."
+
+msgid "huntsman_heroInfo"
+msgstr ""
+"Sergeant Grigorij Najdin war Kommandant eines BT-7. Am 25. Juni zerstörte er "
+"nahe der litauischen Stadt Rudischkjaj eine gepanzerte Wehrmacht-Kolonne, zu "
+"der 15 Fahrzeuge und 10 Geschütze der 19. Panzergrenadierdivision. Najdin "
+"hielt den deutschen Vorstoß zwei Tage auf, was es den Verteidigern rund um "
+"Vilnius ermöglichte, sich zu organisieren. Najdin wurde aufgrund dieser Tat "
+"zum Held der Sowjetunion."
+
+msgid "invader"
+msgstr "Eroberer"
+
+msgid "invader_condition"
+msgstr ""
+"• Die Auszeichnung wird nur im Falle der erfolgreichen Basiseroberung "
+"verliehen, es werden nur die Punkte dieser erfolgreichen Eroberung "
+"gewertet.\n"
+"• Nur in Zufallsgefechten verliehen."
+
+msgid "invader_descr"
+msgstr ""
+"Erzielen Sie mindestens 80 Eroberungspunkte bei der Eroberung einer "
+"gegnerischen Basis."
+
+msgid "invincible"
+msgstr "Unbesiegbar"
+
+msgid "invincible_condition"
+msgstr ""
+"• Die Serie wird im nächsten Gefecht mit demselben Fahrzeug fortgeführt, "
+"solange diese nicht unterbrochen wird.\n"
+"• Jedes Fahrzeug hat eine eigene Serie. Es wird nur die längste Folge "
+"gezählt.\n"
+"• Gefechte auf Selbstfahrlafetten zählen nicht.\n"
+"• Nur in Zufallsgefechten verliehen."
+
+msgid "invincible_descr"
+msgstr ""
+"Überleben Sie mindestens fünf Gefechte in Folge ohne Schaden zu nehmen."
+
+msgid "ironMan"
+msgstr "Nerven aus Stahl"
+
+msgid "ironMan_condition"
+msgstr "• Nur in Zufallsgefechten verliehen."
+
+msgid "ironMan_descr"
+msgstr ""
+"Überleben Sie mindestens 10 Abpraller und nicht-durchschlagende Treffer von "
+"gegnerischen Spielern in Folge."
+
+msgid "kamikaze"
+msgstr "Kamikaze"
+
+msgid "kamikaze_condition"
+msgstr ""
+"• Zerstören Sie ein höherstufiges gegnerisches Fahrzeug.\n"
+"• Diese Auszeichnung wird nur einmal je Gefecht verliehen.\n"
+"• Nur in Zufallsgefechten verliehen."
+
+msgid "kamikaze_descr"
+msgstr "Zerstören Sie ein höherstufiges Fahrzeug durch einen Rammangriff."
+
+msgid "kingOfTheHill"
+msgstr "König des Hügels"
+
+msgid "kingOfTheHill_condition"
+msgstr ""
+"• Gewinnen Sie das Gefecht.\n"
+"• Wird nur in Teamgefechten verliehen."
+
+msgid "kingOfTheHill_descr"
+msgstr "Seien Sie der einzige Überlebende in einem Panzer oder Jagdpanzer."
+
+msgid "luckyDevil"
+msgstr "Glückspilz"
+
+msgid "luckyDevil_condition"
+msgstr "• Nur in Zufallsgefechten verliehen."
+
+msgid "luckyDevil_descr"
+msgstr ""
+"Seien sie Zeuge der Zerstörung eines gegnerischen Fahrzeugs durch einen "
+"gegnerischen Spieler. Sie dürfen während der Zerstörung des Gegners maximal "
+"10 Meter weit von diesem entfernt sein."
+
+msgid "mainGun"
+msgstr "Großkaliber"
+
+msgid "mainGun_condition"
+msgstr ""
+"• Der Spieler muss mindestens 20 % der gesamten Strukturpunkte aller "
+"gegnerischen Fahrzeuge als Schaden verursachen.\n"
+"• Der verursache Schaden sollte mindestens 1.000 SP betragen.\n"
+"• Der Spieler darf keine Verbündeten direkt treffen.\n"
+"• Haben zwei oder mehr gleichen Schaden an gegnerischen Fahrzeugen "
+"verursacht, geht die Auszeichnung an den Spieler, der mehr EP für das "
+"Gefecht erhalten hat.\n"
+"• Nur in Zufallsgefechten verliehen."
+
+msgid "mainGun_descr"
+msgstr "Verursachen Sie in einem Gefecht den meisten Schaden."
+
+msgid "markOfMastery"
+msgstr "Überlegenheitsabz.: \"%(name)s\""
+
+msgid "markOfMasteryContent"
+msgstr ""
+"Verliehen für den meisterhaften Umgang mit einem<br/>gepanzerten Fahrzeug. "
+"Ein Spieler muss in einem Gefecht<br/>mehr Erfahrung. Erhalten als die "
+"durchschnittlich höchste<br/>Erfahrung, die von %(val)s der Spieler erreicht "
+"wurde, die<br/>den gleichen Fahrzeugtyp über die letzten 7 Tage gefahren "
+"haben."
+
+msgid "markOfMasteryContent/1"
+msgstr "50"
+
+msgid "markOfMasteryContent/1/info"
+msgstr "III. Klasse: 50%"
+
+msgid "markOfMasteryContent/2"
+msgstr "80"
+
+msgid "markOfMasteryContent/2/info"
+msgstr "II. Klasse: 80%"
+
+msgid "markOfMasteryContent/3"
+msgstr "95"
+
+msgid "markOfMasteryContent/3/info"
+msgstr "I. Klasse: 95%"
+
+msgid "markOfMasteryContent/4"
+msgstr "99"
+
+msgid "markOfMasteryContent/4/info"
+msgstr "Panzerass: 99%"
+
+msgid "markOfMasteryRankHeader"
+msgstr "Überlegenheitsränge:"
+
+msgid "markOfMasterySubContent"
+msgstr ""
+"• Die Statistik zeigt den höchsten Rang<br/>des Überlegenheitsabzeichens.<br/"
+">• Der neu erhaltene aktuelle Rang wird<br/>im Fenster Gefechtsstatistik "
+"angezeigt.<br/>• Nur in Zufallsgefechten verliehen."
+
+msgid "mechanicEngineer"
+msgstr "Chef-Maschinenbauingenieur"
+
+msgid "mechanicEngineer0"
+msgstr "Maschinenbauingenieur: UdSSR"
+
+msgid "mechanicEngineer0_condition"
+msgstr ""
+"• Unerforschte Module verhindern nicht, dass der Spieler die Auszeichnung "
+"erhält."
+
+msgid "mechanicEngineer0_descr"
+msgstr "Erforschen Sie alle Fahrzeuge der UdSSR."
+
+msgid "mechanicEngineer1"
+msgstr "Maschinenbauingenieur: Deutschland"
+
+msgid "mechanicEngineer1_condition"
+msgstr ""
+"• Unerforschte Module verhindern nicht, dass der Spieler die Auszeichnung "
+"erhält."
+
+msgid "mechanicEngineer1_descr"
+msgstr "Erforschen Sie alle deutschen Fahrzeuge."
+
+msgid "mechanicEngineer2"
+msgstr "Maschinenbauingenieur: USA"
+
+msgid "mechanicEngineer2_condition"
+msgstr ""
+"• Unerforschte Module verhindern nicht, dass der Spieler die Auszeichnung "
+"erhält."
+
+msgid "mechanicEngineer2_descr"
+msgstr "Erforschen Sie alle Fahrzeuge der USA."
+
+msgid "mechanicEngineer3"
+msgstr "Maschinenbauingenieur: China"
+
+msgid "mechanicEngineer3_condition"
+msgstr ""
+"• Unerforschte Module verhindern nicht, dass der Spieler die Auszeichnung "
+"erhält."
+
+msgid "mechanicEngineer3_descr"
+msgstr "Erforschen Sie alle chinesischen Fahrzeuge."
+
+msgid "mechanicEngineer4"
+msgstr "Maschinenbauingenieur: Frankreich"
+
+msgid "mechanicEngineer4_condition"
+msgstr ""
+"• Unerforschte Module verhindern nicht, dass der Spieler die Auszeichnung "
+"erhält."
+
+msgid "mechanicEngineer4_descr"
+msgstr "Erforschen Sie alle französischen Fahrzeuge."
+
+msgid "mechanicEngineer5"
+msgstr "Maschinenbauingenieur: Großbritannien"
+
+msgid "mechanicEngineer5_condition"
+msgstr ""
+"• Unerforschte Module verhindern nicht, dass der Spieler die Auszeichnung "
+"erhält."
+
+msgid "mechanicEngineer5_descr"
+msgstr "Erforschen Sie alle britischen Fahrzeuge."
+
+msgid "mechanicEngineer6"
+msgstr "Maschinenbauingenieur: Japan"
+
+msgid "mechanicEngineer6_condition"
+msgstr ""
+"• Unerforschte Module verhindern nicht, dass der Spieler die Auszeichnung "
+"erhält."
+
+msgid "mechanicEngineer6_descr"
+msgstr "Erforschen Sie alle japanischen Fahrzeuge."
+
+msgid "mechanicEngineer_descr"
+msgstr "Erforschen Sie alle Fahrzeuge in allen Forschungsbäumen."
+
+msgid "medalAbrams"
+msgstr "Abrams-Medaille %s"
+
+msgid "medalAbrams_descr"
+msgstr "Für die Gesamtzahl der Team-Siege, bei denen der Spieler überlebt hat."
+
+msgid "medalAbrams_heroInfo"
+msgstr ""
+"General Creighton W. Abrams kommandierte die US-amerikanischen Truppen "
+"sowohl im Zweiten Weltkrieg als auch im Vietnamkrieg. Er bekam den Ruf, ein "
+"aggressiver und erfolgreicher Panzerkommandant zu sein."
+
+msgid "medalBillotte"
+msgstr "Billotte-Medaille"
+
+msgid "medalBillotte_condition"
+msgstr ""
+"• Überleben und gewinnen Sie das Gefecht.\n"
+"• Zerstörte Fahrzeuge werden gewertet, nachdem der gesamte Schaden erhalten "
+"wurde.\n"
+"• Nur in Zufallsgefechten verliehen."
+
+msgid "medalBillotte_descr"
+msgstr ""
+"Zerstören Sie mindestens zwei gegnerische Fahrzeuge, während Sie fünf "
+"verschiedene Treffer erhalten und 80% der Strukturpunkte verlieren."
+
+msgid "medalBillotte_heroInfo"
+msgstr ""
+"Hauptmann der Französischen Armee Pierre Billotte hat mit seinem Char B1 bis "
+"am 16. Mai 1940 zwei PzKpfw IV, elf PzKpfw III und zwei Geschütze zerstört."
+
+msgid "medalBrothersInArms"
+msgstr "Waffenbrüder"
+
+msgid "medalBrothersInArms_condition"
+msgstr ""
+"• Alle Zugmitglieder müssen das Gefecht überleben.\n"
+"• Alle Mitglieder des Zugs erhalten diese Auszeichnung."
+
+msgid "medalBrothersInArms_descr"
+msgstr ""
+"Jedes Mitglied des Zugs muss mindestens drei Gegner zerstören und überleben."
+
+msgid "medalBrunoPietro"
+msgstr "Bruno-Medaille"
+
+msgid "medalBrunoPietro_condition"
+msgstr ""
+"• Überleben und gewinnen Sie das Gefecht.\n"
+"• Zerstörte Fahrzeuge werden gewertet, nachdem der gesamte Schaden erhalten "
+"wurde.\n"
+"• Nur in Zufallsgefechten verliehen."
+
+msgid "medalBrunoPietro_descr"
+msgstr ""
+"Zerstören Sie 3 oder 4 gegnerische Fahrzeuge, während Sie fünf verschiedene "
+"Treffer erhalten und 80% der Strukturpunkte verlieren."
+
+msgid "medalBrunoPietro_heroInfo"
+msgstr ""
+"Pietro Bruno war ein italienisches Panzerass. Für außergewöhnliche "
+"Tapferkeit im Angesicht des Feindes wurde ihm die Tapferkeitsmedaille in "
+"Gold (Medaglia d'oro al Valore Militare) verliehen, die höchste italienische "
+"Auszeichnung."
+
+msgid "medalBurda"
+msgstr "Burda-Medaille"
+
+msgid "medalBurda_condition"
+msgstr ""
+"• Fahren Sie einen Panzer oder Jagdpanzer.\n"
+"• Nur in Zufallsgefechten verliehen."
+
+msgid "medalBurda_descr"
+msgstr ""
+"Zerstören Sie mit einem Panzer oder Jagdpanzer fünf Selbstfahrlafetten "
+"innerhalb eines Gefechts."
+
+msgid "medalBurda_heroInfo"
+msgstr ""
+"Gardeoberst Alexander Burda war ein sowjetisches Panzerass und Held der "
+"Sowjetunion. Am 4. Oktober 1941 überfiel Burda eine feindliche Kolonne und "
+"zerstörte zehn mittlere und leichte Panzer, zwei Zugmaschinen mit "
+"Panzerabwehrgeschützen sowie fünf Infanteriefahrzeuge."
+
+msgid "medalCarius"
+msgstr "Carius-Medaille %s"
+
+msgid "medalCarius_descr"
+msgstr "Für die Zerstörung von gegnerischen Panzern und Selbstfahrlafetten."
+
+msgid "medalCarius_heroInfo"
+msgstr ""
+"Otto Carius war eines der erfolgreichsten Panzerasse des Zweiten Weltkriegs. "
+"Er kommandierte einen PzKpfw 38 (t), einen PzKpfw VI Tiger und einen "
+"Jagdpanzer VI Jagdtiger während seiner eindrucksvollen Karriere."
+
+msgid "medalCrucialContribution"
+msgstr "Entscheidender Beitrag"
+
+msgid "medalCrucialContribution_condition"
+msgstr "• Alle Mitglieder des Zugs erhalten diese Auszeichnung."
+
+msgid "medalCrucialContribution_descr"
+msgstr "Ein Zug muss gemeinsam mindestens 12 gegnerische Fahrzeuge zerstören."
+
+msgid "medalDeLanglade"
+msgstr "De-Langlade-Medaille"
+
+msgid "medalDeLanglade_condition"
+msgstr ""
+"• Die gegnerischen Fahrzeuge müssen sich innerhalb des Basiskreises "
+"befinden.\n"
+"• Die gegnerischen Fahrzeuge können die Basis gemeinsam oder nacheinander "
+"erobern.\n"
+"• Nur in Zufallsgefechten verliehen."
+
+msgid "medalDeLanglade_descr"
+msgstr ""
+"Zerstören Sie innerhalb eines Gefechts mindestens vier gegnerische "
+"Fahrzeuge, die versuchen, die Ihre Basis zu erobern."
+
+msgid "medalDeLanglade_heroInfo"
+msgstr ""
+"Paul Girot de Langlade war ein Oberstleutnant der Französischen Armee im "
+"Zweiten Weltkrieg. September 1943 wurde er zum Oberst befördert. De Langlade "
+"kämpfte in der 2. Panzerdivision unter General Leclerc. Am 12. und 13. "
+"September 1944 löschte eine Kampfgruppe unter Führung von Langlade die "
+"Panzerbrigade 112 in der Schlacht von Dompaire, Frankreich, aus. Nur vier "
+"von 45 Panthern überlebten die Schlacht."
+
+msgid "medalDumitru"
+msgstr "Dumitru-Medaille"
+
+msgid "medalDumitru_condition"
+msgstr ""
+"• Fahren Sie einen Panzer oder Jagdpanzer.\n"
+"• Nur in Zufallsgefechten verliehen."
+
+msgid "medalDumitru_descr"
+msgstr ""
+"Zerstören Sie mit einem Panzer oder Jagdpanzer vier gegnerische "
+"Selbstfahrlafetten in einem Gefecht."
+
+msgid "medalDumitru_heroInfo"
+msgstr ""
+"Jon S. Dumitru war ein rumänisches Panzerass. Er kämpfte nur 25 Tage im "
+"Zweiten Weltkrieg, fünf Tage davon auf deutscher Seite und, nachdem Rumänien "
+"die Seiten gewechselt hatte, zwanzig Tage gegen die Deutschen. Am 26. März "
+"1945 trug Dumitru zur Zerstörung von sechs gegnerischen Jagdpanzern und der "
+"Erbeutung einer Batterie von 150-mm-Geschützen bei."
+
+msgid "medalEkins"
+msgstr "Ekins-Medaille %s"
+
+msgid "medalEkins_descr"
+msgstr "Verliehen für die Zerstörung von Fahrzeugen der 8., 9. oder 10. Stufe."
+
+msgid "medalEkins_heroInfo"
+msgstr ""
+"Joe Ekins war Panzer-Richtschütze in der 1st Northamptonshire Yeomanry des "
+"Britischen Territorialheeres. Verschiedene Quellen belegen, dass Ekins den "
+"entscheidenden Schuss abgegeben hat, der das Panzerass Michael Wittmann zur "
+"Strecke brachte."
+
+msgid "medalFadin"
+msgstr "Fadin-Medaille"
+
+msgid "medalFadin_condition"
+msgstr ""
+"• Wird auch verliehen, wenn das gegnerische Fahrzeug durch ein Feuer, das "
+"von der letzten verbliebenen Granate ausgelöst wurde, zerstört wurde.\n"
+"• Wird auch verliehen, wenn die letzte Granate mit einer Selbstladekanone "
+"oder Maschinenkanone abgefeuert wurde.\n"
+"• Nur in Zufallsgefechten verliehen."
+
+msgid "medalFadin_descr"
+msgstr ""
+"Zerstören Sie das letzte gegnerische Fahrzeug im Gefecht mit der letzten "
+"verbliebenen Granate."
+
+msgid "medalFadin_heroInfo"
+msgstr ""
+"Held der Sowjetunion Alexander Fadin kommandierte einen T-34. Unterstützt "
+"durch einen Infanteriezug konnte Fadin mit seinem Panzer das Dorf Dashukovka "
+"einnehmen und für fünf Stunden halten. Sie zerstörten einen Panzer, eine "
+"Selbstfahrlafette, 18 MG-Nester und bis zu 50 gegnerische Soldaten und "
+"Offiziere. Seine Besatzung konnte im gleichen Atemzug ein Flugzeug "
+"abschießen."
+
+msgid "medalHalonen"
+msgstr "Halonen-Medaille"
+
+msgid "medalHalonen_condition"
+msgstr ""
+"• Die Ziele müssen zwei Stufen über der Stufe des Spieler-Jagdpanzers sein.\n"
+"• Nur in Zufallsgefechten verliehen."
+
+msgid "medalHalonen_descr"
+msgstr ""
+"Zerstören Sie mit einem Jagdpanzer mindestens drei gegnerische Panzer oder "
+"Jagdpanzer."
+
+msgid "medalHalonen_heroInfo"
+msgstr ""
+"Erkki Halonen, ein Unteroffizier der Finnischen Armee und ein Panzerass, "
+"zerstörte mit seinem StuG III in den Gefechten zwischen Juni und Juli 1944 "
+"drei T-34, zwei KV-1 und zwei ISU-152."
+
+msgid "medalKay"
+msgstr "Kay-Medaille %s"
+
+msgid "medalKay_descr"
+msgstr "Verliehen für besondere Leistungen im Gefecht."
+
+msgid "medalKay_heroInfo"
+msgstr ""
+"Douglas Kay, ein Sergeant der British Army und Richtschütze auf einem "
+"Sherman Firefly, nahm an der Landung der Alliierten in der Normandie teil. "
+"Er setzte sich für die Vermittlung der Geschichte des Panzerkampfes bei "
+"einem breiteren Personenkreis ein."
+
+msgid "medalKnispel"
+msgstr "Knispel-Medaille %s"
+
+msgid "medalKnispel_descr"
+msgstr "Für die Gesamtsumme an verursachten und erlittenen Schaden."
+
+msgid "medalKnispel_heroInfo"
+msgstr ""
+"Kurt Knispel war eines der erfolgreichsten deutschen Panzerasse im Zweiten "
+"Weltkrieg. Er nahm sowohl an Schlachten der Ost- als auch der Westfront "
+"teil. Er kommandierte PzKpfw II, PzKpfw III, PzKpfw IV, PzKpfw VI Tiger und "
+"PzKpfw VI Ausf. B Tiger II."
+
+msgid "medalKolobanov"
+msgstr "Kolobanov-Medaille"
+
+msgid "medalKolobanov_condition"
+msgstr "• Nur in Zufallsgefechten verliehen."
+
+msgid "medalKolobanov_descr"
+msgstr "Kämpfen Sie alleine gegen fünf gegnerische Fahrzeuge und gewinnen Sie."
+
+msgid "medalKolobanov_heroInfo"
+msgstr ""
+"Hauptmann Zinoviy Kolobanov, ein sowjetisches Panzerass, zerstörte mit "
+"seinem KV-1 in einer Schlacht am 19. August 1941 22 deutsche Panzer, zwei "
+"Geschütze und zwei Halbkettenfahrzeuge."
+
+msgid "medalLafayettePool"
+msgstr "Pool-Medaille"
+
+msgid "medalLafayettePool_condition"
+msgstr ""
+"• Ihr Fahrzeug muss mindestens Stufe V sein.\n"
+"• Nur in Zufallsgefechten verliehen."
+
+msgid "medalLafayettePool_descr"
+msgstr "Zerstören Sie 10 - 13 gegnerische Fahrzeuge innerhalb eines Gefechts."
+
+msgid "medalLafayettePool_heroInfo"
+msgstr ""
+"Lafayette G. Pool wird weitgehend als das US-amerikanische Panzerass der "
+"Asse angesehen, mit zwölf bestätigten Panzerabschüssen und insgesamt 258 "
+"Abschüssen gepanzerter Fahrzeuge und Selbstfahrlafetten."
+
+msgid "medalLavrinenko"
+msgstr "Lawrinenko-Medaille %s"
+
+msgid "medalLavrinenko_condition"
+msgstr "• Es werden bis zu 100 Punkte pro Gefecht gewertet."
+
+msgid "medalLavrinenko_descr"
+msgstr ""
+"Verringern Sie die Gesamt-Basiseroberungspunkte einer verbündeten Basis."
+
+msgid "medalLavrinenko_heroInfo"
+msgstr ""
+"Dmitri Lawrinenko, Held der Sowjetunion, Gardeleutnant und Panzerass, wird "
+"als erfolgreichster sowjetischer Panzerkommandant angesehen. Er zerstörte in "
+"einen Zeitraum von gerade einmal zwei Monaten 52 Panzer in 28 Schlachten."
+
+msgid "medalLeClerc"
+msgstr "Leclerc-Medaille %s"
+
+msgid "medalLeClerc_condition"
+msgstr ""
+"• Gewinnen Sie das Gefecht.\n"
+"• Alle Eroberungspunkte, die in einem Gefecht erzielt wurden, zählen."
+
+msgid "medalLeClerc_descr"
+msgstr "Für die Gesamtzahl der Eroberungspunkte des Spielers."
+
+msgid "medalLeClerc_heroInfo"
+msgstr ""
+"General der Freien Französischen Streitkräfte Jacques-Philippe Leclerc "
+"führte die Befreiung von Paris 1944 mit an."
+
+msgid "medalLehvaslaiho"
+msgstr "Lehväslaiho-Medaille"
+
+msgid "medalLehvaslaiho_condition"
+msgstr ""
+"• Das gegnerische Fahrzeug muss mindestens 2 Stufen höher sein.\n"
+"• Nur in Zufallsgefechten verliehen."
+
+msgid "medalLehvaslaiho_descr"
+msgstr ""
+"Zerstören Sie zwei gegnerische Panzer oder Jagdpanzer mit einem mittleren "
+"Panzer."
+
+msgid "medalLehvaslaiho_heroInfo"
+msgstr ""
+"Reino Lehväslaiho war ein finnisches Panzerass, der sieben Panzer und "
+"Jagdpanzer zerstört hat."
+
+msgid "medalNikolas"
+msgstr "Nicols-Medaille"
+
+msgid "medalNikolas_condition"
+msgstr ""
+"• Das gegnerische Fahrzeug muss mindestens 2 Stufen höher sein.\n"
+"• Nur in Zufallsgefechten verliehen."
+
+msgid "medalNikolas_descr"
+msgstr ""
+"Zerstören Sie mit einem mittleren Panzer mindestens vier gegnerische Panzer "
+"oder Jagdpanzer."
+
+msgid "medalNikolas_heroInfo"
+msgstr ""
+"Alfie Nicols war ein britischer Panzer-Richtschütze. Während der Schlacht "
+"von El Alamein zerstörte er vierzehn gegnerische Fahrzeuge."
+
+msgid "medalOrlik"
+msgstr "Orlik-Medaille"
+
+msgid "medalOrlik_condition"
+msgstr ""
+"• Das gegnerische Fahrzeug muss mindestens 2 Stufen höher sein.\n"
+"• Nur in Zufallsgefechten verliehen."
+
+msgid "medalOrlik_descr"
+msgstr ""
+"Zerstören Sie mit einem leichten Panzer mindesten drei gegnerische Panzer "
+"oder Jagdpanzer."
+
+msgid "medalOrlik_heroInfo"
+msgstr ""
+"Der polnische Heeres-Unteroffizier Roman Edmund Orlik wurde zum Panzerass, "
+"nachdem er im September 1939 dreizehn deutsche Panzer mit seiner leichten "
+"TKS Tankette ausschaltete."
+
+msgid "medalOskin"
+msgstr "Oskin-Medaille"
+
+msgid "medalOskin_condition"
+msgstr ""
+"• Das gegnerische Fahrzeug muss mindestens 2 Stufen höher sein.\n"
+"• Nur in Zufallsgefechten verliehen."
+
+msgid "medalOskin_descr"
+msgstr ""
+"Zerstören Sie mindestens drei gegnerische Panzer oder Jagdpanzer mit einem "
+"mittleren Panzer."
+
+msgid "medalOskin_heroInfo"
+msgstr ""
+"Held der Sowjetunion Alexander Oskin zerstörte als Kommandant eines T-34 "
+"während einer Aufklärungsmission nahe Oglenduv am 11. August 1944 drei "
+"Königstiger."
+
+msgid "medalPascucci"
+msgstr "Pascucci-Medaille"
+
+msgid "medalPascucci_condition"
+msgstr ""
+"• Fahren Sie einen Panzer oder Jagdpanzer.\n"
+"• Nur in Zufallsgefechten verliehen."
+
+msgid "medalPascucci_descr"
+msgstr "Zerstören Sie drei gegnerische Selbstfahrlafetten in einem Gefecht."
+
+msgid "medalPascucci_heroInfo"
+msgstr ""
+"Unterleutnant Luigi Arbib Pascucci war ein italienischer Panzerkommandant "
+"während des Zweiten Weltkriegs. Er kämpfte in der Panzerdivision Ariete in "
+"Nordafrika. Pascucci nahm an der Zweiten Schlacht von El Alamein teil, in "
+"der er sein Leben bei einem waghalsigen Frontalangriff opferte, um dem Rest "
+"seiner Kompanie die Flucht aus der Einkesselung zu ermöglichen."
+
+msgid "medalPoppel"
+msgstr "Popel-Medaille %s"
+
+msgid "medalPoppel_descr"
+msgstr "Für die Aufklärung feindlicher Panzer und Selbstfahrlafetten."
+
+msgid "medalPoppel_heroInfo"
+msgstr ""
+"Generalleutnant der Panzertruppe Nikolai Popel, ein sowjetischer "
+"Militärführer und Parteiaktivist, organisierte in der Schlacht von Dubno "
+"(Ukraine) im Sommer 1941 einen Angriff mit Beutefahrzeugen in den Rücken des "
+"Feindes."
+
+msgid "medalRadleyWalters"
+msgstr "Radley-Walters-Medaille"
+
+msgid "medalRadleyWalters_condition"
+msgstr ""
+"• Ihr Fahrzeug muss mindestens Stufe V sein.\n"
+"• Nur in Zufallsgefechten verliehen."
+
+msgid "medalRadleyWalters_descr"
+msgstr ""
+"Zerstören Sie acht oder neun gegnerische Fahrzeuge innerhalb eines Gefechts."
+
+msgid "medalRadleyWalters_heroInfo"
+msgstr ""
+"Sydney Valpy Radley-Walters war ein kanadisches Panzerass des 27. "
+"Gepanzerten Regiments. Zwischen 1944 und 1945 zerstörte er 18 deutsche "
+"Fahrzeuge mit seinem Sherman Firefly."
+
+msgid "medalTamadaYoshio"
+msgstr "Tamada-Yoshio-Medaille"
+
+msgid "medalTamadaYoshio_condition"
+msgstr ""
+"• Überleben Sie das Gefecht.\n"
+"• Die zerstörten gegnerischen Fahrzeuge müssen mindestens zwei Stufen über "
+"der des Spielerfahrzeugs liegen.\n"
+"• Nur in Zufallsgefechten verliehen."
+
+msgid "medalTamadaYoshio_descr"
+msgstr ""
+"Zerstören Sie mit einem leichten Panzer mindestens drei gegnerische "
+"Selbstfahrlafetten innerhalb eines Gefechts."
+
+msgid "medalTamadaYoshio_heroInfo"
+msgstr ""
+"Oberst Tamada Yoshio war Befehlshaber des 4. Panzerregiments der Kwantung "
+"Armee. Während des Nachtgefechts in der Schlacht am Chalchin Gol am 2.-3. "
+"Juli 1939 zerstörte er 4 Batterien 122-mm-Haubitzen, 107-mm-Kanonen, 76,2-mm-"
+"Feldgeschütze, 10 gepanzerte Fahrzeuge, 2 gepanzerte Kettenfahrzeuge, 7 "
+"Panzerabwehrgeschütze, 5 Mörser und 20 gegnerische LKWs."
+
+msgid "medalTarczay"
+msgstr "Tarczay-Medaille"
+
+msgid "medalTarczay_condition"
+msgstr ""
+"• Überleben und gewinnen Sie das Gefecht.\n"
+"• Zerstörte Fahrzeuge werden gewertet, nachdem der gesamte Schaden erhalten "
+"wurde.\n"
+"• Nur in Zufallsgefechten verliehen."
+
+msgid "medalTarczay_descr"
+msgstr ""
+"Zerstören Sie fünf gegnerische Fahrzeuge, obwohl Sie fünf verschiedene "
+"Treffer erhalten und 80% Ihrer Strukturpunkte verloren haben."
+
+msgid "medalTarczay_heroInfo"
+msgstr ""
+"Ervin Tarczay war ein ungarisches Panzerass. Er kämpfte in der ungarischen "
+"2. Gepanzerten Division und zerstörte mindestens zehn gegnerische Fahrzeuge."
+
+msgid "medalWittmann"
+msgstr "Bölter-Medaille"
+
+msgid "medalWittmann_condition"
+msgstr ""
+"• Die Ziele müssen gegnerische Fahrzeuge der Stufen IV - X sein.\n"
+"• Wurde vor Erscheinen von Version 0.8.0 verliehen."
+
+msgid "medalWittmann_descr"
+msgstr ""
+"Zerstören Sie mit einem Panzer oder Jagdpanzer mindestens sieben Fahrzeuge "
+"oder mit einer Selbstfahrlafette mindestens zehn Fahrzeuge innerhalb eines "
+"Gefechts."
+
+msgid "medalWittmann_heroInfo"
+msgstr ""
+"Johannes Bölter war eines der erfolgreichsten deutschen Panzerasse des "
+"Zweiten Weltkrieges. Er nahm an den Invasionen Polens, Frankreichs, "
+"Griechenlands und der Sowjetunion sowie der Verteidigung Frankreichs teil."
+
+msgid "mousebane"
+msgstr "Mausefalle"
+
+msgid "mousebane_condition"
+msgstr ""
+"• Es zählen die Abschüsse auf allen Panzern.\n"
+"• Neu erhaltene Auszeichnungen werden addiert."
+
+msgid "mousebane_descr"
+msgstr "Zerstören Sie zehn oder mehr PzKpfw VIII Maus."
+
+msgid "pattonValley"
+msgstr "Patton-Schlucht"
+
+msgid "pattonValley_condition"
+msgstr ""
+"\t• M46 Patton\n"
+"\t• M48 Patton III\n"
+"\t• M60\n"
+"\n"
+"• Serien auf allen Fahrzeugen werden addiert.\n"
+"• Neu erhaltene Auszeichnungen werden addiert."
+
+msgid "pattonValley_descr"
+msgstr "Zerstören Sie 100 Panzer des Typs Patton:"
+
+msgid "raider"
+msgstr "Räuber"
+
+msgid "raider_condition"
+msgstr ""
+"• Bleiben Sie innerhalb des Basiskreises, während Sie versuchen, die "
+"gegnerische Basis zu erobern.\n"
+"• Die Auszeichnung wird auch bei versehentlichen Treffern oder Schaden "
+"erteilt.\n"
+"• Nur in Zufallsgefechten verliehen."
+
+msgid "raider_descr"
+msgstr ""
+"Bleiben Sie das ganze Gefecht lang unentdeckt und seien Sie der einzige "
+"Spieler, der die gegnerische Basis erobert."
+
+msgid "scout"
+msgstr "Aufklärer"
+
+msgid "scout_condition"
+msgstr ""
+"• Gewinnen Sie das Gefecht.\n"
+"• Die Auszeichnung wird in jedem Gefecht nur einmal vergeben.\n"
+"• Nur in Zufallsgefechten verliehen."
+
+msgid "scout_descr"
+msgstr ""
+"Klären Sie mehr gegnerische Fahrzeuge auf als Ihre Kameraden (mindestens "
+"neun)."
+
+msgid "sinai"
+msgstr "Der Löwe von Sinai"
+
+msgid "sinai_condition"
+msgstr ""
+"\t• IS\n"
+"\t• IS-3\n"
+"\t• IS-4\n"
+"\t• IS-6\n"
+"\t• IS-7\n"
+"\t• IS-8\n"
+"\n"
+"\t• ISU-152\n"
+"\n"
+"\t• Objekt 704\n"
+"\t• Objekt 261\n"
+"\t• Objekt 268\n"
+"\t• Objekt 263\n"
+"\n"
+"• Serien auf allen Fahrzeugen werden addiert.\n"
+"• Neu erhaltene Auszeichnungen werden addiert."
+
+msgid "sinai_descr"
+msgstr ""
+"Zerstören Sie mindestens 100 Fahrzeuge der IS-Reihe und Fahrzeuge, die auf "
+"dieser Reihe basieren:"
+
+msgid "sniper"
+msgstr "Meisterschütze"
+
+msgid "sniper2"
+msgstr "Panzer-Meisterschütze"
+
+msgid "sniper2_condition"
+msgstr ""
+"• Feuern Sie mindestens 8 Schuss ab.\n"
+"• Die Treffgenauigkeit muss mindestens 85% je Gefecht betragen.\n"
+"• Mindestens 80% der Treffer müssen Schaden verursachen, dazu zählen Schäden "
+"an gegnerischen Fahrzeugen und Modulen.\n"
+"• Der Spieler muss mindestens 1.000 Schadenspunkte bzw. mehr Schaden "
+"verursachen als die Strukturpunkte seines Fahrzeugs.\n"
+"• Der Spieler darf keine Verbündeten direkt treffen.\n"
+"• Die Auszeichnung wird nur einmal in jedem Gefecht verliehen.\n"
+"• Nicht verfügbar für Selbstfahrlafetten.\n"
+"• Nur in Zufallsgefechten verliehen."
+
+msgid "sniper2_descr"
+msgstr ""
+"Verursachen Sie in einem Gefecht den meisten Schaden über eine Distanz von "
+"über 300 Metern."
+
+msgid "sniper_condition"
+msgstr ""
+"• Abpraller werden gewertet.\n"
+"• Direkttreffer an Verbündeten sind nicht erlaubt.\n"
+"• Haben zwei oder mehr Spieler die gleiche Trefferquote, geht die "
+"Auszeichnung an den Spieler mit den meisten Treffern.\n"
+"• Haben zwei oder mehr Spieler die gleiche Trefferquote und die gleiche "
+"Trefferzahl, erhält der Spieler mit den meisten EP die Auszeichnung.\n"
+"• Die Auszeichnung wird in jedem Gefecht nur einmal vergeben.\n"
+"• Nur in Zufallsgefechten verliehen.\n"
+"• Wurde vor Erscheinen der Version 0.8.11 verliehen."
+
+msgid "sniper_descr"
+msgstr ""
+"Erzielen Sie mit mindestens zehn Schuss eine Trefferquote von mehr als 85% "
+"und ein Schadenspotential von mindestens 1.000 Trefferpunkten."
+
+msgid "steelwall"
+msgstr "Stahlwand"
+
+msgid "steelwall_condition"
+msgstr ""
+"• Überleben Sie das Gefecht.\n"
+"• Haben zwei oder mehr Spieler dieselbe Menge an potentiellen Schaden "
+"erhalten, erhält der Spieler mit den meisten erhaltenen Treffern die "
+"Auszeichnung.\n"
+"• Haben zwei oder mehr Spieler dieselbe Menge an potentiellen Schaden "
+"erhalten und dieselbe Anzahl an erhaltenen Treffern, wird die Auszeichnung "
+"an den Spieler verliehen, der am meisten Erfahrungspunkte bekommen hat.\n"
+"• Die Auszeichnung wird in jedem Gefecht nur einmal vergeben.\n"
+"• Nur in Zufallsgefechten verliehen."
+
+msgid "steelwall_descr"
+msgstr ""
+"Erhalten Sie mindestens 1.000 SP potentiellen Schaden und mindestens 11 "
+"Treffer."
+
+msgid "sturdy"
+msgstr "Spartaner"
+
+msgid "sturdy_condition"
+msgstr ""
+"• Überleben Sie das Gefecht.\n"
+"• Nur in Zufallsgefechten verliehen."
+
+msgid "sturdy_descr"
+msgstr ""
+"Überleben Sie einen Abpraller oder nicht-durchschlagenden Treffern von einem "
+"gegnerischen Spieler."
+
+msgid "supporter"
+msgstr "Unterstützer"
+
+msgid "supporter_condition"
+msgstr ""
+"• Ziele, die im Gefecht zerstört oder verloren wurden, zählen.\n"
+"• Abpraller oder nicht durchschlagende Treffer zählen nicht.\n"
+"• Haben zwei oder mehr Spieler die gleiche Anzahl Treffer, erhält der "
+"Spieler mit den meisten EP die Auszeichnung.\n"
+"• Die Auszeichnung wird in jedem Gefecht nur einmal vergeben.\n"
+"• Nur in Zufallsgefechten verliehen."
+
+msgid "supporter_descr"
+msgstr ""
+"Beschädigen Sie mindestens 6 Fahrzeuge oder zerstören Sie deren Ketten."
+
+msgid "tacticalBreakthrough"
+msgstr "Taktisches Genie"
+
+msgid "tacticalBreakthrough_condition"
+msgstr ""
+"• Jedes Fahrzeug hat seine eigene Serie. Eine nicht unterbrochene Folge wird "
+"im nächsten Gefecht mit demselben Fahrzeug fortgeführt.\n"
+"• Wird nur in Teamgefechten verliehen."
+
+msgid "tacticalBreakthrough_descr"
+msgstr ""
+"Gewinnen Sie mindestens 3 Gefechte in Folge als Mitglied eines Zufallsteams."
+
+msgid "tankExpert"
+msgstr "Panzerexperte"
+
+msgid "tankExpert0"
+msgstr "Experte: UdSSR"
+
+msgid "tankExpert0_descr"
+msgstr ""
+"Zerstören Sie ein Fahrzeug jedes Typs des sowjetischen Forschungsbaums."
+
+msgid "tankExpert1"
+msgstr "Experte: Deutschland"
+
+msgid "tankExpert1_descr"
+msgstr "Zerstören Sie ein Fahrzeug jedes Typs des deutschen Forschungsbaums."
+
+msgid "tankExpert2"
+msgstr "Experte: USA"
+
+msgid "tankExpert2_descr"
+msgstr ""
+"Zerstören Sie ein Fahrzeug jedes Typs des amerikanischen Forschungsbaums."
+
+msgid "tankExpert3"
+msgstr "Experte: China"
+
+msgid "tankExpert3_descr"
+msgstr ""
+"Zerstören Sie ein Fahrzeug jedes Typs des chinesischen Forschungsbaums."
+
+msgid "tankExpert4"
+msgstr "Experte: Frankreich"
+
+msgid "tankExpert4_descr"
+msgstr ""
+"Zerstören Sie ein Fahrzeug jedes Typs des französischen Forschungsbaums."
+
+msgid "tankExpert5"
+msgstr "Experte: Großbritannien"
+
+msgid "tankExpert5_descr"
+msgstr "Zerstören Sie ein Fahrzeug jedes Typs des britischen Forschungsbaums."
+
+msgid "tankExpert6"
+msgstr "Experte: Japan"
+
+msgid "tankExpert6_descr"
+msgstr "Zerstören Sie ein Fahrzeug jedes Typs des japanischen Forschungsbaums."
+
+msgid "tankExpert_descr"
+msgstr "Zerstören Sie ein Fahrzeug jedes Typs aller Forschungsbäume."
+
+msgid "titleSniper"
+msgstr "Richtschütze"
+
+msgid "titleSniper_condition"
+msgstr ""
+"• Die Serie wird durch einen Fehlschuss unterbrochen.\n"
+"• Jedes Fahrzeug hat eine eigene Serie, die im nächsten Gefecht mit "
+"demselben Fahrzeug fortgesetzt wird.\n"
+"• Es wird nur die längste Folge gezählt.\n"
+"• Nur in Zufallsgefechten verliehen."
+
+msgid "titleSniper_descr"
+msgstr "Treffen Sie mindestens zehnmal in Folge gegnerische Fahrzeuge."
+
+msgid "warrior"
+msgstr "Krieger"
+
+msgid "warrior_condition"
+msgstr ""
+"• Haben zwei oder mehr Spieler die gleiche Anzahl Fahrzeuge zerstört, geht "
+"die Auszeichnung an den Spieler, der die meiste Erfahrung für das Gefecht "
+"bekommen hat.\n"
+"• Die Auszeichnung wird in jedem Gefecht nur einmal vergeben.\n"
+"• Nur in Zufallsgefechten verliehen."
+
+msgid "warrior_descr"
+msgstr "Zerstören Sie mehr Fahrzeuge als alle anderen Spieler (mindestens 6)."
+
+msgid "whiteTiger"
+msgstr "Weißer Tiger"
+
+msgid "whiteTiger_condition"
+msgstr "• Seit dem 1. Juli 2012 nicht mehr verfügbar."
+
+msgid "whiteTiger_descr"
+msgstr "Zerstören Sie einen Phantom-Panzer Weißer Tiger."
+
+msgid "wolfAmongSheepMedal"
+msgstr "Wolf im Schafspelz"
+
+msgid "wolfAmongSheepMedal_condition"
+msgstr ""
+"• Neu verliehene Auszeichnungen werden zusammengezählt.\n"
+"• Wird nur in Teamgefechten verliehen."
+
+msgid "wolfAmongSheepMedal_descr"
+msgstr ""
+"Gewinnen Sie 100 Gefechte und verursachen Sie dabei den meisten Schaden."
