@@ -3,6 +3,9 @@
         <h2>Site - Notifications</h2>
     </div>
     <div class="row">
+        <form action="/admin/site/nadd" method="post">
+            
+        </form>
     </div>
     <div class"well well-lg">
         [% FOREACH notification IN notifications %]

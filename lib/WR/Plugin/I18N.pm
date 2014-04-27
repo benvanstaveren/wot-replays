@@ -7,19 +7,23 @@ use Data::Dumper;
 use Try::Tiny qw/try catch/;
 use Encode qw/encode decode from_to/;
 
+
 sub get_paths {
     my $self = shift;
     my %args = (@_);
     my $app  = $args{using};
     my $lang = $args{for};
+    my $versions = [qw/0.9.0 0.8.11/];
 
-    # wargaming language file set
-    my $wg_path = sprintf('%s/*.po', $app->home->rel_dir(sprintf('lang/wg/%s', $lang)));
+    # wargaming language file set(s)
+    my $wg_paths = [];
+    foreach my $version (@$versions) {
+        push(@$wg_paths, sprintf('%s/*.po', $app->home->rel_dir(sprintf('lang/wg/%s/%s', $lang, $version))));
+    }
 
-    # for each language, read the site/<lang> folder for the appropriate files 
     my $common_path = sprintf('%s/*.po', $app->home->rel_dir(sprintf('lang/site/%s', $lang)));
 
-    return ($common_path, $wg_path);
+    return ($common_path, @$wg_paths);
 }
 
 sub register {
