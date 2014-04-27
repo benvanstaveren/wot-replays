@@ -7,7 +7,7 @@
     [% INCLUDE $incfile %]
 [% CATCH %]
     [% TRY %]
-        [% INCLUDE $deffile %}
+        [% INCLUDE $deffile %]
     [% CATCH %]
         <em>Error including: [% file %]</em>
     [% END %]
