@@ -383,6 +383,8 @@ sub install {
                 $replays->route('/page/:page')->to('admin-site#replays', pageid => 'admin/site');
             my $uploads = $site->under('/uploads');
                 $uploads->route('/page/:page')->to('admin-site#uploads', pageid => 'admin/site');
+            my $notifications = $site->under('/notifications');
+                $notifications->route('/')->to('admin-site#notifications', pageid => 'admin/notifications');
 
         my $modtools = $admin->under('/moderator');
             my $chatreader = $modtools->under('/chatreader');
