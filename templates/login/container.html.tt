@@ -10,7 +10,7 @@
         <a id="na" type="button" class="please-wait btn btn-primary btn-lg btn-block" href="/login/na">North America</a>
     </div>
 </div>
-<div class="row locationselect">
+<div class="row locationselect" style="margin-top: 25px">
     <div class="col-lg-4 col-md-4">
         <a id="ru" type="button" class="please-wait btn btn-primary btn-lg btn-block" href="/login/ru">Russia</a>
     </div>
