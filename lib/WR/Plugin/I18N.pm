@@ -13,17 +13,12 @@ sub get_paths {
     my %args = (@_);
     my $app  = $args{using};
     my $lang = $args{for};
-    my $versions = [qw/0.9.0 0.8.11/];
 
     # wargaming language file set(s)
-    my $wg_paths = [];
-    foreach my $version (@$versions) {
-        push(@$wg_paths, sprintf('%s/*.po', $app->home->rel_dir(sprintf('lang/wg/%s/%s', $lang, $version))));
-    }
-
+    my $wg_path = sprintf('%s/*.po', $app->home->rel_dir(sprintf('lang/wg/%s', $lang)));
     my $common_path = sprintf('%s/*.po', $app->home->rel_dir(sprintf('lang/site/%s', $lang)));
 
-    return ($common_path, @$wg_paths);
+    return ($common_path, $wg_path);
 }
 
 sub register {
