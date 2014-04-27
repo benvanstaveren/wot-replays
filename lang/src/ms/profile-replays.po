@@ -49,6 +49,9 @@ msgstr "xp"
 msgid "profile.replays.page.title"
 msgstr "Profil » Rakaman"
 
+msgid "profile.replays.participants"
+msgstr "%1 %quant(%1,rakaman,rakaman) peserta menampilkan anda"
+
 msgid "profile.replays.private"
 msgstr "%1 %quant(%1,rakaman,rakaman) peribadi menampilkan anda"
 
@@ -60,6 +63,9 @@ msgstr "tidak"
 
 msgid "profile.replays.survived.yes"
 msgstr "ya"
+
+msgid "profile.replays.team"
+msgstr "%1 %quant(%1,rakaman,rakaman) pasukan menampilkan anda"
 
 msgid "profile.replays.unlisted"
 msgstr "%1 %quant(%1,rakaman,rakaman) tidak tersenarai menampilkan anda"

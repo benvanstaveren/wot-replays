@@ -13,6 +13,9 @@ msgstr "Tentang Misi-misi"
 msgid "page.replay.denied.title"
 msgstr "Akses Tidak Dibenarkan"
 
+msgid "page.replayprivacy.title"
+msgstr "Tetapan Privasi Rakaman"
+
 msgid "replay.view.denied.header"
 msgstr "Akses Tidak Dibenarkan"
 

@@ -1,11 +1,20 @@
-msgid "privacy.public"
-msgstr "Awam"
-
 msgid "privacy.clan"
 msgstr "Klan"
 
+msgid "privacy.default"
+msgstr "Tentu awal"
+
+msgid "privacy.participants"
+msgstr "Peserta"
+
 msgid "privacy.private"
 msgstr "Peribadi"
+
+msgid "privacy.public"
+msgstr "Awam"
+
+msgid "privacy.team"
+msgstr "Pasukan"
 
 msgid "privacy.unlisted"
 msgstr "Tidak tersenarai"
