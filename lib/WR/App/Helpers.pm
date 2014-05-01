@@ -61,6 +61,14 @@ sub install {
     my $class = shift;
     my $self  = shift; # not really self but the Mojo app
 
+    $self->helper(notification_valid => sub {
+        my $self = shift;
+        my $n    = shift;
+
+        return 1 if($n->{_ctime} + (86400 * 7 * 1000) > Mango::BSON::bson_time);
+        return undef;
+    });
+
     $self->helper(debug => sub {
         my $self = shift;
         my $msg = join(' ', @_);

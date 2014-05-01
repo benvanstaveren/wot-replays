@@ -104,6 +104,7 @@ sub _field_virtual {
         'damageAssisted'        =>  'stats.damageAssisted',             # wotreplays.org custom field, we calculate it during replay storage
         'damageAssistedRadio'   =>  'stats.damageAssistedRadio',
         'damageAssistedTrack'   =>  'stats.damageAssistedTrack',
+        'xp'                    =>  'stats.originalXP',
     };
 
     foreach my $kf (keys(%$virtmap)) {

@@ -2,10 +2,12 @@
 <div class="row">
     <div class="col-lg-12 col-md-12">
         [% FOREACH notification IN notifications %]
-            <div class="alert alert-[% notification.type %] dnotification" data-notification="[% notification.id %]">
-                <h4>[% notification.title |html %] <a href="#" class="dn-close bs-tooltip pull-right" style="color: #fff" title="Dismiss" data-placement="auto" data-toggle="tooltip" data-notification="[% notification.id %]"><i class="fa fa-times"></i></a></h4>
-                <p>[% notification.text %]</p>
-            </div>
+            [% IF h.notification_valid(notification) %]
+                <div class="alert alert-[% notification.type %] dnotification" data-notification="[% notification.id %]">
+                    <h4>[% notification.title |html %] <a href="#" class="dn-close bs-tooltip pull-right" style="color: #fff" title="Dismiss" data-placement="auto" data-toggle="tooltip" data-notification="[% notification.id %]"><i class="fa fa-times"></i></a></h4>
+                    <p>[% notification.text %]</p>
+                </div>
+            [% END %]
         [% END %]
     </div>
 </div>

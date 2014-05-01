@@ -2,6 +2,7 @@ window.Wotreplays = function(options) {
     this.pageid     = options.pageid;
     this.channels   = options.channels  || [];
     this.user       = options.user;
+    this.prefs      = options.prefs;
     this.apikey     = options.apikey;
     this.thunderkey = options.thunderkey;
     this.indev      = options.indev || false;
