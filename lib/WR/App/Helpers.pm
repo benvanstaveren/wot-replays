@@ -11,7 +11,7 @@ use WR::Constants qw/nation_id_to_name gameplay_id_to_name/;
 use WR::Util::TypeComp qw/parse_int_compact_descr type_id_to_name/;
 use Data::Dumper;
 use DateTime;
-use Mojo::Util qw/encode decode/;
+use Encode;
 use Try::Tiny qw/try catch/;
 
 use constant ROMAN_NUMERALS => [qw(0 I II III IV V VI VII VIII IX X)];
@@ -64,9 +64,25 @@ sub install {
     $self->helper(notification_valid => sub {
         my $self = shift;
         my $n    = shift;
+        my $t    = 86400 * 14 * 1000;
+        my $now  = Mango::BSON::bson_time;
 
-        return 1 if($n->{_ctime} + (86400 * 7 * 1000) > Mango::BSON::bson_time);
+        return 1 if($n->{_ctime} + $t > $now);
         return undef;
+    });
+
+    $self->helper(encode => sub {
+        my $self = shift;
+        my $s    = shift;
+
+        return encode('utf-8', $s);
+    });
+
+    $self->helper(decode => sub {
+        my $self = shift;
+        my $s    = shift;
+
+        return decode('utf-8', $s);
     });
 
     $self->helper(debug => sub {
