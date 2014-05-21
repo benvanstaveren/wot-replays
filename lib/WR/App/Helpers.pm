@@ -67,6 +67,8 @@ sub install {
         my $t    = 86400 * 14 * 1000;
         my $now  = Mango::BSON::bson_time;
 
+        $self->debug('notification_valid: _ctime: ', $n->{_ctime}, ' t: ', $t, ' _ctime+t: ', $n->{_ctime} + $t, ' now: ', $now, ' valid: ', ($n->{_ctime} + t > $now) ? 'yes' : 'no');
+
         return 1 if($n->{_ctime} + $t > $now);
         return undef;
     });
