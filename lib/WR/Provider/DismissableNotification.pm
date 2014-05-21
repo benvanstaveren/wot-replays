@@ -41,6 +41,7 @@ sub list {
                     title   => $n->{title},
                     text    => $n->{text},
                     type    => $n->{type},
+                    _ctime  => $n->{_ctime},
                 });
             }
             return $cb->($notifications);
