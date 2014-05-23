@@ -1,7 +1,7 @@
 [% IF config.advertising.enabled %]
 <div class="row">
     <div class="col-lg-12 col-md-12">
-        <div id="fp-a-leader" style="width: 728px; height: 90px;">
+        <div id="fp-a-leader" style="width: 728px; height: 90px; margin: 0px auto">
             <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
             <!-- front page leader -->
             <ins class="adsbygoogle"
