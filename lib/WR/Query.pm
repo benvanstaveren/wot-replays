@@ -163,7 +163,9 @@ sub _build_query {
     foreach my $key (keys(%args)) {
         delete($args{$key}) if(!defined($args{$key}));
         delete($args{$key}) if(defined($args{$key}) && $args{$key} eq '*');
-        $args{$newname} = delete($args{$key}) if(my $newname = $namemap->{$key});
+        if(my $newname = $namemap->{$key}) {
+            $args{$newname} = delete($args{$key});
+        }
     }
 
     my $priv = $self->pm->for_query;
