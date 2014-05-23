@@ -163,19 +163,15 @@ sub _build_query {
     foreach my $key (keys(%args)) {
         delete($args{$key}) if(!defined($args{$key}));
         delete($args{$key}) if(defined($args{$key}) && $args{$key} eq '*');
-        if(my $newname = $namemap->{$key}) {
-            $args{$newname} = delete($args{$key});
-        } 
+        $args{$newname} = delete($args{$key}) if(my $newname = $namemap->{$key});
     }
-
-    $self->debug('raw args: ', Dumper({%args}));
 
     my $priv = $self->pm->for_query;
 
     if($args{'pl'}) {
         if($args{'pp'} > 0) {
             $query->{'game.server'} = $self->fixargs($args{s});
-            $query->{'game.recorder.name'} = $self->fixargs($args{pl});
+            $query->{'game.recorder.name'} = $self->fixargs($args{pl}, '$in');
         } elsif($args{'pi'} > 0) {
             $query->{'game.server'} = $self->fixargs($args{s});
             $query->{'involved.players'} = $self->fixargs($args{pl}, '$in');
@@ -183,15 +179,13 @@ sub _build_query {
         } else {
             $query->{'game.server'} = $self->fixargs($args{s});
             $query->{'$or'} = [
-                { 'game.recorder.name' => $self->fixargs($args{'pl'}) }, 
+                { 'game.recorder.name' => $self->fixargs($args{'pl'}, '$in') }, 
                 { 'involved.players' => $self->fixargs($args{'pl'}, '$in') }
             ];
         }
     }
 
-    if($args{c}) {
-        $query->{'game.recorder.clan'} = $args{c};
-    }
+    $query->{'game.recorder.clan'} = $args{c} if(defined($args{c}));
 
     if($args{'s'}) {
         if(ref($args{'s'}) eq 'ARRAY') {
