@@ -1,5 +1,13 @@
 <div class="row" style="margin-bottom: 30px">
     <div class="col-lg-12 col-md-12">
+        <a href="http://www.patreon.com/scrambled">
+            <img src="http://i.imgur.com/Kpr5XQW.png" style="width: 150px; height: 30px; margin: 0px auto">
+            <div>Don't want to see ads? Support wotreplays.org on Patreon!</div>
+        </a>
+    </div>
+</div>
+<div class="row" style="margin-bottom: 30px">
+    <div class="col-lg-12 col-md-12">
         <a href="/upload/" class="btn btn-success btn-lg btn-block"><i class="fa fa-upload"></i> <span>[% h.loc('nav.upload') %]</span></a>
     </div>
 </div>
