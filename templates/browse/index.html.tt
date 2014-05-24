@@ -14,6 +14,7 @@
                 [% ht = 'includes/' _ pageid _ '.html.tt' %]
                 [% INCLUDE $ht %]
             [% CATCH %]
+                [% INCLUDE includes/default.html.tt %]
             [% END %]
             [% INCLUDE replay/list.html.tt %]
             [% INCLUDE browse/pager.html.tt %]
