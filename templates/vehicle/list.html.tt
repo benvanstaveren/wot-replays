@@ -6,7 +6,7 @@
         </p>
         [% FOREACH vehicle IN vehicles.$vehicletype %]
             <a href="/vehicle/[% country %]/[% vehicle.sid %]" style="display: inline-block; width: 160px; height: 100px; margin: 0px 10px 10px 0px">
-                <img class="img-thumbnail" style="width: 160px; height: 100px" src="[% h.vehicle_icon(vehicle.id, 100) %]" alt="[% h.vehicle_name(vehicle.id) |html %]" title="[% h.vehicle_name(vehicle.id) |html %]"/>
+                <img class="img-thumbnail" style="width: 160px; height: 100px" src="[% h.vehicle_icon(vehicle.id, 100) %]" alt="[% h.loc(h.vehicle_name(vehicle.id)) |html %]" title="[% h.loc(h.vehicle_name(vehicle.id)) |html %]"/>
             </a>
         [% END %]
     [% END %]
