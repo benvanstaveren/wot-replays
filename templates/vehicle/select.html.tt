@@ -24,7 +24,7 @@
             <a href="/vehicles/usa" class="btn btn-primary btn-block">[% h.loc('nations.usa') %]</a>
         </div>
         <div class="col-md-3">
-            <a href="/vehicles/ussr" class="btn btn-primary btn-block">[% h.loc('nations.uss') %]r</a>
+            <a href="/vehicles/ussr" class="btn btn-primary btn-block">[% h.loc('nations.ussr') %]</a>
         </div>
     </div>
 [% END %]
