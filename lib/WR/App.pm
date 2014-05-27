@@ -2,7 +2,7 @@ package WR::App;
 use Mojo::Base 'Mojolicious';
 use Mojo::JSON;
 use Mango;
-use Mojo::Util qw/url_escape/;
+use Mojo::Util qw/url_escape decode encode/;
 
 # this is a bit cheesy but... 
 #use FindBin;
@@ -72,6 +72,18 @@ sub startup {
                     my $file  = url_escape(pop(@parts));
 
                     return join('/', @parts, $file);
+                },
+                'encode_utf8' => sub {
+                    my $str = shift;
+                    my $res = encode('UTF-8', $str);
+
+                    return (defined($res)) ? $res : $str;
+                },
+                'decode_utf8' => sub {
+                    my $str = shift;
+                    my $res = decode('UTF-8', $str);
+
+                    return (defined($res)) ? $res : $str;
                 },
             },
             RELATIVE => 1,

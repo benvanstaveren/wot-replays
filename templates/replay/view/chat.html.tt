@@ -4,11 +4,11 @@
         [% parsed = h.parse_message(message) %]
         <div class="row">
             <div class="col-lg-4 col-md-4" style="color: [% parsed.base %]; border-right: #aaa 1px solid">
-                [% parsed.name.name |truncate(10) |html%][% IF parsed.name.clan.defined %][[% parsed.name.clan |html %]][% END %]
+                [% parsed.name.name |decode_utf8|truncate(10) |html%][% IF parsed.name.clan.defined %][[% parsed.name.clan |html %]][% END %]
                 <span class="pull-right" style="margin-right: 10px;">[% parsed.name.vehicle |html %]</span>
             </div>
             <div class="col-lg-8 col-md-8" style="color: [% parsed.text %]">
-                [% parsed.message |html %]
+                [% parsed.message |decode_utf8|html %]
             </div>
         </div>
     [% END %]
