@@ -225,8 +225,10 @@ sub install {
 
     $r->route('/maps')->to('map#index', pageid => 'map');
 
+=pod
     my $heatmaps = $r->under('/heatmaps');
         $heatmaps->route('/:map_ident')->to('heatmap#view', next => 'view', page => { title => 'heatmaps.page.title', title_args => [ 'map_name' ] });
+=cut
 
     my $map = $r->under('/map');
         $map->route('/:map_id')->to(cb => sub {

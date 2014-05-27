@@ -17,11 +17,13 @@
                     <li class="[% IF pageid == 'map' %]active[% END %]"><a href="/maps/">[% h.loc('nav.maps') %]</a></li>
                 </ul>
             </li>
+            [% IF 1 == 0 %]
             <li class="dropdown [% IF pageid == 'heatmap' %]active[% END %]"><a class="dropdown-toggle" data-toggle="dropdown" href="/heatmaps/"><span>[% h.loc('nav.heatmaps') %]</span> <b class="caret"></b></a>
                 <ul class="dropdown-menu" style="column-count: 3; -moz-column-count: 3; -webkit-column-count: 3; width: 500px">
                     [% INCLUDE generated/heatmap_list.html.tt %]
                 </ul>
             </li>
+            [% END %]
             <li class="[% IF pageid == 'competition' %]active[% END %]"><a  href="/competitions/">[% h.loc('nav.competitions') %]</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
