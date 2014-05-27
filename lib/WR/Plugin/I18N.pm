@@ -7,7 +7,6 @@ use Data::Dumper;
 use Try::Tiny qw/try catch/;
 use Encode qw/encode decode from_to/;
 
-
 sub get_paths {
     my $self = shift;
     my %args = (@_);
@@ -15,10 +14,11 @@ sub get_paths {
     my $lang = $args{for};
 
     # wargaming language file set(s)
-    my $wg_path = sprintf('%s/*.po', $app->home->rel_dir(sprintf('lang/wg/%s', $lang)));
+    my $wg_path     = sprintf('%s/*.po', $app->home->rel_dir(sprintf('lang/wg/%s', $lang)));
+    my $fix_path    = sprintf('%s/*.po', $app->home->rel_dir('lang/wg/fixes'));
     my $common_path = sprintf('%s/*.po', $app->home->rel_dir(sprintf('lang/site/%s', $lang)));
 
-    return ($common_path, $wg_path);
+    return ($common_path, $fix_path, $wg_path);
 }
 
 sub register {

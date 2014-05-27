@@ -1,0 +1,5 @@
+msgid "PzIII"
+msgstr "Pz.Kpfw. III"
+
+msgid "StuGIII"
+msgstr "StuG III"
