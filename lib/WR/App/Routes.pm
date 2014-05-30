@@ -33,9 +33,14 @@ sub install {
     );
 
     my $doc = $r->under('/doc');
-        for(qw/about donate credits missions replayprivacy/) {
+        for(qw/about credits missions replayprivacy/) {
             $doc->route(sprintf('/%s', $_))->to('ui#doc', docfile => $_, pageid => $_);
         }
+
+        $doc->route('/donate')->to(cb => sub {
+            my $self = shift;
+            $self->redirect_to('http://www.patreon.com/scrambled');
+        });
 
     $r->route('/browse/*filter')->to('replays#browse', filter_opts => {}, pageid => 'browse', page => { title => 'browse.page.title' }, filter_root => 'browse');
     $r->route('/browse')->to(cb => sub {
@@ -339,7 +344,7 @@ sub install {
     $r->route('/logout')->to('auth#do_logout');
 
     my $openid = $r->under('/openid');
-        $openid->any('/return')->to('auth#openid_return');
+        $openid->any('/return/:type')->to('auth#openid_return', type => 'default');
 
     my $pb = $r->bridge('/profile')->to('profile#bridge');
         $pb->route('/replays/type/:type/page/:page')->to('profile#replays', mustauth => 1, pageid => 'profile', page => { title => 'profile.replays.page.title' });
