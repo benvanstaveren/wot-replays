@@ -9,7 +9,7 @@
     <div class="navbar-collapse collapse" id="navbar-main">
         <ul class="nav navbar-nav">
             <li class="[% IF pageid == 'home' && !but_really.defined %]active[% END %]"><a  href="/">[% h.loc('nav.home') %]</a></li>
-            <li class="dropdown [% IF pageid == 'player' || pageid == 'clan' || pageid == 'map' || pageid == 'vehicle' || but_really == 'browse' %]active[% END %]"><a class="dropdown-toggle" data-toggle="dropdown" href="/"><span>[% h.loc('nav.browse') %]</span> <b class="caret"></b></a>
+            <li class="dropdown [% IF pageid == 'player' || pageid == 'clan' || pageid == 'map' || pageid == 'vehicle' || pageid == 'replay' || but_really == 'browse' %]active[% END %]"><a class="dropdown-toggle" data-toggle="dropdown" href="/"><span>[% h.loc('nav.browse') %]</span> <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li class="[% IF pageid == 'player' %]active[% END %]"><a href="/players/">[% h.loc('nav.players') %]</a></li>
                     <li class="[% IF pageid == 'clan' %]active[% END %]"><a href="/clans/">[% h.loc('nav.clans') %]</a></li>

@@ -104,7 +104,7 @@ sub install {
         $rb->route('/heatmap')->to('replays-view#heatmap', pageid => 'battleheatmap', page => { title => 'replay.heatmap.page.title' });
         $rb->route('/desc')->to('replays#desc', pageid => undef);
         $rb->route('/up')->to('replays-rate#rate_up', pageid => undef);
-        $rb->route('/')->to('replays-view#view', pageid => undef)->name('viewreplay');
+        $rb->route('/')->to('replays-view#view', pageid => 'replay')->name('viewreplay');
 
     $r->route('/clans')->to('clan#index', pageid => 'clan', page => { title => 'clans.page.title' });
     my $clan = $r->under('/clan');
