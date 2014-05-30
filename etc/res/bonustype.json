@@ -27,4 +27,8 @@
         "label": "Cybersport Battle",
         "label_short": "Cybersport"
     }
+    "8": {
+        "label": "Historical Battle",
+        "label_short": "Historical"
+    }
 }

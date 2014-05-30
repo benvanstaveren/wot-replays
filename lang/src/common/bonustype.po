@@ -40,6 +40,12 @@ msgstr "Team Battle"
 msgid "bonustype.7.short"
 msgstr "Team"
 
+msgid "bonustype.8"
+msgstr "Historical Battle"
+
+msgid "bonustype.8.short"
+msgstr "Historical"
+
 msgid "bonustype.9"
 msgstr "Event Battle"
 

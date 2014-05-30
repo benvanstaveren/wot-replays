@@ -97,6 +97,8 @@
                             <option value="5">[% h.loc('bonustype.5') %]</option>
                             <option value="6">[% h.loc('bonustype.6') %]</option>
                             <option value="7">[% h.loc('bonustype.7') %]</option>
+                            <option value="8">[% h.loc('bonustype.8') %]</option>
+                            <option value="9">[% h.loc('bonustype.9') %]</option>
                         </select>
                     </div>
                 </div>
