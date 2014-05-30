@@ -1,0 +1,3 @@
+[% IF replay.site.banner.available %]
+    <meta property="og:image" content="[% config.urls.banners %]/[% replay.site.banner.url_path %]">
+[% END %]
