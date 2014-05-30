@@ -1,8 +1,8 @@
 <div class="bs-replay-sidebar">
-    <div class="well well-sm light" style="margin-bottom: 25px; width: 160px">
-        <a href="http://www.patreon.com/scrambled" style="display: inline-block; width: 160px">
-            <img src="http://i.imgur.com/Kpr5XQW.png" style="width: 150px; height: 30px; margin: 0px auto">
-            <div style="margin: 5px 0px 5px 0px">Don't want to see ads? Support wotreplays.org on Patreon!</div>
+    <div class="well well-sm light" style="margin-bottom: 25px; width: 150px; margin: 0px auto">
+        <a href="http://www.patreon.com/scrambled" style="display: inline-block">
+            <img src="http://i.imgur.com/Kpr5XQW.png" style="width: 125px; margin: 0px auto">
+            <div style="margin: 5px 0px 5px 0px">Don't want to see ads? Support us on Patreon!</div>
         </a>
     </div>
     <ul class="bs-replay-sidenav nav">
