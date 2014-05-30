@@ -50,6 +50,7 @@
                         <li><a href="/profile/uploads/page/1">[% h.loc('nav.profile.uploads') %]</a></li>
                         <li><a href="/profile/settings">[% h.loc('nav.profile.settings') %]</a></li>
                         <li class="divider"></li>
+                        <li><a href="/profile/link">[% h.loc('nav.profile.link') %]</a></li>
                         <li><a class="please-wait" href="/logout">[% h.loc('nav.profile.signout') %]</a></li>
                     </ul>
                 </li>
