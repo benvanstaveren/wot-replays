@@ -494,7 +494,7 @@ sub actual_view_replay {
             $replay->{mission_panel} = $mission_panel;
             $self->respond(
                 stash => {
-                    pageid => 'browse', # really? yah really
+                    pageid => 'replay', # really? yah really
                     replay => $replay,
                     page   => {
                         title => $title,
