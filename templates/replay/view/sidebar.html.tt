@@ -1,10 +1,4 @@
 <div class="bs-replay-sidebar">
-    <div class="well well-sm light" style="width: 150px; margin: 0px auto 25px auto">
-        <a href="http://www.patreon.com/scrambled" style="display: inline-block">
-            <img src="http://i.imgur.com/Kpr5XQW.png" style="width: 125px; margin: 0px auto">
-            <div style="margin: 5px 0px 5px 0px">Don't want to see ads? Support us on Patreon!</div>
-        </a>
-    </div>
     <ul class="bs-replay-sidenav nav">
         <li class="active">
             <a href="#performance">[% h.loc('replay.view.performance') %]</a>
