@@ -156,6 +156,22 @@ Wotreplays.prototype = {
                 });
             }
         });
+        this.on('replay.view', function(data) {
+            var panel = $('div[data-replayid="' + data.id + '"]');
+            if(panel) {
+                console.log('updating view count on panel for ', data.id);
+                var c = parseInt($(panel).find('a.btn-view-replay span.badge').html());
+                $(panel).find('a.btn-view-replay span.badge').html(c + 1);
+            }
+        });
+        this.on('replay.download', function(data) {
+            var panel = $('div[data-replayid="' + data.id + '"]');
+            if(panel) {
+                console.log('updating download count on panel for ', data.id);
+                var c = parseInt($(panel).find('a.btn-save-replay span.badge').html());
+                $(panel).find('a.btn-save-replay span.badge').html(c + 1);
+            }
+        });
     },
     _fmt_i18n: function(str, args) {
         return str.replace(/{{(.*?)}}/gi, function(match, name) {
