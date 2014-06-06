@@ -13,13 +13,13 @@
 
 	    <script type="text/javascript">
             var WR = new Wotreplays({
-                pageid: '[% pageid |js %]',
-                apikey: '[% config.statterbox.web %]',
-                thunderkey: '[% config.thunderpush.key %]',
-                user: '[% IF h.is_user_authenticated %][% h.current_user.player_name |js %].[% h.current_user.player_server |js %][% ELSE %]anon-[% h.get_oid() %][% END %]',
-                prefs: [% IF h.is_user_authenticated %][% h.as_json(h.current_user.settings) %][% ELSE %]{}[% END %],
-                channels: [],
-                indev: [% IF config.mode.defined && config.mode == 'dev' %]true[% ELSE %]false[% END %],
+                pageid      : '[% pageid |js %]',
+                apikey      : '[% config.statterbox.web %]',
+                thunderkey  : '[% config.thunderpush.key %]',
+                user        : '[% IF h.is_user_authenticated %][% h.current_user.player_name |js %].[% h.current_user.player_server |js %][% ELSE %]anon-[% h.get_oid() %][% END %]',
+                prefs       : [% IF h.is_user_authenticated %][% h.as_json(h.current_user.settings) %][% ELSE %]{}[% END %],
+                channels    : [],
+                indev       : [% IF config.mode.defined && config.mode == 'dev' %]true[% ELSE %][% IF h.is_the_boss %]true[% ELSE %]false[% END %][% END %],
             });
             WR.on('ready', function() {
                 $('.bs-tooltip').tooltip();
