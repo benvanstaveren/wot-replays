@@ -110,9 +110,20 @@ sub nginx_post_action {
         if($real_file =~ /^(mods|patches)/) {
             $self->render(text => 'OK');
         } else {
-            $self->model('replays')->update({ file => $real_file }, { '$inc' => { 'site.downloads' => 1 } } => sub {
-                # kick something to piwik here? 
-                $self->render(text => 'OK');
+            $self->model('replays')->find_and_modify({ 
+                query   =>  { file => $real_file },
+                update  =>  { '$inc' => { 'site.downloads' => 1 } },
+            } => sub {
+                my ($c, $e, $d) = (@_);
+                
+                if(defined($d)) {
+                    $self->app->thunderpush->send_to_channel('site' => Mojo::JSON->new->encode({ evt => 'replay.download', data => { id => $d->{_id} . '' } }) => sub {
+                        my ($p, $r) = (@_);
+                        $self->render(text => 'OK');
+                    });
+                } else {
+                    $self->render(text => 'OK');
+                }
             });
         }
     } else {

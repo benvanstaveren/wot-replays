@@ -19,3 +19,4 @@ lib/WR/Parser/Private/*
 lang/site/*
 public/scss/.sass-cache/*
 public/lang/*.js
+*.priv.*
