@@ -25,7 +25,7 @@
                            if (document.context) document.write ("&context=" + escape(document.context));
                            if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
                            document.write ("'><\/scr"+"ipt>");
-                        //]]>--></script><noscript><a href='http://revive.blockstackers.net/www/delivery/ck.php?n=a5a87170&amp;cb=[% h.random_number %]' target='_blank'><img src='http://revive.blockstackers.net/www/delivery/avw.php?zoneid=2&amp;cb=[% h.random_number %]&amp;n=a5a87170' border='0' alt='' /></a></noscript>
+                        //]]>--></script>
                     </div>
                 </div>
             </div>

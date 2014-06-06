@@ -13,6 +13,7 @@ use Data::Dumper;
 use DateTime;
 use Encode;
 use Try::Tiny qw/try catch/;
+use Time::HiRes qw//;
 
 use constant ROMAN_NUMERALS => [qw(0 I II III IV V VI VII VIII IX X)];
 
@@ -71,6 +72,14 @@ sub install {
 
         return 1 if($n->{_ctime} + $t > $now);
         return undef;
+    });
+
+    $self->helper(random_number => sub {
+        my $self = shift;
+
+        my $t = Time::HiRes::time;
+        $t =~ s/\D+//g;
+        return $t;
     });
 
     $self->helper(encode => sub {
