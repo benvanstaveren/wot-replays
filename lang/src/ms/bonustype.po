@@ -40,6 +40,12 @@ msgstr "Pertempuran Pasukan"
 msgid "bonustype.7.short"
 msgstr "Pasukan"
 
+msgid "bonustype.8"
+msgstr "Pertempuran Bersejarah"
+
+msgid "bonustype.8.short"
+msgstr "Bersejarah"
+
 msgid "bonustype.9"
 msgstr "Pertempuran Acara"
 

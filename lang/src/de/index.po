@@ -1,20 +1,21 @@
-msgid "index.page.title" 
-msgstr "Startseite"
-
 msgid "index.page.header"
-msgstr "Neuste Replys"
+msgstr "Neuste Replays"
 
-msgid "sidebar.status.header"
-msgstr "Status"
-
-msgid "sidebar.status.pending"
-msgstr "Noch nicht verarbeitet"
+msgid "index.page.title"
+msgstr "Startseite"
 
 msgid "sidebar.status.datasize"
 msgstr "Datengr&ouml;&szlig;e"
 
+msgid "sidebar.status.diskusage"
+msgstr "Festplattennutzung"
+
+msgid "sidebar.status.header"
+msgstr "Status"
+
 msgid "sidebar.status.indexsize"
 msgstr "Indexgr&ouml;&szlig;e"
 
-msgid "sidebar.status.diskusage"
-msgstr "Festplattennutzung"
+msgid "sidebar.status.pending"
+msgstr "Noch nicht verarbeitet"
+
