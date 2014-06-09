@@ -355,6 +355,11 @@ sub _fix_replay_junk {
     # compound ID, here to facilitate easier queries using cross-server accounts; e.g. whenever 'cid' is given to WR::Query,
     # skip any recorder name and server bits in the query and only use the cid. 
     $replay->set('game.recorder.cid' => sprintf('%s-%s', lc($replay->get('game.server')), lc($replay->get('game.recorder.name'))));
+    if(defined($replay->get('game.recorder.clan'))) {
+        $replay->set('game.recorder.ccid' => sprintf('%s-%s', lc($replay->get('game.server')), lc($replay->get('game.recorder.clan'))));
+    } else {
+        $replay->set('game.recorder.ccid' => undef);
+    }
 }
 
 
