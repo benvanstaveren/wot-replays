@@ -166,7 +166,7 @@ sub replays {
     my $type = $self->stash('type');
     my $page = $self->stash('page');
     my $query = {
-        'game.cid'  =>  { '$in' => $self->current_user_cids },
+        'game.recorder.cid'  =>  { '$in' => $self->current_user_cids },
         };
 
     if($type eq 'p') {  
