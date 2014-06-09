@@ -1,7 +1,7 @@
-db.replays.find().forEach(function(replay) {
+var fixfunction = function(replay) {
     var server = replay.game.server.toLowerCase();
-    
     var cid = {};
+
     cid.player = server + '-' + replay.game.recorder.name.toLowerCase();
     if(replay.game.recorder.clan != null) {
         cid.clan = server + '-' + replay.game.recorder.clan.toLowerCase();
@@ -35,4 +35,6 @@ db.replays.find().forEach(function(replay) {
             'cid': cid
         }
     });
-});
+};
+
+//db.replays.find().forEach(fixfunction);
