@@ -58,15 +58,24 @@ sub do_link {
                 } else {
                     $self->debug('tx ok, status not ok: ', Dumper($res->json));
                     # FIXME FIXME FIXME
+                    $self->respond(template => 'profile/link', stash => {
+                        page => { title => 'Link Account' },
+                        notify => 'Link failed, please try again',
+                    });
                 }
             } else {
                 my ($err, $code) = $tx->error;
                 $self->debug('tx not ok: code: ', $code, ' err: ', $err);
-                # FIXME FIXME FIXME
+                $self->respond(template => 'profile/link', stash => {
+                    page => { title => 'Link Account' },
+                    notify => 'Link failed, please try again',
+                });
             }
         });
     } else {
-        # FIXME FIXME FIXME
+        $self->respond(template => 'profile/link', stash => {
+            page => { title => 'Link Account' },
+        });
     }
 }
 
@@ -142,6 +151,7 @@ sub openid_return {
 }
 
 sub openid_return_link {
+    my $self   = shift;
     my $my_url = $self->req->url->base;
     my $params = $self->req->params->to_hash;
 
