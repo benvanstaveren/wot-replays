@@ -65,15 +65,6 @@ sub register {
         my $cb   = shift;
 
         # id is the account_id that we want to load
-        $self->model('wot-replays.accounts')->find_one({ _id => $id } => sub {
-            my ($c, $e, $d) = (@_);
-
-            if(!defined($d) || defined($e)) {
-                return $cb->(undef);
-            } else {
-                return $cb->($d);
-            }
-        });
     });
     
     $app->helper(init_auth => sub {
@@ -83,8 +74,9 @@ sub register {
             $self->debug('have openid: ', $o);
 
             if($self->req->is_xhr) {
-                $self->load_user_data($o => sub {
-                    if(my $user = shift) {
+                $self->model('wot-replays.accounts')->find_one({ _id => $id } => sub {
+                    my ($c, $e, $user) = (@_); 
+                    if(defined($user)) {
                         if($user->{expires_at} > Mango::BSON::bson_time) {
                             $self->stash(current_user => $user);
                             $self->stash(current_player_name => $user->{player_name});
@@ -94,84 +86,87 @@ sub register {
                     $self->continue;
                 });
             } else {
-                if(my $user = $self->load_user_data($o)) {
-                    my $last_seen = Mango::BSON::bson_time;
+                $self->model('wot-replays.accounts')->find_one({ _id => $id } => sub {
+                    my ($c, $e, $user) = (@_); 
+                    if(defined($user)) {
+                        my $last_seen = Mango::BSON::bson_time;
 
-                    $self->model('wot-replays.accounts')->update({ 
-                        _id => $o 
-                    }, {
-                        '$set' => {
-                            last_seen       => $last_seen,
-                        },
-                    } => sub {
-                        my ($coll, $err, $oid) = (@_);
-                        $self->debug('last seen updated');
-                        $self->model('wot-replays.accounts')->find_one({ _id => $o } => sub {
-                            my ($coll, $err, $user) = (@_);
+                        $self->model('wot-replays.accounts')->update({ 
+                            _id => $o 
+                        }, {
+                            '$set' => {
+                                last_seen       => $last_seen,
+                            },
+                        } => sub {
+                            my ($coll, $err, $oid) = (@_);
+                            $self->debug('last seen updated');
+                            $self->model('wot-replays.accounts')->find_one({ _id => $o } => sub {
+                                my ($coll, $err, $user) = (@_);
 
-                            $self->debug('we have that account, yeah: ', Dumper($user));
+                                $self->debug('we have that account, yeah: ', Dumper($user));
 
-                            $self->debug('expires_at: ', $user->{expires_at}, ' now: ', Mango::BSON::bson_time);
+                                $self->debug('expires_at: ', $user->{expires_at}, ' now: ', Mango::BSON::bson_time);
 
-                            if(defined($user->{expires_at}) && $user->{expires_at} > Mango::BSON::bson_time) {
-                                $self->stash(current_user           => $user);
-                                $self->stash(current_player_name    => $user->{player_name});
-                                $self->stash(current_player_server  => uc($user->{player_server}));
+                                if(defined($user->{expires_at}) && $user->{expires_at} > Mango::BSON::bson_time) {
+                                    $self->stash(current_user           => $user);
+                                    $self->stash(current_player_name    => $user->{player_name});
+                                    $self->stash(current_player_server  => uc($user->{player_server}));
 
-                                $self->current_user->{last_clan_check} ||= 0;
+                                    $self->current_user->{last_clan_check} ||= 0;
 
-                                $self->debug('expiry is okay');
+                                    $self->debug('expiry is okay');
 
-                                if($self->current_user->{last_clan_check} < Mango::BSON::bson_time( (time() - 86400) * 1000)) {
-                                    my $url = 'http://api.statterbox.com/wot/account/clan';
-                                    my $server = lc($self->current_user->{player_server});
-                                    my $name   = $self->current_user->{player_name};
+                                    if($self->current_user->{last_clan_check} < Mango::BSON::bson_time( (time() - 86400) * 1000)) {
+                                        my $url = 'http://api.statterbox.com/wot/account/clan';
+                                        my $server = lc($self->current_user->{player_server});
+                                        my $name   = $self->current_user->{player_name};
 
-                                    $server = 'asia' if($server eq 'sea');
+                                        $server = 'asia' if($server eq 'sea');
 
-                                    # lookups by name are expensive, but hey... caching 4tw
-                                    my $form = {
-                                        application_id => $self->stash('config')->{statterbox}->{server},
-                                        name           => lc($name),
-                                        cluster        => $server,
-                                        fields         => 'abbreviation,name,emblems'
-                                    };
-                                    $self->ua->post($url => form => $form, sub {
-                                        my ($ua, $tx) = (@_);
+                                        # lookups by name are expensive, but hey... caching 4tw
+                                        my $form = {
+                                            application_id => $self->stash('config')->{statterbox}->{server},
+                                            name           => lc($name),
+                                            cluster        => $server,
+                                            fields         => 'abbreviation,name,emblems'
+                                        };
+                                        $self->ua->post($url => form => $form, sub {
+                                            my ($ua, $tx) = (@_);
 
-                                        my $clan;
-                                        
-                                        if(my $res = $tx->success) {
-                                            if($res->json('/status') eq 'ok') {
-                                                $clan = $res->json->{data}->{lc($self->current_user->{player_name})};
+                                            my $clan;
+                                            
+                                            if(my $res = $tx->success) {
+                                                if($res->json('/status') eq 'ok') {
+                                                    $clan = $res->json->{data}->{lc($self->current_user->{player_name})};
+                                                } else {
+                                                    $clan = undef;
+                                                }
                                             } else {
                                                 $clan = undef;
                                             }
-                                        } else {
-                                            $clan = undef;
-                                        }
-                                        $self->current_user->{clan} = $clan;
-                                        $self->model('wot-replays.accounts')->update({ _id => $o }, { '$set' => {
-                                            'last_clan_check' => Mango::BSON::bson_time,
-                                            'clan'            => $clan,
-                                        }} => sub {
-                                            $self->continue;
+                                            $self->current_user->{clan} = $clan;
+                                            $self->model('wot-replays.accounts')->update({ _id => $o }, { '$set' => {
+                                                'last_clan_check' => Mango::BSON::bson_time,
+                                                'clan'            => $clan,
+                                            }} => sub {
+                                                $self->continue;
+                                            });
                                         });
-                                    });
+                                    } else {
+                                        $self->continue;
+                                    }
                                 } else {
+                                    $self->debug('auth is expired');
+                                    $self->session('openid' => undef, notify => { type => 'info', text => 'Your login has expired, you will have to log in again' });
                                     $self->continue;
                                 }
-                            } else {
-                                $self->debug('auth is expired');
-                                $self->session('openid' => undef, notify => { type => 'info', text => 'Your login has expired, you will have to log in again' });
-                                $self->continue;
-                            }
+                            });
                         });
-                    });
-                } else {
-                    $self->debug('no user data loaded');
-                    $self->continue;
-                }
+                    } else {
+                        $self->debug('no user data loaded');
+                        $self->continue;
+                    }
+                });
             }
         } else {
             return 1;
