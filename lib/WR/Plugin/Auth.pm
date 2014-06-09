@@ -65,7 +65,7 @@ sub register {
         my $cb   = shift;
 
         # id is the account_id that we want to load
-        $self->model('wot-replays.accounts')->find_one({ _id => $o } => sub {
+        $self->model('wot-replays.accounts')->find_one({ _id => $id } => sub {
             my ($c, $e, $d) = (@_);
 
             if(!defined($d) || defined($e)) {
