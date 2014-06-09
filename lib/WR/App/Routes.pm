@@ -351,6 +351,7 @@ sub install {
         $pb->route('/uploads/page/:page')->to('profile#uploads', pageid => 'profile', page => { title => 'profile.uploads.page.title' });
         $pb->route('/settings')->to('profile#settings', pageid => 'profile', page => { title => 'profile.settings.page.title' });
         $pb->route('/sl/:lang')->to('profile#sl', pageid => 'profile');
+        $pb->route('/link')->to('auth#do_link', pageid => 'profile');
         $pb->route('/link/:s')->to('auth#do_link', pageid => 'profile');
 
         my $pbj = $pb->under('/j');
