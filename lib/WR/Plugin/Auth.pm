@@ -71,7 +71,7 @@ sub register {
             if(!defined($d) || defined($e)) {
                 return $cb->(undef);
             } else {
-                return $cb->($user);
+                return $cb->($d);
             }
         });
     });
