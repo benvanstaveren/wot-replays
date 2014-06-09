@@ -74,7 +74,7 @@ sub register {
             $self->debug('have openid: ', $o);
 
             if($self->req->is_xhr) {
-                $self->model('wot-replays.accounts')->find_one({ _id => $id } => sub {
+                $self->model('wot-replays.accounts')->find_one({ _id => $o } => sub {
                     my ($c, $e, $user) = (@_); 
                     if(defined($user)) {
                         if($user->{expires_at} > Mango::BSON::bson_time) {
