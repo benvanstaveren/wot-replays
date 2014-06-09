@@ -189,6 +189,8 @@ sub replays {
 
     $self->render_later;
 
+    $self->debug('profile::replays query: ', Dumper($query));
+
     my $cursor = $self->model('wot-replays.replays')->find($query);
     $cursor->count(sub {
         my ($cursor, $e, $count) = (@_);
