@@ -155,12 +155,15 @@ sub openid_return_link {
     my $my_url = $self->req->url->base;
     my $params = $self->req->params->to_hash;
 
-    $self->debug('openid_return, params: ', Dumper($params));
+    $self->debug('openid_return_link, params: ', Dumper($params));
 
     if($params->{status} eq 'ok') {
         if(!defined($self->session('link_nonce')) || !defined($self->session('link_server'))) {
             $self->debug('status ok, but no link_nonce or link_server in session: ', Dumper($self->session));
-            # FIXME FIXME FIXME
+            $self->respond(template => 'profile/link', stash => {
+                page => { title => 'Link Account' },
+                notify => 'No link nonce or link server found in session',
+            });
         } else {
             $self->render_later;
             $self->model('wot-replays.openid_nonce_cache')->find_one({ _id => $self->session('link_nonce') } => sub {
@@ -169,15 +172,23 @@ sub openid_return_link {
                 if(defined($doc)) {
                     $self->debug('dupe nonce');
                     # FIXME FIXME FIXME
+                    $self->respond(template => 'profile/link', stash => {
+                        page => { title => 'Link Account' },
+                        notify => 'Duplicate nonce',
+                    });
                 } else {
                     my $id = sprintf('%s-%s', lc($self->session('link_server')), lc($params->{nickname})),
-
-                    # FIXME FIXME FIXME
+                    $self->model('wot-replays.accounts')->update({ _id => $self->current_user->{_id} }, { '$push' => { 'ucid' => $id } } => sub {
+                        $self->redirect_to('/profile/linked/okay');
+                    });
                 }
             });
         }
     } else {
-        # FIXME FIXME FIXME
+        $self->respond(template => 'profile/link', stash => {
+            page => { title => 'Link Account' },
+            notify => 'Login failed or cancelled, please try again',
+        });
     }
 }
 
