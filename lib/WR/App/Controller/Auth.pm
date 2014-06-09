@@ -27,6 +27,49 @@ sub do_logout {
     });
 }
 
+sub do_link {
+    my $self = shift;
+    my $s    = $self->stash('s'); # $self->req->param('s');
+
+    if(defined($s)) {
+        $self->render_later;
+
+        $self->session(
+            'link_server' => $s,
+            'link_nonce'  => Mango::BSON::bson_oid . '',
+        );
+
+        my $url = 'http://api.statterbox.com/wot/auth/login';
+        my $form = {
+            application_id => $self->config->{statterbox}->{server},
+            cluster        => $s,
+            nofollow       => 1,
+            redirect_uri   => sprintf('%s/openid/return/link', $self->req->url->base),
+            expires_at     => 86400 * 7,
+        };
+
+        $self->ua->inactivity_timeout(30);
+        $self->ua->post($url => form => $form => sub {
+            my ($ua, $tx) = (@_);
+            if(my $res = $tx->success) {
+                if($res->json('/status') eq 'ok') {
+                    $self->debug('tx ok, status ok');
+                    $self->redirect_to($res->json('/data/location'));
+                } else {
+                    $self->debug('tx ok, status not ok: ', Dumper($res->json));
+                    # FIXME FIXME FIXME
+                }
+            } else {
+                my ($err, $code) = $tx->error;
+                $self->debug('tx not ok: code: ', $code, ' err: ', $err);
+                # FIXME FIXME FIXME
+            }
+        });
+    } else {
+        # FIXME FIXME FIXME
+    }
+}
+
 sub do_login {
     my $self = shift;
     my $s    = $self->stash('s'); # $self->req->param('s');
@@ -49,7 +92,7 @@ sub do_login {
             application_id => $self->config->{statterbox}->{server},
             cluster        => $s,
             nofollow       => 1,
-            redirect_uri   => sprintf('%s/openid/return', $self->req->url->base),
+            redirect_uri   => sprintf('%s/openid/return/default', $self->req->url->base),
             expires_at     => 86400 * 7,
         };
 
@@ -87,10 +130,51 @@ sub do_login {
 
 sub openid_return {
     my $self   = shift;
+    my $type   = $self->stash('type');
+
+    if($type eq 'default') {
+        $self->openid_return_default;
+    } elsif($type eq 'link') {
+        $self->openid_return_link;
+    } else {
+        $self->redirect_to('/') and return if($self->is_user_authenticated);
+    }
+}
+
+sub openid_return_link {
     my $my_url = $self->req->url->base;
     my $params = $self->req->params->to_hash;
 
-    $self->redirect_to('/') and return if($self->is_user_authenticated);
+    $self->debug('openid_return, params: ', Dumper($params));
+
+    if($params->{status} eq 'ok') {
+        if(!defined($self->session('link_nonce')) || !defined($self->session('link_server'))) {
+            $self->debug('status ok, but no link_nonce or link_server in session: ', Dumper($self->session));
+            # FIXME FIXME FIXME
+        } else {
+            $self->render_later;
+            $self->model('wot-replays.openid_nonce_cache')->find_one({ _id => $self->session('link_nonce') } => sub {
+                my ($coll, $err, $doc) = (@_);
+
+                if(defined($doc)) {
+                    $self->debug('dupe nonce');
+                    # FIXME FIXME FIXME
+                } else {
+                    my $id = sprintf('%s-%s', lc($self->session('link_server')), lc($params->{nickname})),
+
+                    # FIXME FIXME FIXME
+                }
+            });
+        }
+    } else {
+        # FIXME FIXME FIXME
+    }
+}
+
+sub openid_return_default {
+    my $self   = shift;
+    my $my_url = $self->req->url->base;
+    my $params = $self->req->params->to_hash;
 
     $self->debug('openid_return, params: ', Dumper($params));
 

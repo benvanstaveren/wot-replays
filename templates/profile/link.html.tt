@@ -1,0 +1,32 @@
+[% WRAPPER wrapper.html.tt %]    
+    <h1>Link Account</h1>
+    <p class="lead">Please select the server of the account you want to link.</p>
+
+    [% IF notify.defined %]
+        <div class="alert alert-danger" style="margin: 30px 0px">
+            [% notify %]
+        </div>
+    [% END %]
+
+    <div class="row locationselect">
+        <div class="col-lg-4 col-md-4">
+            <a id="eu" type="button" class="please-wait btn btn-primary btn-lg btn-block" href="/profile/link/eu">Europe</a>
+        </div>
+        <div class="col-lg-4 col-md-4">
+            <a id="sea" type="button" class="please-wait btn btn-primary btn-lg btn-block" href="/profile/link/asia">Asia</a>
+        </div>
+        <div class="col-lg-4 col-md-4">
+            <a id="na" type="button" class="please-wait btn btn-primary btn-lg btn-block" href="/profile/link/na">North America</a>
+        </div>
+    </div>
+    <div class="row locationselect" style="margin-top: 25px">
+        <div class="col-lg-4 col-md-4">
+            <a id="ru" type="button" class="please-wait btn btn-primary btn-lg btn-block" href="/profile/link/ru">Russia</a>
+        </div>
+        <div class="col-lg-4 col-md-4">
+            <a id="kr" type="button" class="please-wait btn btn-primary btn-lg btn-block" href="/profile/link/kr">Korea</a>
+        </div>
+        <div class="col-lg-4 col-md-4">
+        </div>
+    </div>
+[% END %]
