@@ -351,6 +351,10 @@ sub _fix_replay_junk {
         $replay->set('game.victory' => ($replay->get('game.winner') == $replay->get('game.recorder.team')) ? 1 : 0);
     }
     $replay->set('stats.damageAssisted' => $replay->get('stats.damageAssistedTrack') + $replay->get('stats.damageAssistedRadio'));
+
+    # compound ID, here to facilitate easier queries using cross-server accounts; e.g. whenever 'cid' is given to WR::Query,
+    # skip any recorder name and server bits in the query and only use the cid. 
+    $replay->set('game.recorder.cid' => sprintf('%s-%s', lc($replay->get('game.server')), lc($replay->get('game.recorder.name'))));
 }
 
 
