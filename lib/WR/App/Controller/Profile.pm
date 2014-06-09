@@ -3,6 +3,7 @@ use Mojo::Base 'WR::App::Controller';
 use WR::Query;
 use Mango::BSON;
 use DateTime::TimeZone;
+use Data::Dumper;
 
 sub bridge {
     my $self = shift;
