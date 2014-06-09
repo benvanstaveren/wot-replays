@@ -86,7 +86,7 @@ sub register {
                     $self->continue;
                 });
             } else {
-                $self->model('wot-replays.accounts')->find_one({ _id => $id } => sub {
+                $self->model('wot-replays.accounts')->find_one({ _id => $o } => sub {
                     my ($c, $e, $user) = (@_); 
                     if(defined($user)) {
                         my $last_seen = Mango::BSON::bson_time;
