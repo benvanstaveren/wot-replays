@@ -352,16 +352,36 @@ sub _fix_replay_junk {
     }
     $replay->set('stats.damageAssisted' => $replay->get('stats.damageAssistedTrack') + $replay->get('stats.damageAssistedRadio'));
 
-    # compound ID, here to facilitate easier queries using cross-server accounts; e.g. whenever 'cid' is given to WR::Query,
-    # skip any recorder name and server bits in the query and only use the cid. 
-    $replay->set('game.recorder.cid' => sprintf('%s-%s', lc($replay->get('game.server')), lc($replay->get('game.recorder.name'))));
-    if(defined($replay->get('game.recorder.clan'))) {
-        $replay->set('game.recorder.ccid' => sprintf('%s-%s', lc($replay->get('game.server')), lc($replay->get('game.recorder.clan'))));
-    } else {
-        $replay->set('game.recorder.ccid' => undef);
-    }
-}
 
+    # create the cids - 
+    my $cid = {
+        player      => sprintf('%s-%s', lc($replay->get('game.server')), lc($replay->get('game.recorder.name'))),
+        clan        => undef,
+        involved    => {
+            player  =>  [],
+            clan    =>  [],
+            team    =>  [],
+        },
+    };
+
+    if(defined($replay->get('game.recorder.clan'))) {
+        $cid->{clan} = sprintf('%s-%s', lc($replay->get('game.server')), lc($replay->get('game.recorder.clan')));
+    } 
+
+    my $i = $replay->get('involved');
+
+    foreach my $p (@{$i->{players}}) {
+        push(@{$cid->{involved}->{player}}, sprintf('%s-%s', lc($replay->get('game.server')), lc($p)));
+    }
+    foreach my $p (@{$i->{clans}}) {
+        push(@{$cid->{involved}->{clan}}, sprintf('%s-%s', lc($replay->get('game.server')), lc($p)));
+    }
+    foreach my $p (@{$i->{team}}) {
+        push(@{$cid->{involved}->{team}}, sprintf('%s-%s', lc($replay->get('game.server')), lc($p)));
+    }
+
+    $replay->set('cid' => $cid);
+}
 
 sub _with_battle_result {
     my $self    = shift;
