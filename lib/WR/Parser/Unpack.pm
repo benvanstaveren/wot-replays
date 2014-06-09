@@ -6,7 +6,7 @@ use IO::File ();
 use POSIX ();
 use Try::Tiny qw/catch try/;
 use IO::Uncompress::AnyUncompress qw/anyuncompress $AnyUncompressError/;
-
+use IO::Uncompress::RawInflate qw/rawinflate $RawInflateError/;
 # we expect a filehandle to be passed that has already been opened, returns an open filehandle 
 # for the unpacked replay; a file handle may be an IO::String object
 
@@ -71,6 +71,7 @@ sub unpack_replay {
     anyuncompress($decrypted->string_ref => $unpacked->string_ref) or die '[unpack]: ', $AnyUncompressError, "\n";
 
     $unpacked->seek(0, 0);
+
     return $unpacked;
 }
 
