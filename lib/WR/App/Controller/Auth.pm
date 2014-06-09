@@ -177,7 +177,7 @@ sub openid_return_link {
                         notify => 'Duplicate nonce',
                     });
                 } else {
-                    my $id = sprintf('%s-%s', lc($self->session('link_server')), lc($params->{nickname})),
+                    my $id = sprintf('%s-%s', lc($self->session('link_server')), lc($params->{nickname}));
                     $self->model('wot-replays.accounts')->update({ _id => $self->current_user->{_id} }, { '$push' => { 'ucid' => $id } } => sub {
                         $self->redirect_to('/profile/linked/okay');
                     });
