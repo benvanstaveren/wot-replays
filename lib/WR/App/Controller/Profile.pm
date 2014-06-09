@@ -165,8 +165,7 @@ sub replays {
     my $type = $self->stash('type');
     my $page = $self->stash('page');
     my $query = {
-        'game.recorder.name' => $self->stash('current_player_name'),
-        'game.server' => lc($self->stash('current_player_server')),
+        'game.cid'  =>  { '$in' => $self->current_user_cids },
         };
 
     if($type eq 'p') {  
@@ -221,10 +220,8 @@ sub uploads {
     my $type = $self->stash('type');
     my $page = $self->stash('page');
     my $query = {
-        'uploader.player_name'      => $self->stash('current_player_name'),
-        'uploader.player_server'    => lc($self->stash('current_player_server')),
-    };
-
+        'uploader.cid'  =>  { '$in' => $self->current_user_cids },
+        };
     $self->render_later;
 
     my $cursor = $self->model('wot-replays.jobs')->find($query);

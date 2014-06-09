@@ -81,10 +81,13 @@ sub process_upload {
         my $digest = sha256_hex($upload->asset->slurp);
         my $prio   = 50;
 
+        my $uploader = $self->current_user;
+        $uploader->{cid} = sprintf('%s-%s', lc($uploader->{player_server}), lc($uploader->{player_name}));
+
         # set this up as the job id
         $self->model('wot-replays.jobs')->save({
             _id         => $digest,
-            uploader    => $self->current_user, 
+            uploader    => $uploader,
             ready       => Mango::BSON::bson_false,
             complete    => Mango::BSON::bson_false,
             status      => 0,
