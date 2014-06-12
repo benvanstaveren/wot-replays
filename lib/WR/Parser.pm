@@ -1,6 +1,7 @@
 package WR::Parser;
 use Mojo::Base 'WR::Parser::Versions::Base';
 use Module::Load;
+use Try::Tiny qw/try catch/;
 
 sub version_to_numeric {
     my $self = shift;
@@ -37,7 +38,11 @@ sub new {
     return $self if($v <= 81000);
 
     my $monkey_patch_module = sprintf('WR::Parser::Versions::v%d', $v);
-    load($monkey_patch_module);
+    try {
+        load($monkey_patch_module);
+    } catch {
+        die q|It seems there's no parser for this World of Tanks version; either this replay is too old, or it's too new!| . "\n";
+    };
     our @ISA = ( $monkey_patch_module ); # clobber the fuck out of that
     return $self;
 }
