@@ -2113,6 +2113,8 @@ div.gat.b {
     display: block;
     padding: 0px 10px;
     font-size: 95%; }
+    div.gat.b div.t h4 {
+      margin-top: 10px; }
   div.gat.b div.a {
     display: none; }
 div.gat div.t {
