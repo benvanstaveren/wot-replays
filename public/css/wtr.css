@@ -2110,6 +2110,8 @@ div.gat.b {
   background: #222 none repeat scroll 0 0;
   color: #f0f0f0; }
   div.gat.b div.t {
-    display: block; }
+    display: block;
+    padding: 0px 10px;
+    font-size: 95%; }
 div.gat div.t {
   display: none; }
