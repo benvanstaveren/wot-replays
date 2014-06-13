@@ -26,7 +26,9 @@ sub startup {
     $self->attr(json => sub { return Mojo::JSON->new() });
 
     my $config = $self->plugin('Config', { file => 'wr.conf' });
-
+    
+    $config->{plugins} ||= {};
+    
     $self->secrets([ $config->{secrets}->{app} ]);
     $config->{wot}->{bf_key} = join('', map { chr(hex($_)) } (split(/\s/, $config->{wot}->{bf_key})));
 
@@ -38,10 +40,10 @@ sub startup {
 
     $self->plugin('WR::Plugin::Mango', $config->{mongodb});
 
-    for(qw/Auth I18N Timing Notify/) {
-        $self->plugin(sprintf('WR::Plugin::%s', $_));
+    for(qw/Auth Timing Notify/) {
+        $self->plugin(sprintf('WR::Plugin::%s', $_) => $config->{plugins}->{$_} || {});
     }
-
+    $self->plugin('WR::Plugin::I18N', { versions => [qw/0.9.0 0.9.1/] });
     $self->plugin('WR::Plugin::Thunderpush', $config->{thunderpush});
 
     $self->renderer->paths([]); # clear this out

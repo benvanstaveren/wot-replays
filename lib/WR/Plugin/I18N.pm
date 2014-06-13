@@ -12,24 +12,31 @@ sub get_paths {
     my %args = (@_);
     my $app  = $args{using};
     my $lang = $args{for};
+    my $versions = $args{'versions'} || [];
 
-    # wargaming language file set(s)
-    my $wg_path     = sprintf('%s/*.po', $app->home->rel_dir(sprintf('lang/wg/%s', $lang)));
-    my $fix_path    = sprintf('%s/*.po', $app->home->rel_dir('lang/wg/fixes'));
-    my $common_path = sprintf('%s/*.po', $app->home->rel_dir(sprintf('lang/site/%s', $lang)));
+    my @paths = ();
+    push(@paths,  sprintf('%s/*.po', $app->home->rel_dir(sprintf('lang/site/%s', $lang))));
+    push(@paths,  sprintf('%s/*.po', $app->home->rel_dir('lang/wg/fixes')));
+   
+    foreach my $v (@$versions) {
+        push(@paths, sprintf('%s/*.po', $app->home->rel_dir(sprintf('lang/wg/%s/%s', $lang, $v))));
+    }
 
-    return ($common_path, $fix_path, $wg_path);
+    return @paths;
 }
 
 sub register {
     my $self  = shift;
     my $app   = shift;
+    my $conf  = shift || {};
 
     my $g = {};
 
     # during registration we want to set up the paths for each language that's configured
-    $g->{'common'} = [ $self->get_paths(for => 'common', using => $app) ];
+    $g->{'common'} = [ $self->get_paths(for => 'common', using => $app, versions => $conf->{versions} || []) ];
     $g->{'en'}     = $g->{common};
+    
+    $app->log->debug('[I18N]: Using paths: ' . Dumper($g->{'common'}));
 
     if(defined($app->config->{languages})) {
         foreach my $language (@{$app->config->{languages}}) {
