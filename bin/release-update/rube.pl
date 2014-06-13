@@ -21,6 +21,9 @@ my $version         = undef;
 my $mconn           = 'mongodb://localhost:27017';
 my $dbname          = 'wotreplays';
 
+my @only            = ();
+my @default         = (qw/Language Achievements/);
+
 GetOptions(
     'wot-folder=s'  =>  \$wot_folder,
     'resu-folder=s' =>  \$res_u_folder,
@@ -29,6 +32,7 @@ GetOptions(
     'version=s'     =>  \$version,
     'mongo=s'       =>  \$mconn,
     'db=s'          =>  \$dbname,
+    'only=s@'       =>  \@only,
 );
 
 
@@ -43,13 +47,16 @@ $log->info("\tres_u folder: $res_u_folder");
 $log->info("\timg folder: $img_folder");
 $log->info("\tversion: $version");
 
-foreach my $action (qw/Language Achievements/) {
+@only = @default if(scalar(@only) < 1);
+
+
+foreach my $action (@only) {
     my $module = sprintf('Rube::%s', $action);
 
     $log->debug('Processing with ' . $module);
     try {
         load $module;
-        my $m = $module->new(wot_folder => '/home/ben/wot-install', res_u_folder => '/home/ben/projects/wot-replays/decompile/res_u', log => $log, version => $version, img_folder => $img_folder, site_folder => $site_folder);
+        my $m = $module->new(wot_folder => $wot_folder, res_u_folder => $res_u_folder, log => $log, version => $version, img_folder => $img_folder, site_folder => $site_folder);
         $m->install($db);
     } catch {
         $log->error('Failed: ' . $_);

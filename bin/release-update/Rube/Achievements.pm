@@ -2,6 +2,7 @@ package Rube::Achievements;
 use Mojo::Base 'Rube::Base';
 use File::Slurp qw/read_file/;
 use Data::Dumper;
+use Try::Tiny qw/try catch/;
 
 has 'achievements'  => sub { [] };
 
@@ -33,7 +34,11 @@ sub install {
     my $self = shift;
     my $db   = shift;
 
-    $db->collection('data.achievements')->drop();
+    try {
+        $db->collection('data.achievements')->drop();
+    } catch {
+        $self->info('Achievement collection not present...');
+    };
     foreach my $a (@{$self->achievements}) {
         $db->collection('data.achievements')->save($a);
         $self->info('Stored achievement ', $a->{name}, ' with ID ', $a->{_id});

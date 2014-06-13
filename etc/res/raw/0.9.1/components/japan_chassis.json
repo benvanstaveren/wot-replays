@@ -1,0 +1,32 @@
+{
+   "shared" : {},
+   "ids" : {
+      "Chassis_STA_1" : 20,
+      "Chassis_Ke_Ni_2" : 19,
+      "Chassis_Chi_Nu_Kai" : "",
+      "Chassis_Chi_To" : 14,
+      "Chassis_STA_1_2" : 21,
+      "Chassis_NC27_2" : 5,
+      "Chassis_Chi_Ha_2" : 17,
+      "Chassis_Chi_To_2" : 15,
+      "Chassis_Chi_Nu" : 10,
+      "Chassis_Chi_Ni_2" : 3,
+      "Chassis_Chi_Ha" : 16,
+      "Chassis_Chi_Ri" : 8,
+      "Chassis_ST_B1" : 28,
+      "Chassis_Ke_Ni_B" : 1,
+      "Chassis_Chi_Ni" : 2,
+      "Chassis_Ha_Go_2" : 7,
+      "Chassis_Type_61" : 26,
+      "Chassis_Chi_Nu_2" : 11,
+      "Chassis_Type_61_2" : 27,
+      "Chassis_Ke_Ni" : 18,
+      "Chassis_Ha_Go" : 6,
+      "Chassis_Chi_He_2" : 13,
+      "Chassis_Ke_Ho_2" : 23,
+      "Chassis_Chi_Ri_2" : 9,
+      "Chassis_Ke_Ho" : 22,
+      "Chassis_Chi_He" : 12,
+      "Chassis_NC27" : 4
+   }
+}

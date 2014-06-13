@@ -1,0 +1,51 @@
+{
+   "shared" : {
+      "Average" : {
+         "maxRegenHealth" : 50,
+         "maxHealth" : 150,
+         "repairCost" : "1.0",
+         "weight" : 250,
+         "price" : 100,
+         "tags" : {}
+      },
+      "Small" : {
+         "maxRegenHealth" : 40,
+         "maxHealth" : 100,
+         "repairCost" : "1.0",
+         "weight" : 200,
+         "price" : 100,
+         "tags" : {}
+      },
+      "Medium" : {
+         "maxRegenHealth" : 50,
+         "maxHealth" : 125,
+         "repairCost" : "1.0",
+         "weight" : 250,
+         "price" : 100,
+         "tags" : {}
+      },
+      "Large" : {
+         "maxRegenHealth" : 70,
+         "maxHealth" : 200,
+         "repairCost" : "1.0",
+         "weight" : 300,
+         "price" : 100,
+         "tags" : {}
+      },
+      "Heavy" : {
+         "maxRegenHealth" : 70,
+         "maxHealth" : 175,
+         "repairCost" : "1.0",
+         "weight" : 275,
+         "price" : 100,
+         "tags" : {}
+      }
+   },
+   "ids" : {
+      "Average" : 203,
+      "Small" : 201,
+      "Medium" : 202,
+      "Large" : 205,
+      "Heavy" : 204
+   }
+}

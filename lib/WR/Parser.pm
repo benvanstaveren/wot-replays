@@ -41,7 +41,7 @@ sub new {
     try {
         load($monkey_patch_module);
     } catch {
-        die q|It seems there's no parser for this World of Tanks version; either this replay is too old, or it's too new!| . "\n";
+        die q|It seems there's no parser for this World of Tanks version (| . $v . q|); either this replay is too old, or it's too new!| . "\n";
     };
     our @ISA = ( $monkey_patch_module ); # clobber the fuck out of that
     return $self;
