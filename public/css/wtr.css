@@ -165,7 +165,7 @@ div.award {
   div.award b {
     width: 16px;
     height: 16px;
-    border: #444444 1px solid;
+    border: #444 1px solid;
     display: inline-block;
     text-align: center;
     font-weight: normal;
@@ -1386,12 +1386,12 @@ div.not-rounded-top {
   -webkit-border-top-left-radius: 0px;
   border-top-left-radius: 0px; }
 
-div.not-rounded-bottom, div.navbar.not-rounded-bottom {
+div.not-rounded-bottom {
   -moz-border-bottom-right-radius: 0px;
   -webkit-border-bottom-right-radius: 0px;
   border-bottom-right-radius: 0px; }
 
-div.not-rounded-bottom, div.navbar.not-rounded-bottom {
+div.not-rounded-bottom {
   -moz-border-bottom-left-radius: 0px;
   -webkit-border-bottom-left-radius: 0px;
   border-bottom-left-radius: 0px; }
@@ -1640,13 +1640,13 @@ div.player.friendly.type_s .player-icon {
 
 div.player-healthbar {
   width: 100%;
-  background: black none repeat scroll 0 0;
+  background: #000 none repeat scroll 0 0;
   height: 3px;
   position: absolute;
   top: 14px;
   left: 0px; }
 div.playerhealth {
-  background: lime none repeat scroll 0 0;
+  background: #0f0 none repeat scroll 0 0;
   height: 3px;
   width: 100%; }
 
@@ -1681,7 +1681,7 @@ div.loader-overlay {
 div.grid-numbers {
   height: 25px;
   margin-left: 25px;
-  border-bottom: #666666 1px solid; }
+  border-bottom: #666 1px solid; }
   div.grid-numbers div.grid.number {
     float: left;
     text-align: center;
@@ -1690,7 +1690,7 @@ div.grid-numbers {
 div.grid-letters {
   width: 25px;
   float: left;
-  border-right: #666666 1px solid; }
+  border-right: #666 1px solid; }
   div.grid-letters div.grid.letter {
     text-align: center;
     display: block;
@@ -1701,7 +1701,7 @@ div.map {
   div.map div.grid.line {
     position: absolute;
     width: 1px;
-    background: #666666 none repeat scroll 0 0;
+    background: #666 none repeat scroll 0 0;
     z-index: 10; }
     div.map div.grid.line.vertical {
       top: 0px;
@@ -1909,7 +1909,7 @@ td.playerDetails {
     td.playerDetails span b {
       width: 16px;
       height: 16px;
-      border: #444444 1px solid;
+      border: #444 1px solid;
       display: inline-block;
       text-align: center;
       font-weight: normal;
@@ -1933,16 +1933,16 @@ span.equipment-icon {
   width: 32px;
   height: 32px;
   display: inline-block;
-  border: #444444 1px solid; }
+  border: #444 1px solid; }
 span.mission-icon {
   width: 32px;
   height: 32px;
   display: inline-block;
-  border: #444444 1px solid; }
+  border: #444 1px solid; }
   span.mission-icon b {
     width: 16px;
     height: 16px;
-    border: #444444 1px solid;
+    border: #444 1px solid;
     display: inline-block;
     text-align: center;
     font-weight: normal;
@@ -1973,8 +1973,8 @@ div.panel-vehicle-wrapper {
   width: 180px;
   position: absolute;
   top: 50%;
-  border-top: black 1px solid;
-  border-bottom: black 1px solid;
+  border-top: #000 1px solid;
+  border-bottom: #000 1px solid;
   background: rgba(0, 0, 0, 0.65) none repeat scroll 0 0;
   margin-top: -50px; }
   div.panel-vehicle-wrapper img {
@@ -2104,3 +2104,8 @@ div.well.light {
   background-color: #f5f5f5;
   border: #e3e3e3 1px solid;
   color: #000; }
+
+div.gat.b {
+  border: #ff0000 1px solid;
+  background: #222 none repeat scroll 0 0;
+  color: #f0f0f0; }

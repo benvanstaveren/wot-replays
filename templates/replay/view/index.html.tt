@@ -10,7 +10,7 @@
             [% IF config.advertising.enabled %]
             <div class="row" style="margin: 10px 0px 20px 0px">
                 <div class="col-lg-12 col-md-12">
-                    <div id="rp-leader" style="margin: 0px auto; width: 728px; height: 90px">
+                    <div id="rp-leader" class="gat" style="margin: 0px auto; width: 728px; height: 90px">
                         <script type='text/javascript'><!--//<![CDATA[
                            var m3_u = (location.protocol=='https:'?'https://revive.blockstackers.net/www/delivery/ajs.php':'http://revive.blockstackers.net/www/delivery/ajs.php');
                            var m3_r = Math.floor(Math.random()*99999999999);
