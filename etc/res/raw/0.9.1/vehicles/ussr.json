@@ -1,3 +1,4 @@
+file: /home/ben/wot-install/res/scripts/item_defs/vehicles/ussr/list.xmlnode: list.xml
 {
    "IS-4" : {
       "userString" : "#ussr_vehicles:IS-4",
@@ -554,6 +555,16 @@
       "description" : "#ussr_vehicles:T150_descr",
       "tags" : "heavyTank enhancedTorsions5t_user largeCaliberTankRammer_user wetCombatPack_class2_user"
    },
+   "T62A_sport" : {
+      "description" : "#ussr_vehicles:T62A_sport_descr",
+      "tags" : "mediumTank enhancedTorsions3t_user mediumCaliberTankRammer_user wetCombatPack_class1_user aimingStabilizer_Mk1_user secret event_battles cannot_be_sold",
+      "userString" : "#ussr_vehicles:T62A_sport",
+      "level" : 1,
+      "shortUserString" : "#ussr_vehicles:T62A_sport_short",
+      "id" : 226,
+      "price" : "",
+      "notInShop" : true
+   },
    "ISU-152" : {
       "userString" : "#ussr_vehicles:ISU-152",
       "level" : 8,
@@ -652,7 +663,7 @@
       "price" : 2300,
       "id" : 210,
       "description" : "#ussr_vehicles:SU_85I_descr",
-      "tags" : "AT-SPG mediumAT-SPG mediumCaliberTankRammer_user wetCombatPack_class1_user enhancedTorsions3t_user grousers_user secret",
+      "tags" : "AT-SPG mediumAT-SPG mediumCaliberTankRammer_user wetCombatPack_class1_user enhancedTorsions3t_user grousers_user",
       "notInShop" : true
    },
    "T62A" : {
