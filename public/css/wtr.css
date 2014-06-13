@@ -2113,5 +2113,9 @@ div.gat.b {
     display: block;
     padding: 0px 10px;
     font-size: 95%; }
+  div.gat.b div.a {
+    display: none; }
 div.gat div.t {
   display: none; }
+div.gat div.a {
+  display: block; }

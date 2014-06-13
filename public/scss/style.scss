@@ -432,8 +432,14 @@ div.gat {
             padding: 0px 10px;
             font-size: 95%;
         }
+        div.a {
+            display: none;
+        }
     }
     div.t { 
         display: none;
+    }
+    div.a {
+        display: block;
     }
 }
