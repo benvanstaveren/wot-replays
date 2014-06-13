@@ -17,6 +17,10 @@
                if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
                document.write ("'><\/scr"+"ipt>");
             //]]>--></script>
+            <div class="t">
+                <h4>Adblock Enabled</h4>
+                <span>That's fine, but please - either make an exception for wotreplays.org, or consider contributing something via <a href="/doc/donate.html">Patreon</a> to help the site out.
+            </div>
         </div>
     </div>
 </div>
