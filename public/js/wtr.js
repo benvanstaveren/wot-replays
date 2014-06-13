@@ -6,6 +6,7 @@ window.Wotreplays = function(options) {
     this.apikey     = options.apikey;
     this.thunderkey = options.thunderkey;
     this.indev      = options.indev || false;
+    this.isgat      = false;
 
     this.catalog    = {};
     this._handlers  = {};
@@ -63,6 +64,7 @@ Wotreplays.prototype = {
             keyboard: false,
             show: false,
         });
+        this.isgat = (window.google_unique_id==undefined) ? true : false;
         $('a.please-wait').on('click', function() { 
             $('div#pleaseWaitModal').modal('show');
             return true;
