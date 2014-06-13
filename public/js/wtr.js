@@ -85,6 +85,7 @@ Wotreplays.prototype = {
             $(this).find('span.badge').html(c + 1);
             var href = $(this).attr('href');
         });
+        if(this.isgat) $('div.gat').addClass('b');
         $('a.btn.btn-view-replay').on('click', function() {
             if($(this).hasClass('disabled')) return false;
             var c = parseInt($(this).find('span.badge').html());
