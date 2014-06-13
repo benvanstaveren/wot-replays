@@ -4,7 +4,7 @@
     </div>
     <div class="row clearfix">
         <div class="col-md-12 col-lg-12">
-            [% FOREACH map IN map_list %]<a href="/map/[% map.slug |uri %]/"><div title="[% map.label |html %]" style="width: 150px; display: inline-block; height: 150px; margin: 0px 10px 10px 0px"><img class="img-thumbnail" src="[% config.urls.assets %]/maps/150/[% map.icon %]" style="width: 150px; height: 150px"/><div style="position: relative; top: -16px; left: 1px; width: 148px; font-size: 80%; font-family: monospace; text-align: center; background: rgba(0,0,0,0.75) none repeat scroll 0 0" class="rounded">[% map.label |html %]</div></div></a>[% END %]
+            [% FOREACH map IN map_list %]<a href="/map/[% map.slug |uri %]/"><div title="[% map.label |html %]" style="width: 150px; display: inline-block; height: 150px; margin: 0px 10px 10px 0px"><img class="img-thumbnail" src="[% config.urls.assets %]/maps/150/[% map.icon %]" style="width: 150px; height: 150px"/><div style="position: relative; top: -16px; left: 1px; width: 148px; font-size: 80%; font-family: monospace; text-align: center; background: rgba(0,0,0,0.75) none repeat scroll 0 0" class="rounded">[% map.label |truncate(15)|html %]</div></div></a>[% END %]
         </div>
     </div>
 [% END %]
