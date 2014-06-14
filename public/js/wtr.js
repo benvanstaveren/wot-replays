@@ -142,8 +142,6 @@ Wotreplays.prototype = {
             this.growl(data.text, notifyOpts);
         });
         this.on('replay.processed', function(data) {
-            // 'A new replay was just uploaded!<br/><a href="' + data.url + '" class="reload-page">show me</a>', notifyOpts);
-            this.growl(this.i18n('growl.replay.new', { url: data.url }), { delay: 20000 })
             if(this.pageid == 'home') {
                 $('#queue-count').html('-');
                 $.getJSON('/xhr/qs', {}, function(d) {
@@ -163,6 +161,16 @@ Wotreplays.prototype = {
             var panel = $('div[data-replayid="' + data.id + '"]');
             var c = parseInt($(panel).find('a.btn-view-replay span.badge').html());
             $(panel).find('a.btn-view-replay span.badge').html(c + 1);
+        });
+        this.on('replay.comment', function(data) {
+            var panel = $('div[data-replayid="' + data.id + '"]');
+            var c = parseInt($(panel).find('a.btn-comment-replay span.badge').html());
+            $(panel).find('a.btn-comment-replay span.badge').html(c + 1);
+        });
+        this.on('replay.like', function(data) {
+            var panel = $('div[data-replayid="' + data.id + '"]');
+            var c = parseInt($(panel).find('a.btn-like-replay span.badge').html());
+            $(panel).find('a.btn-like-replay span.badge').html(c + 1);
         });
         this.on('replay.download', function(data) {
             var panel = $('div[data-replayid="' + data.id + '"]');

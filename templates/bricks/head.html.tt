@@ -22,7 +22,6 @@
 <script type="text/javascript" src="[% config.urls.static %]/js/battleviewer.js"></script>
 
 <script type="text/javascript" src="[% config.urls.static %]/js/wtr.js"></script>
-<script type="text/javascript" src="/lang/[% (user_lang == 'en') ? 'common' : user_lang %].js"></script>
 
 [% pagespecific = 'bricks/head/' _ pageid _ '.html.tt' %]
 [% TRY %]
