@@ -39,7 +39,7 @@
             <a id="performance"></a>
             <div class="row" id="performance-overview">
                 <div class="col-lg-12 col-md-12">
-                    [% INCLUDE replay/view/battleperformance.html.tt %]
+                    [% INCLUDE replay/view/vinc.html.tt file='battleperformance.html.tt' %]
                 </div>
             </div>
             [% INCLUDE replay/view/rating.html.tt %]
@@ -56,7 +56,7 @@
                     [% INCLUDE replay/view/vinc.html.tt file='attack.html.tt' %]
                 </div>
                 <div class="col-lg-6 col-md-6">
-                    [% INCLUDE replay/view/defense.html.tt %]
+                    [% INCLUDE replay/view/vinc.html.tt file='defense.html.tt' %]
                 </div>
             </div>
             <div class="row" id="performance-playmisc">

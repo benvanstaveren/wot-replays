@@ -1,4 +1,0 @@
-[% FOREACH pid IN replay.stats.details.keys %]
-    [% details = replay.stats.details.$pid %]
-    [% INCLUDE replay/view/battleperformance/row.html.tt details=details pid=pid %]  
-[% END %]
