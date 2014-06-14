@@ -781,6 +781,14 @@ sub _wn8_recorder {
                 $replay->set('wn8.data.overall' => undef);
                 $self->debug('[WN8.RECORDER]: wn8 for player callback, status not ok');
             }
+            my $idx    = $replay->get('players')->{$replay->get('game.recorder.name')};
+            my $roster = $replay->at('roster' => $idx);
+            $roster->{wn8} = {
+                available => $replay->get('wn8.available'),
+                data => {
+                    overall => $replay->get('wn8.data.overall')
+                }
+            };
         } else {
             $replay->set('wn8.available' => Mango::BSON::bson_false);
             $replay->set('wn8.data.overall' => undef);

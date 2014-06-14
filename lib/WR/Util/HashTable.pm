@@ -115,6 +115,20 @@ sub append {
     $self->set($path => $a);
 }
 
+sub at {
+    my $self = shift;
+    my $path = shift;
+    my $o    =shift;
+
+    my $a = $self->get($path) || undef;
+    if(defined($a)) {
+        my $e = $a->[$o];
+        return $e;
+    } else {
+        return undef;
+    }
+}
+
 sub get { return shift->path(@_) }
 sub path {
     my $self  = shift;
