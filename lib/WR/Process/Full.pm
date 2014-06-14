@@ -704,7 +704,7 @@ sub p_br_misc {
 }
 
 sub _wn8_all {
-    my $self = shift;
+    my $self   = shift;
     my $replay = shift;
 
     my $roster     = $replay->get('roster');
@@ -713,7 +713,6 @@ sub _wn8_all {
     delete($phash->{$replay->get('game.recorder.account_id')});
 
     my $account_id = join(',', (keys(%$phash)));
-
 
     $self->debug('[WN8:ALL]: getting wn8 for all players except recorder');
     if(my $tx = $self->ua->post('http://api.statterbox.com/wot/account/wn8' => form => {
@@ -765,7 +764,6 @@ sub _wn8_all {
 sub _wn8_recorder {
     my $self = shift;
     my $replay = shift;
-    my $end = shift;
 
     $self->debug('[WN8.RECORDER]: getting wn8 for recorder');
     if(my $tx = $self->ua->post('http://api.statterbox.com/wot/account/wn8' => form => {
@@ -825,15 +823,16 @@ sub _wn8_battle {
 sub p_br_ratings {
     my $self   = shift;
     my $replay = shift;
-    my $end    = shift;
 
     $self->debug('p_br_ratings top');
 
     $self->emit('state.wn7.start' => {});
-    $self->ua->inactivity_timeout(120);
 
+    $self->ua->inactivity_timeout(120);
     $self->_wn8_battle($replay);
     $self->_wn8_recorder($replay);
+
+    $self->ua->inactivity_timeout(300);
     $self->_wn8_all($replay);
 
     $self->emit('state.wn7.finish' => {});
