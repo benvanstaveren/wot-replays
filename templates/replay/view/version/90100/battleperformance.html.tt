@@ -1,0 +1,110 @@
+<div class="page-header" style="margin-top: 0px"><h4 style="margin-top: 0px">[% h.loc('replays.overview.battleperformance.title') %]</h4></div>
+<div class="well">
+    <table class="table table-bordered team-list table-striped">
+        <colgroup>
+            <col class="vehicleIcon"/>
+            <col class="playerName"/>
+            <col class="iconBar"/>
+        </colgroup>
+        <tbody>
+            [% FOREACH pid IN replay.stats.details.keys %]
+                [% details = replay.stats.details.$pid %]
+                [% roster = h.get_roster_by_vid(replay, pid) %]
+                [% cd = h.get_crit_details(details.crits) %]
+                <tr>
+                    <td data-container="body" class="playerVehicle bs-tooltip" style="background: transparent url([% config.urls.assets %]/vehicles/48/[% roster.vehicle.icon %]) no-repeat scroll center center" data-placement="auto" data-toggle="tooltip" title="[% IF roster.vehicle.i18n.defined %][% h.loc(roster.vehicle.i18n) %][% ELSE %][% roster.vehicle.label |html %][% END %]">
+                        <div class="playerHealth">
+                            [% ph = roster.health.total %]
+                            [% hp = h.percentage_of(ph, roster.health.remaining) %]
+                            [% bs = h.sprintf('%d', (74 / 100) * hp) %]
+                            [% IF bs < 1 %][% bs = 1 %][% END %]
+                            <div class="health" style="width: [% bs %]px"></div>
+                            <div class="healthnumbers">[% roster.health.remaining %]/[% roster.health.total %]</div>
+                        </div>
+                    </td>
+                    <td class="playerName"> 
+                        [% IF roster.player.clanDBID > 0 %]
+                            [% roster.player.name |html %]
+                            [% IF roster.player.clanDBID > 0 %]<span class="clan">[[% roster.player.clanAbbrev %]]</span>[% END %]
+                        [% ELSE %]
+                            [% roster.player.name |truncate(20) |html %]
+                        [% END %]
+                        <br/>
+                        <span style="color: #444">[% IF roster.vehicle.i18n.defined %][% h.loc(roster.vehicle.i18n) %][% ELSE %][% roster.vehicle.label %][% END %]</span>
+                    </td>
+                    <td class="playerDetails">
+                        <span data-container="body" data-placement="auto" data-toggle="tooltip" class="bs-tooltip spotted [% IF !details || details.spotted == 0 %]dimmed"[% ELSE %]" title="[% h.loc('replays.overview.battleperformance.spotted') %][% END %]"></span>
+                        <span data-container="body" data-placement="auto" data-toggle="tooltip" class="bs-tooltip assist [% IF (details.damageAssistedRadio + details.damageAssistedTrack) < 1 %]dimmed[% END %]" 
+                            title="
+                                [% IF details.damageAssistedTrack + details.damageAssistedRadio > 0 %]
+                                    [% h.loc('replays.overview.battleperformance.assisted', details.damageAssistedRadio + 0, h.percentage_of(ph, details.damageAssistedRadio + 0), details.damageAssistedTrack + 0, h.percentage_of(ph, details.damageAssistedTrack + 0)) %]
+                                [% ELSE %]
+                                    [% h.loc('replays.overview.battleperformance.noassist') %]
+                                [% END %]
+                                "></span>
+                        <span player="[% pid %]" class="[% IF cd.count > 0 %]bs-popover-cd[% END %]" title="[% h.loc('replays.overview.battleperformance.critdetail.title') %]" style="padding: 0px; margin: 0px">
+                            <span data-container="body" data-placement="left" data-toggle="tooltip" class="bs-tooltip crits [% IF cd.count == 0 %]dimmed"[% ELSE %] hasdetails" player="[% pid %]" title="[% h.loc('replays.overview.battleperformance.critdetail.text', cd.count) %]"[% END %]>
+                                [% IF cd.count > 0 %]
+                                    <b>[% cd.count %]</b>
+                                [% END %]
+                            </span>
+                        </span>
+                        <span data-container="body" data-placement="auto" data-toggle="tooltip" class="damage bs-tooltip  
+                            [% totalHits = details.directHits + details.explosionHits %]
+                            [% IF roster.player.team == replay.game.recorder.team %]
+                                [% IF totalHits == 0 %]dimmed[% ELSE %][% END %]" title="[% h.loc('replays.overview.battleperformance.teamdamage', details.damageDealt + 0, h.percentage_of(ph, details.damageDealt + 0)) %]"
+                            [% ELSE %]
+                                [% IF totalHits == 0 %]dimmed[% ELSE %][% END %]" title="[% h.loc('replays.overview.battleperformance.damage', details.damageDealt + 0, h.percentage_of(ph, details.damageDealt + 0)) %]"
+                            [% END %]>
+                            [% IF totalHits > 0 %]
+                                <b>[% totalHits %]</b> 
+                            [% END %]
+                        </span>
+                        <span data-container="body" data-placement="auto" data-toggle="tooltip" class="bs-tooltip 
+                            [% IF roster.player.team == replay.game.recorder.team %]
+                                teamkill [% IF !h.was_killed_by_recorder(replay, roster.stats.killerID) %]dimmed"[% ELSE %]" title="[% h.loc('replays.overview.battleperformance.teamkill') %]"[% END %]
+                            [% ELSE %]
+                                kill [% IF !details || !h.was_killed_by_recorder(replay, roster.stats.killerID) %]dimmed"[% ELSE %]" title="[% h.loc('replays.overview.battleperformance.kill') %]"[% END %]
+                            [% END %]></span>
+                    </td>
+                </tr>
+            [% END %]
+
+        </tbody>
+    </table>
+</div>
+<script type="text/javascript">
+    var critDetails = {};
+    [% FOREACH pid IN replay.stats.details.keys %]
+        [% details = replay.stats.details.$pid %]
+        [% cd = h.get_crit_details(details.crits) %]
+        [% IF cd.count > 0 %]
+            critDetails['[% pid %]'] = {
+                'title': '[% h.loc('replays.overview.battleperformance.critdetail.title') %]',
+                'placement': 'bottom',
+                'container': 'body',
+                'html': true,
+                'content': '<table class="table table-bordered"><thead><th>[% h.loc('critdetails.damaged') |ucfirst %]</th><th>[% h.loc('critdetails.destroyed') |ucfirst %]</th><th>[% h.loc('critdetails.crew') |ucfirst %]</th></thead><tbody><tr><td>' +
+[% FOREACH id IN cd.critical_devices %]
+'<span><img src="[% config.urls.assets %]/icon/crit/[% id %]CriticalSmall.png" style="width: 16px; height: 16px"></span>' +
+[% END %]
+                '</td><td>' + 
+[% FOREACH id IN cd.destroyed_devices %]
+'<span><img src="[% config.urls.assets %]/icon/crit/[% id %]DestroyedSmall.png" style="width: 16px; height: 16px"></span>' +
+[% END %]
+                '</td><td>' + 
+[% FOREACH id IN cd.destroyed_tankmen %]
+'<span><img src="[% config.urls.assets %]/icon/crit/[% id %]DestroyedSmall.png" style="width: 16px; height: 16px"></span>' +
+[% END %]
+                '</td></tr><tbody></table>'
+            }
+        [% END %]
+    [% END %]
+    $(document).ready(function() {
+        $('.bs-popover-cd').each(function(i, e) {
+            var pid = $(e).attr('player');
+            console.log('popover for: ', e, ' pid: ', pid);
+            $(e).popover(critDetails[pid]);
+        });
+    });
+</script>
