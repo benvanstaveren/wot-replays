@@ -2,6 +2,7 @@ package WR::Parser;
 use Mojo::Base 'WR::Parser::Versions::Base';
 use Module::Load;
 use Try::Tiny qw/try catch/;
+use Data::Dumper;
 
 sub version_to_numeric {
     my $self = shift;
@@ -27,17 +28,19 @@ sub version_to_numeric {
 sub new {
     my $package = shift;
     my $self    = $package->SUPER::new(@_);
+    my $v       = 'default';
 
     bless($self, $package);
 
     my $meta = $self->decode_block(1);
-    my $v    = $self->version_to_numeric($meta->{'clientVersionFromExe'});
 
-    $self->version($v);
+    if(defined($meta->{'clientVersionFromExe'})) {
+        $v = $self->version_to_numeric($meta->{'clientVersionFromExe'});
+        $self->version($v);
+        $v = sprintf('v%d', $v);
+    }
 
-    return $self if($v <= 81000);
-
-    my $monkey_patch_module = sprintf('WR::Parser::Versions::v%d', $v);
+    my $monkey_patch_module = sprintf('WR::Parser::Versions::%s', $v);
     try {
         load($monkey_patch_module);
     } catch {

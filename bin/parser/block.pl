@@ -14,4 +14,5 @@ use constant WOT_BF_KEY     => join('', map { chr(hex($_)) } (split(/\s/, WOT_BF
 my $parser = WR::Parser->new(bf_key => WOT_BF_KEY, file => $ARGV[0], cb_gun_shot_count => sub { return 3 } );
 print Dumper($parser->decode_block(1));
 print Dumper($parser->decode_block(2));
+print Dumper($parser->decode_block(3));
 
