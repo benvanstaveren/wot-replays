@@ -165,6 +165,7 @@ sub replays {
     my $self = shift;
     my $type = $self->stash('type');
     my $page = $self->stash('page');
+    # cids are under cid.*, not game.recorder.cid ... derp!
     my $query = {
         'cid.player'    =>  { '$in' => $self->current_user_cids } 
     };
