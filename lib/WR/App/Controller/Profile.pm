@@ -166,10 +166,8 @@ sub replays {
     my $type = $self->stash('type');
     my $page = $self->stash('page');
     my $query = {
-        '$or' => [
-            { 'game.recorder.name' => $self->current_user->{player_name}, 'game.server' => $self->current_user->{player_serveR} },
-            { 'game.recorder.cid'  =>  { '$in' => $self->current_user_cids } },
-        };
+        'cid.player'    =>  { '$in' => $self->current_user_cids } 
+    };
 
     if($type eq 'p') {  
         $query->{'site.visible'} = Mango::BSON::bson_true;
