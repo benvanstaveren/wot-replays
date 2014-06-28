@@ -30,7 +30,6 @@ sub new {
 
 sub unpack {
     my $self = shift;
-
     return $self->unpack_replay($self->decrypt_replay);
 }
 
