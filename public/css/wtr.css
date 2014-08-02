@@ -1709,8 +1709,194 @@ div.map {
     div.map div.grid.line.horizontal {
       left: 0px;
       height: 1px; }
-  div.map.map_00_tank_tutorial 01_karelia    02_malinovka    03_campania    04_himmelsdorf    05_prohorovka    06_ensk    07_lakeville    08_ruinberg    10_hills    11_murovanka    13_erlenberg    14_siegfried_line    15_komarin    17_munchen    18_cliff    19_monastery    22_slough    23_westfeld    28_desert    29_el_hallouf    31_airfield    33_fjord    34_redshire    35_steppes    36_fishing_bay    37_caucasus    38_mannerheim_line    39_crimea    42_north_america    43_north_america    44_north_america    45_north_america    47_canada_a    51_asia    53_japan    59_asia_great_wall    60_asia_miao    63_tundra    73_asia_korea    83_kharkiv    84_winter    85_winter    86_himmelsdorf_winter    87_ruinberg_on_fire    96_prohorovka_defense    99_himmelball  {
-    background: transparent url(//images.wotreplays.org/maps/768//00_tank_tutorial 01_karelia 02_malinovka 03_campania 04_himmelsdorf 05_prohorovka 06_ensk 07_lakeville 08_ruinberg 10_hills 11_murovanka 13_erlenberg 14_siegfried_line 15_komarin 17_munchen 18_cliff 19_monastery 22_slough 23_westfeld 28_desert 29_el_hallouf 31_airfield 33_fjord 34_redshire 35_steppes 36_fishing_bay 37_caucasus 38_mannerheim_line 39_crimea 42_north_america 43_north_america 44_north_america 45_north_america 47_canada_a 51_asia 53_japan 59_asia_great_wall 60_asia_miao 63_tundra 73_asia_korea 83_kharkiv 84_winter 85_winter 86_himmelsdorf_winter 87_ruinberg_on_fire 96_prohorovka_defense 99_himmelball) no-repeat scroll center center; }
+  div.map.map_0 {
+    background: transparent url(//images.wotreplays.org/maps/768//0) no-repeat scroll center center; }
+  div.map.map__tank_tutorial {
+    background: transparent url(//images.wotreplays.org/maps/768//_tank_tutorial) no-repeat scroll center center; }
+  div.map.map_1 {
+    background: transparent url(//images.wotreplays.org/maps/768//1) no-repeat scroll center center; }
+  div.map.map__karelia {
+    background: transparent url(//images.wotreplays.org/maps/768//_karelia) no-repeat scroll center center; }
+  div.map.map_2 {
+    background: transparent url(//images.wotreplays.org/maps/768//2) no-repeat scroll center center; }
+  div.map.map__malinovka {
+    background: transparent url(//images.wotreplays.org/maps/768//_malinovka) no-repeat scroll center center; }
+  div.map.map_3 {
+    background: transparent url(//images.wotreplays.org/maps/768//3) no-repeat scroll center center; }
+  div.map.map__campania {
+    background: transparent url(//images.wotreplays.org/maps/768//_campania) no-repeat scroll center center; }
+  div.map.map_4 {
+    background: transparent url(//images.wotreplays.org/maps/768//4) no-repeat scroll center center; }
+  div.map.map__himmelsdorf {
+    background: transparent url(//images.wotreplays.org/maps/768//_himmelsdorf) no-repeat scroll center center; }
+  div.map.map_5 {
+    background: transparent url(//images.wotreplays.org/maps/768//5) no-repeat scroll center center; }
+  div.map.map__prohorovka {
+    background: transparent url(//images.wotreplays.org/maps/768//_prohorovka) no-repeat scroll center center; }
+  div.map.map_6 {
+    background: transparent url(//images.wotreplays.org/maps/768//6) no-repeat scroll center center; }
+  div.map.map__ensk {
+    background: transparent url(//images.wotreplays.org/maps/768//_ensk) no-repeat scroll center center; }
+  div.map.map_7 {
+    background: transparent url(//images.wotreplays.org/maps/768//7) no-repeat scroll center center; }
+  div.map.map__lakeville {
+    background: transparent url(//images.wotreplays.org/maps/768//_lakeville) no-repeat scroll center center; }
+  div.map.map_8 {
+    background: transparent url(//images.wotreplays.org/maps/768//8) no-repeat scroll center center; }
+  div.map.map__ruinberg {
+    background: transparent url(//images.wotreplays.org/maps/768//_ruinberg) no-repeat scroll center center; }
+  div.map.map_10 {
+    background: transparent url(//images.wotreplays.org/maps/768//10) no-repeat scroll center center; }
+  div.map.map__hills {
+    background: transparent url(//images.wotreplays.org/maps/768//_hills) no-repeat scroll center center; }
+  div.map.map_11 {
+    background: transparent url(//images.wotreplays.org/maps/768//11) no-repeat scroll center center; }
+  div.map.map__murovanka {
+    background: transparent url(//images.wotreplays.org/maps/768//_murovanka) no-repeat scroll center center; }
+  div.map.map_13 {
+    background: transparent url(//images.wotreplays.org/maps/768//13) no-repeat scroll center center; }
+  div.map.map__erlenberg {
+    background: transparent url(//images.wotreplays.org/maps/768//_erlenberg) no-repeat scroll center center; }
+  div.map.map_14 {
+    background: transparent url(//images.wotreplays.org/maps/768//14) no-repeat scroll center center; }
+  div.map.map__siegfried_line {
+    background: transparent url(//images.wotreplays.org/maps/768//_siegfried_line) no-repeat scroll center center; }
+  div.map.map_15 {
+    background: transparent url(//images.wotreplays.org/maps/768//15) no-repeat scroll center center; }
+  div.map.map__komarin {
+    background: transparent url(//images.wotreplays.org/maps/768//_komarin) no-repeat scroll center center; }
+  div.map.map_17 {
+    background: transparent url(//images.wotreplays.org/maps/768//17) no-repeat scroll center center; }
+  div.map.map__munchen {
+    background: transparent url(//images.wotreplays.org/maps/768//_munchen) no-repeat scroll center center; }
+  div.map.map_18 {
+    background: transparent url(//images.wotreplays.org/maps/768//18) no-repeat scroll center center; }
+  div.map.map__cliff {
+    background: transparent url(//images.wotreplays.org/maps/768//_cliff) no-repeat scroll center center; }
+  div.map.map_19 {
+    background: transparent url(//images.wotreplays.org/maps/768//19) no-repeat scroll center center; }
+  div.map.map__monastery {
+    background: transparent url(//images.wotreplays.org/maps/768//_monastery) no-repeat scroll center center; }
+  div.map.map_22 {
+    background: transparent url(//images.wotreplays.org/maps/768//22) no-repeat scroll center center; }
+  div.map.map__slough {
+    background: transparent url(//images.wotreplays.org/maps/768//_slough) no-repeat scroll center center; }
+  div.map.map_23 {
+    background: transparent url(//images.wotreplays.org/maps/768//23) no-repeat scroll center center; }
+  div.map.map__westfeld {
+    background: transparent url(//images.wotreplays.org/maps/768//_westfeld) no-repeat scroll center center; }
+  div.map.map_28 {
+    background: transparent url(//images.wotreplays.org/maps/768//28) no-repeat scroll center center; }
+  div.map.map__desert {
+    background: transparent url(//images.wotreplays.org/maps/768//_desert) no-repeat scroll center center; }
+  div.map.map_29 {
+    background: transparent url(//images.wotreplays.org/maps/768//29) no-repeat scroll center center; }
+  div.map.map__el_hallouf {
+    background: transparent url(//images.wotreplays.org/maps/768//_el_hallouf) no-repeat scroll center center; }
+  div.map.map_31 {
+    background: transparent url(//images.wotreplays.org/maps/768//31) no-repeat scroll center center; }
+  div.map.map__airfield {
+    background: transparent url(//images.wotreplays.org/maps/768//_airfield) no-repeat scroll center center; }
+  div.map.map_33 {
+    background: transparent url(//images.wotreplays.org/maps/768//33) no-repeat scroll center center; }
+  div.map.map__fjord {
+    background: transparent url(//images.wotreplays.org/maps/768//_fjord) no-repeat scroll center center; }
+  div.map.map_34 {
+    background: transparent url(//images.wotreplays.org/maps/768//34) no-repeat scroll center center; }
+  div.map.map__redshire {
+    background: transparent url(//images.wotreplays.org/maps/768//_redshire) no-repeat scroll center center; }
+  div.map.map_35 {
+    background: transparent url(//images.wotreplays.org/maps/768//35) no-repeat scroll center center; }
+  div.map.map__steppes {
+    background: transparent url(//images.wotreplays.org/maps/768//_steppes) no-repeat scroll center center; }
+  div.map.map_36 {
+    background: transparent url(//images.wotreplays.org/maps/768//36) no-repeat scroll center center; }
+  div.map.map__fishing_bay {
+    background: transparent url(//images.wotreplays.org/maps/768//_fishing_bay) no-repeat scroll center center; }
+  div.map.map_37 {
+    background: transparent url(//images.wotreplays.org/maps/768//37) no-repeat scroll center center; }
+  div.map.map__caucasus {
+    background: transparent url(//images.wotreplays.org/maps/768//_caucasus) no-repeat scroll center center; }
+  div.map.map_38 {
+    background: transparent url(//images.wotreplays.org/maps/768//38) no-repeat scroll center center; }
+  div.map.map__mannerheim_line {
+    background: transparent url(//images.wotreplays.org/maps/768//_mannerheim_line) no-repeat scroll center center; }
+  div.map.map_39 {
+    background: transparent url(//images.wotreplays.org/maps/768//39) no-repeat scroll center center; }
+  div.map.map__crimea {
+    background: transparent url(//images.wotreplays.org/maps/768//_crimea) no-repeat scroll center center; }
+  div.map.map_42 {
+    background: transparent url(//images.wotreplays.org/maps/768//42) no-repeat scroll center center; }
+  div.map.map__north_america {
+    background: transparent url(//images.wotreplays.org/maps/768//_north_america) no-repeat scroll center center; }
+  div.map.map_43 {
+    background: transparent url(//images.wotreplays.org/maps/768//43) no-repeat scroll center center; }
+  div.map.map__north_america {
+    background: transparent url(//images.wotreplays.org/maps/768//_north_america) no-repeat scroll center center; }
+  div.map.map_44 {
+    background: transparent url(//images.wotreplays.org/maps/768//44) no-repeat scroll center center; }
+  div.map.map__north_america {
+    background: transparent url(//images.wotreplays.org/maps/768//_north_america) no-repeat scroll center center; }
+  div.map.map_45 {
+    background: transparent url(//images.wotreplays.org/maps/768//45) no-repeat scroll center center; }
+  div.map.map__north_america {
+    background: transparent url(//images.wotreplays.org/maps/768//_north_america) no-repeat scroll center center; }
+  div.map.map_47 {
+    background: transparent url(//images.wotreplays.org/maps/768//47) no-repeat scroll center center; }
+  div.map.map__canada_a {
+    background: transparent url(//images.wotreplays.org/maps/768//_canada_a) no-repeat scroll center center; }
+  div.map.map_51 {
+    background: transparent url(//images.wotreplays.org/maps/768//51) no-repeat scroll center center; }
+  div.map.map__asia {
+    background: transparent url(//images.wotreplays.org/maps/768//_asia) no-repeat scroll center center; }
+  div.map.map_53 {
+    background: transparent url(//images.wotreplays.org/maps/768//53) no-repeat scroll center center; }
+  div.map.map__japan {
+    background: transparent url(//images.wotreplays.org/maps/768//_japan) no-repeat scroll center center; }
+  div.map.map_59 {
+    background: transparent url(//images.wotreplays.org/maps/768//59) no-repeat scroll center center; }
+  div.map.map__asia_great_wall {
+    background: transparent url(//images.wotreplays.org/maps/768//_asia_great_wall) no-repeat scroll center center; }
+  div.map.map_60 {
+    background: transparent url(//images.wotreplays.org/maps/768//60) no-repeat scroll center center; }
+  div.map.map__asia_miao {
+    background: transparent url(//images.wotreplays.org/maps/768//_asia_miao) no-repeat scroll center center; }
+  div.map.map_63 {
+    background: transparent url(//images.wotreplays.org/maps/768//63) no-repeat scroll center center; }
+  div.map.map__tundra {
+    background: transparent url(//images.wotreplays.org/maps/768//_tundra) no-repeat scroll center center; }
+  div.map.map_73 {
+    background: transparent url(//images.wotreplays.org/maps/768//73) no-repeat scroll center center; }
+  div.map.map__asia_korea {
+    background: transparent url(//images.wotreplays.org/maps/768//_asia_korea) no-repeat scroll center center; }
+  div.map.map_83 {
+    background: transparent url(//images.wotreplays.org/maps/768//83) no-repeat scroll center center; }
+  div.map.map__kharkiv {
+    background: transparent url(//images.wotreplays.org/maps/768//_kharkiv) no-repeat scroll center center; }
+  div.map.map_84 {
+    background: transparent url(//images.wotreplays.org/maps/768//84) no-repeat scroll center center; }
+  div.map.map__winter {
+    background: transparent url(//images.wotreplays.org/maps/768//_winter) no-repeat scroll center center; }
+  div.map.map_85 {
+    background: transparent url(//images.wotreplays.org/maps/768//85) no-repeat scroll center center; }
+  div.map.map__winter {
+    background: transparent url(//images.wotreplays.org/maps/768//_winter) no-repeat scroll center center; }
+  div.map.map_86 {
+    background: transparent url(//images.wotreplays.org/maps/768//86) no-repeat scroll center center; }
+  div.map.map__himmelsdorf_winter {
+    background: transparent url(//images.wotreplays.org/maps/768//_himmelsdorf_winter) no-repeat scroll center center; }
+  div.map.map_87 {
+    background: transparent url(//images.wotreplays.org/maps/768//87) no-repeat scroll center center; }
+  div.map.map__ruinberg_on_fire {
+    background: transparent url(//images.wotreplays.org/maps/768//_ruinberg_on_fire) no-repeat scroll center center; }
+  div.map.map_96 {
+    background: transparent url(//images.wotreplays.org/maps/768//96) no-repeat scroll center center; }
+  div.map.map__prohorovka_defense {
+    background: transparent url(//images.wotreplays.org/maps/768//_prohorovka_defense) no-repeat scroll center center; }
+  div.map.map_99 {
+    background: transparent url(//images.wotreplays.org/maps/768//99) no-repeat scroll center center; }
+  div.map.map__himmelball {
+    background: transparent url(//images.wotreplays.org/maps/768//_himmelball) no-repeat scroll center center; }
 
 body {
   position: relative; }
