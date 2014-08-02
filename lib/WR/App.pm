@@ -43,7 +43,7 @@ sub startup {
     for(qw/Auth Timing Notify/) {
         $self->plugin(sprintf('WR::Plugin::%s', $_) => $config->{plugins}->{$_} || {});
     }
-    $self->plugin('WR::Plugin::I18N', { versions => [qw/0.9.0 0.9.1/] });
+    $self->plugin('WR::Plugin::I18N', { versions => [qw/0.9.0 0.9.1 0.9.2/] });
     $self->plugin('WR::Plugin::Thunderpush', $config->{thunderpush});
 
     $self->renderer->paths([]); # clear this out
