@@ -1,0 +1,2497 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: World Of Tanks\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-06-01 10:00+0300\n"
+"PO-Revision-Date: 2010-06-01 10:00+0300\n"
+"Last-Translator: WoT Translator <noreply@wargaming.net>\n"
+"Language-Team: WoT Team <noreply@wargaming.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "TooltipClanInfo/fortification/description"
+msgstr "Stronghold level is equal to its Command Center level."
+
+msgid "TooltipClanInfo/fortification/fortCreationDate"
+msgstr "Stronghold is created on %(creationDate)s"
+
+msgid "TooltipClanInfo/fortification/header"
+msgstr "Level %(fortLevel)s %(clanTag)s Stronghold"
+
+msgid "XP/body"
+msgstr ""
+"Used to research modules\n"
+"for the current vehicle\n"
+"and unlock new technical branches."
+
+msgid "XP/header"
+msgstr "XP"
+
+msgid "achievement/achievedOn"
+msgstr "Achieved in: "
+
+msgid "achievement/action/unavailable/descr"
+msgstr "Information on the medal is loading..."
+
+msgid "achievement/action/unavailable/title"
+msgstr "Event Medal"
+
+msgid "achievement/allAchievements"
+msgstr "Total number of awards received:"
+
+msgid "achievement/attr/counter/header"
+msgstr "Number of awards received"
+
+msgid "achievement/attr/degree/header"
+msgstr "Current Award Class"
+
+msgid "achievement/attr/record/header"
+msgstr "Record combo in all vehicles"
+
+msgid "achievement/attr/small/header"
+msgstr "Number of awards received"
+
+msgid "achievement/attr/vehicleRecord/header"
+msgstr "Record combo on this vehicle"
+
+msgid "achievement/closeToRecord"
+msgstr "Near-record vehicles:"
+
+msgid "achievement/currentDegree"
+msgstr "Current class:"
+
+msgid "achievement/custom/notEnough"
+msgstr "...and other vehicles:"
+
+msgid "achievement/historyDescriptionHeader"
+msgstr "Historical Reference:"
+
+msgid "achievement/isNotInDossier"
+msgstr "Award not yet received"
+
+msgid "achievement/marksOnGun/NotInDossier"
+msgstr "Marks not yet received."
+
+msgid "achievement/marksOnGunCount"
+msgstr ""
+"Your current ratio is higher than the ratio of %(color_tag_open)s %(count)s%"
+"% %(color_tag_close)s players."
+
+msgid "achievement/note"
+msgstr "(Right-click to see description)"
+
+msgid "achievement/params/battlesLeft"
+msgstr "battles"
+
+msgid "achievement/params/capturePointsLeft"
+msgstr "base capture points"
+
+msgid "achievement/params/damageLeft"
+msgstr "total damage points"
+
+msgid "achievement/params/dropPointsLeft"
+msgstr "reduced base capture points"
+
+msgid "achievement/params/fortDefResLeft"
+msgstr "units of Industrial Resource"
+
+msgid "achievement/params/heroesLeft"
+msgstr "\"Battle Heroes\""
+
+msgid "achievement/params/left1"
+msgstr "To get I class, left"
+
+msgid "achievement/params/left2"
+msgstr "To get II class, left"
+
+msgid "achievement/params/left3"
+msgstr "To get III class, left"
+
+msgid "achievement/params/left4"
+msgstr "To get IV class, left"
+
+msgid "achievement/params/maxDiehardSeries"
+msgstr "Record combo, battles:"
+
+msgid "achievement/params/maxInvincibleSeries"
+msgstr "Record combo, battles:"
+
+msgid "achievement/params/maxKillingSeries"
+msgstr "Record combo, vehicles:"
+
+msgid "achievement/params/maxPiercingSeries"
+msgstr "Record combo, penetrating hits:"
+
+msgid "achievement/params/maxSniperSeries"
+msgstr "Record combo, hit points:"
+
+msgid "achievement/params/maxTacticalBreakthroughSeries"
+msgstr "Record combo, victories in a row:"
+
+msgid "achievement/params/maxWFC2014WinSeries"
+msgstr "Record combo, victories in a row:"
+
+msgid "achievement/params/no_class_achievement_left"
+msgstr "Left:"
+
+msgid "achievement/params/pairWinsLeft"
+msgstr "twin victories"
+
+msgid "achievement/params/vehicles"
+msgstr "Fighting vehicles:"
+
+msgid "achievement/params/vehiclesLeft"
+msgstr "vehicles"
+
+msgid "achievement/params/vehiclesTakePart"
+msgstr "Fighting vehicles:"
+
+msgid "achievement/params/vehiclesToKill"
+msgstr "Destroy:"
+
+msgid "achievement/params/vehiclesToResearch"
+msgstr "Research:"
+
+msgid "achievement/params/winsLeft"
+msgstr "victories"
+
+msgid "actionPrice/actionName"
+msgstr "\"%(actionName)s\""
+
+msgid "actionPrice/body"
+msgstr ""
+"Previous cost: %(oldPrice)s\n"
+"New cost: %(newPrice)s"
+
+msgid "actionPrice/exchange/body"
+msgstr ""
+"Previous exchange rate: %(oldPrice)s\n"
+"New exchange rate: %(newPrice)s"
+
+msgid "actionPrice/exchange/header"
+msgstr "Profitable Exchange Rate"
+
+msgid "actionPrice/forAction"
+msgstr "Event %(action)s"
+
+msgid "actionPrice/forActions"
+msgstr "Events: %(actions)s"
+
+msgid "actionPrice/header"
+msgstr "Discount Cost"
+
+msgid "actionPrice/sell/body"
+msgstr ""
+"The sale price is lower than usual,\n"
+"because %(deviceName)s can be purchased at a discount."
+
+msgid "actionPrice/sell/header"
+msgstr "Attention!"
+
+msgid "actionPrice/sell/type/equipment"
+msgstr "consumables"
+
+msgid "actionPrice/sell/type/module"
+msgstr "modules"
+
+msgid "actionPrice/sell/type/optionalDevice"
+msgstr "equipment"
+
+msgid "actionPrice/sell/type/shell"
+msgstr "shells"
+
+msgid "actionPrice/sell/type/vehicle"
+msgstr "vehicles"
+
+msgid "ammo/auto/body"
+msgstr ""
+"Ammunition will be resupplied automatically, if necessary,\n"
+"after the vehicle leaves battle."
+
+msgid "ammo/auto/header"
+msgstr "Resupply automatically"
+
+msgid "ammo/auto/note"
+msgstr "(Left-click to enable/disable automatic ammunition resupply)"
+
+msgid "ammo/equipment/note"
+msgstr "(Left-click to replace consumables)"
+
+msgid "ammo/shellitemRenderer/note"
+msgstr "(Left-click to change the shell order)"
+
+msgid "barracks/item_buy/header"
+msgstr "Enlarge Barracks"
+
+msgid "barracks/item_buy/note"
+msgstr "(Left-click to enlarge Barracks)"
+
+msgid "barracks/item_empty/header"
+msgstr "Recruit"
+
+msgid "barracks/item_empty/note"
+msgstr "(Left-click to recruit a crew member)"
+
+msgid "barracks/tankmen/dismiss/body"
+msgstr "Crew member will be removed from the Barracks forever."
+
+msgid "barracks/tankmen/dismiss/header"
+msgstr "Dismiss"
+
+msgid "barracks/tankmen/dismiss/note"
+msgstr "(Left-click to dismiss the crew member)"
+
+msgid "barracks/tankmen/unload/body"
+msgstr "Crew member will be transferred from a vehicle to the Barracks."
+
+msgid "barracks/tankmen/unload/header"
+msgstr "Send to Barracks"
+
+msgid "barracks/tankmen/unload/note"
+msgstr "(Left-click to send a crew member to the Barracks)"
+
+msgid "battleTypes/company/body"
+msgstr ""
+"Battle with manual matching of allies against random enemies.\n"
+"• Battle types: Standard Battle, Assault, Encounter Battle.\n"
+"• Player limit: 15."
+
+msgid "battleTypes/company/header"
+msgstr "Tank Company Battle"
+
+msgid "battleTypes/fortification/body"
+msgstr ""
+"Battles for Industrial Resource against enemy clans.\n"
+"• Battle types: Skirmish, Battle for Stronghold.\n"
+"• Restrictions: clan members only."
+
+msgid "battleTypes/fortification/header"
+msgstr "Strongholds: Battles"
+
+msgid "battleTypes/historical/body"
+msgstr ""
+"Battle between the belligerent sides based on real historical events.\n"
+"• Battle types: Standard Battle, Assault.\n"
+"• Team members: can be varied.\n"
+"• Details: only vehicles with historical loadout and specified ammunition "
+"can fight.\n"
+"• Marks of Excellence and Emblems are not displayed."
+
+msgid "battleTypes/historical/header"
+msgstr "Historical Battle"
+
+msgid "battleTypes/leaveCompany/body"
+msgstr ""
+"Battle with manual matching of allies against random enemies.\n"
+"• Battle types: Standard Battle, Assault, Encounter Battle.\n"
+"• Player limit: 15."
+
+msgid "battleTypes/leaveCompany/header"
+msgstr "Tank Company Battle"
+
+msgid "battleTypes/leaveFortification/body"
+msgstr ""
+"Battles for Industrial Resource against enemy clans.\n"
+"• Battle types: Skirmishes, Battles for Stronghold.\n"
+"• Restrictions: clan members only."
+
+msgid "battleTypes/leaveFortification/header"
+msgstr "Strongholds: Battles"
+
+msgid "battleTypes/leaveHistorical/body"
+msgstr ""
+"Battle between the belligerent sides based on real historical events.\n"
+"• Battle types: Standard Battle, Assault.\n"
+"• Team members: can be varied.\n"
+"• Details: only vehicles with historical loadout and specified ammunition "
+"can fight."
+
+msgid "battleTypes/leaveHistorical/header"
+msgstr "Historical Battle"
+
+msgid "battleTypes/leaveSpec/body"
+msgstr "Clan Wars battle, tournament battles, and championships."
+
+msgid "battleTypes/leaveSpec/header"
+msgstr "Special Battle"
+
+msgid "battleTypes/leaveTraining/body"
+msgstr ""
+"Training battle with manual matching of allies against enemies.\n"
+"• Details: neither credits nor experience are earned in these battles; maps "
+"and battle types are at your option."
+
+msgid "battleTypes/leaveTraining/header"
+msgstr "Team Training"
+
+msgid "battleTypes/leaveUnit/body"
+msgstr ""
+"Battle between peer teams.\n"
+"• Battle types: Standard Battle.\n"
+"• Player limit: 5–7.\n"
+"• Tiers allowed: I–VIII. Total tier of vehicles\n"
+"on a team: up to 42."
+
+msgid "battleTypes/leaveUnit/header"
+msgstr "Team Battle"
+
+msgid "battleTypes/spec/body"
+msgstr "Clan Wars battle, tournament battles, and championships."
+
+msgid "battleTypes/spec/header"
+msgstr "Special Battle"
+
+msgid "battleTypes/squad/body"
+msgstr ""
+"Create an operational unit of 2 or 3 players to cooperate in Random "
+"Battles.\n"
+"• Battle types: Standard Battle, Assault, Encounter Battle."
+
+msgid "battleTypes/squad/header"
+msgstr "Platoon"
+
+msgid "battleTypes/squadLeave/body"
+msgstr ""
+"Create an operational unit of 2 or 3 players to cooperate in Random "
+"Battles.\n"
+"• Battle types: Standard Battle, Assault, Encounter Battle."
+
+msgid "battleTypes/squadLeave/header"
+msgstr "Platoon"
+
+msgid "battleTypes/standart/body"
+msgstr ""
+"Battle with automatic matching of allies against random enemies.\n"
+"• Battle types: Standard Battle, Assault, Encounter Battle.\n"
+"• Player limit: 15."
+
+msgid "battleTypes/standart/header"
+msgstr "Random Battle"
+
+msgid "battleTypes/training/body"
+msgstr ""
+"Training battle with manual matching of allies against enemies.\n"
+"• Details: neither credits nor experience are earned in these battles; maps "
+"and battle types are at your option."
+
+msgid "battleTypes/training/header"
+msgstr "Team Training"
+
+msgid "battleTypes/unit/body"
+msgstr ""
+"Battle between peer teams.\n"
+"• Battle types: Standard Battle.\n"
+"• Player limit: 5–7.\n"
+"• Tiers allowed: I–VIII. Total tier of vehicles\n"
+"on a team: up to 42."
+
+msgid "battleTypes/unit/header"
+msgstr "Team Battle"
+
+msgid "buySkill/fully"
+msgstr "%(count)s (Fully)"
+
+msgid "buySkill/header"
+msgstr "Skills Available for Training"
+
+msgid "buySkill/partly"
+msgstr "%(count)s (Partly)"
+
+msgid "credits/body"
+msgstr ""
+"Primary in-game currency.\n"
+"Earned in battles\n"
+"or purchased for gold."
+
+msgid "credits/header"
+msgstr "Credits"
+
+msgid "csAutoSearchVehicle/conditionsTitle"
+msgstr " "
+
+msgid "csAutoSearchVehicle/header"
+msgstr "Selected Vehicles"
+
+msgid "csAutoSearchVehicle/more"
+msgstr "...and more vehicles:"
+
+msgid "csAutoSearchVehicle/suitableTitle"
+msgstr "You will join the battle in one of the selected vehicles:"
+
+msgid "csAutoSearchVehicle/unsuitable"
+msgstr "Select vehicles to start Autosearch."
+
+msgid "customization/camouflage/current/drop/body"
+msgstr "Delete Current Camouflage"
+
+msgid "customization/camouflage/current/drop/header"
+msgstr "Delete Camouflage"
+
+msgid "customization/camouflage/desert"
+msgstr "desert"
+
+msgid "customization/camouflage/empty"
+msgstr ""
+"Select %(kind)s Camouflage to disguise your vehicle on corresponding maps."
+
+msgid "customization/camouflage/igr/body"
+msgstr ""
+"Camouflage is active only during session in <img src='img://gui/maps/icons/"
+"library/premium_small.png' width='34' height='16' vspace='-4'/>."
+
+msgid "customization/camouflage/igr/header"
+msgstr "Expiry Date"
+
+msgid "customization/camouflage/summer"
+msgstr "summer"
+
+msgid "customization/camouflage/winter"
+msgstr "winter"
+
+msgid "customization/emblem/igr/body"
+msgstr ""
+"Emblem is active only during session in <img src='img://gui/maps/icons/"
+"library/premium_small.png' width='34' height='16' vspace='-4'/>."
+
+msgid "customization/emblem/igr/header"
+msgstr "Expiry Date"
+
+msgid "customization/emblemLeft/current/drop/body"
+msgstr "Remove current Emblem 1"
+
+msgid "customization/emblemLeft/current/drop/header"
+msgstr "Remove Current Emblem 2"
+
+msgid "customization/emblemRight/current/drop/body"
+msgstr "Remove current Emblem 2"
+
+msgid "customization/emblemRight/current/drop/header"
+msgstr "Remove Emblem 2"
+
+msgid "customization/horn/current/drop/body"
+msgstr "Delete Current Horn"
+
+msgid "customization/horn/current/drop/header"
+msgstr "Delete Horn"
+
+msgid "customization/inscription/igr/body"
+msgstr ""
+"Inscription is active only during session in <img src='img://gui/maps/icons/"
+"library/premium_small.png' width='34' height='16' vspace='-4'/>."
+
+msgid "customization/inscription/igr/header"
+msgstr "Expiry Date"
+
+msgid "customization/inscriptionLeft/current/drop/body"
+msgstr "Remove current Inscription 1"
+
+msgid "customization/inscriptionLeft/current/drop/header"
+msgstr "Remove Inscription 1"
+
+msgid "customization/inscriptionRight/current/drop/body"
+msgstr "Remove current Inscription 2"
+
+msgid "customization/inscriptionRight/current/drop/header"
+msgstr "Remove Inscription 2"
+
+msgid "customization/tabs/inRoaming"
+msgstr "Server limit due to roaming"
+
+msgid "cyberSport/alert/onAnotherServer"
+msgstr "The team is on the other server."
+
+msgid "cyberSport/commander/stats"
+msgstr "Leader's personal rating"
+
+msgid "cyberSport/intro/chooseVehicles/body"
+msgstr "Click to mark vehicles for Autosearch of the team."
+
+msgid "cyberSport/intro/chooseVehicles/header"
+msgstr "Select Vehicles"
+
+msgid "cyberSport/intro/create/btn/body"
+msgstr "Click to create your team."
+
+msgid "cyberSport/intro/create/btn/header"
+msgstr "Create Team"
+
+msgid "cyberSport/intro/search/btn/body"
+msgstr "Click to search for a team."
+
+msgid "cyberSport/intro/search/btn/header"
+msgstr "Team Search"
+
+msgid "cyberSport/selectVehicle/body"
+msgstr "Click to select a vehicle in which you want to join the battle."
+
+msgid "cyberSport/selectVehicle/header"
+msgstr "Select Vehicles"
+
+msgid "cyberSport/unit/access/bodyClosed"
+msgstr ""
+"Team is not displayed in search results.\n"
+"Players are invited upon the leader's invitation. Click to display."
+
+msgid "cyberSport/unit/access/bodyOpen"
+msgstr "Team is displayed in search results. Click to hide."
+
+msgid "cyberSport/unit/access/header"
+msgstr "Access to the Team"
+
+msgid "cyberSport/unit/command"
+msgstr "Team"
+
+msgid "cyberSport/unit/configure/body"
+msgstr "Click to indicate required vehicles for the team."
+
+msgid "cyberSport/unit/configure/header"
+msgstr "Set Requirements"
+
+msgid "cyberSport/unit/freeze/bodyOff"
+msgstr "Slots freeze is OFF."
+
+msgid "cyberSport/unit/freeze/bodyOn"
+msgstr "Slots freeze is ON."
+
+msgid "cyberSport/unit/freeze/header"
+msgstr "Slots Freeze"
+
+msgid "cyberSport/unit/slot/vehicle/notReady/permanently/body"
+msgstr "Not suitable for the slot in the team."
+
+msgid "cyberSport/unit/slot/vehicle/notReady/temporally/body"
+msgstr "The vehicle is temporarily not ready for battle."
+
+msgid "cyberSport/unit/slotLabelClosed/body"
+msgstr "Leader locked slot."
+
+msgid "cyberSport/unit/slotLabelClosed/header"
+msgstr "Slot Closed"
+
+msgid "cyberSport/unit/slotLabelUnavailable/body"
+msgstr ""
+"No vehicles complying with the requirements for this slot in the Garage."
+
+msgid "cyberSport/unit/slotLabelUnavailable/header"
+msgstr "No Required Vehicles"
+
+msgid "cyberSport/unit/sumLevel/bodyError"
+msgstr "Total tier of vehicles exceeds the maximum allowable value."
+
+msgid "cyberSport/unit/sumLevel/bodyNormal"
+msgstr "Total tier of vehicles on the team."
+
+msgid "cyberSport/unit/sumLevel/header"
+msgstr "Total Team Tier"
+
+msgid "cyberSport/unit/takePlaceBtn/body"
+msgstr "Change your slot."
+
+msgid "cyberSport/unit/takePlaceBtn/header"
+msgstr "Go to Slot"
+
+msgid "cyberSport/unit/takePlaceFirstTimeBtn/body"
+msgstr "Take place in a slot."
+
+msgid "cyberSport/unit/takePlaceFirstTimeBtn/header"
+msgstr "Take Place"
+
+msgid "cyberSport/unitCommand/action"
+msgstr "Click to view the detailed description."
+
+msgid "cyberSport/unitLevel/body"
+msgstr ""
+"Required total tier of vehicles\n"
+"Non-recommended total tier of vehicles\n"
+"Total tier of vehicles is exceeded"
+
+msgid "cyberSport/unitLevel/body/error"
+msgstr "43–56"
+
+msgid "cyberSport/unitLevel/body/errorStatus"
+msgstr "Points scored: %(sumLevels)s. Limit exceeded."
+
+msgid "cyberSport/unitLevel/body/notrecommended"
+msgstr "7–39"
+
+msgid "cyberSport/unitLevel/body/notrecommendedStatus"
+msgstr "Points scored: %(sumLevels)s."
+
+msgid "cyberSport/unitLevel/body/recommended"
+msgstr "40–42"
+
+msgid "cyberSport/unitLevel/body/recommendedStatus"
+msgstr "Points scored: %(sumLevels)s."
+
+msgid "cyberSport/unitLevel/description"
+msgstr ""
+"Each team selects vehicles up to Tier VIII at a maximum total cost of 42 "
+"points. A vehicle of Tier I costs 1 point, a vehicle of Tier II costs 2 "
+"points."
+
+msgid "cyberSport/unitLevel/title"
+msgstr "Total Tier of Vehicles"
+
+msgid "cyberSport/unitList/filterByVehicle/header"
+msgstr "Select Vehicles"
+
+msgid "cyberSport/unitList/filterByVehicle/noVehiclesSelected"
+msgstr "Vehicles were not selected. Filters for teams are off."
+
+msgid "cyberSport/unitList/filterByVehicle/someVehiclesSelected"
+msgstr ""
+"Marked vehicles correspond to the requirements\n"
+"of teams found."
+
+msgid "cyberSport/unitList/join/body"
+msgstr ""
+"Click to join the team as a volunteer.\n"
+"The leader selects team members among volunteers."
+
+msgid "cyberSport/unitList/join/header"
+msgstr "Join as a Volunteer"
+
+msgid "cyberSport/unitList/pagingDown/body"
+msgstr "Display next list of teams."
+
+msgid "cyberSport/unitList/pagingDown/header"
+msgstr "Scroll Down"
+
+msgid "cyberSport/unitList/pagingUp/body"
+msgstr "Display previous list of teams."
+
+msgid "cyberSport/unitList/pagingUp/header"
+msgstr "Scroll Up"
+
+msgid "cyberSport/unitList/refresh/body"
+msgstr "Click to update the list of teams."
+
+msgid "cyberSport/unitList/refresh/header"
+msgstr "Update List"
+
+msgid "cyberSport/vehicleSelector/notReady"
+msgstr "The vehicles cannot fight the battle."
+
+msgid "cyberSport/vehicleSelector/overflowLevel/body"
+msgstr "Vehicles of Tiers IX and X cannot fight in this battle mode."
+
+msgid "cyberSport/vehicleSelector/overflowLevel/header"
+msgstr "Tier Not Allowed"
+
+msgid "deviceFits/already_installed/header"
+msgstr "Mounted on:"
+
+msgid "deviceFits/credit_error/header"
+msgstr "Not enough credits"
+
+msgid "deviceFits/credit_error/text"
+msgstr "Earn them in battle or exchange gold."
+
+msgid "deviceFits/need_turret/header"
+msgstr "Gun is not compatible with current turret."
+
+msgid "deviceFits/need_turret/text"
+msgstr "Consider mounting compatible turret."
+
+msgid "deviceFits/not_for_this_vehicle_type/header"
+msgstr "Unable to fit the current gun into this turret."
+
+msgid "deviceFits/not_for_this_vehicle_type/text"
+msgstr "Consider mounting compatible gun."
+
+msgid "deviceFits/not_removable/body"
+msgstr "Complex equipment"
+
+msgid "deviceFits/not_removable/note01"
+msgstr "You cannot demount complex equipment for free. You can demount it for "
+
+msgid "deviceFits/not_removable/note02"
+msgstr " or destroy it"
+
+msgid "deviceFits/not_removable/note_header"
+msgstr "Complex equipment"
+
+msgid "deviceFits/not_with_installed_equipment/header"
+msgstr "To mount this consumable, remove %(eqs)s"
+
+msgid "deviceFits/remove_too_heavy/header"
+msgstr "Unable to demount."
+
+msgid "deviceFits/remove_too_heavy/text"
+msgstr ""
+"This equipment requires suspension\n"
+"with higher load capacity."
+
+msgid "deviceFits/too_heavy/header"
+msgstr "Unable to mount."
+
+msgid "deviceFits/too_heavy/text"
+msgstr ""
+"This equipment requires suspension\n"
+"with higher load capacity."
+
+msgid "deviceFits/too_heavy_chassi/header"
+msgstr "Unable to mount. Higher load capacity required."
+
+msgid "deviceFits/too_heavy_chassi/text"
+msgstr "Consider mounting lighter modules."
+
+msgid "deviceFits/unlock_error/header"
+msgstr "Research the module."
+
+msgid "deviceFits/unlock_error/text"
+msgstr "Research the module."
+
+msgid "deviceFits/wrong_slot/header"
+msgstr "The module is already in another slot."
+
+msgid "eliteXP/body"
+msgstr ""
+"Can be converted\n"
+"to Free Experience."
+
+msgid "eliteXP/header"
+msgstr "XP"
+
+msgid "equipment/always"
+msgstr "Permanent:"
+
+msgid "equipment/auto/body"
+msgstr ""
+"Consumables will be resupplied automatically, if necessary,\n"
+"after the vehicle leaves a battle."
+
+msgid "equipment/auto/header"
+msgstr "Resupply automatically"
+
+msgid "equipment/auto/note"
+msgstr "(Left-click to enable/disable automatic consumables resupply)"
+
+msgid "equipment/effect"
+msgstr "Effect:"
+
+msgid "equipment/empty/header"
+msgstr "Consumables Slot"
+
+msgid "equipment/empty/note"
+msgstr "(Left-click to view available consumables)"
+
+msgid "equipment/onUse"
+msgstr "When in use:"
+
+msgid "equipment/restriction"
+msgstr "Restriction:"
+
+msgid "fortification/buildingProcess/btnDisabledBuilt/body"
+msgstr "Structure already built."
+
+msgid "fortification/buildingProcess/btnDisabledBuilt/header"
+msgstr "Unable to Build"
+
+msgid "fortification/buildingProcess/btnDisabledNotAvailable/body"
+msgstr "Requirements for building the structure not met."
+
+msgid "fortification/buildingProcess/btnDisabledNotAvailable/header"
+msgstr "Unable to Build"
+
+msgid "fortification/buildingProcess/btnEnabled/body"
+msgstr "Click to lay the foundation of the structure."
+
+msgid "fortification/buildingProcess/btnEnabled/header"
+msgstr "%(buildingName)s"
+
+msgid "fortification/buildingProcess/statusIconNotAvailable/body"
+msgstr "Requirements for building the structure not met."
+
+msgid "fortification/buildingProcess/statusIconNotAvailable/header"
+msgstr "Unable to Build"
+
+msgid "fortification/buildingProcess/statusIconSuccess/body"
+msgstr "Structure already built."
+
+msgid "fortification/buildingProcess/statusIconSuccess/header"
+msgstr "Unable to Build"
+
+msgid "fortification/closeDirectionButton/active/body"
+msgstr ""
+"Click to withdraw forces and close the Direction. A closed Direction cannot "
+"be attacked by enemies."
+
+msgid "fortification/closeDirectionButton/active/header"
+msgstr "Withdraw Forces"
+
+msgid "fortification/closeDirectionButton/inactive/body"
+msgstr ""
+"To withdraw forces and close the Direction, demolish all structures built "
+"there. A closed Direction cannot be attacked by enemies."
+
+msgid "fortification/closeDirectionButton/inactive/header"
+msgstr "Withdraw Forces"
+
+msgid "fortification/defResIconInfo/body"
+msgstr ""
+"With the upgrade, the level of prepared Reserves automatically becomes equal "
+"to the new level of the structure, in which: \n"
+"• Number of prepared Reserves decreases. \n"
+"• Possible remainder of Industrial Resource from conversion is added to the "
+"structure storage."
+
+msgid "fortification/defResIconInfo/header"
+msgstr "Conversion of Reserves"
+
+msgid "fortification/fixedPlayers/allTime/body"
+msgstr "Sort players by total amount of Industrial Resource earned."
+
+msgid "fortification/fixedPlayers/allTime/header"
+msgstr "Total Amount of Plunder"
+
+msgid "fortification/fixedPlayers/assignBtnDisabled/body"
+msgstr "Garrison full."
+
+msgid "fortification/fixedPlayers/assignBtnDisabled/header"
+msgstr "Attach to Structure"
+
+msgid "fortification/fixedPlayers/assignBtnEnabled/body"
+msgstr "Earned Industrial Resource will be accumulated in the structure."
+
+msgid "fortification/fixedPlayers/assignBtnEnabled/header"
+msgstr "Attach to Structure"
+
+msgid "fortification/fixedPlayers/fortRole/body"
+msgstr "Sort clan members by position."
+
+msgid "fortification/fixedPlayers/fortRole/header"
+msgstr "Position"
+
+msgid "fortification/fixedPlayers/generalTooltip/body"
+msgstr ""
+"Each structure is assigned a garrison of clan members. Garrison members form "
+"detachments to earn Industrial Resource in Skirmishes. Players earn "
+"Industrial Resource for their structures."
+
+msgid "fortification/fixedPlayers/generalTooltip/header"
+msgstr "Structure Garrison"
+
+msgid "fortification/fixedPlayers/generalTooltipMaxLimit/body"
+msgstr "(тестовый текст) Описание механики. Нет свободных мест"
+
+msgid "fortification/fixedPlayers/generalTooltipMaxLimit/header"
+msgstr "Structure Garrison"
+
+msgid "fortification/fixedPlayers/nic/body"
+msgstr "Sort players by name (in alphabetic order)."
+
+msgid "fortification/fixedPlayers/nic/header"
+msgstr "Name"
+
+msgid "fortification/fixedPlayers/week/body"
+msgstr "Sort players by Industrial Resource earned per week."
+
+msgid "fortification/fixedPlayers/week/header"
+msgstr "Player Plunder per Week"
+
+msgid "fortification/footer/intelligenceButton/body"
+msgstr "Click to view coming updates."
+
+msgid "fortification/footer/intelligenceButton/header"
+msgstr "Intelligence Data"
+
+msgid "fortification/footer/sortieButton/body"
+msgstr "Click to create detachment or join existing detachment."
+
+msgid "fortification/footer/sortieButton/header"
+msgstr "Skirmishes"
+
+msgid "fortification/foundationCommander/body"
+msgstr "Click to build a new structure."
+
+msgid "fortification/foundationCommander/header"
+msgstr "Construction Site"
+
+msgid "fortification/foundationNotCommander/body"
+msgstr "Only the clan Commander or the Deputy Commander can build structures."
+
+msgid "fortification/foundationNotCommander/header"
+msgstr "Construction Site"
+
+msgid "fortification/header/clanList/body"
+msgstr "Click to view list of clan members and their positions."
+
+msgid "fortification/header/clanList/header"
+msgstr "Clan Members"
+
+msgid "fortification/header/statistics/body"
+msgstr "Click to view statistics of your Stronghold."
+
+msgid "fortification/header/statistics/header"
+msgstr "Statistics"
+
+msgid "fortification/introView/fortBattles/btnTooltip"
+msgstr "Option unavailable in current update."
+
+msgid "fortification/introView/sortie/btnTooltip"
+msgstr "Click to create detachment or join existing detachment."
+
+msgid "fortification/modernization/applyButton/body"
+msgstr ""
+"Upgrade unavailable. Possible reasons:\n"
+"• Level %(buildingLevel)s Command Center is required.\n"
+"• Not enough Industrial Resource.\n"
+"• Maximum structure level is reached."
+
+msgid "fortification/modernization/applyButton/header"
+msgstr "Upgrade"
+
+msgid "fortification/modernization/applyButtonBase/body"
+msgstr ""
+"Upgrade unavailable. Possible reasons:\n"
+"• Not enough Industrial Resource.\n"
+"• Maximum structure level is reached."
+
+msgid "fortification/orderPopover/clanPermissions"
+msgstr "Only the Commander and the Deputy Commander can use Reserves."
+
+msgid "fortification/orderPopover/createOrder"
+msgstr "Prepare at least one Reserve."
+
+msgid "fortification/orderPopover/inDefensive"
+msgstr "Reserve is effective during Defense Hour."
+
+msgid "fortification/orderPopover/inProgress/text"
+msgstr "Preparing new Reserve%(count)s:"
+
+msgid "fortification/orderPopover/inProgress/timeLeft"
+msgstr "%(timeLeft)s left."
+
+msgid "fortification/orderPopover/linkBtn"
+msgstr "Start Preparing Reserve"
+
+msgid "fortification/orderPopover/orderIsReady"
+msgstr "Available"
+
+msgid "fortification/orderPopover/progressBar/timeLeft"
+msgstr "Reserve is effective for %(timeLeft)s"
+
+msgid "fortification/orderPopover/rolesList"
+msgstr "Reserves can be prepared by: "
+
+msgid "fortification/orderPopover/useOrderBtn/description"
+msgstr "Click to use selected Reserve."
+
+msgid "fortification/orderPopover/useOrderBtn/header"
+msgstr "Use Reserve"
+
+msgid "fortification/orderPopover/useOrderBtn/noBuilding"
+msgstr "Structure required for Reserve: %(building)s"
+
+msgid "fortification/orderPopover/useOrderBtn/noOrders"
+msgstr "No Reserves prepared."
+
+msgid "fortification/orderPopover/useOrderBtn/notAvailable"
+msgstr "Reserve unavailable in current update."
+
+msgid "fortification/orderPopover/useOrderBtn/wasUsed"
+msgstr "Reserve already used. Wait until it expires."
+
+msgid "fortification/popOver/defResProgress/body"
+msgstr ""
+"Industrial Resource that was transported or earned\n"
+"in Skirmishes is accumulated in storage.\n"
+"\n"
+"• Industrial Resource is used to prepare Reserves\n"
+"(exception—storage of the Command Center).\n"
+"• To fill storage, transport Industrial Resource or earn\n"
+"it in Skirmishes.\n"
+"• If the structure is damaged, Industrial Resource is first\n"
+"spent to fill the durability bar and then accumulated in\n"
+"storage.\n"
+"• Industrial Resource can be earned in Skirmishes only\n"
+"by garrison members of the structure."
+
+msgid "fortification/popOver/defResProgress/header"
+msgstr "Storage of Structure"
+
+msgid "fortification/popOver/demountBtn/body"
+msgstr "Click to open Structure Demolition window."
+
+msgid "fortification/popOver/demountBtn/header"
+msgstr "Structure Demolition"
+
+msgid "fortification/popOver/fixedPlayersBtn/body"
+msgstr ""
+"Garrison members attached to the structure fill its storage.\n"
+"Players in garrison: %(count)s."
+
+msgid "fortification/popOver/fixedPlayersBtn/header"
+msgstr "Players Attached"
+
+msgid "fortification/popOver/hpProgress/body"
+msgstr ""
+"Structure loses its durability after an unsuccessful defense.\n"
+"\n"
+"• Reserves can be prepared in structure only if it is fully repaired.\n"
+"• To repair structure, transport Industrial Resource or earn it in "
+"Skirmishes.\n"
+"• Industrial Resource is earned in Skirmishes only by garrison members of "
+"the structure."
+
+msgid "fortification/popOver/hpProgress/header"
+msgstr "Structure Durability"
+
+msgid "fortification/popOver/prepareOrderDisable/body"
+msgstr "Not enough Industrial Resource in structure storage."
+
+msgid "fortification/popOver/prepareOrderDisable/header"
+msgstr "Unable to Prepare"
+
+msgid "fortification/popOver/prepareOrderEnable"
+msgstr "Click to open Reserve Preparation window: %(orderName)s."
+
+msgid "fortification/popOver/prepareOrderOverload/body"
+msgstr "Maximum Reserves already prepared."
+
+msgid "fortification/popOver/prepareOrderOverload/header"
+msgstr "Unable to Prepare"
+
+msgid "fortification/popOver/upgradeFoundationBtn/body"
+msgstr "Click to open Structure Upgrade window."
+
+msgid "fortification/popOver/upgradeFoundationBtn/header"
+msgstr "Structure Upgrade"
+
+msgid "fortification/popOver/upgradeFoundationBtn_Disabled/body"
+msgstr "To upgrade, finish building."
+
+msgid "fortification/popOver/upgradeFoundationBtn_Disabled/header"
+msgstr "Upgrade Unavailable"
+
+msgid "fortification/sortie/battleRoom/changeDivision/body"
+msgstr "Change division of Skirmish."
+
+msgid "fortification/sortie/battleRoom/changeDivision/header"
+msgstr "Change Division"
+
+msgid "fortification/sortie/battleRoom/inviteBtn/body"
+msgstr "Click to invite clan members."
+
+msgid "fortification/sortie/battleRoom/inviteBtn/header"
+msgstr "Invite Clan Members"
+
+msgid "fortification/sortie/battleRoom/leaveBtn/body"
+msgstr "Click to leave detachment."
+
+msgid "fortification/sortie/battleRoom/leaveBtn/header"
+msgstr "Leave Detachment"
+
+msgid "fortification/sortie/battleRoom/status/commander"
+msgstr "Detachment Commander"
+
+msgid "fortification/sortie/battleRoom/status/isReady"
+msgstr "Ready!"
+
+msgid "fortification/sortie/battleRoom/status/notReady"
+msgstr "Not ready"
+
+msgid "fortification/sortie/chat/description/body"
+msgstr "Click to add description of your detachment."
+
+msgid "fortification/sortie/chat/description/header"
+msgstr "Add Description"
+
+msgid "fortification/sortie/chat/sendMessageBtn/body"
+msgstr "Click to send a chat message."
+
+msgid "fortification/sortie/chat/sendMessageBtn/header"
+msgstr "Send Message"
+
+msgid "fortification/sortie/listRoom/back/body"
+msgstr "Click to go back to the previous window."
+
+msgid "fortification/sortie/listRoom/back/header"
+msgstr "Back"
+
+msgid "fortification/sortie/listRoom/createBtn/body"
+msgstr "Click to select division and create detachment."
+
+msgid "fortification/sortie/listRoom/createBtn/header"
+msgstr "Create Detachment"
+
+msgid "fortification/sortie/listRoom/joinBtn/body"
+msgstr "Join the detachment."
+
+msgid "fortification/sortie/listRoom/joinBtn/header"
+msgstr "Join"
+
+msgid "fortification/sortie/listRoom/rendererInfo"
+msgstr "Click to view the detailed information."
+
+msgid "fortification/sortie/listRoom/singInBtn/body"
+msgstr ""
+"Click to join the detachment as a volunteer. The Commander selects "
+"detachment members from volunteers."
+
+msgid "fortification/sortie/listRoom/singInBtn/header"
+msgstr "Join as a Volunteer"
+
+msgid "fortification/sortie/listRoom/sortDivisionBtn/body"
+msgstr "Sort by division."
+
+msgid "fortification/sortie/listRoom/sortDivisionBtn/header"
+msgstr "Division"
+
+msgid "fortification/sortie/listRoom/sortNameBtn/body"
+msgstr "Sort by detachment name."
+
+msgid "fortification/sortie/listRoom/sortNameBtn/header"
+msgstr "Name"
+
+msgid "fortification/sortie/listRoom/sortSquadBtn/body"
+msgstr "Sort by detachment members."
+
+msgid "fortification/sortie/listRoom/sortSquadBtn/header"
+msgstr "Members"
+
+msgid "fortification/sortie/player/cancelReady/body"
+msgstr "Cancel readiness to select another vehicle."
+
+msgid "fortification/sortie/player/cancelReady/header"
+msgstr "Player's Vehicles"
+
+msgid "fortification/sortie/player/changeVehicle/body"
+msgstr "Click to select another vehicle to engage in a Skirmish."
+
+msgid "fortification/sortie/player/changeVehicle/header"
+msgstr "Select Another Vehicle"
+
+msgid "fortification/sortie/player/vehicle"
+msgstr "Player's vehicles"
+
+msgid "fortification/sortie/removeBtn/body"
+msgstr "Click to exclude player from detachment."
+
+msgid "fortification/sortie/removeBtn/header"
+msgstr "Empty Slot"
+
+msgid "fortification/sortie/selectVehicle/body"
+msgstr "Click to select a vehicle in which you want to join the battle."
+
+msgid "fortification/sortie/selectVehicle/header"
+msgstr "Select Vehicles"
+
+msgid "fortification/sortie/slot/vehicle/notReady/temporally/body"
+msgstr "The vehicle is temporarily not ready for battle."
+
+msgid "fortification/sortie/takePlaceFirstTimeBtn/body"
+msgstr "Join the detachment."
+
+msgid "fortification/sortie/takePlaceFirstTimeBtn/header"
+msgstr "Join"
+
+msgid "fortification/sortieDivisionToolTip/absoluteDivision"
+msgstr "Absolute division:"
+
+msgid "fortification/sortieDivisionToolTip/bonus"
+msgstr "Plunder"
+
+msgid "fortification/sortieDivisionToolTip/championDivision"
+msgstr "Champion division:"
+
+msgid "fortification/sortieDivisionToolTip/description"
+msgstr "Amount of Industrial Resource earned depends on the selected division."
+
+msgid "fortification/sortieDivisionToolTip/info"
+msgstr "Detachment Commander selects division."
+
+msgid "fortification/sortieDivisionToolTip/middleDivision"
+msgstr "Medium division:"
+
+msgid "fortification/sortieDivisionToolTip/title"
+msgstr "Detachment Division"
+
+msgid "fortification/sortieDivisionToolTip/vehLevel"
+msgstr "Vehicle Tier"
+
+msgid "fortification/tranportingButton/active/body"
+msgstr "Click to exit Transportation mode."
+
+msgid "fortification/tranportingButton/active/header"
+msgstr "Transportation Mode Active"
+
+msgid "fortification/tranportingButton/inactive/body"
+msgstr "Click to enter Transportation mode."
+
+msgid "fortification/tranportingButton/inactive/header"
+msgstr "Transportation Mode Inactive"
+
+msgid "fortification/transporting/cooldown/body"
+msgstr "Transport will be unloaded and return in %(time)s."
+
+msgid "fortification/transporting/cooldown/header"
+msgstr "%(buildingName)s."
+
+msgid "fortification/transporting/emptyStorage/body"
+msgstr "Storage is empty."
+
+msgid "fortification/transporting/emptyStorage/header"
+msgstr "%(buildingName)s."
+
+msgid "fortification/transporting/foundation/body"
+msgstr "Industrial Resource can only be transported from structures."
+
+msgid "fortification/transporting/foundation/header"
+msgstr "Construction Site"
+
+msgid "fortification/transporting/notEmptySpace/body"
+msgstr "Cannot transport to structure. Storage is full."
+
+msgid "fortification/transporting/notEmptySpace/header"
+msgstr "%(buildingName)s."
+
+msgid "fortification/welcome/cantCreateFort/body"
+msgstr "At least %(minClanSize)d clan members required to create Stronghold."
+
+msgid "fortification/welcome/cantCreateFort/header"
+msgstr "Create Stronghold"
+
+msgid "fortification/welcome/clanCreate/body"
+msgstr ""
+"Click to go to portal and\n"
+"create your own clan."
+
+msgid "fortification/welcome/clanCreate/header"
+msgstr "fortification/welcome/clanCreate/header"
+
+msgid "fortification/welcome/clanSearch/body"
+msgstr ""
+"Click to go to portal and\n"
+"view the list of registered clans."
+
+msgid "fortification/welcome/clanSearch/header"
+msgstr "fortification/welcome/clanSearch/header"
+
+msgid "fortification/welcome/createFort/body"
+msgstr "Click to create Stronghold for your clan."
+
+msgid "fortification/welcome/createFort/header"
+msgstr "Create Stronghold"
+
+msgid "fortification/welcome/details/body"
+msgstr ""
+"Click to go to portal and\n"
+"view mode details."
+
+msgid "fortification/welcome/details/header"
+msgstr "Detailed Description"
+
+msgid "freeXP/body"
+msgstr "Used for researching any vehicle."
+
+msgid "freeXP/header"
+msgstr "Free Experience"
+
+msgid "gold/body"
+msgstr ""
+"Additional in-game currency.\n"
+"Click \"Get Gold\" to purchase gold."
+
+msgid "gold/header"
+msgstr "Gold"
+
+msgid "hangar/ammo_panel/device/empty/header"
+msgstr "Mount Equipment"
+
+msgid "hangar/ammo_panel/device/empty/note"
+msgstr "(Left-click to view the list of available equipment)"
+
+msgid "hangar/ammo_panel/equipment/empty/header"
+msgstr "Open Service"
+
+msgid "hangar/ammo_panel/equipment/empty/note"
+msgstr "(Left-click to open Service)"
+
+msgid "hangar/ammo_panel/module/note"
+msgstr ""
+"(Right-click to view characteristics)\n"
+"(Left-click to mount on vehicle)"
+
+msgid "hangar/ammo_panel/shell/note"
+msgstr ""
+"(Right-click to view characteristics)\n"
+"(Left-click to open Service)"
+
+msgid "hangar/crew/assignedTo"
+msgstr "In vehicle"
+
+msgid "hangar/crew/new_skill_available/header"
+msgstr "New perk/skill available"
+
+msgid "hangar/crew/new_skill_available/text"
+msgstr "Learn this perk/skill in Personal Case"
+
+msgid "hangar/crew/note"
+msgstr "(Right-click to view Personal File)"
+
+msgid "hangar/crew/specialty_skills"
+msgstr "Major qualification, skills, perks"
+
+msgid "hangar/maintenance/body"
+msgstr "Click to perform maintenance on your vehicle."
+
+msgid "hangar/maintenance/header"
+msgstr "Service"
+
+msgid "hangar/menu/body"
+msgstr "Click to access Game Menu."
+
+msgid "hangar/menu/header"
+msgstr "Menu"
+
+msgid "hangar/tuning/body"
+msgstr "Click to modify exterior appearance."
+
+msgid "hangar/tuning/header"
+msgstr "Exterior"
+
+msgid "hangar/unlockButton/body"
+msgstr "Click to research current vehicle."
+
+msgid "hangar/unlockButton/header"
+msgstr "Research"
+
+msgid "hangar/xpToTmenCheckbox/body"
+msgstr ""
+"Spend all experience earned on this vehicle on crew training.\n"
+"The least experienced crew member is trained twice as fast."
+
+msgid "hangar/xpToTmenCheckbox/header"
+msgstr "Accelerate Crew Training"
+
+msgid "header/eliteIcon/body"
+msgstr ""
+"A vehicle with all tech branches fully researched.\n"
+"Experience conversion and accelerated training\n"
+"options are available."
+
+msgid "header/eliteIcon/header"
+msgstr "Elite Vehicle"
+
+msgid "header/fight_button/dropdown/header"
+msgstr "Battle Mode"
+
+msgid "header/fight_button/dropdown/note"
+msgstr "(Left-click to view available battle modes)"
+
+msgid "header/gold_exchange/body"
+msgstr "Click to exchange gold for credits."
+
+msgid "header/gold_exchange/header"
+msgstr "Exchange Gold"
+
+msgid "header/header_buttons/barracks/body"
+msgstr "Recruit and dismiss tankers."
+
+msgid "header/header_buttons/barracks/header"
+msgstr "Barracks"
+
+msgid "header/header_buttons/browser/body"
+msgstr "Open browser."
+
+msgid "header/header_buttons/browser/header"
+msgstr "Browser"
+
+msgid "header/header_buttons/forts/body"
+msgstr "Go to management of clan Stronghold."
+
+msgid "header/header_buttons/forts/header"
+msgstr "Stronghold"
+
+msgid "header/header_buttons/hangar/body"
+msgstr "Select vehicle and enter battle."
+
+msgid "header/header_buttons/hangar/header"
+msgstr "Garage"
+
+msgid "header/header_buttons/inventory/body"
+msgstr "Sell vehicles, modules, equipment, consumables."
+
+msgid "header/header_buttons/inventory/header"
+msgstr "Depot"
+
+msgid "header/header_buttons/profile/body"
+msgstr "View statistics and awards received."
+
+msgid "header/header_buttons/profile/header"
+msgstr "Service Record"
+
+msgid "header/header_buttons/shop/body"
+msgstr "Purchase vehicles, modules, equipment, consumables."
+
+msgid "header/header_buttons/shop/header"
+msgstr "Store"
+
+msgid "header/header_buttons/techtree/body"
+msgstr "Research and purchase vehicles and modules."
+
+msgid "header/header_buttons/techtree/header"
+msgstr "Tech Tree"
+
+msgid "header/info/players_online_full/body"
+msgstr ""
+"Number of players\n"
+"on \"%(servername)s\" server/total players."
+
+msgid "header/info/players_online_full/header"
+msgstr "Online Players"
+
+msgid "header/info/players_online_region/body"
+msgstr "Number of players currently online"
+
+msgid "header/info/players_online_region/header"
+msgstr "Online Players"
+
+msgid "header/menu/body"
+msgstr "Open the Game Menu"
+
+msgid "header/menu/header"
+msgstr "Menu"
+
+msgid "header/premium_buy/body"
+msgstr "Click to purchase Premium Account."
+
+msgid "header/premium_buy/header"
+msgstr "Purchase Premium Account"
+
+msgid "header/premium_extend/body"
+msgstr "Click to extend Premium Account."
+
+msgid "header/premium_extend/header"
+msgstr "Extend Premium Account"
+
+msgid "header/refill/body"
+msgstr "Visit website to purchase gold."
+
+msgid "header/refill/header"
+msgstr "Get Gold"
+
+msgid "header/xp_gathering/body"
+msgstr "Click to convert experience to Free Experience."
+
+msgid "header/xp_gathering/header"
+msgstr "Convert Experience"
+
+msgid "historicalBattles/dateStatus/active"
+msgstr "Battle available until %(date)s"
+
+msgid "historicalBattles/dateStatus/endDate"
+msgstr "End date"
+
+msgid "historicalBattles/dateStatus/future"
+msgstr "Battle unavailable until %(date)s"
+
+msgid "historicalBattles/dateStatus/startDate"
+msgstr "Start date"
+
+msgid "historicalBattles/fightButton/disabled"
+msgstr "Unable to join the battle."
+
+msgid "historicalBattles/fightButton/disabled/broken"
+msgstr "Repairs of selected vehicle are required."
+
+msgid "historicalBattles/fightButton/disabled/crew"
+msgstr "Selected vehicle has an incomplete crew."
+
+msgid "historicalBattles/fightButton/disabled/future"
+msgstr "The battle has not started."
+
+msgid "historicalBattles/fightButton/disabled/inBattle"
+msgstr "Wait for the current battle to finish."
+
+msgid "historicalBattles/fightButton/disabled/money"
+msgstr "Not enough credits or gold to purchase ammunition."
+
+msgid "historicalBattles/fightButton/disabled/noVehicle"
+msgstr "This vehicle is not suitable for this battle."
+
+msgid "historicalBattles/fightButton/enabled"
+msgstr "Battle!"
+
+msgid "historicalBattles/fightButton/enabled/description"
+msgstr "Click to join the battle in the vehicle selected."
+
+msgid "historicalBattles/modules/subTitle"
+msgstr ""
+"The vehicle will join the battle with the following\n"
+"historical loadout:"
+
+msgid "historicalBattles/modules/title"
+msgstr "%(tankName)s"
+
+msgid "historicalBattles/showBattleHistory/body"
+msgstr "Click to view the detailed historical reference."
+
+msgid "historicalBattles/showBattleHistory/header"
+msgstr "Detailed Reference"
+
+msgid "historicalBattles/vehicle/notAvailable/body"
+msgstr "This vehicle is not in your Garage."
+
+msgid "historicalBattles/vehicle/notAvailable/header"
+msgstr "Vehicle Unavailable"
+
+msgid "historicalBattles/vehicle/notReady/broken"
+msgstr "Repairs required"
+
+msgid "historicalBattles/vehicle/notReady/crew"
+msgstr "Crew incomplete"
+
+msgid "historicalBattles/vehicle/notReady/header"
+msgstr "Vehicle Not Ready"
+
+msgid "historicalBattles/vehicle/notReady/inBattle"
+msgstr "Vehicle is in battle. Wait for the battle to finish."
+
+msgid "igr/msg1"
+msgstr ""
+"You receive %(color_tag_open)s%(igrValue)s%(color_tag_close)s more "
+"experience per battle"
+
+msgid "igr/msg2"
+msgstr "Special missions in %(igrIcon)s:"
+
+msgid "igr/msg3"
+msgstr ""
+"Free Camouflage, Inscriptions, and Emblems are available. You can use them "
+"in %(igrIcon)s only."
+
+msgid "igr/progressHeader"
+msgstr "Progress of special missions %(igrIcon)s"
+
+msgid "igr/title"
+msgstr "%(igrIcon)s Unique options"
+
+msgid "inventory/listItemRenderer/note"
+msgstr "(Left-click to sell)"
+
+msgid "inventory/listItemRenderer_info/note"
+msgstr "(Right-click to view characteristics)"
+
+msgid "inventory/listItemRenderer_installed/note"
+msgstr "Mounted on: %s"
+
+msgid "itemStatus/notEnough"
+msgstr "required:"
+
+msgid "level/1"
+msgstr "I"
+
+msgid "level/10"
+msgstr "X"
+
+msgid "level/2"
+msgstr "II"
+
+msgid "level/3"
+msgstr "III"
+
+msgid "level/4"
+msgstr "IV"
+
+msgid "level/5"
+msgstr "V"
+
+msgid "level/6"
+msgstr "VI"
+
+msgid "level/7"
+msgstr "VII"
+
+msgid "level/8"
+msgstr "VIII"
+
+msgid "level/9"
+msgstr "IX"
+
+msgid "loby_messenger/channel_button/inRoaming"
+msgstr "Channels are unavailable due to change of region"
+
+msgid "loby_messenger/service_button/body"
+msgstr "View battle results, system notifications, and invitations received."
+
+msgid "loby_messenger/service_button/header"
+msgstr "Notification Center"
+
+msgid "loby_messenger/service_button/note"
+msgstr "(Left-click to open Notification Center)"
+
+msgid "medalion/noVehicle/body"
+msgstr "Player has not selected a suitable vehicle."
+
+msgid "medalion/noVehicle/header"
+msgstr "Vehicle is not selected"
+
+msgid "members/vehicleLevelLimits/body"
+msgstr ""
+"Vehicle tier is too high for this Tank Company. Select another vehicle or "
+"increase Tank Company level."
+
+msgid "module/count"
+msgstr "item(s)"
+
+msgid "moduleFits/already_installed/header"
+msgstr "Mounted on:"
+
+msgid "moduleFits/credit_error/header"
+msgstr "Not enough credits."
+
+msgid "moduleFits/credit_error/text"
+msgstr "Earn them in battle or exchange gold."
+
+msgid "moduleFits/gold_error/header"
+msgstr "Not enough gold."
+
+msgid "moduleFits/gold_error/text"
+msgstr "Refill your balance."
+
+msgid "moduleFits/need_turret/header"
+msgstr "Gun is not compatible with current turret."
+
+msgid "moduleFits/need_turret/text"
+msgstr "Consider mounting compatible turret."
+
+msgid "moduleFits/not_for_this_vehicle_type/header"
+msgstr "Unable to fit the current gun into this turret."
+
+msgid "moduleFits/not_for_this_vehicle_type/text"
+msgstr "Consider mounting compatible gun."
+
+msgid "moduleFits/not_removable/body"
+msgstr "Complex equipment"
+
+msgid "moduleFits/not_removable/note01"
+msgstr "You cannot demount complex equipment for free. You can demount it for "
+
+msgid "moduleFits/not_removable/note02"
+msgstr " or destroy it"
+
+msgid "moduleFits/not_removable/note_header"
+msgstr "Complex equipment"
+
+msgid "moduleFits/not_with_installed_equipment/header"
+msgstr "Unable to mount"
+
+msgid "moduleFits/not_with_installed_equipment/text"
+msgstr "To mount this consumable, remove %(eqs)s"
+
+msgid "moduleFits/remove_too_heavy/header"
+msgstr "Unable to demount."
+
+msgid "moduleFits/remove_too_heavy/text"
+msgstr ""
+"This equipment requires suspension\n"
+"with higher load capacity."
+
+msgid "moduleFits/too_heavy/header"
+msgstr "Unable to mount."
+
+msgid "moduleFits/too_heavy/text"
+msgstr ""
+"This equipment requires suspension\n"
+"with higher load capacity."
+
+msgid "moduleFits/too_heavy_chassi/header"
+msgstr "Unable to mount. Higher load capacity required."
+
+msgid "moduleFits/too_heavy_chassi/text"
+msgstr "Consider mounting lighter modules."
+
+msgid "moduleFits/unlock_error/header"
+msgstr "The module is not researched."
+
+msgid "moduleFits/unlock_error/text"
+msgstr "Research the module."
+
+msgid "moduleFits/wrong_slot/body"
+msgstr "The module is already in another slot."
+
+msgid "personal_case/skills/drop/body"
+msgstr "Delete trained qualification."
+
+msgid "personal_case/skills/drop/header"
+msgstr "Delete Qualification"
+
+msgid "personal_case/skills/new/body"
+msgstr "Click to train for a new perk or skill."
+
+msgid "personal_case/skills/new/header"
+msgstr "Train for Skill or Perk"
+
+msgid "personal_case/skills/skill/note"
+msgstr "(Click to view the list of available skills and perks)"
+
+msgid "personal_case/skills_list/item/note"
+msgstr "(Left-click to train for this perk or skill)"
+
+msgid "personal_case/training/at_spg_btn/body"
+msgstr "Display researched Tank Destroyers."
+
+msgid "personal_case/training/at_spg_btn/header"
+msgstr "Tank Destroyers"
+
+msgid "personal_case/training/at_spg_btn/note"
+msgstr "(Left-click to display)"
+
+msgid "personal_case/training/at_spg_btn_disabled/body"
+msgstr "No Tank Destroyers researched."
+
+msgid "personal_case/training/at_spg_btn_disabled/header"
+msgstr "Tank Destroyers"
+
+msgid "personal_case/training/current_tank/body"
+msgstr "Select the crew member's current vehicle."
+
+msgid "personal_case/training/current_tank/header"
+msgstr "Current Vehicle"
+
+msgid "personal_case/training/heavy_tank_btn/body"
+msgstr "Display researched heavy tanks."
+
+msgid "personal_case/training/heavy_tank_btn/header"
+msgstr "Heavy Tanks"
+
+msgid "personal_case/training/heavy_tank_btn/note"
+msgstr "(Left-click to display)"
+
+msgid "personal_case/training/heavy_tank_btn_disabled/body"
+msgstr "No heavy tanks researched."
+
+msgid "personal_case/training/heavy_tank_btn_disabled/header"
+msgstr "Heavy Tanks"
+
+msgid "personal_case/training/light_tank_btn/body"
+msgstr "Display researched light tanks."
+
+msgid "personal_case/training/light_tank_btn/header"
+msgstr "Light Tanks"
+
+msgid "personal_case/training/light_tank_btn/note"
+msgstr "(Left-click to display)"
+
+msgid "personal_case/training/light_tank_btn_disabled/body"
+msgstr "No light tanks researched."
+
+msgid "personal_case/training/light_tank_btn_disabled/header"
+msgstr "Light Tanks"
+
+msgid "personal_case/training/medium_tank_btn/body"
+msgstr "Display researched medium tanks."
+
+msgid "personal_case/training/medium_tank_btn/header"
+msgstr "Medium Tanks"
+
+msgid "personal_case/training/medium_tank_btn/note"
+msgstr "(Left-click to display)"
+
+msgid "personal_case/training/medium_tank_btn_disabled/body"
+msgstr "No medium tanks researched."
+
+msgid "personal_case/training/medium_tank_btn_disabled/header"
+msgstr "Medium Tanks"
+
+msgid "personal_case/training/spg_btn/body"
+msgstr "Display researched SPGs."
+
+msgid "personal_case/training/spg_btn/header"
+msgstr "SPGs"
+
+msgid "personal_case/training/spg_btn/note"
+msgstr "(Left-click to display)"
+
+msgid "personal_case/training/spg_btn_disabled/body"
+msgstr "No SPGs researched."
+
+msgid "personal_case/training/spg_btn_disabled/header"
+msgstr "SPGs"
+
+msgid "personal_case/training/tank/body"
+msgstr "Train a crewman for this vehicle."
+
+msgid "personal_case/training/tank/header"
+msgstr "Vehicle"
+
+msgid "prebattle/nameFilterButton/body"
+msgstr ""
+"To search, enter a name in the field on the left\n"
+"and select all divisions."
+
+msgid "prebattle/nameFilterButton/header"
+msgstr "Search by name"
+
+msgid "quests/complexTask/label"
+msgstr "Strategic mission"
+
+msgid "quests/counter/label"
+msgstr "Number of mission completions"
+
+msgid "quests/disableLinkBtn/task"
+msgstr "To proceed to the next mission, click the \"Hide completed\" checkbox."
+
+msgid "quests/igr"
+msgstr "Mission is available in Premium IGR only"
+
+msgid "quests/linkBtn/task"
+msgstr "Select this mission"
+
+msgid "quests/newLabel/action"
+msgstr "New event"
+
+msgid "quests/newLabel/task"
+msgstr "New mission"
+
+msgid "quests/notifier/body"
+msgstr ""
+"Here you can view current missions and events, as well as your progress\n"
+"and details of missions coming soon."
+
+msgid "quests/notifier/header"
+msgstr "Missions and Events"
+
+msgid "quests/notifier/note"
+msgstr "(Left-click to view missions and events)"
+
+msgid "quests/progress/current"
+msgstr "Progress in mission completion"
+
+msgid "quests/progress/earnedInBattle"
+msgstr "Received in this battle"
+
+msgid "quests/progress/strategic"
+msgstr "Number of missions completed"
+
+msgid "quests/renderer/label"
+msgstr "Click to view detailed information."
+
+msgid "quests/status/done"
+msgstr "Mission completed."
+
+msgid "quests/status/notready"
+msgstr "Mission unavailable"
+
+msgid "redButton/disabled/buyNeeded/body"
+msgstr "Go to the Store to perform this operation."
+
+msgid "redButton/disabled/buyNeeded/header"
+msgstr "You must purchase a vehicle."
+
+msgid "redButton/disabled/crew/notFull/body"
+msgstr "Absent: <b>%s</b>"
+
+msgid "redButton/disabled/crew/notFull/header"
+msgstr "Crew incomplete"
+
+msgid "redButton/disabled/limit/totalLevel/body"
+msgstr ""
+"Only Tank Companies with a total level between %d and %d can join battles."
+
+msgid "redButton/disabled/limit/totalLevel/header"
+msgstr "Invalid total level of Tank Company"
+
+msgid "redButton/disabled/limits/classes/AT-SPG/body"
+msgstr "Only tank destroyers of Tiers %d to %d are allowed."
+
+msgid "redButton/disabled/limits/classes/AT-SPG/header"
+msgstr "Tank destroyer tier not within the allowable tier range"
+
+msgid "redButton/disabled/limits/classes/SPG/body"
+msgstr "Only SPGs of Tiers %d to %d are allowed."
+
+msgid "redButton/disabled/limits/classes/SPG/header"
+msgstr "SPG tier not within the allowable tier range"
+
+msgid "redButton/disabled/limits/classes/heavyTank/body"
+msgstr "Only heavy tanks of Tiers %d to %d are allowed."
+
+msgid "redButton/disabled/limits/classes/heavyTank/header"
+msgstr "Heavy tank not within the allowable tier range"
+
+msgid "redButton/disabled/limits/classes/lightTank/body"
+msgstr "Only light tanks of Tiers %d to %d are allowed."
+
+msgid "redButton/disabled/limits/classes/lightTank/header"
+msgstr "Light tank tier not within the allowable tier range"
+
+msgid "redButton/disabled/limits/classes/mediumTank/body"
+msgstr "Only medium tanks of Tiers %d to %d are allowed."
+
+msgid "redButton/disabled/limits/classes/mediumTank/header"
+msgstr "Medium tank tier not within the allowable tier range"
+
+msgid "redButton/disabled/limits/level/body"
+msgstr ""
+"Only Tank Companies with a total level between %d and %d can join battles."
+
+msgid "redButton/disabled/limits/level/header"
+msgstr "Invalid total level of Tank Company"
+
+msgid "redButton/disabled/repairNeeded/body"
+msgstr "To repair your vehicle, click Service."
+
+msgid "redButton/disabled/repairNeeded/header"
+msgstr "Vehicle damaged"
+
+msgid "redButton/disabled/vehicle/inBattle/body"
+msgstr "After the battle is finished, the vehicle will appear in the Garage."
+
+msgid "redButton/disabled/vehicle/inBattle/header"
+msgstr "In battle"
+
+msgid "redButton/disabled/vehicle/not_supported/body"
+msgstr "These vehicles cannot fight in this battle mode."
+
+msgid "redButton/disabled/vehicle/not_supported/header"
+msgstr "Wrong Vehicles"
+
+msgid "redButton/disabled/vehicle/roaming/body"
+msgstr "?empty?"
+
+msgid "redButton/disabled/vehicle/roaming/header"
+msgstr "Server limit"
+
+msgid "repair/auto/body"
+msgstr ""
+"Repair will be performed automatically, if necessary,\n"
+"after the vehicle leaves battle."
+
+msgid "repair/auto/header"
+msgstr "Repair automatically"
+
+msgid "repair/auto/note"
+msgstr "(Left-click to enable/disable automatic repair)"
+
+msgid "researchPage/module/status/needToBuyTank/header"
+msgstr "Unable to purchase and mount this module."
+
+msgid "researchPage/module/status/needToBuyTank/text"
+msgstr "Purchase %(vehiclename)s."
+
+msgid "researchPage/module/status/notEnoughXP/header"
+msgstr "Not enough XP."
+
+msgid "researchPage/module/status/notEnoughXP/text"
+msgstr "Earn it in battle or convert experience earned on Elite vehicles."
+
+msgid "researchPage/module/status/parentModuleIsLocked/header"
+msgstr "Unable to research."
+
+msgid "researchPage/module/status/parentModuleIsLocked/text"
+msgstr "Research preceding modules."
+
+msgid "researchPage/module/status/rootVehicleIsLocked/header"
+msgstr "Unable to research."
+
+msgid "researchPage/module/status/rootVehicleIsLocked/text"
+msgstr "Research the vehicle and preceding modules."
+
+msgid "researchPage/module/status/vehicleIsBroken/header"
+msgstr "Unable to purchase and mount this module."
+
+msgid "researchPage/module/status/vehicleIsBroken/text"
+msgstr "Repair your vehicle."
+
+msgid "researchPage/module/status/vehicleIsInBattle/header"
+msgstr "Unable to purchase and mount this module."
+
+msgid "researchPage/module/status/vehicleIsInBattle/text"
+msgstr "Wait until this vehicle exits battle."
+
+msgid "researchPage/module/status/vehicleIsReadyToFight/header"
+msgstr "Unable to purchase and mount this module."
+
+msgid "researchPage/module/status/vehicleIsReadyToFight/text"
+msgstr "Quit the operational unit."
+
+msgid "researchPage/vehicle/status/parentModuleIsLocked/header"
+msgstr "Unable to research."
+
+msgid "researchPage/vehicle/status/parentModuleIsLocked/text"
+msgstr ""
+"To research this vehicle, first research modules of the preceding vehicle."
+
+msgid "selectedVehicle/header"
+msgstr "Selected Vehicle"
+
+msgid "setting_window/controls/key_input/warning"
+msgstr "Key %(keyName)s assigned."
+
+msgid "settingsControl/recommended"
+msgstr "Recommended: %(value)s"
+
+msgid "settingsIcon/conditions/body"
+msgstr "The leader sets requirements for vehicles in some slots."
+
+msgid "settingsIcon/conditions/header"
+msgstr "Requirements for Vehicles"
+
+msgid "settingsIcon/freezed/body"
+msgstr ""
+"You cannot take place in the slot, but you can join the team as a volunteer. "
+"The leader creates a team manually and either invites players or selects "
+"volunteers from the list."
+
+msgid "settingsIcon/freezed/header"
+msgstr "Slots Frozen"
+
+msgid "settings_dialog/sound/PTTKey/body"
+msgstr ""
+"To modify voice chat options,\n"
+"go to Settings."
+
+msgid "settings_dialog/sound/PTTKey/header"
+msgstr "Push-to-Talk"
+
+msgid "settings_dialog/sound/alternativeVoices/body"
+msgstr "Replay"
+
+msgid "settings_dialog/sound/soundModeInvalid"
+msgstr ""
+"Files of the selected notification voice\n"
+"are damaged or missing."
+
+msgid "shop/listItemRenderer/note"
+msgstr "(Left-click to purchase)"
+
+msgid "shop/listItemRenderer_info/note"
+msgstr "(Right-click to view characteristics)"
+
+msgid "showMarksOnGun/body"
+msgstr ""
+"Enable or disable the display of Marks of Excellence on your vehicles for "
+"all battle modes except Historical Battle mode. Settings changed in a battle "
+"will come into effect after exiting the battle."
+
+msgid "showMarksOnGun/header"
+msgstr "Display Marks of Excellence"
+
+msgid "suitableVehicle/conditionsTitle"
+msgstr "Requirements for vehicles:"
+
+msgid "suitableVehicle/header"
+msgstr "Vehicles of correct type"
+
+msgid "suitableVehicle/hiddenVehicleCount"
+msgstr "...and on other vehicles:"
+
+msgid "suitableVehicle/matches"
+msgstr "Suitable:"
+
+msgid "suitableVehicle/more"
+msgstr "...and more vehicles:"
+
+msgid "suitableVehicle/suitableTitle"
+msgstr ""
+"Vehicles in your Garage that\n"
+"comply with the requirements:"
+
+msgid "suitableVehicle/unsuitable"
+msgstr "No required vehicles"
+
+msgid "tankCarusel/MainProperty"
+msgstr "Specs:"
+
+msgid "tankCarusel/lock/CLAN"
+msgstr "Clan Wars"
+
+msgid "tankCarusel/lock/ROAMING"
+msgstr ""
+"Server limit due to\n"
+"roaming"
+
+msgid "tankCarusel/lock/TOURNAMENT"
+msgstr "Battle for landing"
+
+msgid "tankCarusel/lock/To"
+msgstr "Until"
+
+msgid "tankCarusel/lock/header"
+msgstr "Locked"
+
+msgid "tankCaruselTooltip/vehicleType/elite/AT-SPG"
+msgstr "Elite Tank Destroyer"
+
+msgid "tankCaruselTooltip/vehicleType/elite/SPG"
+msgstr "Elite SPG"
+
+msgid "tankCaruselTooltip/vehicleType/elite/heavyTank"
+msgstr "Elite Heavy Tank"
+
+msgid "tankCaruselTooltip/vehicleType/elite/lightTank"
+msgstr "Elite Light Tank"
+
+msgid "tankCaruselTooltip/vehicleType/elite/mediumTank"
+msgstr "Elite Medium Tank"
+
+msgid "tankman/status/inactiveSkills/header"
+msgstr "Wrong skills and perks"
+
+msgid "tankman/status/inactiveSkills/text"
+msgstr ""
+"Qualification skills and perks %(skills)s of the crew member cannot be used. "
+"To select correct skills and perks in Personal File, drop all trained skills "
+"and perks."
+
+msgid "tankman/status/inactiveSkillsRoleFormat"
+msgstr "\"%s\""
+
+msgid "tankman/status/wrongPremiumVehicle/header"
+msgstr "Premium vehicle of correct type"
+
+msgid "tankman/status/wrongPremiumVehicle/text"
+msgstr ""
+"The crew member does not have specialization on %(vehicle)s, but he can use "
+"his skills and perks."
+
+msgid "tankman/status/wrongRoleLevel"
+msgstr ""
+"This crew member cannot use his skills and perks because his major "
+"qualification level is less than 100%. Train him in his Personal File or "
+"increase his major qualification level in battle."
+
+msgid "tankman/status/wrongVehicle/header"
+msgstr "No specialization on %(vehicle)s"
+
+msgid "tankman/status/wrongVehicle/text"
+msgstr ""
+"This crew member cannot make full use of his skills and perks. Train this "
+"crew member in his Personal File."
+
+msgid "tanks_carousel/buy_slot/header"
+msgstr "Purchase a Slot"
+
+msgid "tanks_carousel/buy_slot/note"
+msgstr "(Left-click to purchase)"
+
+msgid "tanks_carousel/buy_vehicle/header"
+msgstr "Purchase a Vehicle"
+
+msgid "tanks_carousel/buy_vehicle/note"
+msgstr "(Left-click to visit Store)"
+
+msgid "tanks_carousel/current_vehicle/note"
+msgstr "(Right-click to view options)"
+
+msgid "tanks_carousel/vehicle/note"
+msgstr ""
+"(Right-click to view options)\n"
+"(Left-click to select)"
+
+msgid "tanks_carousel/vehicleStates/battle"
+msgstr "In battle"
+
+msgid "tanks_carousel/vehicleStates/crewNotFull"
+msgstr "Crew incomplete"
+
+msgid "tanks_carousel/vehicleStates/damaged"
+msgstr "This vehicle is damaged. Repair the vehicle before joining a battle."
+
+msgid "tanks_carousel/vehicleStates/destroyed"
+msgstr ""
+"This vehicle is knocked out. Repair the vehicle before joining a battle."
+
+msgid "tanks_carousel/vehicleStates/exploded"
+msgstr "This vehicle is destroyed. Repair the vehicle before joining a battle."
+
+msgid "tanks_carousel/vehicleStates/locked"
+msgstr "Locked"
+
+msgid "tanks_carousel/vehicleStates/serverRestriction"
+msgstr "Server limit"
+
+msgid "tanks_carousel/vehicleStates/undamaged"
+msgstr "This vehicle is ready for battle."
+
+msgid "techTreePage/nations/china"
+msgstr "Go to the China Tech Tree"
+
+msgid "techTreePage/nations/france"
+msgstr "Go to the France Tech Tree"
+
+msgid "techTreePage/nations/germany"
+msgstr "Go to the Germany Tech Tree"
+
+msgid "techTreePage/nations/japan"
+msgstr "Go to the Japan Tech Tree"
+
+msgid "techTreePage/nations/uk"
+msgstr "Go to the U.K. Tech Tree"
+
+msgid "techTreePage/nations/usa"
+msgstr "Go to the U.S.A. Tech Tree"
+
+msgid "techTreePage/nations/ussr"
+msgstr "Go to the U.S.S.R. Tech Tree"
+
+msgid "training/create/invites_checkbox/body"
+msgstr ""
+"This room will not be visible in the general room list.\n"
+"Participants may be added only by invitation."
+
+msgid "training/create/invites_checkbox/header"
+msgstr "By Invitation"
+
+msgid "turnOffCombatChat/body"
+msgstr ""
+"The option is used for Random Battles only, and:\n"
+"\n"
+"• Platoon chat is not disabled.\n"
+"• Player can see special commands.\n"
+"• Player can send special commands.\n"
+"• Player can send messages in Platoon chat only."
+
+msgid "turnOffCombatChat/header"
+msgstr "Disable Battle Chat"
+
+msgid "useFreeXP/body"
+msgstr ""
+"Can be used to research any vehicles \n"
+"or modules in any Wargaming.net game."
+
+msgid "useFreeXP/header"
+msgstr "Free Experience"
+
+msgid "vehicle/action_prc"
+msgstr "Discount %(actionPrc)s, previous cost: %(oldPrice)s"
+
+msgid "vehicle/ammo"
+msgstr "In the ammo"
+
+msgid "vehicle/buy_price"
+msgstr "Purchase price"
+
+msgid "vehicle/buy_price_action"
+msgstr "Purchase price"
+
+msgid "vehicle/crew"
+msgstr "Crew members"
+
+msgid "vehicle/dailyXPFactor"
+msgstr "Experience for the first victory each day"
+
+msgid "vehicle/damage"
+msgstr "<h1>Damage</h1> <h2>(hp)</h2>"
+
+msgid "vehicle/devices"
+msgstr "Equipment"
+
+msgid "vehicle/elite"
+msgstr "Elite"
+
+msgid "vehicle/equipments"
+msgstr "Consumables"
+
+msgid "vehicle/favorite"
+msgstr "Primary"
+
+msgid "vehicle/graph/body/moduleInstalled"
+msgstr "This module is already mounted on the vehicle."
+
+msgid "vehicle/graph/body/notEnough"
+msgstr "required: "
+
+msgid "vehicle/graph/notes/buyAndEquip"
+msgstr "(Left-click to purchase and mount a module on the vehicle)"
+
+msgid "vehicle/graph/notes/equip"
+msgstr "(Left-click to mount a module on the vehicle)"
+
+msgid "vehicle/graph/notes/goToNationTree"
+msgstr "(Left-click to view Tech Tree)"
+
+msgid "vehicle/graph/notes/goToNextVehicle"
+msgstr "(Left-click to research modules)"
+
+msgid "vehicle/graph/notes/moduleUnlock"
+msgstr "(Left-click to research a module)"
+
+msgid "vehicle/graph/notes/showContextMenu"
+msgstr "(Right-click to view options)"
+
+msgid "vehicle/graph/notes/showInfoWindow"
+msgstr "(Right-click to view characteristics)"
+
+msgid "vehicle/graph/notes/vehicleUnlock"
+msgstr "(Left-click to research a vehicle)"
+
+msgid "vehicle/inventoryCount"
+msgstr "In Depot"
+
+msgid "vehicle/level"
+msgstr "Tier"
+
+msgid "vehicle/multiplied_xp"
+msgstr "Combat Experience"
+
+msgid "vehicle/radioDistance"
+msgstr "<h1>Signal Range</h1> <h2>(km)</h2>"
+
+msgid "vehicle/sell_price"
+msgstr "Sale price"
+
+msgid "vehicle/speedLimits"
+msgstr "<h1>Speed Limit</h1> <h2>(km/h)</h2>"
+
+msgid "vehicle/textDelimiter/or"
+msgstr "or"
+
+msgid "vehicle/turretRotationSpeed"
+msgstr "<h1>Turret Traverse Speed</h1> <h2>(deg/s)</h2>"
+
+msgid "vehicle/unlock_price"
+msgstr "Research cost"
+
+msgid "vehicle/vehicleCount"
+msgstr "On vehicles"
+
+msgid "vehicle/xp"
+msgstr "Combat Experience"
+
+msgid "vehicleParams/chassisRotationSpeed"
+msgstr "Traverse Speed (deg/s)"
+
+msgid "vehicleParams/damage"
+msgstr "Standard Shell Damage"
+
+msgid "vehicleParams/enginePower"
+msgstr "Engine Power (h.p.)"
+
+msgid "vehicleParams/hullArmor"
+msgstr "Hull Armor (front/sides/rear, mm)"
+
+msgid "vehicleParams/piercingPower"
+msgstr "Standard Shell Penetration (mm)"
+
+msgid "vehicleParams/speedLimits"
+msgstr "Speed Limit (km/h)"
+
+msgid "vehicleParams/turretArmor"
+msgstr "Turret Armor (front/sides/rear, mm)"
+
+msgid "vehicleSelector/filter/mainVehicle"
+msgstr "Filter by primary vehicles."
+
+msgid "vehicleSelector/filter/nation"
+msgstr "Filter vehicles by nation."
+
+msgid "vehicleSelector/filter/vehLvl"
+msgstr "Filter vehicles by tier."
+
+msgid "vehicleSelector/filter/vehType"
+msgstr "Filter vehicles by type."
+
+msgid "vehicleSelector/overflowLevel/body"
+msgstr "Wrong vehicle tier for this battle mode."
+
+msgid "vehicleSelector/overflowLevel/header"
+msgstr "Tier Not Allowed"
+
+msgid "vehicleSelector/sorting/nation/body"
+msgstr "Sort by nation."
+
+msgid "vehicleSelector/sorting/nation/header"
+msgstr "Nation"
+
+msgid "vehicleSelector/sorting/vehLvl/body"
+msgstr "Sort by vehicles' tier."
+
+msgid "vehicleSelector/sorting/vehLvl/header"
+msgstr "Tier"
+
+msgid "vehicleSelector/sorting/vehName/body"
+msgstr "Sort by vehicles' name."
+
+msgid "vehicleSelector/sorting/vehName/header"
+msgstr "Name"
+
+msgid "vehicleSelector/sorting/vehType/body"
+msgstr "Sort by vehicles' type."
+
+msgid "vehicleSelector/sorting/vehType/header"
+msgstr "Type"
+
+msgid "vehicleSellDialog/renderer/alertIcon/body"
+msgstr "Complex equipment can be demounted and used again only for gold."
+
+msgid "vehicleSellDialog/renderer/alertIcon/header"
+msgstr "Demounting possible only for gold"
+
+msgid "vehicleStatus/ammoNotFull/header"
+msgstr "Ammunition incomplete"
+
+msgid "vehicleStatus/battle/header"
+msgstr "Vehicle is in battle"
+
+msgid "vehicleStatus/clanLocked/header"
+msgstr "?empty?"
+
+msgid "vehicleStatus/crewNotFull/header"
+msgstr "Crew incomplete"
+
+msgid "vehicleStatus/damaged/header"
+msgstr "Repairs required"
+
+msgid "vehicleStatus/destroyed/header"
+msgstr "Repairs required"
+
+msgid "vehicleStatus/exploded/header"
+msgstr "Repairs required"
+
+msgid "vehicleStatus/inHangar/header"
+msgstr "In Garage"
+
+msgid "vehicleStatus/inPrebattle/header"
+msgstr "In Operational Unit"
+
+msgid "vehicleStatus/locked/header"
+msgstr "In Operational Unit"
+
+msgid "vehicleStatus/notEnoughCredits/header"
+msgstr "Not enough credits."
+
+msgid "vehicleStatus/notEnoughCredits/text"
+msgstr "Earn them in battle or exchange gold."
+
+msgid "vehicleStatus/notEnoughGold/header"
+msgstr "Not enough gold"
+
+msgid "vehicleStatus/notEnoughGold/text"
+msgstr "Refill your balance."
+
+msgid "vehicleStatus/notSuitable/header"
+msgstr "Wrong vehicle for this Historical Battle"
+
+msgid "vehicleStatus/notUnlocked/header"
+msgstr "Research"
+
+msgid "vehicleStatus/notpresent/header"
+msgstr "Purchase a vehicle"
+
+msgid "vehicleStatus/serverRestriction/header"
+msgstr "?empty?"
+
+msgid "vehicleStatus/undamaged/header"
+msgstr "Ready for battle"
+
+msgid "wallet/not_available_freexp/body"
+msgstr ""
+"Acquisition of balance data is in progress.\n"
+"All your Free Experience will be available soon."
+
+msgid "wallet/not_available_freexp/header"
+msgstr "Data Acquisition"
+
+msgid "wallet/not_available_gold/body"
+msgstr ""
+"Acquisition of balance data is in progress.\n"
+"All your gold will be available soon."
+
+msgid "wallet/not_available_gold/header"
+msgstr "Data Acquisition"

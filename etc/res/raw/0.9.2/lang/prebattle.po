@@ -1,0 +1,120 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: World Of Tanks\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-05-07 15:00+0300\n"
+"PO-Revision-Date: 2013-05-07 15:00+0300\n"
+"Last-Translator: WoT Translator <noreply@wargaming.net>\n"
+"Language-Team: WoT Team <noreply@wargaming.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "buttons/battleSession/leave"
+msgstr "Exit"
+
+msgid "buttons/company/create"
+msgstr "Create Tank Company"
+
+msgid "dialogs/buttons/notReady"
+msgstr "Not Ready"
+
+msgid "dialogs/buttons/ready"
+msgstr "Ready!"
+
+msgid "labels/company/defaultComment"
+msgstr "add description—"
+
+msgid "labels/company/defaultText"
+msgstr "Click to change the text..."
+
+msgid "labels/company/division/ABSOLUTE"
+msgstr "Absolute"
+
+msgid "labels/company/division/ALL"
+msgstr "All"
+
+msgid "labels/company/division/CHAMPION"
+msgstr "Champion"
+
+msgid "labels/company/division/JUNIOR"
+msgstr "Junior"
+
+msgid "labels/company/division/MIDDLE"
+msgstr "Medium"
+
+msgid "labels/company/division/NA"
+msgstr "Undefined"
+
+msgid "labels/company/isOpen"
+msgstr "Open Tank Company"
+
+msgid "labels/company/limits"
+msgstr "Tiers allowed:"
+
+msgid "labels/company/notInBattle"
+msgstr "Not in battle"
+
+msgid "labels/company/players/bottom"
+msgstr "Click to join"
+
+msgid "labels/company/players/top"
+msgstr "Military Personnel"
+
+msgid "labels/company/queue"
+msgstr "Queue"
+
+msgid "labels/company/stats/count"
+msgstr ""
+"Tank Company members: %(playersCount)d %(openTag)s[%(maxCount)d]%(closeTag)s"
+
+msgid "labels/level"
+msgstr "Level"
+
+msgid "labels/player"
+msgstr "Player"
+
+msgid "labels/stats/level"
+msgstr "Level:"
+
+msgid "labels/stats/maxPlayers"
+msgstr "Players:"
+
+msgid "labels/stats/sumLevel"
+msgstr "Total tier:"
+
+msgid "labels/stats/totalLevel"
+msgstr "Total tier: %(totalLevel)s"
+
+msgid "labels/stats/vehicleLevel"
+msgstr "Max vehicle tier:"
+
+msgid "labels/stats/vehicleSPGLevel"
+msgstr "Max SPG tier:"
+
+msgid "labels/vehicle"
+msgstr "Vehicle"
+
+msgid "stats/battleSession/commonLevel"
+msgstr "Tier:"
+
+msgid "stats/battleSession/required"
+msgstr "Required:"
+
+msgid "stats/battleSession/vehicleType"
+msgstr "Type:"
+
+msgid "title/battleSession/arenaType"
+msgstr "Map:"
+
+msgid "title/battleSession/battlesLimit"
+msgstr "Battles/Victories:"
+
+msgid "title/battleSession/comment"
+msgstr "Description:"
+
+msgid "title/battleSession/header/startTime"
+msgstr "Battle starts in:"
+
+msgid "title/battleSession/startTime"
+msgstr "Starting time:"

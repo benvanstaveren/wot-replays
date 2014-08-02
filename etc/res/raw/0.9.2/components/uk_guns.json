@@ -1,0 +1,2889 @@
+{
+   "shared" : {
+      "_3inch_20_cwt_MkIII_AT_Gun" : {
+         "recoil" : {
+            "returnTime" : "0.4",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.36",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "3.5",
+            "turretRotation" : "0.12"
+         },
+         "maxRegenHealth" : 65,
+         "repairCost" : 5,
+         "weight" : 1021,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_3inch_HE" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.2",
+               "speed" : 762,
+               "gravity" : "9.81",
+               "piercingPower" : "38 38"
+            },
+            "_3inch_APCR" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 952,
+               "gravity" : "9.81",
+               "piercingPower" : "140 125"
+            },
+            "_3inch_AP" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.8",
+               "speed" : 762,
+               "gravity" : "9.81",
+               "piercingPower" : "112 100"
+            }
+         },
+         "shotDispersionRadius" : "0.4",
+         "impulse" : "0.48",
+         "effects" : "shot_medium",
+         "maxAmmo" : 75,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#gb_vehicles:_3inch_20_cwt_MkIII_AT_Gun",
+         "rotationSpeed" : "40.25",
+         "maxHealth" : 130,
+         "level" : 6,
+         "reloadTime" : "3.25714285714286",
+         "price" : 62000,
+         "pitchLimits" : "-12 10"
+      },
+      "QF_6_pounder_Mk_V" : {
+         "recoil" : {
+            "returnTime" : "0.4",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.16",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.08"
+         },
+         "maxRegenHealth" : 52,
+         "repairCost" : 4,
+         "weight" : 450,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_6pdr_HE_MK_10T" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.2",
+               "speed" : 892,
+               "gravity" : "9.81",
+               "piercingPower" : "30 30"
+            },
+            "_6pdr_AP_MK_1T" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "1.0",
+               "speed" : 892,
+               "gravity" : "9.81",
+               "piercingPower" : "110 95"
+            },
+            "_6pdr_APCR_MK_1T" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 1115,
+               "gravity" : "9.81",
+               "piercingPower" : "180 126"
+            }
+         },
+         "shotDispersionRadius" : "0.434285714285714",
+         "impulse" : "0.26",
+         "effects" : "shot_medium",
+         "maxAmmo" : 92,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#gb_vehicles:QF_6_pounder_Mk_V",
+         "rotationSpeed" : "43.75",
+         "maxHealth" : 104,
+         "level" : 5,
+         "reloadTime" : "2.28571428571429",
+         "price" : 35000,
+         "pitchLimits" : "-12 6"
+      },
+      "_18_pdr_SPG_Gun" : {
+         "recoil" : {
+            "returnTime" : "0.6",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.6",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "6.4",
+            "turretRotation" : "0.44"
+         },
+         "maxRegenHealth" : 60,
+         "repairCost" : 8,
+         "weight" : 457,
+         "aimingTime" : "5.14285714285714",
+         "shots" : {
+            "_18pdr_HE_Mk_1C" : {
+               "maxDistance" : 10000,
+               "defaultPortion" : "1.0",
+               "speed" : 410,
+               "gravity" : 190,
+               "piercingPower" : "42 42"
+            },
+            "_18pdr_AP_Mk_1T" : {
+               "maxDistance" : 10000,
+               "defaultPortion" : "0.0",
+               "speed" : 410,
+               "gravity" : 190,
+               "piercingPower" : "65 50"
+            }
+         },
+         "shotDispersionRadius" : "0.46",
+         "impulse" : "0.48",
+         "effects" : "shot_main",
+         "maxAmmo" : 112,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#gb_vehicles:_18_pdr_SPG_Gun",
+         "rotationSpeed" : "30.625",
+         "maxHealth" : 120,
+         "level" : 3,
+         "reloadTime" : "15.88571428571430",
+         "price" : 10500,
+         "pitchLimits" : "-37.5 5"
+      },
+      "_20pdr_AT_Gun_Type_A" : {
+         "recoil" : {
+            "returnTime" : "0.4",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.36",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "3.5",
+            "turretRotation" : "0.12"
+         },
+         "maxRegenHealth" : 85,
+         "repairCost" : 6,
+         "weight" : 1242,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_20pdr_AP_Mk1" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.8",
+               "speed" : 1020,
+               "gravity" : "9.81",
+               "piercingPower" : "226 211"
+            },
+            "_20pdr_HE_Mk3" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.2",
+               "speed" : 1020,
+               "gravity" : "9.81",
+               "piercingPower" : "42 42"
+            },
+            "_20pdr_APC_Mk2" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 1275,
+               "gravity" : "9.81",
+               "piercingPower" : "258 248"
+            }
+         },
+         "shotDispersionRadius" : "0.4",
+         "impulse" : "0.48",
+         "effects" : "shot_main",
+         "maxAmmo" : 60,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#gb_vehicles:_20pdr_AT_Gun_Type_A",
+         "rotationSpeed" : "40.25",
+         "maxHealth" : 170,
+         "level" : 8,
+         "reloadTime" : "3.25714285714286",
+         "price" : 120000,
+         "pitchLimits" : "-20 12.5"
+      },
+      "_17pdr_OQF_AT_1" : {
+         "recoil" : {
+            "returnTime" : "0.4",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.36",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "3.5",
+            "turretRotation" : "0.12"
+         },
+         "maxRegenHealth" : 72,
+         "repairCost" : 5,
+         "weight" : 826,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_17pdr_HE_Mk1T" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.2",
+               "speed" : 884,
+               "gravity" : "9.81",
+               "piercingPower" : "38 38"
+            },
+            "_17pdr_AP_Mk3T" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.8",
+               "speed" : 884,
+               "gravity" : "9.81",
+               "piercingPower" : "171 161"
+            },
+            "_17pdr_APC_Mk4T" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 1105,
+               "gravity" : "9.81",
+               "piercingPower" : "239 218"
+            }
+         },
+         "shotDispersionRadius" : "0.4",
+         "impulse" : "0.48",
+         "effects" : "shot_main_mb",
+         "maxAmmo" : 70,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#gb_vehicles:_17pdr_OQF_AT",
+         "rotationSpeed" : "40.25",
+         "maxHealth" : 144,
+         "level" : 7,
+         "reloadTime" : "3.25714285714286",
+         "price" : 65000,
+         "pitchLimits" : "-15 7"
+      },
+      "OQF_77mm_Gun_MkII" : {
+         "recoil" : {
+            "returnTime" : "0.4",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.36",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 65,
+         "repairCost" : 5,
+         "weight" : 681,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_77mm_APCBC_Mk8T" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.8",
+               "speed" : 785,
+               "gravity" : "9.81",
+               "piercingPower" : "148 138"
+            },
+            "_77mm_HE_Mk1T" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.2",
+               "speed" : 785,
+               "gravity" : "9.81",
+               "piercingPower" : "38 38"
+            },
+            "_77mm_APDS_Mk1T" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 981,
+               "gravity" : "9.81",
+               "piercingPower" : "208 187"
+            }
+         },
+         "shotDispersionRadius" : "0.434285714285714",
+         "impulse" : "0.48",
+         "effects" : "shot_medium_mb",
+         "maxAmmo" : 70,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#gb_vehicles:OQF_77mm_Gun_MkII",
+         "rotationSpeed" : "40.25",
+         "maxHealth" : 130,
+         "level" : 7,
+         "reloadTime" : "4.22857142857143",
+         "price" : 63000,
+         "pitchLimits" : "-20 5"
+      },
+      "_2pdr_Gun_Mk_X" : {
+         "recoil" : {
+            "returnTime" : "0.3",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.3",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.08"
+         },
+         "maxRegenHealth" : 35,
+         "repairCost" : 2,
+         "weight" : 130,
+         "aimingTime" : "1.14285714285714",
+         "shots" : {
+            "_2pdr_HE_Mk.2" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 792,
+               "gravity" : "9.81",
+               "piercingPower" : "23 23"
+            },
+            "_2pdr_AP_Mk.IXBT" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "1.0",
+               "speed" : 792,
+               "gravity" : "9.81",
+               "piercingPower" : "78 66"
+            },
+            "_2pdr_APCNR_Mk.2" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 990,
+               "gravity" : "9.81",
+               "piercingPower" : "121 104"
+            }
+         },
+         "shotDispersionRadius" : "0.377142857142857",
+         "impulse" : "0.26",
+         "effects" : "shot_medium",
+         "maxAmmo" : 100,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#gb_vehicles:_2pdr_Gun_Mk_X",
+         "rotationSpeed" : "43.75",
+         "maxHealth" : 70,
+         "level" : 4,
+         "reloadTime" : "2.05714285714286",
+         "price" : 6000,
+         "pitchLimits" : "-25 10"
+      },
+      "QF_6_pounder_8cwt_Mk_I_AT" : {
+         "recoil" : {
+            "returnTime" : "0.3",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.22",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.08"
+         },
+         "maxRegenHealth" : 47,
+         "repairCost" : 4,
+         "weight" : 450,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_6pdr_AP_Steel_HSCT" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "1.0",
+               "speed" : 538,
+               "gravity" : "9.81",
+               "piercingPower" : "57 45"
+            },
+            "_6pdr_AP_Steel_NF" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 673,
+               "gravity" : "9.81",
+               "piercingPower" : "72 57"
+            },
+            "_6pdr_HE_Common" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.2",
+               "speed" : 538,
+               "gravity" : "9.81",
+               "piercingPower" : "29 29"
+            }
+         },
+         "shotDispersionRadius" : "0.43428571428571",
+         "impulse" : "0.26",
+         "effects" : "shot_medium",
+         "maxAmmo" : 92,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#gb_vehicles:QF_6_pounder_8cwt_Mk_I_AT",
+         "rotationSpeed" : "43.75",
+         "maxHealth" : 94,
+         "level" : 4,
+         "reloadTime" : "2.28571428571429",
+         "price" : 25000,
+         "pitchLimits" : "-12 6"
+      },
+      "QF_6_pounder_8cwt_Mk_II_AT" : {
+         "recoil" : {
+            "returnTime" : "0.3",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.22",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.08"
+         },
+         "maxRegenHealth" : 42,
+         "repairCost" : 4,
+         "weight" : 300,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_6pdr_AP_Steel_HSCT" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "1.0",
+               "speed" : 459,
+               "gravity" : "9.81",
+               "piercingPower" : "45 32"
+            },
+            "_6pdr_AP_Steel_NF" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 574,
+               "gravity" : "9.81",
+               "piercingPower" : "57 45"
+            },
+            "_6pdr_HE_Common" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.2",
+               "speed" : 459,
+               "gravity" : "9.81",
+               "piercingPower" : "29 29"
+            }
+         },
+         "shotDispersionRadius" : "0.434285714285714",
+         "impulse" : "0.26",
+         "effects" : "shot_medium",
+         "maxAmmo" : 92,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#gb_vehicles:QF_6_pounder_8cwt_Mk_II_AT",
+         "rotationSpeed" : "43.75",
+         "maxHealth" : 84,
+         "level" : 2,
+         "reloadTime" : "2.28571428571429",
+         "price" : 3000,
+         "pitchLimits" : "-12 6"
+      },
+      "_20pdr_Gun_Type_A" : {
+         "recoil" : {
+            "returnTime" : "0.4",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.36",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "3.5",
+            "turretRotation" : "0.12"
+         },
+         "maxRegenHealth" : 85,
+         "repairCost" : 6,
+         "weight" : 1242,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_20pdr_AP_Mk1" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.8",
+               "speed" : 1020,
+               "gravity" : "9.81",
+               "piercingPower" : "226 211"
+            },
+            "_20pdr_HE_Mk3" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.2",
+               "speed" : 1020,
+               "gravity" : "9.81",
+               "piercingPower" : "42 42"
+            },
+            "_20pdr_APC_Mk2" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 1275,
+               "gravity" : "9.81",
+               "piercingPower" : "258 248"
+            }
+         },
+         "shotDispersionRadius" : "0.4",
+         "impulse" : "0.48",
+         "effects" : "shot_main",
+         "maxAmmo" : 60,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#gb_vehicles:_20pdr_Gun_Type_A",
+         "rotationSpeed" : "40.25",
+         "maxHealth" : 170,
+         "level" : 8,
+         "reloadTime" : "3.25714285714286",
+         "price" : 120000,
+         "pitchLimits" : "-20 12.5"
+      },
+      "_17pdr_OQF_AT" : {
+         "recoil" : {
+            "returnTime" : "0.4",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.36",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "3.5",
+            "turretRotation" : "0.12"
+         },
+         "maxRegenHealth" : 72,
+         "repairCost" : 5,
+         "weight" : 826,
+         "aimingTime" : "2.0",
+         "shots" : {
+            "_17pdr_HE_Mk1T" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.2",
+               "speed" : 884,
+               "gravity" : "9.81",
+               "piercingPower" : "38 38"
+            },
+            "_17pdr_AP_Mk3T" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.8",
+               "speed" : 884,
+               "gravity" : "9.81",
+               "piercingPower" : "171 161"
+            },
+            "_17pdr_APC_Mk4T" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 1105,
+               "gravity" : "9.81",
+               "piercingPower" : "239 218"
+            }
+         },
+         "shotDispersionRadius" : "0.34",
+         "impulse" : "0.48",
+         "effects" : "shot_main_mb",
+         "maxAmmo" : 70,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#gb_vehicles:_17pdr_OQF_AT",
+         "rotationSpeed" : "40.25",
+         "maxHealth" : 144,
+         "level" : 7,
+         "reloadTime" : "3.25714285714286",
+         "price" : 65000,
+         "pitchLimits" : "-15 7",
+         "notInShop" : true
+      },
+      "QF_6_pounder_8cwt_Mk_I" : {
+         "recoil" : {
+            "returnTime" : "0.3",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.35",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.08"
+         },
+         "maxRegenHealth" : 47,
+         "repairCost" : 4,
+         "weight" : 450,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_6pdr_AP_Steel_HSCT" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "1.0",
+               "speed" : 538,
+               "gravity" : "9.81",
+               "piercingPower" : "57 45"
+            },
+            "_6pdr_AP_Steel_NF" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 673,
+               "gravity" : "9.81",
+               "piercingPower" : "72 57"
+            },
+            "_6pdr_HE_Common" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.2",
+               "speed" : 538,
+               "gravity" : "9.81",
+               "piercingPower" : "29 29"
+            }
+         },
+         "shotDispersionRadius" : "0.43428571428571",
+         "impulse" : "0.26",
+         "effects" : "shot_medium",
+         "maxAmmo" : 92,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#gb_vehicles:QF_6_pounder_8cwt_Mk_I",
+         "rotationSpeed" : "43.75",
+         "maxHealth" : 94,
+         "level" : 4,
+         "reloadTime" : "2.28571428571429",
+         "price" : 25000,
+         "pitchLimits" : "-12 6"
+      },
+      "QF_6_pounder_Mk_V_AT" : {
+         "recoil" : {
+            "returnTime" : "0.4",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.16",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.08"
+         },
+         "maxRegenHealth" : 52,
+         "repairCost" : 4,
+         "weight" : 450,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_6pdr_HE_MK_10T" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.2",
+               "speed" : 892,
+               "gravity" : "9.81",
+               "piercingPower" : "30 30"
+            },
+            "_6pdr_AP_MK_1T" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "1.0",
+               "speed" : 892,
+               "gravity" : "9.81",
+               "piercingPower" : "110 95"
+            },
+            "_6pdr_APCR_MK_1T" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 1115,
+               "gravity" : "9.81",
+               "piercingPower" : "180 126"
+            }
+         },
+         "shotDispersionRadius" : "0.434285714285714",
+         "impulse" : "0.26",
+         "effects" : "shot_medium",
+         "maxAmmo" : 92,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#gb_vehicles:QF_6_pounder_Mk_V_AT",
+         "rotationSpeed" : "43.75",
+         "maxHealth" : 104,
+         "level" : 5,
+         "reloadTime" : "2.28571428571429",
+         "price" : 35000,
+         "pitchLimits" : "-12 6"
+      },
+      "OQF_3pdr_Gun" : {
+         "recoil" : {
+            "returnTime" : "0.36",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.32",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 35,
+         "repairCost" : 2,
+         "weight" : 250,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_47mm_3pdrHE" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 574,
+               "gravity" : "9.81",
+               "piercingPower" : "23 23"
+            },
+            "_47mm_3pdrAPCR" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 718,
+               "gravity" : "9.81",
+               "piercingPower" : "72 50"
+            },
+            "_47mm_3pdrAP" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "1.0",
+               "speed" : 574,
+               "gravity" : "9.81",
+               "piercingPower" : "43 33"
+            }
+         },
+         "shotDispersionRadius" : "0.45714285714286",
+         "impulse" : "0.24",
+         "effects" : "shot_small",
+         "maxAmmo" : 84,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#gb_vehicles:OQF_3pdr_Gun",
+         "rotationSpeed" : "43.75",
+         "maxHealth" : 70,
+         "level" : 2,
+         "reloadTime" : "2.28571428571429",
+         "price" : 3100,
+         "pitchLimits" : "-25 8"
+      },
+      "OQF_25pdr_Gun_Mk_II" : {
+         "recoil" : {
+            "returnTime" : "0.4",
+            "backoffTime" : "0.2",
+            "amplitude" : "0.08",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "6.4",
+            "turretRotation" : "0.44"
+         },
+         "maxRegenHealth" : 65,
+         "repairCost" : 8,
+         "weight" : 510,
+         "aimingTime" : "5.14285714285714",
+         "shots" : {
+            "_25pdr_AP_Mk_1T" : {
+               "maxDistance" : 10000,
+               "defaultPortion" : "0.0",
+               "speed" : 410,
+               "gravity" : 160,
+               "piercingPower" : "71 63"
+            },
+            "_25pdr_AP_Mk_1T_SC" : {
+               "maxDistance" : 10000,
+               "defaultPortion" : "0.0",
+               "speed" : 410,
+               "gravity" : 160,
+               "piercingPower" : "92 81"
+            },
+            "_25pdr_HE_Mk_1D" : {
+               "maxDistance" : 10000,
+               "defaultPortion" : "1.0",
+               "speed" : 410,
+               "gravity" : 160,
+               "piercingPower" : "44 44"
+            }
+         },
+         "shotDispersionRadius" : "0.46",
+         "impulse" : "0.48",
+         "effects" : "shot_large_mb",
+         "maxAmmo" : 112,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#gb_vehicles:OQF_25pdr_Gun_Mk_II",
+         "rotationSpeed" : "30.625",
+         "maxHealth" : 130,
+         "level" : 4,
+         "reloadTime" : "15.88571428571430",
+         "price" : 28500,
+         "pitchLimits" : "-45 5"
+      },
+      "_75mm_Gun_Mk_V" : {
+         "recoil" : {
+            "returnTime" : "0.4",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.36",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 60,
+         "repairCost" : 5,
+         "weight" : 500,
+         "aimingTime" : "2.05714285714286",
+         "shots" : {
+            "_75mm_AP_Mk1" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.8",
+               "speed" : 619,
+               "gravity" : "9.81",
+               "piercingPower" : "91 79"
+            },
+            "_75mm_HE_Mk2" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.2",
+               "speed" : 619,
+               "gravity" : "9.81",
+               "piercingPower" : "38 38"
+            },
+            "_75mm_APCR_Mk3" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 774,
+               "gravity" : "9.81",
+               "piercingPower" : "144 119"
+            }
+         },
+         "shotDispersionRadius" : "0.457142857142857",
+         "impulse" : "0.48",
+         "effects" : "shot_medium_mb",
+         "maxAmmo" : 46,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#gb_vehicles:_75mm_Gun_Mk_V",
+         "rotationSpeed" : "40.25",
+         "maxHealth" : 120,
+         "level" : 5,
+         "reloadTime" : "3.80571428571429",
+         "price" : 45000,
+         "pitchLimits" : "-25 10"
+      },
+      "QF_6_pounder_Mk_IV_AT" : {
+         "recoil" : {
+            "returnTime" : "0.4",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.16",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.08"
+         },
+         "maxRegenHealth" : 52,
+         "repairCost" : 4,
+         "weight" : 450,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_6pdr_HE_MK_10T" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.2",
+               "speed" : 892,
+               "gravity" : "9.81",
+               "piercingPower" : "30 30"
+            },
+            "_6pdr_AP_MK_1T" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "1.0",
+               "speed" : 892,
+               "gravity" : "9.81",
+               "piercingPower" : "110 95"
+            },
+            "_6pdr_APCR_MK_1T" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 1115,
+               "gravity" : "9.81",
+               "piercingPower" : "180 126"
+            }
+         },
+         "shotDispersionRadius" : "0.434285714285714",
+         "impulse" : "0.26",
+         "effects" : "shot_medium",
+         "maxAmmo" : 92,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#gb_vehicles:QF_6_pounder_Mk_IV_AT",
+         "rotationSpeed" : "43.75",
+         "maxHealth" : 104,
+         "level" : 4,
+         "reloadTime" : "2.28571428571429",
+         "price" : 27000,
+         "pitchLimits" : "-12 6"
+      },
+      "_120mm_AT_Gun_L1A1" : {
+         "recoil" : {
+            "returnTime" : "0.6",
+            "backoffTime" : "0.2",
+            "amplitude" : "0.24",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.08"
+         },
+         "maxRegenHealth" : 105,
+         "repairCost" : 8,
+         "weight" : 2850,
+         "aimingTime" : "2.62857142857143",
+         "shots" : {
+            "_120mm_APDS_L1A1" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 1334,
+               "gravity" : "9.81",
+               "piercingPower" : "326 298"
+            },
+            "_120mm_AP-T_L1A1" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.60",
+               "speed" : 1067,
+               "gravity" : "9.81",
+               "piercingPower" : "259 239"
+            },
+            "_120mm_HE_L1A1" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.40",
+               "speed" : 1067,
+               "gravity" : "9.81",
+               "piercingPower" : "120 120"
+            }
+         },
+         "shotDispersionRadius" : "0.4",
+         "impulse" : "0.68",
+         "effects" : "shot_large",
+         "maxAmmo" : 35,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#gb_vehicles:_120mm_AT_Gun_L1A1",
+         "rotationSpeed" : "26.25",
+         "maxHealth" : 210,
+         "level" : 10,
+         "reloadTime" : "9.97142857142860",
+         "price" : 320000,
+         "pitchLimits" : "-15 11"
+      },
+      "_3pdr_gun_Hotchkiss" : {
+         "recoil" : {
+            "returnTime" : "0.26",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.2",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 32,
+         "repairCost" : 1,
+         "weight" : 240,
+         "aimingTime" : "0.16",
+         "shots" : {
+            "_47mm_3pdrHE" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 574,
+               "gravity" : "9.81",
+               "piercingPower" : "23 23"
+            },
+            "_47mm_3pdrAPCR" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 718,
+               "gravity" : "9.81",
+               "piercingPower" : "66 44"
+            },
+            "_47mm_3pdrAP" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "1.0",
+               "speed" : 574,
+               "gravity" : "9.81",
+               "piercingPower" : "38 28"
+            }
+         },
+         "shotDispersionRadius" : "0.48",
+         "impulse" : "0.08",
+         "effects" : "shot_small",
+         "maxAmmo" : 100,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#gb_vehicles:_3pdr_gun_Hotchkiss",
+         "rotationSpeed" : "43.75",
+         "maxHealth" : 64,
+         "level" : 1,
+         "reloadTime" : "2.51428571428571",
+         "price" : "",
+         "pitchLimits" : "-17 6"
+      },
+      "_7.2inch_SPG_Howitzer" : {
+         "recoil" : {
+            "returnTime" : "0.6",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.6",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "6.4",
+            "turretRotation" : "0.44"
+         },
+         "maxRegenHealth" : 125,
+         "repairCost" : 8,
+         "weight" : 7972,
+         "aimingTime" : "5.14285714285714",
+         "shots" : {
+            "_7.2inch_HE_Mk_2" : {
+               "maxDistance" : 10000,
+               "defaultPortion" : "0.0",
+               "speed" : 440,
+               "gravity" : 143,
+               "piercingPower" : "97 97"
+            },
+            "_7.2inch_HE" : {
+               "maxDistance" : 10000,
+               "defaultPortion" : "1.0",
+               "speed" : 440,
+               "gravity" : 143,
+               "piercingPower" : "92 92"
+            }
+         },
+         "shotDispersionRadius" : "0.46",
+         "impulse" : "0.48",
+         "effects" : "shot_large",
+         "maxAmmo" : 112,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#gb_vehicles:_7.2inch_SPG_Howitzer",
+         "rotationSpeed" : "20.0",
+         "maxHealth" : 250,
+         "level" : 9,
+         "reloadTime" : "15.88571428571430",
+         "price" : 230000,
+         "pitchLimits" : "-45 5"
+      },
+      "_183mm_AT_Gun" : {
+         "recoil" : {
+            "returnTime" : "0.6",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.4",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.08"
+         },
+         "maxRegenHealth" : 140,
+         "repairCost" : 12,
+         "weight" : 5400,
+         "aimingTime" : "2.51428571428571",
+         "shots" : {
+            "_183mm_AP_Mk1" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.20",
+               "speed" : 830,
+               "gravity" : "9.81",
+               "piercingPower" : "310 300"
+            },
+            "_183mm_HE_Mk1" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.80",
+               "speed" : 830,
+               "gravity" : "9.81",
+               "piercingPower" : "92 92"
+            },
+            "_183mm_HESH" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.00",
+               "speed" : 830,
+               "gravity" : "9.81",
+               "piercingPower" : "230 230"
+            }
+         },
+         "shotDispersionRadius" : "0.377142857142857",
+         "impulse" : "0.68",
+         "effects" : "shot_huge",
+         "maxAmmo" : 30,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#gb_vehicles:_183mm_AT_Gun",
+         "rotationSpeed" : "23.625",
+         "maxHealth" : 280,
+         "level" : 10,
+         "reloadTime" : "18.2857142857143",
+         "price" : 335000,
+         "pitchLimits" : "-15 10",
+         "notInShop" : true
+      },
+      "_20pdr_Gun_Type_B" : {
+         "recoil" : {
+            "returnTime" : "0.4",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.36",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "3.5",
+            "turretRotation" : "0.1"
+         },
+         "maxRegenHealth" : 95,
+         "repairCost" : 6,
+         "weight" : 1282,
+         "aimingTime" : "2.1",
+         "shots" : {
+            "_20pdr_AP_Mk1" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.8",
+               "speed" : 1020,
+               "gravity" : "9.81",
+               "piercingPower" : "226 211"
+            },
+            "_20pdr_HE_Mk3" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.2",
+               "speed" : 1020,
+               "gravity" : "9.81",
+               "piercingPower" : "42 42"
+            },
+            "_20pdr_APC_Mk2" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 1275,
+               "gravity" : "9.81",
+               "piercingPower" : "258 248"
+            }
+         },
+         "shotDispersionRadius" : "0.36",
+         "impulse" : "0.48",
+         "effects" : "shot_main",
+         "maxAmmo" : 65,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#gb_vehicles:_20pdr_Gun_Type_B",
+         "rotationSpeed" : "40.25",
+         "maxHealth" : 190,
+         "level" : 9,
+         "reloadTime" : "3.25714285714286",
+         "price" : 180000,
+         "pitchLimits" : "-20 12.5"
+      },
+      "_15mm_Machine_gun_BESA" : {
+         "recoil" : {
+            "returnTime" : "0.1",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.2",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "1.1",
+            "turretRotation" : "0.12"
+         },
+         "maxRegenHealth" : 18,
+         "repairCost" : 1,
+         "clip" : {
+            "rate" : 450,
+            "count" : 15
+         },
+         "weight" : 70,
+         "aimingTime" : "0.13714285714286",
+         "shots" : {
+            "_15mm_AP_W_Mk1" : {
+               "maxDistance" : 395,
+               "defaultPortion" : "1.0",
+               "speed" : 884,
+               "gravity" : "9.81",
+               "piercingPower" : "27 19"
+            }
+         },
+         "shotDispersionRadius" : "0.582857142857143",
+         "impulse" : "0.08",
+         "effects" : "shot_auto",
+         "burst" : {
+            "rate" : 450,
+            "count" : 5
+         },
+         "maxAmmo" : 720,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "maxHealth" : 36,
+         "userString" : "#gb_vehicles:_15mm_Machine_gun_BESA",
+         "rotationSpeed" : "43.75",
+         "level" : 1,
+         "reloadTime" : "5.71428571428571",
+         "price" : 1900,
+         "pitchLimits" : "-20 10"
+      },
+      "_76mm_Howitzer_MkI" : {
+         "recoil" : {
+            "returnTime" : "0.4",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.2",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 53,
+         "repairCost" : 5,
+         "weight" : 116,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_76mm_HE_MkI" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "1.0",
+               "speed" : 182,
+               "gravity" : "9.81",
+               "piercingPower" : "38 38"
+            },
+            "_76mm_HEAT_MkI" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 182,
+               "gravity" : "9.81",
+               "piercingPower" : "100 100"
+            }
+         },
+         "shotDispersionRadius" : "0.548571428571429",
+         "impulse" : "0.48",
+         "effects" : "shot_medium",
+         "maxAmmo" : 46,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#gb_vehicles:_76mm_Howitzer_MkI",
+         "rotationSpeed" : "40.25",
+         "maxHealth" : 106,
+         "level" : 4,
+         "reloadTime" : "4.11428571428571",
+         "price" : 30000,
+         "pitchLimits" : "-25 10"
+      },
+      "_120mm_Gun_L1A1" : {
+         "recoil" : {
+            "returnTime" : "0.6",
+            "backoffTime" : "0.2",
+            "amplitude" : "0.24",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.08"
+         },
+         "maxRegenHealth" : 105,
+         "repairCost" : 8,
+         "weight" : 2850,
+         "aimingTime" : "2.62857142857143",
+         "shots" : {
+            "_120mm_APDS_L1A1" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 1334,
+               "gravity" : "9.81",
+               "piercingPower" : "326 298"
+            },
+            "_120mm_AP-T_L1A1" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.60",
+               "speed" : 1067,
+               "gravity" : "9.81",
+               "piercingPower" : "259 239"
+            },
+            "_120mm_HE_L1A1" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.40",
+               "speed" : 1067,
+               "gravity" : "9.81",
+               "piercingPower" : "120 120"
+            }
+         },
+         "shotDispersionRadius" : "0.4",
+         "impulse" : "0.68",
+         "effects" : "shot_large",
+         "maxAmmo" : 35,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#gb_vehicles:_120mm_Gun_L1A1",
+         "rotationSpeed" : "26.25",
+         "maxHealth" : 210,
+         "level" : 10,
+         "reloadTime" : "9.97142857142860",
+         "price" : 300000,
+         "pitchLimits" : "-15 11"
+      },
+      "_32-pounder_AT_Gun_OQF" : {
+         "recoil" : {
+            "returnTime" : "0.36",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.38",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "3.5",
+            "turretRotation" : "0.12"
+         },
+         "maxRegenHealth" : 90,
+         "repairCost" : 7,
+         "weight" : 2972,
+         "aimingTime" : "1.71428571428571",
+         "shots" : {
+            "_32pdr_HE_MkI" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.2",
+               "speed" : 878,
+               "gravity" : "9.81",
+               "piercingPower" : "47 47"
+            },
+            "_32pdr_APCR_MkII" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 1098,
+               "gravity" : "9.81",
+               "piercingPower" : "246 236"
+            },
+            "_32pdr_AP_MkI" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.8",
+               "speed" : 878,
+               "gravity" : "9.81",
+               "piercingPower" : "214 201"
+            }
+         },
+         "shotDispersionRadius" : "0.354285714285714",
+         "impulse" : "0.48",
+         "effects" : "shot_main_mb",
+         "maxAmmo" : 44,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#gb_vehicles:_32-pounder_AT_Gun_OQF",
+         "rotationSpeed" : "35.0",
+         "maxHealth" : 180,
+         "level" : 8,
+         "reloadTime" : "6.85714285714286",
+         "price" : 105000,
+         "pitchLimits" : "-12 10"
+      },
+      "_105mm_Gun_L7" : {
+         "recoil" : {
+            "returnTime" : "0.24",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.24",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.05"
+         },
+         "maxRegenHealth" : 104,
+         "repairCost" : 8,
+         "weight" : 1282,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_105mm_APCR_L7" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.6",
+               "speed" : 1478,
+               "gravity" : "9.81",
+               "piercingPower" : "268 258"
+            },
+            "_105mm_HE_L7" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.4",
+               "speed" : 1173,
+               "gravity" : "9.81",
+               "piercingPower" : "105 105"
+            },
+            "_105mm_HESH_L7" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 1173,
+               "gravity" : "9.81",
+               "piercingPower" : "210 210"
+            }
+         },
+         "shotDispersionRadius" : "0.422857142857143",
+         "impulse" : "0.48",
+         "effects" : "shot_main",
+         "maxAmmo" : 72,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#gb_vehicles:_105mm_Gun_L7",
+         "rotationSpeed" : "35.0",
+         "maxHealth" : 208,
+         "level" : 10,
+         "reloadTime" : "7.5",
+         "price" : 290000,
+         "pitchLimits" : "-20 10"
+      },
+      "_25pdr_AT_Field_Gun" : {
+         "recoil" : {
+            "returnTime" : "0.6",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.6",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "6.4",
+            "turretRotation" : "0.44"
+         },
+         "maxRegenHealth" : 70,
+         "repairCost" : 8,
+         "weight" : 510,
+         "aimingTime" : "5.14285714285714",
+         "shots" : {
+            "_25pdr_AP_Mk_1T_SC" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "1.0",
+               "speed" : 591,
+               "gravity" : "9.81",
+               "piercingPower" : "92 81"
+            },
+            "_25pdr_AP_Mk_1T" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "1.0",
+               "speed" : 472,
+               "gravity" : "9.81",
+               "piercingPower" : "71 63"
+            },
+            "_25pdr_HE_Mk_1D" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "1.0",
+               "speed" : 472,
+               "gravity" : "9.81",
+               "piercingPower" : "44 44"
+            }
+         },
+         "shotDispersionRadius" : "0.46",
+         "impulse" : "0.48",
+         "effects" : "shot_large_mb",
+         "maxAmmo" : 112,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#gb_vehicles:_25pdr_AT_Field_Gun",
+         "rotationSpeed" : "30.625",
+         "maxHealth" : 140,
+         "level" : 5,
+         "reloadTime" : "15.88571428571430",
+         "price" : 40000,
+         "pitchLimits" : "-45 5"
+      },
+      "_75mm_AT_Gun_Mk_V" : {
+         "recoil" : {
+            "returnTime" : "0.4",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.36",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 60,
+         "repairCost" : 5,
+         "weight" : 500,
+         "aimingTime" : "2.05714285714286",
+         "shots" : {
+            "_75mm_AP_Mk1" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.8",
+               "speed" : 619,
+               "gravity" : "9.81",
+               "piercingPower" : "91 79"
+            },
+            "_75mm_HE_Mk2" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.2",
+               "speed" : 619,
+               "gravity" : "9.81",
+               "piercingPower" : "38 38"
+            },
+            "_75mm_APCR_Mk3" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 774,
+               "gravity" : "9.81",
+               "piercingPower" : "144 119"
+            }
+         },
+         "shotDispersionRadius" : "0.457142857142857",
+         "impulse" : "0.48",
+         "effects" : "shot_medium_mb",
+         "maxAmmo" : 46,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#gb_vehicles:_75mm_AT_Gun_Mk_V",
+         "rotationSpeed" : "40.25",
+         "maxHealth" : 120,
+         "level" : 5,
+         "reloadTime" : "3.80571428571429",
+         "price" : 45000,
+         "pitchLimits" : "-25 10"
+      },
+      "QF_2pdr_Littlejohn" : {
+         "recoil" : {
+            "returnTime" : "0.1",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.14",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.08"
+         },
+         "maxRegenHealth" : 35,
+         "repairCost" : 2,
+         "weight" : 175,
+         "aimingTime" : "1.14285714285714",
+         "shots" : {
+            "_2pdr_APSV_Mk.1" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "1.0",
+               "speed" : 1341,
+               "gravity" : "9.81",
+               "piercingPower" : "121 102"
+            },
+            "_2pdr_APSV_Mk.2" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 1341,
+               "gravity" : "9.81",
+               "piercingPower" : "145 122"
+            }
+         },
+         "shotDispersionRadius" : "0.377142857142857",
+         "impulse" : "0.26",
+         "effects" : "shot_medium",
+         "maxAmmo" : 100,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#gb_vehicles:QF_2pdr_Littlejohn",
+         "rotationSpeed" : "43.75",
+         "maxHealth" : 70,
+         "level" : 4,
+         "reloadTime" : "1.2",
+         "price" : 28000,
+         "pitchLimits" : "-25 10"
+      },
+      "_3.7inch_QF_AA_MK_1" : {
+         "recoil" : {
+            "returnTime" : "0.36",
+            "backoffTime" : "0.12",
+            "amplitude" : "0.22",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "3.5",
+            "turretRotation" : "0.12"
+         },
+         "maxRegenHealth" : 80,
+         "repairCost" : 7,
+         "weight" : 1783,
+         "aimingTime" : "1.71428571428571",
+         "shots" : {
+            "_3.7inch_HE" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.2",
+               "speed" : 793,
+               "gravity" : "9.81",
+               "piercingPower" : "47 47"
+            },
+            "_3.7inch_AP" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.8",
+               "speed" : 793,
+               "gravity" : "9.81",
+               "piercingPower" : "151 143"
+            },
+            "_3.7inch_APCR" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 991,
+               "gravity" : "9.81",
+               "piercingPower" : "189 179"
+            }
+         },
+         "shotDispersionRadius" : "0.354285714285714",
+         "impulse" : "0.48",
+         "effects" : "shot_main",
+         "maxAmmo" : 44,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#gb_vehicles:_3.7inch_QF_AA_MK_1",
+         "rotationSpeed" : "35.0",
+         "maxHealth" : 160,
+         "level" : 7,
+         "reloadTime" : "7.54285714285714",
+         "price" : 72000,
+         "pitchLimits" : "-12 10"
+      },
+      "QF_6_pounder_Mk_III" : {
+         "recoil" : {
+            "returnTime" : "0.4",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.18",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.08"
+         },
+         "maxRegenHealth" : 47,
+         "repairCost" : 4,
+         "weight" : 400,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_6pdr_HE_MK_10T" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.2",
+               "speed" : 821,
+               "gravity" : "9.81",
+               "piercingPower" : "30 30"
+            },
+            "_6pdr_AP_MK_1T" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "1.0",
+               "speed" : 821,
+               "gravity" : "9.81",
+               "piercingPower" : "105 81"
+            },
+            "_6pdr_APCR_MK_1T" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 1026,
+               "gravity" : "9.81",
+               "piercingPower" : "170 121"
+            }
+         },
+         "shotDispersionRadius" : "0.43428571428571",
+         "impulse" : "0.26",
+         "effects" : "shot_medium",
+         "maxAmmo" : 92,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#gb_vehicles:QF_6_pounder_Mk_III",
+         "rotationSpeed" : "43.75",
+         "maxHealth" : 94,
+         "level" : 4,
+         "reloadTime" : "2.28571428571429",
+         "price" : 27000,
+         "pitchLimits" : "-12 6"
+      },
+      "QF_6_pounder_Mk_VA" : {
+         "recoil" : {
+            "returnTime" : "0.3",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.35",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.08"
+         },
+         "maxRegenHealth" : 52,
+         "repairCost" : 4,
+         "weight" : 450,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_6pdr_HE_MK_10T" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.2",
+               "speed" : 892,
+               "gravity" : "9.81",
+               "piercingPower" : "30 30"
+            },
+            "_6pdr_AP_MK_1T" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "1.0",
+               "speed" : 892,
+               "gravity" : "9.81",
+               "piercingPower" : "110 95"
+            },
+            "_6pdr_APCR_MK_1T" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 1115,
+               "gravity" : "9.81",
+               "piercingPower" : "180 126"
+            }
+         },
+         "shotDispersionRadius" : "0.434285714285714",
+         "impulse" : "0.26",
+         "effects" : "shot_medium",
+         "maxAmmo" : 92,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#gb_vehicles:QF_6_pounder_Mk_VA",
+         "rotationSpeed" : "43.75",
+         "maxHealth" : 104,
+         "level" : 5,
+         "reloadTime" : "2.28571428571429",
+         "price" : 35000,
+         "pitchLimits" : "-12 6",
+         "notInShop" : true
+      },
+      "_3.7inch_AT_Howitzer" : {
+         "recoil" : {
+            "returnTime" : "0.44",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.2",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.12"
+         },
+         "maxRegenHealth" : 70,
+         "repairCost" : 8,
+         "weight" : 393,
+         "aimingTime" : "1.71428571428571",
+         "shots" : {
+            "_3.7inch_HEAT_Mk1" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 243,
+               "gravity" : "9.81",
+               "piercingPower" : "110 110"
+            },
+            "_3.7inch_HE_Mk3" : {
+               "maxDistance" : 720,
+               "defaultPortion" : 1,
+               "speed" : 243,
+               "gravity" : "9.81",
+               "piercingPower" : "47 47"
+            }
+         },
+         "shotDispersionRadius" : "0.525714285714286",
+         "impulse" : "0.48",
+         "effects" : "shot_main",
+         "maxAmmo" : 46,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#gb_vehicles:_3.7inch_AT_Howitzer",
+         "rotationSpeed" : "35.0",
+         "maxHealth" : 140,
+         "level" : 5,
+         "reloadTime" : "7.42857142857143",
+         "price" : 35000,
+         "pitchLimits" : "-20 10"
+      },
+      "_15mm_Machine_gun_BESA_" : {
+         "recoil" : {
+            "returnTime" : "0.1",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.2",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "1.1",
+            "turretRotation" : "0.12"
+         },
+         "maxRegenHealth" : 18,
+         "repairCost" : 1,
+         "clip" : {
+            "rate" : 430,
+            "count" : 40
+         },
+         "weight" : 70,
+         "aimingTime" : "0.14",
+         "shots" : {
+            "_15mm_AP_W_Mk1" : {
+               "maxDistance" : 395,
+               "defaultPortion" : "1.0",
+               "speed" : 884,
+               "gravity" : "9.81",
+               "piercingPower" : "27 19"
+            }
+         },
+         "shotDispersionRadius" : "0.58",
+         "impulse" : "0.08",
+         "effects" : "shot_auto",
+         "burst" : {
+            "rate" : 430,
+            "count" : 5
+         },
+         "maxAmmo" : 720,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "maxHealth" : 36,
+         "userString" : "#gb_vehicles:_15mm_Machine_gun_BESA",
+         "rotationSpeed" : "43.75",
+         "level" : 1,
+         "reloadTime" : "5.71428571428571",
+         "price" : 1900,
+         "pitchLimits" : "-20 10",
+         "notInShop" : true
+      },
+      "_75mm_Gun_Vickers_HV" : {
+         "recoil" : {
+            "returnTime" : "0.4",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.36",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 65,
+         "repairCost" : 5,
+         "weight" : 591,
+         "aimingTime" : "2.3",
+         "shots" : {
+            "_75mm_AP_HV_Mk1" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.8",
+               "speed" : 785,
+               "gravity" : "9.81",
+               "piercingPower" : "145 135"
+            },
+            "_75mm_HE_HV_Mk2" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.2",
+               "speed" : 785,
+               "gravity" : "9.81",
+               "piercingPower" : "38 38"
+            },
+            "_75mm_APCR_HV_Mk3" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 981,
+               "gravity" : "9.81",
+               "piercingPower" : "202 181"
+            }
+         },
+         "shotDispersionRadius" : "0.36",
+         "impulse" : "0.48",
+         "effects" : "shot_medium_mb",
+         "maxAmmo" : 70,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#gb_vehicles:_75mm_Gun_Vickers_HV",
+         "rotationSpeed" : "40.25",
+         "maxHealth" : 130,
+         "level" : 6,
+         "reloadTime" : 4,
+         "price" : 50000,
+         "pitchLimits" : "-20 5"
+      },
+      "_2pdr_Gun_Mk_IX" : {
+         "recoil" : {
+            "returnTime" : "0.3",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.3",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.08"
+         },
+         "maxRegenHealth" : 33,
+         "repairCost" : 2,
+         "weight" : 130,
+         "aimingTime" : "1.14285714285714",
+         "shots" : {
+            "_2pdr_HE_Mk.2" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 792,
+               "gravity" : "9.81",
+               "piercingPower" : "23 23"
+            },
+            "_2pdr_APCNR_Mk.1" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 990,
+               "gravity" : "9.81",
+               "piercingPower" : "121 104"
+            },
+            "_2pdr_AP_Mk.1T" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "1.0",
+               "speed" : 792,
+               "gravity" : "9.81",
+               "piercingPower" : "64 54"
+            }
+         },
+         "shotDispersionRadius" : "0.377142857142857",
+         "impulse" : "0.26",
+         "effects" : "shot_medium",
+         "maxAmmo" : 100,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#gb_vehicles:_2pdr_Gun_Mk_IX",
+         "rotationSpeed" : "43.75",
+         "maxHealth" : 66,
+         "level" : 3,
+         "reloadTime" : "2.05714285714286",
+         "price" : 6000,
+         "pitchLimits" : "-25 10"
+      },
+      "_9.2inch_SPG_Howitzer" : {
+         "recoil" : {
+            "returnTime" : "0.6",
+            "backoffTime" : "0.2",
+            "amplitude" : "0.28",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "6.4",
+            "turretRotation" : "0.44"
+         },
+         "maxRegenHealth" : 144,
+         "repairCost" : 8,
+         "weight" : 2919,
+         "aimingTime" : "5.14285714285714",
+         "shots" : {
+            "_9.2inch_HE_Mk_18" : {
+               "maxDistance" : 10000,
+               "defaultPortion" : "1.0",
+               "speed" : 395,
+               "gravity" : 155,
+               "piercingPower" : "117 117"
+            },
+            "_9.2inch_HE_Mk_19" : {
+               "maxDistance" : 10000,
+               "defaultPortion" : "0.0",
+               "speed" : 395,
+               "gravity" : 155,
+               "piercingPower" : "117 117"
+            }
+         },
+         "shotDispersionRadius" : "0.46",
+         "impulse" : "0.48",
+         "effects" : "shot_large",
+         "maxAmmo" : 112,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#gb_vehicles:_9.2inch_SPG_Howitzer",
+         "rotationSpeed" : "17.5",
+         "maxHealth" : 288,
+         "level" : 10,
+         "reloadTime" : "15.88571428571430",
+         "price" : 340000,
+         "pitchLimits" : "-45 0.000000",
+         "notInShop" : true
+      },
+      "_3.7inch_Howitzer" : {
+         "recoil" : {
+            "returnTime" : "0.44",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.2",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.12"
+         },
+         "maxRegenHealth" : 70,
+         "repairCost" : 8,
+         "weight" : 393,
+         "aimingTime" : "1.71428571428571",
+         "shots" : {
+            "_3.7inch_HEAT_Mk1" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 243,
+               "gravity" : "9.81",
+               "piercingPower" : "110 110"
+            },
+            "_3.7inch_HE_Mk3" : {
+               "maxDistance" : 720,
+               "defaultPortion" : 1,
+               "speed" : 243,
+               "gravity" : "9.81",
+               "piercingPower" : "47 47"
+            }
+         },
+         "shotDispersionRadius" : "0.525714285714286",
+         "impulse" : "0.48",
+         "effects" : "shot_main",
+         "maxAmmo" : 46,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#gb_vehicles:_3.7inch_Howitzer",
+         "rotationSpeed" : "35.0",
+         "maxHealth" : 140,
+         "level" : 5,
+         "reloadTime" : "7.42857142857143",
+         "price" : 35000,
+         "pitchLimits" : "-20 10"
+      },
+      "_5.5inch_SPG_Gun" : {
+         "recoil" : {
+            "returnTime" : "0.6",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.6",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "6.4",
+            "turretRotation" : "0.44"
+         },
+         "maxRegenHealth" : 90,
+         "repairCost" : 8,
+         "weight" : 1869,
+         "aimingTime" : "5.14285714285714",
+         "shots" : {
+            "_5.5inch_HE_Mk_4" : {
+               "maxDistance" : 10000,
+               "defaultPortion" : "1.0",
+               "speed" : 440,
+               "gravity" : 146,
+               "piercingPower" : "70 70"
+            },
+            "_5.5inch_HE_Mk_5" : {
+               "maxDistance" : 10000,
+               "defaultPortion" : "0.0",
+               "speed" : 440,
+               "gravity" : 146,
+               "piercingPower" : "75 75"
+            }
+         },
+         "shotDispersionRadius" : "0.46",
+         "impulse" : "0.48",
+         "effects" : "shot_large",
+         "maxAmmo" : 112,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#gb_vehicles:_5.5inch_SPG_Gun",
+         "rotationSpeed" : "23.675",
+         "maxHealth" : 180,
+         "level" : 7,
+         "reloadTime" : "15.88571428571430",
+         "price" : 88000,
+         "pitchLimits" : "-45 5"
+      },
+      "_2pdr_AT_Gun_Mk_IX" : {
+         "recoil" : {
+            "returnTime" : "0.3",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.22",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.08"
+         },
+         "maxRegenHealth" : 33,
+         "repairCost" : 2,
+         "weight" : 130,
+         "aimingTime" : "1.14285714285714",
+         "shots" : {
+            "_2pdr_HE_Mk.2" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 792,
+               "gravity" : "9.81",
+               "piercingPower" : "23 23"
+            },
+            "_2pdr_APCNR_Mk.1" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 990,
+               "gravity" : "9.81",
+               "piercingPower" : "121 104"
+            },
+            "_2pdr_AP_Mk.1T" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "1.0",
+               "speed" : 792,
+               "gravity" : "9.81",
+               "piercingPower" : "64 54"
+            }
+         },
+         "shotDispersionRadius" : "0.377142857142857",
+         "impulse" : "0.26",
+         "effects" : "shot_medium",
+         "maxAmmo" : 100,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#gb_vehicles:_2pdr_AT_Gun_Mk_IX",
+         "rotationSpeed" : "43.75",
+         "maxHealth" : 66,
+         "level" : 2,
+         "reloadTime" : "2.05714285714286",
+         "price" : 2000,
+         "pitchLimits" : "-25 10"
+      },
+      "_75mm_Gun_Mk_V_A" : {
+         "recoil" : {
+            "returnTime" : "0.4",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.36",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 60,
+         "repairCost" : 5,
+         "weight" : 500,
+         "aimingTime" : "2.05714285714286",
+         "shots" : {
+            "_75mm_AP_Mk1" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.8",
+               "speed" : 619,
+               "gravity" : "9.81",
+               "piercingPower" : "91 79"
+            },
+            "_75mm_HE_Mk2" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.2",
+               "speed" : 619,
+               "gravity" : "9.81",
+               "piercingPower" : "38 38"
+            },
+            "_75mm_APCR_Mk3" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 774,
+               "gravity" : "9.81",
+               "piercingPower" : "144 119"
+            }
+         },
+         "shotDispersionRadius" : "0.457142857142857",
+         "impulse" : "0.48",
+         "effects" : "shot_medium_mb",
+         "maxAmmo" : 46,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#gb_vehicles:_75mm_Gun_Mk_V",
+         "rotationSpeed" : "40.25",
+         "maxHealth" : 120,
+         "level" : 5,
+         "reloadTime" : "3.80571428571429",
+         "price" : 45000,
+         "pitchLimits" : "-25 10",
+         "notInShop" : true
+      },
+      "QF_6_pounder_Mk_II_AT" : {
+         "recoil" : {
+            "returnTime" : "0.4",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.18",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.08"
+         },
+         "maxRegenHealth" : 47,
+         "repairCost" : 4,
+         "weight" : 400,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_6pdr_HE_MK_10T" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.2",
+               "speed" : 821,
+               "gravity" : "9.81",
+               "piercingPower" : "30 30"
+            },
+            "_6pdr_AP_MK_1T" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "1.0",
+               "speed" : 821,
+               "gravity" : "9.81",
+               "piercingPower" : "105 81"
+            },
+            "_6pdr_APCR_MK_1T" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 1026,
+               "gravity" : "9.81",
+               "piercingPower" : "170 121"
+            }
+         },
+         "shotDispersionRadius" : "0.43428571428571",
+         "impulse" : "0.26",
+         "effects" : "shot_medium",
+         "maxAmmo" : 92,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#gb_vehicles:QF_6_pounder_Mk_II_AT",
+         "rotationSpeed" : "43.75",
+         "maxHealth" : 94,
+         "level" : 4,
+         "reloadTime" : "2.28571428571429",
+         "price" : 25000,
+         "pitchLimits" : "-12 6"
+      },
+      "_13pdr_Gun" : {
+         "recoil" : {
+            "returnTime" : "0.44",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.2",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.24"
+         },
+         "maxRegenHealth" : 42,
+         "repairCost" : 4,
+         "weight" : 305,
+         "aimingTime" : "4.57142857142857",
+         "shots" : {
+            "_13pdr_HE" : {
+               "maxDistance" : 10000,
+               "defaultPortion" : "1.0",
+               "speed" : 265,
+               "gravity" : 138,
+               "piercingPower" : "42 42"
+            }
+         },
+         "shotDispersionRadius" : "0.502857142857143",
+         "impulse" : "0.48",
+         "effects" : "shot_main",
+         "maxAmmo" : 40,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#gb_vehicles:_13pdr_Gun",
+         "rotationSpeed" : "35.0",
+         "maxHealth" : 84,
+         "level" : 2,
+         "reloadTime" : "7.54285714285714",
+         "price" : 2800,
+         "pitchLimits" : "-45 14",
+         "notInShop" : true
+      },
+      "_6inch_SPG_Gun" : {
+         "recoil" : {
+            "returnTime" : "0.6",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.6",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "6.4",
+            "turretRotation" : "0.44"
+         },
+         "maxRegenHealth" : 105,
+         "repairCost" : 8,
+         "weight" : 6960,
+         "aimingTime" : "5.14285714285714",
+         "shots" : {
+            "_6inch_HE" : {
+               "maxDistance" : 10000,
+               "defaultPortion" : "1.0",
+               "speed" : 480,
+               "gravity" : 164,
+               "piercingPower" : "90 90"
+            },
+            "_6inch_AP" : {
+               "maxDistance" : 10000,
+               "defaultPortion" : "0.0",
+               "speed" : 480,
+               "gravity" : 164,
+               "piercingPower" : "258 248"
+            },
+            "_6inch_HE_Mk_6" : {
+               "maxDistance" : 10000,
+               "defaultPortion" : "0.0",
+               "speed" : 480,
+               "gravity" : 164,
+               "piercingPower" : "90 90"
+            }
+         },
+         "shotDispersionRadius" : "0.46",
+         "impulse" : "0.48",
+         "effects" : "shot_large",
+         "maxAmmo" : 112,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#gb_vehicles:_6inch_SPG_Gun",
+         "rotationSpeed" : "22.75",
+         "maxHealth" : 210,
+         "level" : 8,
+         "reloadTime" : "15.88571428571430",
+         "price" : 130000,
+         "pitchLimits" : "-45 5"
+      },
+      "OQF_77mm_AT_Gun_MkII" : {
+         "recoil" : {
+            "returnTime" : "0.4",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.36",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.16"
+         },
+         "maxRegenHealth" : 65,
+         "repairCost" : 5,
+         "weight" : 681,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_77mm_APCBC_Mk8T" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.8",
+               "speed" : 785,
+               "gravity" : "9.81",
+               "piercingPower" : "148 138"
+            },
+            "_77mm_HE_Mk1T" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.2",
+               "speed" : 785,
+               "gravity" : "9.81",
+               "piercingPower" : "38 38"
+            },
+            "_77mm_APDS_Mk1T" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 981,
+               "gravity" : "9.81",
+               "piercingPower" : "208 187"
+            }
+         },
+         "shotDispersionRadius" : "0.434285714285714",
+         "impulse" : "0.48",
+         "effects" : "shot_medium_mb",
+         "maxAmmo" : 70,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#gb_vehicles:OQF_77mm_AT_Gun_MkII",
+         "rotationSpeed" : "40.25",
+         "maxHealth" : 130,
+         "level" : 7,
+         "reloadTime" : "4.22857142857143",
+         "price" : 62000,
+         "pitchLimits" : "-20 5"
+      },
+      "OQF_17pdr_Gun_Mk_VII_A" : {
+         "recoil" : {
+            "returnTime" : "0.4",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.36",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "3.5",
+            "turretRotation" : "0.12"
+         },
+         "maxRegenHealth" : 72,
+         "repairCost" : 5,
+         "weight" : 826,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_17pdr_HE_Mk1T" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.2",
+               "speed" : 884,
+               "gravity" : "9.81",
+               "piercingPower" : "38 38"
+            },
+            "_17pdr_AP_Mk3T" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.8",
+               "speed" : 884,
+               "gravity" : "9.81",
+               "piercingPower" : "171 161"
+            },
+            "_17pdr_APC_Mk4T" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 1105,
+               "gravity" : "9.81",
+               "piercingPower" : "239 218"
+            }
+         },
+         "shotDispersionRadius" : "0.4",
+         "impulse" : "0.48",
+         "effects" : "shot_main_mb",
+         "maxAmmo" : 70,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#gb_vehicles:OQF_17pdr_Gun_Mk_VII",
+         "rotationSpeed" : "40.25",
+         "maxHealth" : 144,
+         "level" : 7,
+         "reloadTime" : "3.25714285714286",
+         "price" : 62000,
+         "pitchLimits" : "-15 7",
+         "notInShop" : true
+      },
+      "_40mm_Pom_Pom" : {
+         "recoil" : {
+            "returnTime" : "0.1",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.14",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.08"
+         },
+         "maxRegenHealth" : 35,
+         "repairCost" : 2,
+         "weight" : 160,
+         "aimingTime" : "1.14285714285714",
+         "shots" : {
+            "_40mm_AP" : {
+               "maxDistance" : 395,
+               "defaultPortion" : "1.0",
+               "speed" : 732,
+               "gravity" : "9.81",
+               "piercingPower" : "49 38"
+            },
+            "_40mm_HE" : {
+               "maxDistance" : 395,
+               "defaultPortion" : "1.0",
+               "speed" : 732,
+               "gravity" : "9.81",
+               "piercingPower" : "23 23"
+            },
+            "_40mm_APCR" : {
+               "maxDistance" : 395,
+               "defaultPortion" : "0.0",
+               "speed" : 915,
+               "gravity" : "9.81",
+               "piercingPower" : "71 61"
+            }
+         },
+         "shotDispersionRadius" : "0.377142857142857",
+         "impulse" : "0.26",
+         "effects" : "shot_medium",
+         "maxAmmo" : 100,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#gb_vehicles:_40mm_Pom_Pom",
+         "rotationSpeed" : "43.75",
+         "maxHealth" : 70,
+         "level" : 4,
+         "reloadTime" : "1.2",
+         "price" : 20000,
+         "pitchLimits" : "-25 10"
+      },
+      "_4.5inch_SPG_Howitzer" : {
+         "recoil" : {
+            "returnTime" : "0.6",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.6",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "6.4",
+            "turretRotation" : "0.44"
+         },
+         "maxRegenHealth" : 75,
+         "repairCost" : 8,
+         "weight" : 463,
+         "aimingTime" : "5.14285714285714",
+         "shots" : {
+            "_4.5inch_HE_Mk_13" : {
+               "maxDistance" : 10000,
+               "defaultPortion" : "1.0",
+               "speed" : 270,
+               "gravity" : 146,
+               "piercingPower" : "57 57"
+            }
+         },
+         "shotDispersionRadius" : "0.46",
+         "impulse" : "0.48",
+         "effects" : "shot_large",
+         "maxAmmo" : 112,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#gb_vehicles:_4.5inch_SPG_Howitzer",
+         "rotationSpeed" : "26.25",
+         "maxHealth" : 150,
+         "level" : 5,
+         "reloadTime" : "15.88571428571430",
+         "price" : 43000,
+         "pitchLimits" : "-45 5"
+      },
+      "_25pdr_Field_Gun" : {
+         "recoil" : {
+            "returnTime" : "0.6",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.6",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "6.4",
+            "turretRotation" : "0.44"
+         },
+         "maxRegenHealth" : 65,
+         "repairCost" : 8,
+         "weight" : 510,
+         "aimingTime" : "5.14285714285714",
+         "shots" : {
+            "_25pdr_AP_Mk_1T" : {
+               "maxDistance" : 10000,
+               "defaultPortion" : "0.0",
+               "speed" : 410,
+               "gravity" : 160,
+               "piercingPower" : "71 63"
+            },
+            "_25pdr_AP_Mk_1T_SC" : {
+               "maxDistance" : 10000,
+               "defaultPortion" : "0.0",
+               "speed" : 410,
+               "gravity" : 160,
+               "piercingPower" : "92 81"
+            },
+            "_25pdr_HE_Mk_1D" : {
+               "maxDistance" : 10000,
+               "defaultPortion" : "1.0",
+               "speed" : 410,
+               "gravity" : 160,
+               "piercingPower" : "44 44"
+            }
+         },
+         "shotDispersionRadius" : "0.46",
+         "impulse" : "0.48",
+         "effects" : "shot_large_mb",
+         "maxAmmo" : 112,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#gb_vehicles:_25pdr_Field_Gun",
+         "rotationSpeed" : "30.625",
+         "maxHealth" : 130,
+         "level" : 4,
+         "reloadTime" : "15.88571428571430",
+         "price" : 22850,
+         "pitchLimits" : "-45 5",
+         "notInShop" : true
+      },
+      "OQF_17pdr_Gun_Mk_VII" : {
+         "recoil" : {
+            "returnTime" : "0.4",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.36",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "3.5",
+            "turretRotation" : "0.12"
+         },
+         "maxRegenHealth" : 72,
+         "repairCost" : 5,
+         "weight" : 826,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_17pdr_HE_Mk1T" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.2",
+               "speed" : 884,
+               "gravity" : "9.81",
+               "piercingPower" : "38 38"
+            },
+            "_17pdr_AP_Mk3T" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.8",
+               "speed" : 884,
+               "gravity" : "9.81",
+               "piercingPower" : "171 161"
+            },
+            "_17pdr_APC_Mk4T" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 1105,
+               "gravity" : "9.81",
+               "piercingPower" : "239 218"
+            }
+         },
+         "shotDispersionRadius" : "0.4",
+         "impulse" : "0.48",
+         "effects" : "shot_main_mb",
+         "maxAmmo" : 70,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#gb_vehicles:OQF_17pdr_Gun_Mk_VII",
+         "rotationSpeed" : "40.25",
+         "maxHealth" : 144,
+         "level" : 7,
+         "reloadTime" : "3.25714285714286",
+         "price" : 70000,
+         "pitchLimits" : "-15 7"
+      },
+      "QF_6_pounder_Mk_III_AT" : {
+         "recoil" : {
+            "returnTime" : "0.4",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.18",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.08"
+         },
+         "maxRegenHealth" : 47,
+         "repairCost" : 4,
+         "weight" : 400,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_6pdr_HE_MK_10T" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.2",
+               "speed" : 821,
+               "gravity" : "9.81",
+               "piercingPower" : "30 30"
+            },
+            "_6pdr_AP_MK_1T" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "1.0",
+               "speed" : 821,
+               "gravity" : "9.81",
+               "piercingPower" : "105 81"
+            },
+            "_6pdr_APCR_MK_1T" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 1026,
+               "gravity" : "9.81",
+               "piercingPower" : "170 121"
+            }
+         },
+         "shotDispersionRadius" : "0.43428571428571",
+         "impulse" : "0.26",
+         "effects" : "shot_medium",
+         "maxAmmo" : 92,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#gb_vehicles:QF_6_pounder_Mk_III_AT",
+         "rotationSpeed" : "43.75",
+         "maxHealth" : 94,
+         "level" : 4,
+         "reloadTime" : "2.28571428571429",
+         "price" : 27000,
+         "pitchLimits" : "-12 6"
+      },
+      "QF_6_pounder_8cwt_Mk_II" : {
+         "recoil" : {
+            "returnTime" : "0.3",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.35",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.08"
+         },
+         "maxRegenHealth" : 42,
+         "repairCost" : 4,
+         "weight" : 300,
+         "aimingTime" : "2.28571428571429",
+         "shots" : {
+            "_6pdr_AP_Steel_HSCT" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "1.0",
+               "speed" : 459,
+               "gravity" : "9.81",
+               "piercingPower" : "45 32"
+            },
+            "_6pdr_AP_Steel_NF" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 574,
+               "gravity" : "9.81",
+               "piercingPower" : "57 45"
+            },
+            "_6pdr_HE_Common" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.2",
+               "speed" : 459,
+               "gravity" : "9.81",
+               "piercingPower" : "29 29"
+            }
+         },
+         "shotDispersionRadius" : "0.434285714285714",
+         "impulse" : "0.26",
+         "effects" : "shot_medium",
+         "maxAmmo" : 92,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#gb_vehicles:QF_6_pounder_8cwt_Mk_II",
+         "rotationSpeed" : "43.75",
+         "maxHealth" : 84,
+         "level" : 2,
+         "reloadTime" : "2.28571428571429",
+         "price" : 3000,
+         "pitchLimits" : "-12 6"
+      },
+      "_40mm_Bofors_MkI" : {
+         "recoil" : {
+            "returnTime" : "0.3",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.3",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "4.0",
+            "turretRotation" : "0.08"
+         },
+         "maxRegenHealth" : 35,
+         "repairCost" : 2,
+         "weight" : 470,
+         "aimingTime" : "1.14",
+         "shots" : {
+            "_40mm_SAP" : {
+               "maxDistance" : 395,
+               "defaultPortion" : "1.0",
+               "speed" : 829,
+               "gravity" : "9.81",
+               "piercingPower" : "63 53"
+            },
+            "_40mm_APHV" : {
+               "maxDistance" : 395,
+               "defaultPortion" : "0.0",
+               "speed" : 1036,
+               "gravity" : "9.81",
+               "piercingPower" : "101 88"
+            },
+            "_40mm_Mk2T" : {
+               "maxDistance" : 395,
+               "defaultPortion" : "1.0",
+               "speed" : 829,
+               "gravity" : "9.81",
+               "piercingPower" : "23 23"
+            }
+         },
+         "shotDispersionRadius" : "0.377142857142857",
+         "impulse" : "0.26",
+         "effects" : "shot_medium",
+         "maxAmmo" : 100,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#gb_vehicles:_40mm_Bofors_MkI",
+         "rotationSpeed" : "43.75",
+         "maxHealth" : 70,
+         "level" : 4,
+         "reloadTime" : "1.2",
+         "price" : 24000,
+         "pitchLimits" : "-25 10"
+      },
+      "_20pdr_AT_Gun_Type_B" : {
+         "recoil" : {
+            "returnTime" : "0.4",
+            "backoffTime" : "0.1",
+            "amplitude" : "0.36",
+            "lodDist" : "MEDIUM"
+         },
+         "shotDispersionFactors" : {
+            "whileGunDamaged" : "2.0",
+            "afterShot" : "3.5",
+            "turretRotation" : "0.1"
+         },
+         "maxRegenHealth" : 95,
+         "repairCost" : 6,
+         "weight" : 1282,
+         "aimingTime" : "2.1",
+         "shots" : {
+            "_20pdr_AP_Mk1" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.8",
+               "speed" : 1020,
+               "gravity" : "9.81",
+               "piercingPower" : "226 211"
+            },
+            "_20pdr_HE_Mk3" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.2",
+               "speed" : 1020,
+               "gravity" : "9.81",
+               "piercingPower" : "42 42"
+            },
+            "_20pdr_APC_Mk2" : {
+               "maxDistance" : 720,
+               "defaultPortion" : "0.0",
+               "speed" : 1275,
+               "gravity" : "9.81",
+               "piercingPower" : "258 248"
+            }
+         },
+         "shotDispersionRadius" : "0.36",
+         "impulse" : "0.48",
+         "effects" : "shot_main",
+         "maxAmmo" : 65,
+         "tags" : {},
+         "turretYawLimits" : "-180 180",
+         "userString" : "#gb_vehicles:_20pdr_AT_Gun_Type_B",
+         "rotationSpeed" : "40.25",
+         "maxHealth" : 190,
+         "level" : 9,
+         "reloadTime" : "3.25714285714286",
+         "price" : 180000,
+         "pitchLimits" : "-20 12.5"
+      }
+   },
+   "ids" : {
+      "_3inch_20_cwt_MkIII_AT_Gun" : 56,
+      "QF_6_pounder_Mk_V" : 15,
+      "_18_pdr_SPG_Gun" : 62,
+      "_17pdr_OQF_AT_1" : 49,
+      "_20pdr_AT_Gun_Type_A" : 48,
+      "_2pdr_Gun_Mk_X" : 40,
+      "OQF_77mm_Gun_MkII" : 30,
+      "QF_6_pounder_8cwt_Mk_II_AT" : 46,
+      "QF_6_pounder_8cwt_Mk_I_AT" : 44,
+      "_20pdr_Gun_Type_A" : 28,
+      "_17pdr_OQF_AT" : 37,
+      "QF_6_pounder_8cwt_Mk_I" : 11,
+      "QF_6_pounder_Mk_V_AT" : 51,
+      "OQF_3pdr_Gun" : 10,
+      "OQF_25pdr_Gun_Mk_II" : 26,
+      "_75mm_Gun_Mk_V" : 18,
+      "QF_6_pounder_Mk_IV_AT" : 55,
+      "_120mm_AT_Gun_L1A1" : 42,
+      "_3pdr_gun_Hotchkiss" : 4,
+      "_7.2inch_SPG_Howitzer" : 66,
+      "_183mm_AT_Gun" : 54,
+      "_20pdr_Gun_Type_B" : 32,
+      "_15mm_Machine_gun_BESA" : 5,
+      "_76mm_Howitzer_MkI" : 13,
+      "_75mm_AT_Gun_Mk_V" : 58,
+      "_25pdr_AT_Field_Gun" : 53,
+      "_32-pounder_AT_Gun_OQF" : 1,
+      "_120mm_Gun_L1A1" : 29,
+      "_105mm_Gun_L7" : 33,
+      "QF_2pdr_Littlejohn" : 39,
+      "_3.7inch_QF_AA_MK_1" : 57,
+      "QF_6_pounder_Mk_III" : 14,
+      "QF_6_pounder_Mk_VA" : 3,
+      "_3.7inch_AT_Howitzer" : 52,
+      "_15mm_Machine_gun_BESA_" : 68,
+      "_75mm_Gun_Vickers_HV" : 38,
+      "_2pdr_Gun_Mk_IX" : 12,
+      "_9.2inch_SPG_Howitzer" : 67,
+      "_3.7inch_Howitzer" : 17,
+      "_5.5inch_SPG_Gun" : 64,
+      "_2pdr_AT_Gun_Mk_IX" : 43,
+      "_75mm_Gun_Mk_V_A" : 59,
+      "_13pdr_Gun" : 60,
+      "QF_6_pounder_Mk_II_AT" : 45,
+      "_6inch_SPG_Gun" : 65,
+      "OQF_77mm_AT_Gun_MkII" : 47,
+      "_40mm_Pom_Pom" : 31,
+      "OQF_17pdr_Gun_Mk_VII_A" : 36,
+      "_4.5inch_SPG_Howitzer" : 63,
+      "_25pdr_Field_Gun" : 61,
+      "QF_6_pounder_Mk_III_AT" : 50,
+      "OQF_17pdr_Gun_Mk_VII" : 25,
+      "QF_6_pounder_8cwt_Mk_II" : 6,
+      "_40mm_Bofors_MkI" : 35,
+      "_20pdr_AT_Gun_Type_B" : 41
+   }
+}

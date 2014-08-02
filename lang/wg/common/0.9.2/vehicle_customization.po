@@ -1,0 +1,2479 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: World Of Tanks\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-06-01 10:00+0300\n"
+"Last-Translator: i_maliavko <i_maliavko@wargaming.net>\n"
+"Language-Team: WoT Team <noreply@wargaming.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "IGR/free/cut"
+msgstr "Free"
+
+msgid "IGR/free/full"
+msgstr "Free"
+
+msgid "camouflage/IGR_Ch_Desert"
+msgstr ""
+"Chinese variant of the Flecktarn pattern\n"
+"(from 2003)\n"
+"Used by the frontier forces in Tibet and on the Chinese-Russian border."
+
+msgid "camouflage/IGR_Ch_Summer"
+msgstr ""
+"Summer universal Type 07 camouflage\n"
+"(from 2007)\n"
+"Chinese variant of a digital pattern used by the PLA."
+
+msgid "camouflage/IGR_Ch_Winter"
+msgstr ""
+"Winter variant of the Type 07 camouflage\n"
+"(from 2008)\n"
+"Used by the PLA mainly in mountainous area."
+
+msgid "camouflage/IGR_Desert"
+msgstr ""
+"Korean variant of the camouflage pattern of the M81 Woodland of the U.S. "
+"Army\n"
+"(from the 1960s to the 1980s)\n"
+"Used by the Army of the Republic of Korea in several climatic\n"
+"and seasonal variants with different color patterns."
+
+msgid "camouflage/IGR_K_Desert"
+msgstr ""
+"Desert camouflage\n"
+"(2004)\n"
+"Developed in the Republic of Korea by replacing the colors of the summer "
+"camouflage. Used by Korean forces in Afghanistan."
+
+msgid "camouflage/IGR_K_Summer"
+msgstr ""
+"Camouflage unofficially designated as “swirl”, “spaghetti”, or “waves”\n"
+"(late 1960s through late 1980s)\n"
+"Used by the special operations forces of the Republic of Korea."
+
+msgid "camouflage/IGR_K_Winter"
+msgstr ""
+"Winter variant of “tortoise shell” camouflage pattern\n"
+"(1980s)\n"
+"Used by the Republic of Korea Marine Corps."
+
+msgid "camouflage/IGR_Summer"
+msgstr ""
+"Summer camouflage of the Marines of the Republic of Korea\n"
+"(from mid-1970s through early 1980s)\n"
+"The \"puzzle\" pattern was used."
+
+msgid "camouflage/IGR_Winter"
+msgstr ""
+"Winter camouflage of the Naval Landing Forces of the Republic of Korea\n"
+"(from February 2013) \n"
+"First used during combined training with American forces."
+
+msgid "camouflage/bicolor"
+msgstr "Two-tone"
+
+msgid "camouflage/china/bicolor/china_historical_01"
+msgstr ""
+"Trimmed camouflage\n"
+"(1950s)\n"
+"A variation of the PLA (People's Liberation Army) multicolor camouflage."
+
+msgid "camouflage/china/bicolor/china_historical_02"
+msgstr ""
+"Two-tone disruptive camouflage\n"
+"(late 1940s through 1950s)\n"
+"Early camouflage type introduced by the PLA."
+
+msgid "camouflage/china/bicolor/china_historical_03"
+msgstr ""
+"Two-tone winter camouflage\n"
+"(late 1940s through early 1950s)\n"
+"White stripes on the standard background."
+
+msgid "camouflage/china/bicolor/china_historical_04"
+msgstr ""
+"Dark disruptive camouflage\n"
+"(1950s)\n"
+"Early camouflage type introduced by the PLA."
+
+msgid "camouflage/china/bicolor/china_historical_13"
+msgstr ""
+"Two-tone disruptive camouflage\n"
+"(1980s)\n"
+"A scheme used in the south of China in spring and fall."
+
+msgid "camouflage/china/bicolor/china_historical_desert"
+msgstr ""
+"Multicolor desert camouflage\n"
+"(from late 1980s)\n"
+"Late dazzle patterned camouflage type for desert regions."
+
+msgid "camouflage/china/bicolor/china_historical_winter_1"
+msgstr ""
+"Winter white camouflage\n"
+"(late 1940s through late 1950s)\n"
+"A vehicle was painted white with lime or other dye."
+
+msgid "camouflage/china/bicolor/china_historical_winter_2"
+msgstr ""
+"Two-tone winter camouflage\n"
+"(1950s through 1960s)\n"
+"White paint was applied in such manner that the background color took the "
+"form of stripes and spots."
+
+msgid "camouflage/china/tricolor/china_historical_05"
+msgstr ""
+"Late three-tone camouflage\n"
+"(until late 1980s)\n"
+"The PLA's basic three-tone camouflage."
+
+msgid "camouflage/china/tricolor/china_historical_06"
+msgstr ""
+"Early multicolor camouflage\n"
+"(from mid-1950s)\n"
+"Black spots and light-colored stripes on the basic background."
+
+msgid "camouflage/china/tricolor/china_historical_07"
+msgstr ""
+"Light disruptive camouflage\n"
+"(from mid-1950s)\n"
+"Late variant of the PLA's two-tone camouflage."
+
+msgid "camouflage/china/tricolor/china_historical_08"
+msgstr ""
+"\"Large spots\" camouflage\n"
+"(late 1960s to present)\n"
+"Still in use."
+
+msgid "camouflage/china/tricolor/china_historical_09"
+msgstr ""
+"Three-tone camouflage\n"
+"(from 1980s)\n"
+"Used in the north of China, especially in summer."
+
+msgid "camouflage/china/tricolor/china_historical_10"
+msgstr ""
+"Three-tone camouflage\n"
+"(from 1990s)\n"
+"Used in the north-east of China, especially in summer."
+
+msgid "camouflage/china/tricolor/china_historical_11"
+msgstr ""
+"Three-tone desert camouflage\n"
+"Green stripes of different toning on the yellow background.\n"
+"Used by the PLA until the beginning of the 21st century."
+
+msgid "camouflage/china/tricolor/china_historical_12"
+msgstr ""
+"Three-tone camouflage\n"
+"(from 1980s)\n"
+"Used in the south of China, especially in summer."
+
+msgid "camouflage/china/tricolor/china_historical_14"
+msgstr ""
+"Three-tone digital camouflage\n"
+"Geometric colored spots divide a vehicle silhouette into fragments. Still in "
+"use."
+
+msgid "camouflage/default"
+msgstr "Default"
+
+msgid "camouflage/desert"
+msgstr "Desert"
+
+msgid "camouflage/france/bicolor/Winter"
+msgstr ""
+"Winter white camouflage\n"
+"Winter pattern was applied to captured French vehicles fought with the Axis "
+"armored forces on the Eastern front."
+
+msgid "camouflage/france/bicolor/franch_1"
+msgstr ""
+"Early two-tone camouflage\n"
+"(1918 through 1940)\n"
+"Used during World War I and the interwar period, until the invasion of "
+"France."
+
+msgid "camouflage/france/bicolor/franch_4"
+msgstr ""
+"Late two-tone camouflage\n"
+"(1930s)\n"
+"Used until the invasion of France."
+
+msgid "camouflage/france/bicolor/franch_5"
+msgstr ""
+"Winter camouflage\n"
+"(fall 1925)\n"
+"The French did not have original winter patterns. However, in South Africa "
+"they used light grey stripes on the basic background."
+
+msgid "camouflage/france/tricolor/Branches_and_Leaves"
+msgstr ""
+"\"Green grove\"\n"
+"(spring through summer 1940)\n"
+"Experimental camouflage.\n"
+"Used by the 8th Tank Battalion."
+
+msgid "camouflage/france/tricolor/Geometric_Shapes"
+msgstr ""
+"Two-tone black-striped fragment camouflage\n"
+"(1919)\n"
+"An early camouflage of the French armored forces."
+
+msgid "camouflage/france/tricolor/Gyrus"
+msgstr ""
+"Three-tone camouflage with wide intertwining strips\n"
+"(1999)\n"
+"Camouflage of the French peacekeeping forces."
+
+msgid "camouflage/france/tricolor/franch_10"
+msgstr ""
+"Three-tone trimmed camouflage\n"
+"(1939 through 1940)\n"
+"Used during the pre-war period and the first years of World War II."
+
+msgid "camouflage/france/tricolor/franch_2"
+msgstr ""
+"Trimmed camouflage\n"
+"(1939)\n"
+"Spots with a black-colored braid. A scheme without separating lines was "
+"adopted in 1940."
+
+msgid "camouflage/france/tricolor/franch_3"
+msgstr ""
+"Late trimmed camouflage\n"
+"(late 1930s through early 1940s)\n"
+"The pattern with braids existed until 1940."
+
+msgid "camouflage/france/tricolor/franch_6"
+msgstr ""
+"Three-tone camouflage\n"
+"(1918 through 1920)\n"
+"The camouflage was used during World War I and the post-war period."
+
+msgid "camouflage/france/tricolor/franch_7"
+msgstr ""
+"Early diagonal camouflage\n"
+"(1918 through 1920)\n"
+"The camouflage was used during World War I and the post-war period."
+
+msgid "camouflage/france/tricolor/franch_8"
+msgstr ""
+"Three-tone disruptive camouflage\n"
+"(1918 through 1920s)\n"
+"The camouflage was used during World War I and the post-war period."
+
+msgid "camouflage/france/tricolor/franch_9"
+msgstr ""
+"Brown spots with black braid on the green background\n"
+"(1939)\n"
+"Another variant of the basic pre-war camouflage.\n"
+"In 1940, a scheme without braid was adopted."
+
+msgid "camouflage/germany/bicolor/Dark_Spots"
+msgstr ""
+"Three-tone disruptive camouflage\n"
+"(July 1943)\n"
+"Used by the 19th Tank Division during Operation Citadel on the Eastern Front."
+
+msgid "camouflage/germany/bicolor/Diagonal_Stripes"
+msgstr ""
+"Three-tone diagonal camouflage\n"
+"(spring through summer 1944)\n"
+"Used by armored units during the Normandy Campaign."
+
+msgid "camouflage/germany/bicolor/Feldgrau"
+msgstr ""
+"Pre-war camouflage\n"
+"(1935 through 1940)\n"
+"Brown stripes on the basic dark grey background.\n"
+"However, from 1940 only the dark grey pattern was used."
+
+msgid "camouflage/germany/bicolor/GrayZigzag"
+msgstr ""
+"Early desert camouflage\n"
+"(1941 through 1942)\n"
+"Light yellow-brown paint on a dark grey background.\n"
+"The background bled through the paint in the form of spots or stripes."
+
+msgid "camouflage/germany/bicolor/Polylines"
+msgstr ""
+"Two-tone diagonal camouflage\n"
+"(summer 1944)\n"
+"Used by the 3d Wehrmacht Tank Army in Lithuania."
+
+msgid "camouflage/germany/bicolor/RedClouds"
+msgstr ""
+"Camouflage \"Spots\"\n"
+"(1943 through 1944)\n"
+"Brown spots on the basic light yellow-brown background.\n"
+"Used on all fronts."
+
+msgid "camouflage/germany/bicolor/WhiteDiagonal"
+msgstr ""
+"Winter two-tone camouflage\n"
+"(winter 1941 through 1943)\n"
+"White paint on a dark grey background.\n"
+"Used on the Eastern Front."
+
+msgid "camouflage/germany/bicolor/Winter"
+msgstr ""
+"Winter white camouflage\n"
+"As white dry paint was not produced in Germany, all kinds of white dyes were "
+"used instead.\n"
+"There were no rules or regulations how to apply winter camouflage."
+
+msgid "camouflage/germany/bicolor/YellowBacillus"
+msgstr ""
+"Yellow-brown camouflage \"Stripes and spots\"\n"
+"(1943 through 1945)\n"
+"A variation of the camouflage with brown stripes\n"
+"and spots on the yellow background."
+
+msgid "camouflage/germany/tricolor/Branch"
+msgstr ""
+"Three-tone camouflage \"Threads\"\n"
+"(1944)\n"
+"Brown and dark-green stripes on the basic background.\n"
+"The scheme was widely used by German divisions towards the end of World War "
+"II."
+
+msgid "camouflage/germany/tricolor/Honeycomb"
+msgstr ""
+"\"Large spots\" three-tone camouflage\n"
+"(1944)\n"
+"Brown spots with grey trim on the basic background.\n"
+"At the end of the war, due to the shortage of gasoline, dry pigments were "
+"mixed with water instead of gasoline, making the background more pale and "
+"transparent."
+
+msgid "camouflage/germany/tricolor/Ragged_Patches"
+msgstr ""
+"Three-tone \"large spots\" camouflage\n"
+"(1944 through 1945)\n"
+"Dark-green and brown spots on the basic background.\n"
+"The scheme was used on the Western Front."
+
+msgid "camouflage/germany/tricolor/SnowOnBands"
+msgstr ""
+"Multicolor light zebra camouflage\n"
+"(1944 through 1945)\n"
+"It was also called \"ambush\" camouflage and was used on all fronts."
+
+msgid "camouflage/germany/tricolor/SnowOnSpots"
+msgstr ""
+"Multicolor dark disruptive camouflage\n"
+"(1944 through 1945)\n"
+"It was also called \"ambush\" camouflage and was used on all fronts."
+
+msgid "camouflage/germany/tricolor/Spots"
+msgstr ""
+"Three-tone field camouflage\n"
+"(1944)\n"
+"Small green and brown spots on the basic background."
+
+msgid "camouflage/historical"
+msgstr "Historical"
+
+msgid "camouflage/japan/desert_blue-brown"
+msgstr ""
+"Imperial Navy camouflage\n"
+"(from 1930s)\n"
+"Grey-blue aquamarine dye was applied on amphibious vehicles of the Imperial "
+"Navy.\n"
+"To improve camouflage, irregularly shaped spots and stripes were applied,\n"
+"in colors depending on the area of operations — in this case, ochre."
+
+msgid "camouflage/japan/desert_green-brown_spots"
+msgstr ""
+"Three-tone disruptive camouflage\n"
+"(1930s and from 1945)\n"
+"Green and brown spots applied on khaki-colored background.\n"
+"From 1945 light green was used instead of khaki.\n"
+"The first camouflage pattern is still in use."
+
+msgid "camouflage/japan/summer_four-color"
+msgstr ""
+"Three-tone trimmed camouflage\n"
+"(1930s through 1942)\n"
+"Brown-green-yellow camouflage with black or brown trim.\n"
+"Later, yellow color was discontinued.\n"
+"However, the pattern was used in China and Manchuria until 1945."
+
+msgid "camouflage/japan/summer_three-color_spots"
+msgstr ""
+"Three-tone mountain camouflage\n"
+"(1940s)\n"
+"Used in the mountainous areas of China."
+
+msgid "camouflage/japan/winter_spots"
+msgstr ""
+"White disruptive camouflage\n"
+"(from 1945)\n"
+"White spots on the basic background.\n"
+"Nowadays, spots of regular shapes and various sizes are applied."
+
+msgid "camouflage/japan/winter_white"
+msgstr ""
+"“Off-white” camouflage\n"
+"(1942 through 1945)\n"
+"In North China, vehicles were painted white.\n"
+"The dye was rubbed on standard summer camouflage."
+
+msgid "camouflage/summer"
+msgstr "Summer"
+
+msgid "camouflage/tricolor"
+msgstr "Multicolor"
+
+msgid "camouflage/uk/bicolor/LRDG"
+msgstr ""
+"LRDG camouflage\n"
+"(1941 through 1942)\n"
+"A pattern used by the Long Range Desert Group."
+
+msgid "camouflage/uk/bicolor/bicolor_classic"
+msgstr ""
+"Two-tone plain camouflage\n"
+"(1941 through 1943)\n"
+"Used by the 22nd Tank Brigade regiments."
+
+msgid "camouflage/uk/bicolor/desert_splintered"
+msgstr ""
+"\"Splinter pattern\" camouflage\n"
+"(1941 through 1943)\n"
+"Brown spots on the basic background split the vehicle silhouette into "
+"separate polygons."
+
+msgid "camouflage/uk/bicolor/grassy_green"
+msgstr ""
+"Forest green camouflage\n"
+"(1940)\n"
+"Used in Europe."
+
+msgid "camouflage/uk/bicolor/large-Mickey_Mouse_ears"
+msgstr ""
+"Winter white camouflage\n"
+"(winter 1944 through 1945)\n"
+"Paint spots on the white background."
+
+msgid "camouflage/uk/bicolor/winter"
+msgstr ""
+"Winter white camouflage\n"
+"(winter 1944 through 1945)\n"
+"All kinds of white dyes were in use. There were no rules or regulations\n"
+"how to apply winter camouflage. Every crew made their own choice."
+
+msgid "camouflage/uk/tricolor/large-spotted"
+msgstr ""
+"Desert combined camouflage\n"
+"(1941 through 1943)\n"
+"Used during the North African Campaign."
+
+msgid "camouflage/uk/tricolor/sophisticated_bicolor"
+msgstr ""
+"Striped camouflage\n"
+"(1941)\n"
+"Used in the U.K."
+
+msgid "camouflage/uk/tricolor/stains_with_notches"
+msgstr ""
+"\"Trimmed spots\" camouflage\n"
+"(1941 through 1943)\n"
+"Large brown spots with double black-and-white trim on a yellow backround.\n"
+"Used in North Africa."
+
+msgid "camouflage/uk/tricolor/tricolor_canadian"
+msgstr ""
+"Canadian camouflage\n"
+"(1942)\n"
+"Used by the 1st Canadian Army Tank Brigade in the Dieppe Raid."
+
+msgid "camouflage/uk/tricolor/tricolor_classic"
+msgstr ""
+"Three-tone universal camouflage\n"
+"(1942 through 1945)\n"
+"Used during the closing stage of World War II."
+
+msgid "camouflage/uk/tricolor/tricolor_diagonal"
+msgstr ""
+"\"Stripes\" camouflage\n"
+"(1942)\n"
+"Based on the dazzle pattern accepted by the Navy.\n"
+"Used in North Africa."
+
+msgid "camouflage/usa/bicolor/BretagneSky"
+msgstr ""
+"Winter camouflage\n"
+"(1941 through 1945)\n"
+"Initially, a variety of white substances were used,\n"
+"including chalk, lime and even salt.\n"
+"The dark olive background color took the form of stripes and spots."
+
+msgid "camouflage/usa/bicolor/GuamBicolor"
+msgstr ""
+"Tropical two-tone camouflage\n"
+"(1942 through 1945)\n"
+"Used at the Pacific Theatre of operations, in particular on Guam and Okinawa."
+
+msgid "camouflage/usa/bicolor/IvozimaBicolor"
+msgstr ""
+"Desert two-tone camouflage\n"
+"(1943 through 1945)\n"
+"Used in North Africa and Sicily, as well as in the Pacific Theatre of "
+"operations, in particular on Iwo Jima."
+
+msgid "camouflage/usa/bicolor/Membane"
+msgstr ""
+"\"Zigzag\" camouflage\n"
+"(1943 through 1944)\n"
+"Used in Italy and Sicily.\n"
+"Dirty yellow stripes on a dark olive background."
+
+msgid "camouflage/usa/bicolor/WhiteScar"
+msgstr ""
+"\"Stripe\" camouflage\n"
+"(February 1944)\n"
+"Used by the 4th Marine Regiment in the Pacific Theatre."
+
+msgid "camouflage/usa/bicolor/Winter"
+msgstr ""
+"Winter white camouflage\n"
+"(winter 1944 through 1945)\n"
+"All kinds of white dyes were in use. There were no rules or regulations\n"
+"how to apply winter camouflage. Every crew made their own choice."
+
+msgid "camouflage/usa/tricolor/IvozimaTricolor"
+msgstr ""
+"Tropical multicolor camouflage\n"
+"(February 1944)\n"
+"Used on Iwo Jima and in other combat operations in the Pacific Theatre."
+
+msgid "camouflage/usa/tricolor/OldschoolUsa"
+msgstr ""
+"Early camouflage\n"
+"(1917 through 1918)\n"
+"A French camouflage pattern, adopted by U.S. units during World War I."
+
+msgid "camouflage/usa/tricolor/RudesheimTricolor"
+msgstr ""
+"European three-tone camouflage\n"
+"(1944 through 1945)\n"
+"Often applied over all the equipment and spare parts carried on the vehicle."
+
+msgid "camouflage/usa/tricolor/Tri-color_Spotted"
+msgstr ""
+"Tropical three-tone camouflage.\n"
+"Yellow-green and brown paint on the basic background."
+
+msgid "camouflage/usa/tricolor/Tropical_tricolor"
+msgstr ""
+"Tropical three-tone camouflage\n"
+"(1943 through 1945)\n"
+"Used in the Pacific Theatre."
+
+msgid "camouflage/ussr/bicolor/Band"
+msgstr ""
+"Three-tone \"large spots\" camouflage\n"
+"(late 1950s)\n"
+"Used by the South-West Special Military Force."
+
+msgid "camouflage/ussr/bicolor/Branches"
+msgstr ""
+"\"Tree branches\" camouflage\n"
+"(1944)\n"
+"Used in the 6th Tank Army."
+
+msgid "camouflage/ussr/bicolor/BrownStains"
+msgstr ""
+"Summer two-tone camouflage\n"
+"(1944 through 1945)\n"
+"Used by the 334th Heavy SPG Regiment.\n"
+"Brown stripes on a dark green background."
+
+msgid "camouflage/ussr/bicolor/Brown_Spots"
+msgstr ""
+"Three-tone disruptive camouflage.\n"
+"Widely used in the summer of 1941."
+
+msgid "camouflage/ussr/bicolor/Katukov"
+msgstr ""
+"\"Katukovsky\" winter camouflage\n"
+"(winter 1941 through 1942)\n"
+"Used in the 1st Guards Brigade.\n"
+"Though the pattern is associated with one particular brigade,\n"
+"it was actually based on the pre-war standard winter camouflage."
+
+msgid "camouflage/ussr/bicolor/SpringGhost"
+msgstr ""
+"Spring camouflage\n"
+"(April 1942)\n"
+"Lime was applied on the green background\n"
+"and then smeared to achieve different degrees of transparency."
+
+msgid "camouflage/ussr/bicolor/White_Spots"
+msgstr ""
+"Two-tone \"small spots\" camouflage.\n"
+"Widely used from 1941 through 1945."
+
+msgid "camouflage/ussr/bicolor/Winter"
+msgstr ""
+"Winter white camouflage\n"
+"White lime or other white dye were applied to the standard background in one "
+"or more layers.\n"
+"The pattern was used during World War II."
+
+msgid "camouflage/ussr/tricolor/GasolinePellicle"
+msgstr ""
+"Summer three-tone camouflage\n"
+"(1942)\n"
+"Used by the units based near Leningrad. Brown stripes applied on the basic "
+"background."
+
+msgid "camouflage/ussr/tricolor/Leningrad"
+msgstr ""
+"\"Large spots\" camouflage\n"
+"(August 1939)\n"
+"Commonly used by units based in the western regions of the Soviet Union."
+
+msgid "camouflage/ussr/tricolor/OldschoolRkka"
+msgstr ""
+"Three-tone \"large spots\" camouflage\n"
+"(1941 through 1942)\n"
+"Used by the 1st Tank Division in Karelia."
+
+msgid "camouflage/ussr/tricolor/Talvisota"
+msgstr ""
+"\"Geometrical\" three-tone camouflage\n"
+"(1941 through 1942)\n"
+"Used by the 1st tank division in Karelia."
+
+msgid "camouflage/ussr/tricolor/TricolorZebra"
+msgstr ""
+"\"Diagonal\" camouflage\n"
+"(June through July 1941)\n"
+"Applied in accordance with pre-war requirements.\n"
+"It proved ineffective and was withdrawn."
+
+msgid "camouflage/ussr/tricolor/four-color_stains"
+msgstr ""
+"Four-tone early camouflage.\n"
+"The scheme was developed in 1939.\n"
+"Brown, yellow and light-brown paint\n"
+"on the basic background."
+
+msgid "camouflage/winter"
+msgstr "Winter"
+
+msgid "emblem/IGR"
+msgstr ""
+"For <img src='img://gui/maps/icons/library/premium_small.png' width='34' "
+"height='16' vspace='-4'/> "
+
+msgid "emblem/animals"
+msgstr "Animals"
+
+msgid "emblem/battle"
+msgstr "Military"
+
+msgid "emblem/cool"
+msgstr "Miscellaneous"
+
+msgid "emblem/group1/animal_1"
+msgstr "Lion"
+
+msgid "emblem/group1/animal_10"
+msgstr "Bear 1"
+
+msgid "emblem/group1/animal_11"
+msgstr "Bear 2"
+
+msgid "emblem/group1/animal_12"
+msgstr "Horse 1"
+
+msgid "emblem/group1/animal_13"
+msgstr "Bird"
+
+msgid "emblem/group1/animal_14"
+msgstr "Tiger 1"
+
+msgid "emblem/group1/animal_15"
+msgstr "Reptile"
+
+msgid "emblem/group1/animal_16"
+msgstr "Tiger 2"
+
+msgid "emblem/group1/animal_17"
+msgstr "Wasp"
+
+msgid "emblem/group1/animal_18"
+msgstr "Snake"
+
+msgid "emblem/group1/animal_19"
+msgstr "Rhinoceros 2"
+
+msgid "emblem/group1/animal_2"
+msgstr "Eagle 1"
+
+msgid "emblem/group1/animal_20"
+msgstr "Bull 4"
+
+msgid "emblem/group1/animal_21"
+msgstr "Hog"
+
+msgid "emblem/group1/animal_22"
+msgstr "Horse 2"
+
+msgid "emblem/group1/animal_23"
+msgstr "Horse 3"
+
+msgid "emblem/group1/animal_24"
+msgstr "Volatile 1"
+
+msgid "emblem/group1/animal_25"
+msgstr "Volatile 2"
+
+msgid "emblem/group1/animal_26"
+msgstr "Feline 1"
+
+msgid "emblem/group1/animal_27"
+msgstr "Feline 2"
+
+msgid "emblem/group1/animal_28"
+msgstr "Feline 3"
+
+msgid "emblem/group1/animal_29"
+msgstr "Feline 4"
+
+msgid "emblem/group1/animal_3"
+msgstr "Eagle 2"
+
+msgid "emblem/group1/animal_30"
+msgstr "Feline 5"
+
+msgid "emblem/group1/animal_31"
+msgstr "Spider 1"
+
+msgid "emblem/group1/animal_32"
+msgstr "Spider 2"
+
+msgid "emblem/group1/animal_4"
+msgstr "Bull 1"
+
+msgid "emblem/group1/animal_5"
+msgstr "Bull 2"
+
+msgid "emblem/group1/animal_6"
+msgstr "Eagle 3"
+
+msgid "emblem/group1/animal_7"
+msgstr "Eagle 4"
+
+msgid "emblem/group1/animal_8"
+msgstr "Bull 3"
+
+msgid "emblem/group1/animal_9"
+msgstr "Rhinoceros 1"
+
+msgid "emblem/group1/star"
+msgstr "Star"
+
+msgid "emblem/group2/battle_1"
+msgstr "Flag"
+
+msgid "emblem/group2/battle_10"
+msgstr "Star 3"
+
+msgid "emblem/group2/battle_11"
+msgstr "Star 4"
+
+msgid "emblem/group2/battle_12"
+msgstr "Axe 2"
+
+msgid "emblem/group2/battle_13"
+msgstr "Helmet 2"
+
+msgid "emblem/group2/battle_14"
+msgstr "Helmet 3"
+
+msgid "emblem/group2/battle_15"
+msgstr "Crown 1"
+
+msgid "emblem/group2/battle_16"
+msgstr "Turret"
+
+msgid "emblem/group2/battle_17"
+msgstr "Crown 2"
+
+msgid "emblem/group2/battle_18"
+msgstr "Sword 2"
+
+msgid "emblem/group2/battle_19"
+msgstr "Sword 3"
+
+msgid "emblem/group2/battle_2"
+msgstr "Star 1"
+
+msgid "emblem/group2/battle_20"
+msgstr "Skull 1"
+
+msgid "emblem/group2/battle_21"
+msgstr "Skull 2"
+
+msgid "emblem/group2/battle_22"
+msgstr "Star 5"
+
+msgid "emblem/group2/battle_23"
+msgstr "Emblem 2"
+
+msgid "emblem/group2/battle_24"
+msgstr "Skull 3"
+
+msgid "emblem/group2/battle_25"
+msgstr "Skull 4"
+
+msgid "emblem/group2/battle_26"
+msgstr "Star 6"
+
+msgid "emblem/group2/battle_27"
+msgstr "Cross 1"
+
+msgid "emblem/group2/battle_28"
+msgstr "Spanner"
+
+msgid "emblem/group2/battle_3"
+msgstr "Emblem 1"
+
+msgid "emblem/group2/battle_4"
+msgstr "Helmet 1"
+
+msgid "emblem/group2/battle_5"
+msgstr "Star 2"
+
+msgid "emblem/group2/battle_6"
+msgstr "Axe 1"
+
+msgid "emblem/group2/battle_7"
+msgstr "Mace"
+
+msgid "emblem/group2/battle_8"
+msgstr "Sledgehammer"
+
+msgid "emblem/group2/battle_9"
+msgstr "Sword 1"
+
+msgid "emblem/group3/cool_1"
+msgstr "Symbol 1"
+
+msgid "emblem/group3/cool_10"
+msgstr "Chili Pepper"
+
+msgid "emblem/group3/cool_11"
+msgstr "Slipper"
+
+msgid "emblem/group3/cool_12"
+msgstr "Indian 1"
+
+msgid "emblem/group3/cool_13"
+msgstr "Indian 2"
+
+msgid "emblem/group3/cool_14"
+msgstr "Grenade"
+
+msgid "emblem/group3/cool_15"
+msgstr "Stripes"
+
+msgid "emblem/group3/cool_16"
+msgstr "Lightning 1"
+
+msgid "emblem/group3/cool_17"
+msgstr "Girl"
+
+msgid "emblem/group3/cool_18"
+msgstr "Card 1"
+
+msgid "emblem/group3/cool_19"
+msgstr "Card 2"
+
+msgid "emblem/group3/cool_2"
+msgstr "Quadrifoil"
+
+msgid "emblem/group3/cool_20"
+msgstr "Card 3"
+
+msgid "emblem/group3/cool_21"
+msgstr "Card 4"
+
+msgid "emblem/group3/cool_22"
+msgstr "Symbol 2"
+
+msgid "emblem/group3/cool_23"
+msgstr "Bomb"
+
+msgid "emblem/group3/cool_24"
+msgstr "Taxi"
+
+msgid "emblem/group3/cool_25"
+msgstr "Card 5"
+
+msgid "emblem/group3/cool_26"
+msgstr "Card 6"
+
+msgid "emblem/group3/cool_27"
+msgstr "Iron"
+
+msgid "emblem/group3/cool_28"
+msgstr "Emblem 1"
+
+msgid "emblem/group3/cool_29"
+msgstr "Emblem 2"
+
+msgid "emblem/group3/cool_3"
+msgstr "Heart"
+
+msgid "emblem/group3/cool_4"
+msgstr "Skull 1"
+
+msgid "emblem/group3/cool_5"
+msgstr "Skull 2"
+
+msgid "emblem/group3/cool_6"
+msgstr "Pumpkin"
+
+msgid "emblem/group3/cool_7"
+msgstr "Bowling pins"
+
+msgid "emblem/group3/cool_8"
+msgstr "Cigarette"
+
+msgid "emblem/group3/cool_9"
+msgstr "Domino"
+
+msgid "emblem/group4/signs_1"
+msgstr "Flag of Chile"
+
+msgid "emblem/group4/signs_10"
+msgstr "Flag of Vietnam"
+
+msgid "emblem/group4/signs_11"
+msgstr "Flag of Bulgaria"
+
+msgid "emblem/group4/signs_12"
+msgstr "Flag of Kyrgyzstan"
+
+msgid "emblem/group4/signs_13"
+msgstr "Flag of Georgia"
+
+msgid "emblem/group4/signs_14"
+msgstr "Flag of Turkey"
+
+msgid "emblem/group4/signs_15"
+msgstr "Flag of Brazil"
+
+msgid "emblem/group4/signs_16"
+msgstr "Flag of Azerbaijan"
+
+msgid "emblem/group4/signs_17"
+msgstr "Flag of Ireland"
+
+msgid "emblem/group4/signs_18"
+msgstr "Flag of Estonia"
+
+msgid "emblem/group4/signs_19"
+msgstr "Flag of Greece"
+
+msgid "emblem/group4/signs_2"
+msgstr "Flag of Malaysia"
+
+msgid "emblem/group4/signs_20"
+msgstr "Flag of Belgium"
+
+msgid "emblem/group4/signs_21"
+msgstr "Flag of New Zealand"
+
+msgid "emblem/group4/signs_22"
+msgstr "Flag of Switzerland"
+
+msgid "emblem/group4/signs_23"
+msgstr "Flag of South Korea"
+
+msgid "emblem/group4/signs_24"
+msgstr "Flag of Israel"
+
+msgid "emblem/group4/signs_25"
+msgstr "Flag of Italy"
+
+msgid "emblem/group4/signs_26"
+msgstr "Flag of Serbia"
+
+msgid "emblem/group4/signs_27"
+msgstr "Flag of Slovakia"
+
+msgid "emblem/group4/signs_28"
+msgstr "Flag of Romania"
+
+msgid "emblem/group4/signs_29"
+msgstr "Flag of Spain"
+
+msgid "emblem/group4/signs_3"
+msgstr "Flag of Monaco"
+
+msgid "emblem/group4/signs_30"
+msgstr "Flag of Latvia"
+
+msgid "emblem/group4/signs_31"
+msgstr "Flag of Austria"
+
+msgid "emblem/group4/signs_32"
+msgstr "Flag of Norway"
+
+msgid "emblem/group4/signs_33"
+msgstr "Flag of Hungary"
+
+msgid "emblem/group4/signs_34"
+msgstr "Flag of the Netherlands"
+
+msgid "emblem/group4/signs_35"
+msgstr "Flag of Sweden"
+
+msgid "emblem/group4/signs_36"
+msgstr "Flag of France"
+
+msgid "emblem/group4/signs_37"
+msgstr "Flag of Finland"
+
+msgid "emblem/group4/signs_38"
+msgstr "Flag of Iceland"
+
+msgid "emblem/group4/signs_39"
+msgstr "Flag of Australia"
+
+msgid "emblem/group4/signs_4"
+msgstr "Flag of Armenia"
+
+msgid "emblem/group4/signs_40"
+msgstr "Flag of Kazakhstan"
+
+msgid "emblem/group4/signs_41"
+msgstr "Flag of U.K."
+
+msgid "emblem/group4/signs_42"
+msgstr "Flag of Poland"
+
+msgid "emblem/group4/signs_43"
+msgstr "Flag of Belarus"
+
+msgid "emblem/group4/signs_44"
+msgstr "Flag of U.S.A."
+
+msgid "emblem/group4/signs_45"
+msgstr "Flag of Germany"
+
+msgid "emblem/group4/signs_46"
+msgstr "Flag of Ukraine"
+
+msgid "emblem/group4/signs_47"
+msgstr "Flag of Argentina"
+
+msgid "emblem/group4/signs_48"
+msgstr "Flag of Russia"
+
+msgid "emblem/group4/signs_49"
+msgstr "Flag of Croatia"
+
+msgid "emblem/group4/signs_5"
+msgstr "Flag of Uzbekistan"
+
+msgid "emblem/group4/signs_50"
+msgstr "Flag of Japan"
+
+msgid "emblem/group4/signs_51"
+msgstr "Flag of Denmark"
+
+msgid "emblem/group4/signs_52"
+msgstr "Flag of Moldova"
+
+msgid "emblem/group4/signs_53"
+msgstr "Flag of the Czech Republic"
+
+msgid "emblem/group4/signs_54"
+msgstr "Flag of Canada"
+
+msgid "emblem/group4/signs_55"
+msgstr "Flag of Lithuania"
+
+msgid "emblem/group4/signs_56"
+msgstr "Flag of Taiwan"
+
+msgid "emblem/group4/signs_57"
+msgstr "Flag of Bosnia and Herzegovina"
+
+msgid "emblem/group4/signs_58"
+msgstr "Flag of Slovenia"
+
+msgid "emblem/group4/signs_59"
+msgstr "Flag of U.S.S.R."
+
+msgid "emblem/group4/signs_6"
+msgstr "Flag of Singapore"
+
+msgid "emblem/group4/signs_60"
+msgstr "Coat of arms of Moscow"
+
+msgid "emblem/group4/signs_61"
+msgstr "Coat of arms of Minsk"
+
+msgid "emblem/group4/signs_62"
+msgstr "Coat of arms of Novosibirsk"
+
+msgid "emblem/group4/signs_63"
+msgstr "Coat of arms of St. Petersburg"
+
+msgid "emblem/group4/signs_64"
+msgstr "Coat of arms of Odessa"
+
+msgid "emblem/group4/signs_65"
+msgstr "Coat of arms of Krasnodar"
+
+msgid "emblem/group4/signs_66"
+msgstr "Coat of arms of Helsinki"
+
+msgid "emblem/group4/signs_67"
+msgstr "Coat of arms of Rostov-on-Don"
+
+msgid "emblem/group4/signs_68"
+msgstr "Coat of arms of Kazan"
+
+msgid "emblem/group4/signs_69"
+msgstr "Coat of arms of Ekaterinburg"
+
+msgid "emblem/group4/signs_7"
+msgstr "Flag of Hong Kong"
+
+msgid "emblem/group4/signs_70"
+msgstr "Coat of arms of Volgograd"
+
+msgid "emblem/group4/signs_71"
+msgstr "Coat of arms of Kiev"
+
+msgid "emblem/group4/signs_72"
+msgstr "Coat of arms of Veliky Novgorod"
+
+msgid "emblem/group4/signs_73"
+msgstr "Coat of arms of Perm"
+
+msgid "emblem/group4/signs_74"
+msgstr "Coat of arms of Smolensk"
+
+msgid "emblem/group4/signs_75"
+msgstr "Coat of arms of Chelyabinsk"
+
+msgid "emblem/group4/signs_76"
+msgstr "Coat of arms of Voronezh"
+
+msgid "emblem/group4/signs_77"
+msgstr "Coat of arms of Samara"
+
+msgid "emblem/group4/signs_78"
+msgstr "Flag of the People's Republic of China"
+
+msgid "emblem/group4/signs_8"
+msgstr "Flag of the Philippines"
+
+msgid "emblem/group4/signs_80"
+msgstr "Flag of Mexico"
+
+msgid "emblem/group4/signs_81"
+msgstr "Flag of Republic of South Africa"
+
+msgid "emblem/group4/signs_82"
+msgstr "Flag of Thailand"
+
+msgid "emblem/group4/signs_83"
+msgstr "Flag of Myanmar"
+
+msgid "emblem/group4/signs_84"
+msgstr "Flag of Jordan"
+
+msgid "emblem/group4/signs_85"
+msgstr "Flag of Mongolia"
+
+msgid "emblem/group4/signs_86"
+msgstr "Flag of India"
+
+msgid "emblem/group4/signs_87"
+msgstr "Flag of Indonesia"
+
+msgid "emblem/group4/signs_88"
+msgstr "Coat of arms of Kharkov"
+
+msgid "emblem/group4/signs_89"
+msgstr "Coat of arms of Nizhny Novgorod"
+
+msgid "emblem/group4/signs_9"
+msgstr "Flag of Portugal"
+
+msgid "emblem/group5/sticker_01"
+msgstr "Mask"
+
+msgid "emblem/group5/sticker_02"
+msgstr "Cloud"
+
+msgid "emblem/group5/sticker_03"
+msgstr "Korean peninsula"
+
+msgid "emblem/group5/sticker_04"
+msgstr "Rose of Sharon"
+
+msgid "emblem/group5/sticker_05"
+msgstr "Mask dance"
+
+msgid "emblem/group5/sticker_06"
+msgstr "Taekwondo"
+
+msgid "emblem/group5/sticker_07"
+msgstr "Wrestling"
+
+msgid "emblem/group5/sticker_08"
+msgstr "Pine"
+
+msgid "emblem/group5/sticker_09"
+msgstr "Totem pole"
+
+msgid "emblem/group5/sticker_10"
+msgstr "Noodles"
+
+msgid "emblem/signs"
+msgstr "Flags and coats of arms"
+
+msgid "horns/bike_bell_01"
+msgstr "BICYCLE BELL"
+
+msgid "horns/car_01"
+msgstr "CAR 1"
+
+msgid "horns/car_02"
+msgstr "CAR 2"
+
+msgid "horns/car_03"
+msgstr "CAR 3"
+
+msgid "horns/car_04"
+msgstr "CAR 4"
+
+msgid "horns/car_05"
+msgstr "CAR 5"
+
+msgid "horns/car_06"
+msgstr "CAR 6"
+
+msgid "horns/car_07"
+msgstr "CAR 7"
+
+msgid "horns/comedy_01"
+msgstr "Mocking"
+
+msgid "horns/music_01"
+msgstr "Musical TEST 1"
+
+msgid "horns/music_02"
+msgstr "Musical TEST 2"
+
+msgid "horns/music_03"
+msgstr "Musical TEST 3"
+
+msgid "horns/music_04"
+msgstr "Musical TEST 4"
+
+msgid "horns/siren_01"
+msgstr "SIREN 1"
+
+msgid "horns/siren_02"
+msgstr "SIREN 2"
+
+msgid "horns/siren_03"
+msgstr "SIREN 3"
+
+msgid "horns/titanic_01"
+msgstr "STEAMBOAT 1"
+
+msgid "horns/titanic_02"
+msgstr "STEAMBOAT 2"
+
+msgid "horns/titanic_03"
+msgstr "STEAMBOAT 3"
+
+msgid "horns/toy_01"
+msgstr "TOY 1"
+
+msgid "horns/toy_02"
+msgstr "TOY 2"
+
+msgid "horns/toy_03"
+msgstr "TOY 3"
+
+msgid "horns/train_01"
+msgstr "LOCOMOTIVE 1"
+
+msgid "horns/train_02"
+msgstr "LOCOMOTIVE 2"
+
+msgid "horns/train_03"
+msgstr "LOCOMOTIVE 3"
+
+msgid "horns/train_04"
+msgstr "LOCOMOTIVE 4"
+
+msgid "horns/train_05"
+msgstr "LOCOMOTIVE 5"
+
+msgid "horns/train_06"
+msgstr "LOCOMOTIVE 6"
+
+msgid "horns/train_07"
+msgstr "LOCOMOTIVE 7"
+
+msgid "horns/truck_01"
+msgstr "TRUCK 1"
+
+msgid "horns/truck_02"
+msgstr "TRUCK 2"
+
+msgid "horns/truck_03"
+msgstr "HONK 1"
+
+msgid "horns/truck_04"
+msgstr "TRUCK 4"
+
+msgid "horns/vip_01"
+msgstr "VIP 1"
+
+msgid "horns/vip_02"
+msgstr "VIP 2"
+
+msgid "horns/vip_03"
+msgstr "VIP 3"
+
+msgid "horns/vuvuzela_01"
+msgstr "VUVUZELA 1"
+
+msgid "horns/whistle_01"
+msgstr "WHISTLE 1"
+
+msgid "horns/whistle_02"
+msgstr "WHISTLE 2"
+
+msgid "inscription/IGR"
+msgstr ""
+"For <img src='img://gui/maps/icons/library/premium_small.png' width='34' "
+"height='16' vspace='-4'/> "
+
+msgid "inscription/IGR/charge"
+msgstr "Charge"
+
+msgid "inscription/IGR/forward"
+msgstr "Move forward"
+
+msgid "inscription/IGR/kill"
+msgstr "1shot1kill"
+
+msgid "inscription/IGR/life"
+msgstr "My life for tanks"
+
+msgid "inscription/IGR/loyalty"
+msgstr "Loyalty"
+
+msgid "inscription/IGR/marine"
+msgstr "Marine, the ghost busters"
+
+msgid "inscription/IGR/tanks"
+msgstr "Tanks in the van"
+
+msgid "inscription/IGR/unity"
+msgstr "Unity"
+
+msgid "inscription/IGR/victory"
+msgstr "Victory Korea!"
+
+msgid "inscription/IGR/win"
+msgstr "Must win"
+
+msgid "inscription/animal"
+msgstr "Animals"
+
+msgid "inscription/china/Fen"
+msgstr "Learn from Comrade Lei Feng!"
+
+msgid "inscription/china/action"
+msgstr "Every action has a reaction"
+
+msgid "inscription/china/better"
+msgstr "Be the best!"
+
+msgid "inscription/china/blood"
+msgstr "Hills at sunset have a color of blood"
+
+msgid "inscription/china/destiny"
+msgstr "The most thrilling experience is a fight with destiny"
+
+msgid "inscription/china/difficult"
+msgstr "Overbear hardships when fighting for victory!"
+
+msgid "inscription/china/faith"
+msgstr "I do not fear those who have no faith"
+
+msgid "inscription/china/fight"
+msgstr "We trust no one in life and war"
+
+msgid "inscription/china/firm"
+msgstr "Steadfast in the face of death"
+
+msgid "inscription/china/harm"
+msgstr "I will not harm you unless you harm me"
+
+msgid "inscription/china/help"
+msgstr "I am always ready to help"
+
+msgid "inscription/china/hero"
+msgstr "There are still heroes in this age"
+
+msgid "inscription/china/knock_down"
+msgstr "Knock down imperialism"
+
+msgid "inscription/china/light"
+msgstr "Give me a little light and I will get you a star"
+
+msgid "inscription/china/myself"
+msgstr "Do it yourself"
+
+msgid "inscription/china/pain"
+msgstr "We have no fear of pain or death"
+
+msgid "inscription/china/people"
+msgstr "Serve to people"
+
+msgid "inscription/china/success"
+msgstr "Believe in victory. Fight hardships. Reach success."
+
+msgid "inscription/china/sun"
+msgstr "Every cloud has a silver lining"
+
+msgid "inscription/china/united"
+msgstr "Strive for victory together"
+
+msgid "inscription/china/walk_alone"
+msgstr "I can stroll all alone, with no fear of fierce winds or raging waves"
+
+msgid "inscription/china/war"
+msgstr "Get ready before you enter a war"
+
+msgid "inscription/china/wish"
+msgstr "I have enormous opportunities to satisfy my wishes"
+
+msgid "inscription/france/abord"
+msgstr "France first"
+
+msgid "inscription/france/alma"
+msgstr "Alma"
+
+msgid "inscription/france/alpes"
+msgstr "Rhône-Alpes"
+
+msgid "inscription/france/aquitaine"
+msgstr "Aquitaine"
+
+msgid "inscription/france/aramis"
+msgstr "Aramis"
+
+msgid "inscription/france/arc"
+msgstr "Jeanne d'Arc"
+
+msgid "inscription/france/armagnac"
+msgstr "Armagnac"
+
+msgid "inscription/france/armor"
+msgstr "Côtes-d'Armor"
+
+msgid "inscription/france/artagnan"
+msgstr "d'Artagnan"
+
+msgid "inscription/france/athos"
+msgstr "Athos"
+
+msgid "inscription/france/azur"
+msgstr "Côte d'Azur"
+
+msgid "inscription/france/bombard"
+msgstr "Bombarde"
+
+msgid "inscription/france/bonoparte"
+msgstr "Bonaparte"
+
+msgid "inscription/france/bourgogne"
+msgstr "Bourgogne"
+
+msgid "inscription/france/boyard"
+msgstr "Fort Boyard"
+
+msgid "inscription/france/brazzaville"
+msgstr "Brazzaville"
+
+msgid "inscription/france/brest"
+msgstr "Brest"
+
+msgid "inscription/france/bretagne"
+msgstr "Bretagne"
+
+msgid "inscription/france/caen"
+msgstr "Caen"
+
+msgid "inscription/france/casablanca"
+msgstr "Casablanca"
+
+msgid "inscription/france/chat"
+msgstr "Wildcat"
+
+msgid "inscription/france/courageux"
+msgstr "Courageous"
+
+msgid "inscription/france/denis"
+msgstr "Saint-Denis"
+
+msgid "inscription/france/fantasque"
+msgstr "Wilful"
+
+msgid "inscription/france/flandre"
+msgstr "Flandre"
+
+msgid "inscription/france/foch"
+msgstr "Foch"
+
+msgid "inscription/france/fort"
+msgstr "Fort De France"
+
+msgid "inscription/france/france"
+msgstr "France"
+
+msgid "inscription/france/glorieux"
+msgstr "Valorous"
+
+msgid "inscription/france/guepard"
+msgstr "Guépard"
+
+msgid "inscription/france/ile"
+msgstr "Île-de-France"
+
+msgid "inscription/france/intrepide"
+msgstr "Intrepid"
+
+msgid "inscription/france/jaguar"
+msgstr "Jaguar"
+
+msgid "inscription/france/june"
+msgstr "June 18th, 1940"
+
+msgid "inscription/france/leopard"
+msgstr "Leopard"
+
+msgid "inscription/france/libre"
+msgstr "For free France!"
+
+msgid "inscription/france/lille"
+msgstr "Lille"
+
+msgid "inscription/france/limousin"
+msgstr "Limousin"
+
+msgid "inscription/france/lion"
+msgstr "Lion"
+
+msgid "inscription/france/loire"
+msgstr "Pays de la Loire"
+
+msgid "inscription/france/lorette"
+msgstr "Notre Dame De Lorette"
+
+msgid "inscription/france/lorraine"
+msgstr "Lorraine"
+
+msgid "inscription/france/lutte"
+msgstr "The struggle continues"
+
+msgid "inscription/france/lynx"
+msgstr "Lynx"
+
+msgid "inscription/france/lyon"
+msgstr "Lyon"
+
+msgid "inscription/france/marseille"
+msgstr "Marseille"
+
+msgid "inscription/france/moscowa"
+msgstr "Moscow"
+
+msgid "inscription/france/nord"
+msgstr "Nord"
+
+msgid "inscription/france/normandie"
+msgstr "Normandie"
+
+msgid "inscription/france/nostradamus"
+msgstr "Nostradamus"
+
+msgid "inscription/france/olivier"
+msgstr "Olivier"
+
+msgid "inscription/france/orleans"
+msgstr "Orléans"
+
+msgid "inscription/france/ouragan"
+msgstr "Hurricane"
+
+msgid "inscription/france/ours"
+msgstr "Bear"
+
+msgid "inscription/france/panther"
+msgstr "Panther"
+
+msgid "inscription/france/paris"
+msgstr "Paris"
+
+msgid "inscription/france/pirate"
+msgstr "Pirate"
+
+msgid "inscription/france/pommard"
+msgstr "Pommard"
+
+msgid "inscription/france/porthos"
+msgstr "Porthos"
+
+msgid "inscription/france/puma"
+msgstr "Puma"
+
+msgid "inscription/france/richelieu"
+msgstr "Richelieu"
+
+msgid "inscription/france/sirocco"
+msgstr "Sirocco"
+
+msgid "inscription/france/tell"
+msgstr "Guillaume Tell"
+
+msgid "inscription/france/temeraire"
+msgstr "Impertinent"
+
+msgid "inscription/france/terrible"
+msgstr "Menacing"
+
+msgid "inscription/france/tornade"
+msgstr "Tornado"
+
+msgid "inscription/france/toulouse"
+msgstr "Toulouse"
+
+msgid "inscription/france/vertus"
+msgstr "Vertus"
+
+msgid "inscription/france/vive"
+msgstr "Long live France!"
+
+msgid "inscription/france/yvelines"
+msgstr "Yvelines"
+
+msgid "inscription/geographical"
+msgstr "Geographical"
+
+msgid "inscription/germany/adalbert"
+msgstr "Adalbert"
+
+msgid "inscription/germany/asgard"
+msgstr "Asgard"
+
+msgid "inscription/germany/badem"
+msgstr "Badem"
+
+msgid "inscription/germany/berlin"
+msgstr "Berlin"
+
+msgid "inscription/germany/bernd"
+msgstr "Gloomy Bernd"
+
+msgid "inscription/germany/berserker"
+msgstr "Berserker"
+
+msgid "inscription/germany/bismarck"
+msgstr "Bismarck"
+
+msgid "inscription/germany/brandenburg"
+msgstr "Mark Brandenburg"
+
+msgid "inscription/germany/breslau"
+msgstr "Breslau"
+
+msgid "inscription/germany/brunhild"
+msgstr "Brunhild"
+
+msgid "inscription/germany/cyklop"
+msgstr "Cyclop"
+
+msgid "inscription/germany/dresden"
+msgstr "Dresden"
+
+msgid "inscription/germany/dusseldorf"
+msgstr "Düsseldorf"
+
+msgid "inscription/germany/elfriede"
+msgstr "Elfriede"
+
+msgid "inscription/germany/emil"
+msgstr "Stubborn Emil"
+
+msgid "inscription/germany/ergebt"
+msgstr "Surrender everyone!"
+
+msgid "inscription/germany/essen"
+msgstr "Essen"
+
+msgid "inscription/germany/faust"
+msgstr "Faust"
+
+msgid "inscription/germany/ferdinand"
+msgstr "Ferdinand"
+
+msgid "inscription/germany/frans"
+msgstr "Franz"
+
+msgid "inscription/germany/fritz"
+msgstr "Old Fritz"
+
+msgid "inscription/germany/goeben"
+msgstr "Goeben"
+
+msgid "inscription/germany/greta"
+msgstr "Greta"
+
+msgid "inscription/germany/gretchen"
+msgstr "Gretchen"
+
+msgid "inscription/germany/griffon"
+msgstr "Griffin"
+
+msgid "inscription/germany/hagen"
+msgstr "Hagen"
+
+msgid "inscription/germany/hans"
+msgstr "Fat Hans"
+
+msgid "inscription/germany/hansel"
+msgstr "Young Hänsel"
+
+msgid "inscription/germany/heiland"
+msgstr "Heimdall"
+
+msgid "inscription/germany/heinz"
+msgstr "Grumpy Heinz"
+
+msgid "inscription/germany/herkules"
+msgstr "Herkules"
+
+msgid "inscription/germany/hummel"
+msgstr "Bumblebee"
+
+msgid "inscription/germany/jager"
+msgstr "Jäger"
+
+msgid "inscription/germany/jotuhn"
+msgstr "Jötunn"
+
+msgid "inscription/germany/karl"
+msgstr "Charles the Terrible"
+
+msgid "inscription/germany/karlsruhe"
+msgstr "Karlsruhe"
+
+msgid "inscription/germany/konig"
+msgstr "König"
+
+msgid "inscription/germany/leopard"
+msgstr "Leopard"
+
+msgid "inscription/germany/lotti"
+msgstr "Lotti"
+
+msgid "inscription/germany/ludwig"
+msgstr "Brave Ludwig"
+
+msgid "inscription/germany/mammut"
+msgstr "Mammoth"
+
+msgid "inscription/germany/marder"
+msgstr "Marten"
+
+msgid "inscription/germany/margret"
+msgstr "Margret"
+
+msgid "inscription/germany/mephisto"
+msgstr "Mephisto"
+
+msgid "inscription/germany/munchen"
+msgstr "Munich"
+
+msgid "inscription/germany/nixe"
+msgstr "Nixe"
+
+msgid "inscription/germany/norbert"
+msgstr "Norbert"
+
+msgid "inscription/germany/ostpreusen"
+msgstr "East Prussia"
+
+msgid "inscription/germany/otto"
+msgstr "Red Otto"
+
+msgid "inscription/germany/panther"
+msgstr "Panther"
+
+msgid "inscription/germany/pommern"
+msgstr "Pommern"
+
+msgid "inscription/germany/puma"
+msgstr "Puma"
+
+msgid "inscription/germany/ragnarok"
+msgstr "Ragnarok"
+
+msgid "inscription/germany/rose"
+msgstr "Rosa"
+
+msgid "inscription/germany/saar"
+msgstr "Saar"
+
+msgid "inscription/germany/sachsen"
+msgstr "Sachsen"
+
+msgid "inscription/germany/salzburg"
+msgstr "Salzburg"
+
+msgid "inscription/germany/schmidt"
+msgstr "Spiteful Schmidt"
+
+msgid "inscription/germany/schnuk"
+msgstr "Schnuk"
+
+msgid "inscription/germany/schulz"
+msgstr "Impudent Schulz"
+
+msgid "inscription/germany/schwaben"
+msgstr "Schwaben"
+
+msgid "inscription/germany/schwarz"
+msgstr "Scrawny Schwarz"
+
+msgid "inscription/germany/siegfried"
+msgstr "Siegfried"
+
+msgid "inscription/germany/teutone"
+msgstr "Teuton"
+
+msgid "inscription/germany/tiger"
+msgstr "Tiger"
+
+msgid "inscription/germany/westfalen"
+msgstr "Westfalen"
+
+msgid "inscription/germany/wien"
+msgstr "Wien"
+
+msgid "inscription/germany/wolf"
+msgstr "Cunning Wolf"
+
+msgid "inscription/germany/wotan"
+msgstr "Wotan"
+
+msgid "inscription/historical"
+msgstr "Historical"
+
+msgid "inscription/japan/attack"
+msgstr "Attack!"
+
+msgid "inscription/japan/blow"
+msgstr "Death Blow"
+
+msgid "inscription/japan/commandos"
+msgstr "Special Attack"
+
+msgid "inscription/japan/patriotism"
+msgstr "Love of Country"
+
+msgid "inscription/japan/shield"
+msgstr "Emperor's Shield"
+
+msgid "inscription/japan/spirit"
+msgstr "Samurai Spirit"
+
+msgid "inscription/japan/steel"
+msgstr "Steel"
+
+msgid "inscription/japan/taku"
+msgstr "Pioneer"
+
+msgid "inscription/japan/waterfall"
+msgstr "Waterfall"
+
+msgid "inscription/motto"
+msgstr "Slogans"
+
+msgid "inscription/names"
+msgstr "Names"
+
+msgid "inscription/other"
+msgstr "Miscellaneous"
+
+msgid "inscription/sentence"
+msgstr "Quotations"
+
+msgid "inscription/uk/ace"
+msgstr "Ace"
+
+msgid "inscription/uk/achilles"
+msgstr "Achilles"
+
+msgid "inscription/uk/agility"
+msgstr "Agility"
+
+msgid "inscription/uk/ali"
+msgstr "Ali Baba"
+
+msgid "inscription/uk/apollo"
+msgstr "Apollo"
+
+msgid "inscription/uk/avenger"
+msgstr "Avenger"
+
+msgid "inscription/uk/battleaxe"
+msgstr "Battleaxe"
+
+msgid "inscription/uk/bert"
+msgstr "Bert"
+
+msgid "inscription/uk/blockbuster"
+msgstr "Blockbuster"
+
+msgid "inscription/uk/brother"
+msgstr "Brother-in-arms"
+
+msgid "inscription/uk/bullpup"
+msgstr "Bullpup"
+
+msgid "inscription/uk/centaur"
+msgstr "Centaur"
+
+msgid "inscription/uk/clang"
+msgstr "Clang of Metal"
+
+msgid "inscription/uk/cossack"
+msgstr "Cossack"
+
+msgid "inscription/uk/daredevil"
+msgstr "Hothead"
+
+msgid "inscription/uk/demon"
+msgstr "Demon"
+
+msgid "inscription/uk/destroyer"
+msgstr "Destroyer"
+
+msgid "inscription/uk/devastator"
+msgstr "Devastator"
+
+msgid "inscription/uk/dogs"
+msgstr "Dogs of War"
+
+msgid "inscription/uk/dragon"
+msgstr "Dragon"
+
+msgid "inscription/uk/dreadnought"
+msgstr "Dreadnought"
+
+msgid "inscription/uk/duke"
+msgstr "Iron Duke"
+
+msgid "inscription/uk/dust"
+msgstr "Dust Demon"
+
+msgid "inscription/uk/elusive"
+msgstr "Elusive"
+
+msgid "inscription/uk/face"
+msgstr "Face of War"
+
+msgid "inscription/uk/fireball"
+msgstr "Fireball"
+
+msgid "inscription/uk/firm"
+msgstr "The Old Firm"
+
+msgid "inscription/uk/fist"
+msgstr "Iron Fist"
+
+msgid "inscription/uk/for_king"
+msgstr "For the King!"
+
+msgid "inscription/uk/gnome"
+msgstr "Gnome"
+
+msgid "inscription/uk/god_king"
+msgstr "God Save the King"
+
+msgid "inscription/uk/god_queen"
+msgstr "God Save the Queen"
+
+msgid "inscription/uk/harbinger"
+msgstr "Harbinger of the Apocalypse"
+
+msgid "inscription/uk/hit_run"
+msgstr "Hit-and-run"
+
+msgid "inscription/uk/hunter"
+msgstr "Hunter"
+
+msgid "inscription/uk/impertinent"
+msgstr "Impertinent"
+
+msgid "inscription/uk/invulnerable"
+msgstr "Invulnerable"
+
+msgid "inscription/uk/jumbo"
+msgstr "Jumbo"
+
+msgid "inscription/uk/junior"
+msgstr "Junior"
+
+msgid "inscription/uk/manowar"
+msgstr "Man O' War"
+
+msgid "inscription/uk/miller"
+msgstr "Golden Miller"
+
+msgid "inscription/uk/panda"
+msgstr "Panda"
+
+msgid "inscription/uk/phantom"
+msgstr "Phantom"
+
+msgid "inscription/uk/princess"
+msgstr "The Princess"
+
+msgid "inscription/uk/robroy"
+msgstr "Rob Roy"
+
+msgid "inscription/uk/scorpion"
+msgstr "Scorpion"
+
+msgid "inscription/uk/serenade"
+msgstr "Donkey's Serenade"
+
+msgid "inscription/uk/squirrel"
+msgstr "Squirrel"
+
+msgid "inscription/uk/talisman"
+msgstr "Talisman"
+
+msgid "inscription/uk/thunderbolt"
+msgstr "Thunderbolt"
+
+msgid "inscription/uk/tiger"
+msgstr "Wherezatiger"
+
+msgid "inscription/uk/ussr"
+msgstr "Greetings to Our Allies in U.S.S.R."
+
+msgid "inscription/uk/viper"
+msgstr "Viper"
+
+msgid "inscription/uk/warrior"
+msgstr "Steel Warrior"
+
+msgid "inscription/uk/warspite"
+msgstr "Warspite"
+
+msgid "inscription/uk/wrath"
+msgstr "Wrath of Heaven"
+
+msgid "inscription/usa/accident"
+msgstr "Accident"
+
+msgid "inscription/usa/ally"
+msgstr "Ally Oop"
+
+msgid "inscription/usa/america"
+msgstr "Captain America"
+
+msgid "inscription/usa/apocalypse"
+msgstr "Apocalypse"
+
+msgid "inscription/usa/babe"
+msgstr "Babe"
+
+msgid "inscription/usa/bambino"
+msgstr "Bambino"
+
+msgid "inscription/usa/baribal"
+msgstr "Baribal"
+
+msgid "inscription/usa/bastogne"
+msgstr "First in Bastogne"
+
+msgid "inscription/usa/betty"
+msgstr "Betty"
+
+msgid "inscription/usa/bison"
+msgstr "Bison"
+
+msgid "inscription/usa/blackjack"
+msgstr "Black Jack"
+
+msgid "inscription/usa/blood"
+msgstr "Old Blood and Guts"
+
+msgid "inscription/usa/bombshell"
+msgstr "Bombshell"
+
+msgid "inscription/usa/boomerang"
+msgstr "Boomerang"
+
+msgid "inscription/usa/brother"
+msgstr "Brother-in-arms"
+
+msgid "inscription/usa/bull"
+msgstr "Bull of the Woods"
+
+msgid "inscription/usa/charlie"
+msgstr "Charlie"
+
+msgid "inscription/usa/chopper"
+msgstr "Chopper"
+
+msgid "inscription/usa/cobra"
+msgstr "Cobra King"
+
+msgid "inscription/usa/daddy"
+msgstr "Big Daddy"
+
+msgid "inscription/usa/desperate"
+msgstr "Desperate"
+
+msgid "inscription/usa/devastator"
+msgstr "Devastator"
+
+msgid "inscription/usa/dot"
+msgstr "Dot dot dot dash"
+
+msgid "inscription/usa/finn"
+msgstr "Huckleberry Finn"
+
+msgid "inscription/usa/fireball"
+msgstr "Fireball"
+
+msgid "inscription/usa/firefly"
+msgstr "Firefly"
+
+msgid "inscription/usa/furious"
+msgstr "Furious"
+
+msgid "inscription/usa/geronimo"
+msgstr "Geronimo"
+
+msgid "inscription/usa/glory"
+msgstr "Glory, Glory, Hallelujah!"
+
+msgid "inscription/usa/god"
+msgstr "In God We Trust"
+
+msgid "inscription/usa/hawk"
+msgstr "War Hawk"
+
+msgid "inscription/usa/hell_1"
+msgstr "Hell on Wheels"
+
+msgid "inscription/usa/hell_2"
+msgstr "Welcome to Hell"
+
+msgid "inscription/usa/honey"
+msgstr "Honey"
+
+msgid "inscription/usa/hothead"
+msgstr "Daredevil"
+
+msgid "inscription/usa/hunter"
+msgstr "Hunter"
+
+msgid "inscription/usa/hurricane"
+msgstr "Hurricane"
+
+msgid "inscription/usa/joe"
+msgstr "Gorgeous Joe"
+
+msgid "inscription/usa/kilroy"
+msgstr "Kilroy was here"
+
+msgid "inscription/usa/king_kong"
+msgstr "King Kong"
+
+msgid "inscription/usa/lulu"
+msgstr "Lulubelle"
+
+msgid "inscription/usa/magnet"
+msgstr "Lead Magnet"
+
+msgid "inscription/usa/mud"
+msgstr "Old Mud and Ruts"
+
+msgid "inscription/usa/rhodes"
+msgstr "Betty Rhodes"
+
+msgid "inscription/usa/sam"
+msgstr "Uncle Sam"
+
+msgid "inscription/usa/sawyer"
+msgstr "Tom Sawyer"
+
+msgid "inscription/usa/scot"
+msgstr "The Flying Scot"
+
+msgid "inscription/usa/strike"
+msgstr "Sudden Strike"
+
+msgid "inscription/usa/superman"
+msgstr "Superman"
+
+msgid "inscription/usa/thatcher"
+msgstr "Becky Thatcher"
+
+msgid "inscription/usa/thunderbolt"
+msgstr "Thunderbolt"
+
+msgid "inscription/usa/tornado"
+msgstr "Tornado"
+
+msgid "inscription/usa/warlock"
+msgstr "Warlock"
+
+msgid "inscription/usa/yankee"
+msgstr "Damn Yankee"
+
+msgid "inscription/ussr/angry"
+msgstr "Menacing"
+
+msgid "inscription/ussr/arctic"
+msgstr "Protect Soviet Arctic!"
+
+msgid "inscription/ussr/armorer"
+msgstr "Tula gunsmith"
+
+msgid "inscription/ussr/avenger"
+msgstr "People's avenger"
+
+msgid "inscription/ussr/belarus"
+msgstr "For the Soviet Belorussia"
+
+msgid "inscription/ussr/berlin"
+msgstr "On to Berlin!"
+
+msgid "inscription/ussr/brave"
+msgstr "Courageous"
+
+msgid "inscription/ussr/chapaev"
+msgstr "Chapaev"
+
+msgid "inscription/ussr/cook"
+msgstr "Tula baker"
+
+msgid "inscription/ussr/defender"
+msgstr "Defender of the Fatherland"
+
+msgid "inscription/ussr/don"
+msgstr "Dmitry Donskoy"
+
+msgid "inscription/ussr/donbass"
+msgstr "Donbass avengers"
+
+msgid "inscription/ussr/enemy"
+msgstr "Hit the enemy!"
+
+msgid "inscription/ussr/farmer"
+msgstr "Yeysk farmer"
+
+msgid "inscription/ussr/fearless"
+msgstr "Fearless"
+
+msgid "inscription/ussr/frunze"
+msgstr "Frunze"
+
+msgid "inscription/ussr/fulminatory"
+msgstr "Thundering"
+
+msgid "inscription/ussr/furious"
+msgstr "Furious"
+
+msgid "inscription/ussr/girlfriend"
+msgstr "Fighting girlfriend"
+
+msgid "inscription/ussr/go"
+msgstr "Forward!"
+
+msgid "inscription/ussr/gold"
+msgstr "Chervonny"
+
+msgid "inscription/ussr/intrepid"
+msgstr "Intrepid"
+
+msgid "inscription/ussr/invader"
+msgstr "Fight the occupants!"
+
+msgid "inscription/ussr/komsomol"
+msgstr "Komsomolets"
+
+msgid "inscription/ussr/kuibyshev"
+msgstr "Kuybyshev"
+
+msgid "inscription/ussr/kutuzov"
+msgstr "Kutuzov"
+
+msgid "inscription/ussr/leningrad"
+msgstr "For Leningrad!"
+
+msgid "inscription/ussr/leningradian"
+msgstr "Resident of Leningrad"
+
+msgid "inscription/ussr/leopard"
+msgstr "Snow leopard"
+
+msgid "inscription/ussr/liberator"
+msgstr "Liberator"
+
+msgid "inscription/ussr/lightning"
+msgstr "Fulminant"
+
+msgid "inscription/ussr/mayakovsky"
+msgstr "Vladimir Mayakovsky"
+
+msgid "inscription/ussr/metallurg"
+msgstr "Chelyabinsk metallurgist"
+
+msgid "inscription/ussr/moscow"
+msgstr "For Moscow!"
+
+msgid "inscription/ussr/motherland_1"
+msgstr "For Motherland!"
+
+msgid "inscription/ussr/motherland_2"
+msgstr "For Motherland!"
+
+msgid "inscription/ussr/motherland_3"
+msgstr "For our Soviet Motherland!"
+
+msgid "inscription/ussr/muromets"
+msgstr "Ilya Muromets"
+
+msgid "inscription/ussr/neva"
+msgstr "Alexander Nevsky"
+
+msgid "inscription/ussr/penza"
+msgstr "Penza takes revenge!"
+
+msgid "inscription/ussr/pioneer"
+msgstr "Pioneer"
+
+msgid "inscription/ussr/polar"
+msgstr "Soviet polar explorer"
+
+msgid "inscription/ussr/rash"
+msgstr "Swift"
+
+msgid "inscription/ussr/red"
+msgstr "The Red Army is the strongest of all!"
+
+msgid "inscription/ussr/rudy"
+msgstr "Red"
+
+msgid "inscription/ussr/runaway"
+msgstr "Irrepressible"
+
+msgid "inscription/ussr/russian"
+msgstr "Russians do not surrender!"
+
+msgid "inscription/ussr/ruthless"
+msgstr "Merciless"
+
+msgid "inscription/ussr/schoolboy"
+msgstr "Motor works student"
+
+msgid "inscription/ussr/sevastopol"
+msgstr "Uphold Sevastopol!"
+
+msgid "inscription/ussr/shchors"
+msgstr "Nikolay Shchors"
+
+msgid "inscription/ussr/smashing"
+msgstr "Smashing"
+
+msgid "inscription/ussr/spartak"
+msgstr "Spartacus"
+
+msgid "inscription/ussr/stalin_1"
+msgstr "For Stalin!"
+
+msgid "inscription/ussr/stalin_2"
+msgstr "Joseph Stalin"
+
+msgid "inscription/ussr/stalinist"
+msgstr "Stalinets"
+
+msgid "inscription/ussr/steelmaker"
+msgstr "Kryvyi Rih steel-maker"
+
+msgid "inscription/ussr/strong"
+msgstr "Decisive"
+
+msgid "inscription/ussr/susanin"
+msgstr "Ivan Susanin"
+
+msgid "inscription/ussr/suvorov"
+msgstr "Suvorov"
+
+msgid "inscription/ussr/tigers"
+msgstr "Fight the Tigers!"
+
+msgid "inscription/ussr/toberlin"
+msgstr "On to Berlin!"
+
+msgid "inscription/ussr/tutsan"
+msgstr "Hunter"
+
+msgid "inscription/ussr/ukraine"
+msgstr "For the Soviet Ukraine"
+
+msgid "inscription/ussr/varangian"
+msgstr "\"Varyag\""
+
+msgid "inscription/ussr/victor"
+msgstr "Victorious"
+
+msgid "inscription/ussr/victory_1"
+msgstr "To the Victory!"
+
+msgid "inscription/ussr/victory_2"
+msgstr "We will prevail!"
+
+msgid "inscription/ussr/victory_3"
+msgstr "Victory will be ours!"
+
+msgid "inscription/ussr/warlike"
+msgstr "Militant"
+
+msgid "inscription/ussr/west"
+msgstr "To the West!"

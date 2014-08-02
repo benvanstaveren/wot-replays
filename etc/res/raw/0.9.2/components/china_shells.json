@@ -1,0 +1,919 @@
+{
+   "_37mm_APC_M51" : {
+      "icon" : "ap_cr",
+      "damage" : {
+         "armor" : 40,
+         "devices" : 50
+      },
+      "effects" : "smallAPCR",
+      "userString" : "#china_vehicles:_37mm_APC_M51",
+      "caliber" : 37,
+      "kind" : "ARMOR_PIERCING_CR",
+      "id" : 44,
+      "price" : 2,
+      "isTracer" : true
+   },
+   "_76mm_HE_M42A1" : {
+      "icon" : "he",
+      "damage" : {
+         "armor" : 185,
+         "devices" : 105
+      },
+      "effects" : "mediumHighExplosive",
+      "explosionRadius" : "1.09",
+      "userString" : "#usa_vehicles:_75mm_M48",
+      "caliber" : 76,
+      "kind" : "HIGH_EXPLOSIVE",
+      "id" : 74,
+      "price" : 68,
+      "isTracer" : true
+   },
+   "_45mm_UBR-240A" : {
+      "icon" : "ap",
+      "damage" : {
+         "armor" : 47,
+         "devices" : 61
+      },
+      "effects" : "smallArmorPiercing",
+      "userString" : "#china_vehicles:_45mm_UBR-240A",
+      "caliber" : 45,
+      "kind" : "ARMOR_PIERCING",
+      "id" : 40,
+      "price" : 14,
+      "isTracer" : true
+   },
+   "_85mm_CJ_365" : {
+      "icon" : "ap",
+      "damage" : {
+         "armor" : 160,
+         "devices" : 115
+      },
+      "effects" : "mainArmorPiercing",
+      "userString" : "#china_vehicles:_85mm_CJ_365",
+      "caliber" : 85,
+      "kind" : "ARMOR_PIERCING",
+      "id" : 64,
+      "price" : 109,
+      "isTracer" : true
+   },
+   "_122mm_PO-122" : {
+      "icon" : "hc",
+      "damage" : {
+         "armor" : 440,
+         "devices" : 165
+      },
+      "effects" : "largeHollowCharge",
+      "userString" : "#china_vehicles:_122mm_PO-122",
+      "caliber" : 122,
+      "kind" : "HOLLOW_CHARGE",
+      "piercingPowerLossFactorByDistance" : "0.05",
+      "id" : 62,
+      "price" : 12,
+      "isTracer" : true
+   },
+   "_13.2mm_Balle_P." : {
+      "icon" : "ap",
+      "damage" : {
+         "armor" : 8,
+         "devices" : 18
+      },
+      "effects" : "autoArmorPiercing",
+      "userString" : "#china_vehicles:_13.2mm_Balle_P.",
+      "caliber" : "13.2",
+      "kind" : "ARMOR_PIERCING",
+      "id" : 13,
+      "price" : 1,
+      "isTracer" : true
+   },
+   "_37mm_HE_M63" : {
+      "icon" : "he",
+      "damage" : {
+         "armor" : 50,
+         "devices" : 50
+      },
+      "effects" : "smallHighExplosive",
+      "explosionRadius" : "0.31",
+      "userString" : "#china_vehicles:_37mm_HE_M63",
+      "caliber" : 37,
+      "kind" : "HIGH_EXPLOSIVE",
+      "id" : 45,
+      "price" : 10,
+      "isTracer" : true
+   },
+   "_130mm_HE" : {
+      "icon" : "he",
+      "damage" : {
+         "armor" : 640,
+         "devices" : 180
+      },
+      "effects" : "largeHighExplosive",
+      "explosionRadius" : "2.78",
+      "userString" : "#china_vehicles:_130mm_HE",
+      "caliber" : 130,
+      "kind" : "HIGH_EXPLOSIVE",
+      "id" : 33,
+      "price" : 978,
+      "isTracer" : true
+   },
+   "_47mm_HE" : {
+      "icon" : "he",
+      "damage" : {
+         "armor" : 65,
+         "devices" : 64
+      },
+      "effects" : "smallHighExplosive",
+      "explosionRadius" : "0.47",
+      "userString" : "#china_vehicles:_47mm_HE",
+      "caliber" : 47,
+      "kind" : "HIGH_EXPLOSIVE",
+      "id" : 36,
+      "price" : 13,
+      "isTracer" : true
+   },
+   "_37mm_Odr_mle._1935" : {
+      "icon" : "ap",
+      "damage" : {
+         "armor" : 30,
+         "devices" : 50
+      },
+      "effects" : "smallArmorPiercing",
+      "userString" : "#china_vehicles:_37mm_Odr_mle._1935",
+      "caliber" : 37,
+      "kind" : "ARMOR_PIERCING",
+      "id" : 10,
+      "price" : "",
+      "isTracer" : true
+   },
+   "_100mm_CJ-412G" : {
+      "icon" : "ap",
+      "damage" : {
+         "armor" : 320,
+         "devices" : 135
+      },
+      "effects" : "mainArmorPiercing",
+      "userString" : "#china_vehicles:_100mm_CJ-412G",
+      "caliber" : 100,
+      "kind" : "ARMOR_PIERCING",
+      "id" : 18,
+      "price" : 1050,
+      "isTracer" : true
+   },
+   "_47mm_APCR" : {
+      "icon" : "ap_cr",
+      "damage" : {
+         "armor" : 50,
+         "devices" : 64
+      },
+      "effects" : "smallAPCR",
+      "userString" : "#china_vehicles:_47mm_APCR",
+      "caliber" : 47,
+      "kind" : "ARMOR_PIERCING_CR",
+      "id" : 35,
+      "price" : 2,
+      "isTracer" : true
+   },
+   "_47mm_APCR_Type1" : {
+      "icon" : "ap_cr",
+      "damage" : {
+         "armor" : 70,
+         "devices" : 64
+      },
+      "effects" : "smallAPCR",
+      "userString" : "#china_vehicles:_47mm_APCR_Type1",
+      "caliber" : 47,
+      "kind" : "ARMOR_PIERCING_CR",
+      "id" : 53,
+      "price" : 4,
+      "isTracer" : true
+   },
+   "_37mm_OE_mle._1916" : {
+      "icon" : "he",
+      "damage" : {
+         "armor" : 36,
+         "devices" : 50
+      },
+      "effects" : "smallHighExplosive",
+      "explosionRadius" : "0.31",
+      "userString" : "#china_vehicles:_37mm_OE_mle._1916",
+      "caliber" : 37,
+      "kind" : "HIGH_EXPLOSIVE",
+      "id" : 12,
+      "price" : 6,
+      "isTracer" : true
+   },
+   "_45mm_UBR-240PA" : {
+      "icon" : "ap_cr",
+      "damage" : {
+         "armor" : 47,
+         "devices" : 61
+      },
+      "effects" : "smallAPCR",
+      "userString" : "#china_vehicles:_45mm_UBR-240PA",
+      "caliber" : 45,
+      "kind" : "ARMOR_PIERCING_CR",
+      "id" : 41,
+      "price" : 2,
+      "isTracer" : true
+   },
+   "_37cm_Pzgr40" : {
+      "icon" : "ap_cr",
+      "damage" : {
+         "armor" : 36,
+         "devices" : 50
+      },
+      "effects" : "smallAPCR",
+      "userString" : "#china_vehicles:_37cm_Pzgr40",
+      "caliber" : 37,
+      "kind" : "ARMOR_PIERCING_CR",
+      "id" : 16,
+      "price" : 2,
+      "isTracer" : true
+   },
+   "_122mm_SB-472" : {
+      "icon" : "he",
+      "damage" : {
+         "armor" : 530,
+         "devices" : 165
+      },
+      "effects" : "largeHighExplosive",
+      "explosionRadius" : "2.49",
+      "userString" : "#china_vehicles:_122mm_SB-472",
+      "caliber" : 122,
+      "kind" : "HIGH_EXPLOSIVE",
+      "id" : 63,
+      "price" : 630,
+      "isTracer" : true
+   },
+   "_76mm_UBR-354MP" : {
+      "icon" : "ap_cr",
+      "damage" : {
+         "armor" : 110,
+         "devices" : 105
+      },
+      "effects" : "mediumAPCR",
+      "userString" : "#china_vehicles:_76mm_UBR-354MP",
+      "caliber" : 76,
+      "kind" : "ARMOR_PIERCING_CR",
+      "id" : 56,
+      "price" : 6,
+      "isTracer" : true
+   },
+   "_85mm_HEAT" : {
+      "icon" : "hc",
+      "damage" : {
+         "armor" : 180,
+         "devices" : 115
+      },
+      "effects" : "AAAAAAAAAAAAAAAA",
+      "userString" : "#china_vehicles:_85mm_HEAT",
+      "caliber" : 85,
+      "kind" : "HOLLOW_CHARGE",
+      "piercingPowerLossFactorByDistance" : "0.05",
+      "id" : 4,
+      "price" : 12,
+      "isTracer" : true
+   },
+   "_122mm_Type_57" : {
+      "icon" : "ap",
+      "damage" : {
+         "armor" : 390,
+         "devices" : 165
+      },
+      "effects" : "largeArmorPiercing",
+      "userString" : "#china_vehicles:_122mm_Type_57",
+      "caliber" : 122,
+      "kind" : "ARMOR_PIERCING",
+      "id" : 6,
+      "price" : 1025,
+      "isTracer" : true
+   },
+   "_40mm_AP" : {
+      "icon" : "ap",
+      "damage" : {
+         "armor" : 45,
+         "devices" : 54
+      },
+      "effects" : "smallArmorPiercing",
+      "userString" : "#china_vehicles:_40mm_AP",
+      "caliber" : 40,
+      "kind" : "ARMOR_PIERCING",
+      "id" : 37,
+      "price" : 30,
+      "isTracer" : true
+   },
+   "_122mm_Type_64" : {
+      "icon" : "hc",
+      "damage" : {
+         "armor" : 390,
+         "devices" : 165
+      },
+      "effects" : "largeHollowCharge",
+      "userString" : "#china_vehicles:_122mm_Type_64",
+      "caliber" : 122,
+      "kind" : "HOLLOW_CHARGE",
+      "piercingPowerLossFactorByDistance" : "0.05",
+      "id" : 7,
+      "price" : 14,
+      "isTracer" : true
+   },
+   "_85mm_UBR" : {
+      "icon" : "ap",
+      "damage" : {
+         "armor" : 180,
+         "devices" : 115
+      },
+      "effects" : "mainArmorPiercing",
+      "userString" : "#china_vehicles:_85mm_UBR",
+      "caliber" : 85,
+      "kind" : "ARMOR_PIERCING",
+      "id" : 3,
+      "price" : 170,
+      "isTracer" : true
+   },
+   "_100mm_UBR-412training" : {
+      "icon" : "ap",
+      "damage" : {
+         "armor" : 160,
+         "devices" : 135
+      },
+      "effects" : "mainArmorPiercing",
+      "userString" : "#china_vehicles:_100mm_UBR-412",
+      "caliber" : 100,
+      "kind" : "ARMOR_PIERCING",
+      "id" : 71,
+      "price" : 252,
+      "isTracer" : true,
+      "notInShop" : true
+   },
+   "_122mm_CB-472" : {
+      "icon" : "ap",
+      "damage" : {
+         "armor" : 440,
+         "devices" : 165
+      },
+      "effects" : "largeArmorPiercing",
+      "userString" : "#china_vehicles:_122mm_CB-472",
+      "caliber" : 122,
+      "kind" : "ARMOR_PIERCING",
+      "id" : 61,
+      "price" : 1065,
+      "isTracer" : true
+   },
+   "_76mm_HE_type1" : {
+      "icon" : "he",
+      "damage" : {
+         "armor" : 165,
+         "devices" : 105
+      },
+      "effects" : "mediumHighExplosive",
+      "explosionRadius" : "1.09",
+      "userString" : "#china_vehicles:_76mm_HE_type1",
+      "caliber" : 76,
+      "kind" : "HIGH_EXPLOSIVE",
+      "id" : 48,
+      "price" : 48,
+      "isTracer" : true
+   },
+   "_57mm_APCR_Type_55_57" : {
+      "icon" : "ap_cr",
+      "damage" : {
+         "armor" : 85,
+         "devices" : 76
+      },
+      "effects" : "mediumAPCR",
+      "userString" : "#china_vehicles:_57mm_APCR_Type_55_57",
+      "caliber" : 57,
+      "kind" : "ARMOR_PIERCING_CR",
+      "id" : 59,
+      "price" : 7,
+      "isTracer" : true
+   },
+   "_57mm_AP_Type_97" : {
+      "icon" : "ap",
+      "damage" : {
+         "armor" : 75,
+         "devices" : 76
+      },
+      "effects" : "mediumArmorPiercing",
+      "userString" : "#china_vehicles:_57mm_AP_Type_97",
+      "caliber" : 57,
+      "kind" : "ARMOR_PIERCING",
+      "id" : 49,
+      "price" : 16,
+      "isTracer" : true
+   },
+   "_85mm_UOF" : {
+      "icon" : "he",
+      "damage" : {
+         "armor" : 300,
+         "devices" : 115
+      },
+      "effects" : "mainHighExplosive",
+      "explosionRadius" : "1.32",
+      "userString" : "#china_vehicles:_85mm_UOF",
+      "caliber" : 85,
+      "kind" : "HIGH_EXPLOSIVE",
+      "id" : 5,
+      "price" : 130,
+      "isTracer" : true
+   },
+   "_40mm_HE" : {
+      "icon" : "he",
+      "damage" : {
+         "armor" : 60,
+         "devices" : 54
+      },
+      "effects" : "smallHighExplosive",
+      "explosionRadius" : "0.35",
+      "userString" : "#china_vehicles:_40mm_HE",
+      "caliber" : 40,
+      "kind" : "HIGH_EXPLOSIVE",
+      "id" : 39,
+      "price" : 15,
+      "isTracer" : true
+   },
+   "_100mm_TC-412G" : {
+      "icon" : "ap_cr",
+      "damage" : {
+         "armor" : 320,
+         "devices" : 135
+      },
+      "effects" : "AAAAAAAA",
+      "userString" : "#china_vehicles:_100mm_TC-412G",
+      "caliber" : 100,
+      "kind" : "ARMOR_PIERCING_CR",
+      "id" : 19,
+      "price" : 10,
+      "isTracer" : true
+   },
+   "icons" : {
+      "hc" : "HOLLOW_CHARGE.png 0 0",
+      "ap_he" : "ARMOR_PIERCING_HE.png 0 0",
+      "he" : "HIGH_EXPLOSIVE.png 0 0",
+      "ap_cr" : "ARMOR_PIERCING_CR.png 0 0",
+      "he_premium" : "HIGH_EXPLOSIVE_PREMIUM.png 0 0",
+      "ap" : "ARMOR_PIERCING.png 0 0"
+   },
+   "_37mm_AP_M74" : {
+      "icon" : "ap",
+      "damage" : {
+         "armor" : 40,
+         "devices" : 50
+      },
+      "effects" : "smallArmorPiercing",
+      "userString" : "#china_vehicles:_37mm_AP_M74",
+      "caliber" : 37,
+      "kind" : "ARMOR_PIERCING",
+      "id" : 43,
+      "price" : 18,
+      "isTracer" : true
+   },
+   "_76mm_UBR-354A" : {
+      "icon" : "ap",
+      "damage" : {
+         "armor" : 110,
+         "devices" : 105
+      },
+      "effects" : "mediumArmorPiercing",
+      "userString" : "#china_vehicles:_76mm_UBR-354A",
+      "caliber" : 76,
+      "kind" : "ARMOR_PIERCING",
+      "id" : 55,
+      "price" : 56,
+      "isTracer" : true
+   },
+   "_76mm_AP_type1" : {
+      "icon" : "ap",
+      "damage" : {
+         "armor" : 115,
+         "devices" : 105
+      },
+      "effects" : "mediumArmorPiercing",
+      "userString" : "#china_vehicles:_76mm_AP_type1",
+      "caliber" : 76,
+      "kind" : "ARMOR_PIERCING",
+      "id" : 46,
+      "price" : 56,
+      "isTracer" : true
+   },
+   "_85mm_SB_367G" : {
+      "icon" : "he",
+      "damage" : {
+         "armor" : 320,
+         "devices" : 115
+      },
+      "effects" : "mainHighExplosive",
+      "explosionRadius" : "1.32",
+      "userString" : "#china_vehicles:_85mm_SB_367G",
+      "caliber" : 85,
+      "kind" : "HIGH_EXPLOSIVE",
+      "id" : 68,
+      "price" : 170,
+      "isTracer" : true
+   },
+   "_100mm_UBR-412P" : {
+      "icon" : "ap_cr",
+      "damage" : {
+         "armor" : 250,
+         "devices" : 135
+      },
+      "effects" : "AAAAAAAA",
+      "userString" : "#china_vehicles:_100mm_UBR-412P",
+      "caliber" : 100,
+      "kind" : "ARMOR_PIERCING_CR",
+      "id" : 1,
+      "price" : 11,
+      "isTracer" : true
+   },
+   "_100mm_UOF-412" : {
+      "icon" : "he",
+      "damage" : {
+         "armor" : 330,
+         "devices" : 135
+      },
+      "effects" : "mainHighExplosive",
+      "explosionRadius" : "1.76",
+      "userString" : "#china_vehicles:_100mm_UOF-412",
+      "caliber" : 100,
+      "kind" : "HIGH_EXPLOSIVE",
+      "id" : 2,
+      "price" : 252,
+      "isTracer" : true
+   },
+   "_57mm_HE_Type_97" : {
+      "icon" : "he",
+      "damage" : {
+         "armor" : 95,
+         "devices" : 76
+      },
+      "effects" : "mediumHighExplosive",
+      "explosionRadius" : "0.66",
+      "userString" : "#china_vehicles:_57mm_HE_Type_97",
+      "caliber" : 57,
+      "kind" : "HIGH_EXPLOSIVE",
+      "id" : 51,
+      "price" : 20,
+      "isTracer" : true
+   },
+   "_76mm_UOF-354" : {
+      "icon" : "he",
+      "damage" : {
+         "armor" : 156,
+         "devices" : 105
+      },
+      "effects" : "mediumHighExplosive",
+      "explosionRadius" : "1.09",
+      "userString" : "#china_vehicles:_76mm_UOF-354",
+      "caliber" : 76,
+      "kind" : "HIGH_EXPLOSIVE",
+      "id" : 57,
+      "price" : 56,
+      "isTracer" : true
+   },
+   "_57mm_AP_Type_55_57" : {
+      "icon" : "ap",
+      "damage" : {
+         "armor" : 85,
+         "devices" : 76
+      },
+      "effects" : "mediumArmorPiercing",
+      "userString" : "#china_vehicles:_57mm_AP_Type_55_57",
+      "caliber" : 57,
+      "kind" : "ARMOR_PIERCING",
+      "id" : 58,
+      "price" : 56,
+      "isTracer" : true
+   },
+   "_76mm_APCR_type1" : {
+      "icon" : "ap_cr",
+      "damage" : {
+         "armor" : 115,
+         "devices" : 105
+      },
+      "effects" : "mediumAPCR",
+      "userString" : "#china_vehicles:_76mm_APCR_type1",
+      "caliber" : 76,
+      "kind" : "ARMOR_PIERCING_CR",
+      "id" : 47,
+      "price" : 6,
+      "isTracer" : true
+   },
+   "_85mm_SB_365" : {
+      "icon" : "he",
+      "damage" : {
+         "armor" : 280,
+         "devices" : 115
+      },
+      "effects" : "mainHighExplosive",
+      "explosionRadius" : "1.32",
+      "userString" : "#china_vehicles:_85mm_SB_365",
+      "caliber" : 85,
+      "kind" : "HIGH_EXPLOSIVE",
+      "id" : 65,
+      "price" : 98,
+      "isTracer" : true
+   },
+   "_85mm_367" : {
+      "icon" : "ap_cr",
+      "damage" : {
+         "armor" : 160,
+         "devices" : 115
+      },
+      "effects" : "AAAAAAAA",
+      "userString" : "#china_vehicles:_85mm_367",
+      "caliber" : 85,
+      "kind" : "ARMOR_PIERCING_CR",
+      "id" : 9,
+      "price" : 7,
+      "isTracer" : true
+   },
+   "_130mm_HEAT" : {
+      "icon" : "hc",
+      "damage" : {
+         "armor" : 490,
+         "devices" : 180
+      },
+      "effects" : "largeHollowCharge",
+      "userString" : "#china_vehicles:_130mm_HEAT",
+      "caliber" : 130,
+      "kind" : "HOLLOW_CHARGE",
+      "piercingPowerLossFactorByDistance" : "0.05",
+      "id" : 32,
+      "price" : 12,
+      "isTracer" : true
+   },
+   "_47mm_AP" : {
+      "icon" : "ap",
+      "damage" : {
+         "armor" : 50,
+         "devices" : 64
+      },
+      "effects" : "smallArmorPiercing",
+      "userString" : "#china_vehicles:_47mm_AP",
+      "caliber" : 47,
+      "kind" : "ARMOR_PIERCING",
+      "id" : 34,
+      "price" : 10,
+      "isTracer" : true
+   },
+   "_57mm_HE_Type_55_57" : {
+      "icon" : "he",
+      "damage" : {
+         "armor" : 95,
+         "devices" : 76
+      },
+      "effects" : "mediumHighExplosive",
+      "explosionRadius" : "0.66",
+      "userString" : "#china_vehicles:_57mm_HE_Type_55_57",
+      "caliber" : 57,
+      "kind" : "HIGH_EXPLOSIVE",
+      "id" : 60,
+      "price" : 28,
+      "isTracer" : true
+   },
+   "_130mm_AP" : {
+      "icon" : "ap",
+      "damage" : {
+         "armor" : 490,
+         "devices" : 180
+      },
+      "effects" : "largeArmorPiercing",
+      "userString" : "#china_vehicles:_130mm_AP",
+      "caliber" : 130,
+      "kind" : "ARMOR_PIERCING",
+      "id" : 31,
+      "price" : 1118,
+      "isTracer" : true
+   },
+   "_37mm_Sprg.18" : {
+      "icon" : "he",
+      "damage" : {
+         "armor" : 42,
+         "devices" : 50
+      },
+      "effects" : "smallHighExplosive",
+      "explosionRadius" : "0.31",
+      "userString" : "#china_vehicles:_37mm_Sprg.18",
+      "caliber" : 37,
+      "kind" : "HIGH_EXPLOSIVE",
+      "id" : 17,
+      "price" : 6,
+      "isTracer" : true
+   },
+   "_57mm_HEAT_Type_97" : {
+      "icon" : "hc",
+      "damage" : {
+         "armor" : 75,
+         "devices" : 76
+      },
+      "effects" : "AAAAAAAAAAAAAAAA",
+      "userString" : "#china_vehicles:_57mm_HEAT_Type_97",
+      "caliber" : 57,
+      "kind" : "HOLLOW_CHARGE",
+      "piercingPowerLossFactorByDistance" : "0.05",
+      "id" : 50,
+      "price" : 3,
+      "isTracer" : true
+   },
+   "_47mm_HE_Type1" : {
+      "icon" : "he",
+      "damage" : {
+         "armor" : 90,
+         "devices" : 64
+      },
+      "effects" : "smallHighExplosive",
+      "explosionRadius" : "0.47",
+      "userString" : "#china_vehicles:_47mm_HE_Type1",
+      "caliber" : 47,
+      "kind" : "HIGH_EXPLOSIVE",
+      "id" : 54,
+      "price" : 19,
+      "isTracer" : true
+   },
+   "_76mm_AP_M79" : {
+      "icon" : "ap",
+      "damage" : {
+         "armor" : 115,
+         "devices" : 105
+      },
+      "effects" : "mediumArmorPiercing",
+      "userString" : "#usa_vehicles:_76mm_AP_M79",
+      "caliber" : 76,
+      "kind" : "ARMOR_PIERCING",
+      "id" : 72,
+      "price" : 94,
+      "isTracer" : true
+   },
+   "_85mm_Po_367" : {
+      "icon" : "hc",
+      "damage" : {
+         "armor" : 200,
+         "devices" : 115
+      },
+      "effects" : "AAAAAAAAAAAAAAAA",
+      "userString" : "#china_vehicles:_85mm_Po_367",
+      "caliber" : 85,
+      "kind" : "HOLLOW_CHARGE",
+      "piercingPowerLossFactorByDistance" : "0.05",
+      "id" : 67,
+      "price" : 10,
+      "isTracer" : true
+   },
+   "_13.2mm_Balle_T.P." : {
+      "icon" : "ap_cr",
+      "damage" : {
+         "armor" : 8,
+         "devices" : 18
+      },
+      "effects" : "AAAAAAAA",
+      "userString" : "#china_vehicles:_13.2mm_Balle_T.P.",
+      "caliber" : "13.2",
+      "kind" : "ARMOR_PIERCING_CR",
+      "id" : 14,
+      "price" : 1,
+      "isTracer" : true
+   },
+   "_37mm_FrtPrf1935" : {
+      "icon" : "ap_cr",
+      "damage" : {
+         "armor" : 30,
+         "devices" : 50
+      },
+      "effects" : "smallAPCR",
+      "userString" : "#china_vehicles:_37mm_FrtPrf1935",
+      "caliber" : 37,
+      "kind" : "ARMOR_PIERCING_CR",
+      "id" : 11,
+      "price" : 2,
+      "isTracer" : true
+   },
+   "_47mm_APHE_Type1" : {
+      "icon" : "ap",
+      "damage" : {
+         "armor" : 70,
+         "devices" : 64
+      },
+      "effects" : "smallArmorPiercing",
+      "userString" : "#china_vehicles:_47mm_APHE_Type1",
+      "caliber" : 47,
+      "kind" : "ARMOR_PIERCING",
+      "id" : 52,
+      "price" : 36,
+      "isTracer" : true
+   },
+   "_76mm_HVAP_M93" : {
+      "icon" : "ap_cr",
+      "damage" : {
+         "armor" : 115,
+         "devices" : 105
+      },
+      "effects" : "mediumAPCR",
+      "userString" : "#usa_vehicles:_76mm_HVAP_M93",
+      "caliber" : 76,
+      "kind" : "ARMOR_PIERCING_CR",
+      "id" : 73,
+      "price" : 7,
+      "isTracer" : true
+   },
+   "_100mm_SB-412G" : {
+      "icon" : "he",
+      "damage" : {
+         "armor" : 420,
+         "devices" : 135
+      },
+      "effects" : "mainHighExplosive",
+      "explosionRadius" : "1.76",
+      "userString" : "#china_vehicles:_100mm_SB-412G",
+      "caliber" : 100,
+      "kind" : "HIGH_EXPLOSIVE",
+      "id" : 20,
+      "price" : 750,
+      "isTracer" : true
+   },
+   "_37mm_Pzgr36" : {
+      "icon" : "ap",
+      "damage" : {
+         "armor" : 36,
+         "devices" : 50
+      },
+      "effects" : "smallArmorPiercing",
+      "userString" : "#china_vehicles:_37mm_Pzgr36",
+      "caliber" : 37,
+      "kind" : "ARMOR_PIERCING",
+      "id" : 15,
+      "price" : 6,
+      "isTracer" : true
+   },
+   "_122mm_Type_68" : {
+      "icon" : "he",
+      "damage" : {
+         "armor" : 465,
+         "devices" : 165
+      },
+      "effects" : "largeHighExplosive",
+      "explosionRadius" : "2.49",
+      "userString" : "#china_vehicles:_122mm_Type_68",
+      "caliber" : 122,
+      "kind" : "HIGH_EXPLOSIVE",
+      "id" : 8,
+      "price" : 608,
+      "isTracer" : true
+   },
+   "_45mm_UOF-240A" : {
+      "icon" : "he",
+      "damage" : {
+         "armor" : 62,
+         "devices" : 61
+      },
+      "effects" : "smallHighExplosive",
+      "explosionRadius" : "0.43",
+      "userString" : "#china_vehicles:_45mm_UOF-240A",
+      "caliber" : 45,
+      "kind" : "HIGH_EXPLOSIVE",
+      "id" : 42,
+      "price" : 14,
+      "isTracer" : true
+   },
+   "_100mm_UBR-412" : {
+      "icon" : "ap",
+      "damage" : {
+         "armor" : 250,
+         "devices" : 135
+      },
+      "effects" : "mainArmorPiercing",
+      "userString" : "#china_vehicles:_100mm_UBR-412",
+      "caliber" : 100,
+      "kind" : "ARMOR_PIERCING",
+      "id" : "",
+      "price" : 252,
+      "isTracer" : true
+   },
+   "_85mm_CB_367G" : {
+      "icon" : "ap",
+      "damage" : {
+         "armor" : 200,
+         "devices" : 115
+      },
+      "effects" : "mainArmorPiercing",
+      "userString" : "#china_vehicles:_85mm_CB_367G",
+      "caliber" : 85,
+      "kind" : "ARMOR_PIERCING",
+      "id" : 66,
+      "price" : 240,
+      "isTracer" : true
+   },
+   "_40mm_APCR" : {
+      "icon" : "ap_cr",
+      "damage" : {
+         "armor" : 45,
+         "devices" : 54
+      },
+      "effects" : "smallAPCR",
+      "userString" : "#china_vehicles:_40mm_APCR",
+      "caliber" : 40,
+      "kind" : "ARMOR_PIERCING_CR",
+      "id" : 38,
+      "price" : 2,
+      "isTracer" : true
+   }
+}

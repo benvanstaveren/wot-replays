@@ -1,0 +1,3310 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: World Of Tanks\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-06-01 10:00+0300\n"
+"Last-Translator: i_maliavko <i_maliavko@wargaming.net>\n"
+"Language-Team: WoT Team <noreply@wargaming.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "account/profile/emptyBattleList"
+msgstr "Never battled"
+
+msgid "accountInfo/credits"
+msgstr "Credits:"
+
+msgid "accountInfo/experience"
+msgstr "Total Experience:"
+
+msgid "accountInfo/gold"
+msgstr "Gold:"
+
+msgid "accountTypes/base"
+msgstr "Standard Account"
+
+msgid "accountTypes/demo"
+msgstr "Test Account"
+
+msgid "accountTypes/free"
+msgstr "Free Account"
+
+msgid "accountTypes/guest"
+msgstr "Guest Account"
+
+msgid "accountTypes/premium"
+msgstr "Premium Account"
+
+msgid "ammoReload/additionBuy"
+msgstr "Purchase"
+
+msgid "ammoReload/ammunition"
+msgstr "Ammunition:"
+
+msgid "ammoReload/autoFill"
+msgstr "Auto-resupply"
+
+msgid "ammoReload/cancel"
+msgstr "Cancel"
+
+msgid "ammoReload/clearAmmunition"
+msgstr "Clear ammunition"
+
+msgid "ammoReload/damage/title"
+msgstr "Damage:"
+
+msgid "ammoReload/damage/units"
+msgstr "?empty?"
+
+msgid "ammoReload/fill"
+msgstr "Resupply"
+
+msgid "ammoReload/inTank"
+msgstr "In Vehicle"
+
+msgid "ammoReload/onInventory"
+msgstr "In Depot"
+
+msgid "ammoReload/piercingPower/title"
+msgstr "Penetration: up to"
+
+msgid "ammoReload/piercingPower/units"
+msgstr "mm"
+
+msgid "ammoReload/reloadTitle"
+msgstr "Ammunition for"
+
+msgid "ammoReload/title"
+msgstr "Resupply Ammunition"
+
+msgid "ammoReload/totalcost"
+msgstr "Total:"
+
+msgid "barracks/barracksRenderer/placesCount"
+msgstr "Available Bunks:"
+
+msgid "barracks/btnBuyBerth"
+msgstr "Enlarge Barracks"
+
+msgid "barracks/btnBuyBerthDecs"
+msgstr "Enlarge Barracks by adding {%d} bunks?"
+
+msgid "barracks/btnBuyTankman"
+msgstr "Recruit"
+
+msgid "barracks/btnDissmiss"
+msgstr "Dismiss"
+
+msgid "barracks/btnNewPlace"
+msgstr "Enlarge Barracks"
+
+msgid "barracks/btnRecruit"
+msgstr "Recruit"
+
+msgid "barracks/btnUnload"
+msgstr "Send to Barracks"
+
+msgid "barracks/menu/locationFilter/all"
+msgstr "In Barracks and in vehicles"
+
+msgid "barracks/menu/locationFilter/barracks"
+msgstr "In Barracks"
+
+msgid "barracks/menu/locationFilter/tanks"
+msgstr "In all vehicles in Garage"
+
+msgid "barracks/menu/locationFilter/textfield"
+msgstr "Location:"
+
+msgid "barracks/menu/roleFilter/all"
+msgstr "All crew members"
+
+msgid "barracks/menu/roleFilter/commander"
+msgstr "Commanders"
+
+msgid "barracks/menu/roleFilter/driver"
+msgstr "Drivers"
+
+msgid "barracks/menu/roleFilter/gunner"
+msgstr "Gunners"
+
+msgid "barracks/menu/roleFilter/loader"
+msgstr "Loaders"
+
+msgid "barracks/menu/roleFilter/radioman"
+msgstr "Radio Operators"
+
+msgid "barracks/menu/roleFilter/textfield"
+msgstr "Qualification:"
+
+msgid "barracks/menu/tankTypeFilter/textfield"
+msgstr "Competence:"
+
+msgid "barracks/placesCount"
+msgstr "Available Bunks: {%d} of {%d}"
+
+msgid "barracks/tankmenCount"
+msgstr "Crew: {%d} of {%d}"
+
+msgid "bonusType/0"
+msgstr "Unknown"
+
+msgid "bonusType/1"
+msgstr "Random Battle"
+
+msgid "bonusType/10"
+msgstr "Strongholds"
+
+msgid "bonusType/2"
+msgstr "Team Training"
+
+msgid "bonusType/3"
+msgstr "Tank Company Battle"
+
+msgid "bonusType/4"
+msgstr "Special Battle"
+
+msgid "bonusType/5"
+msgstr "Special Battle"
+
+msgid "bonusType/6"
+msgstr "Battle Training"
+
+msgid "bonusType/7"
+msgstr "Team Battle"
+
+msgid "bonusType/8"
+msgstr "Historical Battle"
+
+msgid "bonusType/9"
+msgstr "Random Battle"
+
+msgid "browser/window/title"
+msgstr "Browser"
+
+msgid "carousel_tank_filter/AT-SPG"
+msgstr "Tank Destroyers"
+
+msgid "carousel_tank_filter/SPG"
+msgstr "SPGs"
+
+msgid "carousel_tank_filter/all"
+msgstr "All"
+
+msgid "carousel_tank_filter/heavyTank"
+msgstr "Heavy Tanks"
+
+msgid "carousel_tank_filter/lightTank"
+msgstr "Light Tanks"
+
+msgid "carousel_tank_filter/mediumTank"
+msgstr "Medium Tanks"
+
+msgid "carousel_tank_filter/ready"
+msgstr "Primary only"
+
+msgid "centerIsAvailable"
+msgstr "All servers are available again."
+
+msgid "centerIsUnAvailable"
+msgstr "Game servers temporarily unavailable."
+
+msgid "classes/AT-SPG"
+msgstr "Tank Destroyer"
+
+msgid "classes/SPG"
+msgstr "SPG"
+
+msgid "classes/anyType"
+msgstr "All Types"
+
+msgid "classes/heavyTank"
+msgstr "Heavy Tanks"
+
+msgid "classes/lightTank"
+msgstr "Light Tanks"
+
+msgid "classes/mediumTank"
+msgstr "Medium Tanks"
+
+msgid "common/premiumBuy"
+msgstr "Purchase Premium"
+
+msgid "common/premiumContinue"
+msgstr "Extend Premium"
+
+msgid "contextMenu/addToFriends"
+msgstr "Add to your Friends list"
+
+msgid "contextMenu/addToIgnored"
+msgstr "Add to your Ignore list"
+
+msgid "contextMenu/appeal"
+msgstr "Complain"
+
+msgid "contextMenu/blackmail"
+msgstr "Out of game threat"
+
+msgid "contextMenu/bot"
+msgstr "Inaction/Bot"
+
+msgid "contextMenu/buy"
+msgstr "Purchase"
+
+msgid "contextMenu/buyAndEquip"
+msgstr "Purchase and mount"
+
+msgid "contextMenu/cancelBuy"
+msgstr "Cancel purchase"
+
+msgid "contextMenu/copyToClipBoard"
+msgstr "Copy to clipboard"
+
+msgid "contextMenu/createPrivateChannel"
+msgstr "Create private channel"
+
+msgid "contextMenu/dismiss"
+msgstr "Dismiss"
+
+msgid "contextMenu/equip"
+msgstr "Mount"
+
+msgid "contextMenu/flood"
+msgstr "Spam"
+
+msgid "contextMenu/forbiddenNick"
+msgstr "Offensive nickname or clanname"
+
+msgid "contextMenu/goToNationTree"
+msgstr "Tech Tree"
+
+msgid "contextMenu/goToNextVehicle"
+msgstr "Research modules"
+
+msgid "contextMenu/kickPlayerFromPrebattle"
+msgstr "Dismiss from team"
+
+msgid "contextMenu/kickPlayerFromUnit"
+msgstr "Dismiss from team"
+
+msgid "contextMenu/lockSlot"
+msgstr "Lock the slot"
+
+msgid "contextMenu/moduleInfo"
+msgstr "Characteristics"
+
+msgid "contextMenu/moneyTransfer"
+msgstr "Transfer gold"
+
+msgid "contextMenu/notFairPlay"
+msgstr "Unsportsmanlike conduct"
+
+msgid "contextMenu/offend"
+msgstr "Insults and provocations"
+
+msgid "contextMenu/personalCase"
+msgstr "Personal File"
+
+msgid "contextMenu/removeFromFriends"
+msgstr "Delete from your Friends list"
+
+msgid "contextMenu/removeFromIgnored"
+msgstr "Delete from your Ignore list"
+
+msgid "contextMenu/selectVehicleInHangar"
+msgstr "Select a vehicle in the Garage"
+
+msgid "contextMenu/sell"
+msgstr "Sell"
+
+msgid "contextMenu/sellFromInventory"
+msgstr "Sell from Depot"
+
+msgid "contextMenu/setMuted"
+msgstr "Disable voice messages"
+
+msgid "contextMenu/showVehicleStatistics"
+msgstr "Display statistics for this vehicle"
+
+msgid "contextMenu/swindle"
+msgstr "Gold selling / Fraud"
+
+msgid "contextMenu/tankmanUnload"
+msgstr "Send to Barracks"
+
+msgid "contextMenu/tankmanUnloadAll"
+msgstr "Send entire crew to Barracks"
+
+msgid "contextMenu/unload"
+msgstr "Send to Depot"
+
+msgid "contextMenu/unlock"
+msgstr "Research"
+
+msgid "contextMenu/unlockSlot"
+msgstr "Unlock the slot"
+
+msgid "contextMenu/unsetMuted"
+msgstr "Enable voice messages"
+
+msgid "contextMenu/userInfo"
+msgstr "User details"
+
+msgid "contextMenu/vehicleCheck"
+msgstr "Set as Primary"
+
+msgid "contextMenu/vehicleInfo"
+msgstr "Vehicle details"
+
+msgid "contextMenu/vehicleInfoEx"
+msgstr "Vehicle details"
+
+msgid "contextMenu/vehicleResearch"
+msgstr "Research"
+
+msgid "contextMenu/vehicleSell"
+msgstr "Sell"
+
+msgid "contextMenu/vehicleUncheck"
+msgstr "Set as Reserve"
+
+msgid "copy"
+msgstr "Wargaming.net 2008-2014. All rights reserved."
+
+msgid "currentVehicleStatus/ammoNotFull"
+msgstr "Ammunition incomplete"
+
+msgid "currentVehicleStatus/battle"
+msgstr "In battle"
+
+msgid "currentVehicleStatus/clanLocked"
+msgstr "?empty?"
+
+msgid "currentVehicleStatus/crewNotFull"
+msgstr "Crew incomplete"
+
+msgid "currentVehicleStatus/damaged"
+msgstr "Repairs required"
+
+msgid "currentVehicleStatus/destroyed"
+msgstr "Repairs required"
+
+msgid "currentVehicleStatus/exploded"
+msgstr "Repairs required"
+
+msgid "currentVehicleStatus/inPrebattle"
+msgstr "In operational unit"
+
+msgid "currentVehicleStatus/locked"
+msgstr "?empty?"
+
+msgid "currentVehicleStatus/notpresent"
+msgstr ""
+"You must\n"
+"purchase a vehicle"
+
+msgid "currentVehicleStatus/serverRestriction"
+msgstr "Server limit"
+
+msgid "currentVehicleStatus/undamaged"
+msgstr "Ready for battle!"
+
+msgid "customization/buttons/apply"
+msgstr "Accept"
+
+msgid "customization/buttons/close"
+msgstr "Close"
+
+msgid "customization/change/camouflage"
+msgstr "Camouflage"
+
+msgid "customization/change/emblemLeft"
+msgstr "Emblem 1"
+
+msgid "customization/change/emblemRight"
+msgstr "Emblem 2"
+
+msgid "customization/change/horn"
+msgstr "Horn"
+
+msgid "customization/change/inscriptionLeft"
+msgstr "Inscription 1"
+
+msgid "customization/change/inscriptionRight"
+msgstr "Inscription 2"
+
+msgid "customization/group/igr"
+msgstr "IGR %(igrImg)s"
+
+msgid "customization/items/camouflage"
+msgstr "Camouflage"
+
+msgid "customization/items/emblemLeft"
+msgstr "Emblem 1"
+
+msgid "customization/items/emblemRight"
+msgstr "Emblem 2"
+
+msgid "customization/items/horn"
+msgstr "Horn"
+
+msgid "customization/items/inscriptionLeft"
+msgstr "Inscription 1"
+
+msgid "customization/items/inscriptionRight"
+msgstr "Inscription 2"
+
+msgid "customization/labels/camouflage/current"
+msgstr "Current:"
+
+msgid "customization/labels/camouflage/new"
+msgstr "New:"
+
+msgid "customization/labels/camouflage/period"
+msgstr "Apply Camouflage:"
+
+msgid "customization/labels/camouflage/price"
+msgstr "Camouflage"
+
+msgid "customization/labels/camouflage/section"
+msgstr "Camouflage"
+
+msgid "customization/labels/camouflage/timeLeft/days"
+msgstr "days: %d"
+
+msgid "customization/labels/camouflage/timeLeft/hours"
+msgstr "hours: %d"
+
+msgid "customization/labels/emblem/current"
+msgstr "Current:"
+
+msgid "customization/labels/emblem/new"
+msgstr "New:"
+
+msgid "customization/labels/emblem/period"
+msgstr "Apply Emblem:"
+
+msgid "customization/labels/emblemLeft/price"
+msgstr "Emblem 1"
+
+msgid "customization/labels/emblemLeft/section"
+msgstr "Emblem 1"
+
+msgid "customization/labels/emblemRight/price"
+msgstr "Emblem 2"
+
+msgid "customization/labels/emblemRight/section"
+msgstr "Emblem 2"
+
+msgid "customization/labels/horn/current"
+msgstr "Current:"
+
+msgid "customization/labels/horn/new"
+msgstr "New:"
+
+msgid "customization/labels/horn/price"
+msgstr "Horn"
+
+msgid "customization/labels/horn/section"
+msgstr "Horn"
+
+msgid "customization/labels/inscription/period"
+msgstr "Apply Inscription:"
+
+msgid "customization/labels/inscriptionLeft/price"
+msgstr "Inscription 1"
+
+msgid "customization/labels/inscriptionLeft/section"
+msgstr "Inscription 1"
+
+msgid "customization/labels/inscriptionRight/price"
+msgstr "Inscription 2"
+
+msgid "customization/labels/inscriptionRight/section"
+msgstr "Inscription 2"
+
+msgid "customization/labels/timeLeft/days"
+msgstr "days left: %d"
+
+msgid "customization/labels/timeLeft/hours"
+msgstr "hours left: %d"
+
+msgid "customization/labels/timeLeft/lastMinute"
+msgstr "1 min"
+
+msgid "customization/labels/timeLeft/title"
+msgstr "Left:"
+
+msgid "customization/labels/totalPrice"
+msgstr "Total:"
+
+msgid "customization/marker/camouflage/defaultHint"
+msgstr "Select Camouflage to decrease vehicle visibility"
+
+msgid "customization/marker/camouflage/desertHint"
+msgstr "Reduces vehicle visibility on desert maps"
+
+msgid "customization/marker/camouflage/new"
+msgstr "NEW"
+
+msgid "customization/marker/camouflage/summerHint"
+msgstr "Reduces vehicle visibility on summer maps"
+
+msgid "customization/marker/camouflage/winterHint"
+msgstr "Reduces vehicle visibility on winter maps"
+
+msgid "customization/period/day"
+msgstr "for 1 day"
+
+msgid "customization/period/days"
+msgstr "for %d days"
+
+msgid "customization/period/igr"
+msgstr "for %(igrImg)s"
+
+msgid "customization/period/infinity"
+msgstr "permanently"
+
+msgid "customization/remove/camouflage/side-01"
+msgstr "The current Camouflage"
+
+msgid "customization/remove/camouflage/side-02"
+msgstr "will be DESTROYED"
+
+msgid "customization/remove/camouflage0/side-01"
+msgstr "Winter Camouflage"
+
+msgid "customization/remove/camouflage1/side-01"
+msgstr "Summer Camouflage"
+
+msgid "customization/remove/camouflage2/side-01"
+msgstr "Desert Camouflage"
+
+msgid "customization/remove/emblemLeft/side-01"
+msgstr "Current Emblem 1"
+
+msgid "customization/remove/emblemLeft/side-02"
+msgstr "will be REMOVED"
+
+msgid "customization/remove/emblemRight/side-01"
+msgstr "Current Emblem 2"
+
+msgid "customization/remove/emblemRight/side-02"
+msgstr "will be REMOVED"
+
+msgid "customization/remove/horn/side-01"
+msgstr "The current Horn will be"
+
+msgid "customization/remove/horn/side-02"
+msgstr "DESTROYED"
+
+msgid "customization/remove/inscriptionLeft/side-01"
+msgstr "Current Inscription 1"
+
+msgid "customization/remove/inscriptionLeft/side-02"
+msgstr "will be REMOVED"
+
+msgid "customization/remove/inscriptionRight/side-01"
+msgstr "Current Inscription 2"
+
+msgid "customization/remove/inscriptionRight/side-02"
+msgstr "will be REMOVED"
+
+msgid "customization/store/camouflage/side-02"
+msgstr "will remain and can be applied later"
+
+msgid "customization/store/emblemLeft/side-02"
+msgstr "will remain and can be applied later"
+
+msgid "customization/store/emblemRight/side-02"
+msgstr "will remain and can be applied later"
+
+msgid "customization/store/inscriptionLeft/side-02"
+msgstr "will remain and can be applied later"
+
+msgid "customization/store/inscriptionRight/side-02"
+msgstr "will remain and can be applied later"
+
+msgid "customization/title"
+msgstr "Exterior"
+
+msgid "day/1"
+msgstr "Monday"
+
+msgid "day/2"
+msgstr "Tuesday"
+
+msgid "day/3"
+msgstr "Wednesday"
+
+msgid "day/4"
+msgstr "Thursday"
+
+msgid "day/5"
+msgstr "Friday"
+
+msgid "day/6"
+msgstr "Saturday"
+
+msgid "day/7"
+msgstr "Sunday"
+
+msgid "demonstrator/window/info"
+msgstr "Map selection is available for a Random Battle only."
+
+msgid "demonstrator/window/title"
+msgstr "Map displaying"
+
+msgid "denunciation/0"
+msgstr "Insults and provocations"
+
+msgid "denunciation/1"
+msgstr "Unsportsmanlike conduct"
+
+msgid "denunciation/2"
+msgstr "Offensive nickname or clanname"
+
+msgid "denunciation/3"
+msgstr "Inaction/Bot"
+
+msgid "denunciation/4"
+msgstr "Spam"
+
+msgid "denunciation/5"
+msgstr "Gold selling / Fraud"
+
+msgid "denunciation/6"
+msgstr "Out of game threat"
+
+msgid "descriptions/shell"
+msgstr "Damage: %(damage)s"
+
+msgid "descriptions/shellFull"
+msgstr ""
+"Penetration: %(piercingPower)s mm\n"
+"Damage: %(damage)s"
+
+msgid "descriptions/vehicle"
+msgstr "%(weight)s t; Armor: up to %(hullArmor)s mm; Gun %(caliber)s mm"
+
+msgid "descriptions/vehicleChassis"
+msgstr ""
+"Traverse Speed: up to %(rotationSpeed)s deg/s\n"
+"Load Limit: %(maxLoad)s t"
+
+msgid "descriptions/vehicleEngine"
+msgstr ""
+"Power: %(enginePower)s h.p.\n"
+"Chance of Fire on Impact: %(fireStartingChance)s"
+
+msgid "descriptions/vehicleGun"
+msgstr ""
+"%(reloadTime)s rounds/min; Average Damage: %(avgDamage)s\n"
+"Average Penetration: %(avgPiercingPower)s mm"
+
+msgid "descriptions/vehicleRadio"
+msgstr "Signal Range: up to %(radioDistance)s m"
+
+msgid "descriptions/vehicleTurret"
+msgstr ""
+"Armor: %(armor)s mm; Traverse: %(rotationSpeed)s deg/s\n"
+"View Range: aprx %(circularVisionRadius)s m"
+
+msgid "disconnect/codes/0"
+msgstr "<?empty?>"
+
+msgid "disconnect/codes/1001"
+msgstr "unsynchronization of components related to \"Vehicles\" (1001)"
+
+msgid "disconnect/codes/1002"
+msgstr "unsynchronization of components related to \"Suspension\" (1002)"
+
+msgid "disconnect/codes/1003"
+msgstr "unsynchronization of components related to \"Turret\" (1003)"
+
+msgid "disconnect/codes/1004"
+msgstr "unsynchronization of components related to \"Gun\" (1004)"
+
+msgid "disconnect/codes/1005"
+msgstr "unsynchronization of components related to \"Engine\" (1005)"
+
+msgid "disconnect/codes/1006"
+msgstr "unsynchronization of components related to \"Fuel tanks\" (1006)"
+
+msgid "disconnect/codes/1007"
+msgstr "unsynchronization of components related to \"Radio\" (1007)"
+
+msgid "disconnect/codes/1008"
+msgstr "unsynchronization of components related to \"Crew\" (1008)"
+
+msgid "disconnect/codes/1009"
+msgstr "unsynchronization of components related to \"Equipment\" (1009)"
+
+msgid "disconnect/codes/1010"
+msgstr "unsynchronization of components related to \"Ammunition\" (1010)"
+
+msgid "disconnect/codes/1011"
+msgstr "unsynchronization of components related to \"Consumables\" (1011)"
+
+msgid "disconnect/codes/1012"
+msgstr "unsynchronization of components related to \"Crew\" (1012)"
+
+msgid "exchange/cancel"
+msgstr "Cancel"
+
+msgid "exchange/no_gold"
+msgstr "Not enough gold for exchange."
+
+msgid "exchange/onhand"
+msgstr "Current balance:"
+
+msgid "exchange/rate"
+msgstr "Exchange rate:"
+
+msgid "exchange/result"
+msgstr "Remaining balance:"
+
+msgid "exchange/submit"
+msgstr "Exchange"
+
+msgid "exchange/title"
+msgstr "Exchange Gold"
+
+msgid "exchange/toexchange"
+msgstr "Exchange:"
+
+msgid "exchangeVcoin/buyVcoinBtnName"
+msgstr "Refill VCOIN"
+
+msgid "exchangeVcoin/title"
+msgstr "Refill balance"
+
+msgid "exchangeVcoin/vcoinIsTight"
+msgstr ""
+"Operation impossible. Not enough VCOIN on your account. The minimum of "
+"%(minval)s VCOIN is necessary."
+
+msgid "exchangeXP/available"
+msgstr "Available Experience:"
+
+msgid "exchangeXP/cancel"
+msgstr "Cancel"
+
+msgid "exchangeXP/change"
+msgstr "Convert ({%d} for {%d}):"
+
+msgid "exchangeXP/pay"
+msgstr "Total:"
+
+msgid "exchangeXP/submit"
+msgstr "Transfer"
+
+msgid "exchangeXP/title"
+msgstr "Convert to Free Experience"
+
+msgid "finalStatistic/commonStats/resultlabel/lose"
+msgstr "Defeat"
+
+msgid "finalStatistic/commonStats/resultlabel/tie"
+msgstr "Draw"
+
+msgid "finalStatistic/commonStats/resultlabel/win"
+msgstr "Victory!"
+
+msgid "finalStatistic/tabs/commonStats"
+msgstr "Personal Score"
+
+msgid "finalStatistic/tabs/detailsStats"
+msgstr "Detailed Report"
+
+msgid "finalStatistic/tabs/teamStats"
+msgstr "Team Score"
+
+msgid "finalStatistic/window/title"
+msgstr "Battle Results"
+
+msgid "fittingListItemRenderer/replace"
+msgstr "Change order"
+
+msgid "fittingListItemRenderer/unload"
+msgstr "Demount and send to Depot"
+
+msgid "fortificationCtx/assignedPlayers"
+msgstr "Players attached"
+
+msgid "fortificationCtx/destroy"
+msgstr "Demolish structure"
+
+msgid "fortificationCtx/directionControl"
+msgstr "Direction control"
+
+msgid "fortificationCtx/modernization"
+msgstr "Upgrade"
+
+msgid "fortificationCtx/prepareOrder"
+msgstr "Prepare Reserve"
+
+msgid "hangar/ammunitionPanel/maitenanceBtn"
+msgstr "Service"
+
+msgid "hangar/ammunitionPanel/technicalMaitenance/ammo/checkboxAuto"
+msgstr "Resupply automatically"
+
+msgid "hangar/ammunitionPanel/technicalMaitenance/ammo/label"
+msgstr "Ammunition"
+
+msgid "hangar/ammunitionPanel/technicalMaitenance/ammo/list/buy"
+msgstr "Purchase"
+
+msgid "hangar/ammunitionPanel/technicalMaitenance/ammo/list/inventory"
+msgstr "In Depot"
+
+msgid "hangar/ammunitionPanel/technicalMaitenance/ammo/list/price"
+msgstr "Cost"
+
+msgid "hangar/ammunitionPanel/technicalMaitenance/buttons/ammo"
+msgstr "Resupply"
+
+msgid "hangar/ammunitionPanel/technicalMaitenance/buttons/apply"
+msgstr "Accept"
+
+msgid "hangar/ammunitionPanel/technicalMaitenance/buttons/close"
+msgstr "Close"
+
+msgid "hangar/ammunitionPanel/technicalMaitenance/buttons/equipment"
+msgstr "Resupply"
+
+msgid "hangar/ammunitionPanel/technicalMaitenance/buttons/labelTotal"
+msgstr "Total:"
+
+msgid "hangar/ammunitionPanel/technicalMaitenance/buttons/repair"
+msgstr "Repair"
+
+msgid "hangar/ammunitionPanel/technicalMaitenance/equipment/checkboxAuto"
+msgstr "Resupply automatically"
+
+msgid "hangar/ammunitionPanel/technicalMaitenance/equipment/label"
+msgstr "Consumables"
+
+msgid "hangar/ammunitionPanel/technicalMaitenance/equipment/list/buy"
+msgstr "Purchase"
+
+msgid "hangar/ammunitionPanel/technicalMaitenance/equipment/list/inventory"
+msgstr "In Depot"
+
+msgid "hangar/ammunitionPanel/technicalMaitenance/equipment/list/price"
+msgstr "Cost"
+
+msgid "hangar/ammunitionPanel/technicalMaitenance/repair/checkboxAuto"
+msgstr "Repair automatically"
+
+msgid "hangar/ammunitionPanel/technicalMaitenance/repair/label"
+msgstr "Repairs"
+
+msgid "hangar/ammunitionPanel/technicalMaitenance/title"
+msgstr "Service"
+
+msgid "hangar/ammunitionPanel/tuningBtn"
+msgstr "Exterior"
+
+msgid "hangar/crew/tooltip/drop_skill"
+msgstr "Click to delete a qualification."
+
+msgid "hangar/crew/tooltip/new_skill"
+msgstr "Click to train for an additional qualification."
+
+msgid "hangar/vehicle_locked"
+msgstr "This vehicle is locked"
+
+msgid "hangar/xpToTmenCheckbox/tooltip"
+msgstr ""
+"Spend all experience earned on this vehicle on crew training. The least "
+"experienced crew member is trained twice as fast."
+
+msgid "header/account/premium/days"
+msgstr "days: "
+
+msgid "header/account/premium/hours"
+msgstr "hours: "
+
+msgid "header/serverInfo"
+msgstr "Server"
+
+msgid "headerButtons/account/accountRefill"
+msgstr "Get Gold"
+
+msgid "headerButtons/account/expGathering"
+msgstr "Convert Experience"
+
+msgid "headerButtons/account/goldExchange"
+msgstr "Exchange Gold"
+
+msgid "headerButtons/account/premium"
+msgstr "Extend Premium"
+
+msgid "headerButtons/barracks"
+msgstr "Barracks"
+
+msgid "headerButtons/battle"
+msgstr "Battle!"
+
+msgid "headerButtons/battle/menu/battle_session"
+msgstr "Special Battle"
+
+msgid "headerButtons/battle/menu/historical"
+msgstr "Historical Battle"
+
+msgid "headerButtons/battle/menu/squad"
+msgstr "Platoon"
+
+msgid "headerButtons/battle/menu/standart"
+msgstr "Random Battle"
+
+msgid "headerButtons/battle/menu/team"
+msgstr "Tank Company Battle"
+
+msgid "headerButtons/battle/menu/training"
+msgstr "Team Training"
+
+msgid "headerButtons/battle/menu/unit"
+msgstr "Team Battle"
+
+msgid "headerButtons/battle/types/company"
+msgstr "Tank Company Battle"
+
+msgid "headerButtons/battle/types/company/descr"
+msgstr "Battle with manual matching of allies against random enemies."
+
+msgid "headerButtons/battle/types/companyLeave"
+msgstr "Tank Company Battle"
+
+msgid "headerButtons/battle/types/companyLeaveOwner"
+msgstr "Tank Company Battle"
+
+msgid "headerButtons/battle/types/fort"
+msgstr "Strongholds: Battles"
+
+msgid "headerButtons/battle/types/fortLeave"
+msgstr "Strongholds: Battles"
+
+msgid "headerButtons/battle/types/historicalBattles"
+msgstr "Historical Battle"
+
+msgid "headerButtons/battle/types/historicalBattles/descr"
+msgstr "Reconstruction of significant tank battles."
+
+msgid "headerButtons/battle/types/historicalBattlesLeave"
+msgstr "Historical Battle"
+
+msgid "headerButtons/battle/types/historicalBattlesLeave/descr"
+msgstr "Click to exit mode."
+
+msgid "headerButtons/battle/types/leaveCompany/descr"
+msgstr "Click to exit mode."
+
+msgid "headerButtons/battle/types/leaveFort/descr"
+msgstr "Click to exit mode."
+
+msgid "headerButtons/battle/types/leaveSpec/descr"
+msgstr "Click to exit mode."
+
+msgid "headerButtons/battle/types/leaveTraining/descr"
+msgstr "Click to exit mode."
+
+msgid "headerButtons/battle/types/leaveUnit/descr"
+msgstr "Click to exit mode."
+
+msgid "headerButtons/battle/types/spec"
+msgstr "Special Battle"
+
+msgid "headerButtons/battle/types/spec/descr"
+msgstr "Participation in championships, tournaments, and Clan Wars."
+
+msgid "headerButtons/battle/types/specLeave"
+msgstr "Special Battle"
+
+msgid "headerButtons/battle/types/squad"
+msgstr "Platoon"
+
+msgid "headerButtons/battle/types/squad/descr"
+msgstr "Operational unit of 2 or 3 players to cooperate in Random Battles."
+
+msgid "headerButtons/battle/types/squadBattle"
+msgstr "Send to Battle"
+
+msgid "headerButtons/battle/types/squadLeave"
+msgstr "Platoon"
+
+msgid "headerButtons/battle/types/squadLeave/descr"
+msgstr "Click to leave Platoon."
+
+msgid "headerButtons/battle/types/squadLeaveOwner"
+msgstr "Platoon"
+
+msgid "headerButtons/battle/types/standart"
+msgstr "Random Battle"
+
+msgid "headerButtons/battle/types/standart/descr"
+msgstr "Battle with automatic matching of allies and enemies."
+
+msgid "headerButtons/battle/types/standartLeave/descr"
+msgstr "Exit Battle"
+
+msgid "headerButtons/battle/types/training"
+msgstr "Team Training"
+
+msgid "headerButtons/battle/types/training/descr"
+msgstr "Training battle with manual matching of allies and enemies."
+
+msgid "headerButtons/battle/types/trainingLeave"
+msgstr "Team Training"
+
+msgid "headerButtons/battle/types/trainingLeaveOwner"
+msgstr "Team Training"
+
+msgid "headerButtons/battle/types/unit"
+msgstr "Team Battle"
+
+msgid "headerButtons/battle/types/unit/descr"
+msgstr "Battle between peer teams."
+
+msgid "headerButtons/battle/types/unitLeave"
+msgstr "Team Battle"
+
+msgid "headerButtons/browser"
+msgstr "Browser"
+
+msgid "headerButtons/forts"
+msgstr "Stronghold"
+
+msgid "headerButtons/hangar"
+msgstr "Garage"
+
+msgid "headerButtons/inventory"
+msgstr "Depot"
+
+msgid "headerButtons/menu"
+msgstr "Menu"
+
+msgid "headerButtons/notReady"
+msgstr "Not ready"
+
+msgid "headerButtons/profile"
+msgstr "Service Record"
+
+msgid "headerButtons/rating"
+msgstr "Rating"
+
+msgid "headerButtons/ready"
+msgstr "Ready!"
+
+msgid "headerButtons/shop"
+msgstr "Store"
+
+msgid "headerButtons/techtree"
+msgstr "Tech Tree"
+
+msgid "igr/info"
+msgstr "You are playing at %(igrIcon)s."
+
+msgid "ingame_menu/buttons/back"
+msgstr "Back to Battle"
+
+msgid "ingame_menu/buttons/help"
+msgstr "Help"
+
+msgid "ingame_menu/buttons/logoff"
+msgstr "Back to Garage"
+
+msgid "ingame_menu/buttons/settings"
+msgstr "Settings"
+
+msgid "ingame_menu/title"
+msgstr "Battle Menu"
+
+msgid "inventory/device/errors/not_removable"
+msgstr " "
+
+msgid "inventory/device/errors/reserved"
+msgstr " "
+
+msgid "inventory/errors/reserved"
+msgstr " "
+
+msgid "inventory/header/equipment/myVehicle"
+msgstr "Consumables for %(vehicle)s:"
+
+msgid "inventory/header/equipment/myVehicles"
+msgstr "Consumables for my vehicles%(nation)s:"
+
+msgid "inventory/header/equipment/otherVehicles"
+msgstr "Consumables, incompatible%(nation)s:"
+
+msgid "inventory/header/module/myVehicle"
+msgstr "%(type)s for %(vehicle)s:"
+
+msgid "inventory/header/module/myVehicles"
+msgstr "%(type)s for my vehicles%(nation)s:"
+
+msgid "inventory/header/module/otherVehicles"
+msgstr "%(type)s, incompatible%(nation)s:"
+
+msgid "inventory/header/optionalDevice/myVehicle"
+msgstr "Equipment for %(vehicle)s:"
+
+msgid "inventory/header/optionalDevice/myVehicles"
+msgstr "Equipment for my vehicles%(nation)s:"
+
+msgid "inventory/header/optionalDevice/otherVehicles"
+msgstr "Equipment, incompatible%(nation)s:"
+
+msgid "inventory/header/shell/myInventoryGuns"
+msgstr "Shells for my guns in Depot%(nation)s:"
+
+msgid "inventory/header/shell/myVehicleGun"
+msgstr "Shells for the current gun on %(vehicle)s:"
+
+msgid "inventory/header/shell/myVehiclesInventoryGuns"
+msgstr "Shells for all my guns%(nation)s:"
+
+msgid "inventory/header/shell/otherGuns"
+msgstr "Shells not compatible with my guns%(nation)s:"
+
+msgid "inventory/header/vehicle"
+msgstr "All my %(type)s%(nation)s:"
+
+msgid "inventory/menu/equipment/fits/myVehicle/name"
+msgstr "?empty?"
+
+msgid "inventory/menu/equipment/fits/myVehicles/name"
+msgstr "My vehicles"
+
+msgid "inventory/menu/equipment/fits/name"
+msgstr "Compatible with:"
+
+msgid "inventory/menu/equipment/fits/otherVehicles/name"
+msgstr "Not compatible with my vehicles"
+
+msgid "inventory/menu/equipment/name"
+msgstr "Consumables"
+
+msgid "inventory/menu/module/extra/name"
+msgstr "Display:"
+
+msgid "inventory/menu/module/extra/onVehicle/name"
+msgstr "On vehicles"
+
+msgid "inventory/menu/module/fits/myVehicle/name"
+msgstr "?empty?"
+
+msgid "inventory/menu/module/fits/myVehicles/name"
+msgstr "My vehicles"
+
+msgid "inventory/menu/module/fits/name"
+msgstr "Compatible with:"
+
+msgid "inventory/menu/module/fits/otherVehicles/name"
+msgstr "Not compatible with my vehicles"
+
+msgid "inventory/menu/module/name"
+msgstr "Modules"
+
+msgid "inventory/menu/module/types/name"
+msgstr "Module Types:"
+
+msgid "inventory/menu/module/types/vehicleChassis/name"
+msgstr "Suspension"
+
+msgid "inventory/menu/module/types/vehicleEngine/name"
+msgstr "Engine"
+
+msgid "inventory/menu/module/types/vehicleGun/name"
+msgstr "Gun"
+
+msgid "inventory/menu/module/types/vehicleRadio/name"
+msgstr "Radio"
+
+msgid "inventory/menu/module/types/vehicleTurret/name"
+msgstr "Turret"
+
+msgid "inventory/menu/optionalDevice/extra/name"
+msgstr "Display:"
+
+msgid "inventory/menu/optionalDevice/extra/onVehicle/name"
+msgstr "On vehicles"
+
+msgid "inventory/menu/optionalDevice/fits/myVehicle/name"
+msgstr "?empty?"
+
+msgid "inventory/menu/optionalDevice/fits/myVehicles/name"
+msgstr "My vehicles"
+
+msgid "inventory/menu/optionalDevice/fits/name"
+msgstr "Compatible with:"
+
+msgid "inventory/menu/optionalDevice/fits/otherVehicles/name"
+msgstr "Not compatible with my vehicles"
+
+msgid "inventory/menu/optionalDevice/name"
+msgstr "Equipment"
+
+msgid "inventory/menu/shell/fits/myInventoryGuns/name"
+msgstr "Guns in Depot"
+
+msgid "inventory/menu/shell/fits/myVehicleGun/name"
+msgstr "Current gun on"
+
+msgid "inventory/menu/shell/fits/myVehiclesInventoryGuns/name"
+msgstr "All my guns"
+
+msgid "inventory/menu/shell/fits/name"
+msgstr "Compatible with:"
+
+msgid "inventory/menu/shell/fits/otherGuns/name"
+msgstr "Not compatible with my guns"
+
+msgid "inventory/menu/shell/kinds/ARMOR_PIERCING/name"
+msgstr "Armor-Piercing"
+
+msgid "inventory/menu/shell/kinds/ARMOR_PIERCING_CR/name"
+msgstr "Armor-Piercing Composite Rigid"
+
+msgid "inventory/menu/shell/kinds/ARMOR_PIERCING_HE/name"
+msgstr "Armor-Piercing High-Explosive"
+
+msgid "inventory/menu/shell/kinds/HIGH_EXPLOSIVE/name"
+msgstr "High-Explosive"
+
+msgid "inventory/menu/shell/kinds/HOLLOW_CHARGE/name"
+msgstr "High-Explosive Anti-Tank"
+
+msgid "inventory/menu/shell/kinds/name"
+msgstr "Shell Types:"
+
+msgid "inventory/menu/shell/name"
+msgstr "Shells"
+
+msgid "inventory/menu/vehicle/extra/brocken/name"
+msgstr "Damaged vehicles"
+
+msgid "inventory/menu/vehicle/extra/locked/name"
+msgstr "Vehicles in battle"
+
+msgid "inventory/menu/vehicle/extra/name"
+msgstr "Display:"
+
+msgid "inventory/menu/vehicle/name"
+msgstr "Vehicles"
+
+msgid "inventory/menu/vehicle/tags/all/name"
+msgstr "All Types"
+
+msgid "inventory/menu/vehicle/tags/at-spg/name"
+msgstr "Tank Destroyers"
+
+msgid "inventory/menu/vehicle/tags/heavyTank/name"
+msgstr "Heavy Tanks"
+
+msgid "inventory/menu/vehicle/tags/lightTank/name"
+msgstr "Light Tanks"
+
+msgid "inventory/menu/vehicle/tags/mediumTank/name"
+msgstr "Medium Tanks"
+
+msgid "inventory/menu/vehicle/tags/name"
+msgstr "Vehicle Type:"
+
+msgid "inventory/menu/vehicle/tags/spg/name"
+msgstr "SPGs"
+
+msgid "inventory/table/buttonSell"
+msgstr "Sell"
+
+msgid "inventory/table/header/count"
+msgstr "Number"
+
+msgid "inventory/table/header/price"
+msgstr "Cost"
+
+msgid "levels/1"
+msgstr "Tier I"
+
+msgid "levels/10"
+msgstr "Tier X"
+
+msgid "levels/2"
+msgstr "Tier II"
+
+msgid "levels/3"
+msgstr "Tier III"
+
+msgid "levels/4"
+msgstr "Tier IV"
+
+msgid "levels/5"
+msgstr "Tier V"
+
+msgid "levels/6"
+msgstr "Tier VI"
+
+msgid "levels/7"
+msgstr "Tier VII"
+
+msgid "levels/8"
+msgstr "Tier VIII"
+
+msgid "levels/9"
+msgstr "Tier IX"
+
+msgid "levels/all"
+msgstr "All Tiers"
+
+msgid "loading/battleTypes/0"
+msgstr "Special Battle"
+
+msgid "loading/battleTypes/1"
+msgstr "Random Battle"
+
+msgid "loading/battleTypes/2"
+msgstr "Team Training"
+
+msgid "loading/battleTypes/3"
+msgstr "Tank Company Battle"
+
+msgid "loading/battleTypes/4"
+msgstr "Battle Training"
+
+msgid "loading/battleTypes/5"
+msgstr "Team Battle"
+
+msgid "loading/battleTypes/6"
+msgstr "Historical Battle"
+
+msgid "loading/battleTypes/7"
+msgstr "Football Match"
+
+msgid "loading/battleTypes/8"
+msgstr "Skirmishes"
+
+msgid "loading/battleTypes/desc/0"
+msgstr " "
+
+msgid "loading/battleTypes/desc/1"
+msgstr " "
+
+msgid "loading/battleTypes/desc/2"
+msgstr ""
+"Sharpen your combat skills with\n"
+"your comrades-in-arms. No experience\n"
+"is earned in these battles."
+
+msgid "loading/battleTypes/desc/3"
+msgstr " "
+
+msgid "loading/battleTypes/desc/4"
+msgstr " "
+
+msgid "loading/battleTypes/desc/5"
+msgstr " "
+
+msgid "loading/battleTypes/desc/6"
+msgstr " "
+
+msgid "loading/battleTypes/desc/7"
+msgstr " "
+
+msgid "loading/battleTypes/desc/8"
+msgstr " "
+
+msgid "loading/game"
+msgstr "Loading... Please wait..."
+
+msgid "loading/gameInfo"
+msgstr "This game is rated for <font color='#03953f'>ALL</font> ages."
+
+msgid "loading/helpTip"
+msgstr "For help in battle, press F1."
+
+msgid "loading/helpTip/football"
+msgstr "Mode Details"
+
+msgid "loading/team1"
+msgstr "Our Team"
+
+msgid "loading/team2"
+msgstr "Enemy Team"
+
+msgid "lobby_menu/buttons/back"
+msgstr "Back to Game"
+
+msgid "lobby_menu/buttons/exit"
+msgstr "Exit Game"
+
+msgid "lobby_menu/buttons/logoff"
+msgstr "Disconnect from Server"
+
+msgid "lobby_menu/buttons/refuse-training"
+msgstr "Interrupt training"
+
+msgid "lobby_menu/buttons/restart-training"
+msgstr "Resume training"
+
+msgid "lobby_menu/buttons/settings"
+msgstr "Settings"
+
+msgid "lobby_menu/title"
+msgstr "Game Menu"
+
+msgid "login/auto"
+msgstr "Auto"
+
+msgid "login/caps"
+msgstr "Caps"
+
+msgid "login/login"
+msgstr "Email:"
+
+msgid "login/ok"
+msgstr "Connect!"
+
+msgid "login/password"
+msgstr "Password:"
+
+msgid "login/quitFromAutoLogin"
+msgstr "Leave Queue"
+
+msgid "login/recoveryLink"
+msgstr "Unable to log in?"
+
+msgid "login/registrationLink"
+msgstr "Register"
+
+msgid "login/rememberPassword"
+msgstr "Save password"
+
+msgid "login/rememberPasswordIgr"
+msgstr "Save email and password (insecure)"
+
+msgid "login/rememberPasswordIgrWarning"
+msgstr "It is insecure to use this option in public places."
+
+msgid "login/rss/readMore"
+msgstr "Details"
+
+msgid "login/server"
+msgstr "Server:"
+
+msgid "login/status/ALREADY_ONLINE_LOCALLY"
+msgstr "The client is already online locally (exploring space offline)."
+
+msgid "login/status/CANCELLED"
+msgstr "Connection to the server was interrupted by user."
+
+msgid "login/status/CLIENT_SERVER_VERSIONS_ARE_DIFFERENT"
+msgstr ""
+"This server is temporarily unavailable. Please update your client or wait "
+"for a scheduled update."
+
+msgid "login/status/CONNECTION_FAILED"
+msgstr "Unable to connect to the network."
+
+msgid "login/status/DNS_LOOKUP_FAILED"
+msgstr "Unable to locate server IP address through DNS."
+
+msgid "login/status/LOGIN_BAD_PROTOCOL_VERSION"
+msgstr "Please update your client."
+
+msgid "login/status/LOGIN_CUSTOM_DEFINED_ERROR"
+msgstr "The server is not available. Reason: %s"
+
+msgid "login/status/LOGIN_MALFORMED_REQUEST"
+msgstr ""
+"Unable to log in to the server. Your application may be out of date or "
+"corrupted."
+
+msgid "login/status/LOGIN_REJECTED_ACTIVATING"
+msgstr "Logging in..."
+
+msgid "login/status/LOGIN_REJECTED_ALREADY_LOGGED_IN"
+msgstr "A player with the same name is already in the game."
+
+msgid "login/status/LOGIN_REJECTED_BAD_DIGEST"
+msgstr "Please update your client."
+
+msgid "login/status/LOGIN_REJECTED_BAN"
+msgstr "Your account has been locked until %(time)s. Reason: %(reason)s."
+
+msgid "login/status/LOGIN_REJECTED_BAN_UNLIMITED"
+msgstr "Your account has been suspended. Reason: %(reason)s."
+
+msgid "login/status/LOGIN_REJECTED_BASEAPPMGR_TIMEOUT"
+msgstr "Server error (BASEAPPMGR_TIMEOUT)"
+
+msgid "login/status/LOGIN_REJECTED_BASEAPP_OVERLOAD"
+msgstr "Server busy. Please try again later."
+
+msgid "login/status/LOGIN_REJECTED_BASEAPP_TIMEOUT"
+msgstr "Server error (BASEAPP_TIMEOUT)"
+
+msgid "login/status/LOGIN_REJECTED_CELLAPP_OVERLOAD"
+msgstr "Server busy. Please try again later."
+
+msgid "login/status/LOGIN_REJECTED_DBMGR_OVERLOAD"
+msgstr "Server busy. Please try again later."
+
+msgid "login/status/LOGIN_REJECTED_DB_GENERAL_FAILURE"
+msgstr "Server error (DB_GENERAL_FAILURE)"
+
+msgid "login/status/LOGIN_REJECTED_DB_NOT_READY"
+msgstr "Server error (DB_NOT_READY)"
+
+msgid "login/status/LOGIN_REJECTED_ILLEGAL_CHARACTERS"
+msgstr "The user name or password contain invalid symbols."
+
+msgid "login/status/LOGIN_REJECTED_INACCESSIBLE_REALM"
+msgstr "Selected server is temporarily unavailable."
+
+msgid "login/status/LOGIN_REJECTED_INVALID_PASSWORD"
+msgstr ""
+"Incorrect email or password. <a href='event:passwordRecovery'>Recover "
+"password</a> "
+
+msgid "login/status/LOGIN_REJECTED_IP_ADDRESS_BAN"
+msgstr ""
+"Connection error: access to the game using your IP address is temporarily "
+"limited."
+
+msgid "login/status/LOGIN_REJECTED_LOGINS_NOT_ALLOWED"
+msgstr "Server is temporarily unavailable due to scheduled maintenance."
+
+msgid "login/status/LOGIN_REJECTED_LOGIN_QUEUE"
+msgstr "Server busy. Waiting for connection. Your queue number: %d."
+
+msgid "login/status/LOGIN_REJECTED_NICKNAME_ALREADY_EXIST"
+msgstr ""
+"This user name has been already used by another person. Try another user "
+"name."
+
+msgid "login/status/LOGIN_REJECTED_NO_BASEAPPS"
+msgstr "Server error (NO_BASEAPPS)"
+
+msgid "login/status/LOGIN_REJECTED_NO_BASEAPP_RESPONSE"
+msgstr "Server does not respond. Try again later."
+
+msgid "login/status/LOGIN_REJECTED_NO_LOGINAPP_RESPONSE"
+msgstr ""
+"Failed to connect to the server.\n"
+"The server may be unavailable, or your network connection settings may be "
+"wrong."
+
+msgid "login/status/LOGIN_REJECTED_NO_SUCH_USER"
+msgstr "Incorrect email or password."
+
+msgid "login/status/LOGIN_REJECTED_RATE_LIMITED"
+msgstr "Server busy. Pending server connection."
+
+msgid "login/status/LOGIN_REJECTED_REGISTRATION_NOT_ALLOWED"
+msgstr "Registration is temporarily forbidden."
+
+msgid "login/status/LOGIN_REJECTED_REGISTRATION_NOT_CONFIRMED"
+msgstr ""
+"Unable to log in. Please search your email box for registration confirmation "
+"and try again."
+
+msgid "login/status/LOGIN_REJECTED_SERVER_NOT_READY"
+msgstr "Server not ready. Please try again later."
+
+msgid "login/status/LOGIN_REJECTED_UNABLE_TO_PARSE_JSON"
+msgstr "This user name contains invalid symbols. Try another user name."
+
+msgid "login/status/LOGIN_REJECTED_USERS_LIMIT"
+msgstr "Server busy. Select another server or try again later."
+
+msgid "login/status/PUBLIC_KEY_LOOKUP_FAILED"
+msgstr "Cannot locate the client public key."
+
+msgid "login/status/SESSION_END"
+msgstr "Autologin session has expired; please re-enter password."
+
+msgid "login/status/UNKNOWN_ERROR"
+msgstr "Unknown error has occurred."
+
+msgid "login/status/accountNotReady"
+msgstr "Account is not ready. Try again later."
+
+msgid "login/status/centerRestart"
+msgstr ""
+"This server is temporarily unavailable. Please wait till the servers are "
+"restarted."
+
+msgid "login/status/connecting"
+msgstr "?empty?"
+
+msgid "login/status/disconnected"
+msgstr "You have been disconnected from the server."
+
+msgid "login/status/empty_login"
+msgstr "Please enter your user name."
+
+msgid "login/status/empty_password"
+msgstr "Please enter your password."
+
+msgid "login/status/empty_server"
+msgstr "Please select a server."
+
+msgid "login/status/invalid_login"
+msgstr "Please use your email address to log in."
+
+msgid "login/status/invalid_login_length"
+msgstr "Minimum number of characters for user name: %(count)d"
+
+msgid "login/status/invalid_nickname"
+msgstr "User name must contain Latin letters, numerals and '_'."
+
+msgid "login/status/invalid_password"
+msgstr ""
+"Password must be at least 6 characters and contain Latin letters, numerals "
+"and '_'."
+
+msgid "login/status/launchernotfound"
+msgstr "File WOTLauncher.exe not found. Please reload the application."
+
+msgid "login/status/unavailable"
+msgstr "Server unavailable."
+
+msgid "login/status/versionMismatch"
+msgstr ""
+"This region is temporarily unavailable. Please wait for a scheduled update."
+
+msgid "login/updateURLAvaialbleAt"
+msgstr "Please update the client application (%s)."
+
+msgid "login/version"
+msgstr "World of Tanks"
+
+msgid "moduleFits/already_installed"
+msgstr "?empty?"
+
+msgid "moduleFits/credit_error"
+msgstr "?empty?"
+
+msgid "moduleFits/destroyDescr"
+msgstr ""
+"Destroy equipment\n"
+"to free space for another equipment item."
+
+msgid "moduleFits/destroyName"
+msgstr "Destroy"
+
+msgid "moduleFits/destroyToolTip"
+msgstr "moduleFits/destroyToolTip"
+
+msgid "moduleFits/gold_error"
+msgstr "?empty?"
+
+msgid "moduleFits/need_turret"
+msgstr "Incompatible turret"
+
+msgid "moduleFits/not_for_current_vehicle"
+msgstr "Not compatible with the current configuration."
+
+msgid "moduleFits/not_for_this_vehicle_type"
+msgstr "Incompatible gun"
+
+msgid "moduleFits/not_with_installed_equipment"
+msgstr "Incompatible"
+
+msgid "moduleFits/removeDescr"
+msgstr "Demount equipment and send it to Depot"
+
+msgid "moduleFits/removeName"
+msgstr "Demount"
+
+msgid "moduleFits/removeToolTip"
+msgstr "moduleFits/removeToolTip"
+
+msgid "moduleFits/remove_too_heavy"
+msgstr "Modules are too heavy."
+
+msgid "moduleFits/too_heavy"
+msgstr "Insufficient load capacity"
+
+msgid "moduleFits/too_heavy_chassis"
+msgstr "Modules are too heavy."
+
+msgid "moduleFits/unlock_error"
+msgstr "Research"
+
+msgid "moduleFits/wrong_slot"
+msgstr "?empty?"
+
+msgid "moduleInfo/additionalInfo"
+msgstr "Characteristics of the shell depend on the gun."
+
+msgid "moduleInfo/clipGunLabel"
+msgstr "Magazine loading system"
+
+msgid "moduleInfo/closeBtn"
+msgstr "Close"
+
+msgid "moduleInfo/compatible/clipVehicles"
+msgstr "Equipped with magazine loading system on vehicles:"
+
+msgid "moduleInfo/compatible/guns"
+msgstr "Compatible Guns:"
+
+msgid "moduleInfo/compatible/shellGuns"
+msgstr "Compatible Guns:"
+
+msgid "moduleInfo/compatible/shells"
+msgstr "Compatible Shells:"
+
+msgid "moduleInfo/compatible/turrets"
+msgstr "Compatible Turrets:"
+
+msgid "moduleInfo/compatible/uniChargedVehicles"
+msgstr "Used as single-shot gun on vehicles:"
+
+msgid "moduleInfo/compatible/vehicles"
+msgstr "Compatible Vehicles:"
+
+msgid "moduleInfo/parametersClipGunLabel"
+msgstr "<img src='%s' vspace='-4'/> For guns with magazine loading system:"
+
+msgid "moduleInfo/parametersLabel"
+msgstr "Characteristics:"
+
+msgid "moduleInfo/params/aimingTime"
+msgstr "<h>Aiming Time <p>(s)</p></h>"
+
+msgid "moduleInfo/params/armor"
+msgstr "<h>Armor <p>(front/sides/rear mm)</p></h>"
+
+msgid "moduleInfo/params/avgDamage"
+msgstr "<h>Average Damage <p>(HP)</p></h>"
+
+msgid "moduleInfo/params/avgPiercingPower"
+msgstr "<h>Average Penetration <p>(mm)</p></h>"
+
+msgid "moduleInfo/params/caliber"
+msgstr "<h>Caliber <p>(mm)</p></h>"
+
+msgid "moduleInfo/params/circularVisionRadius"
+msgstr "<h>View Range <p>(m)</p></h>"
+
+msgid "moduleInfo/params/damage"
+msgstr "<h>Damage <p>(HP)</p></h>"
+
+msgid "moduleInfo/params/dispertionRadius"
+msgstr "<h>Dispersion at 100 m <p>(m)</p></h>"
+
+msgid "moduleInfo/params/enginePower"
+msgstr "<h>Engine Power <p>(h.p.)</p></h>"
+
+msgid "moduleInfo/params/explosionRadius"
+msgstr "<h>Burst Radius <p>(m)</p></h>"
+
+msgid "moduleInfo/params/fireStartingChance"
+msgstr "<h>Chance of Fire on Impact <p></p></h>"
+
+msgid "moduleInfo/params/maxLoad"
+msgstr "<h>Load Limit <p>(t)</p></h>"
+
+msgid "moduleInfo/params/piercingPower"
+msgstr "<h>Penetration <p>(mm)</p></h>"
+
+msgid "moduleInfo/params/radioDistance"
+msgstr "<h>Signal Range <p>(m)</p></h>"
+
+msgid "moduleInfo/params/reloadMagazineTime"
+msgstr "<h>Time of complete loading <p>(s)</p></h>"
+
+msgid "moduleInfo/params/reloadTime"
+msgstr "<h>Rate of Fire <p>(rounds/min)</p></h>"
+
+msgid "moduleInfo/params/rotationSpeed"
+msgstr "<h>Traverse Speed <p>(deg/s)</p></h>"
+
+msgid "moduleInfo/params/shellReloadingTime"
+msgstr "<h>Time of one shell loading <p>(s)</p></h>"
+
+msgid "moduleInfo/params/shellsCount"
+msgstr "<h>Shells in the magazine <p>(item(s))</p></h>"
+
+msgid "moduleInfo/params/weight"
+msgstr "<h>Weight <p>(kg)</p></h>"
+
+msgid "moduleInfo/title"
+msgstr " "
+
+msgid "nation_tree/title/china"
+msgstr "China"
+
+msgid "nation_tree/title/france"
+msgstr "France"
+
+msgid "nation_tree/title/germany"
+msgstr "Germany"
+
+msgid "nation_tree/title/japan"
+msgstr "Japan"
+
+msgid "nation_tree/title/uk"
+msgstr "U.K."
+
+msgid "nation_tree/title/usa"
+msgstr "U.S.A."
+
+msgid "nation_tree/title/ussr"
+msgstr "U.S.S.R."
+
+msgid "nations/all"
+msgstr "All nations"
+
+msgid "nations/china"
+msgstr "China"
+
+msgid "nations/france"
+msgstr "France"
+
+msgid "nations/germany"
+msgstr "Germany"
+
+msgid "nations/japan"
+msgstr "Japan"
+
+msgid "nations/title"
+msgstr "Nation"
+
+msgid "nations/uk"
+msgstr "U.K."
+
+msgid "nations/usa"
+msgstr "U.S.A."
+
+msgid "nations/ussr"
+msgstr "U.S.S.R."
+
+msgid "opponents"
+msgstr "%(firstOpponent)s vs. %(secondOpponent)s"
+
+msgid "prebattle/CompaniesTitle/ABSOLUTE"
+msgstr "Absolute"
+
+msgid "prebattle/CompaniesTitle/CHAMPION"
+msgstr "Champion"
+
+msgid "prebattle/CompaniesTitle/JUNIOR"
+msgstr "Junior"
+
+msgid "prebattle/CompaniesTitle/MIDDLE"
+msgstr "Medium"
+
+msgid "prebattle/already_in_awaiting_battle"
+msgstr "You are already awaiting a battle."
+
+msgid "prebattle/description"
+msgstr "prebattle/description"
+
+msgid "prebattle/exitButton"
+msgstr "Exit Battle"
+
+msgid "prebattle/groupsLabel"
+msgstr "Teams in queue:"
+
+msgid "prebattle/invitations/buttons/cancel"
+msgstr "Cancel"
+
+msgid "prebattle/invitations/buttons/search"
+msgstr "Search"
+
+msgid "prebattle/invitations/buttons/send"
+msgstr "Invite"
+
+msgid "prebattle/invitations/errors/addIgnoredUser"
+msgstr "You cannot add a player who is on your Ignore list."
+
+msgid "prebattle/invitations/errors/existsInReceiveList"
+msgstr "This user is already on the Invitation list."
+
+msgid "prebattle/invitations/errors/notFoundUsers"
+msgstr "Players who are online or not in your Ignore list were not found."
+
+msgid "prebattle/invitations/errors/receiverListEmpty"
+msgstr "The Invitation list is empty."
+
+msgid "prebattle/invitations/errors/selectUserToAdd"
+msgstr "Select a player to add to the Invitation list."
+
+msgid "prebattle/invitations/errors/selectUserToRemove"
+msgstr "Select a player to delete from the Invitation list."
+
+msgid "prebattle/invitations/errors/userListEmpty"
+msgstr "The list of players is empty."
+
+msgid "prebattle/invitations/errors/userOffline"
+msgstr "User must be online."
+
+msgid "prebattle/invitations/labels/defaultInviteText"
+msgstr "Invitation Text"
+
+msgid "prebattle/invitations/labels/isOnline"
+msgstr "Show \"Online\" only"
+
+msgid "prebattle/invitations/labels/mailingList"
+msgstr "Invite Players"
+
+msgid "prebattle/playersLabel"
+msgstr "Players in queue:"
+
+msgid "prebattle/sideA"
+msgstr "Side A:"
+
+msgid "prebattle/sideB"
+msgstr "Side B:"
+
+msgid "prebattle/startButton"
+msgstr "Start Battle"
+
+msgid "prebattle/timerLabel"
+msgstr "Elapsed time:"
+
+msgid "prebattle/title"
+msgstr "Standard Battle"
+
+msgid "prebattle/typesCompaniesTitle"
+msgstr "No. of Tank Companies by Level"
+
+msgid "prebattle/typesTitle"
+msgstr "Vehicles by Type"
+
+msgid "premium/buyMessage"
+msgstr "Purchase Premium Account:"
+
+msgid "premium/buyTitle"
+msgstr "Purchase Premium Account"
+
+msgid "premium/cancel"
+msgstr "Cancel"
+
+msgid "premium/continueMessage"
+msgstr "Extend Premium Account:"
+
+msgid "premium/continueTitle"
+msgstr "Extend Premium Account"
+
+msgid "premium/gold"
+msgstr "gold"
+
+msgid "premium/ofCreditsAndExperience"
+msgstr "credits and experience"
+
+msgid "premium/perEverButtle"
+msgstr "per every battle"
+
+msgid "premium/periods/days1"
+msgstr "For a day (24 hours)"
+
+msgid "premium/periods/days180"
+msgstr "For 6 months (180 days)"
+
+msgid "premium/periods/days3"
+msgstr "For 3 days (72 hours)"
+
+msgid "premium/periods/days30"
+msgstr "For a month (30 days)"
+
+msgid "premium/periods/days360"
+msgstr "For 12 months (360 days)"
+
+msgid "premium/periods/days7"
+msgstr "For a week (7 days)"
+
+msgid "premium/promoMessage"
+msgstr "Provides 50% more credits and XP per battle."
+
+msgid "premium/submitBuy"
+msgstr "Purchase"
+
+msgid "premium/submitContinue"
+msgstr "Extend"
+
+msgid "price/credits"
+msgstr "credits"
+
+msgid "price/gold"
+msgstr "gold"
+
+msgid "price/received"
+msgstr "You have received %s"
+
+msgid "price/spent"
+msgstr "You have spent %s"
+
+msgid "profile/clan/label"
+msgstr "Clan:"
+
+msgid "profile/creationTime"
+msgstr "Created:"
+
+msgid "profile/credits"
+msgstr "Credits:"
+
+msgid "profile/exchange"
+msgstr "Exchange"
+
+msgid "profile/gold"
+msgstr "Gold:"
+
+msgid "profile/header/clan/joinDate"
+msgstr "Join date: %s"
+
+msgid "profile/header/clan/position"
+msgstr "Position: %s"
+
+msgid "profile/header/clan/position/commander"
+msgstr "Field Commander"
+
+msgid "profile/header/clan/position/diplomat"
+msgstr "Diplomat"
+
+msgid "profile/header/clan/position/leader"
+msgstr "Commander"
+
+msgid "profile/header/clan/position/private"
+msgstr "Soldier"
+
+msgid "profile/header/clan/position/recruit"
+msgstr "Recruit"
+
+msgid "profile/header/clan/position/recruiter"
+msgstr "Recruiter"
+
+msgid "profile/header/clan/position/treasurer"
+msgstr "Treasurer"
+
+msgid "profile/header/clan/position/vice_leader"
+msgstr "Deputy Commander"
+
+msgid "profile/header/fights"
+msgstr "Battles"
+
+msgid "profile/header/lastBattleDateTitle"
+msgstr "Last battle:"
+
+msgid "profile/header/registrationDateTitle"
+msgstr "Created:"
+
+msgid "profile/header/wins"
+msgstr "Victories"
+
+msgid "profile/list/descr"
+msgstr "Results for %s"
+
+msgid "profile/list/totalName"
+msgstr "Overall Results"
+
+msgid "profile/premiumBuy"
+msgstr "Purchase Premium Account"
+
+msgid "profile/premiumContinue"
+msgstr "Extend Premium Account"
+
+msgid "profile/premiunExpirationDate"
+msgstr "Expires %s"
+
+msgid "profile/stats/blocks/battleeffect"
+msgstr "Battle Performance"
+
+msgid "profile/stats/blocks/common"
+msgstr "Combat Experience"
+
+msgid "profile/stats/blocks/credits"
+msgstr "Experience"
+
+msgid "profile/stats/blocks/studying"
+msgstr "Training"
+
+msgid "profile/stats/items/avgExperience"
+msgstr "Average experience per battle"
+
+msgid "profile/stats/items/battlesCount"
+msgstr "Battles fought"
+
+msgid "profile/stats/items/damageDealt"
+msgstr "Damage"
+
+msgid "profile/stats/items/defender"
+msgstr "Defender:"
+
+msgid "profile/stats/items/effectiveShots"
+msgstr "Hit ratio"
+
+msgid "profile/stats/items/frags"
+msgstr "Destroyed"
+
+msgid "profile/stats/items/fragsBeast"
+msgstr "Maximum destroyed per battle"
+
+msgid "profile/stats/items/heroes"
+msgstr "Battle Hero:"
+
+msgid "profile/stats/items/invader"
+msgstr "Invader:"
+
+msgid "profile/stats/items/lastBattleTime"
+msgstr "Last battle:"
+
+msgid "profile/stats/items/losses"
+msgstr "Defeats"
+
+msgid "profile/stats/items/maxFrags"
+msgstr "Maximum destroyed per battle"
+
+msgid "profile/stats/items/maxXP"
+msgstr "Maximum experience per battle"
+
+msgid "profile/stats/items/medalKay"
+msgstr "Kay's Medal:"
+
+msgid "profile/stats/items/nextSkillBattlesLeft"
+msgstr "Battles left (approximately)"
+
+msgid "profile/stats/items/nextSkillXPLeft"
+msgstr "Experience required to upgrade skill"
+
+msgid "profile/stats/items/ready"
+msgstr "The skill is available."
+
+msgid "profile/stats/items/readyToLearn"
+msgstr "Skills and perks available"
+
+msgid "profile/stats/items/scout"
+msgstr "Scout:"
+
+msgid "profile/stats/items/sniper"
+msgstr "Sharpshooter:"
+
+msgid "profile/stats/items/steelwall"
+msgstr "Steel Wall:"
+
+msgid "profile/stats/items/supporter"
+msgstr "Confederate:"
+
+msgid "profile/stats/items/survivedBattles"
+msgstr "Battles survived"
+
+msgid "profile/stats/items/unknown"
+msgstr "Unknown"
+
+msgid "profile/stats/items/warrior"
+msgstr "Warrior:"
+
+msgid "profile/stats/items/wins"
+msgstr "Victories"
+
+msgid "profile/stats/items/xp"
+msgstr "Total experience"
+
+msgid "rating/messages/addToFriends"
+msgstr "Add player to your Friends list"
+
+msgid "rating/messages/addToIgnor"
+msgstr "Add player to your Ignore list"
+
+msgid "rating/messages/createPrivate"
+msgstr "Create private channel"
+
+msgid "rating/messages/dropFromFriends"
+msgstr "Remove player from your Friends list"
+
+msgid "rating/messages/dropFromIgnor"
+msgstr "Remove player from your Ignore list"
+
+msgid "rating/messages/userInfo"
+msgstr "Display player details"
+
+msgid "rating/table/headers/c1"
+msgstr "#"
+
+msgid "rating/table/headers/c2"
+msgstr "Player Name"
+
+msgid "rating/table/headers/c3"
+msgstr "Battles Fought"
+
+msgid "rating/table/headers/c4"
+msgstr "XP"
+
+msgid "rating/table/headers/c5"
+msgstr "Vehicles Destroyed"
+
+msgid "rating/table/headers/c6"
+msgstr "Destroyed"
+
+msgid "rating/title"
+msgstr "Rating"
+
+msgid "repair/button"
+msgstr "Repair"
+
+msgid "repair/curiency"
+msgstr "credits"
+
+msgid "repair/repairstatus"
+msgstr "Repairs:"
+
+msgid "research/labels/button/showInHangar"
+msgstr "Display in Garage"
+
+msgid "research/labels/freeXP"
+msgstr "Free Experience"
+
+msgid "research/labels/totalXP"
+msgstr "Total"
+
+msgid "research/labels/vehXP"
+msgstr "Combat Experience"
+
+msgid "research/premium/benefits/fifth"
+msgstr "Accelerated crew training available from the first battle"
+
+msgid "research/premium/benefits/first"
+msgstr "No research required"
+
+msgid "research/premium/benefits/fourth"
+msgstr ""
+"Transferring crew from vehicles of the same type without penalty or "
+"retraining"
+
+msgid "research/premium/benefits/head"
+msgstr "Premium vehicle benefits:"
+
+msgid "research/premium/benefits/second"
+msgstr "More credits for each battle"
+
+msgid "research/premium/benefits/third"
+msgstr "\"Elite\" status, allowing Free Experience to be earned faster"
+
+msgid "research/premium/description/titte"
+msgstr "Vehicle details:"
+
+msgid "research/special/benefits/head"
+msgstr "Award vehicle benefits:"
+
+msgid "research/status/historicalModules"
+msgstr "The vehicle has historical loadout."
+
+msgid "screenshot/save"
+msgstr "Screenshot saved to %(path)s"
+
+msgid "serverStats/arenasCount"
+msgstr "Battles:"
+
+msgid "serverStats/playersCount"
+msgstr "Players:"
+
+msgid "serverStats/playersInArenaCount"
+msgstr "In battle:"
+
+msgid "shellListItemRenderer/replace"
+msgstr "Change order"
+
+msgid "shop/errors/centerIsDown"
+msgstr "Temporarily unavailable"
+
+msgid "shop/errors/inHangar"
+msgstr "In Garage"
+
+msgid "shop/errors/unlockNeeded"
+msgstr "Research"
+
+msgid "shop/header/equipment/myVehicle"
+msgstr "Consumables for %(vehicle)s:"
+
+msgid "shop/header/equipment/myVehicles"
+msgstr "Consumables for my vehicles%(nation)s:"
+
+msgid "shop/header/equipment/otherVehicles"
+msgstr "Consumables%(nation)s:"
+
+msgid "shop/header/module/myVehicle"
+msgstr "%(type)s for %(vehicle)s:"
+
+msgid "shop/header/module/myVehicles"
+msgstr "%(type)s for my vehicles%(nation)s:"
+
+msgid "shop/header/module/otherVehicles"
+msgstr "%(type)s%(nation)s:"
+
+msgid "shop/header/optionalDevice/myVehicle"
+msgstr "Equipment for %(vehicle)s:"
+
+msgid "shop/header/optionalDevice/myVehicles"
+msgstr "Equipment for my vehicles%(nation)s:"
+
+msgid "shop/header/optionalDevice/otherVehicles"
+msgstr "Equipment%(nation)s:"
+
+msgid "shop/header/shell/myInventoryGuns"
+msgstr "Shells for my guns in Depot%(nation)s:"
+
+msgid "shop/header/shell/myVehicleGun"
+msgstr "Shells for the current gun on %(vehicle)s:"
+
+msgid "shop/header/shell/myVehiclesInventoryGuns"
+msgstr "Shells for all my guns%(nation)s:"
+
+msgid "shop/header/shell/otherGuns"
+msgstr "Shells for all guns%(nation)s:"
+
+msgid "shop/header/vehicle"
+msgstr "All %(type)s%(nation)s:"
+
+msgid "shop/menu/equipment/fits/myVehicle/name"
+msgstr "?empty?"
+
+msgid "shop/menu/equipment/fits/myVehicles/name"
+msgstr "My vehicles"
+
+msgid "shop/menu/equipment/fits/name"
+msgstr "Compatible with:"
+
+msgid "shop/menu/equipment/fits/otherVehicles/name"
+msgstr "All vehicles"
+
+msgid "shop/menu/equipment/name"
+msgstr "Consumables"
+
+msgid "shop/menu/module/extra/inHangar/name"
+msgstr "In Depot"
+
+msgid "shop/menu/module/extra/locked/name"
+msgstr "Unresearched"
+
+msgid "shop/menu/module/extra/name"
+msgstr "Display:"
+
+msgid "shop/menu/module/extra/onVehicle/name"
+msgstr "On vehicles"
+
+msgid "shop/menu/module/fits/myVehicle/name"
+msgstr "?empty?"
+
+msgid "shop/menu/module/fits/myVehicles/name"
+msgstr "My vehicles"
+
+msgid "shop/menu/module/fits/name"
+msgstr "Compatible with:"
+
+msgid "shop/menu/module/fits/otherVehicles/name"
+msgstr "All vehicles"
+
+msgid "shop/menu/module/name"
+msgstr "Modules"
+
+msgid "shop/menu/module/types/name"
+msgstr "Module Types:"
+
+msgid "shop/menu/module/types/vehicleChassis/name"
+msgstr "Suspension"
+
+msgid "shop/menu/module/types/vehicleEngine/name"
+msgstr "Engine"
+
+msgid "shop/menu/module/types/vehicleGun/name"
+msgstr "Gun"
+
+msgid "shop/menu/module/types/vehicleRadio/name"
+msgstr "Radio"
+
+msgid "shop/menu/module/types/vehicleTurret/name"
+msgstr "Turret"
+
+msgid "shop/menu/optionalDevice/extra/name"
+msgstr "Display:"
+
+msgid "shop/menu/optionalDevice/extra/onVehicle/name"
+msgstr "On vehicles"
+
+msgid "shop/menu/optionalDevice/fits/myVehicle/name"
+msgstr "?empty?"
+
+msgid "shop/menu/optionalDevice/fits/myVehicles/name"
+msgstr "My vehicles"
+
+msgid "shop/menu/optionalDevice/fits/name"
+msgstr "Compatible with:"
+
+msgid "shop/menu/optionalDevice/fits/otherVehicles/name"
+msgstr "All vehicles"
+
+msgid "shop/menu/optionalDevice/name"
+msgstr "Equipment"
+
+msgid "shop/menu/shell/fits/myInventoryGuns/name"
+msgstr "Guns in Depot"
+
+msgid "shop/menu/shell/fits/myVehicleGun/name"
+msgstr "Current gun on"
+
+msgid "shop/menu/shell/fits/myVehiclesInventoryGuns/name"
+msgstr "All my guns"
+
+msgid "shop/menu/shell/fits/name"
+msgstr "Compatible with:"
+
+msgid "shop/menu/shell/fits/otherGuns/name"
+msgstr "All guns"
+
+msgid "shop/menu/shell/kinds/ARMOR_PIERCING/name"
+msgstr "Armor-Piercing"
+
+msgid "shop/menu/shell/kinds/ARMOR_PIERCING_CR/name"
+msgstr "Armor-Piercing Composite Rigid"
+
+msgid "shop/menu/shell/kinds/ARMOR_PIERCING_HE/name"
+msgstr "Armor-Piercing High-Explosive"
+
+msgid "shop/menu/shell/kinds/HIGH_EXPLOSIVE/name"
+msgstr "High-Explosive"
+
+msgid "shop/menu/shell/kinds/HOLLOW_CHARGE/name"
+msgstr "High-Explosive Anti-Tank"
+
+msgid "shop/menu/shell/kinds/name"
+msgstr "Shell Types:"
+
+msgid "shop/menu/shell/name"
+msgstr "Shells"
+
+msgid "shop/menu/vehicle/extra/inHangar/name"
+msgstr "Vehicles in Garage"
+
+msgid "shop/menu/vehicle/extra/locked/name"
+msgstr "Unresearched vehicles"
+
+msgid "shop/menu/vehicle/extra/name"
+msgstr "Display:"
+
+msgid "shop/menu/vehicle/name"
+msgstr "Vehicles"
+
+msgid "shop/menu/vehicle/tags/all/name"
+msgstr "All Types"
+
+msgid "shop/menu/vehicle/tags/at-spg/name"
+msgstr "Tank Destroyers"
+
+msgid "shop/menu/vehicle/tags/heavyTank/name"
+msgstr "Heavy Tanks"
+
+msgid "shop/menu/vehicle/tags/lightTank/name"
+msgstr "Light Tanks"
+
+msgid "shop/menu/vehicle/tags/mediumTank/name"
+msgstr "Medium Tanks"
+
+msgid "shop/menu/vehicle/tags/name"
+msgstr "Vehicle Type:"
+
+msgid "shop/menu/vehicle/tags/spg/name"
+msgstr "SPGs"
+
+msgid "shop/table/buttonBuy"
+msgstr "Purchase"
+
+msgid "shop/table/buyActionOr"
+msgstr "or"
+
+msgid "shop/table/find"
+msgstr "Found:"
+
+msgid "shop/table/header/count/equipment"
+msgstr "On vehicle/In Depot"
+
+msgid "shop/table/header/count/module"
+msgstr "On vehicle/In Depot"
+
+msgid "shop/table/header/count/optionalDevice"
+msgstr "On vehicle/In Depot"
+
+msgid "shop/table/header/count/shell"
+msgstr "In Depot"
+
+msgid "shop/table/header/count/vehicle"
+msgstr "?empty?"
+
+msgid "shop/table/header/price"
+msgstr "Cost"
+
+msgid "skillDropWindow/after"
+msgstr "After drop"
+
+msgid "skillDropWindow/applyBtn"
+msgstr "Drop"
+
+msgid "skillDropWindow/before"
+msgstr "Before drop"
+
+msgid "skillDropWindow/cancelBtn"
+msgstr "Cancel"
+
+msgid "skillDropWindow/multiplier"
+msgstr "Restore level"
+
+msgid "skillDropWindow/study/creditsLabel"
+msgstr "High"
+
+msgid "skillDropWindow/study/freeLabel"
+msgstr "Low"
+
+msgid "skillDropWindow/study/goldLabel"
+msgstr "Maximum"
+
+msgid "skillDropWindow/title"
+msgstr "Drop Skills and Perks"
+
+msgid "specPrebetles/listTitle"
+msgstr "Team Rooms"
+
+msgid "specPrebetles/ownerTitle"
+msgstr "Commander"
+
+msgid "specPrebetles/playersTitle"
+msgstr "Players"
+
+msgid "specPrebetles/title"
+msgstr "Team Battles"
+
+msgid "steam/cancel"
+msgstr "Cancel"
+
+msgid "steam/goldPacketSelect"
+msgstr "Select gold:"
+
+msgid "steam/otherMethods"
+msgstr "other payment methods"
+
+msgid "steam/submit"
+msgstr "Accept"
+
+msgid "steam/title"
+msgstr "Pay via Steam"
+
+msgid "store/vehicleStates/ammoNotFull"
+msgstr "?empty?"
+
+msgid "store/vehicleStates/battle"
+msgstr "In battle"
+
+msgid "store/vehicleStates/buySlot"
+msgstr "Purchase a slot"
+
+msgid "store/vehicleStates/buyTank"
+msgstr "Purchase a vehicle"
+
+msgid "store/vehicleStates/buyTankEmptyCount"
+msgstr "Vacant slots:"
+
+msgid "store/vehicleStates/clanLocked"
+msgstr "?empty?"
+
+msgid "store/vehicleStates/crewNotFull"
+msgstr "Crew incomplete"
+
+msgid "store/vehicleStates/damaged"
+msgstr "Repairs required"
+
+msgid "store/vehicleStates/destroyed"
+msgstr "Repairs required"
+
+msgid "store/vehicleStates/exploded"
+msgstr "Repairs required"
+
+msgid "store/vehicleStates/inPrebattle"
+msgstr "In operational unit"
+
+msgid "store/vehicleStates/locked"
+msgstr "?empty?"
+
+msgid "store/vehicleStates/notpresent"
+msgstr ""
+"You must\n"
+"purchase a vehicle"
+
+msgid "store/vehicleStates/serverRestriction"
+msgstr "Server limit"
+
+msgid "store/vehicleStates/undamaged"
+msgstr "?empty?"
+
+msgid "tankCarousel/vehicleStates/ammoNotFull"
+msgstr "?empty?"
+
+msgid "tankCarousel/vehicleStates/battle"
+msgstr "In battle"
+
+msgid "tankCarousel/vehicleStates/buySlot"
+msgstr "Purchase a slot"
+
+msgid "tankCarousel/vehicleStates/buyTank"
+msgstr "Purchase a vehicle"
+
+msgid "tankCarousel/vehicleStates/buyTankEmptyCount"
+msgstr "Vacant slots:"
+
+msgid "tankCarousel/vehicleStates/clanLocked"
+msgstr "?empty?"
+
+msgid "tankCarousel/vehicleStates/crewNotFull"
+msgstr "Crew incomplete"
+
+msgid "tankCarousel/vehicleStates/damaged"
+msgstr "Repairs required"
+
+msgid "tankCarousel/vehicleStates/destroyed"
+msgstr "Repairs required"
+
+msgid "tankCarousel/vehicleStates/exploded"
+msgstr "Repairs required"
+
+msgid "tankCarousel/vehicleStates/inPrebattle"
+msgstr "In operational unit"
+
+msgid "tankCarousel/vehicleStates/locked"
+msgstr "?empty?"
+
+msgid "tankCarousel/vehicleStates/not_suitable"
+msgstr "Not suitable"
+
+msgid "tankCarousel/vehicleStates/notpresent"
+msgstr ""
+"You must\n"
+"purchase a vehicle"
+
+msgid "tankCarousel/vehicleStates/serverRestriction"
+msgstr "Server limit"
+
+msgid "tankCarousel/vehicleStates/undamaged"
+msgstr "?empty?"
+
+msgid "tank_params/aimingTime"
+msgstr "<h1>Aiming Time <p>(s)</p></h1>"
+
+msgid "tank_params/chassisRotationSpeed"
+msgstr "<h1>Traverse Speed <p>(deg/s)</p></h1>"
+
+msgid "tank_params/circularVisionRadius"
+msgstr "<h1>View Range <p>(m)</p></h1>"
+
+msgid "tank_params/damage"
+msgstr "<h1>Standard Shell Damage <p></p></h1>"
+
+msgid "tank_params/damageAvg"
+msgstr "<h1>Average Damage per Shot <p>(HP)</p></h1>"
+
+msgid "tank_params/damageAvgPerMinute"
+msgstr "<h1>Average Damage per Minute <p>(HP/min)</p></h1>"
+
+msgid "tank_params/enginePower"
+msgstr "<h1>Engine Power <p>(h.p.)</p></h1>"
+
+msgid "tank_params/enginePowerPerTon"
+msgstr "<h1>Specific Power <p>(h.p./t)</p></h1>"
+
+msgid "tank_params/explosionRadius"
+msgstr "<h1>Burst Radius <p>(m)</p></h1>"
+
+msgid "tank_params/gunRotationSpeed"
+msgstr "<h1>Gun Traverse Speed <p>(deg/s)</p></h1>"
+
+msgid "tank_params/hullArmor"
+msgstr "<h1>Hull Armor <p>(front/sides/rear mm)</p></h1>"
+
+msgid "tank_params/maxAmmo"
+msgstr "<h1>Ammunition <p>(rounds)</p></h1>"
+
+msgid "tank_params/maxHealth"
+msgstr "<h1>Hit Points <p></p></h1>"
+
+msgid "tank_params/param12"
+msgstr "<h1>Terrain Crossing Capacity <p></p></h1>"
+
+msgid "tank_params/piercingPower"
+msgstr "<h1>Standard Shell Penetration <p>(mm)</p></h1>"
+
+msgid "tank_params/radioDistance"
+msgstr "<h1>Signal Range <p>(m)</p></h1>"
+
+msgid "tank_params/reloadTime"
+msgstr "<h1>Rate of Fire <p>(rounds/min)</p></h1>"
+
+msgid "tank_params/reloadTimeSecs"
+msgstr "<h1>Reload Time <p>(s)</p></h1>"
+
+msgid "tank_params/shotDispersionAngle"
+msgstr "<h1>Dispersion at 100 m <p>(deg)</p></h1>"
+
+msgid "tank_params/speedLimits"
+msgstr "<h1>Speed Limit <p>(km/h)</p></h1>"
+
+msgid "tank_params/turretArmor"
+msgstr "<h1>Turret Armor <p>(front/sides/rear mm)</p></h1>"
+
+msgid "tank_params/turretRotationSpeed"
+msgstr "<h1>Turret Traverse Speed <p>(deg/s)</p></h1>"
+
+msgid "tank_params/values/param10/value0"
+msgstr "excellent"
+
+msgid "tank_params/values/param10/value1"
+msgstr "good"
+
+msgid "tank_params/values/param10/value2"
+msgstr "fair"
+
+msgid "tank_params/values/param10/value3"
+msgstr "poor"
+
+msgid "tank_params/values/param11/value0"
+msgstr "excellent"
+
+msgid "tank_params/values/param11/value1"
+msgstr "good"
+
+msgid "tank_params/values/param11/value2"
+msgstr "fair"
+
+msgid "tank_params/values/param11/value3"
+msgstr "poor"
+
+msgid "tank_params/values/param12/value0"
+msgstr "excellent"
+
+msgid "tank_params/values/param12/value1"
+msgstr "good"
+
+msgid "tank_params/values/param12/value2"
+msgstr "fair"
+
+msgid "tank_params/values/param12/value3"
+msgstr "poor"
+
+msgid "tank_params/weight"
+msgstr "<h1>Weight/Load Limit <p>(t)</p></h1>"
+
+msgid "tankmanPersonalCase/accelerateTeachingOfSkill"
+msgstr "Accelerate"
+
+msgid "tankmanPersonalCase/achivs"
+msgstr "Awards:"
+
+msgid "tankmanPersonalCase/btnReset"
+msgstr "Current Vehicle"
+
+msgid "tankmanPersonalCase/btnRetraining"
+msgstr "Retrain"
+
+msgid "tankmanPersonalCase/btnTraining"
+msgstr "Train"
+
+msgid "tankmanPersonalCase/changeDocsBtn"
+msgstr "Replace Personal Data"
+
+msgid "tankmanPersonalCase/closeBtn"
+msgstr "Close"
+
+msgid "tankmanPersonalCase/crew"
+msgstr "Crew:"
+
+msgid "tankmanPersonalCase/docs/info"
+msgstr "?empty?"
+
+msgid "tankmanPersonalCase/dropSkillsButtonLabel"
+msgstr "Drop"
+
+msgid "tankmanPersonalCase/mainSpecialization"
+msgstr "Major Qualification:"
+
+msgid "tankmanPersonalCase/modifiers/fromCommander"
+msgstr "Commander's bonus"
+
+msgid "tankmanPersonalCase/modifiers/fromEquipment"
+msgstr "Equipment and consumables"
+
+msgid "tankmanPersonalCase/modifiers/fromSkills"
+msgstr "Skills and perks"
+
+msgid "tankmanPersonalCase/modifiers/penalty"
+msgstr "Unsuitable specialization"
+
+msgid "tankmanPersonalCase/modifiersHeader"
+msgstr "Modifiers:"
+
+msgid "tankmanPersonalCase/modifiersResult"
+msgstr "Final Value:"
+
+msgid "tankmanPersonalCase/name"
+msgstr "Name:"
+
+msgid "tankmanPersonalCase/noAchivs"
+msgstr "No achievements or awards earned in battles."
+
+msgid "tankmanPersonalCase/noModifiers"
+msgstr ""
+"Not available with\n"
+"major qualification"
+
+msgid "tankmanPersonalCase/personalDocs"
+msgstr "Personal Data:"
+
+msgid "tankmanPersonalCase/rank"
+msgstr "Rank:"
+
+msgid "tankmanPersonalCase/retrainingBtn"
+msgstr "Retrain"
+
+msgid "tankmanPersonalCase/retrainingWarning"
+msgstr "Training is effective for major qualification only."
+
+msgid "tankmanPersonalCase/retrainingWarning2"
+msgstr ""
+"Retraining for a new vehicle decreases the level of major qualification."
+
+msgid "tankmanPersonalCase/skillsButton/additionText"
+msgstr "(Training is available upon achieving major qualification level 100%)"
+
+msgid "tankmanPersonalCase/skillsButton/mainText"
+msgstr "View All Skills and Perks"
+
+msgid "tankmanPersonalCase/skillsDesc"
+msgstr "(Training is available upon achieving major qualification level 100%)"
+
+msgid "tankmanPersonalCase/specialization"
+msgstr "Competence:"
+
+msgid "tankmanPersonalCase/tabBattleInfo"
+msgstr "Service Record"
+
+msgid "tankmanPersonalCase/tabDocs"
+msgstr "Personal Data"
+
+msgid "tankmanPersonalCase/tabSkills"
+msgstr "Skills"
+
+msgid "tankmanPersonalCase/tabTraining"
+msgstr "Training"
+
+msgid "tankmanPersonalCase/title"
+msgstr "Personal File"
+
+msgid "tankmanPersonalCase/trainingBtn"
+msgstr "Accelerate training"
+
+msgid "tankmanPersonalCase/usingLevel"
+msgstr "Training Level:"
+
+msgid "tankmanPersonalCase/vehicle"
+msgstr "Vehicle:"
+
+msgid "tankmanPersonalCase/vehicleType"
+msgstr "Vehicle Type:"
+
+msgid "tankmanPersonalCase/vehicleTypeID"
+msgstr "Train for vehicle:"
+
+msgid "tankmanRecruitRenderer/commander"
+msgstr "Recruit Commander"
+
+msgid "tankmanRecruitRenderer/descr"
+msgstr "Recruit a crew member"
+
+msgid "tankmanRecruitRenderer/driver"
+msgstr "Recruit Driver"
+
+msgid "tankmanRecruitRenderer/gunner"
+msgstr "Recruit Gunner"
+
+msgid "tankmanRecruitRenderer/loader"
+msgstr "Recruit Loader"
+
+msgid "tankmanRecruitRenderer/personalCase"
+msgstr "Open Personal File"
+
+msgid "tankmanRecruitRenderer/radioman"
+msgstr "Recruit Radio Operator"
+
+msgid "tankmanRecruitRenderer/unload"
+msgstr "Send to Barracks"
+
+msgid "tankmanRetrainingBtn/free"
+msgstr "Free"
+
+msgid "tankmanTrainingButton2/retrainingTo"
+msgstr "Retrain to Level:"
+
+msgid "tankmanTrainingButton2/trainingTo"
+msgstr "Train to Level:"
+
+msgid "tankmanTrainingWindow/academy"
+msgstr "Tank Academy"
+
+msgid "tankmanTrainingWindow/closeBtn"
+msgstr "Cancel"
+
+msgid "tankmanTrainingWindow/free"
+msgstr "Rapid Courses"
+
+msgid "tankmanTrainingWindow/scool"
+msgstr "Regimental School"
+
+msgid "tankmanTrainingWindow/title"
+msgstr "Training Crew"
+
+msgid "tankmanTrainingWindow/trainingTo"
+msgstr "Training Level:"
+
+msgid "tankmen/AT-SPG"
+msgstr "Tank Destroyer"
+
+msgid "tankmen/SPG"
+msgstr "SPG"
+
+msgid "tankmen/heavyTank"
+msgstr "Heavy Tank"
+
+msgid "tankmen/lightTank"
+msgstr "Light Tank"
+
+msgid "tankmen/lockReason/broken"
+msgstr "(Vehicle damaged)"
+
+msgid "tankmen/lockReason/inbattle"
+msgstr "(In battle)"
+
+msgid "tankmen/lockReason/prebattle"
+msgstr "(Awaiting battle)"
+
+msgid "tankmen/mediumTank"
+msgstr "Medium Tank"
+
+msgid "tankmsnPersonalCase/lackOfSkillsForLearn"
+msgstr "Crew member has learned all additional skills and perks"
+
+msgid "teachingSkill/after"
+msgstr "After training"
+
+msgid "teachingSkill/before"
+msgstr "Before training"
+
+msgid "teachingSkill/cancel"
+msgstr "Cancel"
+
+msgid "teachingSkill/cost"
+msgstr "Training cost"
+
+msgid "teachingSkill/freeXpIsTight"
+msgstr ""
+"Not enough Free Experience to learn the perk/skill. Convert Combat "
+"Experience to Free Experience."
+
+msgid "teachingSkill/submit"
+msgstr "Train"
+
+msgid "teachingSkill/teachToLevel"
+msgstr "Train to Level:"
+
+msgid "teachingSkill/title"
+msgstr "Training for Free Experience"
+
+msgid "teachingSkill/totalPay"
+msgstr "Total:"
+
+msgid "technicalMaintenance/ammoTitleEx"
+msgstr "(shell containers for %d item(s))"
+
+msgid "training/create/battleTime"
+msgstr "Battle duration:"
+
+msgid "training/create/closeButton"
+msgstr "Close"
+
+msgid "training/create/createButton"
+msgstr "Create"
+
+msgid "training/create/description"
+msgstr "Description:"
+
+msgid "training/create/mapSelect"
+msgstr "Select map:"
+
+msgid "training/create/maxPlayers"
+msgstr "Player limit:"
+
+msgid "training/create/privacy"
+msgstr "By invitation"
+
+msgid "training/create/title"
+msgstr "Create a Training Room"
+
+msgid "training/createButton"
+msgstr "Create Room"
+
+msgid "training/description"
+msgstr ""
+"Team training will earn you neither credits nor experience. Repairs and "
+"everything else except shells and equipment are free."
+
+msgid "training/info/deleteButton"
+msgstr "Delete Room"
+
+msgid "training/info/exitButton"
+msgstr "Exit Room"
+
+msgid "training/info/inviteButton"
+msgstr "Invite..."
+
+msgid "training/info/map"
+msgstr "{%s}:"
+
+msgid "training/info/maxPlayers"
+msgstr "Players:"
+
+msgid "training/info/notUseChat"
+msgstr "no"
+
+msgid "training/info/otherLabel"
+msgstr "Undistributed players"
+
+msgid "training/info/owner"
+msgstr "Commander:"
+
+msgid "training/info/settings/okButton"
+msgstr "Modify"
+
+msgid "training/info/settings/title"
+msgstr "Modify Training Room Settings"
+
+msgid "training/info/settingsButton"
+msgstr "Modify Room"
+
+msgid "training/info/startButton"
+msgstr "Start Battle"
+
+msgid "training/info/states/state0"
+msgstr "?empty?"
+
+msgid "training/info/states/state1"
+msgstr "left"
+
+msgid "training/info/states/state17"
+msgstr "offline"
+
+msgid "training/info/states/state2"
+msgstr "left"
+
+msgid "training/info/states/state20"
+msgstr "offline"
+
+msgid "training/info/states/state24"
+msgstr "offline"
+
+msgid "training/info/states/state4"
+msgstr "?empty?"
+
+msgid "training/info/states/state8"
+msgstr "In battle"
+
+msgid "training/info/team1Label"
+msgstr "Team 1"
+
+msgid "training/info/team2Label"
+msgstr "Team 2"
+
+msgid "training/info/timeout/label"
+msgstr "Battle time:"
+
+msgid "training/info/timeout/value"
+msgstr "%d minutes"
+
+msgid "training/info/title"
+msgstr "Training Room (%s)"
+
+msgid "training/info/useCommonVoiceChat"
+msgstr "General"
+
+msgid "training/info/useSeparateVoipChat"
+msgstr "Team"
+
+msgid "training/info/voiceChat"
+msgstr "Voice chat:"
+
+msgid "training/invitations/title"
+msgstr "Send invitations"
+
+msgid "training/joinButton"
+msgstr "Enter"
+
+msgid "training/listTitle"
+msgstr "Training Rooms"
+
+msgid "training/ownerTitle"
+msgstr "Commander"
+
+msgid "training/playersLabel"
+msgstr "Players:"
+
+msgid "training/playersTitle"
+msgstr "Players"
+
+msgid "training/roomsLabel"
+msgstr "Training rooms:"
+
+msgid "training/title"
+msgstr "Team Training"
+
+msgid "unlocks/exchangeButton"
+msgstr "Convert"
+
+msgid "unlocks/unlockButton"
+msgstr "Research"
+
+msgid "unlocks/xpToTmenCheckbox"
+msgstr "Accelerate crew training"
+
+msgid "vehicleInfo/closeBtn"
+msgstr "Close"
+
+msgid "vehicleInfo/params/chassisRotationSpeed"
+msgstr "Traverse Speed (deg/s)"
+
+msgid "vehicleInfo/params/circularVisionRadius"
+msgstr "View Range (m)"
+
+msgid "vehicleInfo/params/damage"
+msgstr "Standard Shell Damage"
+
+msgid "vehicleInfo/params/enginePower"
+msgstr "Engine Power (h.p.)"
+
+msgid "vehicleInfo/params/gunRotationSpeed"
+msgstr "Gun Traverse Speed (deg/s)"
+
+msgid "vehicleInfo/params/hullArmor"
+msgstr "Hull Armor (front/sides/rear, mm)"
+
+msgid "vehicleInfo/params/maxHealth"
+msgstr "Hit Points"
+
+msgid "vehicleInfo/params/piercingPower"
+msgstr "Standard Shell Penetration (mm)"
+
+msgid "vehicleInfo/params/radioDistance"
+msgstr "Signal Range (m)"
+
+msgid "vehicleInfo/params/reloadTime"
+msgstr "Rate of Fire (rounds/min)"
+
+msgid "vehicleInfo/params/speedLimits"
+msgstr "Speed Limit (km/h)"
+
+msgid "vehicleInfo/params/turretArmor"
+msgstr "Turret Armor (front/sides/rear, mm)"
+
+msgid "vehicleInfo/params/turretRotationSpeed"
+msgstr "Turret Traverse Speed (deg/s)"
+
+msgid "vehicleInfo/params/weight"
+msgstr "Weight/Load Limit (t)"
+
+msgid "vehicleInfo/stats/avgExperience"
+msgstr "Average Experience per Battle"
+
+msgid "vehicleInfo/stats/battlesCount"
+msgstr "Battles Fought"
+
+msgid "vehicleInfo/stats/damageDealt"
+msgstr "Damage Caused"
+
+msgid "vehicleInfo/stats/defender"
+msgstr "Defender"
+
+msgid "vehicleInfo/stats/frags"
+msgstr "Destroyed"
+
+msgid "vehicleInfo/stats/heroes"
+msgstr "Battle Hero"
+
+msgid "vehicleInfo/stats/hits"
+msgstr "Hits"
+
+msgid "vehicleInfo/stats/invader"
+msgstr "Invader"
+
+msgid "vehicleInfo/stats/lastBattleTime"
+msgstr "Last Battle"
+
+msgid "vehicleInfo/stats/losses"
+msgstr "Defeats"
+
+msgid "vehicleInfo/stats/medalKay"
+msgstr "Kay's Medal"
+
+msgid "vehicleInfo/stats/scout"
+msgstr "Scout"
+
+msgid "vehicleInfo/stats/shots"
+msgstr "Shots"
+
+msgid "vehicleInfo/stats/sniper"
+msgstr "Sniper"
+
+msgid "vehicleInfo/stats/steelwall"
+msgstr "Steel Wall"
+
+msgid "vehicleInfo/stats/supporter"
+msgstr "Confederate"
+
+msgid "vehicleInfo/stats/survivedBattles"
+msgstr "Battles Survived"
+
+msgid "vehicleInfo/stats/warrior"
+msgstr "Top Gun"
+
+msgid "vehicleInfo/stats/wins"
+msgstr "Victories"
+
+msgid "vehicleInfo/stats/xp"
+msgstr "Total Experience"
+
+msgid "vehicleInfo/tabs/base"
+msgstr "Configuration"
+
+msgid "vehicleInfo/tabs/crew"
+msgstr "Crew"
+
+msgid "vehicleInfo/tabs/properties"
+msgstr "Characteristics"
+
+msgid "vehicleInfo/tabs/statistic"
+msgstr "Service Record"
+
+msgid "vehicleInfo/title"
+msgstr "— Characteristics"
+
+msgid "vehiclesCarousel/contextMenu/vehicleCheck"
+msgstr "Set as Primary"
+
+msgid "vehiclesCarousel/contextMenu/vehicleInfo"
+msgstr "View details"
+
+msgid "vehiclesCarousel/contextMenu/vehicleResearch"
+msgstr "Tech Tree"
+
+msgid "vehiclesCarousel/contextMenu/vehicleSell"
+msgstr "Sell"
+
+msgid "vehiclesCarousel/contextMenu/vehicleUncheck"
+msgstr "Set as Reserve"

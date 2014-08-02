@@ -1,0 +1,219 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: World Of Tanks\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-06-01 10:00+0300\n"
+"PO-Revision-Date: 2010-06-01 10:00+0300\n"
+"Last-Translator: WoT Translator <noreply@wargaming.net>\n"
+"Language-Team: WoT Team <noreply@wargaming.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "errors/creationNotAllowed"
+msgstr "Not enough permissions to create an invitation."
+
+msgid "errors/invalid"
+msgstr "Invalid invitation."
+
+msgid "errors/inviteNotSupported"
+msgstr ""
+"This type of invitation is not available at the moment. Try again later."
+
+msgid "errors/receiverIgnoreSender"
+msgstr "The invitation recipient added you to their Ignore list."
+
+msgid "errors/selfinvite"
+msgstr "You cannot invite yourself."
+
+msgid "errors/unknownuser"
+msgstr "This user has not registered in the system yet."
+
+msgid "errors/useroffline"
+msgstr "User is offline."
+
+msgid "errors/vehicleBrokenOrLocked"
+msgstr ""
+"The vehicle in the Garage is damaged or locked. Select another vehicle."
+
+msgid "gui/buttons/accept"
+msgstr "Accept"
+
+msgid "gui/buttons/cancel"
+msgstr "Cancel"
+
+msgid "gui/buttons/reject"
+msgstr "Decline"
+
+msgid "gui/buttons/send"
+msgstr "Send"
+
+msgid "gui/labels/additionalText"
+msgstr "Additional invitation text:"
+
+msgid "gui/labels/inviteText"
+msgstr "Invitation Text:"
+
+msgid "gui/labels/receiver"
+msgstr "Recipient:"
+
+msgid "gui/titles/barter"
+msgstr "Trade Invitation"
+
+msgid "gui/titles/clan"
+msgstr "Clan Invitation"
+
+msgid "gui/titles/invite"
+msgstr "Invitation"
+
+msgid "gui/titles/receivedInvites"
+msgstr "Invitations"
+
+msgid "invites/comment"
+msgstr "\"%(comment)s\""
+
+msgid "invites/note/change_and_leave/CLAN"
+msgstr ""
+"Once you accept the invitation, you will be automatically excluded from the "
+"battle on the Global Map and transferred to %(host)s server."
+
+msgid "invites/note/change_and_leave/COMPANY"
+msgstr ""
+"Once you accept the invitation, you will be automatically excluded from the "
+"Tank Company and transferred to %(host)s server."
+
+msgid "invites/note/change_and_leave/HISTORICAL"
+msgstr ""
+"Once you accept the invitation, you will exit Historical Battle mode and you "
+"will be transferred to server %(host)s."
+
+msgid "invites/note/change_and_leave/SORTIE"
+msgstr ""
+"Once you accept the invitation, you will exit Strongholds: Battles mode and "
+"you will be transferred to server %(host)s."
+
+msgid "invites/note/change_and_leave/SQUAD"
+msgstr ""
+"Once you accept the invitation, you will be automatically excluded from the "
+"Platoon and transferred to %(host)s server."
+
+msgid "invites/note/change_and_leave/TOURNAMENT"
+msgstr ""
+"Once you accept the invitation, you will be automatically excluded from the "
+"tournament and transferred to %(host)s server."
+
+msgid "invites/note/change_and_leave/TRAINING"
+msgstr ""
+"Once you accept the invitation, you will be automatically excluded from the "
+"training room and transferred to %(host)s server."
+
+msgid "invites/note/change_and_leave/UNIT"
+msgstr ""
+"Once you accept the invitation, you will exit Team Battle mode and you will "
+"be transferred to server %(host)s."
+
+msgid "invites/note/leave/CLAN"
+msgstr ""
+"Once you accept the invitation, you will be automatically excluded from the "
+"battle on the Global Map."
+
+msgid "invites/note/leave/COMPANY"
+msgstr ""
+"Once you accept the invitation, you will be automatically excluded from the "
+"Tank Company."
+
+msgid "invites/note/leave/HISTORICAL"
+msgstr "Once you accept the invitation, you will exit Historical Battle mode."
+
+msgid "invites/note/leave/SORTIE"
+msgstr ""
+"Once you accept the invitation, you will exit Strongholds: Battles mode."
+
+msgid "invites/note/leave/SQUAD"
+msgstr ""
+"Once you accept the invitation, you will be automatically excluded from the "
+"Platoon."
+
+msgid "invites/note/leave/TOURNAMENT"
+msgstr ""
+"Once you accept the invitation, you will be automatically excluded from the "
+"tournament."
+
+msgid "invites/note/leave/TRAINING"
+msgstr ""
+"Once you accept the invitation, you will be automatically excluded from the "
+"training room."
+
+msgid "invites/note/leave/UNIT"
+msgstr "Once you accept the invitation, you will exit Team Battle mode."
+
+msgid "invites/note/server_change"
+msgstr "You will be automatically transferred to %(host)s server."
+
+msgid "invites/prebattle/acceptNotAllowed/otherPeriphery"
+msgstr ""
+"You are unable to accept the invitation. To accept the invitation, please "
+"select server '%(host)s'."
+
+msgid "invites/prebattle/acceptNotAllowed/undefinedPeriphery"
+msgstr ""
+"You are unable to accept the invitation. To accept the invitation, please "
+"select another server."
+
+msgid "invites/prebattle/alreadyJoined/CLAN"
+msgstr "You have already joined the battle on the Global Map."
+
+msgid "invites/prebattle/alreadyJoined/COMPANY"
+msgstr "You have already joined the Tank Company."
+
+msgid "invites/prebattle/alreadyJoined/SORTIE"
+msgstr "You have already joined the detachment."
+
+msgid "invites/prebattle/alreadyJoined/SQUAD"
+msgstr "You have already joined the Platoon."
+
+msgid "invites/prebattle/alreadyJoined/TOURNAMENT"
+msgstr "You have already joined the tournament."
+
+msgid "invites/prebattle/alreadyJoined/TRAINING"
+msgstr "You have already joined the training room."
+
+msgid "invites/prebattle/alreadyJoined/UNIT"
+msgstr "You have already joined the team."
+
+msgid "invites/state/ACCEPTED"
+msgstr "Invitation accepted."
+
+msgid "invites/state/ACTIVE"
+msgstr "?empty?"
+
+msgid "invites/state/DECLINED"
+msgstr "Invitation declined."
+
+msgid "invites/state/EXPIRED"
+msgstr "Invalid invitation."
+
+msgid "invites/text/COMPANY"
+msgstr ""
+"%(titleStartTag)sInvitation to join the Tank Company%(titleEndTag)s from "
+"%(nickNameStartTag)s%(sender)s%(nickNameEndTag)s"
+
+msgid "invites/text/SORTIE"
+msgstr ""
+"%(titleStartTag)sInvitation to join the detachment%(titleEndTag)s from "
+"%(nickNameStartTag)s%(sender)s%(nickNameEndTag)s"
+
+msgid "invites/text/SQUAD"
+msgstr ""
+"%(titleStartTag)sInvitation to join the Platoon%(titleEndTag)s from "
+"%(nickNameStartTag)s%(sender)s%(nickNameEndTag)s"
+
+msgid "invites/text/TRAINING"
+msgstr ""
+"%(titleStartTag)sInvitation to join the training room%(titleEndTag)s from "
+"%(nickNameStartTag)s%(sender)s%(nickNameEndTag)s"
+
+msgid "invites/text/UNIT"
+msgstr ""
+"%(titleStartTag)sInvitation to join the team%(titleEndTag)s from "
+"%(nickNameStartTag)s%(sender)s%(nickNameEndTag)s"

@@ -1,0 +1,140 @@
+{
+   "shared" : {
+      "JAN-GRC-4Z" : {
+         "distance" : 750,
+         "tags" : {},
+         "userString" : "#japan_vehicles:JAN-GRC-4Z",
+         "maxHealth" : 180,
+         "maxRegenHealth" : 108,
+         "repairCost" : "3.5",
+         "level" : 10,
+         "weight" : 150,
+         "price" : 55000
+      },
+      "JAN-GRC-3Z" : {
+         "distance" : 720,
+         "tags" : {},
+         "userString" : "#japan_vehicles:JAN-GRC-3Z",
+         "maxHealth" : 160,
+         "maxRegenHealth" : 96,
+         "repairCost" : 3,
+         "level" : 9,
+         "weight" : 70,
+         "price" : 45500
+      },
+      "_Type94_Hei" : {
+         "distance" : 350,
+         "tags" : {},
+         "userString" : "#japan_vehicles:_Type94_Hei",
+         "maxHealth" : 70,
+         "maxRegenHealth" : 42,
+         "repairCost" : "0.5",
+         "level" : 4,
+         "weight" : 90,
+         "price" : 2350
+      },
+      "_Type3_Ko" : {
+         "distance" : 750,
+         "tags" : {},
+         "userString" : "#japan_vehicles:_Type3_Ko",
+         "maxHealth" : 180,
+         "maxRegenHealth" : 108,
+         "repairCost" : "0.5",
+         "level" : 10,
+         "weight" : 560,
+         "price" : 54000
+      },
+      "_Type3_Otsu" : {
+         "distance" : 550,
+         "tags" : {},
+         "userString" : "#japan_vehicles:_Type3_Otsu",
+         "maxHealth" : 140,
+         "maxRegenHealth" : 84,
+         "repairCost" : "0.5",
+         "level" : 8,
+         "weight" : 240,
+         "price" : 22000
+      },
+      "_Type96_Bo" : {
+         "distance" : 425,
+         "tags" : {},
+         "userString" : "#japan_vehicles:_Type96_Bo",
+         "maxHealth" : 100,
+         "maxRegenHealth" : 60,
+         "repairCost" : "0.5",
+         "level" : 6,
+         "weight" : 50,
+         "price" : 14000
+      },
+      "_Hei" : {
+         "distance" : 400,
+         "tags" : {},
+         "userString" : "#japan_vehicles:_Hei",
+         "maxHealth" : 80,
+         "maxRegenHealth" : 48,
+         "repairCost" : "0.5",
+         "level" : 5,
+         "weight" : 130,
+         "price" : 3800
+      },
+      "_Type67" : {
+         "distance" : 750,
+         "tags" : {},
+         "maxRegenHealth" : 108,
+         "userString" : "#japan_vehicles:_Type67",
+         "maxHealth" : 180,
+         "repairCost" : "3.5",
+         "level" : 10,
+         "weight" : 370,
+         "price" : 55000,
+         "notInShop" : true
+      },
+      "Alarm_flags" : {
+         "distance" : 90,
+         "tags" : {},
+         "userString" : "#japan_vehicles:Alarm_flags",
+         "maxHealth" : 40,
+         "maxRegenHealth" : 24,
+         "repairCost" : "",
+         "level" : 1,
+         "weight" : 1,
+         "price" : ""
+      },
+      "_Type94_Hei_1" : {
+         "distance" : 400,
+         "tags" : {},
+         "maxRegenHealth" : 60,
+         "userString" : "#japan_vehicles:_Type94_Hei_1",
+         "maxHealth" : 100,
+         "repairCost" : "0.5",
+         "level" : 4,
+         "weight" : 90,
+         "price" : 8160,
+         "notInShop" : true
+      },
+      "_Type94_Otsu" : {
+         "distance" : 300,
+         "tags" : {},
+         "userString" : "#japan_vehicles:_Type94_Otsu",
+         "maxHealth" : 60,
+         "maxRegenHealth" : 36,
+         "repairCost" : "0.5",
+         "level" : 3,
+         "weight" : 40,
+         "price" : 600
+      }
+   },
+   "ids" : {
+      "JAN-GRC-4Z" : 9,
+      "JAN-GRC-3Z" : 8,
+      "_Type94_Hei" : 3,
+      "_Type3_Ko" : 7,
+      "_Type3_Otsu" : 6,
+      "_Type96_Bo" : 5,
+      "_Hei" : 4,
+      "_Type67" : 10,
+      "Alarm_flags" : 1,
+      "_Type94_Hei_1" : "",
+      "_Type94_Otsu" : 2
+   }
+}

@@ -1,0 +1,2220 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: World Of Tanks\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-06-01 10:00+0300\n"
+"PO-Revision-Date: 2010-06-10 19:30+0200\n"
+"Last-Translator: i_maliavko <i_maliavko@wargaming.net>\n"
+"Language-Team: WoT Team <noreply@wargaming.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "account_was_restored"
+msgstr "Your account was successfully recovered"
+
+msgid "actionAchievement/title"
+msgstr "Event Medal"
+
+msgid "actionAchievements/title"
+msgstr "Event Medals"
+
+msgid "add_tankman_skill/invalid_vehicle"
+msgstr "Error training for a skill. Wrong vehicle."
+
+msgid "add_tankman_skill/server_error"
+msgstr "Failed to train a crew member for a new skill. Try again later."
+
+msgid "add_tankman_skill/success"
+msgstr "New skill successfully trained."
+
+msgid "add_tankman_skill/vehicle_locked"
+msgstr "Error training for a skill. The vehicle is locked."
+
+msgid "add_tankman_skill/vehicle_need_repair"
+msgstr "Error training for a skill. Repair your vehicle."
+
+msgid "another_periphery"
+msgstr "You are still logged in on another server."
+
+msgid "arena_start_errors/join/ACCOUNT_LOCK"
+msgstr "Error joining the battle: you have already joined the team."
+
+msgid "arena_start_errors/join/CANNOT_CREATE"
+msgstr "Error joining the battle: wrong team number."
+
+msgid "arena_start_errors/join/CAPTCHA"
+msgstr "Error joining the battle, CAPTCHA."
+
+msgid "arena_start_errors/join/COOLDOWN"
+msgstr ""
+"Joining error. The operation is temporarily suspended. Try again later."
+
+msgid "arena_start_errors/join/NOT_FOUND"
+msgstr "Error joining the battle: the invitation has expired."
+
+msgid "arena_start_errors/join/PRIVACY"
+msgstr "Joining error: not enough permissions."
+
+msgid "arena_start_errors/join/TEAM_IS_FULL"
+msgstr "Error joining the battle: the team has already been created."
+
+msgid "arena_start_errors/join/TIME_OUT"
+msgstr "Error joining the battle: the connection has timed out."
+
+msgid "arena_start_errors/join/WRONG_ACCOUNT_TYPE"
+msgstr "Joining error: unavailable for this Account Type."
+
+msgid "arena_start_errors/join/WRONG_ARENA_STATE"
+msgstr "Error joining the battle."
+
+msgid "arena_start_errors/join/WRONG_ARGS"
+msgstr "Joining error: WRONG_ARGS."
+
+msgid "arena_start_errors/join/WRONG_BATTLE_ID"
+msgstr "Joining error: selected Historical Battle is unavailable."
+
+msgid "arena_start_errors/join/WRONG_PERIPHERY_KNOWN"
+msgstr "Connection failed. Please select server '%s'."
+
+msgid "arena_start_errors/join/WRONG_PERIPHERY_UNKNOWN"
+msgstr "Connection failed. Please select another server."
+
+msgid "arena_start_errors/join/WRONG_VEHICLE"
+msgstr "Error joining the battle: the current vehicle is not ready."
+
+msgid "arena_start_errors/join/no_readyVehicle"
+msgstr "Unable to join the battle: the vehicle is not ready."
+
+msgid "arena_start_errors/join/no_vehicle"
+msgstr "Please purchase a vehicle to join a battle."
+
+msgid "arena_start_errors/kick/ARENA_CREATION_FAILURE"
+msgstr "Error joining battle (ARENA_CREATION_FAILURE)"
+
+msgid "arena_start_errors/kick/AVATAR_CREATION_FAILURE"
+msgstr "Error joining battle (AVATAR_CREATION_FAILURE)"
+
+msgid "arena_start_errors/kick/BASEAPP_CRASH"
+msgstr "Error joining battle (BASEAPP_CRASH)"
+
+msgid "arena_start_errors/kick/CELLAPP_CRASH"
+msgstr "Error joining battle (CELLAPP_CRASH)"
+
+msgid "arena_start_errors/kick/CREATOR_LEFT"
+msgstr "Error joining battle (CREATOR_LEFT)"
+
+msgid "arena_start_errors/kick/FINISHED"
+msgstr "Error joining battle (FINISHED)"
+
+msgid "arena_start_errors/kick/PLAYERKICK"
+msgstr "Error joining battle (PLAYERKICK)"
+
+msgid "arena_start_errors/kick/PREBATTLE_CREATION_FAILURE"
+msgstr "Error joining battle (PREBATTLE_CREATION_FAILURE)"
+
+msgid "arena_start_errors/kick/TIMEOUT"
+msgstr "Error joining battle (TIMEOUT)"
+
+msgid "arena_start_errors/kick/UNKNOWN_FAILURE"
+msgstr "Error joining battle (UNKNOWN_FAILURE)"
+
+msgid "arena_start_errors/kick/VEHICLE_CREATION_FAILURE"
+msgstr "Error joining battle (VEHICLE_CREATION_FAILURE)"
+
+msgid "arena_start_errors/kick/timeout"
+msgstr ""
+"Maximum time in queue for battle has expired. Select another vehicle or try "
+"again later."
+
+msgid "artefact_apply/error_not_for_this_vehicle_type"
+msgstr "%(kind)s '%(name)s' does not fit this vehicle."
+
+msgid "artefact_apply/error_too_heavy"
+msgstr ""
+"%(kind)s '%(name)s' is too heavy. Consider replacing the suspension or "
+"lightening the vehicle."
+
+msgid "artefact_apply/gold_error_not_enough"
+msgstr "%(kind)s '%(name)s' not demounted. Not enough gold."
+
+msgid "artefact_apply/gold_success"
+msgstr "%(kind)s '%(name)s' demounted from vehicle. Gold spent: %(money)s."
+
+msgid "artefact_apply/invalid_vehicle"
+msgstr "Wrong vehicle. %(kind)s '%(name)s' not mounted."
+
+msgid "artefact_apply/server_error"
+msgstr "Server error mounting %(kind)s '%(name)s'. Try again later."
+
+msgid "artefact_apply/success"
+msgstr "%(kind)s '%(name)s' mounted on vehicle."
+
+msgid "artefact_apply/vehicle_locked"
+msgstr "Vehicle locked. %(kind)s '%(name)s' not mounted."
+
+msgid "artefact_apply/vehicle_need_repair"
+msgstr ""
+"Vehicle damaged. %(kind)s '%(name)s' not mounted. Repair vehicle and try "
+"again."
+
+msgid "artefact_buy/invalid_module"
+msgstr "Unable to purchase %(kind)s %(name)s. Wrong module."
+
+msgid "artefact_buy/not_enough_credits"
+msgstr "Unable to purchase %(kind)s '%(name)s'. Not enough credits."
+
+msgid "artefact_buy/not_enough_gold"
+msgstr "Unable to purchase %(kind)s '%(name)s'. Not enough gold."
+
+msgid "artefact_buy/server_error"
+msgstr "Unable to purchase %(kind)s '%(name)s'. Try again later."
+
+msgid "artefact_buy/server_error_centerDown"
+msgstr ""
+"Unable to purchase %(kind)s '%(name)s' module. Server is temporarily "
+"unavailable."
+
+msgid "artefact_buy/success"
+msgstr ""
+"%(kind)s '%(name)s' successfully purchased (%(count)s item(s)). Spent: "
+"%(money)s."
+
+msgid "artefact_buy/wallet_not_available"
+msgstr ""
+"Operation impossible. All your gold will be available after WG Wallet "
+"operability is restored automatically."
+
+msgid "artefact_destroy/invalid_vehicle"
+msgstr "Wrong vehicle. %(kind)s '%(name)s' not mounted."
+
+msgid "artefact_destroy/server_error"
+msgstr "Server error destroying %(kind)s '%(name)s'. Try again later."
+
+msgid "artefact_destroy/success"
+msgstr "%(kind)s '%(name)s' destroyed with demounting."
+
+msgid "artefact_destroy/vehicle_locked"
+msgstr "Vehicle locked. %(kind)s '%(name)s' not destroyed."
+
+msgid "artefact_destroy/vehicle_need_repair"
+msgstr ""
+"Vehicle damaged. %(kind)s '%(name)s' not destroyed. Repair vehicle and try "
+"again."
+
+msgid "artefact_remove/error_too_heavy"
+msgstr ""
+"Unable to demount %(kind)s '%(name)s'. Consider replacing the suspension or "
+"lightening the vehicle."
+
+msgid "artefact_remove/gold_error_not_enough"
+msgstr "%(kind)s '%(name)s' not demounted. Not enough gold."
+
+msgid "artefact_remove/gold_success"
+msgstr "%(kind)s '%(name)s' demounted from vehicle. Gold spent: %(money)s."
+
+msgid "artefact_remove/incompatibleEqs"
+msgstr ""
+"Consumable '%s' has been sent to Depot due to incompatibility with the "
+"current module."
+
+msgid "artefact_remove/invalid_vehicle"
+msgstr "Wrong vehicle. %(kind)s '%(name)s' not demounted."
+
+msgid "artefact_remove/server_error"
+msgstr "Server error demounting %(kind)s '%(name)s'. Try again later."
+
+msgid "artefact_remove/success"
+msgstr "%(kind)s '%(name)s' demounted from vehicle."
+
+msgid "artefact_remove/vehicle_locked"
+msgstr "Vehicle locked. %(kind)s '%(name)s' not demounted."
+
+msgid "artefact_remove/vehicle_need_repair"
+msgstr ""
+"Vehicle damaged. %(kind)s '%(name)s' not demounted. Repair vehicle and try "
+"again."
+
+msgid "artefact_sell/invalid_module"
+msgstr "Unable to sell %(kind)s %(name)s. Wrong module."
+
+msgid "artefact_sell/server_error"
+msgstr "Unable to sell %(kind)s '%(name)s'. Try again later."
+
+msgid "artefact_sell/success"
+msgstr ""
+"%(kind)s '%(name)s' successfully sold (%(count)s item(s)). Received %(money)"
+"s."
+
+msgid "battleSession/kickedFromQueue"
+msgstr ""
+"Unable to find opponents for the current Special Battle. Consider "
+"reorganizing your team."
+
+msgid "battleSession/memberJoined"
+msgstr "%s has joined the team."
+
+msgid "battleSession/memberLeave"
+msgstr "%s has left the team."
+
+msgid "battleSession/memberNotReady"
+msgstr "%s is not ready to fight for the team."
+
+msgid "battleSession/memberOffline"
+msgstr "Connection interrupted with %s."
+
+msgid "battleSession/memberReady"
+msgstr "%s is ready to fight for the team."
+
+msgid "buttons/goToPoll"
+msgstr "Proceed to Poll"
+
+msgid "buy_and_equip_tankman/financial_success"
+msgstr "Crew member successfully recruited and transferred. Spent %(price)s."
+
+msgid "buy_and_equip_tankman/free_tankmen_limit"
+msgstr "You have reached the limit for free crew members for today."
+
+msgid "buy_and_equip_tankman/invalid_vehicle"
+msgstr "Unable to recruit and transfer a crew member. Wrong vehicle."
+
+msgid "buy_and_equip_tankman/not_enough_credits"
+msgstr "Unable to recruit and transfer a crew member. Not enough credits."
+
+msgid "buy_and_equip_tankman/not_enough_gold"
+msgstr "Unable to recruit and transfer a crew member. Not enough gold."
+
+msgid "buy_and_equip_tankman/server_error"
+msgstr "Unable to recruit and transfer a crew member. Try again later."
+
+msgid "buy_and_equip_tankman/success"
+msgstr "Crew member successfully recruited and transferred."
+
+msgid "buy_and_equip_tankman/vehicle_locked"
+msgstr "Unable to recruit and transfer a crew member. The vehicle is locked."
+
+msgid "buy_and_equip_tankman/wallet_not_available"
+msgstr ""
+"Operation impossible. All your gold will be available after WG Wallet "
+"operability is restored automatically."
+
+msgid "buy_and_reequip_tankman/financial_success"
+msgstr "Crew member successfully recruited and replaced. Spent %(price)s."
+
+msgid "buy_and_reequip_tankman/free_tankmen_limit"
+msgstr "You have reached the limit for free crew members for today."
+
+msgid "buy_and_reequip_tankman/invalid_vehicle"
+msgstr "Unable to recruit and replace a crew member. Wrong vehicle."
+
+msgid "buy_and_reequip_tankman/not_enough_credits"
+msgstr "Unable to recruit and replace a crew member. Not enough credits."
+
+msgid "buy_and_reequip_tankman/not_enough_gold"
+msgstr "Unable to recruit and replace a crew member. Not enough gold."
+
+msgid "buy_and_reequip_tankman/not_enough_space"
+msgstr ""
+"Unable to recruit and replace a crew member. To recruit a crew member you "
+"need a free bunk. Please free up a bunk or purchase additional bunks in the "
+"Barracks."
+
+msgid "buy_and_reequip_tankman/server_error"
+msgstr "Unable to recruit and replace a crew member. Try again later."
+
+msgid "buy_and_reequip_tankman/success"
+msgstr "Crew member successfully recruited and replaced."
+
+msgid "buy_and_reequip_tankman/vehicle_locked"
+msgstr "Unable to recruit and replace a crew member. The vehicle is locked."
+
+msgid "buy_and_reequip_tankman/wallet_not_available"
+msgstr ""
+"Operation impossible. All your gold will be available after WG Wallet "
+"operability is restored automatically."
+
+msgid "buy_free_vehicle_limit_error"
+msgstr ""
+"You have reached a limit for purchasing free vehicles. Try again tomorrow."
+
+msgid "buy_tankmen_berths/not_enough_credits"
+msgstr "Error enlarging the Barracks. Not enough credits."
+
+msgid "buy_tankmen_berths/not_enough_gold"
+msgstr "Error enlarging the Barracks. Not enough gold."
+
+msgid "buy_tankmen_berths/server_error"
+msgstr "Error enlarging the Barracks. Try again later."
+
+msgid "buy_tankmen_berths/success"
+msgstr "Barracks enlarged. Spent %(money)s."
+
+msgid "buy_tankmen_berths/wallet_not_available"
+msgstr ""
+"Operation impossible. All your gold will be available after WG Wallet "
+"operability is restored automatically."
+
+msgid "buy_vehicle_slot_error"
+msgstr ""
+"Failed to purchase '%s'. No available slots in Garage. Consider selling a "
+"vehicle to free up a slot, or purchase a new slot."
+
+msgid "buy_vehicle_slot_error2"
+msgstr ""
+"Failed to purchase '%s'. No available slots in the Garage. Please free up a "
+"slot."
+
+msgid "charge/credit_error"
+msgstr "%s credits and %s gold are required. Set the ammunition manually."
+
+msgid "charge/credit_error_credits"
+msgstr "%s more credits are required. Set the ammunition manually."
+
+msgid "charge/credit_error_gold"
+msgstr "%s more gold is required. Set the ammunition manually."
+
+msgid "charge/inventory_error"
+msgstr "Ammunition failed to load. Consider loading ammunition manually."
+
+msgid "charge/money_spent"
+msgstr "%s total spent on ammunition."
+
+msgid "charge/server_error"
+msgstr "Error loading ammunition. Try again later."
+
+msgid "charge/server_error_save"
+msgstr "Error saving ammunition. Try again later."
+
+msgid "charge/success"
+msgstr "Ammunition successfully loaded."
+
+msgid "charge/success_save"
+msgstr "Ammunition successfully saved."
+
+msgid "checkout_error"
+msgstr "Error receiving player details. Please try again."
+
+msgid "clientInstallError_not_for_this_vehicle_type"
+msgstr "%s '%s' does not fit this vehicle."
+
+msgid "clientInstallError_too_heavy"
+msgstr ""
+"%s '%s' is too heavy. Consider replacing the suspension or lightening the "
+"vehicle."
+
+msgid "clientInstallError_vehicleGun_not_for_current_vehicle"
+msgstr "%s '%s' does not fit in this turret. Replace the turret."
+
+msgid "clientInstallError_wrong_item_type"
+msgstr "%s '%s' is the wrong type."
+
+msgid "clientInstallError_wrong_nation"
+msgstr "%s '%s' is the wrong nationality."
+
+msgid "clientRemoveError_not_in_list"
+msgstr "%s '%s' does not fit this vehicle."
+
+msgid "clientRemoveError_too_heavy"
+msgstr "%s '%s' is too heavy. Consider lightening the vehicle."
+
+msgid "clientRemoveError_wrong_item_type"
+msgstr "%s '%s' is the wrong type."
+
+msgid "clientRemoveError_wrong_nation"
+msgstr "%s '%s' is the wrong nationality."
+
+msgid "company/createError"
+msgstr "Only users with Premium Accounts can create Tank Companies."
+
+msgid "company/kickedFromQueue"
+msgstr ""
+"Unable to find opponents for the current Tank Company. Consider reorganizing "
+"your team."
+
+msgid "company/memberJoined"
+msgstr "%s joined the Tank Company."
+
+msgid "company/memberLeave"
+msgstr "%s left the Tank Company."
+
+msgid "company/memberNotReady"
+msgstr "%s is not ready to fight in the Tank Company."
+
+msgid "company/memberOffline"
+msgstr "Connection interrupted with %s."
+
+msgid "company/memberReady"
+msgstr "%s is ready to fight in the Tank Company."
+
+msgid "company/notSetReadyStatus"
+msgstr "Unable to join the battle with the Tank Company."
+
+msgid "connected"
+msgstr ""
+"Welcome\n"
+"to the World of Tanks server '%s'!"
+
+msgid "current_vehicle_changed"
+msgstr "Current vehicle is replaced with '%s'."
+
+msgid "customization/camouflage_change_server_error"
+msgstr "A server error occurred while replacing Camouflage. Try again later."
+
+msgid "customization/camouflage_change_success/credits"
+msgstr "Camouflage successfuly changed. Credits spent: %s."
+
+msgid "customization/camouflage_change_success/free"
+msgstr "Camouflage successfuly changed."
+
+msgid "customization/camouflage_change_success/gold"
+msgstr "Camouflage successfuly changed. Gold spent: %s."
+
+msgid "customization/camouflage_cost_not_found"
+msgstr "Unable to change Camouflage. Cost not found."
+
+msgid "customization/camouflage_days_not_selected"
+msgstr "Unable to change Camouflage. Please select Camouflage expiry date."
+
+msgid "customization/camouflage_drop_server_error"
+msgstr "A server error occurred while removing Camouflage. Try again later."
+
+msgid "customization/camouflage_drop_success"
+msgstr "Camouflage successfully removed."
+
+msgid "customization/camouflage_get_cost_server_error"
+msgstr "Server error receiving Camouflage packs. Try again later."
+
+msgid "customization/camouflage_not_found_to_drop"
+msgstr "Unable to remove Camouflage. Current Camouflage is not selected."
+
+msgid "customization/camouflage_not_selected"
+msgstr "Unable to replace Camouflage. Please select Camouflage."
+
+msgid "customization/credits_and_gold_not_enough"
+msgstr "Unable to customize. Not enough credits and gold."
+
+msgid "customization/credits_not_enough"
+msgstr "Unable to customize. Not enough credits."
+
+msgid "customization/emblem_change_server_error"
+msgstr "Server error replacing Emblem. Try again later."
+
+msgid "customization/emblem_change_success/credits"
+msgstr "Emblem successfully replaced. Credits spent: %s."
+
+msgid "customization/emblem_change_success/free"
+msgstr "Emblem successfuly changed."
+
+msgid "customization/emblem_change_success/gold"
+msgstr "Emblem successfully replaced. Gold spent: %s."
+
+msgid "customization/emblem_cost_not_found"
+msgstr "Unable to replace Emblem. Cost not found."
+
+msgid "customization/emblem_days_not_selected"
+msgstr "Unable to replace Emblem. Please select expiry date."
+
+msgid "customization/emblem_drop_server_error"
+msgstr "Server error removing Emblem. Try again later."
+
+msgid "customization/emblem_drop_success"
+msgstr "Emblem successfully removed."
+
+msgid "customization/emblem_get_cost_server_error"
+msgstr "Server error receiving Emblem packets. Try again later."
+
+msgid "customization/emblem_not_found_to_drop"
+msgstr "Unable to remove Emblem. Current Emblem is not selected."
+
+msgid "customization/emblem_not_selected"
+msgstr "Unable to replace Emblem. Please select Emblem."
+
+msgid "customization/gold_not_enough"
+msgstr "Unable to customize. Not enough gold."
+
+msgid "customization/horn_change_server_error"
+msgstr "Server error replacing Horn. Try again later."
+
+msgid "customization/horn_change_success"
+msgstr "Horn successfully replaced. Gold spent: %s."
+
+msgid "customization/horn_cost_not_found"
+msgstr "Unable to replace Horn. Cost not found."
+
+msgid "customization/horn_drop_server_error"
+msgstr "A server error occurred while removing Horn. Try again later."
+
+msgid "customization/horn_drop_success"
+msgstr "Horn successfully removed."
+
+msgid "customization/horn_get_cost_server_error"
+msgstr "Server error requesting Horns in Store. Try again later."
+
+msgid "customization/horn_not_found_to_drop"
+msgstr "Failed to remove Horn. Current Horn is not selected."
+
+msgid "customization/horn_not_selected"
+msgstr "Failed to replace Horn. Please select Horn."
+
+msgid "customization/igr_type_changed_error"
+msgstr "IGR status changed. Current operation canceled."
+
+msgid "customization/inscription_change_server_error"
+msgstr "Server error replacing Inscription. Try again later."
+
+msgid "customization/inscription_change_success/credits"
+msgstr "Inscription successfully replaced. Credits spent: %s."
+
+msgid "customization/inscription_change_success/free"
+msgstr "Inscription successfuly changed."
+
+msgid "customization/inscription_change_success/gold"
+msgstr "Inscription successfully replaced. Gold spent: %s."
+
+msgid "customization/inscription_cost_not_found"
+msgstr "Unable to replace Inscription. Cost not found."
+
+msgid "customization/inscription_days_not_selected"
+msgstr "Unable to replace Inscription. Please select expiry date."
+
+msgid "customization/inscription_drop_server_error"
+msgstr "Server error removing the Inscription. Try again later."
+
+msgid "customization/inscription_drop_success"
+msgstr "Inscription successfully removed."
+
+msgid "customization/inscription_get_cost_server_error"
+msgstr "Server error receiving Emblem packets. Try again later."
+
+msgid "customization/inscription_not_found_to_drop"
+msgstr "Unable to remove Inscription. Current inscription not selected."
+
+msgid "customization/inscription_not_selected"
+msgstr "Unable to replace Inscription. Please select inscription."
+
+msgid "customization/vehicle_damaged"
+msgstr "Unable to customize. Vehicle damaged. Repairs required."
+
+msgid "customization/vehicle_destroyed"
+msgstr "Unable to customize. Vehicle knocked out. Repairs required."
+
+msgid "customization/vehicle_exploded"
+msgstr "Unable to customize. Vehicle destroyed. Repairs required."
+
+msgid "customization/vehicle_locked"
+msgstr "Customization failed. The vehicle is locked."
+
+msgid "denunciation/success"
+msgstr "Complaint against %(name)s \"%(topic)s\" accepted."
+
+msgid "disconnected"
+msgstr "Client is disconnected from the server."
+
+msgid "dismiss_tankman/invalid_vehicle"
+msgstr "Error dismissing a crew member. Wrong vehicle."
+
+msgid "dismiss_tankman/server_error"
+msgstr "Failed to dismiss a crew member. Try again later."
+
+msgid "dismiss_tankman/success"
+msgstr "Crew member successfully dismissed."
+
+msgid "dismiss_tankman/vehicle_locked"
+msgstr "Error dismissing a crew member. The vehicle is locked."
+
+msgid "dismiss_tankman/vehicle_need_repair"
+msgstr "Error dismissing a crew member. Repair your vehicle."
+
+msgid "dossiers_unavailable"
+msgstr "Account is not ready (DOSSIERS_UNAVAILABLE)"
+
+msgid "drop_tankman_skill/invalid_vehicle"
+msgstr "Error dropping skills. Wrong vehicle."
+
+msgid "drop_tankman_skill/server_error"
+msgstr "Unable to drop skills. Try again later."
+
+msgid "drop_tankman_skill/success"
+msgstr "All skills and perks are successfully dropped. Spent %(money)s."
+
+msgid "drop_tankman_skill/vehicle_locked"
+msgstr "Error dropping skills. The vehicle is locked."
+
+msgid "drop_tankman_skill/vehicle_need_repair"
+msgstr "Error dropping skills. Repair your vehicle."
+
+msgid "drr_scale/step_down"
+msgstr "Dynamic resolution is reduced to %(scale)d%%."
+
+msgid "drr_scale/step_up"
+msgstr "Dynamic resolution is increased up to %(scale)d%%."
+
+msgid "ebank/response/Account block"
+msgstr "Unable to purchase gold. Account is blocked."
+
+msgid "ebank/response/Account is not active"
+msgstr "Unable to purchase gold. Account is inactive."
+
+msgid "ebank/response/Account is not exists"
+msgstr "Unable to purchase gold. Account does not exist."
+
+msgid "ebank/response/COOLDOWN"
+msgstr "Unable to continue. Try again later."
+
+msgid "ebank/response/Cannot get required data: 'user'"
+msgstr "Unable to purchase gold. Try again later."
+
+msgid "ebank/response/Exception, Transaction error unknown"
+msgstr "Unable to purchase gold. Try again later."
+
+msgid "ebank/response/Existing transactions in system and has false"
+msgstr "Unable to purchase gold. Account is blocked."
+
+msgid "ebank/response/Existing transactions in system and has successfully"
+msgstr "Unable to purchase gold. Transaction in progress."
+
+msgid "ebank/response/Invalid password"
+msgstr "Unable to purchase gold. Incorrect password."
+
+msgid "ebank/response/Invalide code: -1000"
+msgstr "Unable to purchase gold. Try again later."
+
+msgid "ebank/response/MAX_TRANSACTION_VALUE"
+msgstr "Unable to purchase gold. Wrong maximum transaction value."
+
+msgid "ebank/response/MIN_TRANSACTION_VALUE"
+msgstr "Unable to purchase gold. Wrong minimum transaction value."
+
+msgid "ebank/response/NO_VCOIN"
+msgstr "Unable to purchase gold. Not enough VCOIN."
+
+msgid "ebank/response/Not enough money"
+msgstr "Unable to purchase gold. Not enough money."
+
+msgid "ebank/response/Product price is invalid"
+msgstr "Unable to purchase gold. Wrong cost."
+
+msgid "ebank/response/Receiver not exists"
+msgstr "Unable to purchase gold. Account does not exist."
+
+msgid "ebank/response/SHOP_DESYNC"
+msgstr "Server does not respond. Try again later."
+
+msgid "ebank/response/ServiceID is not exists. [Service error]"
+msgstr "Unable to purchase gold. Try again later."
+
+msgid "ebank/response/ServiceKey is invalid. [Service error]"
+msgstr "Unable to purchase gold. Try again later."
+
+msgid "ebank/response/TIMEOUT"
+msgstr "Server does not respond. Try again later."
+
+msgid "ebank/response/Transaction error in billing system"
+msgstr "Unable to purchase gold. Try again later."
+
+msgid "ebank/response/WRONG_ARGS_TYPE"
+msgstr "Server does not respond. Try again later."
+
+msgid "ebank/response/WRONG_ARG_VALUE"
+msgstr "Server does not respond. Try again later."
+
+msgid "ebank/response/WRONG_MULTIPLICITY"
+msgstr "Unable to purchase gold. Wrong transaction value."
+
+msgid "ebank/response/success"
+msgstr "%(gold)s successfully purchased. %(vcoin)s VCOIN spent."
+
+msgid "equip_tankman/invalid_vehicle"
+msgstr "Error transferring a crew member to the vehicle. Wrong vehicle."
+
+msgid "equip_tankman/server_error"
+msgstr "Unable to transfer a crew member to the vehicle. Try again later."
+
+msgid "equip_tankman/success"
+msgstr "Crew member successfully transferred."
+
+msgid "equip_tankman/vehicle_locked"
+msgstr ""
+"Error transferring a crew member to the vehicle. The vehicle is locked."
+
+msgid "equip_tankman/vehicle_need_repair"
+msgstr ""
+"Error transferring a crew member to the vehicle. Please repair the vehicle."
+
+msgid "exchange/not_enough_gold"
+msgstr "Not enough gold for exchange."
+
+msgid "exchange/server_error"
+msgstr "Error exchanging %(gold)s gold. Try again later."
+
+msgid "exchange/success"
+msgstr "%(gold)s gold successfully exchanged. Received %(credits)s."
+
+msgid "exchange/wallet_not_available"
+msgstr ""
+"Operation impossible. All your gold will be available after WG Wallet "
+"operability is restored automatically."
+
+msgid "exchangeXP/not_enough_gold"
+msgstr "Not enough gold for %(xp)s XP conversion."
+
+msgid "exchangeXP/server_error"
+msgstr "Error converting %(xp)s XP. Try again later."
+
+msgid "exchangeXP/success"
+msgstr "%(xp)s XP successfully converted to Free Experience. Spent %(gold)s."
+
+msgid "exchangeXP/wallet_not_available"
+msgstr ""
+"Operation impossible. All your gold will be available after WG Wallet "
+"operability is restored automatically."
+
+msgid "fortification/activateOrder"
+msgstr "Reserve %(order)s activated. Time left: %(time)s."
+
+msgid "fortification/addOrder"
+msgstr "Preparation of %(count)s Reserve(s) started. Time left: %(time)s."
+
+msgid "fortification/buildingProcess"
+msgstr ""
+"Building of structure %(buildingName)s started. Transport the required "
+"amount of Industrial Resource to ensure uninterrupted building."
+
+msgid "fortification/created"
+msgstr ""
+"Congratulations!\n"
+"Stronghold successfully created."
+
+msgid "fortification/demountBuilding"
+msgstr "Structure %(buildingName)s demolished."
+
+msgid "fortification/directionClosed"
+msgstr "Zone %(direction)s closed."
+
+msgid "fortification/directionOpened"
+msgstr "Zone %(direction)s successfully opened."
+
+msgid "fortification/errors/ALREADY_ATTACHED"
+msgstr "Action unavailable. You have already attached to this structure."
+
+msgid "fortification/errors/ALREADY_CREATED"
+msgstr "Action unavailable. Stronghold already created."
+
+msgid "fortification/errors/BAD_DIR"
+msgstr "Action unavailable. Zone does not exist."
+
+msgid "fortification/errors/BAD_METHOD"
+msgstr "Last operation with the detachment was completed with an error."
+
+msgid "fortification/errors/BAD_RESOURCE_COUNT"
+msgstr "Action unavailable. Invalid amount of Industrial Resource transferred."
+
+msgid "fortification/errors/BAD_SORTIE_ID"
+msgstr "Action unavailable. Details on Skirmish not received."
+
+msgid "fortification/errors/BAD_VACATION_DURATION"
+msgstr "Action unavailable. Invalid ceasefire period."
+
+msgid "fortification/errors/BAD_VACATION_START"
+msgstr "Action unavailable. Invalid start time of ceasefire period."
+
+msgid "fortification/errors/BUILDINGS_STILL_PRESENT"
+msgstr "Unable to remove. Stronghold contains structures."
+
+msgid "fortification/errors/BUILDING_NOT_READY"
+msgstr "Action unavailable. Structure not built."
+
+msgid "fortification/errors/CANT_TRANSPORT"
+msgstr "Action unavailable. Transportation unavailable."
+
+msgid "fortification/errors/CANT_UPGRADE"
+msgstr "Action unavailable. Unable to upgrade structure."
+
+msgid "fortification/errors/CENTER_NOT_AVAILABLE"
+msgstr "Operation rejected. The server is temporarily unavailable."
+
+msgid "fortification/errors/DEFENCE_NOT_POSSIBLE"
+msgstr "Action unavailable. Invalid data."
+
+msgid "fortification/errors/DIRECTIONS_STILL_OPEN"
+msgstr "Action unavailable. Stronghold contains Zones."
+
+msgid "fortification/errors/DIR_ALREADY_OPEN"
+msgstr "Action unavailable. Zone already opened."
+
+msgid "fortification/errors/DIR_NOT_OPEN"
+msgstr "Action unavailable. Zone not yet opened."
+
+msgid "fortification/errors/DIR_OCCUPIED"
+msgstr "Action unavailable. Zone contains built structures."
+
+msgid "fortification/errors/DUPLICATE_BUILDING_TYPE"
+msgstr "Action unavailable. Structure already built."
+
+msgid "fortification/errors/EVENT_COOLDOWN"
+msgstr ""
+"Action unavailable. Please wait until the current operation is complete."
+
+msgid "fortification/errors/FORT_LEVEL_TOO_LOW"
+msgstr "Action unavailable. Stronghold level too low."
+
+msgid "fortification/errors/INSUFFICIENT_CLAN_ROLE"
+msgstr "Action unavailable. Not authorized."
+
+msgid "fortification/errors/METHOD_COOLDOWN"
+msgstr "Action is temporarily unavailable."
+
+msgid "fortification/errors/NOT_ATTACHED_TO_BUILDING"
+msgstr "Action unavailable. You are not attached to the structure."
+
+msgid "fortification/errors/NOT_A_CLAN_MEMBER"
+msgstr "Action unavailable. The player is not a clan member."
+
+msgid "fortification/errors/NOT_CREATED"
+msgstr "Action unavailable. Stronghold not yet created."
+
+msgid "fortification/errors/NOT_ENOUGH_CLAN_MEMBERS"
+msgstr "Action unavailable. Not enough players in the clan."
+
+msgid "fortification/errors/NOT_ENOUGH_RESOURCE"
+msgstr "Action unavailable. Not enough Industrial Resource."
+
+msgid "fortification/errors/NOT_SUPPORTED"
+msgstr "Stronghold cannot be created at this time. Please try again later."
+
+msgid "fortification/errors/NO_BUILDING"
+msgstr "Action unavailable. The structure not built."
+
+msgid "fortification/errors/NO_CLAN"
+msgstr "Action unavailable. You are not a member of any clan."
+
+msgid "fortification/errors/NO_DEST_BUILDING"
+msgstr "Action unavailable. Wrong structure."
+
+msgid "fortification/errors/NO_ORDER"
+msgstr "Action unavailable. Wrong Reserve (NO_ORDER)."
+
+msgid "fortification/errors/NO_ORDER_DEF"
+msgstr "Action unavailable. Wrong Reserve (NO_ORDER_DEF)."
+
+msgid "fortification/errors/NO_ORDER_LEVEL"
+msgstr "Action unavailable. Wrong Reserve (NO_ORDER_LEVEL)."
+
+msgid "fortification/errors/ORDER_ALREADY_ACTIVATED"
+msgstr "Action unavailable. Reserve already in use."
+
+msgid "fortification/errors/ORDER_ALREADY_IN_PRODUCTION"
+msgstr "Action unavailable. Reserve is already being prepared."
+
+msgid "fortification/errors/START_SCENARIO_NOT_DONE"
+msgstr "Action unavailable. Training not complete."
+
+msgid "fortification/errors/STORAGE_OVERFLOW"
+msgstr "Action unavailable. Storage is full."
+
+msgid "fortification/errors/TOO_MANY_ORDERS"
+msgstr "Action unavailable. Maximum amount of prepared Reserves reached."
+
+msgid "fortification/errors/TOO_MANY_PLAYERS_ATTACHED"
+msgstr "Action unavailable. Structure garrison is full."
+
+msgid "fortification/errors/TOO_MANY_SORTIES"
+msgstr "Action unavailable. Skirmish limit exceeded."
+
+msgid "fortification/errors/TRANSPORT_COOLDOWN"
+msgstr "Action unavailable. Transportation temporarily unavailable."
+
+msgid "fortification/errors/TRANSPORT_LIMIT_EXCEEDED"
+msgstr "Action unavailable. Transportation limit exceeded."
+
+msgid "fortification/errors/UNKNOWN"
+msgstr "Unknown error."
+
+msgid "fortification/errors/WRONG_BUILDING"
+msgstr "Action unavailable. Unable to demolish Command Center."
+
+msgid "fortification/errors/WRONG_POS"
+msgstr "Action unavailable. Unable to build a structure in this area."
+
+msgid "fortification/fixedPlayerToBuilding"
+msgstr "You are attached to structure %(buildingName)s."
+
+msgid "fortification/modernizationBuilding"
+msgstr ""
+"Upgrade successfully completed. Level of structure %(buildingName)s "
+"increased to %(buildingLevel)s."
+
+msgid "fortification/request/name/ACTIVATE_ORDER"
+msgstr "Activate Reserve"
+
+msgid "fortification/request/name/ADD_BUILDING"
+msgstr "Build structure"
+
+msgid "fortification/request/name/ADD_ORDER"
+msgstr "Add Reserve"
+
+msgid "fortification/request/name/ATTACH"
+msgstr "Add player to garrison"
+
+msgid "fortification/request/name/CLOSE_DIRECTION"
+msgstr "Close Zone"
+
+msgid "fortification/request/name/CREATE_FORT"
+msgstr "Create Stronghold"
+
+msgid "fortification/request/name/CREATE_SORTIE"
+msgstr "Create detachment"
+
+msgid "fortification/request/name/DELETE_BUILDING"
+msgstr "Remove structure"
+
+msgid "fortification/request/name/DELETE_FORT"
+msgstr "Remove Stronghold"
+
+msgid "fortification/request/name/OPEN_DIRECTION"
+msgstr "Open Zone"
+
+msgid "fortification/request/name/REQUEST_SORTIE_UNIT"
+msgstr "Request detachment details"
+
+msgid "fortification/request/name/TRANSPORTATION"
+msgstr "Transportation"
+
+msgid "fortification/request/name/UPGRADE"
+msgstr "Structure upgrade"
+
+msgid "fortification/transport"
+msgstr ""
+"Transportation successfully completed. %(res)s Industrial Resource "
+"transported from structure %(fromBuilding)s to structure %(toBuilding)s."
+
+msgid "free_xp_to_tman_skill/error/NOT_IMPLEMENTED"
+msgstr "Operation is not available."
+
+msgid "free_xp_to_tman_skill/error/NO_FREE_XP"
+msgstr "Error training a crew member. Not enough Free Experience."
+
+msgid "free_xp_to_tman_skill/error/No tankman with given id"
+msgstr "Error training a crew member. This crew member does not exist."
+
+msgid "free_xp_to_tman_skill/error/SHOP_DESYNC"
+msgstr "Error training a crew member. Try again later."
+
+msgid "free_xp_to_tman_skill/error/WRONG_ARGS_TYPE"
+msgstr "Error training a crew member. Try again later."
+
+msgid "free_xp_to_tman_skill/server_error"
+msgstr "Unable to train a crew member. Try again later."
+
+msgid "free_xp_to_tman_skill/success"
+msgstr "Crew member successfully trained. Free Experience spent: %(freeXP)s."
+
+msgid "gameSessionControl/korea/midnightNotification"
+msgstr ""
+"To prevent game addiction in children and teenagers, entering the battle "
+"after 11:45 p.m. is banned. You will be disconnected from the server at "
+"midnight."
+
+msgid "gameSessionControl/korea/note"
+msgstr "Excessive video game playing may interfere with your daily life."
+
+msgid "gameSessionControl/korea/playTimeLeft"
+msgstr "Game session time left: %(timeLeft)s"
+
+msgid "gameSessionControl/korea/playTimeNotification"
+msgstr ""
+"Time limit expires, therefore you cannot enter the battle. You will be "
+"disconnected from the server at %s."
+
+msgid "gameSessionControl/korea/sessionTime"
+msgstr "Game session duration: %(sessionTime)s"
+
+msgid "gameSessionControl/korea/timeTillMidnight"
+msgstr "Time left until midnight: %(timeLeft)s"
+
+msgid "graficsOptionsFail"
+msgstr ""
+"Video card incompatible. Failed to apply the following graphics settings: %s."
+
+msgid "graficsPresetFail"
+msgstr ""
+"Video card incompatible. Failed to apply the selected graphics quality."
+
+msgid "igr/customization/begin"
+msgstr ""
+"Free Camouflage, Inscriptions, and Emblems are available in %(igrIcon)s."
+
+msgid "igr/customization/end"
+msgstr ""
+"%(igrIcon)s has expired. Free Camouflage, Inscriptions, and Emblems will be "
+"removed from your vehicle."
+
+msgid "info/noAvailable"
+msgstr "Detailed information is unavailable."
+
+msgid "install_component"
+msgstr "%s '%s' mounted on vehicle."
+
+msgid "install_vehicle_broken"
+msgstr ""
+"Unable to mount module %s '%s': vehicle is damaged. Repair your vehicle and "
+"try again."
+
+msgid "install_vehicle_locked"
+msgstr "The vehicle is locked, unable to mount module %s '%s'."
+
+msgid "inventory/item/already_exists"
+msgstr ""
+"Module %(typeString)s '%(userString)s' is already available in the Depot."
+
+msgid "inventory/item/equip_in_processing"
+msgstr "Request for mounting equipment sent. Waiting for server response."
+
+msgid "inventory/item/not_found"
+msgstr "Module %(typeString)s '%(userString)s' was not found in the Depot."
+
+msgid "inventory/vehicle/already_exists"
+msgstr "%(userString)s is already available in the Depot."
+
+msgid "inventory/vehicle/not_found"
+msgstr "%(userString)s was not found in the Depot."
+
+msgid "layout_apply/BUYING_GOLD_EQS_FOR_CREDITS_DISABLED"
+msgstr ""
+"Service error '%(vehName)s'. Unable to resupply consumables. Try again later."
+
+msgid "layout_apply/BUYING_GOLD_SHELLS_FOR_CREDITS_DISABLED"
+msgstr ""
+"Service error '%(vehName)s'. Unable to resupply consumables. Try again later."
+
+msgid "layout_apply/Cannot equip equipment"
+msgstr ""
+"Service error '%(vehName)s'. Unable to resupply consumables. Try again later."
+
+msgid "layout_apply/Cannot equip shells"
+msgstr ""
+"Service error '%(vehName)s'. Unable to resupply shells. Try again later."
+
+msgid "layout_apply/Cannot equip shells (maxAmmo limit exceeded)"
+msgstr ""
+"Service error '%(vehName)s'. Unable to resupply shells. Maximum number of "
+"shells is loaded."
+
+msgid "layout_apply/Component is not in shop"
+msgstr ""
+"Service error '%(vehName)s'. Unable to resupply consumables. Try again later."
+
+msgid "layout_apply/EQS_NO_CREDITS"
+msgstr ""
+"Service error '%(vehName)s'. Not enough credits to purchase consumables. Try "
+"again later."
+
+msgid "layout_apply/EQS_NO_GOLD"
+msgstr ""
+"Service error '%(vehName)s'. Not enough gold to purchase consumables. Try "
+"again later."
+
+msgid "layout_apply/EQS_NO_WALLET_SESSION"
+msgstr ""
+"Operation impossible. All your gold will be available after WG Wallet "
+"operability is restored automatically."
+
+msgid "layout_apply/NOT_RESEARCHED_ITEM"
+msgstr ""
+"Service error '%(vehName)s'. Unable to resupply consumables. Try again later."
+
+msgid "layout_apply/No vehicle with given id"
+msgstr "Service error '%(vehName)s'. Wrong vehicle."
+
+msgid "layout_apply/SHELLS_NO_CREDITS"
+msgstr "Service error '%(vehName)s'. Not enough credits to purchase shells."
+
+msgid "layout_apply/SHELLS_NO_GOLD"
+msgstr "Service error '%(vehName)s'. Not enough gold to purchase shells."
+
+msgid "layout_apply/SHELLS_NO_WALLET_SESSION"
+msgstr ""
+"Operation impossible. All your gold will be available after WG Wallet "
+"operability is restored automatically."
+
+msgid "layout_apply/SHOP_DESYNC"
+msgstr "Service error '%(vehName)s'. Try again later."
+
+msgid "layout_apply/Vehicle is locked"
+msgstr "Service error '%(vehName)s'. The vehicle is locked."
+
+msgid "layout_apply/WRONG_ARGS_TYPE"
+msgstr "Service error '%(vehName)s'. Try again later."
+
+msgid "layout_apply/WRONG_ARG_VALUE"
+msgstr "Service error '%(vehName)s'. Try again later."
+
+msgid "layout_apply/invalid_vehicle"
+msgstr "Service error '%(vehName)s'. Wrong vehicle."
+
+msgid "layout_apply/server_error"
+msgstr "Service error '%(vehName)s'. Try again later."
+
+msgid "layout_apply/success_money_spent"
+msgstr "Total spent on ammunition %(money)s."
+
+msgid "layout_apply/vehicle_locked"
+msgstr "Service error '%(vehName)s'. The vehicle is locked."
+
+msgid "layout_apply/wallet_not_available"
+msgstr ""
+"Operation impossible. All your gold will be available after WG Wallet "
+"operability is restored automatically."
+
+msgid "login_to_other_game_unknown"
+msgstr ""
+"current game session was interrupted. Your Wargaming.net&nbsp;ID was used to "
+"log into another game"
+
+msgid "login_to_other_game_web"
+msgstr ""
+"current game session was interrupted. You have been disconnected from the "
+"server through the portal of the game."
+
+msgid "login_to_other_game_wot"
+msgstr ""
+"current game session was interrupted. Your Wargaming.net&nbsp;ID was used to "
+"log into World&nbsp;of&nbsp;Tanks"
+
+msgid "login_to_other_game_wotb"
+msgstr ""
+"current game session was interrupted. Your Wargaming.net&nbsp;ID was used to "
+"log into World&nbsp;of&nbsp;Tanks&nbsp;Blitz"
+
+msgid "login_to_other_game_wotg"
+msgstr ""
+"current game session was interrupted. Your Wargaming.net&nbsp;ID was used to "
+"log into World&nbsp;of&nbsp;Tanks&nbsp;Generals"
+
+msgid "login_to_other_game_wowp"
+msgstr ""
+"current game session was interrupted. Your Wargaming.net&nbsp;ID was used to "
+"log into World&nbsp;of&nbsp;Warplanes"
+
+msgid "login_to_other_game_wows"
+msgstr ""
+"current game session was interrupted. Your Wargaming.net&nbsp;ID was used to "
+"log into World&nbsp;of&nbsp;Warships"
+
+msgid "memberRosterChangedMain"
+msgstr "%s transferred %s to regular team."
+
+msgid "memberRosterChangedSecond"
+msgstr "%s transferred %s to reserve team."
+
+msgid "memory_critical/insufficient_memory_please_reboot"
+msgstr "Not enough memory. Please restart the game."
+
+msgid "memory_critical/tex_was_lowered_to_low"
+msgstr "Not enough memory. Low texture quality."
+
+msgid "memory_critical/tex_was_lowered_to_medium"
+msgstr "Not enough memory. Medium texture quality."
+
+msgid "memory_critical/tex_was_lowered_to_min"
+msgstr ""
+"Not enough memory. Graphics settings are changed. Please restart the game."
+
+msgid "module_apply/error_is_current"
+msgstr "The module %(kind)s '%(name)s' is already mounted."
+
+msgid "module_apply/error_need_turret"
+msgstr ""
+"%(kind)s '%(name)s' is not compatible with the current turret. Replace the "
+"turret."
+
+msgid "module_apply/error_no_gun"
+msgstr "%(kind)s '%(name)s' is not mounted. No compatible gun in the Depot."
+
+msgid "module_apply/error_not_for_current_vehicle"
+msgstr ""
+"%(kind)s '%(name)s' is not compatible with the current turret. Replace the "
+"turret."
+
+msgid "module_apply/error_not_for_this_vehicle_type"
+msgstr "%(kind)s '%(name)s' does not fit this vehicle."
+
+msgid "module_apply/error_not_with_installed_equipment"
+msgstr "Module %(kind)s '%(name)s' is not compatible with consumables '%s'."
+
+msgid "module_apply/error_too_heavy"
+msgstr ""
+"Module %(kind)s '%(name)s' is too heavy. Consider replacing the suspension "
+"or lightening the vehicle."
+
+msgid "module_apply/error_too_heavy_chassis"
+msgstr ""
+"Module %(kind)s '%(name)s' is too heavy. Consider lightening the vehicle."
+
+msgid "module_apply/error_wrong_item_type"
+msgstr "%(kind)s '%(name)s' is the wrong type."
+
+msgid "module_apply/error_wrong_nation"
+msgstr "%(kind)s '%(name)s' is the wrong nationality."
+
+msgid "module_apply/incompatibleEqs"
+msgstr ""
+"Consumable '%(items)s' has been sent to Depot due to incompatibility with "
+"the current module."
+
+msgid "module_apply/invalid_vehicle"
+msgstr "Wrong vehicle. Unable to mount module %(kind)s '%(name)s'."
+
+msgid "module_apply/server_error"
+msgstr "Server error mounting module %(kind)s '%(name)s'. Try again later."
+
+msgid "module_apply/success"
+msgstr "%(kind)s '%(name)s' mounted on vehicle."
+
+msgid "module_apply/success_gun_change"
+msgstr "%(kind)s '%(name)s' mounted on vehicle with the gun '%(gun)s'."
+
+msgid "module_apply/vehicle_locked"
+msgstr "The vehicle is locked; unable to mount module %(kind)s '%(name)s'."
+
+msgid "module_apply/vehicle_need_repair"
+msgstr ""
+"Unable to mount module %(kind)s '%(name)s': vehicle is damaged. Repair your "
+"vehicle and try again."
+
+msgid "module_buy/invalid_module"
+msgstr "Unable to purchase %(kind)s %(name)s. Wrong module."
+
+msgid "module_buy/not_enough_credits"
+msgstr "Unable to purchase %(kind)s '%(name)s'. Not enough credits."
+
+msgid "module_buy/not_enough_gold"
+msgstr "Unable to purchase %(kind)s '%(name)s'. Not enough gold."
+
+msgid "module_buy/server_error"
+msgstr "Unable to purchase %(kind)s '%(name)s'. Try again later."
+
+msgid "module_buy/server_error_centerDown"
+msgstr ""
+"Unable to purchase %(kind)s '%(name)s' module. The server is temporarily "
+"unavailable."
+
+msgid "module_buy/success"
+msgstr ""
+"Module %(kind)s '%(name)s' successfully purchased (%(count)s item(s)). Spent "
+"%(money)s."
+
+msgid "module_buy/wallet_not_available"
+msgstr ""
+"Operation impossible. All your gold will be available after WG Wallet "
+"operability is restored automatically."
+
+msgid "module_sell/invalid_module"
+msgstr "Unable to sell %(kind)s %(name)s. Wrong module."
+
+msgid "module_sell/server_error"
+msgstr "Unable to sell %(kind)s '%(name)s'. Try again later."
+
+msgid "module_sell/success"
+msgstr ""
+"Module %(kind)s '%(name)s' successfully sold (%(count)s item(s)). Received "
+"%(money)s."
+
+msgid "periphery/errors/isNotAvailable"
+msgstr "Transfer is unavailable. Unable to define the server."
+
+msgid "prebattle/hasLockedState"
+msgstr ""
+"Unable to accept the invitation as you are already awaiting a battle. Exit "
+"Pre-Battle Lobby or finish the battle and try again."
+
+msgid "prebattle/kick/reason/ARENA_CREATION_FAILURE"
+msgstr "Error ARENA_CREATION_FAILURE."
+
+msgid "prebattle/kick/reason/AVATAR_CREATION_FAILURE"
+msgstr "Error AVATAR_CREATION_FAILURE."
+
+msgid "prebattle/kick/reason/BASEAPP_CRASH"
+msgstr "Error BASEAPP_CRASH."
+
+msgid "prebattle/kick/reason/CELLAPP_CRASH"
+msgstr "Error CELLAPP_CRASH."
+
+msgid "prebattle/kick/reason/CREATOR_LEFT"
+msgstr "Commander has left the team."
+
+msgid "prebattle/kick/reason/FINISHED"
+msgstr "The team has been dismissed."
+
+msgid "prebattle/kick/reason/PLAYERKICK"
+msgstr "Demobilization."
+
+msgid "prebattle/kick/reason/PREBATTLE_CREATION_FAILURE"
+msgstr "Error PREBATTLE_CREATION_FAILURE."
+
+msgid "prebattle/kick/reason/TIMEOUT"
+msgstr "Time elapsed."
+
+msgid "prebattle/kick/reason/UNKNOWN_FAILURE"
+msgstr "Unknown error."
+
+msgid "prebattle/kick/reason/VEHICLE_CREATION_FAILURE"
+msgstr "Error VEHICLE_CREATION_FAILURE."
+
+msgid "prebattle/kick/type/squad"
+msgstr "You have been excluded from the Platoon."
+
+msgid "prebattle/kick/type/team"
+msgstr "You have been excluded from the Tank Company."
+
+msgid "prebattle/kick/type/unknown"
+msgstr "You have been excluded from the team."
+
+msgid "prebattle/request/name/CHANGE_ARENA_VOIP"
+msgstr "Change voice chat"
+
+msgid "prebattle/request/name/CHANGE_SETTINGS"
+msgstr "Change settings"
+
+msgid "prebattle/request/name/CHANGE_UNIT_STATE"
+msgstr "Changing"
+
+msgid "prebattle/request/name/CHANGE_USER_STATUS"
+msgstr "Change Spectator mode"
+
+msgid "prebattle/request/name/CLOSE_SLOT"
+msgstr "Lock slot"
+
+msgid "prebattle/request/name/PREBATTLES_LIST"
+msgstr "Search"
+
+msgid "prebattle/request/name/SEND_INVITE"
+msgstr "Invite to Team"
+
+msgid "prebattle/request/name/SET_PLAYER_STATE"
+msgstr "Confirm readiness"
+
+msgid "prebattle/request/name/SET_TEAM_STATE"
+msgstr "Confirm readiness of the team"
+
+msgid "prebattle/request/name/SWAP_TEAMS"
+msgstr "Change Teams"
+
+msgid "prebattle/request/name/UNITS_LIST"
+msgstr "Search"
+
+msgid "prebattle/teamInvalid/football"
+msgstr ""
+"Platoon has been created incorrectly. Only complete Platoon consisting of "
+"three T-62A SPORT vehicles may join the battle. "
+
+msgid "prebattle/teamInvalid/limit/minCount"
+msgstr ""
+"Only teams with minimum number of vehicles can join battles: %(minCount)d."
+
+msgid "prebattle/teamInvalid/limit/totalLevel"
+msgstr ""
+"Only teams with a total level between %(minTotalLevel)d and %(maxTotalLevel)"
+"d can join battles."
+
+msgid "prebattle/teamInvalid/limits/level"
+msgstr "Only vehicles of Tiers %(minLevel)d to %(maxLevel)d are allowed."
+
+msgid "prebattle/teamInvalid/limits/vehicles"
+msgstr "This vehicle is not suitable for this battle."
+
+msgid "prebattle/teamInvalid/observers"
+msgstr "All team members cannot be Spectators."
+
+msgid "prebattle/vehicleInvalid/limits/ammo"
+msgstr ""
+"Shells and consumables loaded on the selected vehicle do not comply with "
+"battle conditions."
+
+msgid "prebattle/vehicleInvalid/limits/classLevel"
+msgstr ""
+"Wrong vehicle tier for this battle. Minimum Tier for this type: %s. Maximum "
+"vehicle Tier for this class: %s."
+
+msgid "prebattle/vehicleInvalid/limits/classes"
+msgstr "Wrong vehicle type for this battle. Types allowed: %s."
+
+msgid "prebattle/vehicleInvalid/limits/components"
+msgstr ""
+"Components mounted on the selected vehicle do not comply with battle "
+"conditions."
+
+msgid "prebattle/vehicleInvalid/limits/level"
+msgstr ""
+"Wrong vehicle tier for this battle. Minimum Tier: %s. Maximum Tier: %s."
+
+msgid "prebattle/vehicleInvalid/limits/nations"
+msgstr "Wrong vehicle nationality for this battle. Nations allowed: %s."
+
+msgid "prebattle/vehicleInvalid/limits/shells"
+msgstr ""
+"Shells loaded on the selected vehicle do not comply with battle conditions."
+
+msgid "prebattle/vehicleInvalid/limits/vehicles"
+msgstr "Wrong vehicle for this battle."
+
+msgid "prebattle/vehicleInvalid/no_readyVehicle"
+msgstr "The selected vehicle is not ready."
+
+msgid "prebattle/vehicleInvalid/notSetReadyStatus"
+msgstr "Unable to join the team."
+
+msgid "prebattle/vehicleInvalid/vehicleNotSupported"
+msgstr "Attention! This vehicle is unavailable for operational unit members."
+
+msgid "prebattle_start_failed/kickedFromQueue/company"
+msgstr ""
+"Unable to find opponents for the current Tank Company. Consider reorganizing "
+"your team."
+
+msgid "prebattle_start_failed/kickedFromQueue/deafult"
+msgstr ""
+"Unable to find opponents for the current team. Consider reorganizing your "
+"team."
+
+msgid "prebattle_start_failed/kickedFromQueue/squad"
+msgstr ""
+"Unable to find opponents for the current Platoon. Consider reorganizing your "
+"team."
+
+msgid "premium/buyingSuccess"
+msgstr "Premium account is purchased for %d days. %s spent."
+
+msgid "premium/continueSuccess"
+msgstr "Premium account is extended for %d days. %s spent."
+
+msgid "premium/not_enough_gold"
+msgstr "Not enough gold to purchase a Premium Account for %d day(s)."
+
+msgid "premium/server_error"
+msgstr "Unable to purchase a Premium Account for %d day(s). Try again later."
+
+msgid "premium/wallet_not_available"
+msgstr ""
+"Operation impossible. All your gold will be available after WG Wallet "
+"operability is restored automatically."
+
+msgid "quests/noQuestsWithGivenID"
+msgstr "Mission expired. Detailed description unavailable."
+
+msgid "recruit_window/financial_success"
+msgstr "Crew member successfully recruited. Spent %(price)s."
+
+msgid "recruit_window/free_tankmen_limit"
+msgstr "You have reached the limit for free crew members for today."
+
+msgid "recruit_window/not_enough_credits"
+msgstr "Error recruiting a crew member. Not enough credits."
+
+msgid "recruit_window/not_enough_gold"
+msgstr "Error recruiting a crew member. Not enough gold."
+
+msgid "recruit_window/not_enough_space"
+msgstr ""
+"Error recruiting and transferring a crew member to the vehicle. Not enough "
+"bunks in the Barracks. Free up or purchase a bunk."
+
+msgid "recruit_window/server_error"
+msgstr "Error recruiting a crew member. Try again later."
+
+msgid "recruit_window/success"
+msgstr "Crew member successfully recruited."
+
+msgid "recruit_window/wallet_not_available"
+msgstr ""
+"Operation impossible. All your gold will be available after WG Wallet "
+"operability is restored automatically."
+
+msgid "reequip_tankman/invalid_vehicle"
+msgstr "Error replacing a crew member. Wrong vehicle."
+
+msgid "reequip_tankman/server_error"
+msgstr "Unable to replace a crew member. Try again later."
+
+msgid "reequip_tankman/success"
+msgstr "A crew member successfully replaced."
+
+msgid "reequip_tankman/vehicle_locked"
+msgstr "Error replacing a crew member. The vehicle is locked."
+
+msgid "reequip_tankman/vehicle_need_repair"
+msgstr "Error replacing a crew member. Repair your vehicle."
+
+msgid "remove_component"
+msgstr "%s '%s' removed from the vehicle."
+
+msgid "remove_vehicle_broken"
+msgstr ""
+"Unable to remove %s '%s': vehicle is damaged. Repair your vehicle and try "
+"again."
+
+msgid "remove_vehicle_locked"
+msgstr "Unable to remove %s '%s': vehicle is locked."
+
+msgid "repair/credit_error"
+msgstr "%s more credits are required to repair '%s'."
+
+msgid "repair/server_error"
+msgstr "Error repairing '%s'. Try again later."
+
+msgid "repair/success"
+msgstr "'%s' repaired. You have spent %s."
+
+msgid "replace_tankman/invalid_vehicle"
+msgstr "Error replacing Personal Data. Wrong vehicle."
+
+msgid "replace_tankman/not_enough_money"
+msgstr "Error replacing Personal Data. Not enough credits."
+
+msgid "replace_tankman/server_error"
+msgstr "Failed to replace Personal Data. Try again later."
+
+msgid "replace_tankman/success"
+msgstr "Personal Data successfully replaced. Spent %(money)s."
+
+msgid "replace_tankman/vehicle_locked"
+msgstr "Error replacing Personal Data. The vehicle is locked."
+
+msgid "replace_tankman/vehicle_need_repair"
+msgstr "Error replacing Personal Data. Repair the vehicle."
+
+msgid "request/isInCoolDown"
+msgstr "Operation \"%(request)s\" is frozen for %(coolDown)s s."
+
+msgid "retraining_crew/empty_list"
+msgstr "Error retraining crew. Crew members are not selected."
+
+msgid "retraining_crew/financial_success"
+msgstr "Crew successfully retrained. You have spent %(price)s."
+
+msgid "retraining_crew/invalid_operation"
+msgstr "Error retraining crew. Operation is unavailable."
+
+msgid "retraining_crew/invalid_vehicle"
+msgstr "Error retraining crew. Wrong vehicle."
+
+msgid "retraining_crew/server_error"
+msgstr "Unable to retrain crew. Try again later."
+
+msgid "retraining_crew/success"
+msgstr "Crew successfully retrained."
+
+msgid "retraining_crew/vehicle_locked"
+msgstr "Error retraining crew. The vehicle is locked."
+
+msgid "retraining_crew/vehicle_need_repair"
+msgstr "Error retraining crew. Repair your vehicle."
+
+msgid "retraining_tankman/financial_success"
+msgstr "Crew member was successfully retrained. Spent %(price)s."
+
+msgid "retraining_tankman/invalid_operation"
+msgstr "Error retraining a crew member. Operation is unavailable."
+
+msgid "retraining_tankman/invalid_vehicle"
+msgstr "Error retraining a crew member. Wrong vehicle."
+
+msgid "retraining_tankman/server_error"
+msgstr "Failed to retrain a crew member. Try again later."
+
+msgid "retraining_tankman/success"
+msgstr "Crew member was successfully retrained."
+
+msgid "retraining_tankman/vehicle_locked"
+msgstr "Error retraining a crew member. The vehicle is locked."
+
+msgid "retraining_tankman/vehicle_need_repair"
+msgstr "Error retraining a crew member. Repair the vehicle."
+
+msgid "return_crew/invalid_vehicle"
+msgstr "Error returning crew. Wrong vehicle."
+
+msgid "return_crew/not_enough_space"
+msgstr ""
+"Unable to send a crew member to the Barracks. Not enough bunks in the "
+"Barracks."
+
+msgid "return_crew/server_error"
+msgstr "Unable to return crew. Try again later."
+
+msgid "return_crew/success"
+msgstr "Crew successfully transferred."
+
+msgid "return_crew/vehicle_locked"
+msgstr "Error returning crew. The vehicle is locked."
+
+msgid "return_crew/vehicle_need_repair"
+msgstr "Error returning crew. Repair your vehicle."
+
+msgid "roaming_not_allowed"
+msgstr "Server access denied."
+
+msgid "securityMessage/bad_email"
+msgstr ""
+"You have registered your email address on a suspicious server. Please change "
+"your email for security purposes. %(link)s"
+
+msgid "securityMessage/change_setings"
+msgstr "Change safety settings"
+
+msgid "securityMessage/no_phone"
+msgstr ""
+"For security purposes, please add a phone number to your account. %(link)s"
+
+msgid "securityMessage/no_question"
+msgstr ""
+"For password reset, please indicate a security question in your Account "
+"Management. %(link)s"
+
+msgid "securityMessage/old_pass"
+msgstr ""
+"You have not changed your password for 30 days. Please change the password "
+"for security purposes. %(link)s"
+
+msgid "securityMessage/poor_pass"
+msgstr ""
+"Your registration password is not strong enough. Please change the password. "
+"%(link)s"
+
+msgid "sell_vehicle_broken"
+msgstr ""
+"Unable to sell '%s': vehicle is damaged. Repair your vehicle and try again."
+
+msgid "sell_vehicle_locked"
+msgstr "Unable to sell '%s': vehicle is locked."
+
+msgid "serverInstallError"
+msgstr "Server error mounting module %s '%s'. Try again later."
+
+msgid "serverRemoveError"
+msgstr "Error removing module %s '%s'. Try again later."
+
+msgid "server_shut_down"
+msgstr "Restarting the game server"
+
+msgid "session_tracker_kick"
+msgstr ""
+"Your Wargaming.net&nbsp;ID was used to log into another game. Current game "
+"session was interrupted."
+
+msgid "shell_buy/invalid_module"
+msgstr "Unable to purchase %(name)s. Wrong shell."
+
+msgid "shell_buy/not_enough_credits"
+msgstr "Unable to purchase %(name)s. Not enough credits."
+
+msgid "shell_buy/not_enough_gold"
+msgstr "Unable to purchase %(name)s. Not enough gold."
+
+msgid "shell_buy/server_error"
+msgstr "Unable to purchase %(name)s. Try again later."
+
+msgid "shell_buy/server_error_centerDown"
+msgstr ""
+"Unable to purchase %(name)s shells. The server is temporarily unavailable."
+
+msgid "shell_buy/success"
+msgstr ""
+"Shells %(name)s successfully purchased (%(count)s item(s)). Spent %(money)s."
+
+msgid "shell_buy/wallet_not_available"
+msgstr ""
+"Operation impossible. All your gold will be available after WG Wallet "
+"operability is restored automatically."
+
+msgid "shell_sell/invalid_module"
+msgstr "Unable to sell %(name)s. Wrong shell."
+
+msgid "shell_sell/server_error"
+msgstr "Unable to sell '%(name)s'. Try again later."
+
+msgid "shell_sell/success"
+msgstr ""
+"Shell '%(name)s' successfully sold (%(count)s item(s)). Received %(money)s."
+
+msgid "shop/item/buy_and_equip_in_processing"
+msgstr ""
+"Request for purchasing and mounting the module sent. Waiting for server "
+"response."
+
+msgid "shop/item/buy_server_error"
+msgstr ""
+"Failed to purchase %(typeString)s '%(userString)s'. Please try again later."
+
+msgid "shop/item/buy_success"
+msgstr ""
+"Module %(typeString)s '%(userString)s' successfully purchased (%(count)d). "
+"Spent %(price)s."
+
+msgid "shop/item/not_enough_money"
+msgstr "To purchase %(typeString)s '%(userString)s' you need %(price)s more."
+
+msgid "shop/item/not_found"
+msgstr ""
+"Module %(typeString)s '%(userString)s' was not found in the Store. Please "
+"try again later."
+
+msgid "shop/vehicle/not_enough_money"
+msgstr "To purchase %(userString)s you need %(price)s more."
+
+msgid "shop/vehicle/not_found"
+msgstr "%(userString)s was not found in the Store. Please try again later."
+
+msgid "shop_resync"
+msgstr "Interface updated on %(date)s at %(time)s due to server changes."
+
+msgid "squad/createError"
+msgstr "Only users with Premium Accounts can create Platoons."
+
+msgid "squad/kickedFromQueue"
+msgstr ""
+"Unable to find opponents for the current Platoon. Consider reorganizing your "
+"team."
+
+msgid "squad/memberJoined"
+msgstr "%s joined the Platoon."
+
+msgid "squad/memberLeave"
+msgstr "%s left the Platoon."
+
+msgid "squad/memberNotReady"
+msgstr "%s is not ready to fight in the Platoon."
+
+msgid "squad/memberOffline"
+msgstr "Connection interrupted with %s."
+
+msgid "squad/memberReady"
+msgstr "%s is ready to fight in the Platoon."
+
+msgid "squad/notSetReadyStatus"
+msgstr "Unable to join the battle with the Platoon."
+
+msgid "tradingError/DECLINED_BY_DEST"
+msgstr "Failed to transfer gold. The receiving party declined the transaction."
+
+msgid "tradingError/NOT_ALLOWED"
+msgstr "Gold transfer is unavailable."
+
+msgid "tradingError/NO_WARES"
+msgstr "Unable to transfer gold. Not enough gold."
+
+msgid "tradingError/TOO_MANY_OUT_OFFERS"
+msgstr "You have reached the limit of transfers. Try again tomorrow."
+
+msgid "tradingError/UNEXPECTED_ERROR"
+msgstr "Failed to transfer gold. Try again later."
+
+msgid "training/error/doAction"
+msgstr "Training room error. Try again later."
+
+msgid "training/error/swapTeams"
+msgstr "Server error attempting to swap the teams. Try again later."
+
+msgid "unit/errors/ADD_PLAYER_FAIL"
+msgstr "The player is unable to join the team."
+
+msgid "unit/errors/ALREADY_JOINED_UNIT"
+msgstr "Player has already joined the team."
+
+msgid "unit/errors/BAD_JOINING_ACC"
+msgstr "Unable to join the team."
+
+msgid "unit/errors/BAD_POINTS_SUM"
+msgstr "Total tier of vehicles is exceeded."
+
+msgid "unit/errors/BAD_SLOT_IDX"
+msgstr "Incorrect slot number"
+
+msgid "unit/errors/BAD_VEHICLE_LEVEL"
+msgstr "Error joining the team. Wrong vehicle tier."
+
+msgid "unit/errors/CANT_FIND_UNIT_MGR"
+msgstr "Unable to find a team."
+
+msgid "unit/errors/CANT_INVITE"
+msgstr "Unable to send invitation."
+
+msgid "unit/errors/COOLDOWN"
+msgstr "Operation is temporarily unavailable."
+
+msgid "unit/errors/FAIL_UNIT_METHOD"
+msgstr "Failed to complete last operation with the team."
+
+msgid "unit/errors/GET_READY_VEHICLE_FAIL"
+msgstr ""
+"Vehicle is not ready for the battle or there is no vehicle in the Garage."
+
+msgid "unit/errors/GET_VEHICLE_FAIL"
+msgstr "Unable to allocate a vehicle into the slot."
+
+msgid "unit/errors/INSUFFICIENT_ROLE"
+msgstr "No permissions for this operation."
+
+msgid "unit/errors/JOIN_CTX_LOCK"
+msgstr "Account locked."
+
+msgid "unit/errors/NOT_IDLE"
+msgstr "Team is in queue or in search results."
+
+msgid "unit/errors/NOT_INVITED"
+msgstr "Unable to join the team. Access denied."
+
+msgid "unit/errors/NOT_IN_QUEUE"
+msgstr "Team is not in queue."
+
+msgid "unit/errors/NOT_IN_SEARCH"
+msgstr "Team is not in search results."
+
+msgid "unit/errors/NOT_READY"
+msgstr "Team is not ready."
+
+msgid "unit/errors/NO_UNIT"
+msgstr "Team is not found."
+
+msgid "unit/errors/NO_UNIT_MGR"
+msgstr "Team doesn't exist."
+
+msgid "unit/errors/PLAYER_IGNORED"
+msgstr "You are added to the leader's blacklist."
+
+msgid "unit/errors/REMOVE_PLAYER_FAIL"
+msgstr "Unable to exclude the player from the team."
+
+msgid "unit/errors/UNIT_ADD_FAIL"
+msgstr "Unable to create a team or join it."
+
+msgid "unit/errors/UNIT_MGR_ENTITY_CREATION_FAIL"
+msgstr "Unable to create a team."
+
+msgid "unit/errors/WRONG_UNIT_REQUISITES"
+msgstr "Team doesn't exist."
+
+msgid "unit/notification/playerAdded"
+msgstr "%(userName)s joined the team."
+
+msgid "unit/notification/playerOffline"
+msgstr "Connection with %(userName)s lost."
+
+msgid "unit/notification/playerOnline"
+msgstr "Connection with %(userName)s restored."
+
+msgid "unit/notification/playerRemoved"
+msgstr "%(userName)s left the team."
+
+msgid "unit/warnings/ALREADY_INVITED"
+msgstr "Invitation has already been sent."
+
+msgid "unit/warnings/CLAN_CHANGED"
+msgstr "You left the clan."
+
+msgid "unit/warnings/INVITE_REMOVED"
+msgstr "Error joining the team. You were excluded from the team."
+
+msgid "unit/warnings/KICKED_CANDIDATE"
+msgstr "You were automatically excluded from the list of volunteers."
+
+msgid "unit/warnings/KICKED_FROM_UNIT_ASSEMBLER"
+msgstr "Search time expired. Suitable team not found."
+
+msgid "unit/warnings/KICKED_PLAYER"
+msgstr "You were excluded by the leader."
+
+msgid "unit/warnings/UNIT_ASSEMBLER_TIMEOUT"
+msgstr "Search time expired. Suitable players not found."
+
+msgid "unit/warnings/WAITING_FOR_JOIN"
+msgstr "Joining of players is in progress. Please wait."
+
+msgid "unitBrowser/errors/BAD_ACCEPT_CONTEXT"
+msgstr "Unable to confirm readiness to join the team."
+
+msgid "unload_crew/invalid_vehicle"
+msgstr "Error sending the crew to the Barracks. Wrong vehicle."
+
+msgid "unload_crew/not_enough_space"
+msgstr ""
+"Error sending the crew to the Barracks. Not enough bunks in the Barracks."
+
+msgid "unload_crew/server_error"
+msgstr "Unable to send the crew to the Barracks. Try again later."
+
+msgid "unload_crew/success"
+msgstr "The crew successfully sent to the Barracks."
+
+msgid "unload_crew/vehicle_locked"
+msgstr "Error sending the crew to the Barracks. The vehicle is locked."
+
+msgid "unload_crew/vehicle_need_repair"
+msgstr "Error sending the crew to the Barracks. Repair your vehicle."
+
+msgid "unload_tankman/invalid_vehicle"
+msgstr "Error sending a crew member to the Barracks. Wrong vehicle."
+
+msgid "unload_tankman/not_enough_space"
+msgstr ""
+"Error sending a crew member to the Barracks. Not enough bunks in the "
+"Barracks."
+
+msgid "unload_tankman/server_error"
+msgstr "Unable to send a crew member to the Barracks. Try again later."
+
+msgid "unload_tankman/success"
+msgstr "A crew member successfully sent to the Barracks."
+
+msgid "unload_tankman/vehicle_locked"
+msgstr "Error sending a crew member to the Barracks. The vehicle is locked."
+
+msgid "unload_tankman/vehicle_need_repair"
+msgstr "Error sending a crew member to the Barracks. Repair your vehicle."
+
+msgid "unlocks/drawFailed"
+msgstr "Wrong settings. Tech Tree is locked."
+
+msgid "unlocks/item/already_unlocked"
+msgstr "Module %(typeString)s '%(userString)s' researched."
+
+msgid "unlocks/item/in_processing"
+msgstr "Research request submitted. Waiting for a server response."
+
+msgid "unlocks/item/server_error"
+msgstr ""
+"Server error researching module %(typeString)s '%(userString)s'. Try again "
+"later."
+
+msgid "unlocks/item/unlock_success"
+msgstr ""
+"Module %(typeString)s '%(userString)s' researched. Undistributed experience "
+"spent: %(vehXP)s. Free Experience spent: %(freeXP)s."
+
+msgid "unlocks/vehicle/already_unlocked"
+msgstr "%(userString)s researched."
+
+msgid "unlocks/vehicle/in_processing"
+msgstr "Research request submitted. Waiting for a server response."
+
+msgid "unlocks/vehicle/server_error"
+msgstr "Server error researching %(userString)s. Try again later."
+
+msgid "unlocks/vehicle/unlock_success"
+msgstr ""
+"%(userString)s researched. Undistributed experience spent: %(vehXP)s. Free "
+"Experience spent: %(freeXP)s."
+
+msgid "upgradeTankman/server_error"
+msgstr "Error training a crew member. Try again later."
+
+msgid "upgradeTankman/success"
+msgstr "Training successfully completed."
+
+msgid "vehicleComponents/equip_in_processing"
+msgstr "Request for mounting equipment sent. Waiting for server response."
+
+msgid "vehicleComponents/module_buy_server_error"
+msgstr ""
+"Failed to purchase %(typeString)s '%(userString)s'. Please try again later."
+
+msgid "vehicleComponents/module_buy_success"
+msgstr ""
+"Module %(typeString)s '%(userString)s' successfully purchased (%(count)d). "
+"Spent %(price)s."
+
+msgid "vehicleComponents/module_has_in_inventory"
+msgstr ""
+"Module %(typeString)s '%(userString)s' is already available in the Depot."
+
+msgid "vehicleComponents/module_is_already_unlocked"
+msgstr "Module %(typeString)s '%(userString)s' researched."
+
+msgid "vehicleComponents/module_not_enough_money"
+msgstr "To purchase %(typeString)s '%(userString)s' you need %(price)s more."
+
+msgid "vehicleComponents/module_not_found_in_inventory"
+msgstr "Module %(typeString)s '%(userString)s' was not found in the Depot."
+
+msgid "vehicleComponents/module_not_found_in_shop"
+msgstr ""
+"Module %(typeString)s '%(userString)s' not found in the Store. Please try "
+"again later."
+
+msgid "vehicleComponents/module_unlock_success"
+msgstr ""
+"%(typeString)s '%(userString)s' researched. Undistributed experience spent: "
+"%(unspentXP)s. Free Experience spent: %(freeXP)s."
+
+msgid "vehicleComponents/unlock_in_processing"
+msgstr "Research request submitted. Waiting for a server response."
+
+msgid "vehicleComponents/vehicle_has_in_inventory"
+msgstr "%(userString)s already available in the Depot."
+
+msgid "vehicleComponents/vehicle_is_already_unlocked"
+msgstr "%(userString)s researched."
+
+msgid "vehicleComponents/vehicle_not_enough_money"
+msgstr "To purchase %(userString)s you need %(price)s more."
+
+msgid "vehicleComponents/vehicle_not_found_in_inventory"
+msgstr "%(userString)s was not found in the Depot."
+
+msgid "vehicleComponents/vehicle_not_found_in_shop"
+msgstr "%(userString)s was not found in the Store. Please try again later."
+
+msgid "vehicleComponents/vehicle_unlock_success"
+msgstr ""
+"%(userString)s researched. Undistributed experience spent: %(unspentXP)s. "
+"Free Experience spent: %(freeXP)s."
+
+msgid "vehicle_buy/invalid_vehicle"
+msgstr "Unable to purchase '%(vehName)s'. Wrong vehicle."
+
+msgid "vehicle_buy/not_enough_credits"
+msgstr "Unable to purchase '%(vehName)s'. Not enough credits."
+
+msgid "vehicle_buy/not_enough_gold"
+msgstr "Unable to purchase '%(vehName)s'. Not enough gold."
+
+msgid "vehicle_buy/server_error"
+msgstr "Unable to purchase '%(vehName)s'. You may already have this vehicle."
+
+msgid "vehicle_buy/server_error_centerDown"
+msgstr ""
+"Unable to purchase '%(vehName)s' vehicle. The server is temporarily "
+"unavailable."
+
+msgid "vehicle_buy/success"
+msgstr "'%(vehName)s' sucessfully purchased. Spent %(price)s."
+
+msgid "vehicle_buy/wallet_not_available"
+msgstr ""
+"Operation impossible. All your gold will be available after WG Wallet "
+"operability is restored automatically."
+
+msgid "vehicle_repair/not_enough_credits"
+msgstr "%(needed)s are required to repair '%(vehName)s'."
+
+msgid "vehicle_repair/server_error"
+msgstr "Error repairing '%(vehName)s'. Try again later."
+
+msgid "vehicle_repair/success"
+msgstr "'%(vehName)s' repaired. You have spent %(money)s."
+
+msgid "vehicle_sell/invalid_vehicle"
+msgstr "Unable to sell '%(vehName)s'. Wrong vehicle."
+
+msgid "vehicle_sell/not_enough_credits"
+msgstr "Unable to sell '%(vehName)s'. Not enough credits."
+
+msgid "vehicle_sell/not_enough_gold"
+msgstr "Unable to sell '%(vehName)s'. Not enough gold."
+
+msgid "vehicle_sell/not_enough_space"
+msgstr "Unable to sell '%(vehName)s'. Not enough bunks in the Barracks."
+
+msgid "vehicle_sell/server_error"
+msgstr "Unable to sell '%(vehName)s'. Try again later."
+
+msgid "vehicle_sell/success"
+msgstr "'%(vehName)s' successfully sold. Received %(money)s."
+
+msgid "vehicle_sell/success_dismantling"
+msgstr ""
+"'%(vehName)s' successfully sold. Received %(gainMoney)s. Spent %(spendMoney)"
+"s."
+
+msgid "vehicle_sell/vehicle_cannot_be_sold"
+msgstr ""
+"Unable to sell '%(vehName)s'. The vehicle will be automatically removed."
+
+msgid "vehicle_sell/vehicle_locked"
+msgstr "Unable to sell '%(vehName)s'. The vehicle is locked."
+
+msgid "vehicle_sell/vehicle_need_repair"
+msgstr "Unable to sell '%(vehName)s'. Repair your vehicle."
+
+msgid "vehicle_sell/vehicle_sell_limit"
+msgstr ""
+"Unable to sell '%(vehName)s'. You have reached the limit for vehicles for "
+"today."
+
+msgid "vehicle_sell/wallet_not_available"
+msgstr ""
+"Operation impossible. All your gold will be available after WG Wallet "
+"operability is restored automatically."
+
+msgid "vehicle_slot_buy/not_enough_gold"
+msgstr "Error purchasing a slot. Not enough gold."
+
+msgid "vehicle_slot_buy/server_error"
+msgstr "Error purchasing a slot. Try again later."
+
+msgid "vehicle_slot_buy/success"
+msgstr "Additional slot in the Garage is purchased. Spent %(money)s."
+
+msgid "vehicle_slot_buy/wallet_not_available"
+msgstr ""
+"Operation impossible. All your gold will be available after WG Wallet "
+"operability is restored automatically."
+
+msgid "vehicle_tmenxp_accelerator/invalid_vehicle"
+msgstr "Error changing accelerated crew training '%(vehName)s'. Wrong vehicle."
+
+msgid "vehicle_tmenxp_accelerator/server_error"
+msgstr ""
+"Error changing accelerated crew training '%(vehName)s'. Try again later."
+
+msgid "vehicle_tmenxp_accelerator/successFalse"
+msgstr "Accelerated crew training '%(vehName)s' is off."
+
+msgid "vehicle_tmenxp_accelerator/successTrue"
+msgstr "Accelerated crew training '%(vehName)s' is on."
+
+msgid "vehicle_tmenxp_accelerator/vehicle_locked"
+msgstr ""
+"Error changing accelerated crew training '%(vehName)s'. The vehicle is "
+"locked."
+
+msgid "vehicle_tmenxp_accelerator/vehicle_need_repair"
+msgstr ""
+"Error changing accelerated crew training '%(vehName)s'. Repair the vehicle."
+
+msgid "video/error"
+msgstr "Video playback error. Error code: %(code)s."
+
+msgid "wallet/available"
+msgstr ""
+"WG Wallet successfully synchronized. All your gold and Free Experience are "
+"available now."
+
+msgid "wallet/available_freexp"
+msgstr ""
+"WG Wallet successfully synchronized. All your Free Experience is available "
+"now."
+
+msgid "wallet/available_gold"
+msgstr "WG Wallet successfully synchronized. All your gold is available now."
+
+msgid "wallet/not_available"
+msgstr ""
+"Acquisition of balance data is in progress. All your gold and Free "
+"Experience will be available soon."
+
+msgid "wallet/not_available_freexp"
+msgstr ""
+"Acquisition of balance data is in progress. All your Free Experience will be "
+"available soon."
+
+msgid "wallet/not_available_gold"
+msgstr ""
+"Acquisition of balance data is in progress. All your gold will be available "
+"soon."
+
+msgid "window/buttons/close"
+msgstr "Close"
+
+msgid "wrong_slot"
+msgstr "%s '%s' does not match slot %s."

@@ -1,0 +1,254 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: World Of Tanks\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-06-01 10:00+0300\n"
+"PO-Revision-Date: 2010-06-01 10:00+0300\n"
+"Last-Translator: WoT Translator <noreply@wargaming.net>\n"
+"Language-Team: WoT Team <noreply@wargaming.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "battleControls/casseteReload"
+msgstr "Reload Shell Container"
+
+msgid "battleControls/cruiseCtrlBackward"
+msgstr "Move Backward in Cruise Control Mode"
+
+msgid "battleControls/cruiseCtrlForward"
+msgstr "Move Forward in Cruise Control Mode"
+
+msgid "battleControls/disableLockTarget"
+msgstr "Disable Auto-Aim"
+
+msgid "battleControls/fire"
+msgstr "Fire"
+
+msgid "battleControls/hideInterface"
+msgstr "Show/Hide Battle Interface"
+
+msgid "battleControls/hideMinimap"
+msgstr "Hide/Show Minimap"
+
+msgid "battleControls/makeScreenshort"
+msgstr "Capture Screen Image to Folder"
+
+msgid "battleControls/movementBackward"
+msgstr "Move Backward"
+
+msgid "battleControls/movementForward"
+msgstr "Move Forward"
+
+msgid "battleControls/movementLeft"
+msgstr "Turn/Move Left"
+
+msgid "battleControls/movementRight"
+msgstr "Turn/Move Right"
+
+msgid "battleControls/showCursor"
+msgstr "Display Cursor"
+
+msgid "battleControls/showCursor/ext"
+msgstr "(for minimap, list of players, etc.)"
+
+msgid "battleControls/showExPlayerInfo"
+msgstr "Display Alternative Marker"
+
+msgid "battleControls/switchAutorotation"
+msgstr "Lock Hull (SPGs and Tank Destroyers)"
+
+msgid "battleControls/title"
+msgstr "Battle Mode"
+
+msgid "battleControls/toggleLockTarget"
+msgstr "Enable/Disable Auto-Aim"
+
+msgid "battleControls/toggleLockTarget/ext"
+msgstr "(with reticle on target)"
+
+msgid "battleControls/togglePlayerPanelModes"
+msgstr "Show/Hide Team Lists"
+
+msgid "battleControls/toggleSniperMode"
+msgstr "Enable/Disable Sniper Mode"
+
+msgid "battleControls/toggleSniperMode/ext"
+msgstr "or Artillery Mode"
+
+msgid "battleControls/voiceChatMute"
+msgstr "Enable Voice Chat"
+
+msgid "chatControls/change"
+msgstr "To Team / To All"
+
+msgid "chatControls/enterToChatMode"
+msgstr "Enter Chat Mode"
+
+msgid "chatControls/exitFromChatMode"
+msgstr "Exit Chat Mode"
+
+msgid "chatControls/send"
+msgstr "Send Message"
+
+msgid "chatControls/title"
+msgstr "Chat Mode"
+
+msgid "chatShortcuts/attack"
+msgstr "Attack!"
+
+msgid "chatShortcuts/attackEnemy"
+msgstr "Attacking!"
+
+msgid "chatShortcuts/attackEnemy/ext"
+msgstr "(with reticle on target)"
+
+msgid "chatShortcuts/backToBase"
+msgstr "Defend the base!"
+
+msgid "chatShortcuts/followMe"
+msgstr "Follow me!"
+
+msgid "chatShortcuts/helpMe"
+msgstr "Help!"
+
+msgid "chatShortcuts/helpMeEx"
+msgstr "Help!"
+
+msgid "chatShortcuts/negative"
+msgstr "Negative!"
+
+msgid "chatShortcuts/positive"
+msgstr "Affirmative!"
+
+msgid "chatShortcuts/reloadingGun"
+msgstr "Reloading!"
+
+msgid "chatShortcuts/stop"
+msgstr "Halt!"
+
+msgid "chatShortcuts/supportMeWithFire"
+msgstr "Requesting fire!"
+
+msgid "chatShortcuts/title"
+msgstr "Chat Shortcuts:"
+
+msgid "chatShortcuts/toBack"
+msgstr "Fall back!"
+
+msgid "crosshairControls/ammoNumber"
+msgstr "Shells Remaining"
+
+msgid "crosshairControls/damageIndicator"
+msgstr "Fire Direction"
+
+msgid "crosshairControls/dispercion"
+msgstr "Dispersion"
+
+msgid "crosshairControls/example/damage"
+msgstr "-200"
+
+msgid "crosshairControls/example/hp"
+msgstr "440/640"
+
+msgid "crosshairControls/example/name"
+msgstr "T-35-85"
+
+msgid "crosshairControls/gunMarker"
+msgstr "Gun Position"
+
+msgid "crosshairControls/healthPlayer"
+msgstr "Player Health"
+
+msgid "crosshairControls/hpIndicator"
+msgstr "Health Indicator"
+
+msgid "crosshairControls/hpValues"
+msgstr "Target Health (%/HP left/total)"
+
+msgid "crosshairControls/marker"
+msgstr "Point of Aim"
+
+msgid "crosshairControls/reloadIndicator"
+msgstr "Gun Loading"
+
+msgid "crosshairControls/reloadTimer"
+msgstr "Gun Reload Time (in seconds)"
+
+msgid "crosshairControls/targetClass"
+msgstr "Vehicle Type Marker"
+
+msgid "crosshairControls/targetDistance"
+msgstr "Range to Target"
+
+msgid "crosshairControls/targetIcon"
+msgstr "Vehicle Icon"
+
+msgid "crosshairControls/targetLevel"
+msgstr "Vehicle Tier"
+
+msgid "crosshairControls/targetName"
+msgstr "Vehicle Model / Player Name"
+
+msgid "crosshairControls/title"
+msgstr "Gun and Reticle Indicators"
+
+msgid "markerColors/enemy"
+msgstr "Enemy"
+
+msgid "markerColors/friend"
+msgstr "Ally"
+
+msgid "markerColors/squadPlayer"
+msgstr "Platoon mate"
+
+msgid "markerColors/teamKiller"
+msgstr "Team killer"
+
+msgid "markerColors/title"
+msgstr "Marker Colors:"
+
+msgid "markerMarks/attack"
+msgstr "Attacking"
+
+msgid "markerMarks/follow"
+msgstr "Follow me!"
+
+msgid "markerMarks/help"
+msgstr "Help!"
+
+msgid "markerMarks/target/sau"
+msgstr "SPG's Target"
+
+msgid "markerMarks/target/tank"
+msgstr "Tank's Target"
+
+msgid "markerMarks/title"
+msgstr "Shortcuts on Minimap:"
+
+msgid "radialMenu/attackEnemy"
+msgstr "Requesting fire!"
+
+msgid "radialMenu/attackEnemy/ext"
+msgstr "(with reticle on target)"
+
+msgid "radialMenu/show"
+msgstr "Display Command Menu"
+
+msgid "radialMenu/show/ext"
+msgstr "(list of commands depends on the target)"
+
+msgid "radialMenu/title"
+msgstr "Command Menu"
+
+msgid "returnToGame"
+msgstr "Esc—Back to Battle"
+
+msgid "settings/button"
+msgstr "Settings"
+
+msgid "settings/help"
+msgstr "To view and customize game controls, click Settings."
+
+msgid "vehicleTypes/title"
+msgstr "Vehicle Markers"

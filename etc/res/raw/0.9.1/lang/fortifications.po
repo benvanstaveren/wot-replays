@@ -1,0 +1,1066 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: World Of Tanks\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-07-30 12:00+0300\n"
+"PO-Revision-Date: 2010-07-30 12:00+0300\n"
+"Last-Translator: WoT Translator <noreply@wargaming.net>\n"
+"Language-Team: WoT Team <noreply@wargaming.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "BuildingDirection/label1"
+msgstr "Alpha"
+
+msgid "BuildingDirection/label2"
+msgstr "Bravo"
+
+msgid "BuildingDirection/label3"
+msgstr "Charlie"
+
+msgid "BuildingDirection/label4"
+msgstr "Delta"
+
+msgid "BuildingDirection/tooltip/body"
+msgstr "Click to open Direction %(value)s."
+
+msgid "BuildingDirection/tooltip/header"
+msgstr "Direction %(value)s"
+
+msgid "BuildingPopover/assignPlayers"
+msgstr "Garrison:"
+
+msgid "BuildingPopover/commanderStatus/bodyStatus/congratulation"
+msgstr "Structure ready for upgrade."
+
+msgid "BuildingPopover/commanderStatus/bodyStatus/foundation"
+msgstr "Transport Industrial Resource or earn it in Skirmishes."
+
+msgid "BuildingPopover/commanderStatus/bodyStatus/halfDestroy"
+msgstr "Fill up the durability bar or you will have to rebuild the structure."
+
+msgid "BuildingPopover/commanderStatus/bodyStatus/modernization"
+msgstr "Structure ready for upgrade."
+
+msgid "BuildingPopover/defResActions/directionOpened"
+msgstr "Directions open: "
+
+msgid "BuildingPopover/defResActions/management"
+msgstr "Direction control"
+
+msgid "BuildingPopover/defResActions/prepareTimeOver"
+msgstr "Time left: "
+
+msgid "BuildingPopover/defResActions/preparedDefRes"
+msgstr "Prepared: %(currentValue)s / %(totalValue)s"
+
+msgid "BuildingPopover/defResActions/preparingDefRes"
+msgstr "Preparing Reserves: "
+
+msgid "BuildingPopover/defResActions/requestDefRes"
+msgstr "Reserve Preparation"
+
+msgid "BuildingPopover/defResInfo/baseBuildingTitle"
+msgstr "Directions of Stronghold"
+
+msgid "BuildingPopover/defResInfo/defResBuildingTitle"
+msgstr "Battle Payments"
+
+msgid "BuildingPopover/header/levelsLbl"
+msgstr "Level %(buildLevel)s"
+
+msgid "BuildingPopover/header/messageStatus"
+msgstr "Level %(buildLevel)d"
+
+msgid "BuildingPopover/header/titleStatus/congratulation"
+msgstr "Upgrade available!"
+
+msgid "BuildingPopover/header/titleStatus/foundation"
+msgstr "Foundation"
+
+msgid "BuildingPopover/header/titleStatus/freeze"
+msgstr "Stronghold frozen"
+
+msgid "BuildingPopover/header/titleStatus/halfDestroy"
+msgstr "Partial destruction!"
+
+msgid "BuildingPopover/header/titleStatus/modernization"
+msgstr "Upgrade available!"
+
+msgid "BuildingPopover/indicators/defResLbl"
+msgstr "Storage"
+
+msgid "BuildingPopover/indicators/hpLbl"
+msgstr "Durability"
+
+msgid "BuildingPopover/soldierStatus/bodyStatus/foundation"
+msgstr ""
+"To complete structure, attach to it and earn Industrial Resource in battles."
+
+msgid "BuildingPopover/soldierStatus/bodyStatus/halfDestroy"
+msgstr ""
+"To repair structure, attach to it and earn Industrial Resource in battles."
+
+msgid "Buildings/buildingName/base_building"
+msgstr "Command Center"
+
+msgid "Buildings/buildingName/car_building"
+msgstr "Transportation Unit"
+
+msgid "Buildings/buildingName/finance_building"
+msgstr "Financial Unit"
+
+msgid "Buildings/buildingName/intendancy_building"
+msgstr "Quartermaster Unit"
+
+msgid "Buildings/buildingName/tankodrom_building"
+msgstr "Tankodrome"
+
+msgid "Buildings/buildingName/training_building"
+msgstr "Training Unit"
+
+msgid "Buildings/buildingName/trophy_building"
+msgstr "Trophy Brigade"
+
+msgid "Buildings/buildingName/warSchool_building"
+msgstr "Military School"
+
+msgid "Buildings/buildingTooltip/order"
+msgstr ""
+" \n"
+"Preparing new Reserve (x%d):\n"
+"%s left."
+
+msgid "Buildings/buildingTooltip/store"
+msgstr ""
+" \n"
+"Storage: "
+
+msgid "Buildings/buildingTooltip/strength"
+msgstr "Durability: "
+
+msgid "Buildings/defResInfo/base_building"
+msgstr ""
+"Open Directions allow the building of structures, where Reserves are "
+"requested. Directions can be attacked by enemy clans."
+
+msgid "Buildings/defResInfo/car_building"
+msgstr "to plunder earned in Skirmishes."
+
+msgid "Buildings/defResInfo/finance_building"
+msgstr "to credits for all clan members after any battle."
+
+msgid "Buildings/defResInfo/intendancy_building"
+msgstr "to Industrial Resource kept after unsuccessful defense of Stronghold."
+
+msgid "Buildings/defResInfo/tankodrom_building"
+msgstr "to Combat Experience for all clan members after any battle."
+
+msgid "Buildings/defResInfo/training_building"
+msgstr "to crew experience for all clan members after any battle."
+
+msgid "Buildings/defResInfo/trophy_building"
+msgstr "to plunder after successful attack on enemy Stronghold."
+
+msgid "Buildings/defResInfo/warSchool_building"
+msgstr "to Free Experience for all clan members after any battle."
+
+msgid "Buildings/modernizationDescr/base_building"
+msgstr "available after upgrade of other structures in Stronghold."
+
+msgid "Buildings/processOrderInfo/car_building"
+msgstr ""
+"Enables clan members to earn up to 25% of extra plunder in Skirmishes. "
+"Percentage can be increased depending on Reserve level."
+
+msgid "Buildings/processOrderInfo/finance_building"
+msgstr ""
+"Clan members earn up to 50% additional credits in any battle. Percentage can "
+"be increased depending on Reserve level."
+
+msgid "Buildings/processOrderInfo/intendancy_building"
+msgstr ""
+"Decreases by up to 50% the loss of Industrial Resource after unsuccessful "
+"defense. Percentage retained depends on Reserve level."
+
+msgid "Buildings/processOrderInfo/tankodrom_building"
+msgstr ""
+"Clan members earn up to 50% additional experience in any battle. Percentage "
+"can be increased depending on Reserve level."
+
+msgid "Buildings/processOrderInfo/training_building"
+msgstr "Reserve of maximum level doubles crew experience earned in any battle."
+
+msgid "Buildings/processOrderInfo/trophy_building"
+msgstr ""
+"Enables clan members to earn up to 50% extra Industrial Resource in "
+"Skirmishes. Percentage can be increased depending on Reserve level."
+
+msgid "Buildings/processOrderInfo/warSchool_building"
+msgstr ""
+"Clan members earn up to 50% additional Free Experience in any battle. "
+"Percentage can be increased depending on Reserve level."
+
+msgid "Buildings/trowelLabel"
+msgstr "Construction Site"
+
+msgid "BuildingsProcess/buildingInfo/bottomMessage"
+msgstr "Structure already built."
+
+msgid "BuildingsProcess/buildingInfo/statusMessage"
+msgstr "Required: Level V Command Center"
+
+msgid "BuildingsProcess/buttonLbl"
+msgstr "Start Building"
+
+msgid "BuildingsProcess/buttonLblBuilt"
+msgstr "Structure already built"
+
+msgid "BuildingsProcess/longDescr/built"
+msgstr ""
+"всем бойцам ++++ ++ длиннове описание  built !!!!! д++++++ ддл иии иии  ::: "
+"выделяет дополнительные средства для выплаты жалования"
+
+msgid "BuildingsProcess/longDescr/car_building"
+msgstr ""
+"Mechanics of the Transportation Unit can attach a trailer to any tractor, "
+"increasing the amount of any transported cargo."
+
+msgid "BuildingsProcess/longDescr/finance_building"
+msgstr ""
+"The Financial Unit is responsible for all accounting in the Stronghold. "
+"Officers of the Financial Unit attract additional funds to increase the "
+"monetary allowance of clan members."
+
+msgid "BuildingsProcess/longDescr/intendancy_building"
+msgstr ""
+"Officers of the Quartermaster Unit arrange efficient evacuation of equipment "
+"within the Stronghold, ensuring that the clan can quickly replenish its "
+"forces after an unsuccessful defense."
+
+msgid "BuildingsProcess/longDescr/notAvailable"
+msgstr ""
+"всем бойцам ++ ++++ длиннове описание  notAvailable !!!!! д++++++ д длиии "
+"выделяет дополнительные средства для выплаты жалования"
+
+msgid "BuildingsProcess/longDescr/tankodrom_building"
+msgstr ""
+"Special area designed to determine vehicle efficiency under ultimate load."
+
+msgid "BuildingsProcess/longDescr/training_building"
+msgstr ""
+"Combination of theoretical and practical studies allows recruits to quickly "
+"master the basics of military science."
+
+msgid "BuildingsProcess/longDescr/trophy_building"
+msgstr ""
+"After a successful attack on an enemy Stronghold, the Trophy Brigade "
+"retrieves abandoned vehicles, resources, and other valuables."
+
+msgid "BuildingsProcess/longDescr/warSchool_building"
+msgstr ""
+"Experienced instructors and thematic materials from the library facilitate "
+"the training of skilled officers ready for fighting in any conditions."
+
+msgid "BuildingsProcess/mainLabel/accessCount"
+msgstr "Built: %(current)s out of %(total)s"
+
+msgid "BuildingsProcess/orderInfo/descriptionPrefix"
+msgstr "Additional percent "
+
+msgid "BuildingsProcess/orderInfo/header"
+msgstr "Battle Payments"
+
+msgid "BuildingsProcess/shortDescr/car_building"
+msgstr "Additional Industrial Resource earned in Skirmishes"
+
+msgid "BuildingsProcess/shortDescr/finance_building"
+msgstr "Additional credits after any battle"
+
+msgid "BuildingsProcess/shortDescr/intendancy_building"
+msgstr "Decreases amount of enemy plunder after unsuccessful defense."
+
+msgid "BuildingsProcess/shortDescr/tankodrom_building"
+msgstr "Additional Combat Experience after any battle"
+
+msgid "BuildingsProcess/shortDescr/training_building"
+msgstr "Additional crew experience after any battle"
+
+msgid "BuildingsProcess/shortDescr/trophy_building"
+msgstr "Increases amount of plunder earned after successful attack."
+
+msgid "BuildingsProcess/shortDescr/warSchool_building"
+msgstr "Additional Free Experience after any battle"
+
+msgid "BuildingsProcess/statusMsg/built"
+msgstr "Built"
+
+msgid "BuildingsProcess/statusMsg/notAvailable"
+msgstr "Unavailable"
+
+msgid "BuildingsProcess/textInfo"
+msgstr ""
+"Select a structure from the list on the left to see the detailed description."
+
+msgid "BuildingsProcess/windowTitle"
+msgstr "Building"
+
+msgid "ChoiceDivision/applyBtnLbl"
+msgstr "Select"
+
+msgid "ChoiceDivision/cancelBtnLbl"
+msgstr "Cancel"
+
+msgid "ChoiceDivision/description"
+msgstr ""
+"Division limits the maximum tier of vehicles and the amount of plunder that "
+"can be earned in Skirmishes by a detachment."
+
+msgid "ChoiceDivision/divisionFullName"
+msgstr "%(divisionType)s division"
+
+msgid "ChoiceDivision/divisionProfit"
+msgstr "Plunder: %(defResCount)s"
+
+msgid "ChoiceDivision/divisionType/absoluteDivision"
+msgstr "Absolute"
+
+msgid "ChoiceDivision/divisionType/championDivision"
+msgstr "Champion"
+
+msgid "ChoiceDivision/divisionType/middleDivision"
+msgstr "Medium"
+
+msgid "ChoiceDivision/vehicleLevel"
+msgstr "Vehicle Tier: %(minLevel)s – %(maxLevel)s"
+
+msgid "ChoiceDivision/windowTitle"
+msgstr "Select Division"
+
+msgid "ClanListWindow/table/memberName"
+msgstr "Name"
+
+msgid "ClanListWindow/table/monthMining"
+msgstr "Per month"
+
+msgid "ClanListWindow/table/role"
+msgstr "Position"
+
+msgid "ClanListWindow/table/weekMining"
+msgstr "Per week"
+
+msgid "CongratulationWindow/buttonLbl"
+msgstr "Affirmative!"
+
+msgid "CongratulationWindow/textBody"
+msgstr ""
+"%(sourceCount)s (units of Industrial Resource) added to storage in your "
+"Command Center. This amount is enough to build one structure and prepare one "
+"Reserve. This time you were given Industrial Resource for free. However, in "
+"the future you will need to earn it in Skirmishes and Battles for "
+"Strongholds."
+
+msgid "CongratulationWindow/textTitle"
+msgstr "Time to Build!"
+
+msgid "CongratulationWindow/titleLbl"
+msgstr "New Direction Opened"
+
+msgid "DemountBuilding/applyButton/label"
+msgstr "Demolish"
+
+msgid "DemountBuilding/cancelButton/label"
+msgstr "Cancel"
+
+msgid "DemountBuilding/errorMessage"
+msgstr "You have entered incorrect information."
+
+msgid "DemountBuilding/generalText/body"
+msgstr ""
+"You %(bodyInnerText)s all prepared Reserves and Industrial Resource "
+"accumulated in the structure. The structure will be rebuilt from the "
+"foundation."
+
+msgid "DemountBuilding/generalText/bodyInnerText"
+msgstr "will irrevocably lose"
+
+msgid "DemountBuilding/generalText/title"
+msgstr "Demolish structure %(buildingName)s of Level %(buildingLevel)s?"
+
+msgid "DemountBuilding/question/body"
+msgstr ""
+"To complete this action, enter the exact value displayed in the structure "
+"durability bar (%(controlNumber)s)."
+
+msgid "DemountBuilding/question/title"
+msgstr "Structure Demolition"
+
+msgid "DemountBuilding/windowTitle"
+msgstr "%(buildingName)s: Demolition"
+
+msgid "FixedPlayers/header/btnLbl"
+msgstr "Attach to Structure"
+
+msgid "FixedPlayers/header/isAssigned"
+msgstr "You are attached to the structure"
+
+msgid "FixedPlayers/listHeader/fieldAllTime"
+msgstr "%(icon)s Total"
+
+msgid "FixedPlayers/listHeader/fieldName"
+msgstr "Name"
+
+msgid "FixedPlayers/listHeader/fieldRole"
+msgstr "Position"
+
+msgid "FixedPlayers/listHeader/fieldWeek"
+msgstr "%(icon)s Week"
+
+msgid "FixedPlayers/windowTitle"
+msgstr "%(buildingName)s: Garrison"
+
+msgid "FortClanListWindow/title"
+msgstr "Clan Members of %(clanName)s"
+
+msgid "FortClanStatisticsWindow/sortie/battlesHeader"
+msgstr "Battles by Division"
+
+msgid "FortClanStatisticsWindow/title"
+msgstr "Statistics of Clan %(clanName)s"
+
+msgid "FortDirectionsWindow/button/closeDirection"
+msgstr "Close"
+
+msgid "FortDirectionsWindow/button/newDirection"
+msgstr "New Direction"
+
+msgid "FortDirectionsWindow/button/newDirection/tooltip/disabled"
+msgstr "Open new Direction"
+
+msgid "FortDirectionsWindow/button/newDirection/tooltip/disabled/descr"
+msgstr "At least %(count)d clan members required to open a Direction."
+
+msgid "FortDirectionsWindow/button/newDirection/tooltip/enabled"
+msgstr "Open new Direction"
+
+msgid "FortDirectionsWindow/button/newDirection/tooltip/enabled/descr"
+msgstr ""
+"Direction allows the building of new structures and establishment of "
+"bridgeheads for attacks on enemy Strongholds. Make sure that each Direction "
+"is protected during Defense Hour."
+
+msgid "FortDirectionsWindow/descr/completed"
+msgstr ""
+"Congratulations!\n"
+"You have opened the maximum number of Directions."
+
+msgid "FortDirectionsWindow/descr/requirements"
+msgstr "To open a new Direction, at least %(count)s clan members are required."
+
+msgid "FortDirectionsWindow/label/noBuildings"
+msgstr "No structures"
+
+msgid "FortDirectionsWindow/label/notOpened"
+msgstr "Not open"
+
+msgid "FortDirectionsWindow/label/openedDirections"
+msgstr "Directions open:"
+
+msgid "FortDirectionsWindow/title"
+msgstr "Direction Control"
+
+msgid "FortIntelligence/additionalText/comingSoon"
+msgstr "Coming soon"
+
+msgid "FortIntelligence/bottomBlock/body"
+msgstr ""
+"Your Stronghold can be attacked too. Mobilize your Reserves and be on your "
+"guard when the time comes to repel the enemy."
+
+msgid "FortIntelligence/bottomBlock/header"
+msgstr "Defense"
+
+msgid "FortIntelligence/headerBlock/body"
+msgstr ""
+"Strongholds of Level V or higher get access to intelligence data, which can "
+"help the clan to locate an enemy and launch an attack."
+
+msgid "FortIntelligence/headerBlock/header"
+msgstr "Intelligence Data"
+
+msgid "FortIntelligence/middleBlock/body"
+msgstr ""
+"Victory in Battle for Stronghold of your enemy will earn more plunder than "
+"Skirmishes, and will also benefit the reputation of the clan."
+
+msgid "FortIntelligence/middleBlock/header"
+msgstr "Attack"
+
+msgid "FortIntelligence/topBlock/body"
+msgstr ""
+"Examine Strongholds of enemy clans to choose a suitable target for attack. "
+"Keep in mind that others can also locate your Stronghold."
+
+msgid "FortIntelligence/topBlock/header"
+msgstr "Recon"
+
+msgid "FortIntelligence/windowTitle"
+msgstr "Stronghold"
+
+msgid "FortMainView/common/title"
+msgstr "  "
+
+msgid "FortMainView/common/totalDepotQuantityText"
+msgstr "In all storages: "
+
+msgid "FortMainView/commonTutor/title"
+msgstr "Step 2 of 3. Lay the foundation of your first structure."
+
+msgid "FortMainView/directions/selectingStatus"
+msgstr ""
+"Choose a Direction to create a bridgehead. You can control Directions from "
+"the Command Center."
+
+msgid "FortMainView/directions/title"
+msgstr "Direction Opening Mode"
+
+msgid "FortMainView/directionsTutor/title"
+msgstr "Step 1 of 3. Choose a Direction you wish to open."
+
+msgid "FortMainView/header/levelsLbl"
+msgstr "Level %(buildLevel)s"
+
+msgid "FortMainView/intelligenceButton/title"
+msgstr "Intelligence Data"
+
+msgid "FortMainView/leave/button/label"
+msgstr "Exit Mode"
+
+msgid "FortMainView/sortieButton/title"
+msgstr "Skirmishes"
+
+msgid "FortMainView/transporting/exportingStatus"
+msgstr ""
+"Choose the structure which from Industrial Resource will be transported."
+
+msgid "FortMainView/transporting/importingStatus"
+msgstr "Choose the structure to which Industrial Resource will be transported."
+
+msgid "FortMainView/transporting/title"
+msgstr "Transportation Mode"
+
+msgid "FortMainView/transporting/tutorialDescr"
+msgstr ""
+"To complete building of your first structure, enter Transportation mode."
+
+msgid "FortMainView/transporting/tutorialDescrDisabled"
+msgstr "Transportation is unavailable now."
+
+msgid "FortMainView/transportingTutor/title"
+msgstr "Step 3 of 3. Fill storage of the structure with Industrial Resource."
+
+msgid "FortTransportConfirmationWindow/cancelButton"
+msgstr "Cancel"
+
+msgid "FortTransportConfirmationWindow/maxTransportingSizeLabel"
+msgstr "Maximum capacity: "
+
+msgid "FortTransportConfirmationWindow/title"
+msgstr "Confirm Transportation"
+
+msgid "FortTransportConfirmationWindow/transportButton"
+msgstr "Transport"
+
+msgid "FortTransportConfirmationWindow/transportingFooterText"
+msgstr ""
+"Transport unloading\n"
+"will take %(estimatedTime)s."
+
+msgid "FortTransportConfirmationWindow/transportingText"
+msgstr "Transport:"
+
+msgid "FortWelcomeCommanderView/button/label"
+msgstr "Open Direction"
+
+msgid "FortWelcomeCommanderView/option1/descr"
+msgstr ""
+"Open a Direction and build your first structure there. Reserves requested "
+"from structures provide significant advantages to the clan in battles."
+
+msgid "FortWelcomeCommanderView/option1/title"
+msgstr "Basics"
+
+msgid "FortWelcomeCommanderView/option2/descr"
+msgstr ""
+"Each structure is assigned a garrison of clan members. Garrisons serve as a "
+"basis for creating detachments, which earn Industrial Resource in "
+"Skirmishes. Clan members will earn Industrial Resource for the structure "
+"they are attached to."
+
+msgid "FortWelcomeCommanderView/option2/title"
+msgstr "Resource Hunters"
+
+msgid "FortWelcomeCommanderView/option3/descr"
+msgstr ""
+"Industrial Resource earned in Skirmishes can be used to request Reserves. "
+"Once a Reserve is activated, it lasts for a limited time and affects all "
+"clan members. Reserve efficiency increases with structure level."
+
+msgid "FortWelcomeCommanderView/option3/title"
+msgstr "Reserves Requisition"
+
+msgid "FortWelcomeCommanderView/title"
+msgstr "Open Direction"
+
+msgid "FortWelcomeView/bonuses/body"
+msgstr ""
+"Accumulate resources to upgrade structures\n"
+"and request Reserves, which can turn\n"
+"the tide of a desperate battle."
+
+msgid "FortWelcomeView/bonuses/title"
+msgstr "Advantages in Battle"
+
+msgid "FortWelcomeView/buildingAndUpgrading/body"
+msgstr ""
+"Create impenetrable defenses\n"
+"with unique structures\n"
+"and repel any enemy clan."
+
+msgid "FortWelcomeView/buildingAndUpgrading/title"
+msgstr "Clan Fortress"
+
+msgid "FortWelcomeView/clanCreate"
+msgstr "<a href='event:create'>Create a clan</a>"
+
+msgid "FortWelcomeView/clanSearch"
+msgstr "<a href='event:search'>Find a clan</a>"
+
+msgid "FortWelcomeView/createFortBtn"
+msgstr "Create Stronghold"
+
+msgid "FortWelcomeView/hyperlink/more"
+msgstr "<a href='event:detail'>Details about Strongholds</a>"
+
+msgid "FortWelcomeView/requirementClan"
+msgstr ""
+"Only clans can own Strongholds.\n"
+"You are not yet a member of any clan."
+
+msgid "FortWelcomeView/requirementCommander"
+msgstr ""
+"Stronghold can be created only by the Commander\n"
+"of the clan "
+
+msgid "FortWelcomeView/title"
+msgstr "Welcome to the Stronghold!"
+
+msgid "FortWelcomeView/warForResources/body"
+msgstr ""
+"Declare war on other clans and attack their Strongholds to requisition "
+"Industrial Resource."
+
+msgid "FortWelcomeView/warForResources/title"
+msgstr "War for Resources"
+
+msgid "FortWelcomeView/warning"
+msgstr "At least %(minClanSize)d clan members required."
+
+msgid "General/direction"
+msgstr "Direction %(value)s"
+
+msgid "General/directionName1"
+msgstr "Alpha"
+
+msgid "General/directionName2"
+msgstr "Bravo"
+
+msgid "General/directionName3"
+msgstr "Charlie"
+
+msgid "General/directionName4"
+msgstr "Delta"
+
+msgid "General/orderType/additionalBriefing"
+msgstr "Additional Briefing"
+
+msgid "General/orderType/battlePayments"
+msgstr "Battle Payments"
+
+msgid "General/orderType/evacuation"
+msgstr "Evacuation"
+
+msgid "General/orderType/heavyTrucks"
+msgstr "High-Capacity Transport"
+
+msgid "General/orderType/militaryManeuvers"
+msgstr "Military Maneuvers"
+
+msgid "General/orderType/requisition"
+msgstr "Requisition"
+
+msgid "General/orderType/tacticalTraining"
+msgstr "Tactical Training"
+
+msgid "Modernization/applyButton/label"
+msgstr "Upgrade"
+
+msgid "Modernization/cancelButton/label"
+msgstr "Cancel"
+
+msgid "Modernization/conditions/defencePeriod"
+msgstr "Condition: Defense Hour activated"
+
+msgid "Modernization/conditions/fortMaxLevel"
+msgstr "Maximum level of Command Center in the current update reached."
+
+msgid "Modernization/conditions/generalCondition"
+msgstr "Condition: Level %(level)s Command Center"
+
+msgid "Modernization/conditions/notFulfilled"
+msgstr " (not met)"
+
+msgid "Modernization/modernizationInfo/afterLabel"
+msgstr "After upgrade:"
+
+msgid "Modernization/modernizationInfo/beforeLabel"
+msgstr "Current condition:"
+
+msgid "Modernization/modernizationInfo/countCost"
+msgstr "Upgrade cost:"
+
+msgid "Modernization/windowTitle"
+msgstr "%(buildingName)s: Upgrade"
+
+msgid "Orders/orderConfirmationWindow/cost"
+msgstr "Cost:"
+
+msgid "Orders/orderConfirmationWindow/preparationTime"
+msgstr "Preparation time:"
+
+msgid "Orders/orderPopover/durationTime"
+msgstr "Duration"
+
+msgid "Orders/orderPopover/inDefensive"
+msgstr "Defense Hour"
+
+msgid "Orders/orderPopover/levelsLbl"
+msgstr "Level %(orderLevel)s Reserve"
+
+msgid "Orders/orderPopover/notAvailable"
+msgstr "Not available"
+
+msgid "Orders/orderPopover/orderNotReady"
+msgstr "Structure required to prepare Reserve: %(building)s."
+
+msgid "Orders/orderPopover/orderPrice"
+msgstr "Cost"
+
+msgid "Orders/orderPopover/orderType/additionalBriefing"
+msgstr "Additional Briefing"
+
+msgid "Orders/orderPopover/orderType/battlePayments"
+msgstr "Battle Payments"
+
+msgid "Orders/orderPopover/orderType/evacuation"
+msgstr "Evacuation"
+
+msgid "Orders/orderPopover/orderType/heavyTrucks"
+msgstr "High-Capacity Transport"
+
+msgid "Orders/orderPopover/orderType/militaryManeuvers"
+msgstr "Military Maneuvers"
+
+msgid "Orders/orderPopover/orderType/requisition"
+msgstr "Requisition"
+
+msgid "Orders/orderPopover/orderType/tacticalTraining"
+msgstr "Tactical Training"
+
+msgid "Orders/orderPopover/producedAmount"
+msgstr "Prepared"
+
+msgid "Orders/orderPopover/productionBuilding"
+msgstr "Required structure"
+
+msgid "Orders/orderPopover/productionTime"
+msgstr "Preparation time"
+
+msgid "Orders/orderPopover/useOrder"
+msgstr "Use Reserve"
+
+msgid "Time/timeValue/days"
+msgstr "%d d"
+
+msgid "Time/timeValue/hours"
+msgstr "%H h %M min"
+
+msgid "Time/timeValue/lessMin"
+msgstr "less than a minute"
+
+msgid "Time/timeValue/min"
+msgstr "%M min"
+
+msgid "clanStats/params/sortie/avgDefres/label"
+msgstr "Average amount of plunder"
+
+msgid "clanStats/params/sortie/avgDefres/tooltip/body"
+msgstr "Ratio of total Industrial Resource earned to total Skirmishes"
+
+msgid "clanStats/params/sortie/avgDefres/tooltip/header"
+msgstr "Average Amount of Plunder"
+
+msgid "clanStats/params/sortie/battles/absoluteBattlesCount/label"
+msgstr "Absolute level"
+
+msgid "clanStats/params/sortie/battles/championBattlesCount/label"
+msgstr "Champion level"
+
+msgid "clanStats/params/sortie/battles/middleBattlesCount/label"
+msgstr "Medium level"
+
+msgid "clanStats/params/sortie/battlesCount/label"
+msgstr "Skirmishes"
+
+msgid "clanStats/params/sortie/battlesCount/tooltip/body"
+msgstr ""
+"Total number of Skirmishes, of which:\n"
+"• Victories: %(wins)s\n"
+"• Defeats: %(defeats)s\n"
+"• Draws: %(draws)s"
+
+msgid "clanStats/params/sortie/battlesCount/tooltip/header"
+msgstr "Skirmishes"
+
+msgid "clanStats/params/sortie/defres/lootInSorties/label"
+msgstr "Total amount of Industrial Resource earned in Skirmishes"
+
+msgid "clanStats/params/sortie/wins/label"
+msgstr "Victories in Skirmishes"
+
+msgid "clanStats/params/sortie/wins/tooltip/body"
+msgstr "Total percent of victories in Skirmishes"
+
+msgid "clanStats/params/sortie/wins/tooltip/header"
+msgstr "Victories in Skirmishes"
+
+msgid "disconnected/Warning"
+msgstr "Attention!"
+
+msgid "disconnected/WarningDescriptionCenterUnavailable"
+msgstr "Stronghold is temporarily unavailable. Try again later."
+
+msgid "disconnected/WarningDescriptionRoaming"
+msgstr ""
+"Stronghold is unavailable in roaming. To get access to Stronghold, go to "
+"your region."
+
+msgid "fortification/clan/position/commander"
+msgstr "Field Commander"
+
+msgid "fortification/clan/position/diplomat"
+msgstr "Diplomat"
+
+msgid "fortification/clan/position/leader"
+msgstr "Commander"
+
+msgid "fortification/clan/position/private"
+msgstr "Soldier"
+
+msgid "fortification/clan/position/recruit"
+msgstr "Recruit"
+
+msgid "fortification/clan/position/recruiter"
+msgstr "Recruiter"
+
+msgid "fortification/clan/position/treasurer"
+msgstr "Treasurer"
+
+msgid "fortification/clan/position/vice_leader"
+msgstr "Deputy Commander"
+
+msgid "sortie/division_name/ABSOLUTE"
+msgstr "Absolute"
+
+msgid "sortie/division_name/ALL"
+msgstr "All divisions"
+
+msgid "sortie/division_name/CHAMPION"
+msgstr "Champion"
+
+msgid "sortie/division_name/MIDDLE"
+msgstr "Medium"
+
+msgid "sortie/introView/descr"
+msgstr ""
+"To upgrade your Stronghold and prepare Reserves, you must spend Industrial "
+"Resource. Earn it in Skirmishes or Battles for Strongholds of enemy clans."
+
+msgid "sortie/introView/fortBattles/btnLabel"
+msgstr "Engage"
+
+msgid "sortie/introView/fortBattles/btnTitle"
+msgstr "Coming Soon"
+
+msgid "sortie/introView/fortBattles/descr"
+msgstr ""
+"Battle with the chosen enemy clan on the territory of their Stronghold."
+
+msgid "sortie/introView/fortBattles/title"
+msgstr "Battles for Stronghold"
+
+msgid "sortie/introView/sortie/btnTitle"
+msgstr "Detachments"
+
+msgid "sortie/introView/sortie/descr"
+msgstr "Battle with a random enemy clan on neutral territory."
+
+msgid "sortie/introView/sortie/title"
+msgstr "Skirmishes"
+
+msgid "sortie/introView/title"
+msgstr "Strongholds: Battles"
+
+msgid "sortie/listView/create"
+msgstr "Create Detachment"
+
+msgid "sortie/listView/description"
+msgstr ""
+"Earn Industrial Resource in battles with random enemy clans on neutral "
+"territory to upgrade your Stronghold."
+
+msgid "sortie/listView/enterBtn"
+msgstr "Join"
+
+msgid "sortie/listView/enterText"
+msgstr "You can join as a volunteer"
+
+msgid "sortie/listView/filter"
+msgstr "Display:"
+
+msgid "sortie/listView/listColumns/division"
+msgstr "Division"
+
+msgid "sortie/listView/listColumns/membersCount"
+msgstr "Members"
+
+msgid "sortie/listView/listColumns/name"
+msgstr "Name"
+
+msgid "sortie/listView/listTitle"
+msgstr "Detachments created"
+
+msgid "sortie/listView/notSelected"
+msgstr ""
+"Select a detachment from the list on the left\n"
+"to see the detailed description."
+
+msgid "sortie/listView/selectedTeam"
+msgstr "Detachment"
+
+msgid "sortie/listView/teamMembers"
+msgstr "Members: %(current)s / %(max)s"
+
+msgid "sortie/listView/teamVehicles"
+msgstr "Vehicles: %(values)s"
+
+msgid "sortie/listView/teamVehiclesStub"
+msgstr "Vehicles:"
+
+msgid "sortie/listView/title"
+msgstr "Skirmishes"
+
+msgid "sortie/room/candidates"
+msgstr "Queue"
+
+msgid "sortie/room/changeDivision"
+msgstr "Change"
+
+msgid "sortie/room/chat"
+msgstr "Chat channel"
+
+msgid "sortie/room/description"
+msgstr ""
+"Created detachment fights a battle with a random enemy clan on neutral "
+"territory. Vehicle tier is determined by the division selected."
+
+msgid "sortie/room/division"
+msgstr "Division: "
+
+msgid "sortie/room/fight"
+msgstr "Battle!"
+
+msgid "sortie/room/inviteBtn"
+msgstr "Invite Clan Members"
+
+msgid "sortie/room/inviteFriends"
+msgstr "Invite Clan Members"
+
+msgid "sortie/room/leaveBtn"
+msgstr "Leave Detachment"
+
+msgid "sortie/room/members"
+msgstr "Members"
+
+msgid "sortie/room/message/candidate"
+msgstr "You are not in the detachment."
+
+msgid "sortie/room/message/candidate/invalidVehicles"
+msgstr "Your vehicles do not comply with the Commander's requirements."
+
+msgid "sortie/room/message/candidate/lockedUnits"
+msgstr "Please wait. The Commander is selecting detachment members."
+
+msgid "sortie/room/message/candidate/unitIsFull"
+msgstr "Unable to join the detachment. No available slots."
+
+msgid "sortie/room/message/getReady"
+msgstr "Confirm readiness to join the battle."
+
+msgid "sortie/room/message/levelError"
+msgstr "Total tier of vehicles is exceeded."
+
+msgid "sortie/room/message/noVehicle"
+msgstr "Vehicles not selected"
+
+msgid "sortie/room/message/notFullUnit"
+msgstr "Incomplete detachment"
+
+msgid "sortie/room/message/openSlots/levelError"
+msgstr "Total tier of vehicles is exceeded while some slots are available."
+
+msgid "sortie/room/message/ready"
+msgstr "All members ready"
+
+msgid "sortie/room/message/vehicleInNotReady"
+msgstr "Vehicle not ready for battle"
+
+msgid "sortie/room/message/waiting"
+msgstr "Waiting for players…"
+
+msgid "sortie/room/notReady"
+msgstr "Not ready"
+
+msgid "sortie/room/ready"
+msgstr "Ready!"
+
+msgid "sortie/room/rosterListTitle"
+msgstr "Detachment Members"
+
+msgid "sortie/room/title"
+msgstr "Detachment"
+
+msgid "sortie/room/vehicles"
+msgstr "Vehicles"
+
+msgid "sortie/slot/emptySlot"
+msgstr "Empty slot"
+
+msgid "sortie/slot/takePlace"
+msgstr "Join"
+
+msgid "sortie/vehicleSelector/description"
+msgstr ""
+"Select a vehicle to engage in Skirmish. Red indicator marks vehicles not "
+"ready for battle."
