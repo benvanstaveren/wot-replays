@@ -52,7 +52,7 @@ div.grid-letters {
 }
 
 @mixin mapimage($map) {
-    background: transparent url(#{$image_base}/maps/768/#{$map}) no-repeat scroll center center;
+    background: transparent url(#{$image_base}/maps/768/#{$map}.png) no-repeat scroll center center;
 }
 
 
