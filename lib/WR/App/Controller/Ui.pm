@@ -103,6 +103,7 @@ sub nginx_post_action {
     my $self = shift;
     my $file = $self->req->param('f');
     my $stat = $self->req->param('s');
+    my $ip   = $self->req->param('i');
 
     $self->render_later;
     if(defined($stat) && lc($stat) eq 'ok') {
@@ -117,7 +118,7 @@ sub nginx_post_action {
                 my ($c, $e, $d) = (@_);
 
                 if(defined($d)) {
-                    $self->_piwik_track_download($file => sub {
+                    $self->_piwik_track_download($file => $i => sub {
                         $self->app->thunderpush->send_to_channel('site' => Mojo::JSON->new->encode({ evt => 'replay.download', data => { id => $d->{_id} . '' } }) => sub {
                             my ($p, $r) = (@_);
                             $self->render(text => 'OK');
@@ -136,6 +137,7 @@ sub nginx_post_action {
 sub _piwik_track_download {
     my $self = shift;
     my $file = shift;
+    my $ip   = shift;
     my $cb   = shift;
 
     $self->ua->get($self->get_config('piwik.url') => form => {
@@ -146,6 +148,7 @@ sub _piwik_track_download {
         action_name     => 'Replay/Download',
         apiv            => 1,
         download        => sprintf('http://www.wotreplays.org/download/%s', $file),
+        cip             => $ip, 
     } => $cb);
 }
 
