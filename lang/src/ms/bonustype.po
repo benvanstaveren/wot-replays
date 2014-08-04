@@ -4,6 +4,12 @@ msgstr "Pertempuran Rawak"
 msgid "bonustype.1.short"
 msgstr "Rawak"
 
+msgid "bonustype.10"
+msgstr "Pertempuran Pertarungan"
+
+msgid "bonustype.10.short"
+msgstr "Pertarungan"
+
 msgid "bonustype.2"
 msgstr "Pertempuran Bilik Latihan"
 

@@ -118,7 +118,7 @@ sub nginx_post_action {
                 my ($c, $e, $d) = (@_);
 
                 if(defined($d)) {
-                    $self->_piwik_track_download($file => $i => sub {
+                    $self->_piwik_track_download($file => $ip => sub {
                         $self->app->thunderpush->send_to_channel('site' => Mojo::JSON->new->encode({ evt => 'replay.download', data => { id => $d->{_id} . '' } }) => sub {
                             my ($p, $r) = (@_);
                             $self->render(text => 'OK');

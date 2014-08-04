@@ -28,6 +28,9 @@ msgstr "Pemain"
 msgid "nav.profile.header"
 msgstr "Profil Anda"
 
+msgid "nav.profile.link"
+msgstr "Kaitkan Akaun"
+
 msgid "nav.profile.replays"
 msgstr "Rakaman"
 

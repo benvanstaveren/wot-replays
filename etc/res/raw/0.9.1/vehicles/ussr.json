@@ -1,4 +1,3 @@
-file: /home/ben/wot-install/res/scripts/item_defs/vehicles/ussr/list.xmlnode: list.xml
 {
    "IS-4" : {
       "userString" : "#ussr_vehicles:IS-4",

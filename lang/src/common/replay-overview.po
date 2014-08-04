@@ -122,7 +122,7 @@ msgid "replays.overview.battleperformance.critdetail.title"
 msgstr "Critical Hit Details"
 
 msgid "replays.overview.battleperformance.damage"
-msgstr "Player did %1 points (%2%) of damage [%0, %1, %2, %3, %4]"
+msgstr "Player did %1 points (%2%) of damage"
 
 msgid "replays.overview.battleperformance.kill"
 msgstr "Player got the killing blow on this enemy"
