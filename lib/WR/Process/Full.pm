@@ -25,11 +25,11 @@ has [qw/config job log/] => undef;
 
 has 'mango'         => sub {
     my $self = shift;
-    return Mango->new($self->config->{mongodb}->{host});
+    return Mango->new($self->config->get('mongodb.host'));
 };
     
-has 'banner_path'   => sub { return shift->config->{paths}->{banners} };
-has 'packet_path'   => sub { return shift->config->{paths}->{packets} };
+has 'banner_path'   => sub { return shift->config->get('paths.banners') };
+has 'packet_path'   => sub { return shift->config->get('paths.packets') };
 has 'banner'        => 1;
 
 has 'packets'       => sub { [] };
@@ -41,7 +41,7 @@ has [qw/_components _consumables _maps _vehicles/] => undef;
 
 has 'push'          => sub {
     my $self = shift;
-    return WR::Thunderpush::Server->new(host => 'push.wotreplays.org', secret => $self->config->{thunderpush}->{secret}, key => $self->config->{thunderpush}->{key});
+    return WR::Thunderpush::Server->new(host => 'push.wotreplays.org', secret => $self->config->get('thunderpush.secret'), key => $self->config->get('thunderpush.key'));
 };
 
 
@@ -398,12 +398,12 @@ sub _with_battle_result {
             $self->_fix_replay_junk($replay);
 
             # this really oughta move into the stream events
-            if($replay->get('game.version_numeric') < $self->config->{wot}->{min_version}) {
+            if($replay->get('game.version_numeric') < $self->config->get('wot.min_version')) {
                 $self->job->unlink;
                 $self->job->set_error('That replay is from an older version of World of Tanks which we cannot process...' => sub {
                     return $cb->($self, undef, 'That replay is from an older version of World of tanks which we cannot process...');
                 });
-            } elsif($replay->get('game.version_numeric') > $self->config->{wot}->{version_numeric}) {
+            } elsif($replay->get('game.version_numeric') > $self->config->get('wot.version_numeric')) {
                 $self->job->unlink;
                 $self->job->set_error('That replay is from a newer version of World of Tanks which we cannot process...' => sub {
                     return $cb->($self, undef, 'That replay is from a newer version of World of tanks which we cannot process...');
@@ -716,7 +716,7 @@ sub _wn8_all {
 
     $self->debug('[WN8:ALL]: getting wn8 for all players except recorder');
     if(my $tx = $self->ua->post('http://api.statterbox.com/wot/account/wn8' => form => {
-        application_id  => $self->config->{'statterbox'}->{server},
+        application_id  => $self->config->get('statterbox.server'),
         account_id      => $account_id,
         cluster         => $self->fix_server($replay->get('game.server')),
     })) {
@@ -767,7 +767,7 @@ sub _wn8_recorder {
 
     $self->debug('[WN8.RECORDER]: getting wn8 for recorder');
     if(my $tx = $self->ua->post('http://api.statterbox.com/wot/account/wn8' => form => {
-        application_id  => $self->config->{'statterbox'}->{server},
+        application_id  => $self->config->get('statterbox.server'),
         account_id      => $replay->get('game.recorder.account_id'),
         cluster         => $self->fix_server($replay->get('game.server')),
     })) {
@@ -806,7 +806,7 @@ sub _wn8_battle {
     $self->debug('[WN8.BATTLE]: getting wn8 for battle');
     my $entry = $replay->get('roster')->[ $replay->get('players')->{$replay->get('game.recorder.name')} ];
     my $battle_url = sprintf('http://api.statterbox.com/util/calc/wn8?application_id=%s&t=%d&frags=%d&damage=%d&spots=%d&defense=%d',
-        $self->config->{'statterbox'}->{server},
+        $self->config->get('statterbox.server'),
         $entry->{vehicle}->{typecomp},
         $replay->get('stats.kills') + 0,
         $replay->get('stats.damageDealt') + 0,

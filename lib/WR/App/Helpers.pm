@@ -62,6 +62,13 @@ sub install {
     my $class = shift;
     my $self  = shift; # not really self but the Mojo app
 
+    $self->helper('get_config' => sub {
+        my $self = shift;
+        my $path = shift;
+
+        return $self->app->_tconfig->get($path);
+    });
+
     $self->helper(notification_valid => sub {
         my $self = shift;
         my $n    = shift;
@@ -380,7 +387,7 @@ sub install {
             $version = $self->wot_version_string_to_numeric($version);
         }
 
-        my $v = ($version < $self->config->{wot}->{version_numeric}) ? 1 : 0;
+        my $v = ($version < $self->get_config('wot.version_numeric')) ? 1 : 0;
         return $v;
     });
 

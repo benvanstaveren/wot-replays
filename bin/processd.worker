@@ -6,6 +6,7 @@ use FindBin;
 use lib "$FindBin::Bin/../lib";
 use Getopt::Long;
 use WR::Daemon::Process::Worker;
+use WR::Util::HashTable;Z
 
 my $config      = {};
 my $cfile       = undef;
@@ -25,9 +26,9 @@ if(my $fh = IO::File->new($cfile)) {
     $craw .= $_ while(<$fh>);
     $fh->close;
 
-    $config = eval($craw);
-
+    my $tconfig = eval($craw);
     die 'Error parsing configuration: ', $@, "\n" if($@);
+    $config = WR::Util::HashTable->new(data => $tconfig);
 } else {
     die 'Could not open configuration file "', $cfile, '": ', $!, "\n";
 }

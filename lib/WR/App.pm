@@ -12,12 +12,11 @@ use WR;
 use WR::Res;
 use WR::Query;
 use WR::Util::QuickDB;
+use WR::Util::HashTable;
 use Time::HiRes qw/gettimeofday/;
 
 use WR::App::Helpers;
 use WR::App::Routes;
-
-$Template::Stash::PRIVATE = undef;
 
 # This method will run once at server start
 sub startup {
@@ -31,6 +30,12 @@ sub startup {
     
     $self->secrets([ $config->{secrets}->{app} ]);
     $config->{wot}->{bf_key} = join('', map { chr(hex($_)) } (split(/\s/, $config->{wot}->{bf_key})));
+
+   
+    $self->attr('_tconfig' => sub { 
+        my $self = shift;
+        return WR::Util::HashTable->new(data => $config);
+    });
 
     # the session cookie stays for a year
     $self->sessions->default_expiration(86400 * 365); 
@@ -141,6 +146,9 @@ sub startup {
             $c->debug('request to host: ', $host);
         }
     });
+
+    warn 'using piwik url: ', $self->get_config('piwik.url'), "\n"; 
+
 }
 
 1;

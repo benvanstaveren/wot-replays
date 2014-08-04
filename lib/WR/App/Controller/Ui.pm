@@ -115,11 +115,13 @@ sub nginx_post_action {
                 update  =>  { '$inc' => { 'site.downloads' => 1 } },
             } => sub {
                 my ($c, $e, $d) = (@_);
-                
+
                 if(defined($d)) {
-                    $self->app->thunderpush->send_to_channel('site' => Mojo::JSON->new->encode({ evt => 'replay.download', data => { id => $d->{_id} . '' } }) => sub {
-                        my ($p, $r) = (@_);
-                        $self->render(text => 'OK');
+                    $self->_piwik_track_download($file => sub {
+                        $self->app->thunderpush->send_to_channel('site' => Mojo::JSON->new->encode({ evt => 'replay.download', data => { id => $d->{_id} . '' } }) => sub {
+                            my ($p, $r) = (@_);
+                            $self->render(text => 'OK');
+                        });
                     });
                 } else {
                     $self->render(text => 'OK');
@@ -129,6 +131,22 @@ sub nginx_post_action {
     } else {
         $self->render(text => 'OK');
     }
+}
+
+sub _piwik_track_download {
+    my $self = shift;
+    my $file = shift;
+    my $cb   = shift;
+
+    $self->ua->get($self->get_config('piwik.url') => form => {
+        idsite          => 1,
+        token_auth      => $self->get_config('piwik.token_auth'),
+        rec             => 1,
+        url             => sprintf('http://www.wotreplays.org/download/%s', $file),
+        action_name     => 'Replay/Download',
+        apiv            => 1,
+        download        => sprintf('http://www.wotreplays.org/download/%s', $file),
+    } => $cb);
 }
 
 sub xhr_qs {

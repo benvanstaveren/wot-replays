@@ -13,9 +13,9 @@ has 'log'               => sub {
     my $self = shift;
     my $log;
 
-    if(my $lf = $self->config->{processd}->{master}->{logfile} && !$self->log_stdout) {
-        $lf = sprintf('%s/../%s', $FindBin::Bin, $self->config->{processd}->{logfile}) if($lf !~ /^\//);
-        $log = Mojo::Log->new(path => $lf, level => $self->config->{processd}->{master}->{loglevel} || 'warn');
+    if(my $lf = $self->config->get('processd.master.logfile') && !$self->log_stdout) {
+        $lf = sprintf('%s/../%s', $FindBin::Bin, $self->config->get('processd.master.logfile')) if($lf !~ /^\//);
+        $log = Mojo::Log->new(path => $lf, level => $self->config->get('processd.master.loglevel') || 'warn');
     } else {
         $log = Mojo::Log->new(level => 'debug');
     }
@@ -24,18 +24,18 @@ has 'log'               => sub {
 
 has 'log_stdout'        => undef;
 has 'pause_work'        => 0;
-has 'cfile'             => sub { return sprintf('%s/%s', $FindBin::Bin, shift->config->{processd}->{worker}->{configfile}) }; # a bit over the top maybe but ...
+has 'cfile'             => sub { return sprintf('%s/%s', $FindBin::Bin, shift->config->get('processd.worker.configfile')) }; # a bit over the top maybe but ...
 
 has 'last_work_reload'  => 0;
 
 has 'mango'             => sub { 
     my $self = shift;
-    return Mango->new($self->config->{mongodb}->{host});
+    return Mango->new($self->config->get('mongodb.host'));
 };
 
 has 'db'                => sub {
     my $self = shift;
-    return $self->mango->db($self->config->{mongodb}->{database});
+    return $self->mango->db($self->config->get('mongodb.database'));
 };
 has 'workers'           =>  2;
 has 'children'          =>  sub { {} };
@@ -259,8 +259,8 @@ sub start {
     $self->push(
         WR::Thunderpush::Client->new(
             host        => 'push.wotreplays.org',
-            key         => $self->config->{thunderpush}->{key}, 
-            secret      => $self->config->{thunderpush}->{secret},
+            key         => $self->config->get('thunderpush.key'),
+            secret      => $self->config->get('thunderpush.secret'),
             user        => 'processd.master',
             channels    => ['site'],
         )

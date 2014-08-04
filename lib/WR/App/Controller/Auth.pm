@@ -11,7 +11,7 @@ sub do_logout {
     # logging out just means we want to jack up the session cookie
     my $url = 'http://api.statterbox.com/wot/auth/logout';
     my $form = {
-        application_id  => $self->config->{statterbox}->{server},
+        application_id  => $self->get_config('statterbox.server'),
         cluster         => $self->fix_server($self->current_user->{player_server}),
         access_token    => $self->current_user->{access_token},
     };
@@ -41,7 +41,7 @@ sub do_link {
 
         my $url = 'http://api.statterbox.com/wot/auth/login';
         my $form = {
-            application_id => $self->config->{statterbox}->{server},
+            application_id => $self->get_config('statterbox.server'),
             cluster        => $s,
             nofollow       => 1,
             redirect_uri   => sprintf('%s/openid/return/link', $self->req->url->base),
@@ -98,7 +98,7 @@ sub do_login {
 
         my $url = 'http://api.statterbox.com/wot/auth/login';
         my $form = {
-            application_id => $self->config->{statterbox}->{server},
+            application_id => $self->get_config('statterbox.server'),
             cluster        => $s,
             nofollow       => 1,
             redirect_uri   => sprintf('%s/openid/return/default', $self->req->url->base),

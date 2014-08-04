@@ -10,7 +10,7 @@ has 'job'           => undef;
 has 'log'           => undef;
 
 has 'file'          => sub { shift->job->data->{file} };
-has 'bf_key'        => sub { return join('', map { chr(hex($_)) } (split(/\s/, shift->config->{wot}->{bf_key}))) };
+has 'bf_key'        => sub { return join('', map { chr(hex($_)) } (split(/\s/, shift->config->get('wot.bf_key')))) };
 
 sub _log {
     my $self = shift;

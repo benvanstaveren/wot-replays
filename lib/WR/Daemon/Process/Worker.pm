@@ -16,9 +16,9 @@ has 'log'               => sub {
     my $self = shift;
     my $log;
 
-    if(my $lf = $self->config->{processd}->{worker}->{logfile} && !$self->log_stdout) {
-        $lf = sprintf('%s/../%s', $FindBin::Bin, $self->config->{processd}->{worker}->{logfile}) if($lf !~ /^\//);
-        $log = Mojo::Log->new(path => $lf, level => $self->config->{processd}->{worker}->{loglevel} || 'warn');
+    if(my $lf = $self->config->get('processd.worker.logfile') && !$self->log_stdout) {
+        $lf = sprintf('%s/../%s', $FindBin::Bin, $self->config->get('processd.worker.logfile')) if($lf !~ /^\//);
+        $log = Mojo::Log->new(path => $lf, level => $self->config->get('processd.worker.loglevel') || 'warn');
     } else {
         $log = Mojo::Log->new(level => 'debug');
     }
@@ -29,11 +29,11 @@ has 'job_id'            => undef;
 has 'log_stdout'        => undef;
 has 'mango'             => sub { 
     my $self = shift;
-    return Mango->new($self->config->{mongodb}->{host});
+    return Mango->new($self->config->get('mongodb.host'));
 };
 has 'db'                => sub {
     my $self = shift;
-    return $self->mango->db($self->config->{mongodb}->{database});
+    return $self->mango->db($self->config->get('mongodb.database'));
 };
 
 sub debug   { shift->_log('debug', @_) }

@@ -18,7 +18,7 @@ sub index {
     if(defined($q) && defined($s)) {
         my $url = 'http://api.statterbox.com/wot/account/list';
         my $form = {
-            application_id => $self->config->{statterbox}->{server},
+            application_id => $self->get_config('statterbox.server'),
             cluster        => $s,
             search         => $q,
         };

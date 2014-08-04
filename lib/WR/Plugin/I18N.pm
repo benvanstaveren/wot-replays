@@ -38,8 +38,8 @@ sub register {
     
     $app->log->debug('[I18N]: Using paths: ' . Dumper($g->{'common'}));
 
-    if(defined($app->config->{languages})) {
-        foreach my $language (@{$app->config->{languages}}) {
+    if(defined($app->get_config('languages')) {
+        foreach my $language (@{$app->get_config('languages')}) {
             next if($language->{ident} eq 'en');
             $g->{$language->{ident}} = [ 
                 @{$g->{'common'}}, 
@@ -134,8 +134,6 @@ sub register {
         my $nolc = $self->stash('loc_nolc') || 0;
         my $l    = 'site';  # default localizer "language", here to ensure that anything that doesn't get the #whatever:foo prefix treatment is picked up normally
         my $ostr = $str;
-
-        return $str if(defined($self->config->{loc_disabled}));
 
         $args = [ $args, @_ ] if(ref($args) ne 'ARRAY');
 
