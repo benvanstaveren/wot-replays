@@ -143,8 +143,18 @@ sub settings {
     my $redir_on_load = shift || 0;
     my $zones = DateTime::TimeZone->all_names;
 
+    my $ucid = $self->current_user->{ucid} || [];
+
+    my $linked = [];
+
+    foreach my $entry (@$ucid) {
+        my ($server, $name) = split(/-/, $ucid, 2);
+        push(@$linked, { server => $server, name => $name });
+    }
+
     $self->respond(template => 'profile/settings', stash => {
         page => { title => 'profile.settings.page.title' },
+        linked => $linked,
         timezones => $zones,
     });
 }

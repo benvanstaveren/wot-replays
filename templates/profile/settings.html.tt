@@ -57,7 +57,11 @@
             <div class="panel panel-default">
                 <div class="panel-heading">[% h.loc('profile.settings.linkedaccounts.title') %]</div>
                 <div class="panel-body">
-                    [ linked accounts ]
+                    <ul class="list-group">
+                        [% FOREACH entry IN linked %]
+                            <li class="list-group-item"><span>[% entry.server |uc %]</span> - <span>[% entry.name %]</span></li>
+                        [% END %]
+                    </ul>
                 </div>
             </div>
         </div>
