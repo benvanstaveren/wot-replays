@@ -38,7 +38,7 @@ sub register {
     
     $app->log->debug('[I18N]: Using paths: ' . Dumper($g->{'common'}));
 
-    if(defined($app->get_config('languages')) {
+    if(defined($app->get_config('languages'))) {
         foreach my $language (@{$app->get_config('languages')}) {
             next if($language->{ident} eq 'en');
             $g->{$language->{ident}} = [ 
