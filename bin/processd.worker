@@ -6,7 +6,7 @@ use FindBin;
 use lib "$FindBin::Bin/../lib";
 use Getopt::Long;
 use WR::Daemon::Process::Worker;
-use WR::Util::HashTable;Z
+use WR::Util::HashTable;
 
 my $config      = {};
 my $cfile       = undef;
