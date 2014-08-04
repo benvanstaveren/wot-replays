@@ -59,7 +59,7 @@
                 <div class="panel-body">
                     <ul class="list-group">
                         [% FOREACH entry IN linked %]
-                            <li class="list-group-item"><span>[% entry.server |uc %]</span> - <span>[% entry.name %]</span></li>
+                            <li class="list-group-item"><span>[% entry.server |upper %]</span> - <span>[% entry.name %]</span></li>
                         [% END %]
                     </ul>
                 </div>
