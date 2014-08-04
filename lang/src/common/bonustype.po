@@ -4,6 +4,12 @@ msgstr "Random Battle"
 msgid "bonustype.1.short"
 msgstr "Random"
 
+msgid "bonustype.10"
+msgstr "Sortie Battle"
+
+msgid "bonustype.10.short"
+msgstr "Sortie"
+
 msgid "bonustype.2"
 msgstr "Training Room Battle"
 
@@ -51,3 +57,4 @@ msgstr "Event Battle"
 
 msgid "bonustype.9.short"
 msgstr "Event"
+
