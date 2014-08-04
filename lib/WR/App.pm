@@ -147,9 +147,6 @@ sub startup {
             $c->debug('request to host: ', $host);
         }
     });
-
-    warn 'using piwik url: ', $self->get_config('piwik.url'), "\n"; 
-
 }
 
 1;

@@ -144,11 +144,9 @@ sub settings {
     my $zones = DateTime::TimeZone->all_names;
 
     my $ucid = $self->current_user->{ucid} || [];
-
     my $linked = [];
-
     foreach my $entry (@$ucid) {
-        my ($server, $name) = split(/-/, $ucid, 2);
+        my ($server, $name) = split(/-/, $entry, 2);
         push(@$linked, { server => $server, name => $name });
     }
 
