@@ -48,6 +48,9 @@ sub startup {
     for(qw/Auth Timing Notify/) {
         $self->plugin(sprintf('WR::Plugin::%s', $_) => $config->{plugins}->{$_} || {});
     }
+
+    WR::App::Helpers->install($self);
+
     $self->plugin('WR::Plugin::I18N', { versions => [qw/0.9.0 0.9.1 0.9.2/] });
     $self->plugin('WR::Plugin::Thunderpush', $config->{thunderpush});
 
@@ -108,12 +111,10 @@ sub startup {
         my $self = shift;
         return $self->init_auth();
     });
-
     WR::App::Routes->install($self => $r);
-    WR::App::Helpers->install($self);
+
 
     has 'wr_res' => sub { return WR::Res->new() };
-
 
     my $preload = [ 'components', 'consumables', 'customization', 'equipment', 'maps', 'vehicles' ];
     foreach my $type (@$preload) {
