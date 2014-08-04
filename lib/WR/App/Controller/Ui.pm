@@ -104,8 +104,6 @@ sub nginx_post_action {
     my $file = $self->req->param('f');
     my $stat = $self->req->param('s');
 
-    $self->app->log->info('nginx_post_action for ' . $file . ' status: ' . $stat);
-
     $self->render_later;
     if(defined($stat) && lc($stat) eq 'ok') {
         my $real_file = substr($file, 1); # because we want to ditch that leading slash
@@ -119,22 +117,18 @@ sub nginx_post_action {
                 my ($c, $e, $d) = (@_);
 
                 if(defined($d)) {
-                    $self->app->log->info('nginx_post_action: record piwik');
                     $self->_piwik_track_download($file => sub {
-                        $self->app->log->info('nginx_post_action: record piwik done');
                         $self->app->thunderpush->send_to_channel('site' => Mojo::JSON->new->encode({ evt => 'replay.download', data => { id => $d->{_id} . '' } }) => sub {
                             my ($p, $r) = (@_);
                             $self->render(text => 'OK');
                         });
                     });
                 } else {
-                    $self->app->log->info('nginx_post_action: no document, skipping piwik');
                     $self->render(text => 'OK');
                 }
             });
         }
     } else {    
-        $self->app->log->info('nginx_post_action: download not ok, not recording');
         $self->render(text => 'OK');
     }
 }

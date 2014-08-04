@@ -219,6 +219,15 @@ sub replays {
     });
 }
 
+sub linked {
+    my $self = shift;
+    my $stat = $self->stash('status');
+    my $lw   = $self->session('lw');
+
+    $self->stash('linked_with' => $lw);
+    $self->render(template => sprintf('profile/link_%s', $stat));
+}
+
 sub uploads {
     my $self = shift;
     my $type = $self->stash('type');

@@ -1,0 +1,5 @@
+[% WRAPPER wrapper.html.tt %]    
+    <div class="alert alert-success" style="margin: 30px 0px">
+        You have successfully linked <strong>[% linked_with %]</strong> to your current login. 
+    </div>
+[% END %]

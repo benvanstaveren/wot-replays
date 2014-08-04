@@ -353,6 +353,7 @@ sub install {
         $pb->route('/sl/:lang')->to('profile#sl', pageid => 'profile');
         $pb->route('/link')->to('auth#do_link', pageid => 'profile');
         $pb->route('/link/:s')->to('auth#do_link', pageid => 'profile');
+        $pb->route('/linked/:status')->to('profile#linked', pageid => 'profile');
 
         my $pbj = $pb->under('/j');
             $pbj->route('/sr')->to('profile#sr', pageid => 'profile');

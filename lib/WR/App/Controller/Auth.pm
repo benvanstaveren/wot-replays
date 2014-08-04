@@ -35,7 +35,7 @@ sub do_link {
         $self->render_later;
 
         $self->session(
-            'link_server' => $s,
+            'link_server' => ($s eq 'asia') ? 'sea' : $s,
             'link_nonce'  => Mango::BSON::bson_oid . '',
         );
 
@@ -178,7 +178,8 @@ sub openid_return_link {
                     });
                 } else {
                     my $id = sprintf('%s-%s', lc($self->session('link_server')), lc($params->{nickname}));
-                    $self->model('wot-replays.accounts')->update({ _id => $self->current_user->{_id} }, { '$push' => { 'ucid' => $id } } => sub {
+                    $self->model('wot-replays.accounts')->update({ _id => $self->current_user->{_id} }, { '$addToSet' => { 'ucid' => $id } } => sub {
+                        $self->session('lw' => $params->{nickname});
                         $self->redirect_to('/profile/linked/okay');
                     });
                 }
