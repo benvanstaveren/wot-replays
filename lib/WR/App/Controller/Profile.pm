@@ -152,7 +152,7 @@ sub settings {
 
     $self->respond(template => 'profile/settings', stash => {
         page => { title => 'profile.settings.page.title' },
-        linked => $linked,
+        linked_accounts => $linked,
         timezones => $zones,
     });
 }
