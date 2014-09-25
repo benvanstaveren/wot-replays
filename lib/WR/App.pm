@@ -109,7 +109,11 @@ sub startup {
     $self->routes->namespaces([qw/WR::App::Controller/]);
     my $r = $self->routes->bridge('/')->to(cb => sub {
         my $self = shift;
-        return $self->init_auth();
+    
+        $self->app->log->debug('bridge cb top');
+        my $r = $self->init_auth();
+        $self->app->log->debug('bridge cb bottom');
+        return $r;
     });
     WR::App::Routes->install($self => $r);
 
@@ -128,25 +132,6 @@ sub startup {
         });
         $self->$aname();
     }
-
-
-    # eeeevil shenanigans here to check the hostname to see if we're locked into a specific context, currently it's only
-    # supported for server clusters, and sets a default filter 
-    $self->hook(before_routes => sub {
-        my $c = shift;
-
-        if(my $host = $c->req->url->to_abs->host) {
-            # we can get this from config
-            if(defined($c->config('context')) && defined($c->config('context')->{$host})) {
-                # later we need to figure something out so that any options set in context filter 
-                # are locked on the filter sidebar (or flat out removed, if need be)
-                $c->stash('context.filter' => $c->config('context')->{$host}->{browse_filter});
-                $c->stash('frontpage.filter' => $c->config('context')->{$host}->{frontpage_filter});
-            }
-            $c->stash('request.host' => $host);
-            $c->debug('request to host: ', $host);
-        }
-    });
 }
 
 1;
