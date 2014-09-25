@@ -355,6 +355,11 @@ sub addcomment {
     });
 }
 
+sub tdebug {
+    my $self = shift;
+    $self->debug('[', sprintf('%d.%d', gettimeofday), ']: ', join(' ', @_));
+}
+
 sub view {
     my $self  = shift;
     my $start = [ gettimeofday ];
@@ -363,11 +368,16 @@ sub view {
     $self->render_later;
     $self->stash('cachereplay' => 1);
 
+    $self->tdebug('view top'); 
     $self->load_replay(sub {
         my ($c, $e, $replay) = (@_);
 
+        $self->tdebug('load_replay cb'); 
+
         if(defined($replay)) {
+            $self->tdebug('is_allowed_to_view check start');
             my $r = $self->is_allowed_to_view($replay);
+            $self->tdebug('is_allowed_to_view check end');
             if($r == 0) {
                 $self->respond(template => 'replay/view/denied', stash => { page => { title => $self->loc('page.replay.denied.title') }});
                 return;
@@ -404,6 +414,8 @@ sub actual_view_replay {
     my $self = shift;
     my $replay = shift;
     my $start = shift;
+
+    $self->tdebug('actual_view_replay top');
 
     my $title = sprintf('%s - %s - %s (%s)',
         $replay->{game}->{recorder}->{name},
@@ -485,13 +497,19 @@ sub actual_view_replay {
         $pl_members->{$v->{player}->{name}} = $pl_indexes->{$pbid};
     }
 
+    $self->tdebug('actual_view_replay pre-render delay');
+
     my $delay = Mojo::IOLoop->delay(sub {
         $replay->{site}->{views} += 1;  # little holdover here...
+        $self->tdebug('actual_view_replay render delay cb');
 
         # generate the mission panel
+        $self->tdebug('actual_view_replay render delay cb generate_mission_panel start');
         $self->generate_mission_panel($replay => sub {
+            $self->tdebug('actual_view_replay render delay cb generate_mission_panel cb');
             my $mission_panel = shift;
             $replay->{mission_panel} = $mission_panel;
+            $self->tdebug('actual_view_replay respond start');
             $self->respond(
                 stash => {
                     pageid => 'replay', # really? yah really
@@ -508,13 +526,17 @@ sub actual_view_replay {
                 }, 
                 template => 'replay/view/index',
             );
+            $self->tdebug('actual_view_replay respond end');
         });
     });
 
+    $self->tdebug('actual_view_replay ping thunderpush and update stats start');
     my $tpe = $delay->begin(0);
     $self->app->thunderpush->send_to_channel('site' => Mojo::JSON->new->encode({ evt => 'replay.view', data => { id => $replay->{_id} . '' } }) => sub { $tpe->() });
     $self->_update_stats_total($replay->{_id}, $delay->begin(0));
     $self->_update_stats_daily($replay->{_id}, $delay->begin(0));
+    $self->tdebug('actual_view_replay ping thunderpush and update stats end');
+    $self->tdebug('actual_view_replay bottom');
 }
 
 sub _update_stats_total {
