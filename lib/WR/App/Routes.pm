@@ -7,6 +7,8 @@ sub install {
     my $self  = shift;
     my $rts   = shift;
 
+    $rts->route('/postaction')->to('postaction#nginx_post_action');
+
     my $r = $rts->bridge('/')->to(cb => sub {
         my $self = shift;
     
@@ -16,7 +18,17 @@ sub install {
         return $r;
     });
 
-    #$r->bridge('/')->to('ui#frontpage')->route('/')->to('replays#browse', 
+    my $rb = $r->under('/replay/:replay_id');
+        $rb->route('/battleviewer')->to('replays-view#battleviewer', pageid => 'battleviewer', page => { title => 'replay.battleviewer.page.title' });
+        $rb->route('/download')->to('replays-export#download', pageid => undef);
+        $rb->route('/packets')->to('replays-view#packets', pageid => undef);
+        $rb->route('/comment')->to('replays-view#addcomment');
+        $rb->route('/delcomment/:comment_id')->to('replays-view#delcomment');
+        $rb->route('/heatmap')->to('replays-view#heatmap', pageid => 'battleheatmap', page => { title => 'replay.heatmap.page.title' });
+        $rb->route('/desc')->to('replays#desc', pageid => undef);
+        $rb->route('/up')->to('replays-rate#rate_up', pageid => undef);
+        $rb->route('/')->to('replays-view#view', pageid => 'replay')->name('viewreplay');
+
     $r->route('/')->to('replays#browse', 
         filter_opts => {},
         pageid      => 'home', 
@@ -62,17 +74,10 @@ sub install {
         $self->redirect_to(sprintf('/browse/%s', $self->browse_page(1)));
     });
 
-    # funky bits
-    #my $upload = $r->under('/upload');
-    #    $upload->route('/')->to('replays-upload#upload', pageid => 'upload', upload_type => 'single');
-    #    $upload->route('/process')->to('replays-upload#process_upload');
-    #    $upload->route('/:upload_type')->to('replays-upload#upload', pageid => 'upload');
-    $r->under('/upload')
-        ->route('/')->to('replays-upload#upload', pageid => 'upload', upload_type => 'single')
-        ->route('/process')->to('replays-upload#process_upload')
-        ->route('/:upload_type')->to('replays-upload#upload', pageid => 'upload');
-
-    $r->route('/postaction')->to('postaction#nginx_post_action');
+    my $upload = $r->under('/upload');
+        $upload->route('/')->to('replays-upload#upload', pageid => 'upload', upload_type => 'single');
+        $upload->route('/process')->to('replays-upload#process_upload');
+        $upload->route('/:upload_type')->to('replays-upload#upload', pageid => 'upload');
 
     my $xhr = $r->under('/xhr');
         $xhr->route('/qs')->to('ui#xhr_qs');
@@ -99,17 +104,6 @@ sub install {
 
     my $bhm = $r->under('/battleheatmap/:replay_id');
         $bhm->route('/')->to('replays-view#heatmap', pageid => 'battleheatmap', page => { title => 'replay.heatmap.page.title' });
-
-    my $rb = $r->under('/replay/:replay_id');
-        $rb->route('/battleviewer')->to('replays-view#battleviewer', pageid => 'battleviewer', page => { title => 'replay.battleviewer.page.title' });
-        $rb->route('/download')->to('replays-export#download', pageid => undef);
-        $rb->route('/packets')->to('replays-view#packets', pageid => undef);
-        $rb->route('/comment')->to('replays-view#addcomment');
-        $rb->route('/delcomment/:comment_id')->to('replays-view#delcomment');
-        $rb->route('/heatmap')->to('replays-view#heatmap', pageid => 'battleheatmap', page => { title => 'replay.heatmap.page.title' });
-        $rb->route('/desc')->to('replays#desc', pageid => undef);
-        $rb->route('/up')->to('replays-rate#rate_up', pageid => undef);
-        $rb->route('/')->to('replays-view#view', pageid => 'replay')->name('viewreplay');
 
     $r->route('/clans')->to('clan#index', pageid => 'clan', page => { title => 'clans.page.title' });
     my $clan = $r->under('/clan');
