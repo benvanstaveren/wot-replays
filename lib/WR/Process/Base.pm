@@ -37,8 +37,9 @@ sub process {
     $self->debug('process top');
 
     my %args = (
-        bf_key  => $self->bf_key,
-        file    => $self->file,
+        blowfish_keys   =>  { wot => $self->bf_key },
+        file            => $self->file,
+        log             => $self->log,
     );
     
     my $parser;
