@@ -532,7 +532,10 @@ sub actual_view_replay {
 
     $self->tdebug('actual_view_replay ping thunderpush and update stats start');
     my $tpe = $delay->begin(0);
-    $self->app->thunderpush->send_to_channel('site' => Mojo::JSON->new->encode({ evt => 'replay.view', data => { id => $replay->{_id} . '' } }) => sub { $tpe->() });
+    $self->app->thunderpush->send_to_channel('site' => Mojo::JSON->new->encode({ evt => 'replay.view', data => { id => $replay->{_id} . '' } }) => sub { 
+        $self->tdebug('thunderpush->send_to_channel cbb');
+        $tpe->();
+    });
     $self->_update_stats_total($replay->{_id}, $delay->begin(0));
     $self->_update_stats_daily($replay->{_id}, $delay->begin(0));
     $self->tdebug('actual_view_replay ping thunderpush and update stats end');
@@ -544,6 +547,7 @@ sub _update_stats_total {
     my $id   = shift;
     my $end  = shift;
     $self->model('wot-replays.replays')->update({ _id => $id }, { '$inc' => { 'site.views' => 1 }} => sub {
+        $self->tdebug('update_stats_total cb');
         $end->();
     });
 }
@@ -555,6 +559,7 @@ sub _update_stats_daily {
     my $now  = DateTime->now(time_zone => 'UTC')->strftime('%Y%m%d');
 
     $self->model('wot-replays.stats_replay')->update({ replay => $id, date => $now }, { '$inc' => { 'views' => 1 } } => sub {
+        $self->tdebug('update_stats_daily cb');
         $end->();
     });
 }
