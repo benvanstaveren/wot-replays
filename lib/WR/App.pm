@@ -17,6 +17,7 @@ use Time::HiRes qw/gettimeofday/;
 
 use WR::App::Helpers;
 use WR::App::Routes;
+use WR::App::Minion;
 
 # This method will run once at server start
 sub startup {
