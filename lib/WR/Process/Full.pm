@@ -234,10 +234,6 @@ sub _stream_replay {
                 $replay->set('game.recorder.consumables' => $game->vcons_initial);
                 $replay->set('game.recorder.ammo'        => $game->vshells_initial);
 
-                $replay->set('temp.bperf'       => $game->bperf);
-                $replay->set('temp.stats'       => $game->statistics);
-                $replay->set('temp.personal'    => $game->personal);
-
                 return $cb->($replay, undef);
             }
         });
@@ -638,23 +634,15 @@ sub process_minimal {
     # to figure out the arena start time, we'll have to dig it out of the first block 
     # also use the temp.bperf, temp.stats, and temp.personal dicts to at least pull some stats
     # in 
-    my $temp = { %{$replay->get('temp')} }; # shallow 
-    delete($replay->data->{temp}); # yeah...
-
-    foreach my $key (keys(%{$temp->{personal}})) {
-        $replay->set(sprintf('stats.%s', $key) => $temp->{personal}->{$key});
-    }
     $replay->set('digest'           => $self->job->_id);
     $replay->set('site.minimal'     => Mango::BSON::bson_true);
     $replay->set('site.visible'     => Mango::BSON::bson_false);
     $replay->set('site.privacy'     => 1); # unlisted
     $replay->set('game.server'      => WR::Provider::ServerFinder->new->get_server_by_id($replay->get('game.recorder.account_id')));
     $replay->set('site.uploaded_at' => Mango::BSON::bson_time);
-
     $replay->set('game.started'     => Mango::BSON::bson_time( ($replay->get('game.arena_id') & 4294967295) * 1000 ));
 
     $self->debug('process minimal complete, replay data now: ', Dumper($replay->data));
-
     $cb->($replay);
 }
 
