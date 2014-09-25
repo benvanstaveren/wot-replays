@@ -21,7 +21,7 @@ sub run {
     my $self = shift;
     my $ua   = Mojo::UserAgent->new;
 
-    if(my $tx = $ua->post('https://api.statterbox.com/wot/encyclopedia/' => form => { cluster => 'asia', language => 'en', application_id => $app->config->{statterbox}->{server} })) {
+    if(my $tx = $ua->post('https://api.statterbox.com/wot/encyclopedia/' => form => { cluster => 'asia', language => 'en', application_id => $self->app->config->{statterbox}->{server} })) {
         if(my $res = $tx->success) {
             foreach my $typecomp (keys(%{$res->json->{data}})) {
                 my $vdata = $res->json->{data}->{$typecomp};
@@ -37,10 +37,10 @@ sub run {
                     i18n        => $vdata->{name},
                     type        => $self->get_type($vdata->{type}),
                 };
-                $app->get_database->collection('data.vehicles')->save($doc);
+                $self->app->get_database->collection('data.vehicles')->save($doc);
             }
         } else {
-            $app->log->error('Update::Tanks: could not fetch update from encyclopedia');
+            $self->app->log->error('Update::Tanks: could not fetch update from encyclopedia');
         }
     }
 }
