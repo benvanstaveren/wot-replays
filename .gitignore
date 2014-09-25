@@ -21,5 +21,6 @@ public/scss/.sass-cache/*
 public/lang/*.js
 *.priv.*
 public/vehicles/*
+public/icon/awards/*
 run/*.pid
 wr-*.conf
