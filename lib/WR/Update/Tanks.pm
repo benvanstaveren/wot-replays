@@ -39,6 +39,7 @@ sub run {
                     type        => $self->get_type($vdata->{type}),
                 };
                 $self->app->get_database->collection('data.vehicles')->save($doc);
+                $self->app->log->debug('Update::Tanks: updated ' . $vdata->{name});
             }
         } else {
             $self->app->log->error('Update::Tanks: could not fetch update from encyclopedia: ' . Dumper($tx->error));
