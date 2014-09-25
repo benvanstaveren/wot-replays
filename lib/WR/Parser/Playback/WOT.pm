@@ -78,6 +78,7 @@ sub onArenaInit {
     my $packet = shift;
     $self->emit('arena.initialize' => $packet->to_hash);
     $self->recorder->{name} = $packet->player_name;
+    $self->emit('recorder.name' => $packet->player_name);
 }
 
 sub onMinimapClicked {
@@ -130,7 +131,6 @@ sub onArenaHandler {
                 $self->emit('recorder.account_id' => $h->{accountDBID});
             }
         }
-
         $self->emit('arena.vehicle_list' => {
             clock  => $packet->clock,
             list   => $new,
