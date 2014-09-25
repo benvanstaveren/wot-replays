@@ -22,7 +22,7 @@ sub run {
     my $self = shift;
     my $ua   = Mojo::UserAgent->new;
 
-    if(my $tx = $ua->post('https://api.statterbox.com/wot/encyclopedia/' => form => { cluster => 'asia', language => 'en', application_id => $self->app->config->{statterbox}->{server} })) {
+    if(my $tx = $ua->post('https://api.statterbox.com/wot/encyclopedia/tanks/' => form => { cluster => 'asia', language => 'en', application_id => $self->app->config->{statterbox}->{server} })) {
         if(my $res = $tx->success) {
             foreach my $typecomp (keys(%{$res->json->{data}})) {
                 my $vdata = $res->json->{data}->{$typecomp};
