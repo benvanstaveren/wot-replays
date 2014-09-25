@@ -6,9 +6,6 @@ has 'app' => undef;
 
 sub run {
     my $self = shift;
-    use Data::Dumper;
-
-    die Dumper($self->app->config);
 }
 
 1;
