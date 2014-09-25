@@ -1104,6 +1104,9 @@ sub generate_banner {
         my $base_path = sprintf('%s/%s', $self->banner_path, $self->hashbucket($res->get('_id') . ''));
         make_path($base_path) unless(-e $base_path);
 
+        # hurray, now we get to see if the damn image is actually there or not
+        $self->ua->get(sprintf('http://images.wotreplays.org/vehicles/100/%s.png', lc($pv)));
+
         my $i = WR::Provider::Imager->new();
         my $imagefile;
 
