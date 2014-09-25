@@ -1,6 +1,7 @@
 package WR::Update::Tanks;
 use Mojo::Base '-base';
 use Mojo::UserAgent;
+use Data::Dumper;
 
 has 'app' => undef;
 
@@ -40,7 +41,7 @@ sub run {
                 $self->app->get_database->collection('data.vehicles')->save($doc);
             }
         } else {
-            $self->app->log->error('Update::Tanks: could not fetch update from encyclopedia: ' . $tx->error);
+            $self->app->log->error('Update::Tanks: could not fetch update from encyclopedia: ' . Dumper($tx->error));
         }
     }
 }
