@@ -18,7 +18,14 @@ sub run {
                         my $typecomp = $component->{module_id};
                         my $compact = parse_int_compact_descr($typecomp + 0);
                         $compact->{type} = type_id_to_name($compact->{type_id});
-                        die Dumper([ $component, $compact ]);
+                        my $doc = { 
+                            _id             =>  $typecomp + 0,
+                            country         =>  $component->{nation},
+                            component_id    =>  $compact->{id} + 0,
+                            i18n            =>  sprintf('#%s_vehicles:%s', $component->{nation}, $component->{name}),
+                            component       =>  $type,
+                        };
+                        $self->app->get_database->get_collection('data.components')->save($doc);
                     }
                 } else {
                     $self->app->log->error('Update::Components: could not fetch update for ' . $type . ' from encyclopedia: ' . $res->json->{error});
@@ -27,6 +34,7 @@ sub run {
                 $self->app->log->error('Update::Components: could not fetch update for ' . $type . ' from encyclopedia: ' . Dumper($tx->error));
             }
         }
+        $self->app->log->debug('Update::Components: updated ' . $type);
     }
 }
 
