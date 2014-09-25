@@ -1,6 +1,9 @@
 msgid "profile.settings.language.title"
 msgstr "Sprache"
 
+msgid "profile.settings.linkedaccounts.title"
+msgstr "Verknüpfte Accounts"
+
 msgid "profile.settings.page.title"
 msgstr "Profil &raquo; Einstellungen"
 
