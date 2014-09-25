@@ -20,3 +20,4 @@ lang/site/*
 public/scss/.sass-cache/*
 public/lang/*.js
 *.priv.*
+public/vehicles/*
