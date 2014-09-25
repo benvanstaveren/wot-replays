@@ -53,6 +53,7 @@ sub startup {
 
     $self->plugin('WR::Plugin::I18N', { versions => [qw/0.9.0 0.9.1 0.9.2/] });
     $self->plugin('WR::Plugin::Thunderpush', $config->{thunderpush});
+    $self->plugin('Mojolicious::Plugin::Minion' => { Mango => 'mongodb://127.0.0.1:27017/' });
 
     $self->renderer->paths([]); # clear this out
     $self->plugin('Mojolicious::Plugin::TtRenderer', {
