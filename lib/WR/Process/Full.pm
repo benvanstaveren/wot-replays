@@ -217,12 +217,13 @@ sub _stream_replay {
         # subscribe some duplicates for other things
         $game->on('player.chat' => sub {
             my ($game, $chat) = (@_);
-            $replay->append('chat', $chat->text);
+            $replay->append('chat', $chat->{text});
         });
         $game->on('arena.vehicle_list' => sub {
             my ($g, $v) = (@_);
 
-            $replay->set('roster' => $v->list);
+            $replay->set('roster' => $v->{list});
+            warn Dumper('ROSTER: ', Dumper($v->{list})); 
         });
         $game->on(finish => sub {
             my ($game, $reason) = (@_);
