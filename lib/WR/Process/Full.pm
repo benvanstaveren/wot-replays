@@ -162,14 +162,6 @@ sub _stream_replay {
                 $self->emit('state.streaming.progress' => { count => $v });
             }
         });
-        $game->on('game.version' => sub {
-            my ($s, $v) = (@_); 
-            $replay->set('game.version' => $v);
-        });
-        $game->on('game.version_n' => sub {
-            my ($s, $v) = (@_);
-            $replay->set('game.version_numeric' => $v + 0);
-        });
         $game->on('recorder.name' => sub {
             my ($s, $v) = (@_);
             $replay->set('game.recorder.name' => $v);
@@ -409,8 +401,6 @@ sub _with_battle_result {
 
             $self->debug('fixed replay junk');
 
-            
-
             # this really oughta move into the stream events
             if($parser->version < $self->config->get('wot.min_version')) {
                 $self->job->unlink;
@@ -423,6 +413,7 @@ sub _with_battle_result {
                     return $cb->($self, undef, 'That replay is from a newer version of World of tanks which we cannot process...');
                 });
             } else {
+                $replay->set('version' => $parser->version);
                 $replay->set('digest' => $self->job->_id);
                 $replay->set('file' => $self->job->data->{file_base});
 
