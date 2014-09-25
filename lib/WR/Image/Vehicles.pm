@@ -9,6 +9,8 @@ sub get_big_image {
     my $typecomp    = shift;
     my $cb          = shift;
 
+    $self->debug('get_big_image using ', $self->config->{statterbox}->{server}, ' as app token for statterbox');
+
     $self->ua->post('http://api.statterbox.com/wot/encyclopedia/tankinfo' => form => {
         application_id => $self->config->{'statterbox'}->{'server'},
         cluster        => 'asia',
@@ -17,8 +19,10 @@ sub get_big_image {
     } => sub {
         my ($ua, $tx) = (@_);
         if(my $res = $tx->success) {
+            $self->debug('get_big_image have res');
             if($res->json('/status') eq 'ok') {
                 my $url = $res->json->{data}->{$typecomp}->{image};
+                $self->debug('get_big_image status ok, final url: ', $url);
                 $self->ua->get($url => sub {
                     my ($ua, $tx) = (@_);
                     if(my $res = $tx->success) {
@@ -48,6 +52,8 @@ sub index {
     # unfortunately, the WG API doesn't allow for pulling up info by way of vehicle strings, so we have to go
     # and resolve it to an ID first, but we can do this from the vehicles quickdb 
     my $typecomp = $self->data_vehicles->get(name_lc => $vid);
+
+    $self->debug('want ', $size, ' size, vstr: ', $vstr, ' as typecomp: ', $typecomp);
 
     if($size == 100) {
         $self->get_big_image($typecomp => sub {

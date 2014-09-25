@@ -45,6 +45,9 @@ sub startup {
         $self->$aname();
     }
 
+    $self->plugin('WR::Plugin::Logging');
+
+
     $self->routes->namespaces([qw/WR::Image/]);
     my $root = $self->routes;
 
