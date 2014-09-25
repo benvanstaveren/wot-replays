@@ -28,6 +28,9 @@ msgstr "Spieler"
 msgid "nav.profile.header"
 msgstr "Dein Profil"
 
+msgid "nav.profile.link"
+msgstr "Account verknüpfen"
+
 msgid "nav.profile.replays"
 msgstr "Replays"
 
