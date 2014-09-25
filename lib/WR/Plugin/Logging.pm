@@ -5,23 +5,23 @@ sub register {
     my $self = shift;
     my $app  = shift;
 
-    $self->helper(debug => sub {
+    $app->helper(debug => sub {
         my $self = shift;
         $self->app->log->debug(join(' ', @_));
     });
-    $self->helper(error => sub {
+    $app->helper(error => sub {
         my $self = shift;
         $self->app->log->error(join(' ', @_));
     });
-    $self->helper(warning => sub {
+    $app->helper(warning => sub {
         my $self = shift;
         $self->app->log->warning(join(' ', @_));
     });
-    $self->helper(info => sub {
+    $app->helper(info => sub {
         my $self = shift;
         $self->app->log->info(join(' ', @_));
     });
-    $self->helper(fatal => sub {
+    $app->helper(fatal => sub {
         my $self = shift;
         $self->app->log->fatal(join(' ', @_));
     });
