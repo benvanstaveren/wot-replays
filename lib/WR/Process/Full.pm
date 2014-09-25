@@ -44,7 +44,6 @@ has 'push'          => sub {
     return WR::Thunderpush::Server->new(host => 'push.wotreplays.org', secret => $self->config->get('thunderpush.secret'), key => $self->config->get('thunderpush.key'));
 };
 
-
 sub _preload {
     my $self = shift;
     my $cb   = shift;
@@ -115,6 +114,21 @@ sub process_replay {
     my $cb     = shift;
 
     $self->debug('process_replay top');
+    if($parser->upgraded) {
+        $self->debug('already upgraded');
+    } else {
+        $self->debug('attempting upgrade');
+        if($parser->upgrade) {
+            $self->debug('upgrade ok');
+        } else {
+            $self->debug('upgrade failed');
+            $self->job->set_error('Process error: replay upgrade failed' => sub {
+                $self->error('Process error: replay upgrade failed');
+                return $cb->($self, $e, undef);
+            });
+            return undef;
+        }
+    }
 
     $self->emit('state.prepare.start');
     $self->_preload(sub {
@@ -140,7 +154,7 @@ sub _stream_replay {
 
     # set up game; game->start will set up a timer that will do some opportunistic reading
     # for stream->next, the finish event from game will complete the initial replay step. 
-    if(my $game = $parser->game()) {
+    if(my $game = $parser->playback()) {
         $game->on('replay.position' => sub {
             my ($s, $v) = (@_);
             
