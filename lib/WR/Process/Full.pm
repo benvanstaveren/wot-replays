@@ -226,7 +226,7 @@ sub _stream_replay {
         });
         $game->on(finish => sub {
             my ($game, $reason) = (@_);
-            $self->debug('$game->on finish callback');
+            $self->debug('$game->on finish callback, reason: ', Dumper($reason));
             $self->emit('state.streaming.finish' => { total => $game->stream->len });
             if($reason->{ok} == 0) {
                 return $cb->(undef, $reason->{reason});
