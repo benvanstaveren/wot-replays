@@ -9,8 +9,8 @@ sub register {
         my $mode = $app->mode;
         my $name = ref($app);
         $name =~ s/::/-/g;
-        $self->log->path($app->home->rel_file(sprintf('log/%s.%s.log', lc($name), $mode)));
-        $self->log->level('info') unless $mode eq 'development';
+        $app->log->path($app->home->rel_file(sprintf('log/%s.%s.log', lc($name), $mode)));
+        $app->log->level('info') unless $mode eq 'development';
     }
 }        
 
