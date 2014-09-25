@@ -72,7 +72,7 @@ sub _real_browse {
             $self->_really_real_browse($base_q);
         });
         foreach my $init (@{$self->stash('initialize_with')}) {
-            $self->_$init($delay->begin(0));
+            $self->$init($delay->begin(0));
         }
     } else {
         return $self->_really_real_browse($base_q);
