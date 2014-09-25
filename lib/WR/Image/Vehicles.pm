@@ -63,7 +63,7 @@ sub index {
                 $self->render(text => 'ERROR FETCHING FROM WG', status => 500);
             } else {
                 $content->move_to(sprintf('%s/vehicles/100/%s.png', $self->app->home->rel_dir('public'), lc($vstr)));
-                $self->render_static(sprintf('vehicles/100/%s.png', $vstr));
+                $self->reply->static(sprintf('vehicles/100/%s.png', $vstr));
             }
         });
     } else {
@@ -106,7 +106,7 @@ sub render_thumbnail {
     if($rv == 0) {
         $self->render(text => 'ERROR CREATING THUMBNAIL', status => 500);
     } else {
-        $self->render_static(sprintf('vehicles/%d/%s.png', $size, lc($vstr)));
+        $self->reply->static(sprintf('vehicles/%d/%s.png', $size, lc($vstr)));
     }
 }
 
