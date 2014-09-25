@@ -9,7 +9,7 @@ sub startup {
     my $self = shift;
     my $r    = $self->routes;
 
-    my $config = $self->plugin('Config', { file => 'wr.conf' });
+    my $config = $self->plugin('Config', { file => 'wr-image.conf' });
 
     $self->secrets([ $config->{app}->{secret} ]); # same secret as main app? why not
 
