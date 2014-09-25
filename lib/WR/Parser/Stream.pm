@@ -1,6 +1,6 @@
 package WR::Parser::Stream;
 use Mojo::Base 'Mojo::EventEmitter';
-use Module::Find qw/usesub/;
+use Module::Find qw/findsubmod/;
 use Try::Tiny qw/try catch/;
 use Data::Dumper qw/Dumper/;
 use Module::Load qw/load/;
