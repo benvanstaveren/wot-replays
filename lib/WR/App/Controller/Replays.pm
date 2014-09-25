@@ -4,6 +4,7 @@ use Mango::BSON;
 use WR::Query;
 use Time::HiRes qw/gettimeofday tv_interval/;
 use Data::Dumper;
+use WR::App::Initializer;
 
 sub desc {
     my $self = shift;
@@ -72,7 +73,7 @@ sub _real_browse {
             $self->_really_real_browse($base_q);
         });
         foreach my $init (@{$self->stash('initialize_with')}) {
-            $self->$init($delay->begin(0));
+            WR::App::Initializer::$init($self, $delay->begin(0));
         }
     } else {
         return $self->_really_real_browse($base_q);
