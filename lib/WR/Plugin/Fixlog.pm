@@ -1,5 +1,6 @@
 package WR::Plugin::Fixlog;
 use Mojo::Base 'Mojolicious::Plugin';
+use Mojo::Log;
 
 sub register {
     my $self = shift;
@@ -9,8 +10,11 @@ sub register {
         my $mode = $app->mode;
         my $name = ref($app);
         $name =~ s/::/-/g;
-        $app->log->path($app->home->rel_file(sprintf('log/%s.%s.log', lc($name), $mode)));
-        $app->log->level('info') unless $mode eq 'development';
+
+        my $file  = $app->home->rel_file(sprintf('log/%s.%s.log', lc($name), $mode));
+        my $level = ($mode eq 'development') ? 'debug' : 'info';
+
+        $app->log(Mojo::Log->new(file => $file, level => $level));
     }
 }        
 
