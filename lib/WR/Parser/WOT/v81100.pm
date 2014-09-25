@@ -24,8 +24,12 @@ sub _fix_br_values {
                     push(@$new, $self->_fix_br_values($e));
                 }
                 $br->{$key} = $new;
-            } elsif($br->{$key} =~ /^\d+$/) {
-                $br->{$key} += 0;
+            } elsif(defined($br->{$key})) {
+                if($br->{$key} =~ /^\d+$/) {
+                    $br->{$key} += 0;
+                }
+            } else {
+                $br->{$key} = undef;
             }
         }
     } elsif(ref($br) eq 'ARRAY') {
