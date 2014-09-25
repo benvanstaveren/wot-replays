@@ -3,6 +3,7 @@ use Mojo::Base 'Mojo::EventEmitter';
 use Module::Find qw/usesub/;
 use Try::Tiny qw/try catch/;
 use Data::Dumper qw/Dumper/;
+use Module::Load qw/load/;
 
 has 'fh'           => undef;      # IO::String object actually, not a filehandle, contains the unpacked replay
 has 'type'         => undef;      # the type of replay we're reading, it does matter... 
@@ -46,23 +47,38 @@ sub new {
 
     bless($self, $package);
 
-    $self->debug('Stream instantiation');
+    $self->debug('Stream instantiation for ', $self->type);
 
-    foreach my $packetmodule (usesub(sprintf('WR::Parser::Stream::Packet::%s::default', uc($self->type)))) {
+    $self->debug('Loading default packet modules');
+    foreach my $packetmodule (findsubmod(sprintf('WR::Parser::Stream::Packet::%s::default', uc($self->type)))) {
         my $name = $packetmodule;
         $name =~ s/.*://g; 
+        $self->debug('- Found ', $packetmodule, ' as ', $name);
         # name is a hex number, we want to convert that to decimal
-        $self->modules->[hex($name) + 0] = $packetmodule;
+        try {
+            load $packetmodule;
+            $self->modules->[hex($name) + 0] = $packetmodule;
+        } catch {
+            $self->error($packetmodule, ' failed to load: ', $_);
+        };
     }
 
     use Data::Dumper;
     $self->debug('Using default packet modules: ', Dumper($self->modules));
 
     if(defined($self->version)) {
-        foreach my $packetmodule (usesub(sprintf('WR::Parser::Stream::Packet::%s::%s', uc($self->type), $self->version))) {
+        $self->debug('Loading version packet modules');
+        foreach my $packetmodule (findsubmod(sprintf('WR::Parser::Stream::Packet::%s::%s', uc($self->type), $self->version))) {
             my $name = $packetmodule;
             $name =~ s/.*://g; 
-            $self->modules->[hex($name) + 0] = $packetmodule;
+            $self->debug('- Found ', $packetmodule, ' as ', $name);
+            # name is a hex number, we want to convert that to decimal
+            try {
+                load $packetmodule;
+                $self->modules->[hex($name) + 0] = $packetmodule;
+            } catch {
+                $self->error($packetmodule, ' failed to load: ', $_);
+            };
         }
     }
 
