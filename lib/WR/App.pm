@@ -106,18 +106,6 @@ sub startup {
     $self->types->type(csv => 'text/csv; charset=utf-8');
     $self->renderer->default_handler('tt');
 
-    $self->routes->namespaces([qw/WR::App::Controller/]);
-    my $r = $self->routes->bridge('/')->to(cb => sub {
-        my $self = shift;
-    
-        $self->app->log->debug('bridge cb top');
-        my $r = $self->init_auth();
-        $self->app->log->debug('bridge cb bottom');
-        return $r;
-    });
-    WR::App::Routes->install($self => $r);
-
-
     has 'wr_res' => sub { return WR::Res->new() };
 
     my $preload = [ 'components', 'consumables', 'customization', 'equipment', 'maps', 'vehicles' ];
@@ -132,6 +120,9 @@ sub startup {
         });
         $self->$aname();
     }
+
+    $self->routes->namespaces([qw/WR::App::Controller/]);
+    WR::App::Routes->install($self => $self->routes);
 }
 
 1;

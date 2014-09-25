@@ -5,7 +5,16 @@ use warnings;
 sub install {
     my $dummy = shift;
     my $self  = shift;
-    my $r     = shift;
+    my $rts   = shift;
+
+    my $r = $rts->bridge('/')->to(cb => sub {
+        my $self = shift;
+    
+        $self->app->log->debug('bridge cb top');
+        my $r = $self->init_auth();
+        $self->app->log->debug('bridge cb bottom');
+        return $r;
+    });
 
     #$r->bridge('/')->to('ui#frontpage')->route('/')->to('replays#browse', 
     $r->route('/')->to('replays#browse', 
@@ -33,16 +42,6 @@ sub install {
         },
         initialize_with => [ '_fp_competitions', '_fp_notifications' ],
     );
-
-    my $doc = $r->under('/doc');
-        for(qw/about credits missions replayprivacy/) {
-            $doc->route(sprintf('/%s', $_))->to('ui#doc', docfile => $_, pageid => $_);
-        }
-
-        $doc->route('/donate')->to(cb => sub {
-            my $self = shift;
-            $self->redirect_to('http://www.patreon.com/scrambled');
-        });
 
     $r->route('/browse/*filter')->to('replays#browse', filter_opts => {}, pageid => 'browse', page => { title => 'browse.page.title' }, filter_root => 'browse');
     $r->route('/browse')->to(cb => sub {
@@ -347,6 +346,18 @@ sub install {
 
     my $openid = $r->under('/openid');
         $openid->any('/return/:type')->to('auth#openid_return', type => 'default');
+
+
+    my $doc = $r->under('/doc');
+        for(qw/about credits missions replayprivacy/) {
+            warn 'doc route returns: ', $doc->route(sprintf('/%s', $_))->to('ui#doc', docfile => $_, pageid => $_), "\n";
+        }
+
+        $doc->route('/donate')->to(cb => sub {
+            my $self = shift;
+            $self->redirect_to('http://www.patreon.com/scrambled');
+        });
+
 
     my $pb = $r->bridge('/profile')->to('profile#bridge');
         $pb->route('/replays/type/:type/page/:page')->to('profile#replays', mustauth => 1, pageid => 'profile', page => { title => 'profile.replays.page.title' });
