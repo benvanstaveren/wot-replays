@@ -19,7 +19,7 @@ sub get_big_image {
     } => sub {
         my ($ua, $tx) = (@_);
         if(my $res = $tx->success) {
-            $self->debug('get_big_image have res');
+            $self->debug('get_big_image have res: ', $res->body);
             if($res->json('/status') eq 'ok') {
                 my $url = $res->json->{data}->{$typecomp}->{image};
                 $self->debug('get_big_image status ok, final url: ', $url);
