@@ -23,6 +23,7 @@ sub run {
         $app->$aname();
     }
 
+    # later use encyclopedia/info to skip this step if it's not needed
     for my $t (qw/Tanks Components/) {
         $app->debug('[Startup]: updating ', $t);
         my $m = sprintf('WR::Update::%s', $t);
