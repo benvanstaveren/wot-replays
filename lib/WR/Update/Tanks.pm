@@ -7,6 +7,7 @@ has 'app' => undef;
 
 sub get_type {
     my $self = shift;
+    my $type = shift;
     my $tm   = {
         'lightTank'     =>  'L',
         'mediumTank'    =>  'M',
@@ -15,7 +16,9 @@ sub get_type {
         'SPG'           =>  'S',
     };
 
-    return $tm->{shift};
+    die 'get_type: ', $type, "\n";
+
+    return $tm->{$type};
 }
 
 sub run {
