@@ -70,7 +70,7 @@ sub install {
     $r->under('/upload')
         ->route('/')->to('replays-upload#upload', pageid => 'upload', upload_type => 'single')
         ->route('/process')->to('replays-upload#process_upload')
-        ->route('/:upload_type')->to('replays-upload#upload', pageid => 'upload')
+        ->route('/:upload_type')->to('replays-upload#upload', pageid => 'upload');
 
     $r->route('/postaction')->to('postaction#nginx_post_action');
 
