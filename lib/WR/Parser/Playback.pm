@@ -47,6 +47,7 @@ sub start {
             }
         }
     }
+    $self->emit(finish => { ok => 1, reason => 'playback finished' });
 }
 
 sub process_packet {
