@@ -43,8 +43,10 @@ sub error   { shift->_log('error', @_) }
 sub new {
     my $package = shift;
     my $self    = $package->SUPER::new(@_);
-    
+
     bless($self, $package);
+
+    $self->debug('Stream instantiation');
 
     foreach my $packetmodule (usesub(sprintf('WR::Parser::Stream::Packet::%s::default', uc($self->type)))) {
         my $name = $packetmodule;
@@ -52,6 +54,9 @@ sub new {
         # name is a hex number, we want to convert that to decimal
         $self->modules->[hex($name) + 0] = $packetmodule;
     }
+
+    use Data::Dumper;
+    $self->debug('Using default packet modules: ', Dumper($self->modules));
 
     if(defined($self->version)) {
         foreach my $packetmodule (usesub(sprintf('WR::Parser::Stream::Packet::%s::%s', uc($self->type), $self->version))) {
@@ -61,7 +66,7 @@ sub new {
         }
     }
 
-    $self->debug('packet modules: ', Dumper($self->modules));
+    $self->debug('Using final packet modules: ', Dumper($self->modules));
 
     # cheesy
     $self->emit('stream.size' => $self->len);
