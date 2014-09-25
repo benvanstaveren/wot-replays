@@ -51,7 +51,7 @@ sub index {
 
     # unfortunately, the WG API doesn't allow for pulling up info by way of vehicle strings, so we have to go
     # and resolve it to an ID first, but we can do this from the vehicles quickdb 
-    my $typecomp = $self->data_vehicles->get(name_lc => $vid);
+    my $typecomp = $self->data_vehicles->get(name_lc => $vid)->{typecomp};
 
     $self->debug('want ', $size, ' size, vstr: ', $vstr, ' as typecomp: ', $typecomp);
 
