@@ -217,11 +217,10 @@ sub create {
     }
 
     if(ref($args{destination}) eq 'ARRAY') {
-        $self->_bg->write(file => $_, type => 'jpeg') for(@{$args{'destination'}});
+        $self->_bg->write(file => $_, type => 'jpeg') for(@{$args{'destination'}}) or die 'failed writing destination ', $_, ': ', $!, "\n";
     } else {
-        $self->_bg->write(file => $args{'destination'}, type => 'jpeg');
+        $self->_bg->write(file => $args{'destination'}, type => 'jpeg') or die 'failed writing destination ', $args{destination}, ': ', $!, "\n";
     }
-
     return $args{'destination'};
 }
 

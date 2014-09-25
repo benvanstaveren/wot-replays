@@ -658,7 +658,8 @@ sub p_br_generate_banner {
     $self->debug('preparing banner');
     $self->generate_banner($replay => sub {
         my $image = shift;
-        $self->emit('state.generatebanner.finish' => {});
+        $self->emit('state.generatebanner.finish' => {});   
+        $self->debug('banner generated result: ', Dumper($image));
         $replay->set('site.banner' => $image);
     });
 }
