@@ -25,7 +25,7 @@ sub run {
                             i18n            =>  sprintf('#%s_vehicles:%s', $component->{nation}, $component->{name}),
                             component       =>  $type,
                         };
-                        $self->app->get_database->get_collection('data.components')->save($doc);
+                        $self->app->get_database->collection('data.components')->save($doc);
                     }
                 } else {
                     $self->app->log->error('Update::Components: could not fetch update for ' . $type . ' from encyclopedia: ' . $res->json->{error});
