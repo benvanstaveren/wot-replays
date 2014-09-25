@@ -124,7 +124,7 @@ sub process_replay {
             $self->debug('upgrade failed');
             $self->job->set_error('Process error: replay upgrade failed' => sub {
                 $self->error('Process error: replay upgrade failed');
-                return $cb->($self, $e, undef);
+                return $cb->($self, 'replay upgrade failed', undef);
             });
             return undef;
         }
