@@ -1,6 +1,8 @@
 package WR::Image::Vehicles;
 use Mojo::Base 'Mojolicious::Controller';
-use WR::Util::Thumbnail;
+use File::Path qw/make_path/;
+use Imager;
+use Try::Tiny qw/try catch/;
 
 sub get_big_image {
     my $self        = shift;
@@ -45,18 +47,59 @@ sub index {
     # and resolve it to an ID first, but we can do this from the vehicles quickdb 
     my $typecomp = $self->data_vehicles->get(name_lc => $vid);
 
-    # find out if we have our full size image or not
+    if($size == 100) {
+        $self->get_big_image($typecomp => sub {
+            my ($content, $error) = (@_);
 
-    $self->get_big_image($typecomp => sub {
-        my ($content, $error) = (@_);
-
-        if(defined($error)) {
-            $self->render(text => 'ERROR FETCHING FROM WG', status => 500);
+            if(defined($error)) {
+                $self->render(text => 'ERROR FETCHING FROM WG', status => 500);
+            } else {
+                $content->move_to(sprintf('%s/vehicles/100/%s.png', $self->app->home->rel_dir('public'), lc($vstr)));
+                $self->render_static(sprintf('vehicles/100/%s.png', $vstr));
+            }
+        });
+    } else {
+        # check if we have the full size
+        if(-e sprintf('%s/vehicles/100/%s.png', $self->app->home->rel_dir('public'), lc($vstr))) {
+            $self->render_thumbnail($vstr => $size);
         } else {
-            $content->move_to(sprintf('%s/vehicles/100/%s.png', $self->app->home->rel_dir('public/images'), lc($vstr)));
-            $self->render_static(sprintf('vehicles/100/%s.png', $vstr));
+            $self->get_big_image($typecomp => sub {
+                my ($content, $error) = (@_);
+
+                if(defined($error)) {
+                    $self->render(text => 'ERROR FETCHING FROM WG', status => 500);
+                } else {
+                    $content->move_to(sprintf('%s/vehicles/100/%s.png', $self->app->home->rel_dir('public'), lc($vstr)));
+                    $self->render_thumbnail($vstr => $size);
+                }
+            });
         }
-    });
+    }
+}
+
+sub render_thumbnail {
+    my $self = shift;
+    my $vstr = shift;
+    my $size = shift;
+    my $rv   = 0;
+
+    try {
+        my $img = Imager->new;
+        $img->read(file => sprintf('%s/vehicles/100/%s.png', $self->app->home->rel_dir('public'), lc($vstr)));
+        my $path = sprintf('%s/vehicles/%d/', $self->app->home->rel_dir('public'), $size);
+        make_path($path) unless(-e $path);
+        my $thumb = $img->scale(xpixels => $size);
+        $thumb->write(file => sprintf('%s/%s.png', $path, lc($vstr)));
+        $rv = 1;
+    } catch {
+        $rv = 0;
+    };
+
+    if($rv == 0) {
+        $self->render(text => 'ERROR CREATING THUMBNAIL', status => 500);
+    } else {
+        $self->render_static(sprintf('vehicles/%d/%s.png', $size, lc($vstr)));
+    }
 }
 
 1;
