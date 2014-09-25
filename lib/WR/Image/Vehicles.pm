@@ -60,7 +60,8 @@ sub index {
             my ($content, $error) = (@_);
 
             if(defined($error)) {
-                $self->render(text => 'ERROR FETCHING FROM WG', status => 500);
+                # render the no-such-bloody-size thing
+                $self->reply->static('vehicles/100/noimage.png');
             } else {
                 $content->move_to(sprintf('%s/vehicles/100/%s.png', $self->app->home->rel_dir('public'), lc($vstr)));
                 $self->reply->static(sprintf('vehicles/100/%s.png', $vstr));
@@ -75,13 +76,37 @@ sub index {
                 my ($content, $error) = (@_);
 
                 if(defined($error)) {
-                    $self->render(text => 'ERROR FETCHING FROM WG', status => 500);
+                    $self->render_noimage($size);
                 } else {
                     $content->move_to(sprintf('%s/vehicles/100/%s.png', $self->app->home->rel_dir('public'), lc($vstr)));
                     $self->render_thumbnail($vstr => $size);
                 }
             });
         }
+    }
+}
+
+sub render_noimage {
+    my $self = shift;
+    my $size = shift;
+    my $rv   = 0;
+
+    try {
+        my $img = Imager->new;
+        $img->read(file => sprintf('%s/vehicles/100/noimage.png', $self->app->home->rel_dir('public')));
+        my $path = sprintf('%s/vehicles/%d/', $self->app->home->rel_dir('public'), $size);
+        make_path($path) unless(-e $path);
+        my $thumb = $img->scale(xpixels => $size);
+        $thumb->write(file => sprintf('%s/noimage.png', $path));
+        $rv = 1;
+    } catch {
+        $rv = 0;
+    };
+
+    if($rv == 0) {
+        $self->render(text => 'ERROR CREATING THUMBNAIL', status => 500);
+    } else {
+        $self->reply->static(sprintf('vehicles/%d/noimage.png', $size);
     }
 }
 
