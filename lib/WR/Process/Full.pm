@@ -1131,6 +1131,10 @@ sub generate_banner {
             awards          => $self->stringify_awards($res),
         );
 
+        foreach my $a (@{$imager_args{awards}}) {
+            $self->ua->get(sprintf('http://images.wotreplays.org/icon/awards/16/%s.png', $a));
+        }
+
         $self->debug('[generate_banner]: generating banner using: ', Dumper({%imager_args}));
 
         try {
