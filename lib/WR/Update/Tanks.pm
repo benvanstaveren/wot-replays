@@ -40,7 +40,7 @@ sub run {
                 $self->app->get_database->collection('data.vehicles')->save($doc);
             }
         } else {
-            $self->app->log->error('Update::Tanks: could not fetch update from encyclopedia');
+            $self->app->log->error('Update::Tanks: could not fetch update from encyclopedia: ' . $tx->error);
         }
     }
 }
