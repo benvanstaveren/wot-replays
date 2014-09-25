@@ -122,17 +122,9 @@ sub process_upload {
                     if($err) {
                         $self->render(json => { ok => 0, error => $_, oid => $oid });
                     } else {
-                        $self->minion->enqueue(process_replay => [ {
-                            file        =>  $replay_file,
-                            file_base   =>  $replay_file_base,
-                            desc        =>  (defined($desc)) ? $desc : '',
-                            visible     =>  ($hide > 0) ? 0 : 1,
-                            privacy     =>  $hide,
-                        } ] => sub {
-                            $self->app->thunderpush->send_to_channel('site' => Mojo::JSON->new->encode({ evt => 'replay.upload', data => { job_id => $digest} }) => sub {
-                                my ($p, $r) = (@_);
-                                $self->render(json => { ok => 1, jid => $digest });
-                            });
+                        $self->app->thunderpush->send_to_channel('site' => Mojo::JSON->new->encode({ evt => 'replay.upload', data => { job_id => $digest} }) => sub {
+                            my ($p, $r) = (@_);
+                            $self->render(json => { ok => 1, jid => $digest });
                         });
                     }
                 });

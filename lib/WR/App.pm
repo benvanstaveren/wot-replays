@@ -50,6 +50,7 @@ sub startup {
     }
 
     WR::App::Helpers->install($self);
+    WR::App::Minion->install($self);
 
     $self->plugin('WR::Plugin::I18N', { versions => [qw/0.9.0 0.9.1 0.9.2/] });
     $self->plugin('WR::Plugin::Thunderpush', $config->{thunderpush});
