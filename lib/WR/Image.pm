@@ -10,8 +10,6 @@ sub startup {
     my $r    = $self->routes;
 
     my $config = $self->plugin('Config', { file => 'wr.conf' });
-    
-    $self->plugin('WR::Plugin::Fixlog' => {});
 
     $self->secrets([ $config->{app}->{secret} ]); # same secret as main app? why not
 

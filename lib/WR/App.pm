@@ -23,8 +23,6 @@ use WR::App::Minion;
 sub startup {
     my $self = shift;
 
-    $self->plugin('WR::Plugin::Fixlog' => {});
-
     $self->attr(json => sub { return Mojo::JSON->new() });
 
     my $config = $self->plugin('Config', { file => 'wr.conf' });
