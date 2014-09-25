@@ -44,7 +44,6 @@ sub install {
         initialize_with => [ '_fp_competitions', '_fp_notifications' ],
     );
 
-=pod
     my $rb = $r->under('/replay/:replay_id');
         $rb->get('/')->to('replays-view#view', pageid => 'replay')->name('viewreplay');
         $rb->get('/battleviewer')->to('replays-view#battleviewer', pageid => 'battleviewer', page => { title => 'replay.battleviewer.page.title' });
@@ -428,8 +427,6 @@ sub install {
                 $uploads->get('/page/:page')->to('admin-site#uploads', pageid => 'admin/site');
             my $notifications = $site->under('/notifications');
                 $notifications->get('/')->to('admin-site#notifications', pageid => 'admin/notifications');
-
-=cut
 
 }
 
