@@ -574,7 +574,7 @@ sub _real_process {
     if(defined($self->job->replayid)) {
         $self->debug('job has existing replayid');
         $replay->set('_id' => $self->job->replayid); # we're re-doing an existing replay
-        $replay->set('site.orphan' => Mango::BSON::bson_true); # not entirely true, but we might as well abuse the flag for it
+        #$replay->set('site.orphan' => Mango::BSON::bson_true); # not entirely true, but we might as well abuse the flag for it
     } else {
         $self->debug('job for potentially new replay');
         $replay->set('_id' => Mango::BSON::bson_oid);
