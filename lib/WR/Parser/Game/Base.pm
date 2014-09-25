@@ -317,6 +317,9 @@ sub is_recorder {
     my $self = shift;
     my $p    = shift;
 
+    return 0 unless(defined($p));
+    return 0 unless(defined($self->recorder) && defined($self->recorder->{id}));
+
     if(ref($p)) {
         return ($p->player_id == $self->recorder->{id}) ? 1 : 0;
     } else {
