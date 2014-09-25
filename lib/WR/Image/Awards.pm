@@ -18,7 +18,8 @@ sub get_big_image {
     } => sub {
         my ($ua, $tx) = (@_);
         if(my $res = $tx->success) {
-            $self->debug('get_big_image have res: ', $res->body);
+	    use Data::Dumper;
+            $self->debug('get_big_image have res: ', Dumper($res->json));
             if($res->json('/status') eq 'ok') {
                 my $url = $res->json->{data}->{$str}->{image_big};
                 $self->debug('get_big_image status ok, final url: ', $url);
@@ -53,13 +54,13 @@ sub index {
             if(defined($error)) {
                 $self->render(text => 'ERROR FETCHING FROM WG', status => 500);
             } else {
-                $content->move_to(sprintf('%s/icon/awards/180/%s.png', $self->app->home->rel_dir('public'), lc($vstr)));
+                $content->move_to(sprintf('%s/icon/awards/180/%s.png', $self->app->home->rel_dir('public'), $vstr));
                 $self->reply->static(sprintf('icon/awards/180/%s.png', $vstr));
             }
         });
     } else {
         # check if we have the full size
-        if(-e sprintf('%s/icon/awards/180/%s.png', $self->app->home->rel_dir('public'), lc($vstr))) {
+        if(-e sprintf('%s/icon/awards/180/%s.png', $self->app->home->rel_dir('public'), $vstr)) {
             $self->render_thumbnail($vstr => $size);
         } else {
             $self->get_big_image($vstr => sub {
@@ -68,7 +69,7 @@ sub index {
                 if(defined($error)) {
                     $self->render(text => 'ERROR FETCHING FROM WG', status => 500);
                 } else {
-                    $content->move_to(sprintf('%s/icon/awards/180/%s.png', $self->app->home->rel_dir('public'), lc($vstr)));
+                    $content->move_to(sprintf('%s/icon/awards/180/%s.png', $self->app->home->rel_dir('public'), $vstr));
                     $self->render_thumbnail($vstr => $size);
                 }
             });
@@ -84,11 +85,11 @@ sub render_thumbnail {
 
     try {
         my $img = Imager->new;
-        $img->read(file => sprintf('%s/icon/awards/180/%s.png', $self->app->home->rel_dir('public'), lc($vstr)));
+        $img->read(file => sprintf('%s/icon/awards/180/%s.png', $self->app->home->rel_dir('public'), $vstr));
         my $path = sprintf('%s/icon/awards/%d/', $self->app->home->rel_dir('public'), $size);
         make_path($path) unless(-e $path);
         my $thumb = $img->scale(xpixels => $size);
-        $thumb->write(file => sprintf('%s/%s.png', $path, lc($vstr)));
+        $thumb->write(file => sprintf('%s/%s.png', $path, $vstr));
         $rv = 1;
     } catch {
         $rv = 0;
@@ -97,7 +98,7 @@ sub render_thumbnail {
     if($rv == 0) {
         $self->render(text => 'ERROR CREATING THUMBNAIL', status => 500);
     } else {
-        $self->reply->static(sprintf('icon/awards/%d/%s.png', $size, lc($vstr)));
+        $self->reply->static(sprintf('icon/awards/%d/%s.png', $size, $vstr));
     }
 }
 
