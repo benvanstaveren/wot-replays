@@ -56,7 +56,7 @@ sub startup {
         $vehicles->route('/:size/:vehicle_string')->to('vehicles#index');
 
     my $awards = $root->under('/icon/awards');
-        $vehicles->route('/:size/:award')->to('awards#index');
+        $awards->route('/:size/:award')->to('awards#index');
 }
 
 1;
