@@ -7,7 +7,8 @@ sub install {
     my $self  = shift;
     my $r     = shift;
 
-    $r->bridge('/')->to('ui#frontpage')->route('/')->to('replays#browse', 
+    #$r->bridge('/')->to('ui#frontpage')->route('/')->to('replays#browse', 
+    $r->route('/')->to('replays#browse', 
         filter_opts => {},
         pageid      => 'home', 
         filter_root => 'browse',
@@ -30,6 +31,7 @@ sub install {
             vp  =>  1,
             vi  =>  0
         },
+        initialize_with => [ '_fp_competitions', '_fp_notifications' ],
     );
 
     my $doc = $r->under('/doc');

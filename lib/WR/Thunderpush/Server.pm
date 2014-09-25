@@ -35,12 +35,12 @@ sub send_to_channel {
 
                 if(my $res = $tx->success) {
                     if(defined($res->json->{status})) {
-                        $cb->($self, $res->json);
+                        return $cb->($self, $res->json);
                     } else {
-                        $cb->($self, { status => 200, response => $res->json });
+                        return $cb->($self, { status => 200, response => $res->json });
                     }
                 } else {
-                    $cb->($self, { status => 500, error => 'Request failed' });
+                    return $cb->($self, { status => 500, error => 'Request failed' });
                 }
             });
     } else {

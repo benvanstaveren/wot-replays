@@ -64,6 +64,22 @@ sub browse {
 }
 
 sub _real_browse {
+    my $self    = shift;
+    my $base_q  = shift;
+
+    if(defined($self->stash('initialize_with'))) {
+        my $delay = Mojo::IOLoop->delay(sub {
+            $self->_really_real_browse($base_q);
+        });
+        foreach my $init (@{$self->stash('initialize_with')}) {
+            $self->_$init($delay->begin(0));
+        }
+    } else {
+        return $self->_really_real_browse($base_q);
+    }
+}
+
+sub _really_real_browse {
     my $self = shift;
     my $base_q = shift;
     my $filter = {};
