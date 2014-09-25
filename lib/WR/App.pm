@@ -54,7 +54,7 @@ sub startup {
     WR::App::Helpers->install($self);
     WR::App::Minion->install($self);
 
-    $self->plugin('WR::Plugin::I18N', { versions => [qw/0.9.0 0.9.1 0.9.2/] });
+    $self->plugin('WR::Plugin::I18N', { versions => [qw/0.9.0 0.9.1 0.9.2 0.9.3/] });
     $self->plugin('WR::Plugin::Thunderpush', $config->{thunderpush});
     $self->plugin('Mojolicious::Plugin::Minion' => { Mango => 'mongodb://127.0.0.1:27017/' });
 
