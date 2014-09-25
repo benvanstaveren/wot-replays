@@ -51,8 +51,12 @@ sub startup {
     $self->routes->namespaces([qw/WR::Image/]);
     my $root = $self->routes;
 
+
     my $vehicles = $root->under('/vehicles');
         $vehicles->route('/:size/:vehicle_string')->to('vehicles#index');
+
+    my $awards = $root->under('/icon/awards');
+        $vehicles->route('/:size/:award')->to('awards#index');
 }
 
 1;
