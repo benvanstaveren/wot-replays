@@ -13,6 +13,8 @@ sub startup {
 
     my $config = $self->plugin('Config', { file => 'wrapi.conf' });
 
+    $self->plugin('WR::Plugin::Fixlog' => {});
+
     $self->secrets([ $config->{app}->{secret} ]); # same secret as main app? why not
     $self->defaults(config => $config);
 

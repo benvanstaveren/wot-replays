@@ -22,7 +22,9 @@ use WR::App::Minion;
 # This method will run once at server start
 sub startup {
     my $self = shift;
-    
+
+    $self->plugin('WR::Plugin::Fixlog' => {});
+
     $self->attr(json => sub { return Mojo::JSON->new() });
 
     my $config = $self->plugin('Config', { file => 'wr.conf' });
