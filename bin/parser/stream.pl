@@ -25,11 +25,16 @@ my $total  = 0;
 my $j = JSON::XS->new()->allow_blessed(1)->convert_blessed(1)->pretty(1);
 
 try {
+    warn 'attempt upgrade', "\n";
     $parser->upgrade(sub {
         my ($parser, $ok, $err) = (@_);
+	
+	warn 'upgrade says ok ', $ok, ' err ', $err, "\n";
         
         if($ok) {
+	    warn 'ok, getting stream', "\n";
             my $stream = $parser->stream;
+	    warn 'got: ', $stream. "\n";
             print 'Parser reports as version: ', $parser->version, "\n";
             try {
                 while(my $packet = $stream->next) {
