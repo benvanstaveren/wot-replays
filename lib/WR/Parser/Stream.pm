@@ -67,7 +67,7 @@ sub new {
     $self->debug('Using default packet modules: ', Dumper($self->modules));
 
     if(defined($self->version)) {
-        $self->debug('Loading version packet modules');
+        $self->debug('Loading version packet modules for ', $self->version);
         foreach my $packetmodule (findsubmod(sprintf('WR::Parser::Stream::Packet::%s::%s', uc($self->type), $self->version))) {
             my $name = $packetmodule;
             $name =~ s/.*://g; 
@@ -80,6 +80,8 @@ sub new {
                 $self->error($packetmodule, ' failed to load: ', $_);
             };
         }
+    } else {
+        $self->debug('No version? Okay, default it is...');
     }
 
     $self->debug('Using final packet modules: ', Dumper($self->modules));
