@@ -31,7 +31,7 @@ sub run {
             my $updater = $m->new(app => $app);
             $updater->run;
         } catch {
-            $app->fatal('[Startup]: updater for ', $t, ' failed: ', $_);
+            $app->log->fatal('[Startup]: updater for ' .  $t . ' failed: ' .  $_);
             die $_, "\n";
         };
     }
