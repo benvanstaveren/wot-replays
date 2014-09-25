@@ -26,6 +26,7 @@ has 'log'               => sub {
 };
 
 has 'job_id'            => undef;
+has 'force'             => undef;
 has 'log_stdout'        => undef;
 has 'mango'             => sub { 
     my $self = shift;
@@ -79,7 +80,7 @@ sub init {
     my $job  = shift;
 
     # see if we can lock it
-    if($job->locked) {
+    if($job->locked && !defined($self->force)) {
         $self->fatal('Job is already locked');
     } else {
         $job->lock(sub {

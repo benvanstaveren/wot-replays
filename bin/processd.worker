@@ -12,11 +12,13 @@ my $config      = {};
 my $cfile       = undef;
 my $jobid       = undef;
 my $ls          = undef;
+my $force       = undef;
 
 GetOptions(
     'config=s'      => \$cfile,
     'job-id=s'      => \$jobid,
     'log-stdout!'   => \$ls,
+    'force!'        => \$force,
 );
 
 die 'Usage: ', $0, ' --config <path to config file> --job-id <job id> [--log-stdout]', "\n" unless(defined($cfile));
@@ -33,5 +35,5 @@ if(my $fh = IO::File->new($cfile)) {
     die 'Could not open configuration file "', $cfile, '": ', $!, "\n";
 }
 
-my $p = WR::Daemon::Process::Worker->new(config => $config, log_stdout => $ls, job_id => $jobid);
+my $p = WR::Daemon::Process::Worker->new(config => $config, log_stdout => $ls, job_id => $jobid, force => $force);
 $p->start;
