@@ -63,10 +63,14 @@ sub install {
     });
 
     # funky bits
-    my $upload = $r->under('/upload');
-        $upload->route('/')->to('replays-upload#upload', pageid => 'upload', upload_type => 'single');
-        $upload->route('/process')->to('replays-upload#process_upload');
-        $upload->route('/:upload_type')->to('replays-upload#upload', pageid => 'upload');
+    #my $upload = $r->under('/upload');
+    #    $upload->route('/')->to('replays-upload#upload', pageid => 'upload', upload_type => 'single');
+    #    $upload->route('/process')->to('replays-upload#process_upload');
+    #    $upload->route('/:upload_type')->to('replays-upload#upload', pageid => 'upload');
+    $r->under('/upload')
+        ->route('/')->to('replays-upload#upload', pageid => 'upload', upload_type => 'single')
+        ->route('/process')->to('replays-upload#process_upload')
+        ->route('/:upload_type')->to('replays-upload#upload', pageid => 'upload')
 
     $r->route('/postaction')->to('postaction#nginx_post_action');
 
