@@ -681,18 +681,6 @@ sub install {
         return sprintf('/vehicle/%s/%s/', $c, $n);
     });
 
-    $self->helper(vehicle_description => sub {
-        my $self = shift;
-        my $v = shift;
-        my ($c, $n) = split(/:/, $v, 2);
-
-        if(my $obj = $self->data_vehicles->get(_id => $v)) {
-            return $obj->{description};
-        } else {
-            return sprintf('nodesc:%s', $v);
-        }
-    });
-
     $self->helper(vehicle_name => sub {
         my $self = shift;
         my $v = shift;
@@ -706,19 +694,6 @@ sub install {
             }
         } else {
             return sprintf('nolabel:%s', $v);
-        }
-    });
-
-
-    $self->helper(vehicle_name_short => sub {
-        my $self = shift;
-        my $v = shift;
-        my ($c, $n) = split(/:/, $v, 2);
-
-        if(my $obj = $self->data_vehicles->get(_id => $v)) {
-            return $obj->{label_short} || $obj->{label};
-        } else {
-            return sprintf('nolabel_short:%s', $v);
         }
     });
 

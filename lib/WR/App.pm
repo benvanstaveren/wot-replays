@@ -18,6 +18,7 @@ use Time::HiRes qw/gettimeofday/;
 use WR::App::Helpers;
 use WR::App::Routes;
 use WR::App::Minion;
+use WR::App::Startup;
 
 # This method will run once at server start
 sub startup {
@@ -111,21 +112,10 @@ sub startup {
 
     has 'wr_res' => sub { return WR::Res->new() };
 
-    my $preload = [ 'components', 'consumables', 'customization', 'equipment', 'maps', 'vehicles' ];
-    foreach my $type (@$preload) {
-        my $aname = sprintf('data_%s', $type);
-        $self->attr($aname => sub {
-            my $self = shift;
-            return WR::Util::QuickDB->new(data => $self->mango->db('wot-replays')->collection(sprintf('data.%s', $type))->find()->all());
-        });
-        $self->helper($aname => sub {
-            return shift->app->$aname();
-        });
-        $self->$aname();
-    }
-
     $self->routes->namespaces([qw/WR::App::Controller/]);
     WR::App::Routes->install($self => $self->routes);
+    WR::App::Startup->run($self);
+
 }
 
 1;
