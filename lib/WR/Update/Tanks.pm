@@ -42,6 +42,7 @@ sub run {
                     typecomp    => $typecomp + 0,
                     i18n        => $vdata->{name},
                     type        => $self->get_type($vdata->{type}),
+                    label       => $vdata->{name_i18n},
                 };
                 $self->app->get_database->collection('data.vehicles')->save($doc);
                 $self->app->log->debug('Update::Tanks: updated ' . $vdata->{name});
