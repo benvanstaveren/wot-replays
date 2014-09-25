@@ -531,11 +531,11 @@ sub actual_view_replay {
     });
 
     $self->tdebug('actual_view_replay ping thunderpush and update stats start');
-    my $tpe = $delay->begin(0);
-    $self->app->thunderpush->send_to_channel('site' => Mojo::JSON->new->encode({ evt => 'replay.view', data => { id => $replay->{_id} . '' } }) => sub { 
-        $self->tdebug('thunderpush->send_to_channel cbb');
-        $tpe->();
-    });
+    #my $tpe = $delay->begin(0);
+    #$self->app->thunderpush->send_to_channel('site' => Mojo::JSON->new->encode({ evt => 'replay.view', data => { id => $replay->{_id} . '' } }) => sub { 
+    #    $self->tdebug('thunderpush->send_to_channel cbb');
+    #    $tpe->();
+    #});
     $self->_update_stats_total($replay->{_id}, $delay->begin(0));
     $self->_update_stats_daily($replay->{_id}, $delay->begin(0));
     $self->tdebug('actual_view_replay ping thunderpush and update stats end');
