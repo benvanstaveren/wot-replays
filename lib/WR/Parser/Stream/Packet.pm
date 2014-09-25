@@ -1,7 +1,7 @@
 package WR::Parser::Stream::Packet;
 use Mojo::Base '-base';
-use WR::Util::Pickle;
-use Data::Dumper;
+use WR::Util::Pickle qw//;
+use Data::Dumper qw/Dumper/;
 use Try::Tiny qw/try catch/;
 
 # properties are no longer set in stone since they can vary their position based on the position inside the packet,
@@ -119,7 +119,10 @@ sub read {
     my $l    = shift;
     my $f    = shift;
 
-    die(ref($self), ': unsafe read, requested ', $l, ' bytes at offset ', $o, ', would require ', $o + $l, ' bytes of data, but length of payload only ', $self->payload_size, "\n") if($o + $l > $self->payload_size);
+    if($o + $l > $self->payload_size) {
+        my ($line, $caller) = (caller(1))[2..3];
+        die(ref($self), ': unsafe read, requested ', $l, ' bytes at offset ', $o, ', would require ', $o + $l, ' bytes of data, but length of payload only ', $self->payload_size, "\n\tcaller: $caller ($line)\n\tpayload:\n\n", $self->payload_hex, "\n") 
+    }
     my $raw = substr($self->payload, $o, $l);
     return (defined($f)) ? unpack($f, $raw) : $raw;
 }

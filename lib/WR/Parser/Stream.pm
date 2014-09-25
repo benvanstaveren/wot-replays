@@ -1,18 +1,17 @@
 package WR::Parser::Stream;
 use Mojo::Base 'Mojo::EventEmitter';
-use WR::Parser::Stream::Packet;
-use WR::Util::VehicleDescriptor;
 use Module::Find qw/usesub/;
 use Try::Tiny qw/try catch/;
-use Time::HiRes qw//;
-
-# this thing actually is a very low level packet streamer that does no emitting of it's own beyond emitting packets, and a finish event
+use Data::Dumper qw/Dumper/;
 
 has 'fh'           => undef;      # IO::String object actually, not a filehandle, contains the unpacked replay
+has 'type'         => undef;      # the type of replay we're reading, it does matter... 
 has 'pos'          => 0;
 has 'len'          => sub { length(${shift->fh->string_ref}) };
 has 'stopping'     => 0;
-has 'modules'      => sub { {} };
+has 'modules'      => sub { [] };
+has 'log'          => undef;
+has 'version'      => undef;      # numeric version of the replay we're streaming
 
 $| = 1;
 
@@ -20,6 +19,26 @@ use constant END_OF_STREAM => 0xffffffff;
 
 sub stop    { shift->stopping(1) }
 sub cancel  { shift->stopping(1) }
+sub reset   { 
+    my $self = shift;
+
+    $self->fh->seek(0, 0);
+    $self->pos(0);
+}
+
+sub _log {
+    my $self = shift;
+    my $l    = shift;
+    my $m    = join('', '[WR::Parser::Stream]: ', @_);
+    
+    $self->log->$l($m) if(defined($self->log));
+}
+
+sub debug   { shift->_log('debug', @_) }
+sub info    { shift->_log('info', @_) }
+sub warning { shift->_log('warning', @_) }
+sub fatal   { shift->_log('fatal', @_) }
+sub error   { shift->_log('error', @_) }
 
 sub new {
     my $package = shift;
@@ -27,10 +46,22 @@ sub new {
     
     bless($self, $package);
 
-    foreach my $packetmodule (usesub('WR::Parser::Stream::Packet')) {
+    foreach my $packetmodule (usesub(sprintf('WR::Parser::Stream::Packet::%s::default', uc($self->type)))) {
         my $name = $packetmodule;
-        $self->modules->{$name}++;
+        $name =~ s/.*://g; 
+        # name is a hex number, we want to convert that to decimal
+        $self->modules->[hex($name) + 0] = $packetmodule;
     }
+
+    if(defined($self->version)) {
+        foreach my $packetmodule (usesub(sprintf('WR::Parser::Stream::Packet::%s::%s', uc($self->type), $self->version))) {
+            my $name = $packetmodule;
+            $name =~ s/.*://g; 
+            $self->modules->[hex($name) + 0] = $packetmodule;
+        }
+    }
+
+    $self->debug('packet modules: ', Dumper($self->modules));
 
     # cheesy
     $self->emit('stream.size' => $self->len);
@@ -70,6 +101,8 @@ sub _finish {
     my $reason  = shift;
     my $p       = shift;
 
+    $self->debug('_finish called, reason: ', Dumper($reason));
+
     $self->emit(finish => $reason);
     $self->stop;
     return (defined($p)) ? $p : undef;
@@ -82,6 +115,19 @@ sub next {
     return (defined($cb)) ? $cb->($self, $self->_next) : $self->_next;
 }
 
+sub scan {
+    my $self = shift;
+    my $pl   = shift;
+    my $cb   = shift;
+    my $tl   = { map { $_ => 1 } @$pl };
+
+    while(my $packet = $self->_next) {
+        next unless defined($tl->{$packet->type});
+        last unless($cb->($self, $packet));
+    }
+    $self->reset();
+}
+
 sub _next {
     my $self = shift;
 
@@ -89,18 +135,19 @@ sub _next {
 
     my $payload_s = $self->safe_read(4, 'L');
     my $pt        = $self->safe_read(4, 'L');
-    my $pm        = sprintf('WR::Parser::Stream::Packet::0x%02x', $pt);
 
     return $self->_finish({ ok => 0, reason => sprintf('EOF PT: %02x (%d), PS: %d', $pt, $pt, $payload_s) }) unless(defined($payload_s) && defined($pt)); # not really true but...
-    return $self->_finish({ ok => 0, reason => sprintf('NOSUCHPACKET: %02x (%d), module %s', $pt, $pt, $pm) }) unless(defined($self->modules->{$pm}));
+
+    my $pm        = $self->modules->[$pt];
+
+    return $self->_finish({ ok => 0, reason => sprintf('NOSUCHPACKET: %02x (%d), module %s', $pt, $pt, $pm) }) unless(defined($pm));
 
     # if PT == END_OF_STREAM we just return
     return $self->_finish({ ok => 1, reason => 'end of stream'}, undef) if($pt == $self->END_OF_STREAM);
+    return $self->_finish({ ok => 0, reason =>  'PACKETBEYONDBUFFER' }) if($self->fh->tell + $payload_s > $self->len);
 
     my $pb = IO::String->new;
     $pb->binmode(1);
-
-    return $self->_finish({ ok => 0, reason =>  'PACKETBEYONDBUFFER' }) if($self->fh->tell + $payload_s > $self->len);
 
     # rewind by 8 bytes
     $self->fh->seek(-8, 1);

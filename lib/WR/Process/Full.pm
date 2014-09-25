@@ -205,10 +205,10 @@ sub _stream_replay {
             my ($game, $chat) = (@_);
             $replay->append('chat', $chat->{text});
         });
-        $game->on('setup.roster' => sub {
+        $game->on('arena.vehicle_list' => sub {
             my ($g, $v) = (@_);
 
-            $replay->set('roster' => $v);
+            $replay->set('roster' => $v->{list});
         });
         $game->on(finish => sub {
             my ($game, $reason) = (@_);
