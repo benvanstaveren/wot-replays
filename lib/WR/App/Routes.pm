@@ -18,6 +18,33 @@ sub install {
         return $r;
     });
 
+    $r->get('/')->to('replays#browse', 
+        filter_opts => {},
+        pageid      => 'home', 
+        filter_root => 'browse',
+        page        => { 
+            title       => 'index.page.title' 
+        }, 
+        browse => { 
+            heading     => 'index.page.header' 
+        },
+        browse_filter_raw   =>  {
+            p   =>  1,
+            v   =>  '*',
+            tmi =>  1,
+            tma =>  10,
+            m   =>  '*',
+            mt  =>  '*',
+            mm  =>  '*',
+            sr  =>  'upload',
+            s   =>  '*',
+            vp  =>  1,
+            vi  =>  0
+        },
+        initialize_with => [ '_fp_competitions', '_fp_notifications' ],
+    );
+
+=pod
     my $rb = $r->under('/replay/:replay_id');
         $rb->get('/')->to('replays-view#view', pageid => 'replay')->name('viewreplay');
         $rb->get('/battleviewer')->to('replays-view#battleviewer', pageid => 'battleviewer', page => { title => 'replay.battleviewer.page.title' });
@@ -401,6 +428,9 @@ sub install {
                 $uploads->get('/page/:page')->to('admin-site#uploads', pageid => 'admin/site');
             my $notifications = $site->under('/notifications');
                 $notifications->get('/')->to('admin-site#notifications', pageid => 'admin/notifications');
+
+=cut
+
 }
 
 1;
