@@ -223,7 +223,6 @@ sub _stream_replay {
             my ($g, $v) = (@_);
 
             $replay->set('roster' => $v->{list});
-            warn Dumper('ROSTER: ', Dumper($v->{list})); 
         });
         $game->on(finish => sub {
             my ($game, $reason) = (@_);
@@ -408,13 +407,17 @@ sub _with_battle_result {
             # fix up the replay with some additional junk
             $self->_fix_replay_junk($replay);
 
+            $self->debug('fixed replay junk');
+
+            
+
             # this really oughta move into the stream events
-            if($replay->get('game.version_numeric') < $self->config->get('wot.min_version')) {
+            if($parser->version < $self->config->get('wot.min_version')) {
                 $self->job->unlink;
                 $self->job->set_error('That replay is from an older version of World of Tanks which we cannot process...' => sub {
                     return $cb->($self, undef, 'That replay is from an older version of World of tanks which we cannot process...');
                 });
-            } elsif($replay->get('game.version_numeric') > $self->config->get('wot.version_numeric')) {
+            } elsif($parser->version > $self->config->get('wot.version_numeric')) {
                 $self->job->unlink;
                 $self->job->set_error('That replay is from a newer version of World of Tanks which we cannot process...' => sub {
                     return $cb->($self, undef, 'That replay is from a newer version of World of tanks which we cannot process...');
@@ -585,7 +588,7 @@ sub _real_process {
     $self->_stream_replay($parser, $replay, sub {
         my ($replay, $error) = (@_);
 
-        $self->debug('stream replay callback with error ', $error, ' replay ', $replay);
+        $self->debug('stream replay callback with error ', defined($error) ? $error : 'no error', ' replay ', $replay);
 
         if(defined($error)) {
             $self->job->set_error($error => sub {
