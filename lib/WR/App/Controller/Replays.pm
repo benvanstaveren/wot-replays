@@ -73,7 +73,9 @@ sub _real_browse {
             $self->_really_real_browse($base_q);
         });
         foreach my $init (@{$self->stash('initialize_with')}) {
-            WR::App::Initializer::$init($self, $delay->begin(0));
+            if(my $code = WR::App::Initializer->can($init)) {
+                $code->($self, $delay->begin(0));
+            }
         }
     } else {
         return $self->_really_real_browse($base_q);
