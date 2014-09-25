@@ -41,6 +41,8 @@ sub index {
     my $size = $self->stash('size');
     my $vstr = $self->stash('vehicle_string');
 
+    $self->render_later;
+
     my ($country, $vid) = split(/-/, $vstr, 2);
 
     # unfortunately, the WG API doesn't allow for pulling up info by way of vehicle strings, so we have to go
