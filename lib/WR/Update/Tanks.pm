@@ -16,9 +16,11 @@ sub get_type {
         'SPG'           =>  'S',
     };
 
-    die 'get_type: ', $type, "\n";
+    my $rv = $tm->{$type};
 
-    return $tm->{$type};
+    die 'No type for ', $type, "\n" unless(defined($rv));
+
+    return $rv;
 }
 
 sub run {
