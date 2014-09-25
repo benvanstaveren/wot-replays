@@ -1,0 +1,99 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: World Of Tanks\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-04-28 10:00+0300\n"
+"PO-Revision-Date: 2011-04-28 10:00+0300\n"
+"Last-Translator: WoT Translator <noreply@wargaming.net>\n"
+"Language-Team: WoT Team <noreply@wargaming.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "chat/channel-carousel"
+msgstr "Chat with other players"
+
+msgid "chat/channels"
+msgstr "Chat with other players"
+
+msgid "chat/service-channel"
+msgstr ""
+"View\n"
+"notifications"
+
+msgid "hangar/crew"
+msgstr ""
+"Recruit, transfer,\n"
+"and send crew members to the Barracks"
+
+msgid "hangar/customization-button"
+msgstr ""
+"Apply Camouflage,\n"
+"Emblems and Inscriptions"
+
+msgid "hangar/maintenance-button"
+msgstr ""
+"Repair vehicle,\n"
+"resupply ammunition\n"
+"and consumables"
+
+msgid "hangar/modules"
+msgstr ""
+"Purchase and mount\n"
+"modules"
+
+msgid "hangar/modules-power-level"
+msgstr ""
+"Research\n"
+"vehicle modules"
+
+msgid "hangar/optional-devices"
+msgstr ""
+"Purchase and install\n"
+"equipment"
+
+msgid "hangar/vehicle-carousel"
+msgstr "Select a vehicle"
+
+msgid "hangar/vehicle-parameters"
+msgstr "Vehicle characteristics"
+
+msgid "header/account-button"
+msgstr "Player Menu"
+
+msgid "header/battleType-button"
+msgstr "Battle Modes"
+
+msgid "header/fight-button"
+msgstr "Join battle"
+
+msgid "header/finance-block"
+msgstr "Game Currency"
+
+msgid "header/menu/inventory"
+msgstr ""
+"Sell\n"
+"vehicles, equipment\n"
+"and consumables"
+
+msgid "header/menu/profile"
+msgstr ""
+"View statistics\n"
+"and achievements"
+
+msgid "header/menu/shop"
+msgstr "Purchase vehicles and components"
+
+msgid "header/menu/techtree"
+msgstr ""
+"Research\n"
+"vehicles"
+
+msgid "header/premium-button"
+msgstr "Player's Account"
+
+msgid "header/settings-button"
+msgstr "Game Menu"
+
+msgid "header/squad-button"
+msgstr "Platoon Menu"

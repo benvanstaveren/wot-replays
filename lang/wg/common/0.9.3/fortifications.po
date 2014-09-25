@@ -1,0 +1,1993 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: World Of Tanks\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-07-30 12:00+0300\n"
+"PO-Revision-Date: 2010-07-30 12:00+0300\n"
+"Last-Translator: WoT Translator <noreply@wargaming.net>\n"
+"Language-Team: WoT Team <noreply@wargaming.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "BuildingDirection/label1"
+msgstr "A"
+
+msgid "BuildingDirection/label2"
+msgstr "B"
+
+msgid "BuildingDirection/label3"
+msgstr "C"
+
+msgid "BuildingDirection/label4"
+msgstr "D"
+
+msgid "BuildingDirection/tooltip/body"
+msgstr "Click to open Zone %(value)s."
+
+msgid "BuildingDirection/tooltip/header"
+msgstr "Zone %(value)s"
+
+msgid "BuildingPopover/assignPlayers"
+msgstr "Garrison:"
+
+msgid "BuildingPopover/commanderStatus/bodyStatus/congratulation"
+msgstr "Structure ready for upgrade."
+
+msgid "BuildingPopover/commanderStatus/bodyStatus/foundation"
+msgstr "Transport Industrial Resource or earn it in battles."
+
+msgid "BuildingPopover/commanderStatus/bodyStatus/freeze"
+msgstr "Fill up the durability bar for the Stronghold to function."
+
+msgid "BuildingPopover/commanderStatus/bodyStatus/halfDestroy"
+msgstr "Fill up the durability bar or you will have to rebuild the structure."
+
+msgid "BuildingPopover/commanderStatus/bodyStatus/modernization"
+msgstr "Structure ready for upgrade."
+
+msgid "BuildingPopover/defResActions/directionOpened"
+msgstr "Zones open: "
+
+msgid "BuildingPopover/defResActions/management"
+msgstr "Zone Control"
+
+msgid "BuildingPopover/defResActions/prepareTimeOver"
+msgstr "Time left: "
+
+msgid "BuildingPopover/defResActions/preparedDefRes"
+msgstr "Prepared: %(currentValue)s / %(totalValue)s"
+
+msgid "BuildingPopover/defResActions/preparingDefRes"
+msgstr "Preparing Reserves: "
+
+msgid "BuildingPopover/defResActions/requestDefRes"
+msgstr "Reserve Preparation"
+
+msgid "BuildingPopover/defResInfo/baseBuildingTitle"
+msgstr "Zones of Stronghold"
+
+msgid "BuildingPopover/defResInfo/defResBuildingTitle"
+msgstr "Battle Payments"
+
+msgid "BuildingPopover/header/levelsLbl"
+msgstr "Level %(buildLevel)s"
+
+msgid "BuildingPopover/header/messageStatus"
+msgstr "Level %(buildLevel)d"
+
+msgid "BuildingPopover/header/titleStatus/congratulation"
+msgstr "Upgrade available!"
+
+msgid "BuildingPopover/header/titleStatus/foundation"
+msgstr "Foundation"
+
+msgid "BuildingPopover/header/titleStatus/freeze"
+msgstr "Defense overwhelmed!"
+
+msgid "BuildingPopover/header/titleStatus/halfDestroy"
+msgstr "Partial destruction!"
+
+msgid "BuildingPopover/header/titleStatus/modernization"
+msgstr "Upgrade available!"
+
+msgid "BuildingPopover/indicators/defResLbl"
+msgstr "Storage"
+
+msgid "BuildingPopover/indicators/hpLbl"
+msgstr "Durability"
+
+msgid "BuildingPopover/mapInfo/noBattle"
+msgstr "Clash will not occur"
+
+msgid "BuildingPopover/orderProcess/inPause"
+msgstr "Suspended"
+
+msgid "BuildingPopover/soldierStatus/bodyStatus/foundation"
+msgstr ""
+"To complete building, attach to its Garrison and earn Industrial Resource."
+
+msgid "BuildingPopover/soldierStatus/bodyStatus/freeze"
+msgstr ""
+"To repair structure, attach to its Garrison and earn Industrial Resource."
+
+msgid "BuildingPopover/soldierStatus/bodyStatus/halfDestroy"
+msgstr ""
+"To repair structure, attach to its Garrison and earn Industrial Resource."
+
+msgid "Buildings/buildingName/base_building"
+msgstr "Command Center"
+
+msgid "Buildings/buildingName/car_building"
+msgstr "Transportation Unit"
+
+msgid "Buildings/buildingName/finance_building"
+msgstr "Financial Unit"
+
+msgid "Buildings/buildingName/intendancy_building"
+msgstr "Quartermaster Unit"
+
+msgid "Buildings/buildingName/office_building"
+msgstr "War Department"
+
+msgid "Buildings/buildingName/tankodrom_building"
+msgstr "Tankodrome"
+
+msgid "Buildings/buildingName/training_building"
+msgstr "Training Unit"
+
+msgid "Buildings/buildingName/trophy_building"
+msgstr "Trophy Brigade"
+
+msgid "Buildings/buildingName/warSchool_building"
+msgstr "Military School"
+
+msgid "Buildings/buildingTooltip/order"
+msgstr ""
+" \n"
+"Preparing new Reserve (x%d):\n"
+"%s left."
+
+msgid "Buildings/buildingTooltip/store"
+msgstr ""
+" \n"
+"Storage: "
+
+msgid "Buildings/buildingTooltip/strength"
+msgstr "Durability: "
+
+msgid "Buildings/defResInfo/base_building"
+msgstr ""
+"Open Zones allow to build structures, where Reserves are requested. Zones "
+"can be attacked by enemy clans."
+
+msgid "Buildings/defResInfo/car_building"
+msgstr "to plunder earned in Skirmishes."
+
+msgid "Buildings/defResInfo/finance_building"
+msgstr "to credits for all clan members after any battle."
+
+msgid "Buildings/defResInfo/intendancy_building"
+msgstr "to Industrial Resource kept after unsuccessful defense of Stronghold."
+
+msgid "Buildings/defResInfo/office_building"
+msgstr "Special Instructions"
+
+msgid "Buildings/defResInfo/tankodrom_building"
+msgstr "to Combat Experience for all clan members after any battle."
+
+msgid "Buildings/defResInfo/training_building"
+msgstr "to crew experience for all clan members after any battle."
+
+msgid "Buildings/defResInfo/trophy_building"
+msgstr "to plunder after successful attack on enemy Stronghold."
+
+msgid "Buildings/defResInfo/warSchool_building"
+msgstr "to Free Experience for all clan members after any battle."
+
+msgid "Buildings/modernizationDescr/base_building"
+msgstr "available after upgrade of other structures in Stronghold."
+
+msgid "Buildings/processOrderInfo/car_building"
+msgstr ""
+"Enables clan members to earn up to 25% of extra plunder in Skirmishes. "
+"Percentage can be increased depending on Reserve level."
+
+msgid "Buildings/processOrderInfo/finance_building"
+msgstr ""
+"Clan members earn up to 50% additional credits in any battle. Percentage can "
+"be increased depending on Reserve level."
+
+msgid "Buildings/processOrderInfo/intendancy_building"
+msgstr ""
+"Decreases by up to 50% the loss of Industrial Resource after unsuccessful "
+"defense. Percentage retained depends on Reserve level."
+
+msgid "Buildings/processOrderInfo/office_building"
+msgstr ""
+"Random award for completing Special Instructions, ranging from additional "
+"crew experience to gold."
+
+msgid "Buildings/processOrderInfo/tankodrom_building"
+msgstr ""
+"Clan members earn up to 50% additional experience in any battle. Percentage "
+"can be increased depending on Reserve level."
+
+msgid "Buildings/processOrderInfo/training_building"
+msgstr "Reserve of maximum level doubles crew experience earned in any battle."
+
+msgid "Buildings/processOrderInfo/trophy_building"
+msgstr ""
+"Enables clan members to earn up to 50% extra Industrial Resource in Battles "
+"for Stronghold. Percentage can be increased depending on Reserve level."
+
+msgid "Buildings/processOrderInfo/warSchool_building"
+msgstr ""
+"On the maximum level, Reserve doubles Free Experience earned after any "
+"battle."
+
+msgid "Buildings/trowelLabel"
+msgstr "Construction Site"
+
+msgid "BuildingsProcess/buildingInfo/bottomMessage"
+msgstr "Structure already built."
+
+msgid "BuildingsProcess/buildingInfo/statusMessage"
+msgstr "Required: Level V Command Center"
+
+msgid "BuildingsProcess/buttonLbl"
+msgstr "Start Building"
+
+msgid "BuildingsProcess/buttonLblBuilt"
+msgstr "Structure already built"
+
+msgid "BuildingsProcess/longDescr/car_building"
+msgstr ""
+"Mechanics of the Transportation Unit can attach a trailer to any tractor, "
+"increasing the amount of any transported cargo."
+
+msgid "BuildingsProcess/longDescr/finance_building"
+msgstr ""
+"The Financial Unit is responsible for all accounting in the Stronghold. "
+"Officers of the Financial Unit attract additional funds to increase the "
+"monetary allowance of clan members."
+
+msgid "BuildingsProcess/longDescr/intendancy_building"
+msgstr ""
+"Officers of the Quartermaster Unit arrange efficient evacuation of equipment "
+"within the Stronghold, ensuring that the clan can quickly replenish its "
+"forces after an unsuccessful defense."
+
+msgid "BuildingsProcess/longDescr/office_building"
+msgstr ""
+"Communications officers of the War Department occasionally receive and "
+"process Special Instructions from headquarters, and relay them to the clan "
+"for immediate execution."
+
+msgid "BuildingsProcess/longDescr/tankodrom_building"
+msgstr ""
+"Special area designed to determine vehicles' efficiency under ultimate load."
+
+msgid "BuildingsProcess/longDescr/training_building"
+msgstr ""
+"Combination of theoretical and practical studies allows recruits to quickly "
+"master the basics of military science."
+
+msgid "BuildingsProcess/longDescr/trophy_building"
+msgstr ""
+"After a successful attack on an enemy Stronghold, the Trophy Brigade "
+"retrieves abandoned vehicles, resources, and other valuables."
+
+msgid "BuildingsProcess/longDescr/warSchool_building"
+msgstr ""
+"Experienced instructors and thematic materials from the library facilitate "
+"the training of skilled officers ready for fighting in any conditions."
+
+msgid "BuildingsProcess/mainLabel/accessCount"
+msgstr "Built: %(current)s of %(total)s"
+
+msgid "BuildingsProcess/orderInfo/descriptionPrefix"
+msgstr "Additional percent "
+
+msgid "BuildingsProcess/orderInfo/header"
+msgstr "Battle Payments"
+
+msgid "BuildingsProcess/shortDescr/car_building"
+msgstr "Additional Industrial Resource earned in Skirmishes"
+
+msgid "BuildingsProcess/shortDescr/finance_building"
+msgstr "Additional credits after any battle"
+
+msgid "BuildingsProcess/shortDescr/intendancy_building"
+msgstr "Decreases amount of enemy plunder after unsuccessful defense"
+
+msgid "BuildingsProcess/shortDescr/office_building"
+msgstr "Various rewards: discounts, experience, gold, and more."
+
+msgid "BuildingsProcess/shortDescr/tankodrom_building"
+msgstr "Additional Combat Experience after any battle"
+
+msgid "BuildingsProcess/shortDescr/training_building"
+msgstr "Additional crew experience after any battle"
+
+msgid "BuildingsProcess/shortDescr/trophy_building"
+msgstr "Increases amount of plunder earned after successful attack"
+
+msgid "BuildingsProcess/shortDescr/warSchool_building"
+msgstr "Additional Free Experience after any battle"
+
+msgid "BuildingsProcess/statusMsg/built"
+msgstr "Built"
+
+msgid "BuildingsProcess/statusMsg/notAvailable"
+msgstr "Unavailable"
+
+msgid "BuildingsProcess/textInfo"
+msgstr ""
+"Select a structure from the list on the left to see the detailed description."
+
+msgid "BuildingsProcess/windowTitle"
+msgstr "Building"
+
+msgid "ChoiceDivision/applyBtnLbl"
+msgstr "Select"
+
+msgid "ChoiceDivision/cancelBtnLbl"
+msgstr "Cancel"
+
+msgid "ChoiceDivision/description"
+msgstr ""
+"Division limits the maximum tier of vehicles and the amount of plunder that "
+"can be earned in Skirmishes by a detachment."
+
+msgid "ChoiceDivision/divisionFullName"
+msgstr "%(divisionType)s division"
+
+msgid "ChoiceDivision/divisionProfit"
+msgstr "Plunder: %(defResCount)s"
+
+msgid "ChoiceDivision/divisionType/absoluteDivision"
+msgstr "Absolute"
+
+msgid "ChoiceDivision/divisionType/championDivision"
+msgstr "Champion"
+
+msgid "ChoiceDivision/divisionType/middleDivision"
+msgstr "Medium"
+
+msgid "ChoiceDivision/vehicleLevel"
+msgstr "Vehicle Tier: %(minLevel)s–%(maxLevel)s"
+
+msgid "ChoiceDivision/windowTitle"
+msgstr "Select Division"
+
+msgid "ClanListWindow/table/memberName"
+msgstr "Name"
+
+msgid "ClanListWindow/table/monthMining"
+msgstr "Per month"
+
+msgid "ClanListWindow/table/role"
+msgstr "Position"
+
+msgid "ClanListWindow/table/weekMining"
+msgstr "Per week"
+
+msgid "CongratulationWindow/buttonLbl"
+msgstr "Affirmative!"
+
+msgid "CongratulationWindow/textBody"
+msgstr ""
+"%(sourceCount)s (units of Industrial Resource) added to storage in your "
+"Command Center. This amount is enough to build one structure and prepare one "
+"Reserve. This time you were given Industrial Resource for free. However, in "
+"the future you will need to earn it in Skirmishes and Battles for Stronghold."
+
+msgid "CongratulationWindow/textTitle"
+msgstr "Time to Build!"
+
+msgid "CongratulationWindow/titleLbl"
+msgstr "New Zone Opened"
+
+msgid "DemountBuilding/applyButton/label"
+msgstr "Demolish"
+
+msgid "DemountBuilding/cancelButton/label"
+msgstr "Cancel"
+
+msgid "DemountBuilding/errorMessage"
+msgstr "You have entered incorrect information."
+
+msgid "DemountBuilding/generalText/body"
+msgstr ""
+"You %(bodyInnerText)s all prepared Reserves and Industrial Resource "
+"accumulated in the structure. The structure will be rebuilt from the "
+"foundation."
+
+msgid "DemountBuilding/generalText/bodyInnerText"
+msgstr "will irrevocably lose"
+
+msgid "DemountBuilding/generalText/title"
+msgstr "Demolish structure %(buildingName)s of Level %(buildingLevel)s?"
+
+msgid "DemountBuilding/question/body"
+msgstr ""
+"To complete this action, enter the exact value displayed in the structure "
+"durability bar (%(controlNumber)s)."
+
+msgid "DemountBuilding/question/title"
+msgstr "Structure Demolition"
+
+msgid "DemountBuilding/windowTitle"
+msgstr "%(buildingName)s: Demolition"
+
+msgid "FixedPlayers/header/btnLbl"
+msgstr "Attach to Structure"
+
+msgid "FixedPlayers/header/isAssigned"
+msgstr "You are attached to the structure"
+
+msgid "FixedPlayers/listHeader/fieldAllTime"
+msgstr "%(icon)s Total"
+
+msgid "FixedPlayers/listHeader/fieldName"
+msgstr "Name"
+
+msgid "FixedPlayers/listHeader/fieldRole"
+msgstr "Position"
+
+msgid "FixedPlayers/listHeader/fieldWeek"
+msgstr "%(icon)s Week"
+
+msgid "FixedPlayers/windowTitle"
+msgstr "%(buildingName)s: Garrison"
+
+msgid "FortCalendarWindow/calendar/dayTooltip/future/body"
+msgstr "Click to view details of scheduled battles."
+
+msgid "FortCalendarWindow/calendar/dayTooltip/future/header"
+msgstr "Battles Scheduled: %(count)d"
+
+msgid "FortCalendarWindow/calendar/dayTooltip/notAvailable/body"
+msgstr "You can only view events for the past/next 2 weeks."
+
+msgid "FortCalendarWindow/calendar/dayTooltip/notAvailable/header"
+msgstr "Information Unavailable"
+
+msgid "FortCalendarWindow/calendar/dayTooltip/past/body"
+msgstr "Click to view details of previous battles."
+
+msgid "FortCalendarWindow/calendar/dayTooltip/past/header"
+msgstr "Battles Fought: %(count)d"
+
+msgid "FortCalendarWindow/eventsList/empty/noEvents"
+msgstr ""
+"No scheduled\n"
+"or previous battles"
+
+msgid "FortCalendarWindow/eventsList/empty/notAvailable"
+msgstr ""
+"Information is unavailable. You can only view events for the past/next 2 "
+"weeks."
+
+msgid "FortCalendarWindow/eventsList/empty/vacation"
+msgstr ""
+"No battles scheduled.\n"
+"Neutrality: (%(date)s)"
+
+msgid "FortCalendarWindow/eventsList/info/battlesCount"
+msgstr "Number of battles: %(eventsCount)d"
+
+msgid "FortCalendarWindow/eventsList/info/future"
+msgstr "Number of battles: %(eventsCount)d"
+
+msgid "FortCalendarWindow/eventsList/info/past"
+msgstr "Battles fought: %(eventsCount)d"
+
+msgid "FortCalendarWindow/eventsList/item/result/lose"
+msgstr "Defeat"
+
+msgid "FortCalendarWindow/eventsList/item/result/tie"
+msgstr "Draw"
+
+msgid "FortCalendarWindow/eventsList/item/result/win"
+msgstr "Victory"
+
+msgid "FortCalendarWindow/eventsList/item/timeInfo"
+msgstr "%(startTime)s–%(endTime)s"
+
+msgid "FortCalendarWindow/eventsList/item/title/defence"
+msgstr "Defense period—clan %(clanName)s"
+
+msgid "FortCalendarWindow/eventsList/item/title/offence"
+msgstr "Attack on clan %(clanName)s"
+
+msgid "FortCalendarWindow/message/vacation"
+msgstr "Neutrality: (%(date)s)"
+
+msgid "FortCalendarWindow/title"
+msgstr "Calendar"
+
+msgid "FortClanBattleList/actionDescr"
+msgstr "You can join the detachment 15 minutes before the clash."
+
+msgid "FortClanBattleList/currentBtlCount"
+msgstr "Upcoming battles:"
+
+msgid "FortClanBattleList/descrLbl"
+msgstr ""
+"Join your clan members at the appointed hour to defend\n"
+"your Stronghold or attack enemy Stronghold."
+
+msgid "FortClanBattleList/details/attack_title"
+msgstr "Attack %(clanName)s"
+
+msgid "FortClanBattleList/details/btnLbl"
+msgstr "Create Detachment"
+
+msgid "FortClanBattleList/details/creationDescr"
+msgstr ""
+"Click to create detachment and\n"
+"start Battle for Stronghold."
+
+msgid "FortClanBattleList/details/creationDescr_disable"
+msgstr ""
+"You can create a detachment 15 minutes\n"
+"before Battle for Stronghold."
+
+msgid "FortClanBattleList/details/creationTitle"
+msgstr "Create Detachment"
+
+msgid "FortClanBattleList/details/description"
+msgstr "Zone %(directionName)s"
+
+msgid "FortClanBattleList/details/title"
+msgstr "Defense Period %(clanName)s"
+
+msgid "FortClanBattleList/renderBattleName/clanBattleDefence"
+msgstr "Defense Period %(clanName)s"
+
+msgid "FortClanBattleList/renderBattleName/clanBattleOffence"
+msgstr "Attack %(clanName)s"
+
+msgid "FortClanBattleList/renderCurrentTime/beforeBattle"
+msgstr "Starts in:"
+
+msgid "FortClanBattleList/renderCurrentTime/isBattle"
+msgstr "In progress"
+
+msgid "FortClanBattleList/renderDayOfBattle/today"
+msgstr "today"
+
+msgid "FortClanBattleList/renderDayOfBattle/tomorrow"
+msgstr "tomorrow"
+
+msgid "FortClanBattleList/renderDirection"
+msgstr "Zone %(directionName)s"
+
+msgid "FortClanBattleList/tableHeader/battleName"
+msgstr "Battle Name"
+
+msgid "FortClanBattleList/tableHeader/battleTime"
+msgstr "Time"
+
+msgid "FortClanBattleList/tableHeader/dayOfBattle"
+msgstr "Battle Day"
+
+msgid "FortClanBattleList/titleLbl"
+msgstr "Battles for Stronghold"
+
+msgid "FortClanBattleRoom/header/battleIcon/defence/tooltip/body"
+msgstr "Defensive action starts with a clash for your structure."
+
+msgid "FortClanBattleRoom/header/battleIcon/defence/tooltip/header"
+msgstr "Defensive Action"
+
+msgid "FortClanBattleRoom/header/battleIcon/offence/tooltip/body"
+msgstr "Attack starts with a clash for the enemy structure."
+
+msgid "FortClanBattleRoom/header/battleIcon/offence/tooltip/header"
+msgstr "Attack"
+
+msgid "FortClanBattleRoom/header/buildingIndicator/defence/tooltip/body"
+msgstr "You will be defending your structure: %(building)s"
+
+msgid "FortClanBattleRoom/header/buildingIndicator/defence/tooltip/header"
+msgstr "Upcoming Clash"
+
+msgid "FortClanBattleRoom/header/buildingIndicator/offence/tooltip/body"
+msgstr "You will be fighting for the enemy structure: %(building)s"
+
+msgid "FortClanBattleRoom/header/buildingIndicator/offence/tooltip/header"
+msgstr "Upcoming Clash"
+
+msgid "FortClanBattleRoom/header/mapTitle"
+msgstr "Map of current clash:"
+
+msgid "FortClanBattleRoom/teamSectionTitle/inBattle"
+msgstr "In progress"
+
+msgid "FortClanBattleRoom/teamSectionTitle/prepareTeam"
+msgstr "If both teams are ready, the clash starts ahead of schedule."
+
+msgid "FortClanListWindow/title"
+msgstr "Clan Members of %(clanName)s"
+
+msgid "FortClanStatisticsWindow/sortie/battlesHeader"
+msgstr "Battles by Division"
+
+msgid "FortClanStatisticsWindow/title"
+msgstr "Statistics of Clan %(clanName)s"
+
+msgid "FortDatePickerPopover/calendar/dayTooltip/available/body"
+msgstr "Clan can be attacked on that day."
+
+msgid "FortDatePickerPopover/calendar/dayTooltip/available/header"
+msgstr "Available"
+
+msgid "FortDatePickerPopover/calendar/dayTooltip/busy/body"
+msgstr ""
+"Selected clan has already accepted a challenge from another enemy and is now "
+"awaiting the battle."
+
+msgid "FortDatePickerPopover/calendar/dayTooltip/busy/header"
+msgstr "Awaiting Battle"
+
+msgid "FortDatePickerPopover/calendar/dayTooltip/notAvailable/body"
+msgstr "Clan cannot be attacked on that day."
+
+msgid "FortDatePickerPopover/calendar/dayTooltip/notAvailable/header"
+msgstr "Unavailable"
+
+msgid "FortDeclarationOfWarWindow/button/cancel"
+msgstr "Cancel"
+
+msgid "FortDeclarationOfWarWindow/button/submit"
+msgstr "Confirm Attack"
+
+msgid "FortDeclarationOfWarWindow/description"
+msgstr "Select the Zone from which you want to attack, and confirm the attack:"
+
+msgid "FortDeclarationOfWarWindow/direction/notAvailable"
+msgstr "Available from %(date)s."
+
+msgid "FortDeclarationOfWarWindow/header"
+msgstr "%(date)s, %(startTime)s–%(endTime)s, attack on %(clanName)s"
+
+msgid "FortDeclarationOfWarWindow/item/attack/tooltip/body"
+msgstr "You will be attacking %(clanName)s from Zone %(direction)s."
+
+msgid "FortDeclarationOfWarWindow/item/attack/tooltip/header"
+msgstr "Attack from Zone %(direction)s"
+
+msgid "FortDeclarationOfWarWindow/item/busy/tooltip/body"
+msgstr "You are attacking %(clanName)s at that time."
+
+msgid "FortDeclarationOfWarWindow/item/busy/tooltip/header"
+msgstr "Attack Unavailable"
+
+msgid "FortDeclarationOfWarWindow/item/notAvailable/tooltip/body"
+msgstr "Available from %(date)s."
+
+msgid "FortDeclarationOfWarWindow/item/notAvailable/tooltip/header"
+msgstr "Attack Unavailable"
+
+msgid "FortDeclarationOfWarWindow/item/notOpened/tooltip/body"
+msgstr "You have not opened this Zone yet."
+
+msgid "FortDeclarationOfWarWindow/item/notOpened/tooltip/header"
+msgstr "Attack Unavailable"
+
+msgid "FortDeclarationOfWarWindow/title"
+msgstr "Declaration of War"
+
+msgid "FortDirectionsWindow/button/closeDirection"
+msgstr "Close"
+
+msgid "FortDirectionsWindow/button/newDirection"
+msgstr "New Zone"
+
+msgid "FortDirectionsWindow/descr/baseRepairRequire"
+msgstr "To open a new Zone, repair %(baseName)s "
+
+msgid "FortDirectionsWindow/descr/completed"
+msgstr ""
+"Congratulations!\n"
+"You have opened the maximum number of Zones."
+
+msgid "FortDirectionsWindow/descr/requirements"
+msgstr "To open a new Zone, at least %(count)s clan members are required."
+
+msgid "FortDirectionsWindow/label/noBuildings"
+msgstr "No structures"
+
+msgid "FortDirectionsWindow/label/notOpened"
+msgstr "Not open"
+
+msgid "FortDirectionsWindow/label/openedDirections"
+msgstr "Zones open:"
+
+msgid "FortDirectionsWindow/title"
+msgstr "Zone Control"
+
+msgid "FortIntelligence/ClanFilterPopover/applyButtonText"
+msgstr "Apply"
+
+msgid "FortIntelligence/ClanFilterPopover/attackAvailability"
+msgstr "Availability for attack:"
+
+msgid "FortIntelligence/ClanFilterPopover/availability"
+msgstr "Availability for attack:"
+
+msgid "FortIntelligence/ClanFilterPopover/availability/item/any"
+msgstr "Any"
+
+msgid "FortIntelligence/ClanFilterPopover/availability/item/dayAfterTomorrow"
+msgstr "In two days"
+
+msgid "FortIntelligence/ClanFilterPopover/availability/item/today"
+msgstr "Today"
+
+msgid "FortIntelligence/ClanFilterPopover/availability/item/tomorrow"
+msgstr "Tomorrow"
+
+msgid "FortIntelligence/ClanFilterPopover/cancelButtonText"
+msgstr "Cancel"
+
+msgid "FortIntelligence/ClanFilterPopover/clanLevel"
+msgstr "Clan Level:"
+
+msgid "FortIntelligence/ClanFilterPopover/defaultButtonText"
+msgstr "Default"
+
+msgid "FortIntelligence/ClanFilterPopover/header"
+msgstr "Clan Search Range"
+
+msgid "FortIntelligence/ClanFilterPopover/startHourRange"
+msgstr "Enemy defense period:"
+
+msgid "FortIntelligence/additionalText/comingSoon"
+msgstr "Coming soon"
+
+msgid "FortIntelligence/bottomBlock/body"
+msgstr ""
+"Your Stronghold can be attacked too. Mobilize your Reserves and be on your "
+"guard when the time comes to repel the enemy."
+
+msgid "FortIntelligence/bottomBlock/header"
+msgstr "Defense"
+
+msgid "FortIntelligence/clanDescription/alreadyFought"
+msgstr "You have already fought against %(clanName)s"
+
+msgid "FortIntelligence/clanDescription/attack"
+msgstr "Attack!"
+
+msgid "FortIntelligence/clanDescription/direction/notAvailable"
+msgstr "Available from %(date)s."
+
+msgid "FortIntelligence/clanDescription/direction/tooltip/attack"
+msgstr "Attack Zone %(direction)s"
+
+msgid "FortIntelligence/clanDescription/direction/tooltip/attackInfo"
+msgstr "Click to select a Zone for convergence and confirm the attack."
+
+msgid "FortIntelligence/clanDescription/direction/tooltip/buildingItem"
+msgstr "• %(name)s, %(level)s %(extraInfo)s"
+
+msgid "FortIntelligence/clanDescription/direction/tooltip/buildingLowLevel"
+msgstr "(clans can clash over structures of Level %(minLevel)s and above)"
+
+msgid "FortIntelligence/clanDescription/direction/tooltip/buildings"
+msgstr ""
+"Structures leading to the Command Center:\n"
+"%(buildings)s"
+
+msgid "FortIntelligence/clanDescription/direction/tooltip/busy/header"
+msgstr "Zone %(direction)s Reserved for Battle"
+
+msgid "FortIntelligence/clanDescription/direction/tooltip/busy/info"
+msgstr "On %(date)s, clan %(clanName)s will attack this Zone."
+
+msgid "FortIntelligence/clanDescription/direction/tooltip/notAvailable/header"
+msgstr "Zone %(direction)s Unavailable"
+
+msgid "FortIntelligence/clanDescription/direction/tooltip/notAvailable/info"
+msgstr "This is a new Zone, and it can be attacked only after %(date)s."
+
+msgid "FortIntelligence/clanDescription/direction/tooltip/notCommander"
+msgstr "Zone %(direction)s"
+
+msgid "FortIntelligence/clanDescription/direction/tooltip/notCommanderInfo"
+msgstr "Only the Commander or Executive Officer can declare an attack."
+
+msgid "FortIntelligence/clanDescription/direction/tooltip/notOpened"
+msgstr "Clan has not opened this Zone yet."
+
+msgid "FortIntelligence/clanDescription/nextAvailableAttack"
+msgstr "New attack will be available from %(nextDate)s"
+
+msgid "FortIntelligence/clanDescription/nextAvailableAttackInAWeek"
+msgstr ""
+"New attack will not be available for one week after the battle on "
+"%(nextDate)s"
+
+msgid "FortIntelligence/clanDescription/notSelectedScreen/commander"
+msgstr "To declare war, select a clan from the list on the left."
+
+msgid "FortIntelligence/clanDescription/notSelectedScreen/notCommander"
+msgstr "To view details, select a clan from the list on the left."
+
+msgid "FortIntelligence/clanDescription/selectDate"
+msgstr "Select a date and a Zone for the attack:"
+
+msgid "FortIntelligence/clanDescription/selectDate/cantAttack"
+msgstr "Not enough permissions to set the battle date."
+
+msgid "FortIntelligence/clanDescription/warDeclared"
+msgstr "War declared on %(clanName)s!"
+
+msgid "FortIntelligence/clanTypes/all"
+msgstr "All clans"
+
+msgid "FortIntelligence/clanTypes/booked"
+msgstr "Bookmarked"
+
+msgid "FortIntelligence/clanTypes/last"
+msgstr "Recent"
+
+msgid "FortIntelligence/clearFilterBtn/title"
+msgstr "Clear Query"
+
+msgid "FortIntelligence/date/notAvailable"
+msgstr "--"
+
+msgid "FortIntelligence/date/today"
+msgstr "Today"
+
+msgid "FortIntelligence/date/tomorrow"
+msgstr "Tomorrow"
+
+msgid "FortIntelligence/fortIntelFilter/filterButtonStatus/max"
+msgstr "Maximum Range"
+
+msgid "FortIntelligence/fortIntelFilter/filterButtonStatus/min"
+msgstr "Range reduced"
+
+msgid "FortIntelligence/fortIntelFilter/status/all"
+msgstr "The most relevant targets are shown:"
+
+msgid "FortIntelligence/fortIntelFilter/status/appliedBookmarkedFilter"
+msgstr "Your bookmarked clans:"
+
+msgid "FortIntelligence/fortIntelFilter/status/appliedFilter"
+msgstr "Displaying results with adjusted search range"
+
+msgid "FortIntelligence/fortIntelFilter/status/appliedFilterAndClan"
+msgstr "Query is affected by adjusted search range."
+
+msgid "FortIntelligence/fortIntelFilter/status/appliedLastFoundFilter"
+msgstr "Clans you fought against recently:"
+
+msgid "FortIntelligence/headerBlock/body"
+msgstr ""
+"Strongholds of Level V or higher get access to intelligence data, which can "
+"help the clan to locate an enemy and launch an attack."
+
+msgid "FortIntelligence/headerBlock/header"
+msgstr "Intelligence Data"
+
+msgid "FortIntelligence/middleBlock/body"
+msgstr ""
+"Victory in Battle for Stronghold of your enemy will earn more plunder than "
+"Skirmishes, and will also benefit the reputation of the clan."
+
+msgid "FortIntelligence/middleBlock/header"
+msgstr "Attack"
+
+msgid "FortIntelligence/sortBtns/availability"
+msgstr "Availability"
+
+msgid "FortIntelligence/sortBtns/buildings"
+msgstr "Structure Level"
+
+msgid "FortIntelligence/sortBtns/clanTag"
+msgstr "Clan Tag"
+
+msgid "FortIntelligence/sortBtns/defenceTime"
+msgstr "Defense Period"
+
+msgid "FortIntelligence/status/empty"
+msgstr "No search results. Search range too strict."
+
+msgid "FortIntelligence/status/emptyAbbrev"
+msgstr ""
+"Clan with that tag was not found. It might not have set up the defense, or "
+"the search parameters are too strict.\n"
+"Adjust or reset the search parameters, or enter a different tag."
+
+msgid "FortIntelligence/status/emptyFavorite"
+msgstr "Your bookmarked clans will be displayed here."
+
+msgid "FortIntelligence/status/emptyRecent"
+msgstr "Clans you fought against recently will be displayed here."
+
+msgid "FortIntelligence/tagSearchTextInput/default"
+msgstr "Search by tag"
+
+msgid "FortIntelligence/topBlock/body"
+msgstr ""
+"Examine Strongholds of enemy clans to choose a suitable target for attack. "
+"Keep in mind that others can also locate your Stronghold."
+
+msgid "FortIntelligence/topBlock/header"
+msgstr "Recon"
+
+msgid "FortIntelligence/windowTitle"
+msgstr "Intelligence Data: Select Clan for Attack"
+
+msgid "FortMainView/common/title"
+msgstr "  "
+
+msgid "FortMainView/common/totalDepotQuantityText"
+msgstr "In all storages: "
+
+msgid "FortMainView/commonTutor/title"
+msgstr "Step 2 of 3. Lay the foundation of your first structure."
+
+msgid "FortMainView/directions/selectingStatus"
+msgstr ""
+"Choose a Zone to create a bridgehead. You can control Zones from the Command "
+"Center."
+
+msgid "FortMainView/directions/title"
+msgstr "Zone Opening Mode"
+
+msgid "FortMainView/directionsTutor/title"
+msgstr "Step 1 of 3. Choose a Zone you wish to open."
+
+msgid "FortMainView/header/defencePeriod"
+msgstr "Defense Period: %(period)s"
+
+msgid "FortMainView/header/fortFrozen"
+msgstr "Defense overwhelmed! Repair your Command Center."
+
+msgid "FortMainView/header/levelsLbl"
+msgstr "Level %(buildLevel)s"
+
+msgid "FortMainView/intelligenceButton/title"
+msgstr "Intelligence Data"
+
+msgid "FortMainView/leave/button/label"
+msgstr "Exit Mode"
+
+msgid "FortMainView/sortieButton/title"
+msgstr "Skirmishes"
+
+msgid "FortMainView/transporting/exportingStatus"
+msgstr ""
+"Choose the structure from which Industrial Resource will be transported."
+
+msgid "FortMainView/transporting/importingStatus"
+msgstr "Choose the structure to which Industrial Resource will be transported."
+
+msgid "FortMainView/transporting/notAvailableStatus"
+msgstr "Transportation is unavailable now."
+
+msgid "FortMainView/transporting/title"
+msgstr "Transportation Mode"
+
+msgid "FortMainView/transporting/tutorialDescr"
+msgstr ""
+"To complete building of your first structure, enter Transportation mode."
+
+msgid "FortMainView/transportingTutor/title"
+msgstr "Step 3 of 3. Fill storage of the structure with Industrial Resource."
+
+msgid "FortTransportConfirmationWindow/cancelButton"
+msgstr "Cancel"
+
+msgid "FortTransportConfirmationWindow/maxTransportingSizeLabel"
+msgstr "Maximum capacity: "
+
+msgid "FortTransportConfirmationWindow/title"
+msgstr "Confirm Transportation"
+
+msgid "FortTransportConfirmationWindow/transportButton"
+msgstr "Transport"
+
+msgid "FortTransportConfirmationWindow/transportingFooterText"
+msgstr ""
+"Transport unloading\n"
+"will take %(estimatedTime)s."
+
+msgid "FortTransportConfirmationWindow/transportingText"
+msgstr "Transport:"
+
+msgid "FortWelcomeCommanderView/button/label"
+msgstr "Open Zone"
+
+msgid "FortWelcomeCommanderView/option1/descr"
+msgstr ""
+"Open a Zone and build your first structure there. Reserves requested from "
+"structures provide significant advantages to the clan in battles."
+
+msgid "FortWelcomeCommanderView/option1/title"
+msgstr "First Steps"
+
+msgid "FortWelcomeCommanderView/option2/descr"
+msgstr ""
+"Each structure is assigned a garrison of clan members. Garrisons serve as a "
+"basis for creating detachments, which earn Industrial Resource in "
+"Skirmishes. Clan members will earn Industrial Resource for the structure "
+"they are attached to."
+
+msgid "FortWelcomeCommanderView/option2/title"
+msgstr "Resource Hunters"
+
+msgid "FortWelcomeCommanderView/option3/descr"
+msgstr ""
+"Industrial Resource earned in Skirmishes can be used to request Reserves. "
+"Once a Reserve is activated, it lasts for a limited time and affects all "
+"clan members. Reserve efficiency increases with structure level."
+
+msgid "FortWelcomeCommanderView/option3/title"
+msgstr "Reserves Requisition"
+
+msgid "FortWelcomeCommanderView/title"
+msgstr "Open Zone"
+
+msgid "FortWelcomeView/bonuses/body"
+msgstr ""
+"Accumulate resources to upgrade structures\n"
+"and request Reserves, which can turn\n"
+"the tide of a desperate battle."
+
+msgid "FortWelcomeView/bonuses/title"
+msgstr "Advantages in Battle"
+
+msgid "FortWelcomeView/buildingAndUpgrading/body"
+msgstr ""
+"Create impenetrable defenses\n"
+"with unique structures\n"
+"and repel any enemy clan."
+
+msgid "FortWelcomeView/buildingAndUpgrading/title"
+msgstr "Clan Fortress"
+
+msgid "FortWelcomeView/clanCreate"
+msgstr "Create a clan"
+
+msgid "FortWelcomeView/clanSearch"
+msgstr "Find a clan"
+
+msgid "FortWelcomeView/createFortBtn"
+msgstr "Create Stronghold"
+
+msgid "FortWelcomeView/hyperlink/more"
+msgstr "Details about Strongholds"
+
+msgid "FortWelcomeView/requirementClan"
+msgstr ""
+"Only clans can own Strongholds.\n"
+"You are not yet a member of any clan."
+
+msgid "FortWelcomeView/requirementCommander"
+msgstr ""
+"Stronghold can be created only by the Commander\n"
+"of the clan "
+
+msgid "FortWelcomeView/title"
+msgstr "Welcome to the Stronghold!"
+
+msgid "FortWelcomeView/warForResources/body"
+msgstr ""
+"Declare war on other clans and attack their Strongholds to requisition "
+"Industrial Resource."
+
+msgid "FortWelcomeView/warForResources/title"
+msgstr "War for Resources"
+
+msgid "FortWelcomeView/warning"
+msgstr "At least %(minClanSize)d clan members required."
+
+msgid "General/direction"
+msgstr "Zone %(value)s"
+
+msgid "General/direction/notAvailable/tooEarly"
+msgstr "Available from %(date)s"
+
+msgid "General/direction/notOpened"
+msgstr "--"
+
+msgid "General/directionName1"
+msgstr "A"
+
+msgid "General/directionName2"
+msgstr "B"
+
+msgid "General/directionName3"
+msgstr "C"
+
+msgid "General/directionName4"
+msgstr "D"
+
+msgid "General/orderType/additionalBriefing"
+msgstr "Additional Briefing"
+
+msgid "General/orderType/battlePayments"
+msgstr "Battle Payments"
+
+msgid "General/orderType/evacuation"
+msgstr "Evacuation"
+
+msgid "General/orderType/heavyTrucks"
+msgstr "High-Capacity Transport"
+
+msgid "General/orderType/militaryManeuvers"
+msgstr "Military Maneuvers"
+
+msgid "General/orderType/requisition"
+msgstr "Requisition"
+
+msgid "General/orderType/specialMission"
+msgstr "Special Instructions"
+
+msgid "General/orderType/tacticalTraining"
+msgstr "Tactical Training"
+
+msgid "Modernization/applyButton/label"
+msgstr "Upgrade"
+
+msgid "Modernization/cancelButton/label"
+msgstr "Cancel"
+
+msgid "Modernization/conditions/baseBuildingFiveLevel"
+msgstr "Set up Stronghold's defense"
+
+msgid "Modernization/conditions/defencePeriod"
+msgstr "Level %(level)s Command Center"
+
+msgid "Modernization/conditions/defencePeriodAndBaseBuilding"
+msgstr "Level V Command Center and set up defense"
+
+msgid "Modernization/conditions/fortMaxLevel"
+msgstr "Maximum level of Command Center in the current update reached."
+
+msgid "Modernization/conditions/generalCondition"
+msgstr "Condition: Level %(level)s Command Center"
+
+msgid "Modernization/conditions/notFulfilled"
+msgstr " (not met)"
+
+msgid "Modernization/modernizationInfo/afterLabel"
+msgstr "After upgrade:"
+
+msgid "Modernization/modernizationInfo/beforeLabel"
+msgstr "Current condition:"
+
+msgid "Modernization/modernizationInfo/countCost"
+msgstr "Upgrade cost:"
+
+msgid "Modernization/windowTitle"
+msgstr "%(buildingName)s: Upgrade"
+
+msgid "Orders/orderConfirmationWindow/cost"
+msgstr "Cost:"
+
+msgid "Orders/orderConfirmationWindow/preparationTime"
+msgstr "Preparation time:"
+
+msgid "Orders/orderPopover/durationTime"
+msgstr "Duration"
+
+msgid "Orders/orderPopover/inDefensive"
+msgstr "Defense period"
+
+msgid "Orders/orderPopover/levelsLbl"
+msgstr "Level %(orderLevel)s Reserve"
+
+msgid "Orders/orderPopover/nextBattle"
+msgstr "Next battle"
+
+msgid "Orders/orderPopover/notAvailable"
+msgstr "Not available"
+
+msgid "Orders/orderPopover/orderNotReady"
+msgstr "Structure required to prepare Reserve: %(building)s."
+
+msgid "Orders/orderPopover/orderPrice"
+msgstr "Cost"
+
+msgid "Orders/orderPopover/orderType/additionalBriefing"
+msgstr "Additional Briefing"
+
+msgid "Orders/orderPopover/orderType/battlePayments"
+msgstr "Battle Payments"
+
+msgid "Orders/orderPopover/orderType/evacuation"
+msgstr "Evacuation"
+
+msgid "Orders/orderPopover/orderType/heavyTrucks"
+msgstr "High-Capacity Transport"
+
+msgid "Orders/orderPopover/orderType/militaryManeuvers"
+msgstr "Military Maneuvers"
+
+msgid "Orders/orderPopover/orderType/requisition"
+msgstr "Requisition"
+
+msgid "Orders/orderPopover/orderType/specialMission"
+msgstr "Special Instructions"
+
+msgid "Orders/orderPopover/orderType/tacticalTraining"
+msgstr "Tactical Training"
+
+msgid "Orders/orderPopover/producedAmount"
+msgstr "Prepared"
+
+msgid "Orders/orderPopover/productionBuilding"
+msgstr "Required structure"
+
+msgid "Orders/orderPopover/productionTime"
+msgstr "Preparation time"
+
+msgid "Orders/orderPopover/specialMission/description"
+msgstr ""
+"Activate Reserve to receive Special Instructions. There are various missions "
+"and rewards on each activation."
+
+msgid "Orders/orderPopover/specialMission/shortDescr"
+msgstr ""
+"To receive the award, complete Special Instructions from the War Department."
+
+msgid "Orders/orderPopover/useOrder"
+msgstr "Use Reserve"
+
+msgid "Orders/specialMission/award"
+msgstr "Award:"
+
+msgid "Orders/specialMission/possibleAward"
+msgstr "Possible award:"
+
+msgid "Orders/specialMission/possibleAward/description/level/1"
+msgstr "additional credits."
+
+msgid "Orders/specialMission/possibleAward/description/level/10"
+msgstr "increased previous rewards."
+
+msgid "Orders/specialMission/possibleAward/description/level/2"
+msgstr "increased previous reward."
+
+msgid "Orders/specialMission/possibleAward/description/level/3"
+msgstr "increased previous reward or crew experience."
+
+msgid "Orders/specialMission/possibleAward/description/level/4"
+msgstr "increased previous rewards."
+
+msgid "Orders/specialMission/possibleAward/description/level/5"
+msgstr "increased previous rewards or vehicle experience."
+
+msgid "Orders/specialMission/possibleAward/description/level/6"
+msgstr "increased previous rewards or Premium consumables."
+
+msgid "Orders/specialMission/possibleAward/description/level/7"
+msgstr "increased previous rewards."
+
+msgid "Orders/specialMission/possibleAward/description/level/8"
+msgstr "increased previous rewards or one day of Premium Account."
+
+msgid "Orders/specialMission/possibleAward/description/level/9"
+msgstr "increased previous rewards or gold."
+
+msgid "SettingsDayoffPopover/applyButtonLabel"
+msgstr "Apply"
+
+msgid "SettingsDayoffPopover/cancelButtonLabel"
+msgstr "Cancel"
+
+msgid "SettingsDayoffPopover/description"
+msgstr "You can adjust the day of Ceasefire only once per 14 days."
+
+msgid "SettingsDayoffPopover/dropDownDescription"
+msgstr "Ceasefire day:"
+
+msgid "SettingsDefenceHourPopover/applyButtonLabel"
+msgstr "Apply"
+
+msgid "SettingsDefenceHourPopover/cancelButtonLabel"
+msgstr "Cancel"
+
+msgid "SettingsDefenceHourPopover/defenceHour"
+msgstr "Defense Period"
+
+msgid "SettingsDefenceHourPopover/defenceHourTitle"
+msgstr "Defense"
+
+msgid "SettingsDefenceHourPopover/description"
+msgstr "You can adjust the defense period only once per 14 days."
+
+msgid "SettingsPeripheryPopover/applyButtonLabel"
+msgstr "Apply"
+
+msgid "SettingsPeripheryPopover/cancelButtonLabel"
+msgstr "Cancel"
+
+msgid "SettingsPeripheryPopover/description"
+msgstr ""
+"Detachments for Battles for Stronghold will be created on the selected "
+"server. You can select a different server once per 14 days."
+
+msgid "SettingsPeripheryPopover/server"
+msgstr "Server:"
+
+msgid "SettingsVacationPopover/applyButtonLabel"
+msgstr "Apply"
+
+msgid "SettingsVacationPopover/cancelButtonLabel"
+msgstr "Cancel"
+
+msgid "SettingsVacationPopover/description"
+msgstr ""
+"Neutrality can be declared only in two weeks. Battles for Stronghold are "
+"unavailable during the Neutrality."
+
+msgid "SettingsVacationPopover/ofDays"
+msgstr "/ 14 days"
+
+msgid "SettingsVacationPopover/vacationDuration"
+msgstr "2. Set the duration of the Neutrality:"
+
+msgid "SettingsVacationPopover/vacationResult"
+msgstr "%(startDate)s–%(endDate)s"
+
+msgid "SettingsVacationPopover/vacationStart"
+msgstr "1. Set the time when the Neutrality begins:"
+
+msgid "SettingsWindow/blockCondition/defencePeriodTime"
+msgstr "Defense period:"
+
+msgid "SettingsWindow/blockCondition/inProgress"
+msgstr "%(value)s from %(date)s"
+
+msgid "SettingsWindow/blockCondition/noWeekEnd"
+msgstr "Not set"
+
+msgid "SettingsWindow/blockCondition/recentlyScheduled"
+msgstr "Settings have been changed recently."
+
+msgid "SettingsWindow/blockCondition/vacation"
+msgstr "Neutrality:"
+
+msgid "SettingsWindow/blockCondition/vacationNotPlanned"
+msgstr "Not set"
+
+msgid "SettingsWindow/blockCondition/weekEnd"
+msgstr "Ceasefire:"
+
+msgid "SettingsWindow/blockDescr/defencePeriodTime"
+msgstr ""
+"You have to defend your Stronghold against attacks by enemy clans at the "
+"appointed time every day, except the declared day of Ceasefire and "
+"Neutrality."
+
+msgid "SettingsWindow/blockDescr/vacation"
+msgstr ""
+"A period of 3 to 14 days during which you cannot be attacked. Neutrality can "
+"be declared once every 90 days. Unused days will be lost."
+
+msgid "SettingsWindow/blockDescr/weekEnd"
+msgstr ""
+"You can declare one Ceasefire day per week. During that day enemies cannot "
+"attack you, but you can attack them."
+
+msgid "SettingsWindow/cancelDisablePeriod/btnLbl"
+msgstr "Reenable"
+
+msgid "SettingsWindow/clanInfo/buildingsCount"
+msgstr "Structures: %(buildingsCount)s"
+
+msgid "SettingsWindow/clanInfo/clanTag"
+msgstr "Stronghold %(clanTag)s"
+
+msgid "SettingsWindow/clanInfo/creationDate"
+msgstr "Created: %(creationDate)s"
+
+msgid "SettingsWindow/disableDefencePeriodBtn/lbl"
+msgstr "Disable Defense"
+
+msgid "SettingsWindow/mainButtonLabel"
+msgstr "Set Up"
+
+msgid "SettingsWindow/notActivated/baseLevelCondition"
+msgstr "Level %(level)s Command Center;"
+
+msgid "SettingsWindow/notActivated/conditionTitle"
+msgstr "Conditions:"
+
+msgid "SettingsWindow/notActivated/description"
+msgstr ""
+"By setting up the defense, you will be able to manually select an enemy and "
+"attack their Stronghold.\n"
+"In this way you can earn more Industrial Resource than in Skirmishes."
+
+msgid "SettingsWindow/notActivated/playerCountCondition"
+msgstr "Clan members—no fewer than %(membersCount)s."
+
+msgid "SettingsWindow/perepheryTitle"
+msgstr "Server:"
+
+msgid "SettingsWindow/statusMsg/activated"
+msgstr "Set and enabled"
+
+msgid "SettingsWindow/statusMsg/freezed"
+msgstr "Suspended"
+
+msgid "SettingsWindow/statusMsg/notActivated"
+msgstr "Not set"
+
+msgid "SettingsWindow/statusMsg/notAvailable"
+msgstr "Unavailable"
+
+msgid "SettingsWindow/windowTitle"
+msgstr "Stronghold Settings"
+
+msgid "Time/timeValue/days"
+msgstr "%(day)s d %(hour)s h %(min)s min"
+
+msgid "Time/timeValue/hours"
+msgstr "%(hour)s h %(min)s min"
+
+msgid "Time/timeValue/lessMin"
+msgstr "less than a minute"
+
+msgid "Time/timeValue/min"
+msgstr "%(min)s min"
+
+msgid "ToolTipBuildingInfo/descrAction"
+msgstr "Damage upon pillaging: %(value)s"
+
+msgid "ToolTipBuildingInfo/destroyedMessage"
+msgstr ""
+"You cannot clash over a damaged structure (durability below %(value)s)."
+
+msgid "ToolTipBuildingInfo/lowLevelMessage"
+msgstr "You cannot clash over structures of Level %(minLevel)s–%(maxLevel)s."
+
+msgid "ToolTipBuildingInfo/mep/mapPrefix"
+msgstr "Map: "
+
+msgid "ToolTipBuildingInfo/statusMsg/defeat"
+msgstr "Lost"
+
+msgid "ToolTipBuildingInfo/statusMsg/victory"
+msgstr "Pillaged"
+
+msgid "ToolTipBuildingInfo/statusMsg/wasNotBattle"
+msgstr "Clash did not occur"
+
+msgid "clanStats/params/periodDefence/avgDefres/label"
+msgstr ""
+"Plunder\n"
+"coefficient"
+
+msgid "clanStats/params/periodDefence/avgDefres/tooltip/body"
+msgstr ""
+"Ratio of Industial Resource earned to Industrial Resource lost in Battles "
+"for Stronghold"
+
+msgid "clanStats/params/periodDefence/avgDefres/tooltip/header"
+msgstr "Plunder Coefficient"
+
+msgid ""
+"clanStats/params/periodDefence/battles/countCapturedCommandCentres/label"
+msgstr "Command Centers captured"
+
+msgid ""
+"clanStats/params/periodDefence/battles/countPlunderedAllyBuildings/label"
+msgstr "Your Stronghold's structures pillaged"
+
+msgid ""
+"clanStats/params/periodDefence/battles/countPlunderedEnemyBuildings/label"
+msgstr "Enemy structures pillaged"
+
+msgid "clanStats/params/periodDefence/battles/countPromres/label"
+msgstr "Industrial Resource earned"
+
+msgid "clanStats/params/periodDefence/battles/efficiencyOfAttack"
+msgstr "Attack efficiency"
+
+msgid "clanStats/params/periodDefence/battles/efficiencyOfDefence"
+msgstr "Defense efficiency"
+
+msgid "clanStats/params/periodDefence/battles/lostPromres/label"
+msgstr "Industrial Resource lost"
+
+msgid "clanStats/params/periodDefence/battles/profit/label"
+msgstr "Net profit"
+
+msgid "clanStats/params/periodDefence/battlesCount/label"
+msgstr "Battles"
+
+msgid "clanStats/params/periodDefence/wins/label"
+msgstr "Victories"
+
+msgid "clanStats/params/periodDefence/wins/tooltip/body"
+msgstr "Total rate of victories during defense"
+
+msgid "clanStats/params/periodDefence/wins/tooltip/header"
+msgstr "Rate of Victories"
+
+msgid "clanStats/params/sortie/avgDefres/label"
+msgstr ""
+"Average amount of Industrial Resource\n"
+"per battle"
+
+msgid "clanStats/params/sortie/avgDefres/tooltip/body"
+msgstr ""
+"Ratio of total Industrial Resource earned to total Skirmishes conducted"
+
+msgid "clanStats/params/sortie/avgDefres/tooltip/header"
+msgstr "Average Amount of Plunder"
+
+msgid "clanStats/params/sortie/battles/absoluteBattlesCount/label"
+msgstr "Absolute level"
+
+msgid "clanStats/params/sortie/battles/championBattlesCount/label"
+msgstr "Champion level"
+
+msgid "clanStats/params/sortie/battles/middleBattlesCount/label"
+msgstr "Medium level"
+
+msgid "clanStats/params/sortie/battlesCount/label"
+msgstr "Battles"
+
+msgid "clanStats/params/sortie/battlesCount/tooltip/body"
+msgstr ""
+"Total number of Skirmishes conducted, of which:\n"
+"• Victories: %(value_0)s\n"
+"• Defeats: %(value_1)s\n"
+"• Draws: %(value_2)s"
+
+msgid "clanStats/params/sortie/battlesCount/tooltip/header"
+msgstr "Skirmishes"
+
+msgid "clanStats/params/sortie/defres/lootInSorties/label"
+msgstr "Total amount of Industrial Resource earned in Skirmishes"
+
+msgid "clanStats/params/sortie/wins/label"
+msgstr "Victories"
+
+msgid "clanStats/params/sortie/wins/tooltip/body"
+msgstr "Total rate of victories in Skirmishes"
+
+msgid "clanStats/params/sortie/wins/tooltip/header"
+msgstr "Victories in Skirmishes"
+
+msgid "clanStats/tabs/buttonLbl/periodDefence"
+msgstr "Defense"
+
+msgid "clanStats/tabs/buttonLbl/sortie"
+msgstr "Skirmishes"
+
+msgid "disableDefencePeriodWindow/applyButton/lbl"
+msgstr "Disable"
+
+msgid "disableDefencePeriodWindow/cancelButton/lbl"
+msgstr "Cancel"
+
+msgid "disableDefencePeriodWindow/inputChecker/body"
+msgstr ""
+"To perform this operation, enter the current amount of Industrial Resource "
+"in all storages (%(controlNumber)s)"
+
+msgid "disableDefencePeriodWindow/inputChecker/title"
+msgstr "CONFIRM DEFENSE DEACTIVATION"
+
+msgid "disableDefencePeriodWindow/mainText/body"
+msgstr ""
+"• Level of all Reserves and structures including the Command Center higher "
+"than Level IV %(redText)s.\n"
+"• Number of prepared Reserves will not change."
+
+msgid "disableDefencePeriodWindow/mainText/bodyRedText"
+msgstr "will be reduced to Level IV"
+
+msgid "disableDefencePeriodWindow/mainText/title"
+msgstr "Are you sure you want to disable the Stronghold's defense?"
+
+msgid "disableDefencePeriodWindow/windowTitle"
+msgstr "Disable Defense"
+
+msgid "disconnected/Warning"
+msgstr "Attention!"
+
+msgid "disconnected/WarningDescriptionCenterUnavailable"
+msgstr "Stronghold is temporarily unavailable. Try again later."
+
+msgid "disconnected/WarningDescriptionRoaming"
+msgstr ""
+"Stronghold is unavailable in roaming. To get access to Stronghold, go to "
+"your region."
+
+msgid "fortBattleDirectionPopover/battleDurationFmt"
+msgstr "%(prevHour)d:00–%(nextHour)d:00"
+
+msgid "fortBattleDirectionPopover/commingBattles"
+msgstr "Upcoming battles:"
+
+msgid "fortBattleResultsWindow/defResReceived/byClan"
+msgstr "by clan:"
+
+msgid "fortBattleResultsWindow/defResReceived/byPlayer"
+msgstr "by you:"
+
+msgid "fortBattleResultsWindow/defResReceived/header"
+msgstr "Industrial Resource earned:"
+
+msgid "fortBattleResultsWindow/defeat/description/end"
+msgstr "%(clanTag)s: %(numBuildings)d"
+
+msgid "fortBattleResultsWindow/defeat/description/start"
+msgstr "Battle for Stronghold ended, pillaged structures of clan"
+
+msgid "fortBattleResultsWindow/defeat/header"
+msgstr "Defeat"
+
+msgid "fortBattleResultsWindow/journal"
+msgstr "Battle for Stronghold: Log"
+
+msgid "fortBattleResultsWindow/table/building"
+msgstr "Structure"
+
+msgid "fortBattleResultsWindow/table/moreBtn"
+msgstr "Details"
+
+msgid "fortBattleResultsWindow/table/notParticipated"
+msgstr "Did not fight"
+
+msgid "fortBattleResultsWindow/table/result"
+msgstr "Clash Results"
+
+msgid "fortBattleResultsWindow/table/result/defeat"
+msgstr "Defeat"
+
+msgid "fortBattleResultsWindow/table/result/win"
+msgstr "Victory!"
+
+msgid "fortBattleResultsWindow/table/resultsNotAvailable"
+msgstr "Clash results unavailable"
+
+msgid "fortBattleResultsWindow/table/startTime"
+msgstr "Starting Time"
+
+msgid "fortBattleResultsWindow/tie/description/end"
+msgstr "%(clanTag)s ended"
+
+msgid "fortBattleResultsWindow/tie/description/start"
+msgstr "Battle for Stronghold against clan"
+
+msgid "fortBattleResultsWindow/tie/header"
+msgstr "Draw"
+
+msgid "fortBattleResultsWindow/win/description/end"
+msgstr "%(clanTag)s: %(numBuildings)s"
+
+msgid "fortBattleResultsWindow/win/description/start"
+msgstr "Battle for Stronghold ended, pillaged structures of clan"
+
+msgid "fortBattleResultsWindow/win/header"
+msgstr "Victory!"
+
+msgid "fortBattleResultsWindow/windowTitle"
+msgstr "Battle for Stronghold: Results"
+
+msgid "fortBattleRoom/legionariesCount"
+msgstr "Legionaries:"
+
+msgid "fortBattleRoom/legionariesToolTipMsg"
+msgstr "Please wait for the Commander to add you to the detachment."
+
+msgid "fortBattleRoom/listHeader/clanPlayers"
+msgstr "Clan members"
+
+msgid "fortBattleRoom/listHeader/legionariesPlayers"
+msgstr "Legionaries"
+
+msgid "fortNotCommanderFirstEnterWindow/applyBtnLabel"
+msgstr "Affirmative!"
+
+msgid "fortNotCommanderFirstEnterWindow/textDescription"
+msgstr ""
+"• Select a structure and attach to its garrison. Industrial Resource earned "
+"by you will be used to upgrade the selected structure (you are attached to "
+"the Command Center by default).\n"
+"• Engage in Skirmishes with the members of your clan. Earn Industrial "
+"Resource for upgrading your Stronghold and producing Reserves. Be ready for "
+"the defense period.\n"
+"• Distribute Industrial Resource evenly in all storages. If the storage of a "
+"structure is full, you will not be able to transport more Industrial "
+"Resource there."
+
+msgid "fortNotCommanderFirstEnterWindow/textTitle"
+msgstr "Your Primary Tasks"
+
+msgid "fortNotCommanderFirstEnterWindow/windowTitle"
+msgstr "Welcome!"
+
+msgid "fortification/clan/position/commander"
+msgstr "Combat Officer"
+
+msgid "fortification/clan/position/diplomat"
+msgstr "Intelligence Officer"
+
+msgid "fortification/clan/position/leader"
+msgstr "Commander"
+
+msgid "fortification/clan/position/private"
+msgstr "Private"
+
+msgid "fortification/clan/position/recruit"
+msgstr "Recruit"
+
+msgid "fortification/clan/position/recruiter"
+msgstr "Recruitment Officer"
+
+msgid "fortification/clan/position/treasurer"
+msgstr "Quartermaster"
+
+msgid "fortification/clan/position/vice_leader"
+msgstr "Executive Officer"
+
+msgid "periodDefenceWindow/btn/activate"
+msgstr "Confirm"
+
+msgid "periodDefenceWindow/btn/notNow"
+msgstr "Not Now"
+
+msgid "periodDefenceWindow/btn/pointsAreFilled/body"
+msgstr ""
+"Click to activate defense of your Stronghold. You can adjust the defense "
+"settings later."
+
+msgid "periodDefenceWindow/btn/pointsAreNotFilled/body"
+msgstr ""
+"To set up the defense\n"
+"select a server, set the time for the defense period and Ceasefire."
+
+msgid "periodDefenceWindow/dropDownbtn/notSelected"
+msgstr "Not selected"
+
+msgid "periodDefenceWindow/dropDownbtn/whithoutHoliday"
+msgstr "Never"
+
+msgid "periodDefenceWindow/headerLbl"
+msgstr "Defense Setup"
+
+msgid "periodDefenceWindow/holiday"
+msgstr "Ceasefire"
+
+msgid "periodDefenceWindow/holiday/description"
+msgstr ""
+"During this day enemy clans cannot attack your Stronghold, but you can "
+"attack other clans."
+
+msgid "periodDefenceWindow/hourDefence"
+msgstr "Defense Period"
+
+msgid "periodDefenceWindow/hourDefence/description"
+msgstr ""
+"Each day at this hour your clan must defend your Stronghold. Set a time "
+"convenient for you."
+
+msgid "periodDefenceWindow/notNow/body"
+msgstr "You can always set up the defense in the Stronghold settings."
+
+msgid "periodDefenceWindow/periphery"
+msgstr "Server:"
+
+msgid "periodDefenceWindow/periphery/description"
+msgstr "Detachments for Battles for Stronghold will be created here."
+
+msgid "periodDefenceWindow/ready"
+msgstr "Fill out the form to set up the defense."
+
+msgid "sortie/division_name/ABSOLUTE"
+msgstr "Absolute"
+
+msgid "sortie/division_name/ALL"
+msgstr "All divisions"
+
+msgid "sortie/division_name/CHAMPION"
+msgstr "Champion"
+
+msgid "sortie/division_name/MIDDLE"
+msgstr "Medium"
+
+msgid "sortie/introView/descr"
+msgstr ""
+"To upgrade your Stronghold and prepare Reserves, you must spend Industrial "
+"Resource. Earn it in Skirmishes or Battles for Stronghold."
+
+msgid "sortie/introView/fortBattles/btnLabel"
+msgstr "Fight"
+
+msgid "sortie/introView/fortBattles/btnTitle"
+msgstr "Coming Soon"
+
+msgid "sortie/introView/fortBattles/descr"
+msgstr ""
+"Battle with the chosen enemy clan on the territory of their Stronghold."
+
+msgid "sortie/introView/fortBattles/nextTimeOfBattle"
+msgstr "Upcoming battle will start on %(nextDate)s"
+
+msgid "sortie/introView/fortBattles/notActivated"
+msgstr "No upcoming battles"
+
+msgid "sortie/introView/fortBattles/notActivatedDefenceTime"
+msgstr "Defense not set up"
+
+msgid "sortie/introView/fortBattles/title"
+msgstr "Battles for Stronghold"
+
+msgid "sortie/introView/sortie/btnTitle"
+msgstr "Engage"
+
+msgid "sortie/introView/sortie/descr"
+msgstr "Battle with a random enemy clan on neutral territory."
+
+msgid "sortie/introView/sortie/title"
+msgstr "Skirmishes"
+
+msgid "sortie/introView/title"
+msgstr "Strongholds: Battles"
+
+msgid "sortie/listView/create"
+msgstr "Create Detachment"
+
+msgid "sortie/listView/description"
+msgstr ""
+"Earn Industrial Resource in battles with random enemy clans on neutral "
+"territory to upgrade your Stronghold."
+
+msgid "sortie/listView/enterBtn"
+msgstr "Join"
+
+msgid "sortie/listView/enterText"
+msgstr "You can join as a volunteer"
+
+msgid "sortie/listView/filter"
+msgstr "Display:"
+
+msgid "sortie/listView/listColumns/division"
+msgstr "Division"
+
+msgid "sortie/listView/listColumns/membersCount"
+msgstr "Members"
+
+msgid "sortie/listView/listColumns/name"
+msgstr "Commander"
+
+msgid "sortie/listView/listTitle"
+msgstr "Detachments Created"
+
+msgid "sortie/listView/notSelected"
+msgstr ""
+"Select a detachment from the list on the left\n"
+"to see the detailed description."
+
+msgid "sortie/listView/selectedTeam"
+msgstr "Team"
+
+msgid "sortie/listView/slot/closed"
+msgstr "Unavailable"
+
+msgid "sortie/listView/teamMembers"
+msgstr "Members: %(current)s / %(max)s"
+
+msgid "sortie/listView/teamVehicles"
+msgstr "Vehicles: %(values)s"
+
+msgid "sortie/listView/teamVehiclesStub"
+msgstr "Vehicles:"
+
+msgid "sortie/listView/title"
+msgstr "Skirmishes"
+
+msgid "sortie/room/candidates"
+msgstr "Queue"
+
+msgid "sortie/room/changeDivision"
+msgstr "Change"
+
+msgid "sortie/room/chat"
+msgstr "Chat Channel"
+
+msgid "sortie/room/description"
+msgstr ""
+"Created detachment fights a battle with a random enemy clan on neutral "
+"territory. Vehicle tier is determined by the division selected."
+
+msgid "sortie/room/division"
+msgstr "Division: "
+
+msgid "sortie/room/fight"
+msgstr "Battle!"
+
+msgid "sortie/room/inviteBtn"
+msgstr "Invite Players"
+
+msgid "sortie/room/inviteFriends"
+msgstr "Invite Players"
+
+msgid "sortie/room/leaveBtn"
+msgstr "Leave Detachment"
+
+msgid "sortie/room/members"
+msgstr "Members: %(current)s / %(max)s"
+
+msgid "sortie/room/message/candidate"
+msgstr "You are not in the detachment"
+
+msgid "sortie/room/message/candidate/invalidVehicles"
+msgstr "Your vehicles do not comply with the Commander's requirements"
+
+msgid "sortie/room/message/candidate/lockedUnits"
+msgstr "Please wait. The Commander is selecting detachment members"
+
+msgid "sortie/room/message/candidate/unitIsFull"
+msgstr "Unable to join the detachment. No available slots"
+
+msgid "sortie/room/message/getNotReady"
+msgstr "Click to indicate that you are not ready."
+
+msgid "sortie/room/message/getReady"
+msgstr "Confirm that you are ready to join the battle."
+
+msgid "sortie/room/message/levelError"
+msgstr "Total tier of vehicles is exceeded"
+
+msgid "sortie/room/message/noVehicle"
+msgstr "Vehicles not selected"
+
+msgid "sortie/room/message/notFullUnit"
+msgstr "Incomplete detachment"
+
+msgid "sortie/room/message/openSlots/levelError"
+msgstr "Total tier of vehicles is exceeded while some slots are available."
+
+msgid "sortie/room/message/ready"
+msgstr "All members ready"
+
+msgid "sortie/room/message/vehicleInNotReady"
+msgstr "Vehicle not ready for battle"
+
+msgid "sortie/room/message/waiting"
+msgstr "Waiting for players…"
+
+msgid "sortie/room/notReady"
+msgstr "Not ready"
+
+msgid "sortie/room/ready"
+msgstr "Ready!"
+
+msgid "sortie/room/rosterListTitle"
+msgstr "Detachment Members"
+
+msgid "sortie/room/title"
+msgstr "Detachment"
+
+msgid "sortie/room/vehicles"
+msgstr "Vehicles"
+
+msgid "sortie/slot/emptySlot"
+msgstr "Empty slot"
+
+msgid "sortie/slot/takePlace"
+msgstr "Take Slot"
+
+msgid "sortie/vehicleSelector/description"
+msgstr ""
+"Select a vehicle to engage in Skirmish. Red indicator marks vehicles not "
+"ready for battle."

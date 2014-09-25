@@ -1,0 +1,454 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: World Of Tanks\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-06-01 10:00+0300\n"
+"PO-Revision-Date: 2010-06-01 10:00+0300\n"
+"Last-Translator: WoT Translator <noreply@wargaming.net>\n"
+"Language-Team: WoT Team <noreply@wargaming.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "ammoBay/name"
+msgstr "Ammo Rack"
+
+msgid "chassis/desc"
+msgstr "?empty?"
+
+msgid "chassis/name"
+msgstr "Suspension"
+
+msgid "chassis/tags"
+msgstr "?empty?"
+
+msgid "engine/desc"
+msgstr "?empty?"
+
+msgid "engine/name"
+msgstr "Engine"
+
+msgid "engine/tags"
+msgstr "?empty?"
+
+msgid "equipment/desc"
+msgstr "?empty?"
+
+msgid "equipment/name"
+msgstr "Consumables"
+
+msgid "equipment/tags"
+msgstr "?empty?"
+
+msgid "fuelTank/name"
+msgstr "Fuel Tank"
+
+msgid "fuel_tank/desc"
+msgstr "?empty?"
+
+msgid "fuel_tank/name"
+msgstr "Fuel tank"
+
+msgid "fuel_tank/tags"
+msgstr "?empty?"
+
+msgid "gun/desc"
+msgstr "?empty?"
+
+msgid "gun/name"
+msgstr "Gun"
+
+msgid "gun/tags"
+msgstr "?empty?"
+
+msgid "optionalDevice/desc"
+msgstr "?empty?"
+
+msgid "optionalDevice/name"
+msgstr "Equipment"
+
+msgid "optionalDevice/tags"
+msgstr "?empty?"
+
+msgid "radio/desc"
+msgstr "?empty?"
+
+msgid "radio/name"
+msgstr "Radio"
+
+msgid "radio/tags"
+msgstr "?empty?"
+
+msgid "shell/dimension/inch"
+msgstr "\""
+
+msgid "shell/dimension/mm"
+msgstr "mm"
+
+msgid "shell/dimension/sm"
+msgstr "cm"
+
+msgid "shell/kinds/ARMOR_PIERCING"
+msgstr "Armor-Piercing"
+
+msgid "shell/kinds/ARMOR_PIERCING_CR"
+msgstr "AP Composite-Rigid"
+
+msgid "shell/kinds/ARMOR_PIERCING_HE"
+msgstr "AP High-Explosive"
+
+msgid "shell/kinds/HIGH_EXPLOSIVE"
+msgstr "High-Explosive"
+
+msgid "shell/kinds/HOLLOW_CHARGE"
+msgstr "High-Explosive Anti-Tank"
+
+msgid "shell/kindsAbbreviation/ARMOR_PIERCING"
+msgstr "AP"
+
+msgid "shell/kindsAbbreviation/ARMOR_PIERCING_CR"
+msgstr "APCR"
+
+msgid "shell/kindsAbbreviation/ARMOR_PIERCING_HE"
+msgstr "APHE"
+
+msgid "shell/kindsAbbreviation/HIGH_EXPLOSIVE"
+msgstr "HE"
+
+msgid "shell/kindsAbbreviation/HOLLOW_CHARGE"
+msgstr "HEAT"
+
+msgid "shell/name"
+msgstr "%(caliber)s%(dimension)s %(kind)s %(name)s"
+
+msgid "shot/desc"
+msgstr "?empty?"
+
+msgid "shot/name"
+msgstr "Shell"
+
+msgid "shot/tags"
+msgstr "?empty?"
+
+msgid "surveyingDevice/name"
+msgstr "Observation Device"
+
+msgid "tankman/Skill_not_be_used"
+msgstr ""
+"Certain skills and perks may cease to operate when a tanker changes vehicles."
+
+msgid "tankman/roles/commander"
+msgstr "Commander"
+
+msgid "tankman/roles/driver"
+msgstr "Driver"
+
+msgid "tankman/roles/gunner"
+msgstr "Gunner"
+
+msgid "tankman/roles/loader"
+msgstr "Loader"
+
+msgid "tankman/roles/radioman"
+msgstr "Radio Operator"
+
+msgid "tankman/skills/brotherhood"
+msgstr "Brothers in Arms"
+
+msgid "tankman/skills/brotherhood_descr"
+msgstr ""
+"<shortDesc>Improves major qualifications and all skills for the entire crew."
+"</shortDesc> The perk is cumulative with the effects of Improved "
+"Ventilation, Extra Combat Rations, Chocolate, Case of Cola, Pudding and Tea, "
+"Strong Coffee, Improved Combat Rations, Onigiri."
+
+msgid "tankman/skills/camouflage"
+msgstr "Camouflage"
+
+msgid "tankman/skills/camouflage_descr"
+msgstr ""
+"<shortDesc>Reduces vehicle visibility.</shortDesc> Effective skill level is "
+"averaged across the entire crew. The skill is cumulative with the effects of "
+"Camouflage and a Camouflage Net."
+
+msgid "tankman/skills/commander_eagleEye"
+msgstr "Recon"
+
+msgid "tankman/skills/commander_eagleEye_descr"
+msgstr ""
+"<shortDesc>Increases Maximum View Range.</shortDesc> The skill is more "
+"effective if observation devices are damaged, or when combined with "
+"Situational Awareness, Coated Optics, and Binocular Telescope."
+
+msgid "tankman/skills/commander_expert"
+msgstr "Eagle Eye"
+
+msgid "tankman/skills/commander_expert_descr"
+msgstr ""
+"<shortDesc>Enables the Commander to identify critically damaged modules on "
+"targeted vehicles within the view range.</shortDesc> Is effective both in "
+"indirect and direct fire modes."
+
+msgid "tankman/skills/commander_sixthSense"
+msgstr "Sixth Sense"
+
+msgid "tankman/skills/commander_sixthSense_descr"
+msgstr ""
+"<shortDesc>Enables the Commander to identify whether the vehicle has been "
+"spotted by the enemy.</shortDesc>"
+
+msgid "tankman/skills/commander_tutor"
+msgstr "Mentor"
+
+msgid "tankman/skills/commander_tutor_descr"
+msgstr ""
+"<shortDesc>Provides additional experience to all crew members except the "
+"Commander.</shortDesc>"
+
+msgid "tankman/skills/commander_universalist"
+msgstr "Jack of All Trades"
+
+msgid "tankman/skills/commander_universalist_descr"
+msgstr ""
+"<shortDesc>Enables the Commander to master every qualification and replace "
+"knocked-out crew members.</shortDesc> Only major qualifications can be "
+"substituted. The replacement effect diminishes with each crew member knocked "
+"out."
+
+msgid "tankman/skills/driver_badRoadsKing"
+msgstr "Off-Road Driving"
+
+msgid "tankman/skills/driver_badRoadsKing_descr"
+msgstr ""
+"<shortDesc>Reduces ground resistance when driving on soft and moderately "
+"soft terrain.</shortDesc> Lower ground resistance increases vehicle "
+"maneuverability and acceleration. The skill is cumulative with the effects "
+"of Additional Grousers."
+
+msgid "tankman/skills/driver_rammingMaster"
+msgstr "Controlled Impact"
+
+msgid "tankman/skills/driver_rammingMaster_descr"
+msgstr ""
+"<shortDesc>Decreases ramming damage to your vehicle and increases ramming "
+"damage to an enemy vehicle.</shortDesc> The skill is effective only while "
+"your vehicle is in motion. The skill is ineffective when two allied vehicles "
+"collide."
+
+msgid "tankman/skills/driver_smoothDriving"
+msgstr "Smooth Ride"
+
+msgid "tankman/skills/driver_smoothDriving_descr"
+msgstr ""
+"<shortDesc>Improves accuracy when firing on the move.</shortDesc> The skill "
+"is not effective if the vehicle is stationary or rotating. The skill is "
+"cumulative with the effects of Vertical Stabilizer."
+
+msgid "tankman/skills/driver_tidyPerson"
+msgstr "Preventative Maintenance"
+
+msgid "tankman/skills/driver_tidyPerson_descr"
+msgstr ""
+"<shortDesc>Reduces the chance of engine fire by preventing gas or oil "
+"leakage in the engine compartment.</shortDesc> The perk is cumulative with "
+"the effects of Automatic Fire Extinguishers."
+
+msgid "tankman/skills/driver_virtuoso"
+msgstr "Clutch Braking"
+
+msgid "tankman/skills/driver_virtuoso_descr"
+msgstr ""
+"<shortDesc>Increases vehicle traverse speed.</shortDesc> The skill is "
+"cumulative with the effects of Additional Grousers, Lend-Lease Oil, Quality "
+"Oil, Removed Speed Governor, 100-octane Gasoline, and 105-octane Gasoline."
+
+msgid "tankman/skills/fire_fighting"
+msgstr "Firefighting"
+
+msgid "tankman/skills/fire_fighting_descr"
+msgstr ""
+"<shortDesc>Enhances firefighting abilities.</shortDesc> Effective skill "
+"level is averaged across the entire crew."
+
+msgid "tankman/skills/gunner_gunsmith"
+msgstr "Armorer"
+
+msgid "tankman/skills/gunner_gunsmith_descr"
+msgstr ""
+"<shortDesc>Improves accuracy of a damaged gun.</shortDesc> If two Gunners "
+"have the skill, only the higher rating is effective. The skill is cumulative "
+"with the effects of with Vertical Stabilizer."
+
+msgid "tankman/skills/gunner_rancorous"
+msgstr "Designated Target"
+
+msgid "tankman/skills/gunner_rancorous_descr"
+msgstr ""
+"<shortDesc>Makes targeted enemy vehicles visible for two more seconds.</"
+"shortDesc> The perk is effective both in direct and indirect fire modes. If "
+"two Gunners have the perk, the effect is not cumulative."
+
+msgid "tankman/skills/gunner_smoothTurret"
+msgstr "Snap Shot"
+
+msgid "tankman/skills/gunner_smoothTurret_descr"
+msgstr ""
+"<shortDesc>Improves accuracy during turret rotation.</shortDesc> If two "
+"Gunners have the skill, only the higher rating is effective. The skill is "
+"cumulative with the effects of Vertical Stabilizer."
+
+msgid "tankman/skills/gunner_sniper"
+msgstr "Deadeye"
+
+msgid "tankman/skills/gunner_sniper_descr"
+msgstr ""
+"<shortDesc>Increases the chance to cause damage to enemy vehicle modules and "
+"crew. </shortDesc> It is effective only with AP, APCR, and HEAT shells. If "
+"two Gunners have the perk, the effect is not cumulative."
+
+msgid "tankman/skills/gunner_woodHunter"
+msgstr "Woodhunter"
+
+msgid "tankman/skills/gunner_woodHunter_descr"
+msgstr ""
+"<shortDesc>Adds 1 meter to Maximum View Range unobstructed by trees and "
+"bushes.</shortDesc> The perk comes into effect when it reaches 100%. If two "
+"Gunners have the perk, the effect is not cumulative."
+
+msgid "tankman/skills/loader_desperado"
+msgstr "Adrenaline Rush"
+
+msgid "tankman/skills/loader_desperado_descr"
+msgstr ""
+"<shortDesc>Accelerates gun loading if the vehicle has less than 10% of its "
+"hit points left.</shortDesc> If two Loaders have the perk, the effect is not "
+"cumulative. The perk is cumulative with the effects of Gun Rammer."
+
+msgid "tankman/skills/loader_intuition"
+msgstr "Intuition"
+
+msgid "tankman/skills/loader_intuition_descr"
+msgstr ""
+"<shortDesc>Creates a chance that the Loader will promptly switch between "
+"shell types, either while the gun is loaded or during the loading process.</"
+"shortDesc> Loading of a new shell type resumes exactly from the point at "
+"which it was stopped. If two Loaders have the perk, the effect increases."
+
+msgid "tankman/skills/loader_pedant"
+msgstr "Safe Stowage"
+
+msgid "tankman/skills/loader_pedant_descr"
+msgstr ""
+"<shortDesc>Increases ammo rack durability: the shells do not come into "
+"contact with each other. </shortDesc> If two Loaders have the perk, the "
+"effect is not cumulative. The perk is cumulative with the effects of \"Wet\" "
+"Ammo Rack."
+
+msgid "tankman/skills/main"
+msgstr "Primary skill"
+
+msgid "tankman/skills/radioman_finder"
+msgstr "Situational Awareness"
+
+msgid "tankman/skills/radioman_finder_descr"
+msgstr ""
+"<shortDesc>Extends View Range.</shortDesc> If two Radio Operators have the "
+"skill, only the higher rating is effective. The skill is cumulative with the "
+"effects of Recon, Coated Optics and Binocular Telescope."
+
+msgid "tankman/skills/radioman_inventor"
+msgstr "Signal Boosting"
+
+msgid "tankman/skills/radioman_inventor_descr"
+msgstr ""
+"<shortDesc>Extends Signal Range.</shortDesc> If two Radio Operators have the "
+"skill, only the higher rating is effective."
+
+msgid "tankman/skills/radioman_lastEffort"
+msgstr "Call for Vengeance"
+
+msgid "tankman/skills/radioman_lastEffort_descr"
+msgstr ""
+"<shortDesc>Enables a Radio Operator who survived the destruction of his "
+"vehicle to report enemy positions for another two seconds.</shortDesc> If "
+"two Radio Operators have the perk, the effect is not cumulative."
+
+msgid "tankman/skills/radioman_retransmitter"
+msgstr "Relaying"
+
+msgid "tankman/skills/radioman_retransmitter_descr"
+msgstr ""
+"<shortDesc>Extends Signal Range of allied communications within vehicle's "
+"radio coverage.</shortDesc> If two Radio Operators have the skill, only the "
+"higher rating is effective."
+
+msgid "tankman/skills/repair"
+msgstr "Repairs"
+
+msgid "tankman/skills/repair_descr"
+msgstr ""
+"<shortDesc>Accelerates repairs to damaged modules.</shortDesc> Effective "
+"skill level is averaged across the entire crew. The skill cumulative with "
+"the effects of Toolbox and Large Repair Kit."
+
+msgid "tankman/skills/type/perk"
+msgstr "Perk. Comes into effect after it reaches 100%."
+
+msgid "tankman/skills/type/perk_common"
+msgstr "Perk. Comes into effect after<br/>all crew members reach 100%."
+
+msgid "tankman/skills/type/skill"
+msgstr ""
+"Skill. Comes into effect after the training starts. <br/>The effect "
+"increases with skill level."
+
+msgid "track/name"
+msgstr "Track"
+
+msgid "turret/desc"
+msgstr "?empty?"
+
+msgid "turret/name"
+msgstr "Turret"
+
+msgid "turret/tags"
+msgstr "?empty?"
+
+msgid "turretRotator/name"
+msgstr "Turret"
+
+msgid "vehicle/desc"
+msgstr "?empty?"
+
+msgid "vehicle/name"
+msgstr "Vehicle"
+
+msgid "vehicle/tags/at-spg/desc"
+msgstr "?empty?"
+
+msgid "vehicle/tags/at-spg/name"
+msgstr "Tank Destroyer"
+
+msgid "vehicle/tags/heavy_tank/desc"
+msgstr "?empty?"
+
+msgid "vehicle/tags/heavy_tank/name"
+msgstr "Heavy Tank"
+
+msgid "vehicle/tags/light_tank/desc"
+msgstr "?empty?"
+
+msgid "vehicle/tags/light_tank/name"
+msgstr "Light Tank"
+
+msgid "vehicle/tags/medium_tank/desc"
+msgstr "?empty?"
+
+msgid "vehicle/tags/medium_tank/name"
+msgstr "Medium Tank"
+
+msgid "vehicle/tags/spg/desc"
+msgstr "?empty?"
+
+msgid "vehicle/tags/spg/name"
+msgstr "SPG"
