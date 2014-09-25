@@ -1,4 +1,4 @@
-[% version_n = replay.game.version_numeric %]
+[% version_n = replay.version || replay.game.version_numeric %]
 [% incpath   = 'replay/view/version/' _ version_n _ '/' %]
 [% incfile   = incpath _ file %]
 [% defpath   = 'replay/view/version/default/' %]
