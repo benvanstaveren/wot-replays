@@ -1,4 +1,4 @@
-package WR::App;
+package WR::Web::Site;
 use Mojo::Base 'Mojolicious';
 use Mojo::JSON;
 use Mango;
@@ -15,9 +15,8 @@ use WR::Util::QuickDB;
 use WR::Util::HashTable;
 use Time::HiRes qw/gettimeofday/;
 
-use WR::App::Helpers;
-use WR::App::Minion;
-use WR::App::Startup;
+use WR::Web::Site::Helpers;
+use WR::Web::Site::Startup;
 
 # This method will run once at server start
 sub startup {
@@ -30,9 +29,6 @@ sub startup {
     $config->{plugins} ||= {};
     
     $self->secrets([ $config->{secrets}->{app} ]);
-    $config->{wot}->{bf_key} = join('', map { chr(hex($_)) } (split(/\s/, $config->{wot}->{bf_key})));
-
-   
     $self->attr('_tconfig' => sub { 
         my $self = shift;
         return WR::Util::HashTable->new(data => $config);
@@ -46,7 +42,7 @@ sub startup {
 
     $self->plugin('WR::Plugin::Mango', $config->{mongodb});
 
-    for(qw/Auth Timing Notify/) {
+    for(qw/Auth Timing Notify Logging Thunderpush I18N/) {
         $self->plugin(sprintf('WR::Plugin::%s', $_) => $config->{plugins}->{$_} || {});
     }
 
@@ -54,8 +50,6 @@ sub startup {
     WR::App::Minion->install($self);
 
     $self->plugin('WR::Plugin::I18N', { versions => [qw/0.9.0 0.9.1 0.9.2 0.9.3/] });
-    $self->plugin('WR::Plugin::Thunderpush', $config->{thunderpush});
-    $self->plugin('Mojolicious::Plugin::Minion' => { Mango => 'mongodb://127.0.0.1:27017/' });
 
     $self->renderer->paths([]); # clear this out
     $self->plugin('Mojolicious::Plugin::TtRenderer', {
@@ -109,10 +103,7 @@ sub startup {
     $self->types->type(csv => 'text/csv; charset=utf-8');
     $self->renderer->default_handler('tt');
 
-    has 'wr_res' => sub { return WR::Res->new() };
-
-    # routes
-    $self->routes->namespaces([qw/WR::App::Controller/]);
+    $self->routes->namespaces([qw/WR::Web::Site/]);
 
     # anything that we don't want to run over auth has to go up in here
     $self->routes->route('/postaction')->to('postaction#nginx_post_action');
