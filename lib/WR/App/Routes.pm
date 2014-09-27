@@ -7,16 +7,17 @@ sub install {
     my $self  = shift;
     my $rts   = shift;
 
+    # anything that we don't want to run over auth has to go up in here
     $rts->route('/postaction')->to('postaction#nginx_post_action');
 
-    my $r = $rts->bridge('/')->to(cb => sub {
+    my $r = $rts->under('/')->to(cb => sub {
         my $self = shift;
     
-        $self->app->log->debug('bridge cb top');
+        $self->tdebug('main under cb top');
         my $r = $self->init_auth();
-        $self->app->log->debug('bridge cb bottom');
+        $self->tdebug('main under cb bottom, returning undef: ', (defined($r)) ? 'no' : 'yes');
         return $r;
-    });
+    })->name('authbridge');
 
     $r->get('/')->to('replays#browse', 
         filter_opts => {},
@@ -299,7 +300,7 @@ sub install {
    
     $r->get('/competitions')->to('competition#list', pageid => 'competition', page => { title => 'competitions.page.title' });
     my $competition = $r->under('/competition');
-        my $cbridge = $competition->bridge('/:competition_id')->to('competition#bridge'); # loads the competition
+        my $cbridge = $competition->under('/:competition_id')->to('competition#bridge'); # loads the competition
             $cbridge->get('/')->to('competition#view', pageid => 'competition', page => { title => 'competition.page.title', title_args => [ 'competition_title' ] });
             $cbridge->get('/:server/:identifier')->to('replays#browse',
                 pageid      => 'competition', 
@@ -378,7 +379,7 @@ sub install {
         });
 
 
-    my $pb = $r->bridge('/profile')->to('profile#bridge');
+    my $pb = $r->under('/profile')->to('profile#bridge');
         $pb->get('/replays/type/:type/page/:page')->to('profile#replays', mustauth => 1, pageid => 'profile', page => { title => 'profile.replays.page.title' });
         $pb->get('/uploads/page/:page')->to('profile#uploads', pageid => 'profile', page => { title => 'profile.uploads.page.title' });
         $pb->any('/settings')->to('profile#settings', pageid => 'profile', page => { title => 'profile.settings.page.title' });
@@ -401,7 +402,7 @@ sub install {
             $mastery->get('/')->to('statistics-mastery#index', pageid => 'statistics/mastery');
             $mastery->get('/csv/:filedate')->to('statistics-mastery#as_csv', pageid => 'statistics/mastery');
 
-    my $admin = $r->bridge('/admin')->to('admin#bridge');
+    my $admin = $r->under('/admin')->to('admin#bridge');
         $admin->get('/')->to('admin#index', pageid => 'admin/home');
         $admin->get('/usersonline')->to('admin#get_online_users');
         $admin->get('/uploadslist')->to('admin#get_upload_queue');
@@ -410,9 +411,9 @@ sub install {
 
         $admin->get('/events')->to('admin-events#index', pageid => 'admin/events');
 
-        my $language = $admin->bridge('/language');
+        my $language = $admin->under('/language');
             $language->get('/')->to('admin-language#redir', pageid => 'admin/language');
-            my $langroot = $language->bridge('/:lang')->to('admin-language#language_bridge');
+            my $langroot = $language->under('/:lang')->to('admin-language#language_bridge');
                 $langroot->get('/')->to('admin-language#index', pageid => 'admin/language', section => '--');
                 $langroot->any('/publish')->to('admin-language#publish', pageid => 'admin/language');
                 my $section = $langroot->under('/:section');
