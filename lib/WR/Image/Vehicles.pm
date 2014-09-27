@@ -106,7 +106,7 @@ sub render_noimage {
     if($rv == 0) {
         $self->render(text => 'ERROR CREATING THUMBNAIL', status => 500);
     } else {
-        $self->reply->static(sprintf('vehicles/%d/noimage.png', $size);
+        $self->reply->static(sprintf('vehicles/%d/noimage.png', $size));
     }
 }
 
