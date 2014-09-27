@@ -110,6 +110,12 @@ sub install {
         $self->app->log->debug($msg);
     });
 
+    $self->helper(tdebug => sub {
+        my $self = shift;
+
+        $self->debug('[', join('.', gettimeofday), ']: ', @_);
+    });
+
     $self->helper(concat => sub {
         my $self = shift;
         return join('', @_);

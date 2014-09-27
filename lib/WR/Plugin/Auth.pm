@@ -69,9 +69,9 @@ sub register {
     
     $app->helper(init_auth => sub {
         my $self   = shift; # controller object
-        $self->render_later;
+
         if(my $o = $self->session('openid')) {
-            $self->debug('have openid: ', $o);
+            $self->tdebug('init_auth: have openid: ', $o);
 
             if($self->req->is_xhr) {
                 $self->model('wot-replays.accounts')->find_one({ _id => $o } => sub {
@@ -86,11 +86,13 @@ sub register {
                     $self->continue;
                 });
             } else {
+                $self->tdebug('init_auth: account lookup top');
                 $self->model('wot-replays.accounts')->find_one({ _id => $o } => sub {
                     my ($c, $e, $user) = (@_); 
+                    $self->tdebug('init_auth: account lookup cb');
                     if(defined($user)) {
+                        $self->tdebug('init_auth: account lookup have user, before update');
                         my $last_seen = Mango::BSON::bson_time;
-
                         $self->model('wot-replays.accounts')->update({ 
                             _id => $o 
                         }, {
@@ -99,10 +101,10 @@ sub register {
                             },
                         } => sub {
                             my ($coll, $err, $oid) = (@_);
-                            $self->debug('last seen updated');
+                            $self->tdebug('init_auth: last seen updated');
 
-                            $self->debug('we have that account, yeah: ', Dumper($user));
-                            $self->debug('expires_at: ', $user->{expires_at}, ' now: ', Mango::BSON::bson_time);
+                            $self->tdebug('init_auth: we have that account, yeah: ', Dumper($user));
+                            $self->tdebug('init_auth: expires_at: ', $user->{expires_at}, ' now: ', Mango::BSON::bson_time);
 
                             if(defined($user->{expires_at}) && $user->{expires_at} > Mango::BSON::bson_time) {
                                 $self->stash(current_user           => $user);
@@ -110,22 +112,28 @@ sub register {
                                 $self->stash(current_player_server  => uc($user->{player_server}));
 
                                 # last clan check moved to offline worker scripts
+                                $self->tdebug('init_auth: auth ok, continue');
                                 $self->continue;
                             } else {
                                 $self->debug('auth is expired');
                                 $self->session('openid' => undef, notify => { type => 'info', text => 'Your login has expired, you will have to log in again' });
+                                $self->tdebug('init_auth: auth expired, continue');
                                 $self->continue;
                             }
                         });
+                        $self->tdebug('init_auth: after update');
                     } else {
                         $self->debug('no user data loaded');
                         $self->continue;
                     }
                 });
+                $self->tdebug('init_auth: account lookup bottom');
             }
         } else {
+            $self->tdebug('init_auth: returning 1');
             return 1;
         }
+        $self->tdebug('init_auth: returning undef');
         return undef;
     });
 
