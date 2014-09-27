@@ -13,7 +13,7 @@ use Data::Dumper;
 use DateTime;
 use Encode;
 use Try::Tiny qw/try catch/;
-use Time::HiRes qw//;
+use Time::HiRes qw/gettimeofday/;
 
 use constant ROMAN_NUMERALS => [qw(0 I II III IV V VI VII VIII IX X)];
 
