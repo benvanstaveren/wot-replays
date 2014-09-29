@@ -4,7 +4,7 @@ use Mojo::JSON;
 use File::Slurp qw/read_file/;
 use Data::Dumper;
 
-has 'path'                  => undef;
+has path                    => '/home/wotreplay/wot-replays/etc/res';
 has achievements            => sub { [] };
 has achievements_reverse    => sub { {} };
 has achievements_by_type    => sub {
