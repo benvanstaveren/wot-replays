@@ -6,6 +6,6 @@ has 'path'          =>   undef;
 has 'achievements'  =>  sub { 
     my $self = shift;
     return WR::Res::Achievements->new(path => $self->path);
-} 
+};
 
 1;
