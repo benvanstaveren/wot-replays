@@ -1,5 +1,5 @@
-package WR::App::Controller::Admin::Events;
-use Mojo::Base 'WR::App::Controller';
+package WR::Web::Site::Controller::Admin::Events;
+use Mojo::Base 'WR::Web::Site::Controller';
 
 sub index {
     my $self = shift;

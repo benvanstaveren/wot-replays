@@ -23,6 +23,7 @@ sub startup {
     my $self = shift;
 
     $self->attr(json => sub { return Mojo::JSON->new() });
+    $self->attr(wr_res => sub { WR::Res->new(path => $app->home->rel_dir('etc/res')) });
 
     my $config = $self->plugin('Config', { file => 'wr.conf' });
     
@@ -45,9 +46,6 @@ sub startup {
     for(qw/Auth Timing Notify Logging Thunderpush I18N/) {
         $self->plugin(sprintf('WR::Plugin::%s', $_) => $config->{plugins}->{$_} || {});
     }
-
-    WR::App::Helpers->install($self);
-    WR::App::Minion->install($self);
 
     $self->plugin('WR::Plugin::I18N', { versions => [qw/0.9.0 0.9.1 0.9.2 0.9.3/] });
 
@@ -103,7 +101,7 @@ sub startup {
     $self->types->type(csv => 'text/csv; charset=utf-8');
     $self->renderer->default_handler('tt');
 
-    $self->routes->namespaces([qw/WR::Web::Site/]);
+    $self->routes->namespaces([qw/WR::Web::Site::Controller/]);
 
     # anything that we don't want to run over auth has to go up in here
     $self->routes->route('/postaction')->to('postaction#nginx_post_action');
@@ -525,9 +523,9 @@ sub startup {
             my $notifications = $site->under('/notifications');
                 $notifications->get('/')->to('admin-site#notifications', pageid => 'admin/notifications');
 
-
-    WR::App::Startup->run($self);
-
+    WR::Web::Site::Helpers->install($self);
+    WR::Web::Site::Startup->run($self);
+    $self->plugin('WR::Plugin::Preloader' => [ 'components', 'consumables', 'customization', 'equipment', 'maps', 'vehicles' ]);
 }
 
 1;

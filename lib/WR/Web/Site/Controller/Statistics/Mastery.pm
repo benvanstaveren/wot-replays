@@ -1,5 +1,5 @@
-package WR::App::Controller::Statistics::Mastery;
-use Mojo::Base 'WR::App::Controller';
+package WR::Web::Site::Controller::Statistics::Mastery;
+use Mojo::Base 'WR::Web::Site::Controller';
 use Mango::BSON;
 use Text::CSV_XS;
 

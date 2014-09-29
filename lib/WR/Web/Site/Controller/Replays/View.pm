@@ -1,5 +1,5 @@
-package WR::App::Controller::Replays::View;
-use Mojo::Base 'WR::App::Controller';
+package WR::Web::Site::Controller::Replays::View;
+use Mojo::Base 'WR::Web::Site::Controller';
 use Mango::BSON;
 use WR::Query;
 use WR::Res::Achievements;

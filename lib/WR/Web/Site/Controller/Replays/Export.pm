@@ -1,5 +1,5 @@
-package WR::App::Controller::Replays::Export;
-use Mojo::Base 'WR::App::Controller';
+package WR::Web::Site::Controller::Replays::Export;
+use Mojo::Base 'WR::Web::Site::Controller';
 use boolean;
 use Mojo::JSON;
 

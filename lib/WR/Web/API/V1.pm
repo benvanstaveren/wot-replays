@@ -1,4 +1,4 @@
-package WR::API::V1;
+package WR::Web::API::V1;
 use Mojo::Base 'Mojolicious::Controller';
 use File::Path qw/make_path/;
 use Mango::BSON;

@@ -1,5 +1,5 @@
-package WR::App::Controller::Replays::Upload;
-use Mojo::Base 'WR::App::Controller';
+package WR::Web::Site::Controller::Replays::Upload;
+use Mojo::Base 'WR::Web::Site::Controller';
 use Mango::BSON;
 use File::Path qw/make_path/;
 use Try::Tiny qw/try catch/;

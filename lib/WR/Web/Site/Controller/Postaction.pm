@@ -1,5 +1,5 @@
-package WR::App::Controller::Postaction;
-use Mojo::Base 'WR::App::Controller';
+package WR::Web::Site::Controller::Postaction;
+use Mojo::Base 'WR::Web::Site::Controller';
 
 sub nginx_post_action {
     my $self = shift;

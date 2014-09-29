@@ -1,4 +1,15 @@
-<p class="lead">Please select the server you play on; if it is not listed, you can't log in, sorry!</p>
+[% IF errormessage %]
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <div class="alert alert-danger">[% errormessage %]</div>
+        </div>
+    </div>
+[% END %]
+<div class="row">
+    <div class="col-lg-12 col-md-12">
+        <p class="lead">Please select the server you play on; if it is not listed, you can't log in, sorry!</p>
+    </div>
+</div>
 <div class="row locationselect">
     <div class="col-lg-4 col-md-4">
         <a id="eu" type="button" class="please-wait btn btn-primary btn-lg btn-block" href="/login/eu">Europe</a>

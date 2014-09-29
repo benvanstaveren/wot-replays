@@ -1,6 +1,6 @@
-package WR::App::Controller::Admin::Language;
+package WR::Web::Site::Controller::Admin::Language;
 use utf8;
-use Mojo::Base 'WR::App::Controller';
+use Mojo::Base 'WR::Web::Site::Controller';
 use WR::Util::HashTable;
 use Data::Dumper;
 use Mojo::Util qw/xml_escape/;

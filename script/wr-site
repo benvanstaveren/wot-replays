@@ -7,4 +7,4 @@ use WR;
 
 # Start commands for application
 require Mojolicious::Commands;
-Mojolicious::Commands->start_app('WR::App');
+Mojolicious::Commands->start_app('WR::Web::Site');

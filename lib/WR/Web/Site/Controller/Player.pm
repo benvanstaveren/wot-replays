@@ -1,5 +1,5 @@
-package WR::App::Controller::Player;
-use Mojo::Base 'WR::App::Controller';
+package WR::Web::Site::Controller::Player;
+use Mojo::Base 'WR::Web::Site::Controller';
 use WR::Query;
 use Mango::BSON;
 

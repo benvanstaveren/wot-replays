@@ -1,5 +1,5 @@
-package WR::App::Controller::Competition;
-use Mojo::Base 'WR::App::Controller';
+package WR::Web::Site::Controller::Competition;
+use Mojo::Base 'WR::Web::Site::Controller';
 use DateTime;
 use WR::Event;
 use Data::Dumper;

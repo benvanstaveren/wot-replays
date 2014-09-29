@@ -1,5 +1,5 @@
-package WR::App::Controller::Heatmap;
-use Mojo::Base 'WR::App::Controller';
+package WR::Web::Site::Controller::Heatmap;
+use Mojo::Base 'WR::Web::Site::Controller';
 use boolean;
 
 sub view {

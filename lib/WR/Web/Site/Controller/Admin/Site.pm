@@ -1,5 +1,5 @@
-package WR::App::Controller::Admin::Site;
-use Mojo::Base 'WR::App::Controller';
+package WR::Web::Site::Controller::Admin::Site;
+use Mojo::Base 'WR::Web::Site::Controller';
 use Mango::BSON;
 
 sub notifications {

@@ -1,4 +1,4 @@
-package WR::API::Util;
+package WR::Web::API::Util;
 use Mojo::Base 'Mojolicious::Controller';
 use Mango::BSON;
 use WR::Util::Pickle;

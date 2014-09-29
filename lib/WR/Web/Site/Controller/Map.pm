@@ -1,5 +1,5 @@
-package WR::App::Controller::Map;
-use Mojo::Base 'WR::App::Controller';
+package WR::Web::Site::Controller::Map;
+use Mojo::Base 'WR::Web::Site::Controller';
 use boolean;
 
 sub index {

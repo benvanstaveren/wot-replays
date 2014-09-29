@@ -1,5 +1,5 @@
-package WR::App::Controller::Auth;
-use Mojo::Base 'WR::App::Controller';
+package WR::Web::Site::Controller::Auth;
+use Mojo::Base 'WR::Web::Site::Controller';
 use Mango::BSON;
 use Data::Dumper;
 

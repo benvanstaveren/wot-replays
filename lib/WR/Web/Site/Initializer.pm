@@ -1,4 +1,4 @@
-package WR::App::Initializer;
+package WR::Web::Site::Initializer;
 use strict;
 use warnings;
 

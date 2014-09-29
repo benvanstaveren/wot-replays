@@ -1,4 +1,4 @@
-package WR::API;
+package WR::Web::API;
 use Mojo::Base 'Mojolicious';
 use FindBin;
 use lib "$FindBin::Bin/../lib";
@@ -36,7 +36,7 @@ sub startup {
         return $s->app->mango->db($d)->collection($c);
     });
 
-    $self->routes->namespaces([qw/WR::API/]);
+    $self->routes->namespaces([qw/WR::Web::API/]);
 
     my $root = $r->bridge('/')->to('auto#index');
         my $v1 = $root->under('/v1');

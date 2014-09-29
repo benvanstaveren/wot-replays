@@ -1,10 +1,10 @@
-package WR::App::Controller::Replays;
-use Mojo::Base 'WR::App::Controller';
+package WR::Web::Site::Controller::Replays;
+use Mojo::Base 'WR::Web::Site::Controller';
 use Mango::BSON;
 use WR::Query;
 use Time::HiRes qw/gettimeofday tv_interval/;
 use Data::Dumper;
-use WR::App::Initializer;
+use WR::Web::Site::Initializer;
 
 sub desc {
     my $self = shift;
@@ -73,7 +73,7 @@ sub _real_browse {
             $self->_really_real_browse($base_q);
         });
         foreach my $init (@{$self->stash('initialize_with')}) {
-            if(my $code = WR::App::Initializer->can($init)) {
+            if(my $code = WR::Web::Site::Initializer->can($init)) {
                 $code->($self, $delay->begin(0));
             }
         }

@@ -22,7 +22,7 @@ my $mconn           = 'mongodb://localhost:27017';
 my $dbname          = 'wotreplays';
 
 my @only            = ();
-my @default         = (qw/Language Achievements/);
+my @default         = (qw/Achievements/);
 
 GetOptions(
     'wot-folder=s'  =>  \$wot_folder,

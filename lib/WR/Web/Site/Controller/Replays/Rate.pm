@@ -1,5 +1,5 @@
-package WR::App::Controller::Replays::Rate;
-use Mojo::Base 'WR::App::Controller';
+package WR::Web::Site::Controller::Replays::Rate;
+use Mojo::Base 'WR::Web::Site::Controller';
 use Data::Dumper;
 use Mango::BSON;
 

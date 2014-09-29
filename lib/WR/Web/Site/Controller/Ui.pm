@@ -1,5 +1,5 @@
-package WR::App::Controller::Ui;
-use Mojo::Base 'WR::App::Controller';
+package WR::Web::Site::Controller::Ui;
+use Mojo::Base 'WR::Web::Site::Controller';
 use WR::Res::Achievements;
 use Time::HiRes qw/gettimeofday tv_interval/;
 use Filesys::DiskUsage::Fast qw/du/;

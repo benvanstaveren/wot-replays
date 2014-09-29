@@ -2,6 +2,7 @@ package WR::Web::Site::Helpers;
 use strict;
 use warnings;
 use WR::Query;
+use WR::Res;
 use WR::Util::CritDetails;
 use WR::Util::HashTable;
 use WR::Provider::ServerFinder;
@@ -856,6 +857,24 @@ sub install {
         my $str  = shift;
 
         return sprintf('#achievements:%s', $str);
+    });
+
+    $self->helper('achievement_is_award' => sub {
+        my $self = shift;
+        return $self->app->wr_res->achievements->is_award(shift);
+    });
+
+    $self->helper('achievement_is_class' => sub {
+        my $self = shift;
+        return $self->app->wr_res->achievements->is_class(shift);
+    });
+
+    $self->helper('get_achievements' => sub {
+        return shift->app->wr_res->achievements;
+    });
+
+    $self->helper('get_res' => sub {
+        return shift->app->wr_res;
     });
 
     $self->helper(rating_color => sub {
