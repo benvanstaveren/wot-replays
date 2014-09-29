@@ -103,13 +103,6 @@ sub install {
         return decode('utf-8', $s);
     });
 
-    $self->helper(debug => sub {
-        my $self = shift;
-        my $msg = join(' ', @_);
-
-        $self->app->log->debug($msg);
-    });
-
     $self->helper(tdebug => sub {
         my $self = shift;
 
@@ -119,13 +112,6 @@ sub install {
     $self->helper(concat => sub {
         my $self = shift;
         return join('', @_);
-    });
-
-    $self->helper(error => sub {
-        my $self = shift;
-        my $msg = join(' ', @_);
-
-        $self->app->log->error($msg);
     });
 
     ### DB CALLING HELPERS - FIXME FIXME FIXME

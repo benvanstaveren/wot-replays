@@ -23,7 +23,7 @@ sub startup {
     my $self = shift;
 
     $self->attr(json => sub { return Mojo::JSON->new() });
-    $self->attr(wr_res => sub { WR::Res->new(path => $app->home->rel_dir('etc/res')) });
+    $self->attr(wr_res => sub { WR::Res->new(path => $self->home->rel_dir('etc/res')) });
 
     my $config = $self->plugin('Config', { file => 'wr.conf' });
     
@@ -43,7 +43,9 @@ sub startup {
 
     $self->plugin('WR::Plugin::Mango', $config->{mongodb});
 
-    for(qw/Auth Timing Notify Logging Thunderpush I18N/) {
+    WR::Web::Site::Helpers->install($self);
+
+    for(qw/Auth Timing Notify Logging Thunderpush/) {
         $self->plugin(sprintf('WR::Plugin::%s', $_) => $config->{plugins}->{$_} || {});
     }
 
@@ -523,8 +525,8 @@ sub startup {
             my $notifications = $site->under('/notifications');
                 $notifications->get('/')->to('admin-site#notifications', pageid => 'admin/notifications');
 
-    WR::Web::Site::Helpers->install($self);
     WR::Web::Site::Startup->run($self);
+
     $self->plugin('WR::Plugin::Preloader' => [ 'components', 'consumables', 'customization', 'equipment', 'maps', 'vehicles' ]);
 }
 

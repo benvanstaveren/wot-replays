@@ -13,7 +13,7 @@ sub register {
     });
 
     $app->hook(before_render => sub {
-        my ($c, $args) = (@_)
+        my ($c, $args) = (@_);
         $c->stash('timing.elapsed' => tv_interval($c->stash('timing.start')));
     });
 }
