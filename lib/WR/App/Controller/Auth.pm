@@ -59,7 +59,7 @@ sub do_link {
                     $self->debug('tx ok, status not ok: ', Dumper($res->json));
                     # FIXME FIXME FIXME
                     $self->respond(template => 'profile/link', stash => {
-                        page => { title => 'Link Account' },
+                        page   => { title => 'Link Account' },
                         notify => 'Link failed, please try again',
                     });
                 }
