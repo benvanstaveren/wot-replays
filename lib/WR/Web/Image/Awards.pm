@@ -1,4 +1,4 @@
-package WR::Image::Awards;
+package WR::Web::Image::Awards;
 use Mojo::Base 'Mojolicious::Controller';
 use File::Path qw/make_path/;
 use Imager;

@@ -1,4 +1,4 @@
-package WR::Image::Vehicles;
+package WR::Web::Image::Vehicles;
 use Mojo::Base 'Mojolicious::Controller';
 use File::Path qw/make_path/;
 use Imager;

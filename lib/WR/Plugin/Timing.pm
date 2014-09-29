@@ -6,14 +6,15 @@ sub register {
     my $self = shift;
     my $app  = shift;
 
-    $app->hook(around_action => sub {
-        my ($next, $c, $action, $last) = (@_);
 
-        my $start = [ gettimeofday ];
-        $c->stash('timing.start' => $start);
-        my $rv = $next->();
-        $c->stash('timing_elapsed' => tv_interval($start));
-        return $rv;
+    $app->hook(before_dispatch => sub {
+        my $c = shift;
+        $c->stash('timing.start' => [ gettimeofday ]);
+    });
+
+    $app->hook(before_render => sub {
+        my ($c, $args) = (@_)
+        $c->stash('timing.elapsed' => tv_interval($c->stash('timing.start')));
     });
 }
 
