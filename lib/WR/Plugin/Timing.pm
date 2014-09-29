@@ -15,6 +15,7 @@ sub register {
     $app->hook(before_render => sub {
         my ($c, $args) = (@_);
         $c->stash('timing.elapsed' => tv_interval($c->stash('timing.start')));
+        $c->stash('timing_elapsed' => $c->stash('timing.elapsed'));
     });
 }
 
