@@ -1386,12 +1386,12 @@ div.not-rounded-top {
   -webkit-border-top-left-radius: 0px;
   border-top-left-radius: 0px; }
 
-div.not-rounded-bottom {
+div.not-rounded-bottom, div.navbar.not-rounded-bottom {
   -moz-border-bottom-right-radius: 0px;
   -webkit-border-bottom-right-radius: 0px;
   border-bottom-right-radius: 0px; }
 
-div.not-rounded-bottom {
+div.not-rounded-bottom, div.navbar.not-rounded-bottom {
   -moz-border-bottom-left-radius: 0px;
   -webkit-border-bottom-left-radius: 0px;
   border-bottom-left-radius: 0px; }
@@ -1401,7 +1401,7 @@ div.shadow, div.navbar-shadow {
   -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.7); }
 
-/*
+/*!
  * Slider for Bootstrap
  *
  * Copyright 2012 Stefan Petre
@@ -1727,6 +1727,8 @@ div.map {
     background: transparent url(//images.wotreplays.org/maps/768/07_lakeville.png) no-repeat scroll center center; }
   div.map.map_08_ruinberg {
     background: transparent url(//images.wotreplays.org/maps/768/08_ruinberg.png) no-repeat scroll center center; }
+  div.map.map_102_deathtrack {
+    background: transparent url(//images.wotreplays.org/maps/768/102_deathtrack.png) no-repeat scroll center center; }
   div.map.map_10_hills {
     background: transparent url(//images.wotreplays.org/maps/768/10_hills.png) no-repeat scroll center center; }
   div.map.map_11_murovanka {
