@@ -6,4 +6,4 @@ use lib "$FindBin::Bin/../lib";
 
 # Start commands for application
 require Mojolicious::Commands;
-Mojolicious::Commands->start_app('WR::API');
+Mojolicious::Commands->start_app('WR::Web::API');
