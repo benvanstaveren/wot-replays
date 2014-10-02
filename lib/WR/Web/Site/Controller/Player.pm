@@ -13,7 +13,7 @@ sub index {
 
     $self->render_later;
 
-    $s = 'asia' if($s eq 'sea');
+    $s = 'asia' if(defined($s) && $s eq 'sea');
 
     if(defined($q) && defined($s)) {
         my $url = 'http://api.statterbox.com/wot/account/list';

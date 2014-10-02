@@ -243,7 +243,7 @@ sub startup {
     my $bhm = $r->under('/battleheatmap/:replay_id');
         $bhm->get('/')->to('replays-view#heatmap', pageid => 'battleheatmap', page => { title => 'replay.heatmap.page.title' });
 
-    $r->route('/clans')->to('clan#index', pageid => 'clan', page => { title => 'clans.page.title' });
+    $r->any('/clans')->to('clan#index', pageid => 'clan', page => { title => 'clans.page.title' });
     my $clan = $r->under('/clan');
         $clan->get('/:server/:clanticker')->to(cb => sub {
             my $self = shift;
@@ -279,7 +279,7 @@ sub startup {
             }
         );
 
-    $r->get('/players')->to('player#index', pageid => 'player', page => { title => 'players.page.title' });
+    $r->any('/players')->to('player#index', pageid => 'player', page => { title => 'players.page.title' });
     my $player = $r->under('/player');
         $player->get('/:server/:player_name')->to(cb => sub {
             my $self = shift;
