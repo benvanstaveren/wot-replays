@@ -384,12 +384,7 @@ sub view {
             } elsif($r == -1 ) {
                 return;
             } else {
-                if($self->stash('format') eq 'json') {
-                    my $j = JSON::XS->new->pretty(1)->allow_blessed(1)->convert_blessed(1);
-                    $self->render(data => $j->encode($replay), format => 'json');
-                } else {
-                    $self->actual_view_replay($replay, $start);
-                }
+                $self->actual_view_replay($replay, $start);
             }
         } else {
             $self->redirect_to('/');
