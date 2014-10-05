@@ -11,10 +11,7 @@ sub preview {
     if(defined($stat) && lc($stat) eq 'ok') {
         my $real_file = substr($file, 1); # because we want to ditch that leading slash
         $self->_piwik_track_download($file => $ip => 'previews.wotreplays.org' => sub {
-            $self->app->thunderpush->send_to_channel('site' => Mojo::JSON->new->encode({ evt => 'replay.download', data => { id => $d->{_id} . '' } }) => sub {
-                my ($p, $r) = (@_);
-                $self->render(text => 'OK');
-            });
+            $self->render(text => 'OK');
         });
     } else {
         $self->render(text => 'OK');
