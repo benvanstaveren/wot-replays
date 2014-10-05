@@ -1,9 +1,7 @@
 package WR::Update::Tanks;
-use Mojo::Base '-base';
+use Mojo::Base 'WR::Update';
 use Mojo::UserAgent;
 use Data::Dumper;
-
-has 'app' => undef;
 
 sub get_type {
     my $self = shift;

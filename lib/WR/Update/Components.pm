@@ -1,10 +1,8 @@
 package WR::Update::Components;
-use Mojo::Base '-base';
+use Mojo::Base 'WR::Update';
 use Mojo::UserAgent;
 use Data::Dumper;
 use WR::Util::TypeComp qw/parse_int_compact_descr type_id_to_name/;
-
-has 'app' => undef;
 
 sub run {
     my $self = shift;
