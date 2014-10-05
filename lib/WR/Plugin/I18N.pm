@@ -17,11 +17,7 @@ sub get_paths {
     my @paths = ();
     push(@paths,  sprintf('%s/*.po', $app->home->rel_dir(sprintf('lang/site/%s', $lang))));
     push(@paths,  sprintf('%s/*.po', $app->home->rel_dir('lang/wg/fixes')));
-   
-    foreach my $v (@$versions) {
-        push(@paths, sprintf('%s/*.po', $app->home->rel_dir(sprintf('lang/wg/%s/%s', $lang, $v))));
-    }
-
+    push(@paths,  sprintf('%s/*.po', $app->home->rel_dir('lang/wg/base')));
     return @paths;
 }
 
@@ -38,6 +34,8 @@ sub register {
     
     $app->log->debug('[I18N]: Using paths: ' . Dumper($g->{'common'}));
 
+    $app->attr('i18n_localizers' => sub { {} });
+
     if(defined($app->get_config('languages'))) {
         foreach my $language (@{$app->get_config('languages')}) {
             next if($language->{ident} eq 'en');
@@ -50,16 +48,25 @@ sub register {
 
     $app->config('i18n_language_paths' => $g);
 
+    $app->log->debug('[I18N]: Instantiating localizers');
+    foreach my $ident (keys(%$g)) {
+        $app->i18n_localizers->{$ident} = Data::Localize::Gettext->new(encoding => 'utf8', formatter => WR::Plugin::I18N::Formatter->new(), paths => $self->config('i18n_language_paths')->{$lang});
+        $app->log->debug('[I18N]: - ' . $ident);
+    }
+    $app->log->debug('[I18N]: Localizers instantiated');
+
+    $app->helper(get_localizer_for => sub {
+        my $self = shift;
+        my $lang = shift;
+
+        return $self->app->i18n_localizers->{$lang} || $self->app->i18n_localizers->{en};
+    });
+
     $app->hook(before_routes => sub {
         my $c = shift;
 
         my $language = $c->session('language') || 'en';
         $c->stash('user_lang' => $language);
-        if(my $localizer = $c->get_localizer_for($language)) {
-            $c->stash('i18n_localizer' => $localizer);
-        } else {
-            $c->stash('i18n_localizer' => $c->get_localizer_for('en'));
-        }
     });
 
     $app->helper(set_language => sub {
@@ -67,7 +74,6 @@ sub register {
         my $language = shift;
 
         $c->session(language => $language);
-        $c->stash('i18n_localizer' => $c->get_localizer_for($language));
         $c->stash('user_lang' => $language);
     });
 
@@ -85,13 +91,6 @@ sub register {
 
         # append /desc to the string
         return $self->loc(sprintf('%s/desc', $str), @_);
-    });
-
-    $app->helper(get_localizer_for => sub {
-        my $self = shift;
-        my $lang = shift;
-
-        return Data::Localize::Gettext->new(encoding => 'utf8', formatter => WR::Plugin::I18N::Formatter->new(), paths => $self->config('i18n_language_paths')->{$lang});
     });
 
     $app->helper(fix_utf8_for_js => sub {
@@ -150,7 +149,7 @@ sub register {
 
         my $result;
 
-        if(my $localizer = $self->stash('i18n_localizer')) {
+        if(my $localizer = $self->get_localizer_for($self->stash('user_lang'))) {
             if(my $xlat = $localizer->localize_for(lang => $l, id => $str, args => $args)) {
                 $result = $xlat;
                 if($l ne 'site') {
