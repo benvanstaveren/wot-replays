@@ -15,17 +15,22 @@ sub register {
     $app->hook(after_static => sub {
         my $c = shift;
         $c->stash('timing')->{hooks}->{after_static} = tv_interval($c->stash('timing')->{start});
+        $c->app->log->debug('hook after_static: ' . $c->stash('timing')->{hooks}->{after_static});
     });
 
     $app->hook(before_routes => sub {
         my $c = shift;
         $c->stash('timing')->{hooks}->{before_routes} = tv_interval($c->stash('timing')->{start});
+        $c->app->log->debug('hook before_routes: ' . $c->stash('timing')->{hooks}->{before_routes});
     });
 
     $app->hook(around_action => sub {
         my ($next, $c, $action, $last) = (@_);
         $c->stash('timing')->{hooks}->{around_action} = tv_interval($c->stash('timing')->{start});
-        return $next->();
+        $c->app->log->debug('hook around_action top: ' . $c->stash('timing')->{hooks}->{around_action});
+        my $rv = $next->();
+        $c->app->log->debug('hook around_action bottom: ' . sprintf('%.4f', tv_interval($c->stash('timing')->{start})));
+        return $rv;
     });
 
     $app->helper('full_timing_list' => sub {
