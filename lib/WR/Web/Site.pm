@@ -488,7 +488,7 @@ sub startup {
         $pb->get('/sl/:lang')->to('profile#sl', pageid => 'profile');
         $pb->get('/link')->to('auth#do_link', pageid => 'profile');
         $pb->get('/link/:s')->to('auth#do_link', pageid => 'profile');
-        $pb->get('/linked/:status')->to('profile#linked', pageid => 'profile');
+        $pb->get('/linked/:linkstatus')->to('profile#linked', pageid => 'profile');
 
         my $pbj = $pb->under('/j');
             $pbj->any('/sr')->to('profile#sr', pageid => 'profile');

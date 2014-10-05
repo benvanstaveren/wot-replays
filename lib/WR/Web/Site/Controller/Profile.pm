@@ -229,7 +229,7 @@ sub replays {
 
 sub linked {
     my $self = shift;
-    my $stat = $self->stash('status');
+    my $stat = $self->stash('linkstatus');
     my $lw   = $self->session('lw');
 
     $self->stash('linked_with' => $lw);
