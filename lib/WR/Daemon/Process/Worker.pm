@@ -7,9 +7,9 @@ use Mango::BSON;
 use Try::Tiny qw/try catch/;
 use WR::Thunderpush::Client; # because yes... 
 use WR::Process::Job;
-
-use WR::Process::Chatreader;
 use WR::Process::Full;
+
+#use WR::Process::Chatreader;
 
 has 'config'            => sub { {} };
 has 'log'               => sub {
