@@ -2,7 +2,7 @@
     <div class="col-md-6 col-lg-6">
         <a style="display: inline; text-decoration: underline; padding: 0px" href="/doc/about.html">[% h.loc('footer.about') %]</a> | <a style="display: inline; text-decoration: underline; padding: 0px" href="/doc/credits.html">[% h.loc('footer.credits') %]</a> | <a href="http://www.patreon.com/scrambled" style="display: inline; text-decoration: underline; padding: 0px">[% h.loc('footer.donate') %]</a>
         <div>
-            t: <span id="timing_elapsed">[% IF timing_elapsed.defined %][% h.sprintf('%.4f', timing_elapsed)  %][% ELSE %]-[% END %]</span> [% IF timing_query.defined %]q: <span id="timing_query">[% h.sprintf('%.4f', timing_query) %]</span>[% END %]
+            [% INCLUDE bricks/timing.html.tt %]
         </div>
     </div>
     <div class="col-md-6 col-lg-6" style="text-align: right">

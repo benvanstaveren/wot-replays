@@ -1,0 +1,5 @@
+[% IF h.is_the_boss %]
+    [% h.full_timing_list %]
+[% ELSE %]            
+    t: <span id="timing_elapsed">[% IF timing_elapsed.defined %][% h.sprintf('%.4f', timing_elapsed)  %][% ELSE %]-[% END %]</span> [% IF timing_query.defined %]q: <span id="timing_query">[% h.sprintf('%.4f', timing_query) %]</span>[% END %]
+[% END %]
