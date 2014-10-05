@@ -180,7 +180,7 @@ sub openid_return_link {
                     my $id = sprintf('%s-%s', lc($self->session('link_server')), lc($params->{nickname}));
                     $self->model('wot-replays.accounts')->update({ _id => $self->current_user->{_id} }, { '$addToSet' => { 'ucid' => $id } } => sub {
                         my ($c, $e, $d) = (@_);
-                        $self->session('lw' => sprintf('%s (S: %s, T: %s)', $params->{nickname}, (defined($e)) ? $e : '', $self->current_user->{_id}));
+                        $self->session('lw' => sprintf('%s (S: %s, T: %s, I: %s)', $params->{nickname}, (defined($e)) ? $e : '', $self->current_user->{_id}, $id));
                         $self->redirect_to('/profile/linked/okay');
                     });
                 }
