@@ -49,7 +49,7 @@ sub register {
         }
     }
 
-    $app->log->debug('[I18N]: Using paths: ' . Dumper($g->{'common'}));
+    $app->log->debug('[I18N]: Using paths: ' . Dumper($g));
     $app->config('i18n_language_paths' => $g);
 
     $app->log->debug('[I18N]: Instantiating localizers');
