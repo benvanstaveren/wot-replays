@@ -119,9 +119,6 @@ sub startup {
 
     $self->routes->any('/logout')->to('auth#do_logout');
 
-    my $openid = $self->routes->under('/openid');
-        $openid->any('/return/:type')->to('auth#openid_return', type => 'default');
-
     my $r = $self->routes->under('/')->to(cb => sub {
         my $self = shift;
     
@@ -130,6 +127,10 @@ sub startup {
         $self->tdebug('main under cb bottom, returning undef: ', (defined($r)) ? 'no' : 'yes');
         return $r;
     })->name('authbridge');
+
+    my $openid = $r->under('/openid');
+        $openid->any('/return/:type')->to('auth#openid_return', type => 'default');
+
 
     $r->get('/')->to('replays#browse', 
         filter_opts => {},
