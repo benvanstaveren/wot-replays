@@ -21,7 +21,7 @@ sub get_paths {
         push(@paths,  sprintf('%s/*.po', $app->home->rel_dir(sprintf('lang/wg/%s/%s', $lang, $v))));
     }
 
-    push(@paths,  sprintf('%s/*.po', $app->home->rel_dir('lang/wg/fixes')));
+    push(@paths,  sprintf('%s/*.po', $app->home->rel_dir('lang/wg/fixes'))) if($lang eq 'common');
     return @paths;
 }
 
