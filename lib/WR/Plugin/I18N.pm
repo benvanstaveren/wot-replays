@@ -56,13 +56,6 @@ sub register {
     }
     $app->log->debug('[I18N]: Localizers instantiated');
 
-    $app->helper(get_localizer_for => sub {
-        my $self = shift;
-        my $lang = shift;
-
-        return $self->app->i18n_localizers->{$lang} || $self->app->i18n_localizers->{en};
-    });
-
     $app->hook(before_routes => sub {
         my $c = shift;
 
@@ -150,7 +143,7 @@ sub register {
 
         my $result;
 
-        if(my $localizer = $self->get_localizer_for($self->stash('user_lang'))) {
+        if(my $localizer = $self->app->i18n_localizers->{$self->stash('user_lang')}) {
             if(my $xlat = $localizer->localize_for(lang => $l, id => $str, args => $args)) {
                 $result = $xlat;
                 if($l ne 'site') {
