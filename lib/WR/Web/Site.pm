@@ -111,7 +111,9 @@ sub startup {
     $self->routes->namespaces([qw/WR::Web::Site::Controller/]);
 
     # anything that we don't want to run over auth has to go up in here
-    $self->routes->route('/postaction')->to('postaction#nginx_post_action');
+    $self->routes->route('/postaction/replay')->to('postaction#replay');
+    $self->routes->route('/postaction/preview')->to('postaction#preview');
+
     my $login = $self->routes->under('/login');
         $login->any('/')->to('auth#do_login', pageid => 'login');
         $login->any('/:s')->to('auth#do_login', pageid => 'login');
