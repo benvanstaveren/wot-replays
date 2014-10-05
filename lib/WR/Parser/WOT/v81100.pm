@@ -2,6 +2,8 @@ package WR::Parser::WOT::v81100;
 use Mojo::Base 'WR::Parser::WOT::Base';
 use Try::Tiny qw/try catch/;
 
+sub can_playback { return 1 }
+
 sub has_battle_result {
     my $self = shift;
 

@@ -1,4 +1,5 @@
 <div class="page-header"><h4>[% h.loc('replay.chat.heading') %]</h4></div>
+[% IF 1 == 0 %]
 <div class="well well-lg">
     [% FOREACH message IN replay.chat %]
         [% parsed = h.parse_message(message) %]
@@ -13,3 +14,7 @@
         </div>
     [% END %]
 </div>
+[% END %]
+[% FOREACH message IN replay.chat %]
+    <div class="well well-sm">[% message |decode_utf8 |html %]</div>
+[% END %]

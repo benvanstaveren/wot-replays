@@ -11,6 +11,9 @@
                 [% details = replay.stats.details.$pid %]
                 [% roster = h.get_roster_by_vid(replay, pid) %]
                 [% cd = h.get_crit_details(details.crits) %]
+                [% IF roster.health.remaining < 0 %]
+                    [% roster.health.remaining = 0 %]
+                [% END %]
                 <tr>
                     <td data-container="body" class="playerVehicle bs-tooltip" style="background: transparent url([% config.urls.assets %]/vehicles/48/[% roster.vehicle.icon %]) no-repeat scroll center center" data-placement="auto" data-toggle="tooltip" title="[% IF roster.vehicle.i18n.defined %][% h.loc(roster.vehicle.i18n) %][% ELSE %][% roster.vehicle.label |html %][% END %]">
                         <div class="playerHealth">

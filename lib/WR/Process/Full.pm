@@ -31,10 +31,8 @@ has 'mango'         => sub {
 has 'banner_path'   => sub { return shift->config->get('paths.banners') };
 has 'packet_path'   => sub { return shift->config->get('paths.packets') };
 has 'banner'        => 1;
-
 has 'packets'       => sub { [] };
 has 'ua'            => sub { Mojo::UserAgent->new };
-
 has '_existing'     => undef;
 
 has [qw/_components _consumables _maps _vehicles/] => undef;
@@ -403,12 +401,12 @@ sub _with_battle_result {
 
             # this really oughta move into the stream events
             if($parser->version < $self->config->get('wot.min_version')) {
-                $self->job->unlink;
+                #$self->job->unlink;
                 $self->job->set_error('That replay is from an older version of World of Tanks which we cannot process...' => sub {
                     return $cb->($self, undef, 'That replay is from an older version of World of tanks which we cannot process...');
                 });
             } elsif($parser->version > $self->config->get('wot.version_numeric')) {
-                $self->job->unlink;
+                #$self->job->unlink;
                 $self->job->set_error('That replay is from a newer version of World of Tanks which we cannot process...' => sub {
                     return $cb->($self, undef, 'That replay is from a newer version of World of tanks which we cannot process...');
                 });
@@ -594,6 +592,7 @@ sub _real_process {
                 $self->_with_battle_result($parser, $replay, $parser->get_battle_result, $cb);
             } else {
                 $self->debug('replay has no battle result, attempting lookup using [', $replay->get('game.arena_id') . '', ']');
+
                 # see if we happen to have an uploaded battle result for this replay
                 my $arena_id = $replay->get('game.arena_id') . '';
 

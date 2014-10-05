@@ -1014,6 +1014,9 @@ sub install {
     $self->helper('parse_message' => sub {
         my $self = shift;
         my $m    = shift;
+        
+        # 0.9.3
+        # "<font color='#80D63A'>KhakiCactus (Aufkl.Panther)&nbsp;: </font><font color='#FFFFFF'>greetings from the tomatoteam</font>"
 
         # here's the deal, when mods are involved, this may or may not come out hideously fucked, so we want to use some dom magic here
         my $dom = Mojo::DOM->new($m);

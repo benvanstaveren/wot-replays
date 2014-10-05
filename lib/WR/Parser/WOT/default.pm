@@ -3,6 +3,8 @@ use Mojo::Base 'WR::Parser::WOT::Base';
 use Try::Tiny qw/try catch/;
 use WR::Util::Pickle qw//;
 
+sub can_playback { return 0 }
+
 sub has_battle_result {
     my $self = shift;
 

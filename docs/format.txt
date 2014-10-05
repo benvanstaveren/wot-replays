@@ -1,0 +1,44 @@
+list of things that need to be stored to display stuff:
+
+
+base:
+    game version
+    game result 
+    game start time
+    game arena id 
+    game end time (?)
+    recorder name 
+    recorder account id
+
+panel:
+    player name
+    player vehicle name
+    game map
+    game type
+    game bonus type
+    
+    privacy level
+    
+    game result
+    statistics xp earned
+    statistics credits earned
+    statistics spots
+    statistics damaged
+    statistics kills
+    game survival
+    game server
+    game version
+
+    wn8
+
+    site views
+    site likes
+    site comments
+    site downloads
+
+full:
+    
+    
+    
+    
+    
