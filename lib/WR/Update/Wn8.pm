@@ -11,7 +11,6 @@ sub run {
     if(my $tx = $ua->get($url)) {
         if(my $res = $tx->success) {
             foreach my $v (@{$res->json('/data')}) {
-                $self->app->get_database->collection('data.vehicles')->save($doc);
                 $self->app->mango->db('statterbox')->collection('wn8_expected')->save({
                     _id     => $v->{IDNum} + 0,
                     version => $res->json('/header/version'),
