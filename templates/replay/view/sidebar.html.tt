@@ -43,9 +43,11 @@
                 <li><a href="#loadout-inscriptions">[% h.loc('replay.view.loadout.inscriptions') %]</a></li>
             </ul>
         </li>
-        <li>
-            <a href="#battle-chat">[% h.loc('replay.view.chat') %]</a>
-        </li>
+        [% IF replay.chat.size > 0 %]
+            <li>
+                <a href="#battle-chat">[% h.loc('replay.view.chat') %]</a>
+            </li>
+        [% END %]
         <li>
             <a href="#comments">[% h.loc('replay.view.comments') %]</a>
         </li>

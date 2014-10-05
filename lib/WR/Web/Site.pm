@@ -53,7 +53,7 @@ sub startup {
     }
 
     #$self->plugin('WR::Plugin::I18N', { versions => [qw/0.9.0 0.9.1 0.9.2 0.9.3/] });
-    $self->plugin('WR::Plugin::I18N', { versions => [qw/0.9.3/] });
+    $self->plugin('WR::Plugin::I18N', { versions => [qw/0.9.0 0.9.1 0.9.2 0.9.3/] });
 
     $self->renderer->paths([]); # clear this out
     $self->plugin('Mojolicious::Plugin::TtRenderer', {

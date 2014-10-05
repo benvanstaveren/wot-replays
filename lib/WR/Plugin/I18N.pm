@@ -16,8 +16,12 @@ sub get_paths {
 
     my @paths = ();
     push(@paths,  sprintf('%s/*.po', $app->home->rel_dir(sprintf('lang/site/%s', $lang))));
+
+    foreach my $v (@$versions) {
+        push(@paths,  sprintf('%s/*.po', $app->home->rel_dir(sprintf('lang/wg/%s/%s', $lang, $v))));
+    }
+
     push(@paths,  sprintf('%s/*.po', $app->home->rel_dir('lang/wg/fixes')));
-    push(@paths,  sprintf('%s/*.po', $app->home->rel_dir('lang/wg/base')));
     return @paths;
 }
 
