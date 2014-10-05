@@ -77,7 +77,7 @@
             [% INCLUDE replay/view/loadout.html.tt %]
             <div class="row" id="battle-chat">
                 <div class="col-lg-12 col-md-12">
-                    [% INCLUDE replay/view/chat.html.tt %]
+                    [% INCLUDE replay/view/vinc.html.tt file='chat.html.tt' %]
                 </div>
             </div>
             <div class="row" id="comments">
