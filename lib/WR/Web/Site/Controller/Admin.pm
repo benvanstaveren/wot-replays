@@ -57,7 +57,7 @@ sub get_online_users {
         my $g = 0;
 
         use Data::Dumper;
-        warn Dumper($res);
+        $self->debug('get_online_users response: ',  Dumper($res));
 
         foreach my $user (@{$res->{response}->{users}}) {
             if($user =~ /^(anon-|undefined)/) {
@@ -75,7 +75,6 @@ sub index {
     my $self = shift;
 
     $self->render_later;
-
     $self->respond(template => 'admin/index', stash => {
         page => { title => 'Dashboard' },
         server_time => DateTime->now(time_zone => 'UTC')->strftime('%d/%m/%Y %H:%M:%S UTC'),

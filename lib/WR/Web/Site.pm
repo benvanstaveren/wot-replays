@@ -49,7 +49,7 @@ sub startup {
     });
 
     for(qw/Auth Timing Notify Logging Thunderpush/) {
-        $self->plugin(sprintf('WR::Plugin::%s', $_) => $config->{plugins}->{$_} || {});
+        $self->plugin(sprintf('WR::Plugin::%s', $_) => $config->{plugins}->{lc($_)} || $config->{lc($_)} || {});
     }
 
     #$self->plugin('WR::Plugin::I18N', { versions => [qw/0.9.0 0.9.1 0.9.2 0.9.3/] });
@@ -505,13 +505,13 @@ sub startup {
             $mastery->get('/csv/:filedate')->to('statistics-mastery#as_csv', pageid => 'statistics/mastery');
 
     my $admin = $r->under('/admin')->to('admin#bridge');
-        $admin->get('/')->to('admin#index', pageid => 'admin/home');
-        $admin->get('/usersonline')->to('admin#get_online_users');
-        $admin->get('/uploadslist')->to('admin#get_upload_queue');
-        $admin->get('/todaycount')->to('admin#get_today_count');
-        $admin->get('/replaycount')->to('admin#get_replay_count');
+        $admin->any('/')->to('admin#index', pageid => 'admin/home');
+        $admin->any('/usersonline')->to('admin#get_online_users');
+        $admin->any('/uploadslist')->to('admin#get_upload_queue');
+        $admin->any('/todaycount')->to('admin#get_today_count');
+        $admin->any('/replaycount')->to('admin#get_replay_count');
 
-        $admin->get('/events')->to('admin-events#index', pageid => 'admin/events');
+        $admin->any('/events')->to('admin-events#index', pageid => 'admin/events');
 
         my $language = $admin->under('/language');
             $language->get('/')->to('admin-language#redir', pageid => 'admin/language');
