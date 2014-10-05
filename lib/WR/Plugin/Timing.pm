@@ -37,7 +37,7 @@ sub register {
         }
         push(@$l, sprintf('total: %.4f', $self->stash('timing_elapsed')));
 
-        return join(', ', @$L);
+        return join(', ', @$l);
     });
 
     $app->hook(before_render => sub {
