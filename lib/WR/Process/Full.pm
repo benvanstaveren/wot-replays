@@ -10,6 +10,7 @@ use WR::Constants qw/nation_id_to_name decode_arena_type_id ARENA_PERIOD_BATTLE 
 use WR::Util::TypeComp qw/parse_int_compact_descr type_id_to_name/;
 use WR::Util::QuickDB;
 use WR::PrivacyManager;
+use WR::Thunderpush::Server;
 use Data::Dumper;
 
 use Mango;
