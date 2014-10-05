@@ -6,6 +6,7 @@ use Mango;
 use Mango::BSON;
 use Try::Tiny qw/try catch/;
 use WR::Thunderpush::Client; # because yes... 
+use WR::Thunderpush::Server; # because yes... 
 use WR::Process::Job;
 use WR::Process::Full;
 
