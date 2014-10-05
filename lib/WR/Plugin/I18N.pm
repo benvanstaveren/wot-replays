@@ -50,7 +50,7 @@ sub register {
 
     $app->log->debug('[I18N]: Instantiating localizers');
     foreach my $ident (keys(%$g)) {
-        $app->i18n_localizers->{$ident} = Data::Localize::Gettext->new(encoding => 'utf8', formatter => WR::Plugin::I18N::Formatter->new(), paths => $self->config('i18n_language_paths')->{$ident});
+        $app->i18n_localizers->{$ident} = Data::Localize::Gettext->new(encoding => 'utf8', formatter => WR::Plugin::I18N::Formatter->new(), paths => $g->{$ident});
         $app->log->debug('[I18N]: - ' . $ident);
     }
     $app->log->debug('[I18N]: Localizers instantiated');
