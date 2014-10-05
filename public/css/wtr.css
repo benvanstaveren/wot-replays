@@ -1,23 +1,23 @@
-/* base wn8 colors */
-/* this should really be loop-able somehow...*/
-span.wn8.verybad {
-  color: black; }
-span.wn8.bad {
-  color: #5e0000; }
-span.wn8.belowaverage {
+span.wn8.beginner {
+  color: #930d0d; }
+span.wn8.baasic {
   color: #cd3333; }
+span.wn8.belowaverage {
+  color: #cc7a00; }
 span.wn8.average {
-  color: #d7b600; }
+  color: #ccb800; }
+span.wn8.aboveaverage {
+  color: #849b24; }
 span.wn8.good {
-  color: #6d9521; }
+  color: #4d7326; }
 span.wn8.verygood {
-  color: #4c762e; }
+  color: #4099bf; }
 span.wn8.great {
-  color: #4a92b7; }
+  color: #3161a8; }
 span.wn8.unicum {
-  color: #83579d; }
+  color: #60249b; }
 span.wn8.superunicum {
-  color: #5a3175; }
+  color: #401070; }
 span.wn8.none {
   text-align: center;
   color: white;
@@ -25,33 +25,36 @@ span.wn8.none {
   span.wn8.none:after {
     content: "-"; }
 
-a.wn8.verybad {
-  color: #404040;
-  background: black none repeat scroll 0 0; }
-a.wn8.bad {
-  color: #de0000;
-  background: #5e0000 none repeat scroll 0 0; }
-a.wn8.belowaverage {
+a.wn8.beginner {
+  color: #ed3333;
+  background: #930d0d none repeat scroll 0 0; }
+a.wn8.basic {
   color: #e69999;
   background: #cd3333 none repeat scroll 0 0; }
+a.wn8.belowaverage {
+  color: #ffb74d;
+  background: #cc7a00 none repeat scroll 0 0; }
 a.wn8.average {
-  color: #ffe558;
-  background: #d7b600 none repeat scroll 0 0; }
+  color: #ffed4d;
+  background: #ccb800 none repeat scroll 0 0; }
+a.wn8.aboveaverage {
+  color: #c4db64;
+  background: #849b24 none repeat scroll 0 0; }
 a.wn8.good {
-  color: #afdb5b;
-  background: #6d9521 none repeat scroll 0 0; }
+  color: #8dc652;
+  background: #4d7326 none repeat scroll 0 0; }
 a.wn8.verygood {
-  color: #8ac262;
-  background: #4c762e none repeat scroll 0 0; }
+  color: #a0ccdf;
+  background: #4099bf none repeat scroll 0 0; }
 a.wn8.great {
-  color: #a5c9db;
-  background: #4a92b7 none repeat scroll 0 0; }
+  color: #7fa3da;
+  background: #3161a8 none repeat scroll 0 0; }
 a.wn8.unicum {
-  color: #bfa6ce;
-  background: #83579d none repeat scroll 0 0; }
+  color: #a064db;
+  background: #60249b none repeat scroll 0 0; }
 a.wn8.superunicum {
-  color: #9c66bf;
-  background: #5a3175 none repeat scroll 0 0; }
+  color: #8020df;
+  background: #401070 none repeat scroll 0 0; }
 a.wn8.notavailable {
   color: white;
   background: black; }
@@ -62,33 +65,36 @@ a.wn8.none {
   a.wn8.none:after {
     content: "-"; }
 
-div.wn8.verybad {
-  color: #404040;
-  background: black none repeat scroll 0 0; }
-div.wn8.bad {
-  color: #de0000;
-  background: #5e0000 none repeat scroll 0 0; }
-div.wn8.belowaverage {
+div.wn8.beginner {
+  color: #ed3333;
+  background: #930d0d none repeat scroll 0 0; }
+div.wn8.basic {
   color: #e69999;
   background: #cd3333 none repeat scroll 0 0; }
+div.wn8.belowaverage {
+  color: #ffb74d;
+  background: #cc7a00 none repeat scroll 0 0; }
 div.wn8.average {
-  color: #ffe558;
-  background: #d7b600 none repeat scroll 0 0; }
+  color: #ffed4d;
+  background: #ccb800 none repeat scroll 0 0; }
+div.wn8.aboveaverage {
+  color: #c4db64;
+  background: #849b24 none repeat scroll 0 0; }
 div.wn8.good {
-  color: #afdb5b;
-  background: #6d9521 none repeat scroll 0 0; }
+  color: #8dc652;
+  background: #4d7326 none repeat scroll 0 0; }
 div.wn8.verygood {
-  color: #8ac262;
-  background: #4c762e none repeat scroll 0 0; }
+  color: #a0ccdf;
+  background: #4099bf none repeat scroll 0 0; }
 div.wn8.great {
-  color: #a5c9db;
-  background: #4a92b7 none repeat scroll 0 0; }
+  color: #7fa3da;
+  background: #3161a8 none repeat scroll 0 0; }
 div.wn8.unicum {
-  color: #bfa6ce;
-  background: #83579d none repeat scroll 0 0; }
+  color: #a064db;
+  background: #60249b none repeat scroll 0 0; }
 div.wn8.superunicum {
-  color: #9c66bf;
-  background: #5a3175 none repeat scroll 0 0; }
+  color: #8020df;
+  background: #401070 none repeat scroll 0 0; }
 div.wn8.notavailable {
   color: white;
   background: black; }
@@ -99,33 +105,36 @@ div.wn8.none {
   div.wn8.none:after {
     content: "-"; }
 
-td.wn8.verybad {
-  color: #404040;
-  background: black none repeat scroll 0 0; }
-td.wn8.bad {
-  color: #de0000;
-  background: #5e0000 none repeat scroll 0 0; }
-td.wn8.belowaverage {
+td.wn8.beginner {
+  color: #ed3333;
+  background: #930d0d none repeat scroll 0 0; }
+td.wn8.basic {
   color: #e69999;
   background: #cd3333 none repeat scroll 0 0; }
+td.wn8.belowaverage {
+  color: #ffb74d;
+  background: #cc7a00 none repeat scroll 0 0; }
 td.wn8.average {
-  color: #ffe558;
-  background: #d7b600 none repeat scroll 0 0; }
+  color: #ffed4d;
+  background: #ccb800 none repeat scroll 0 0; }
+td.wn8.aboveaverage {
+  color: #c4db64;
+  background: #849b24 none repeat scroll 0 0; }
 td.wn8.good {
-  color: #afdb5b;
-  background: #6d9521 none repeat scroll 0 0; }
+  color: #8dc652;
+  background: #4d7326 none repeat scroll 0 0; }
 td.wn8.verygood {
-  color: #8ac262;
-  background: #4c762e none repeat scroll 0 0; }
+  color: #a0ccdf;
+  background: #4099bf none repeat scroll 0 0; }
 td.wn8.great {
-  color: #a5c9db;
-  background: #4a92b7 none repeat scroll 0 0; }
+  color: #7fa3da;
+  background: #3161a8 none repeat scroll 0 0; }
 td.wn8.unicum {
-  color: #bfa6ce;
-  background: #83579d none repeat scroll 0 0; }
+  color: #a064db;
+  background: #60249b none repeat scroll 0 0; }
 td.wn8.superunicum {
-  color: #9c66bf;
-  background: #5a3175 none repeat scroll 0 0; }
+  color: #8020df;
+  background: #401070 none repeat scroll 0 0; }
 td.wn8.notavailable {
   color: white;
   background: black; }

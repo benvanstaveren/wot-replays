@@ -872,39 +872,20 @@ sub install {
         return $self->$func($rating);
     });
 
-    $self->helper(wn7_color => sub {
-        my $self = shift;
-        my $rating = shift;
-        my $class_map = [
-            [ 1, 499, 'verybad' ],
-            [ 500, 699, 'bad' ],
-            [ 700, 899, 'belowaverage' ],
-            [ 900, 1099, 'average' ],
-            [ 1100, 1349, 'good' ],
-            [ 1350, 1499, 'verygood' ],
-            [ 1500, 1699, 'great' ],
-            [ 1700, 1999, 'unicum' ],
-            [ 2000, 99999, 'superunicum' ]
-        ];
-        foreach my $entry (@$class_map) {
-            return $entry->[2] if($rating >= $entry->[0] && $rating <= $entry->[1]);
-        }
-        return 'unavailable';
-    });
-
     $self->helper(wn8_color => sub {
         my $self = shift;
         my $rating = shift;
         my $class_map = [
-            [ 1, 300, 'verybad' ],
-            [ 300, 599, 'bad' ],
-            [ 600, 899, 'belowaverage' ],
-            [ 900, 1249, 'average' ],
-            [ 1250, 1599, 'good' ],
-            [ 1600, 1899, 'verygood' ],
-            [ 1900, 2349, 'great' ],
-            [ 2350, 2899, 'unicum' ],
-            [ 2900, 99999, 'superunicum' ]
+            [ 1,        300,    'beginner'      ],
+            [ 300,      449,    'basic'         ],
+            [ 450,      649,    'belowaverage'  ],
+            [ 650,      899,    'average'       ],
+            [ 900,      1199,   'aboveaverage'  ],
+            [ 1200,     1599,   'good'          ],
+            [ 1600,     1999,   'verygood'      ],
+            [ 2000,     2449,   'great'         ],
+            [ 2450,     2899,   'unicum'        ],
+            [ 2900,     999999, 'superunicum'   ],
         ];
         foreach my $entry (@$class_map) {
             return $entry->[2] if($rating >= $entry->[0] && $rating <= $entry->[1]);
@@ -921,8 +902,8 @@ sub install {
         # returned is the class name 
 
         return undef if(!defined($rating) || (defined($rating) && $rating == 0));
-        return 'above' if($rating >= 1250);
-        return 'below' if($rating < 900);
+        return 'above' if($rating >= 900);
+        return 'below' if($rating < 650);
         return 'equal';
     });
 

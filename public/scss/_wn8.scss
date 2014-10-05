@@ -1,26 +1,26 @@
-/* base wn8 colors */
-$wn8_verybad: #000000;
-$wn8_bad: #5e0000;
-$wn8_belowaverage: #cd3333;
-$wn8_average: #d7b600;
-$wn8_good: #6d9521;
-$wn8_verygood: #4c762e;
-$wn8_great: #4a92b7;
-$wn8_unicum: #83579d;
-$wn8_superunicum: #5a3175;
+$wn8_beginner       : #930d0d;
+$wn8_basic          : #cd3333;
+$wn8_belowaverage   : #cc7a00;
+$wn8_average        : #ccb800;
+$wn8_aboveaverage   : #849b24;
+$wn8_good           : #4d7326;
+$wn8_verygood       : #4099bf;
+$wn8_great          : #3161a8;
+$wn8_unicum         : #60249b;
+$wn8_superunicum    : #401070;
 
-/* this should really be loop-able somehow...*/
 span {
     &.wn8 {
-        &.verybad { color: $wn8_verybad }
-        &.bad { color: $wn8_bad }
-        &.belowaverage { color: $wn8_belowaverage }
-        &.average { color: $wn8_average }
-        &.good { color: $wn8_good }
-        &.verygood { color: $wn8_verygood }
-        &.great { color: $wn8_great }
-        &.unicum { color: $wn8_unicum }
-        &.superunicum { color: $wn8_superunicum }
+        &.beginner          { color: $wn8_beginner }
+        &.baasic            { color: $wn8_basic }
+        &.belowaverage      { color: $wn8_belowaverage }
+        &.average           { color: $wn8_average }
+        &.aboveaverage      { color: $wn8_aboveaverage }
+        &.good              { color: $wn8_good }
+        &.verygood          { color: $wn8_verygood }
+        &.great             { color: $wn8_great }
+        &.unicum            { color: $wn8_unicum }
+        &.superunicum       { color: $wn8_superunicum }
         &.none {
             text-align: center;
             color: white;
@@ -34,10 +34,11 @@ span {
 
 a {
     &.wn8 {
-        &.verybad { color: lighten($wn8_verybad, 25%); background: $wn8_verybad none repeat scroll 0 0 }
-        &.bad { color: lighten($wn8_bad, 25%); background: $wn8_bad none repeat scroll 0 0 }
+        &.beginner { color: lighten($wn8_beginner, 25%); background: $wn8_beginner none repeat scroll 0 0 }
+        &.basic { color: lighten($wn8_basic, 25%); background: $wn8_basic none repeat scroll 0 0 }
         &.belowaverage { color: lighten($wn8_belowaverage, 25%); background: $wn8_belowaverage none repeat scroll 0 0 }
         &.average { color: lighten($wn8_average, 25%); background: $wn8_average none repeat scroll 0 0 }
+        &.aboveaverage { color: lighten($wn8_aboveaverage, 25%); background: $wn8_aboveaverage none repeat scroll 0 0 }
         &.good { color: lighten($wn8_good, 25%); background: $wn8_good none repeat scroll 0 0 }
         &.verygood { color: lighten($wn8_verygood, 25%); background: $wn8_verygood none repeat scroll 0 0 }
         &.great { color: lighten($wn8_great, 25%); background: $wn8_great none repeat scroll 0 0 }
@@ -57,10 +58,11 @@ a {
 
 div {
     &.wn8 {
-        &.verybad { color: lighten($wn8_verybad, 25%); background: $wn8_verybad none repeat scroll 0 0 }
-        &.bad { color: lighten($wn8_bad, 25%); background: $wn8_bad none repeat scroll 0 0 }
+        &.beginner { color: lighten($wn8_beginner, 25%); background: $wn8_beginner none repeat scroll 0 0 }
+        &.basic { color: lighten($wn8_basic, 25%); background: $wn8_basic none repeat scroll 0 0 }
         &.belowaverage { color: lighten($wn8_belowaverage, 25%); background: $wn8_belowaverage none repeat scroll 0 0 }
         &.average { color: lighten($wn8_average, 25%); background: $wn8_average none repeat scroll 0 0 }
+        &.aboveaverage { color: lighten($wn8_aboveaverage, 25%); background: $wn8_aboveaverage none repeat scroll 0 0 }
         &.good { color: lighten($wn8_good, 25%); background: $wn8_good none repeat scroll 0 0 }
         &.verygood { color: lighten($wn8_verygood, 25%); background: $wn8_verygood none repeat scroll 0 0 }
         &.great { color: lighten($wn8_great, 25%); background: $wn8_great none repeat scroll 0 0 }
@@ -80,10 +82,11 @@ div {
 
 td {
     &.wn8 {
-        &.verybad { color: lighten($wn8_verybad, 25%); background: $wn8_verybad none repeat scroll 0 0 }
-        &.bad { color: lighten($wn8_bad, 25%); background: $wn8_bad none repeat scroll 0 0 }
+        &.beginner { color: lighten($wn8_beginner, 25%); background: $wn8_beginner none repeat scroll 0 0 }
+        &.basic { color: lighten($wn8_basic, 25%); background: $wn8_basic none repeat scroll 0 0 }
         &.belowaverage { color: lighten($wn8_belowaverage, 25%); background: $wn8_belowaverage none repeat scroll 0 0 }
         &.average { color: lighten($wn8_average, 25%); background: $wn8_average none repeat scroll 0 0 }
+        &.aboveaverage { color: lighten($wn8_aboveaverage, 25%); background: $wn8_aboveaverage none repeat scroll 0 0 }
         &.good { color: lighten($wn8_good, 25%); background: $wn8_good none repeat scroll 0 0 }
         &.verygood { color: lighten($wn8_verygood, 25%); background: $wn8_verygood none repeat scroll 0 0 }
         &.great { color: lighten($wn8_great, 25%); background: $wn8_great none repeat scroll 0 0 }
