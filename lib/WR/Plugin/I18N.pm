@@ -36,8 +36,6 @@ sub register {
     $g->{'common'} = [ $self->get_paths(for => 'common', using => $app, versions => $conf->{versions} || []) ];
     $g->{'en'}     = $g->{common};
     
-    $app->log->debug('[I18N]: Using paths: ' . Dumper($g->{'common'}));
-
     $app->attr('i18n_localizers' => sub { {} });
 
     if(defined($app->get_config('languages'))) {
@@ -51,6 +49,7 @@ sub register {
         }
     }
 
+    $app->log->debug('[I18N]: Using paths: ' . Dumper($g->{'common'}));
     $app->config('i18n_language_paths' => $g);
 
     $app->log->debug('[I18N]: Instantiating localizers');
