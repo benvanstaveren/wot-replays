@@ -40,86 +40,6 @@ sub validate_token {
     });
 }
 
-sub resolve_typecomp {
-    my $self    = shift;
-    my $types   = $self->req->param('types') || $self->req->param('types[]');
-    
-    $types = [ split(/,/, $types) ] if(!ref($types));
-
-    $self->render_later;
-
-    $self->model('wot-replays.data.vehicles')->find({ typecomp => { '$in' => [ map { $_ + 0 } @$types ] } })->all(sub {
-        my ($coll, $err, $docs) = (@_);
-        my $list = {};
-        my $reqtypes = { map { $_ => 1 } @$types };
-
-        foreach my $doc (@$docs) {
-            if(defined($reqtypes->{$doc->{typecomp}})) {
-                $list->{$doc->{typecomp}} = $doc;
-            }
-        }
-
-        foreach my $type (@$types) {
-            $list->{$type} = undef unless(defined($list->{$type}));
-        }
-
-        $self->render(json => { ok => 1, data => $list });
-    });
-}
-
-sub map_details {
-    my $self      = shift;
-    my $map_ident = $self->stash('map_ident');;
-
-    $self->render_later;
-
-    $self->model('wot-replays.data.maps')->find_one({ _id => $map_ident } => sub {
-        my ($c, $e, $d) = (@_);
-
-        if(defined($d)) {
-            delete($d->{_id});
-            $self->render(json => { ok => 1, data => $d });
-        } else {
-            $self->render(json => { ok => 0, error => 'not.found', 'not.found' => 'That map does not exist' });
-        }
-    });
-}
-
-sub map_heatmap_data {
-    my $self      = shift;
-    my $map_ident = $self->stash('map_ident');
-    my $gpid      = $self->stash('game_type');
-    my $hmtype    = $self->stash('heatmap_type');
-    my $bt        = [ split(/,/, $self->stash('bonus_types')) ];
-
-    $self->render_later;
-    $self->model('wot-replays.data.maps')->find_one({ _id => $map_ident } => sub {
-        my ($c, $e, $d) = (@_);
-        if(defined($d)) {
-            $self->app->log->debug(sprintf('map_heatmap_data: collection: wot-replays.hm_%s with _id: %d for gpid %d', $hmtype, $d->{numerical_id}, $gpid));
-            $self->model(sprintf('wot-replays.hm_%s', $hmtype))->find_one({ _id => sprintf('%d_%s', $d->{numerical_id}, $gpid)} => sub {
-                my ($c, $e, $hmd) = (@_);
-                if(defined($hmd)) {
-                    my $real_data = [];
-                    my $pc = 0;
-                    foreach my $x (keys(%{$hmd})) {
-                        next if($x eq '_id');
-                        foreach my $y (keys(%{$hmd->{$x}})) {
-                            push(@$real_data, { x => $x, y => $y, value => $hmd->{$x}->{$y} });
-                            $pc++;
-                        }
-                    }
-                    $self->render(json => { ok => 1, data => { set => $real_data, count => $pc } });
-                } else {
-                    $self->render(json => { ok => 0, error => 'db.error', 'db.error' => sprintf('Map with id %d gpid %s not found', $d->{numerical_id}, $gpid) });
-                }
-            });
-        } else {
-            $self->render(json => { ok => 0, error => 'not.found', 'not.found' => 'That map does not exist' });
-        }
-    });
-}
-
 sub data {
     my $self = shift;
     my $type = $self->stash('type');
@@ -130,7 +50,6 @@ sub data {
         my $m = sprintf('wot-replays.data.%s', $type);
         $self->model($m)->find()->all(sub {
             my ($coll, $err, $docs) = (@_);
-
             $self->render(json => { ok => (defined($err)) ? 0 : 1, (defined($err)) ? (error => 'data.error', 'data.error' => $err) : (data => $docs) });
         });
     } else {
