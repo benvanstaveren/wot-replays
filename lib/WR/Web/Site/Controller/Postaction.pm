@@ -6,6 +6,9 @@ sub preview {
     my $file = $self->req->param('f');
     my $stat = $self->req->param('s');
     my $ip   = $self->req->param('i');
+    my $r    = $self->req->param('r');
+
+    $self->debug('preview postaction, file: ', $file, ' stat: ', $stat, ' ip: ', $ip, ' ref: ', $r);
 
     $self->render_later;
     if(defined($stat) && lc($stat) eq 'ok') {
