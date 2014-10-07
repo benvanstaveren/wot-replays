@@ -51,38 +51,40 @@ sub index {
 
     # unfortunately, the WG API doesn't allow for pulling up info by way of vehicle strings, so we have to go
     # and resolve it to an ID first, but we can do this from the vehicles quickdb 
-    my $typecomp = $self->data_vehicles->get(name_lc => $vid)->{typecomp};
+    if(my $typecomp = $self->data_vehicles->get(name_lc => $vid)->{typecomp}) {
+        $self->debug('want ', $size, ' size, vstr: ', $vstr, ' as typecomp: ', $typecomp);
 
-    $self->debug('want ', $size, ' size, vstr: ', $vstr, ' as typecomp: ', $typecomp);
-
-    if($size == 100) {
-        $self->get_big_image($typecomp => sub {
-            my ($content, $error) = (@_);
-
-            if(defined($error)) {
-                # render the no-such-bloody-size thing
-                $self->reply->static('vehicles/100/noimage.png');
-            } else {
-                $content->move_to(sprintf('%s/vehicles/100/%s.png', $self->app->home->rel_dir('public'), lc($vstr)));
-                $self->reply->static(sprintf('vehicles/100/%s.png', $vstr));
-            }
-        });
-    } else {
-        # check if we have the full size
-        if(-e sprintf('%s/vehicles/100/%s.png', $self->app->home->rel_dir('public'), lc($vstr))) {
-            $self->render_thumbnail($vstr => $size);
-        } else {
+        if($size == 100) {
             $self->get_big_image($typecomp => sub {
                 my ($content, $error) = (@_);
 
                 if(defined($error)) {
-                    $self->render_noimage($size);
+                    # render the no-such-bloody-size thing
+                    $self->reply->static('vehicles/100/noimage.png');
                 } else {
                     $content->move_to(sprintf('%s/vehicles/100/%s.png', $self->app->home->rel_dir('public'), lc($vstr)));
-                    $self->render_thumbnail($vstr => $size);
+                    $self->reply->static(sprintf('vehicles/100/%s.png', $vstr));
                 }
             });
+        } else {
+            # check if we have the full size
+            if(-e sprintf('%s/vehicles/100/%s.png', $self->app->home->rel_dir('public'), lc($vstr))) {
+                $self->render_thumbnail($vstr => $size);
+            } else {
+                $self->get_big_image($typecomp => sub {
+                    my ($content, $error) = (@_);
+
+                    if(defined($error)) {
+                        $self->render_noimage($size);
+                    } else {
+                        $content->move_to(sprintf('%s/vehicles/100/%s.png', $self->app->home->rel_dir('public'), lc($vstr)));
+                        $self->render_thumbnail($vstr => $size);
+                    }
+                });
+            }
         }
+    } else {
+        $self->render(status => 404, text => 'Vehicle not found');
     }
 }
 

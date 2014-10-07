@@ -18,8 +18,6 @@ sub get_big_image {
     } => sub {
         my ($ua, $tx) = (@_);
         if(my $res = $tx->success) {
-	    use Data::Dumper;
-            $self->debug('get_big_image have res: ', Dumper($res->json));
             if($res->json('/status') eq 'ok') {
                 my $url = $res->json->{data}->{$str}->{image_big};
                 $self->debug('get_big_image status ok, final url: ', $url);
@@ -59,8 +57,8 @@ sub index {
             }
         });
     } else {
-        # check if we have the full size
-        if(-e sprintf('%s/icon/awards/180/%s.png', $self->app->home->rel_dir('public'), $vstr)) {
+        # check if we have the full size, or at least the 64 sized one (for mark of mastery)
+        if(-e sprintf('%s/icon/awards/180/%s.png', $self->app->home->rel_dir('public'), $vstr) || -e sprintf('%s/icon/awards/64/%s.png', $self->app->home->rel_dir('public'), $vstr)) {
             $self->render_thumbnail($vstr => $size);
         } else {
             $self->get_big_image($vstr => sub {
@@ -85,7 +83,10 @@ sub render_thumbnail {
 
     try {
         my $img = Imager->new;
-        $img->read(file => sprintf('%s/icon/awards/180/%s.png', $self->app->home->rel_dir('public'), $vstr));
+        my $src = (-e sprintf('%s/icon/awards/180/%s.png', $self->app->home->rel_dir('public'), $vstr)) 
+            ? sprintf('%s/icon/awards/180/%s.png', $self->app->home->rel_dir('public'), $vstr)
+            : sprintf('%s/icon/awards/64/%s.png', $self->app->home->rel_dir('public'), $vstr);
+        $img->read(file => $src);
         my $path = sprintf('%s/icon/awards/%d/', $self->app->home->rel_dir('public'), $size);
         make_path($path) unless(-e $path);
         my $thumb = $img->scale(xpixels => $size);
