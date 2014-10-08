@@ -23,6 +23,8 @@ has 'blocks'            => sub { [] };
 has 'data_offset'       => 0;
 has '_decoded_blocks'   => sub { [] };
 
+# assume we can, at the very least, use self->debug 
+
 use constant SEEK_SET => 0;
 use constant SEEK_CUR => 1;
 use constant SEEK_END => 2;
@@ -55,6 +57,8 @@ sub BUILD {
     $self->fh->seek(4, SEEK_SET);
     $self->fh->read(my $blockheader, 4) || die '[header]: could not read replay header', "\n";
     $self->num_blocks(unpack('I', $blockheader));
+
+    warn 'BUILD: have ', $self->num_blocks, ' blocks in file', "\n";
 
     my $block_meta = [];
     my $i = $self->num_blocks;

@@ -6,6 +6,7 @@ use WR::Res;
 use WR::Util::CritDetails;
 use WR::Util::HashTable;
 use WR::Provider::ServerFinder;
+use WR::Provider::WN8;
 use File::Slurp qw/read_file/;
 use WR::Constants qw/nation_id_to_name gameplay_id_to_name/;
 use WR::Util::TypeComp qw/parse_int_compact_descr type_id_to_name/;
@@ -875,22 +876,8 @@ sub install {
     $self->helper(wn8_color => sub {
         my $self = shift;
         my $rating = shift;
-        my $class_map = [
-            [ 1,        300,    'beginner'      ],
-            [ 300,      449,    'basic'         ],
-            [ 450,      649,    'belowaverage'  ],
-            [ 650,      899,    'average'       ],
-            [ 900,      1199,   'aboveaverage'  ],
-            [ 1200,     1599,   'good'          ],
-            [ 1600,     1999,   'verygood'      ],
-            [ 2000,     2449,   'great'         ],
-            [ 2450,     2899,   'unicum'        ],
-            [ 2900,     999999, 'superunicum'   ],
-        ];
-        foreach my $entry (@$class_map) {
-            return $entry->[2] if($rating >= $entry->[0] && $rating <= $entry->[1]);
-        }
-        return 'unavailable';
+
+        return WR::Provider::WN8->rating_ident($rating);
     });
 
     $self->helper(rating_status => sub {

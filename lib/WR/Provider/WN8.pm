@@ -7,6 +7,29 @@ has 'ua'        => undef;
 has 'cluster'   => undef;
 has 'key'       => undef;
 
+use constant RATING_MAP => [
+    [ 1,        300,    'beginner'      ],
+    [ 300,      449,    'basic'         ],
+    [ 450,      649,    'belowaverage'  ],
+    [ 650,      899,    'average'       ],
+    [ 900,      1199,   'aboveaverage'  ],
+    [ 1200,     1599,   'good'          ],
+    [ 1600,     1999,   'verygood'      ],
+    [ 2000,     2449,   'great'         ],
+    [ 2450,     2899,   'unicum'        ],
+    [ 2900,     999999, 'superunicum'   ],
+];
+
+sub rating_ident {
+    my $dummy = shift;
+    my $rating = shift;
+
+    foreach my $entry (@{__PACKAGE__->RATING_MAP}) {
+        return $entry->[2] if($rating >= $entry->[0] && $rating <= $entry->[1]);
+    }
+    return 'unavailable';
+}
+
 sub _log {
     my $self = shift;
     my $l    = shift;
