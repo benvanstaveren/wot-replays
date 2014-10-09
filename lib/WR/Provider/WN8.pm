@@ -41,38 +41,6 @@ sub debug { shift->_log('debug', @_) }
 sub info { shift->_log('info', @_) }
 sub error { shift->_log('error', @_) }
 
-sub all {
-    my $self = shift;
-    my $list = shift;
-    my $cb   = shift;   # called as (self, <hash of id => wn8 values>)
-
-    $self->ua->post('http://api.statterbox.com/wot/account/summary' => form => {
-        cluster         => $self->cluster,
-        application_id  => $self->key,
-        account_id      => join(',', @$list),
-    } => sub {
-        my ($ua, $tx) = (@_);
-        my $h = {};
-
-        if(my $res = $tx->success) {
-            if($res->json('/status') eq 'ok') {
-                my $data = $res->json('/data');
-                foreach my $id (@$list) {
-                    if(defined($data->{$id}) && ref($data->{$id}) eq 'HASH') {
-                        $h->{$id} = $data->{$id}->{rating}->{wn8};
-                    
-
-                return $cb->($self, { map { $_ => $data->{$_}->{rating}->{wn8}
-            } else {
-                return $cb->($self, undef);
-            }
-        } else {
-            return $cb->($self, undef);
-        }
-    });
-}
-
-
 sub _calculate {
     my $self = shift;
     my $data = shift;
