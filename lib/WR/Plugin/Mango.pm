@@ -1,5 +1,6 @@
 package WR::Plugin::Mango;
 use Mojo::Base 'Mojolicious::Plugin';
+use Mango;
 
 sub register {
     my $self = shift;
