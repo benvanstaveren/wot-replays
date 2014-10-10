@@ -15,7 +15,7 @@ sub startup {
 
     $self->plugin('WR::Plugin::Mango' => $config->{mongodb});
 
-    $self->routes->namespaces([qw/WR::Web::API/]);
+    $self->routes->namespaces([qw/WR::Web::API::Controller/]);
 
     my $v1 = $r->under('/v1');
         my $process = $v1->under('/process');
@@ -23,7 +23,7 @@ sub startup {
             $process->route('/status/:job_id')->to('v1#validate_token', next => 'process_status');
 
     my $util = $r->under('/util');
-        $util->route('/battleresult/submit')->to('util#battleresult_submit');
+        $util->any('/battleresult/submit')->to('util#battleresult_submit');
     
 
 
