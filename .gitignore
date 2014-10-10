@@ -1,4 +1,5 @@
 *.swp
+bin/parser/*.txt
 *.orig
 log/*.log
 replays/*
