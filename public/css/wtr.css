@@ -2124,19 +2124,9 @@ div.well.light {
   border: #e3e3e3 1px solid;
   color: #000; }
 
-div.gat.b {
-  border: #ff0000 1px solid;
-  background: #222 none repeat scroll 0 0;
-  color: #f0f0f0; }
-  div.gat.b div.t {
-    display: block;
-    padding: 0px 10px;
-    font-size: 95%; }
-    div.gat.b div.t h4 {
-      margin-top: 10px; }
-  div.gat.b div.a {
-    display: none; }
-div.gat div.t {
-  display: none; }
-div.gat div.a {
-  display: block; }
+div.gat {
+  width: 768px;
+  height: 90px;
+  position: relative;
+  left: 50%;
+  margin-left: -384px; }

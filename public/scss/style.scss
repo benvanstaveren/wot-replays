@@ -423,26 +423,9 @@ div.well.light {
 }
 
 div.gat {
-    &.b {
-        border: #ff0000 1px solid;
-        background: #222 none repeat scroll 0 0;
-        color: #f0f0f0;
-        div.t {
-            display: block;
-            padding: 0px 10px;
-            font-size: 95%;
-            h4 {
-                margin-top: 10px;
-            }
-        }
-        div.a {
-            display: none;
-        }
-    }
-    div.t { 
-        display: none;
-    }
-    div.a {
-        display: block;
-    }
+    width: 768px;
+    height: 90px;
+    position: relative;
+    left: 50%;
+    margin-left: -384px;
 }

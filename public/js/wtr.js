@@ -6,7 +6,6 @@ window.Wotreplays = function(options) {
     this.apikey     = options.apikey;
     this.thunderkey = options.thunderkey;
     this.indev      = options.indev || false;
-    this.isgat      = false;
 
     this.catalog    = {};
     this._handlers  = {};
@@ -64,7 +63,6 @@ Wotreplays.prototype = {
             keyboard: false,
             show: false,
         });
-        this.isgat = (window.google_unique_id==undefined) ? true : false;
         $('a.please-wait').on('click', function() { 
             $('div#pleaseWaitModal').modal('show');
             return true;
@@ -85,7 +83,6 @@ Wotreplays.prototype = {
             $(this).find('span.badge').html(c + 1);
             var href = $(this).attr('href');
         });
-        if(this.isgat) $('div.gat').addClass('b');
         $('a.btn.btn-view-replay').on('click', function() {
             if($(this).hasClass('disabled')) return false;
             var c = parseInt($(this).find('span.badge').html());
@@ -116,6 +113,10 @@ Wotreplays.prototype = {
             });
             return false;
         });
+
+        if($('.gat').height() == 0) {
+            
+        }
 
         this.emit('ready');
     },
