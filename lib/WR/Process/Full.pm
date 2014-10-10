@@ -668,7 +668,7 @@ sub p_br_packetstore {
         my $json = Mojo::JSON->new();
         $fh->print($json->encode($self->packets));
         $fh->close;
-        $self->debug('wrote packets to file');
+        $self->debug('wrote ', scalar(@{$self->packets}), ' packets to file');
         $replay->set('packets' => sprintf('%s/%s.json', $self->hashbucket($replay->get('_id') . '', 7), $replay->get('_id') . ''));
         $self->emit('state.packet.save.finish' => {});
     } else {
@@ -712,12 +712,14 @@ sub _wn8_all {
 
     my $account_id = join(',', (keys(%$phash)));
 
-    $self->debug('[WN8:ALL]: getting wn8 for all players except recorder');
-    if(my $tx = $self->ua->post('http://api.statterbox.com/wot/account/wn8' => form => {
+    my $form = { 
         application_id  => $self->config->get('statterbox.server'),
         account_id      => $account_id,
         cluster         => $self->fix_server($replay->get('game.server')),
-    })) {
+    };
+
+    $self->debug('[WN8:ALL]: getting wn8 for all players except recorder using form ', Dumper($form));
+    if(my $tx = $self->ua->post('http://api.statterbox.com/wot/account/wn8' => form => $form)) {
         if(my $res = $tx->success) {
             if($res->json('/status') eq 'ok') {
                 $self->debug('[WN8:ALL] wn8 status ok');
