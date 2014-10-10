@@ -115,7 +115,7 @@ Wotreplays.prototype = {
         });
 
         if($('.adspace').height() == 0) {
-            $('.gat').append("<p><strong>Hello!</strong></p><p>It seems you've enabled AdBlock! While ads can be annoying, they also help support the site. Our monthly bill is upwards of &euro;75, and ads cover most of this. If you don't want to make an exception for wotreplays.org, that's fine, but then please consider supporting the site via <a href='/doc/donate'>Patreon</a>. <strong>Thanks!</strong></p>");
+            $('.gat').append("<p><strong>Hello!</strong></p><p>It seems you've enabled AdBlock! While ads can be annoying, they also help support the site. Our monthly bill is upwards of <strong>&euro;75</strong> and advertising revenue covers most of this. If you don't want to make an exception for wotreplays.org, that's fine, but then please consider supporting the site via <a href='/doc/donate'>Patreon</a>.</p><p><strong>Thanks!</strong></p>");
         }
 
         this.emit('ready');
