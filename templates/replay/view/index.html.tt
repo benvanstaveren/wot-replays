@@ -6,7 +6,7 @@
 [% WRAPPER wrapper.html.tt %]
     [% INCLUDE replay/view/header.html.tt context="index" %]
     <div class="row replay-container">
-        <div class="col-lg-10 col-md-10">
+        <div class="col-lg-10 col-md-10" style="margin-bottom: 20px">
             <div class="gat">
                 <div class="adspace">
                     <script type="text/javascript">
