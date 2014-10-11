@@ -50,7 +50,7 @@ sub index {
             my ($content, $error) = (@_);
 
             if(defined($error)) {
-                $self->render(text => 'ERROR FETCHING FROM WG', status => 500);
+                $self->reply->static('icon/awards/180/noImage.png');
             } else {
                 $content->move_to(sprintf('%s/icon/awards/180/%s.png', $self->app->home->rel_dir('public'), $vstr));
                 $self->reply->static(sprintf('icon/awards/180/%s.png', $vstr));
@@ -65,7 +65,7 @@ sub index {
                 my ($content, $error) = (@_);
 
                 if(defined($error)) {
-                    $self->render(text => 'ERROR FETCHING FROM WG', status => 500);
+                    $self->render_thumbnail('noImage' => $size);
                 } else {
                     $content->move_to(sprintf('%s/icon/awards/180/%s.png', $self->app->home->rel_dir('public'), $vstr));
                     $self->render_thumbnail($vstr => $size);
