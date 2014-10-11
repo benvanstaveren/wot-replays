@@ -1004,16 +1004,46 @@ div.award {
       width: 64px;
       height: 64px;
       background: transparent url(//images.wotreplays.org/icon/awards/64/makerOfHistory.png) no-repeat scroll center center; }
-  div.award.markOfMastery {
-    background: transparent url(//images.wotreplays.org/icon/awards/48/markOfMastery.png) no-repeat scroll center center; }
-    div.award.markOfMastery.small {
+  div.award.markOfMastery1 {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/markOfMastery1.png) no-repeat scroll center center; }
+    div.award.markOfMastery1.small {
       width: 16px;
       height: 16px;
-      background: transparent url(//images.wotreplays.org/icon/awards/16/markOfMastery.png) no-repeat scroll center center; }
-    div.award.markOfMastery.big {
+      background: transparent url(//images.wotreplays.org/icon/awards/16/markOfMastery1.png) no-repeat scroll center center; }
+    div.award.markOfMastery1.big {
       width: 64px;
       height: 64px;
-      background: transparent url(//images.wotreplays.org/icon/awards/64/markOfMastery.png) no-repeat scroll center center; }
+      background: transparent url(//images.wotreplays.org/icon/awards/64/markOfMastery1.png) no-repeat scroll center center; }
+  div.award.markOfMastery2 {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/markOfMastery2.png) no-repeat scroll center center; }
+    div.award.markOfMastery2.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/markOfMastery2.png) no-repeat scroll center center; }
+    div.award.markOfMastery2.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/markOfMastery2.png) no-repeat scroll center center; }
+  div.award.markOfMastery3 {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/markOfMastery3.png) no-repeat scroll center center; }
+    div.award.markOfMastery3.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/markOfMastery3.png) no-repeat scroll center center; }
+    div.award.markOfMastery3.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/markOfMastery3.png) no-repeat scroll center center; }
+  div.award.markOfMastery4 {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/markOfMastery4.png) no-repeat scroll center center; }
+    div.award.markOfMastery4.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/markOfMastery4.png) no-repeat scroll center center; }
+    div.award.markOfMastery4.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/markOfMastery4.png) no-repeat scroll center center; }
   div.award.marksOnGun {
     background: transparent url(//images.wotreplays.org/icon/awards/48/marksOnGun.png) no-repeat scroll center center; }
     div.award.marksOnGun.small {
