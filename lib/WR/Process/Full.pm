@@ -149,7 +149,6 @@ sub _stream_replay {
     my $parser  = shift;
     my $replay  = shift;
     my $cb      = shift;
-    my $pcount  = 0;
 
     # set up game; game->start will set up a timer that will do some opportunistic reading
     # for stream->next, the finish event from game will complete the initial replay step. 
@@ -157,8 +156,9 @@ sub _stream_replay {
         $game->on('replay.position' => sub {
             my ($s, $v) = (@_);
             
-            if(++$pcount % 100 == 0) {
+            if($v % 100 == 0) {
                 $self->emit('state.streaming.progress' => { count => $v });
+                $self->debug('playback replay.position: ', $v);
             }
         });
         $game->on('recorder.name' => sub {
@@ -219,12 +219,12 @@ sub _stream_replay {
             my ($game, $reason) = (@_);
             $self->debug('$game->on finish callback, reason: ', Dumper($reason));
             $self->emit('state.streaming.finish' => { total => $game->stream->len });
+            $self->debug('$game->on finish callback, stream len says: ', $game->stream->len);
             if($reason->{ok} == 0) {
                 return $cb->(undef, $reason->{reason});
             } else {
                 $replay->set('game.recorder.consumables' => $game->vcons_initial);
                 $replay->set('game.recorder.ammo'        => $game->vshells_initial);
-
                 return $cb->($replay, undef);
             }
         });
