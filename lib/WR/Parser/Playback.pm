@@ -47,7 +47,6 @@ sub start {
             }
         }
     }
-    $self->emit(finish => { ok => 1, reason => 'playback finished' });
 }
 
 sub process_packet {
@@ -55,9 +54,7 @@ sub process_packet {
     my $packet = shift;
 
     $self->pcounter($self->pcounter + 1);
-    
     $self->emit('replay.position' => $self->stream->position) if($self->pcounter % 50 == 0);
-
     $self->handlers->[$packet->type]->($self, $packet) if(defined($self->handlers->[$packet->type]));
 }
 
