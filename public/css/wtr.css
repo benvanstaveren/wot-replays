@@ -184,6 +184,16 @@ div.award {
     position: relative;
     top: 25px;
     left: 26px; }
+  div.award.aimer {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/aimer.png) no-repeat scroll center center; }
+    div.award.aimer.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/aimer.png) no-repeat scroll center center; }
+    div.award.aimer.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/aimer.png) no-repeat scroll center center; }
   div.award.alaric {
     background: transparent url(//images.wotreplays.org/icon/awards/48/alaric.png) no-repeat scroll center center; }
     div.award.alaric.small {
@@ -194,16 +204,6 @@ div.award {
       width: 64px;
       height: 64px;
       background: transparent url(//images.wotreplays.org/icon/awards/64/alaric.png) no-repeat scroll center center; }
-  div.award.armorPiercer {
-    background: transparent url(//images.wotreplays.org/icon/awards/48/armorPiercer.png) no-repeat scroll center center; }
-    div.award.armorPiercer.small {
-      width: 16px;
-      height: 16px;
-      background: transparent url(//images.wotreplays.org/icon/awards/16/armorPiercer.png) no-repeat scroll center center; }
-    div.award.armorPiercer.big {
-      width: 64px;
-      height: 64px;
-      background: transparent url(//images.wotreplays.org/icon/awards/64/armorPiercer.png) no-repeat scroll center center; }
   div.award.armoredFist {
     background: transparent url(//images.wotreplays.org/icon/awards/48/armoredFist.png) no-repeat scroll center center; }
     div.award.armoredFist.small {
@@ -214,6 +214,46 @@ div.award {
       width: 64px;
       height: 64px;
       background: transparent url(//images.wotreplays.org/icon/awards/64/armoredFist.png) no-repeat scroll center center; }
+  div.award.armorPiercer {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/armorPiercer.png) no-repeat scroll center center; }
+    div.award.armorPiercer.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/armorPiercer.png) no-repeat scroll center center; }
+    div.award.armorPiercer.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/armorPiercer.png) no-repeat scroll center center; }
+  div.award.arsonist {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/arsonist.png) no-repeat scroll center center; }
+    div.award.arsonist.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/arsonist.png) no-repeat scroll center center; }
+    div.award.arsonist.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/arsonist.png) no-repeat scroll center center; }
+  div.award.awardCount {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/awardCount.png) no-repeat scroll center center; }
+    div.award.awardCount.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/awardCount.png) no-repeat scroll center center; }
+    div.award.awardCount.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/awardCount.png) no-repeat scroll center center; }
+  div.award.battleCitizen {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/battleCitizen.png) no-repeat scroll center center; }
+    div.award.battleCitizen.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/battleCitizen.png) no-repeat scroll center center; }
+    div.award.battleCitizen.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/battleCitizen.png) no-repeat scroll center center; }
   div.award.battleHeroes {
     background: transparent url(//images.wotreplays.org/icon/awards/48/battleHeroes.png) no-repeat scroll center center; }
     div.award.battleHeroes.small {
@@ -224,6 +264,16 @@ div.award {
       width: 64px;
       height: 64px;
       background: transparent url(//images.wotreplays.org/icon/awards/64/battleHeroes.png) no-repeat scroll center center; }
+  div.award.battleTested {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/battleTested.png) no-repeat scroll center center; }
+    div.award.battleTested.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/battleTested.png) no-repeat scroll center center; }
+    div.award.battleTested.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/battleTested.png) no-repeat scroll center center; }
   div.award.beasthunter {
     background: transparent url(//images.wotreplays.org/icon/awards/48/beasthunter.png) no-repeat scroll center center; }
     div.award.beasthunter.small {
@@ -244,6 +294,166 @@ div.award {
       width: 64px;
       height: 64px;
       background: transparent url(//images.wotreplays.org/icon/awards/64/bombardier.png) no-repeat scroll center center; }
+  div.award.bonecrusher {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/bonecrusher.png) no-repeat scroll center center; }
+    div.award.bonecrusher.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/bonecrusher.png) no-repeat scroll center center; }
+    div.award.bonecrusher.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/bonecrusher.png) no-repeat scroll center center; }
+  div.award.bothSidesWins {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/bothSidesWins.png) no-repeat scroll center center; }
+    div.award.bothSidesWins.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/bothSidesWins.png) no-repeat scroll center center; }
+    div.award.bothSidesWins.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/bothSidesWins.png) no-repeat scroll center center; }
+  div.award.bruteForce {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/bruteForce.png) no-repeat scroll center center; }
+    div.award.bruteForce.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/bruteForce.png) no-repeat scroll center center; }
+    div.award.bruteForce.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/bruteForce.png) no-repeat scroll center center; }
+  div.award.bruteForceMedal {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/bruteForceMedal.png) no-repeat scroll center center; }
+    div.award.bruteForceMedal.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/bruteForceMedal.png) no-repeat scroll center center; }
+    div.award.bruteForceMedal.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/bruteForceMedal.png) no-repeat scroll center center; }
+  div.award.capturedBasesInAttack {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/capturedBasesInAttack.png) no-repeat scroll center center; }
+    div.award.capturedBasesInAttack.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/capturedBasesInAttack.png) no-repeat scroll center center; }
+    div.award.capturedBasesInAttack.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/capturedBasesInAttack.png) no-repeat scroll center center; }
+  div.award.capturedBasesInDefence {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/capturedBasesInDefence.png) no-repeat scroll center center; }
+    div.award.capturedBasesInDefence.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/capturedBasesInDefence.png) no-repeat scroll center center; }
+    div.award.capturedBasesInDefence.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/capturedBasesInDefence.png) no-repeat scroll center center; }
+  div.award.charmed {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/charmed.png) no-repeat scroll center center; }
+    div.award.charmed.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/charmed.png) no-repeat scroll center center; }
+    div.award.charmed.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/charmed.png) no-repeat scroll center center; }
+  div.award.citadel {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/citadel.png) no-repeat scroll center center; }
+    div.award.citadel.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/citadel.png) no-repeat scroll center center; }
+    div.award.citadel.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/citadel.png) no-repeat scroll center center; }
+  div.award.conqueror {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/conqueror.png) no-repeat scroll center center; }
+    div.award.conqueror.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/conqueror.png) no-repeat scroll center center; }
+    div.award.conqueror.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/conqueror.png) no-repeat scroll center center; }
+  div.award.counterblow {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/counterblow.png) no-repeat scroll center center; }
+    div.award.counterblow.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/counterblow.png) no-repeat scroll center center; }
+    div.award.counterblow.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/counterblow.png) no-repeat scroll center center; }
+  div.award.crucialShot {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/crucialShot.png) no-repeat scroll center center; }
+    div.award.crucialShot.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/crucialShot.png) no-repeat scroll center center; }
+    div.award.crucialShot.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/crucialShot.png) no-repeat scroll center center; }
+  div.award.crucialShotMedal {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/crucialShotMedal.png) no-repeat scroll center center; }
+    div.award.crucialShotMedal.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/crucialShotMedal.png) no-repeat scroll center center; }
+    div.award.crucialShotMedal.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/crucialShotMedal.png) no-repeat scroll center center; }
+  div.award.crusher {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/crusher.png) no-repeat scroll center center; }
+    div.award.crusher.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/crusher.png) no-repeat scroll center center; }
+    div.award.crusher.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/crusher.png) no-repeat scroll center center; }
+  div.award.damageRating {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/damageRating.png) no-repeat scroll center center; }
+    div.award.damageRating.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/damageRating.png) no-repeat scroll center center; }
+    div.award.damageRating.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/damageRating.png) no-repeat scroll center center; }
+  div.award.deathTrack {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/deathTrack.png) no-repeat scroll center center; }
+    div.award.deathTrack.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/deathTrack.png) no-repeat scroll center center; }
+    div.award.deathTrack.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/deathTrack.png) no-repeat scroll center center; }
+  div.award.deathTrackWinSeries {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/deathTrackWinSeries.png) no-repeat scroll center center; }
+    div.award.deathTrackWinSeries.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/deathTrackWinSeries.png) no-repeat scroll center center; }
+    div.award.deathTrackWinSeries.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/deathTrackWinSeries.png) no-repeat scroll center center; }
   div.award.defender {
     background: transparent url(//images.wotreplays.org/icon/awards/48/defender.png) no-repeat scroll center center; }
     div.award.defender.small {
@@ -254,6 +464,16 @@ div.award {
       width: 64px;
       height: 64px;
       background: transparent url(//images.wotreplays.org/icon/awards/64/defender.png) no-repeat scroll center center; }
+  div.award.demolition {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/demolition.png) no-repeat scroll center center; }
+    div.award.demolition.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/demolition.png) no-repeat scroll center center; }
+    div.award.demolition.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/demolition.png) no-repeat scroll center center; }
   div.award.diehard {
     background: transparent url(//images.wotreplays.org/icon/awards/48/diehard.png) no-repeat scroll center center; }
     div.award.diehard.small {
@@ -274,6 +494,26 @@ div.award {
       width: 64px;
       height: 64px;
       background: transparent url(//images.wotreplays.org/icon/awards/64/diehardSeries.png) no-repeat scroll center center; }
+  div.award.duelist {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/duelist.png) no-repeat scroll center center; }
+    div.award.duelist.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/duelist.png) no-repeat scroll center center; }
+    div.award.duelist.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/duelist.png) no-repeat scroll center center; }
+  div.award.even {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/even.png) no-repeat scroll center center; }
+    div.award.even.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/even.png) no-repeat scroll center center; }
+    div.award.even.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/even.png) no-repeat scroll center center; }
   div.award.evileye {
     background: transparent url(//images.wotreplays.org/icon/awards/48/evileye.png) no-repeat scroll center center; }
     div.award.evileye.small {
@@ -284,6 +524,76 @@ div.award {
       width: 64px;
       height: 64px;
       background: transparent url(//images.wotreplays.org/icon/awards/64/evileye.png) no-repeat scroll center center; }
+  div.award.fighter {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/fighter.png) no-repeat scroll center center; }
+    div.award.fighter.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/fighter.png) no-repeat scroll center center; }
+    div.award.fighter.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/fighter.png) no-repeat scroll center center; }
+  div.award.fightingReconnaissance {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/fightingReconnaissance.png) no-repeat scroll center center; }
+    div.award.fightingReconnaissance.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/fightingReconnaissance.png) no-repeat scroll center center; }
+    div.award.fightingReconnaissance.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/fightingReconnaissance.png) no-repeat scroll center center; }
+  div.award.fightingReconnaissanceMedal {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/fightingReconnaissanceMedal.png) no-repeat scroll center center; }
+    div.award.fightingReconnaissanceMedal.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/fightingReconnaissanceMedal.png) no-repeat scroll center center; }
+    div.award.fightingReconnaissanceMedal.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/fightingReconnaissanceMedal.png) no-repeat scroll center center; }
+  div.award.fireAndSteel {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/fireAndSteel.png) no-repeat scroll center center; }
+    div.award.fireAndSteel.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/fireAndSteel.png) no-repeat scroll center center; }
+    div.award.fireAndSteel.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/fireAndSteel.png) no-repeat scroll center center; }
+  div.award.fireAndSteelMedal {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/fireAndSteelMedal.png) no-repeat scroll center center; }
+    div.award.fireAndSteelMedal.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/fireAndSteelMedal.png) no-repeat scroll center center; }
+    div.award.fireAndSteelMedal.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/fireAndSteelMedal.png) no-repeat scroll center center; }
+  div.award.fireAndSword {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/fireAndSword.png) no-repeat scroll center center; }
+    div.award.fireAndSword.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/fireAndSword.png) no-repeat scroll center center; }
+    div.award.fireAndSword.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/fireAndSword.png) no-repeat scroll center center; }
+  div.award.forTacticalOperations {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/forTacticalOperations.png) no-repeat scroll center center; }
+    div.award.forTacticalOperations.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/forTacticalOperations.png) no-repeat scroll center center; }
+    div.award.forTacticalOperations.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/forTacticalOperations.png) no-repeat scroll center center; }
   div.award.fragsBeast {
     background: transparent url(//images.wotreplays.org/icon/awards/48/fragsBeast.png) no-repeat scroll center center; }
     div.award.fragsBeast.small {
@@ -334,6 +644,46 @@ div.award {
       width: 64px;
       height: 64px;
       background: transparent url(//images.wotreplays.org/icon/awards/64/geniusForWarMedal.png) no-repeat scroll center center; }
+  div.award.godOfWar {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/godOfWar.png) no-repeat scroll center center; }
+    div.award.godOfWar.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/godOfWar.png) no-repeat scroll center center; }
+    div.award.godOfWar.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/godOfWar.png) no-repeat scroll center center; }
+  div.award.guardsman {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/guardsman.png) no-repeat scroll center center; }
+    div.award.guardsman.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/guardsman.png) no-repeat scroll center center; }
+    div.award.guardsman.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/guardsman.png) no-repeat scroll center center; }
+  div.award.guerrilla {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/guerrilla.png) no-repeat scroll center center; }
+    div.award.guerrilla.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/guerrilla.png) no-repeat scroll center center; }
+    div.award.guerrilla.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/guerrilla.png) no-repeat scroll center center; }
+  div.award.guerrillaMedal {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/guerrillaMedal.png) no-repeat scroll center center; }
+    div.award.guerrillaMedal.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/guerrillaMedal.png) no-repeat scroll center center; }
+    div.award.guerrillaMedal.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/guerrillaMedal.png) no-repeat scroll center center; }
   div.award.handOfDeath {
     background: transparent url(//images.wotreplays.org/icon/awards/48/handOfDeath.png) no-repeat scroll center center; }
     div.award.handOfDeath.small {
@@ -344,6 +694,26 @@ div.award {
       width: 64px;
       height: 64px;
       background: transparent url(//images.wotreplays.org/icon/awards/64/handOfDeath.png) no-repeat scroll center center; }
+  div.award.heavyFire {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/heavyFire.png) no-repeat scroll center center; }
+    div.award.heavyFire.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/heavyFire.png) no-repeat scroll center center; }
+    div.award.heavyFire.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/heavyFire.png) no-repeat scroll center center; }
+  div.award.heavyFireMedal {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/heavyFireMedal.png) no-repeat scroll center center; }
+    div.award.heavyFireMedal.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/heavyFireMedal.png) no-repeat scroll center center; }
+    div.award.heavyFireMedal.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/heavyFireMedal.png) no-repeat scroll center center; }
   div.award.heroesOfRassenay {
     background: transparent url(//images.wotreplays.org/icon/awards/48/heroesOfRassenay.png) no-repeat scroll center center; }
     div.award.heroesOfRassenay.small {
@@ -354,6 +724,126 @@ div.award {
       width: 64px;
       height: 64px;
       background: transparent url(//images.wotreplays.org/icon/awards/64/heroesOfRassenay.png) no-repeat scroll center center; }
+  div.award.histBattle1_battlefield {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/histBattle1_battlefield.png) no-repeat scroll center center; }
+    div.award.histBattle1_battlefield.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/histBattle1_battlefield.png) no-repeat scroll center center; }
+    div.award.histBattle1_battlefield.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/histBattle1_battlefield.png) no-repeat scroll center center; }
+  div.award.histBattle1_historyLessons {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/histBattle1_historyLessons.png) no-repeat scroll center center; }
+    div.award.histBattle1_historyLessons.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/histBattle1_historyLessons.png) no-repeat scroll center center; }
+    div.award.histBattle1_historyLessons.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/histBattle1_historyLessons.png) no-repeat scroll center center; }
+  div.award.histBattle2_battlefield {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/histBattle2_battlefield.png) no-repeat scroll center center; }
+    div.award.histBattle2_battlefield.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/histBattle2_battlefield.png) no-repeat scroll center center; }
+    div.award.histBattle2_battlefield.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/histBattle2_battlefield.png) no-repeat scroll center center; }
+  div.award.histBattle2_historyLessons {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/histBattle2_historyLessons.png) no-repeat scroll center center; }
+    div.award.histBattle2_historyLessons.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/histBattle2_historyLessons.png) no-repeat scroll center center; }
+    div.award.histBattle2_historyLessons.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/histBattle2_historyLessons.png) no-repeat scroll center center; }
+  div.award.histBattle3_battlefield {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/histBattle3_battlefield.png) no-repeat scroll center center; }
+    div.award.histBattle3_battlefield.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/histBattle3_battlefield.png) no-repeat scroll center center; }
+    div.award.histBattle3_battlefield.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/histBattle3_battlefield.png) no-repeat scroll center center; }
+  div.award.histBattle3_historyLessons {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/histBattle3_historyLessons.png) no-repeat scroll center center; }
+    div.award.histBattle3_historyLessons.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/histBattle3_historyLessons.png) no-repeat scroll center center; }
+    div.award.histBattle3_historyLessons.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/histBattle3_historyLessons.png) no-repeat scroll center center; }
+  div.award.histBattle4_battlefield {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/histBattle4_battlefield.png) no-repeat scroll center center; }
+    div.award.histBattle4_battlefield.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/histBattle4_battlefield.png) no-repeat scroll center center; }
+    div.award.histBattle4_battlefield.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/histBattle4_battlefield.png) no-repeat scroll center center; }
+  div.award.histBattle4_historyLessons {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/histBattle4_historyLessons.png) no-repeat scroll center center; }
+    div.award.histBattle4_historyLessons.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/histBattle4_historyLessons.png) no-repeat scroll center center; }
+    div.award.histBattle4_historyLessons.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/histBattle4_historyLessons.png) no-repeat scroll center center; }
+  div.award.histBattle5_battlefield {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/histBattle5_battlefield.png) no-repeat scroll center center; }
+    div.award.histBattle5_battlefield.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/histBattle5_battlefield.png) no-repeat scroll center center; }
+    div.award.histBattle5_battlefield.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/histBattle5_battlefield.png) no-repeat scroll center center; }
+  div.award.histBattle5_historyLessons {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/histBattle5_historyLessons.png) no-repeat scroll center center; }
+    div.award.histBattle5_historyLessons.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/histBattle5_historyLessons.png) no-repeat scroll center center; }
+    div.award.histBattle5_historyLessons.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/histBattle5_historyLessons.png) no-repeat scroll center center; }
+  div.award.histBattle6_battlefield {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/histBattle6_battlefield.png) no-repeat scroll center center; }
+    div.award.histBattle6_battlefield.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/histBattle6_battlefield.png) no-repeat scroll center center; }
+    div.award.histBattle6_battlefield.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/histBattle6_battlefield.png) no-repeat scroll center center; }
+  div.award.histBattle6_historyLessons {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/histBattle6_historyLessons.png) no-repeat scroll center center; }
+    div.award.histBattle6_historyLessons.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/histBattle6_historyLessons.png) no-repeat scroll center center; }
+    div.award.histBattle6_historyLessons.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/histBattle6_historyLessons.png) no-repeat scroll center center; }
   div.award.huntsman {
     background: transparent url(//images.wotreplays.org/icon/awards/48/huntsman.png) no-repeat scroll center center; }
     div.award.huntsman.small {
@@ -364,6 +854,36 @@ div.award {
       width: 64px;
       height: 64px;
       background: transparent url(//images.wotreplays.org/icon/awards/64/huntsman.png) no-repeat scroll center center; }
+  div.award.impenetrable {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/impenetrable.png) no-repeat scroll center center; }
+    div.award.impenetrable.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/impenetrable.png) no-repeat scroll center center; }
+    div.award.impenetrable.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/impenetrable.png) no-repeat scroll center center; }
+  div.award.infiltrator {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/infiltrator.png) no-repeat scroll center center; }
+    div.award.infiltrator.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/infiltrator.png) no-repeat scroll center center; }
+    div.award.infiltrator.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/infiltrator.png) no-repeat scroll center center; }
+  div.award.infiltratorMedal {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/infiltratorMedal.png) no-repeat scroll center center; }
+    div.award.infiltratorMedal.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/infiltratorMedal.png) no-repeat scroll center center; }
+    div.award.infiltratorMedal.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/infiltratorMedal.png) no-repeat scroll center center; }
   div.award.invader {
     background: transparent url(//images.wotreplays.org/icon/awards/48/invader.png) no-repeat scroll center center; }
     div.award.invader.small {
@@ -414,6 +934,16 @@ div.award {
       width: 64px;
       height: 64px;
       background: transparent url(//images.wotreplays.org/icon/awards/64/kamikaze.png) no-repeat scroll center center; }
+  div.award.kampfer {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/kampfer.png) no-repeat scroll center center; }
+    div.award.kampfer.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/kampfer.png) no-repeat scroll center center; }
+    div.award.kampfer.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/kampfer.png) no-repeat scroll center center; }
   div.award.killingSeries {
     background: transparent url(//images.wotreplays.org/icon/awards/48/killingSeries.png) no-repeat scroll center center; }
     div.award.killingSeries.small {
@@ -464,46 +994,56 @@ div.award {
       width: 64px;
       height: 64px;
       background: transparent url(//images.wotreplays.org/icon/awards/64/mainGun.png) no-repeat scroll center center; }
-  div.award.markOfMastery1 {
-    background: transparent url(//images.wotreplays.org/icon/awards/48/markOfMastery1.png) no-repeat scroll center center; }
-    div.award.markOfMastery1.small {
+  div.award.makerOfHistory {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/makerOfHistory.png) no-repeat scroll center center; }
+    div.award.makerOfHistory.small {
       width: 16px;
       height: 16px;
-      background: transparent url(//images.wotreplays.org/icon/awards/16/markOfMastery1.png) no-repeat scroll center center; }
-    div.award.markOfMastery1.big {
+      background: transparent url(//images.wotreplays.org/icon/awards/16/makerOfHistory.png) no-repeat scroll center center; }
+    div.award.makerOfHistory.big {
       width: 64px;
       height: 64px;
-      background: transparent url(//images.wotreplays.org/icon/awards/64/markOfMastery1.png) no-repeat scroll center center; }
-  div.award.markOfMastery2 {
-    background: transparent url(//images.wotreplays.org/icon/awards/48/markOfMastery2.png) no-repeat scroll center center; }
-    div.award.markOfMastery2.small {
+      background: transparent url(//images.wotreplays.org/icon/awards/64/makerOfHistory.png) no-repeat scroll center center; }
+  div.award.markOfMastery {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/markOfMastery.png) no-repeat scroll center center; }
+    div.award.markOfMastery.small {
       width: 16px;
       height: 16px;
-      background: transparent url(//images.wotreplays.org/icon/awards/16/markOfMastery2.png) no-repeat scroll center center; }
-    div.award.markOfMastery2.big {
+      background: transparent url(//images.wotreplays.org/icon/awards/16/markOfMastery.png) no-repeat scroll center center; }
+    div.award.markOfMastery.big {
       width: 64px;
       height: 64px;
-      background: transparent url(//images.wotreplays.org/icon/awards/64/markOfMastery2.png) no-repeat scroll center center; }
-  div.award.markOfMastery3 {
-    background: transparent url(//images.wotreplays.org/icon/awards/48/markOfMastery3.png) no-repeat scroll center center; }
-    div.award.markOfMastery3.small {
+      background: transparent url(//images.wotreplays.org/icon/awards/64/markOfMastery.png) no-repeat scroll center center; }
+  div.award.marksOnGun {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/marksOnGun.png) no-repeat scroll center center; }
+    div.award.marksOnGun.small {
       width: 16px;
       height: 16px;
-      background: transparent url(//images.wotreplays.org/icon/awards/16/markOfMastery3.png) no-repeat scroll center center; }
-    div.award.markOfMastery3.big {
+      background: transparent url(//images.wotreplays.org/icon/awards/16/marksOnGun.png) no-repeat scroll center center; }
+    div.award.marksOnGun.big {
       width: 64px;
       height: 64px;
-      background: transparent url(//images.wotreplays.org/icon/awards/64/markOfMastery3.png) no-repeat scroll center center; }
-  div.award.markOfMastery4 {
-    background: transparent url(//images.wotreplays.org/icon/awards/48/markOfMastery4.png) no-repeat scroll center center; }
-    div.award.markOfMastery4.small {
+      background: transparent url(//images.wotreplays.org/icon/awards/64/marksOnGun.png) no-repeat scroll center center; }
+  div.award.maxAimerSeries {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/maxAimerSeries.png) no-repeat scroll center center; }
+    div.award.maxAimerSeries.small {
       width: 16px;
       height: 16px;
-      background: transparent url(//images.wotreplays.org/icon/awards/16/markOfMastery4.png) no-repeat scroll center center; }
-    div.award.markOfMastery4.big {
+      background: transparent url(//images.wotreplays.org/icon/awards/16/maxAimerSeries.png) no-repeat scroll center center; }
+    div.award.maxAimerSeries.big {
       width: 64px;
       height: 64px;
-      background: transparent url(//images.wotreplays.org/icon/awards/64/markOfMastery4.png) no-repeat scroll center center; }
+      background: transparent url(//images.wotreplays.org/icon/awards/64/maxAimerSeries.png) no-repeat scroll center center; }
+  div.award.maxDeathTrackWinSeries {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/maxDeathTrackWinSeries.png) no-repeat scroll center center; }
+    div.award.maxDeathTrackWinSeries.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/maxDeathTrackWinSeries.png) no-repeat scroll center center; }
+    div.award.maxDeathTrackWinSeries.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/maxDeathTrackWinSeries.png) no-repeat scroll center center; }
   div.award.maxDiehardSeries {
     background: transparent url(//images.wotreplays.org/icon/awards/48/maxDiehardSeries.png) no-repeat scroll center center; }
     div.award.maxDiehardSeries.small {
@@ -564,6 +1104,16 @@ div.award {
       width: 64px;
       height: 64px;
       background: transparent url(//images.wotreplays.org/icon/awards/64/maxTacticalBreakthroughSeries.png) no-repeat scroll center center; }
+  div.award.maxWFC2014WinSeries {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/maxWFC2014WinSeries.png) no-repeat scroll center center; }
+    div.award.maxWFC2014WinSeries.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/maxWFC2014WinSeries.png) no-repeat scroll center center; }
+    div.award.maxWFC2014WinSeries.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/maxWFC2014WinSeries.png) no-repeat scroll center center; }
   div.award.mechanicEngineer {
     background: transparent url(//images.wotreplays.org/icon/awards/48/mechanicEngineer.png) no-repeat scroll center center; }
     div.award.mechanicEngineer.small {
@@ -744,6 +1294,16 @@ div.award {
       width: 64px;
       height: 64px;
       background: transparent url(//images.wotreplays.org/icon/awards/64/medalAbrams.png) no-repeat scroll center center; }
+  div.award.medalAntiSpgFire {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/medalAntiSpgFire.png) no-repeat scroll center center; }
+    div.award.medalAntiSpgFire.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/medalAntiSpgFire.png) no-repeat scroll center center; }
+    div.award.medalAntiSpgFire.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/medalAntiSpgFire.png) no-repeat scroll center center; }
   div.award.medalBillotte {
     background: transparent url(//images.wotreplays.org/icon/awards/48/medalBillotte.png) no-repeat scroll center center; }
     div.award.medalBillotte.small {
@@ -794,6 +1354,16 @@ div.award {
       width: 64px;
       height: 64px;
       background: transparent url(//images.wotreplays.org/icon/awards/64/medalCarius.png) no-repeat scroll center center; }
+  div.award.medalCoolBlood {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/medalCoolBlood.png) no-repeat scroll center center; }
+    div.award.medalCoolBlood.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/medalCoolBlood.png) no-repeat scroll center center; }
+    div.award.medalCoolBlood.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/medalCoolBlood.png) no-repeat scroll center center; }
   div.award.medalCrucialContribution {
     background: transparent url(//images.wotreplays.org/icon/awards/48/medalCrucialContribution.png) no-repeat scroll center center; }
     div.award.medalCrucialContribution.small {
@@ -844,6 +1414,16 @@ div.award {
       width: 64px;
       height: 64px;
       background: transparent url(//images.wotreplays.org/icon/awards/64/medalFadin.png) no-repeat scroll center center; }
+  div.award.medalGore {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/medalGore.png) no-repeat scroll center center; }
+    div.award.medalGore.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/medalGore.png) no-repeat scroll center center; }
+    div.award.medalGore.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/medalGore.png) no-repeat scroll center center; }
   div.award.medalHalonen {
     background: transparent url(//images.wotreplays.org/icon/awards/48/medalHalonen.png) no-repeat scroll center center; }
     div.award.medalHalonen.small {
@@ -924,6 +1504,16 @@ div.award {
       width: 64px;
       height: 64px;
       background: transparent url(//images.wotreplays.org/icon/awards/64/medalLehvaslaiho.png) no-repeat scroll center center; }
+  div.award.medalMonolith {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/medalMonolith.png) no-repeat scroll center center; }
+    div.award.medalMonolith.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/medalMonolith.png) no-repeat scroll center center; }
+    div.award.medalMonolith.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/medalMonolith.png) no-repeat scroll center center; }
   div.award.medalNikolas {
     background: transparent url(//images.wotreplays.org/icon/awards/48/medalNikolas.png) no-repeat scroll center center; }
     div.award.medalNikolas.small {
@@ -984,6 +1574,26 @@ div.award {
       width: 64px;
       height: 64px;
       background: transparent url(//images.wotreplays.org/icon/awards/64/medalRadleyWalters.png) no-repeat scroll center center; }
+  div.award.medalRotmistrov {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/medalRotmistrov.png) no-repeat scroll center center; }
+    div.award.medalRotmistrov.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/medalRotmistrov.png) no-repeat scroll center center; }
+    div.award.medalRotmistrov.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/medalRotmistrov.png) no-repeat scroll center center; }
+  div.award.medalStark {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/medalStark.png) no-repeat scroll center center; }
+    div.award.medalStark.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/medalStark.png) no-repeat scroll center center; }
+    div.award.medalStark.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/medalStark.png) no-repeat scroll center center; }
   div.award.medalTamadaYoshio {
     background: transparent url(//images.wotreplays.org/icon/awards/48/medalTamadaYoshio.png) no-repeat scroll center center; }
     div.award.medalTamadaYoshio.small {
@@ -1024,6 +1634,26 @@ div.award {
       width: 64px;
       height: 64px;
       background: transparent url(//images.wotreplays.org/icon/awards/64/mousebane.png) no-repeat scroll center center; }
+  div.award.movingAvgDamage {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/movingAvgDamage.png) no-repeat scroll center center; }
+    div.award.movingAvgDamage.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/movingAvgDamage.png) no-repeat scroll center center; }
+    div.award.movingAvgDamage.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/movingAvgDamage.png) no-repeat scroll center center; }
+  div.award.noMansLand {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/noMansLand.png) no-repeat scroll center center; }
+    div.award.noMansLand.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/noMansLand.png) no-repeat scroll center center; }
+    div.award.noMansLand.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/noMansLand.png) no-repeat scroll center center; }
   div.award.pattonValley {
     background: transparent url(//images.wotreplays.org/icon/awards/48/pattonValley.png) no-repeat scroll center center; }
     div.award.pattonValley.small {
@@ -1044,6 +1674,66 @@ div.award {
       width: 64px;
       height: 64px;
       background: transparent url(//images.wotreplays.org/icon/awards/64/piercingSeries.png) no-repeat scroll center center; }
+  div.award.prematureDetonation {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/prematureDetonation.png) no-repeat scroll center center; }
+    div.award.prematureDetonation.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/prematureDetonation.png) no-repeat scroll center center; }
+    div.award.prematureDetonation.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/prematureDetonation.png) no-repeat scroll center center; }
+  div.award.prematureDetonationMedal {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/prematureDetonationMedal.png) no-repeat scroll center center; }
+    div.award.prematureDetonationMedal.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/prematureDetonationMedal.png) no-repeat scroll center center; }
+    div.award.prematureDetonationMedal.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/prematureDetonationMedal.png) no-repeat scroll center center; }
+  div.award.promisingFighter {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/promisingFighter.png) no-repeat scroll center center; }
+    div.award.promisingFighter.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/promisingFighter.png) no-repeat scroll center center; }
+    div.award.promisingFighter.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/promisingFighter.png) no-repeat scroll center center; }
+  div.award.promisingFighterMedal {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/promisingFighterMedal.png) no-repeat scroll center center; }
+    div.award.promisingFighterMedal.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/promisingFighterMedal.png) no-repeat scroll center center; }
+    div.award.promisingFighterMedal.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/promisingFighterMedal.png) no-repeat scroll center center; }
+  div.award.pyromaniac {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/pyromaniac.png) no-repeat scroll center center; }
+    div.award.pyromaniac.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/pyromaniac.png) no-repeat scroll center center; }
+    div.award.pyromaniac.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/pyromaniac.png) no-repeat scroll center center; }
+  div.award.pyromaniacMedal {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/pyromaniacMedal.png) no-repeat scroll center center; }
+    div.award.pyromaniacMedal.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/pyromaniacMedal.png) no-repeat scroll center center; }
+    div.award.pyromaniacMedal.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/pyromaniacMedal.png) no-repeat scroll center center; }
   div.award.raider {
     background: transparent url(//images.wotreplays.org/icon/awards/48/raider.png) no-repeat scroll center center; }
     div.award.raider.small {
@@ -1054,6 +1744,46 @@ div.award {
       width: 64px;
       height: 64px;
       background: transparent url(//images.wotreplays.org/icon/awards/64/raider.png) no-repeat scroll center center; }
+  div.award.ranger {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/ranger.png) no-repeat scroll center center; }
+    div.award.ranger.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/ranger.png) no-repeat scroll center center; }
+    div.award.ranger.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/ranger.png) no-repeat scroll center center; }
+  div.award.rangerMedal {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/rangerMedal.png) no-repeat scroll center center; }
+    div.award.rangerMedal.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/rangerMedal.png) no-repeat scroll center center; }
+    div.award.rangerMedal.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/rangerMedal.png) no-repeat scroll center center; }
+  div.award.reliableComrade {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/reliableComrade.png) no-repeat scroll center center; }
+    div.award.reliableComrade.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/reliableComrade.png) no-repeat scroll center center; }
+    div.award.reliableComrade.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/reliableComrade.png) no-repeat scroll center center; }
+  div.award.reliableComradeSeries {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/reliableComradeSeries.png) no-repeat scroll center center; }
+    div.award.reliableComradeSeries.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/reliableComradeSeries.png) no-repeat scroll center center; }
+    div.award.reliableComradeSeries.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/reliableComradeSeries.png) no-repeat scroll center center; }
   div.award.scout {
     background: transparent url(//images.wotreplays.org/icon/awards/48/scout.png) no-repeat scroll center center; }
     div.award.scout.small {
@@ -1064,6 +1794,36 @@ div.award {
       width: 64px;
       height: 64px;
       background: transparent url(//images.wotreplays.org/icon/awards/64/scout.png) no-repeat scroll center center; }
+  div.award.sentinel {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/sentinel.png) no-repeat scroll center center; }
+    div.award.sentinel.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/sentinel.png) no-repeat scroll center center; }
+    div.award.sentinel.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/sentinel.png) no-repeat scroll center center; }
+  div.award.sentinelMedal {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/sentinelMedal.png) no-repeat scroll center center; }
+    div.award.sentinelMedal.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/sentinelMedal.png) no-repeat scroll center center; }
+    div.award.sentinelMedal.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/sentinelMedal.png) no-repeat scroll center center; }
+  div.award.shootToKill {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/shootToKill.png) no-repeat scroll center center; }
+    div.award.shootToKill.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/shootToKill.png) no-repeat scroll center center; }
+    div.award.shootToKill.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/shootToKill.png) no-repeat scroll center center; }
   div.award.sinai {
     background: transparent url(//images.wotreplays.org/icon/awards/48/sinai.png) no-repeat scroll center center; }
     div.award.sinai.small {
@@ -1104,6 +1864,16 @@ div.award {
       width: 64px;
       height: 64px;
       background: transparent url(//images.wotreplays.org/icon/awards/64/sniperSeries.png) no-repeat scroll center center; }
+  div.award.soldierOfFortune {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/soldierOfFortune.png) no-repeat scroll center center; }
+    div.award.soldierOfFortune.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/soldierOfFortune.png) no-repeat scroll center center; }
+    div.award.soldierOfFortune.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/soldierOfFortune.png) no-repeat scroll center center; }
   div.award.steelwall {
     background: transparent url(//images.wotreplays.org/icon/awards/48/steelwall.png) no-repeat scroll center center; }
     div.award.steelwall.small {
@@ -1344,6 +2114,56 @@ div.award {
       width: 64px;
       height: 64px;
       background: transparent url(//images.wotreplays.org/icon/awards/64/warrior.png) no-repeat scroll center center; }
+  div.award.weakVehiclesWins {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/weakVehiclesWins.png) no-repeat scroll center center; }
+    div.award.weakVehiclesWins.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/weakVehiclesWins.png) no-repeat scroll center center; }
+    div.award.weakVehiclesWins.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/weakVehiclesWins.png) no-repeat scroll center center; }
+  div.award.WFC2014 {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/WFC2014.png) no-repeat scroll center center; }
+    div.award.WFC2014.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/WFC2014.png) no-repeat scroll center center; }
+    div.award.WFC2014.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/WFC2014.png) no-repeat scroll center center; }
+  div.award.WFC2014WinSeries {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/WFC2014WinSeries.png) no-repeat scroll center center; }
+    div.award.WFC2014WinSeries.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/WFC2014WinSeries.png) no-repeat scroll center center; }
+    div.award.WFC2014WinSeries.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/WFC2014WinSeries.png) no-repeat scroll center center; }
+  div.award.willToWinSpirit {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/willToWinSpirit.png) no-repeat scroll center center; }
+    div.award.willToWinSpirit.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/willToWinSpirit.png) no-repeat scroll center center; }
+    div.award.willToWinSpirit.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/willToWinSpirit.png) no-repeat scroll center center; }
+  div.award.wins {
+    background: transparent url(//images.wotreplays.org/icon/awards/48/wins.png) no-repeat scroll center center; }
+    div.award.wins.small {
+      width: 16px;
+      height: 16px;
+      background: transparent url(//images.wotreplays.org/icon/awards/16/wins.png) no-repeat scroll center center; }
+    div.award.wins.big {
+      width: 64px;
+      height: 64px;
+      background: transparent url(//images.wotreplays.org/icon/awards/64/wins.png) no-repeat scroll center center; }
   div.award.wolfAmongSheep {
     background: transparent url(//images.wotreplays.org/icon/awards/48/wolfAmongSheep.png) no-repeat scroll center center; }
     div.award.wolfAmongSheep.small {
