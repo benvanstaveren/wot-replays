@@ -13,7 +13,7 @@
             [% awardcount = awardcount + 1 %]
         [% END %]
         [% FOREACH award IN other_awards %]
-            <!-- award: [% award.type %] -->
+            <!-- award: [% award.type %] [% h.get_achievements.index_to_idstr(award.type) %] -->
             [% IF award.type != 79 %]
                 [% IF h.achievement_is_award(award.type) %]
                     [% IF h.achievement_is_class(award.type) %]
