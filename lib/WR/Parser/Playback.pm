@@ -32,20 +32,17 @@ sub start {
     $self->emit('replay.size' => $self->stream->len);
     $self->stream->on('finish' => sub {
         my ($stream, $status) = (@_);
+        $self->debug('playback stream->on finish cb');
         $self->emit(finish => $status);
         $self->stopping(1);
     });
 
-    while(!$self->stopping) {
-        if($self->stopping) {
-            $self->emit(finish => { ok => 1, reason => 'stopped' });
-        } else {
-            if(my $packet = $self->stream->next()) {
-                $self->process_packet($packet);
-            } else {
-                $self->stopping(1);
-            }
-        }
+    while(my $packet = $self->stream->next()) {
+        $self->process_packet($packet);
+    }
+
+    if($self->stopping < 1) {
+        $self->emit(finish => { ok => 0, reason => 'end of packets but no finish event triggered' });
     }
 }
 

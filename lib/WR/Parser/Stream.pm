@@ -125,7 +125,6 @@ sub _finish {
     my $p       = shift;
 
     $self->debug('_finish called, reason: ', Dumper($reason));
-
     $self->emit(finish => $reason);
     $self->stop;
     return (defined($p)) ? $p : undef;
