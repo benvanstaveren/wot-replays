@@ -1,5 +1,0 @@
-<div class="page-header"><h4>[% h.loc('replay.chat.heading') %]</h4></div>
-<!-- 0.9.3 -->
-[% FOREACH message IN replay.chat %]
-    <div class="well well-sm">[% message |decode_utf8 %]</div>
-[% END %]

@@ -89,7 +89,6 @@ has 'layout' => sub {
                     children => [
                         { id => 'replay-overview', title => 'Overview' },
                         { id => 'replay-earnings', title => 'Earnings' },
-                        { id => 'replay-missions', title => 'Missions' },
                         { id => 'replay-teams', title => 'Teams' },
                         { id => 'replay-loadout', title => 'Loadout' },
                         { id => 'replay-chat', title => 'Chat' },

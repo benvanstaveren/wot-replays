@@ -155,7 +155,7 @@ sub startup {
             vp  =>  1,
             vi  =>  0
         },
-        initialize_with => [ '_fp_competitions', '_fp_notifications' ],
+        initialize_with => [ '_fp_notifications' ],
     );
 
     my $rb = $r->under('/replay/:replay_id');
@@ -192,7 +192,7 @@ sub startup {
             vp  =>  1,
             vi  =>  0
         },
-        initialize_with => [ '_fp_competitions', '_fp_notifications' ],
+        initialize_with => [ '_fp_notifications' ],
     );
 
     $r->get('/browse/*filter')->to('replays#browse', filter_opts => {}, pageid => 'browse', page => { title => 'browse.page.title' }, filter_root => 'browse');
@@ -411,66 +411,6 @@ sub startup {
             }
         );
    
-    $r->get('/competitions')->to('competition#list', pageid => 'competition', page => { title => 'competitions.page.title' });
-    my $competition = $r->under('/competition');
-        my $cbridge = $competition->under('/:competition_id')->to('competition#bridge'); # loads the competition
-            $cbridge->get('/')->to('competition#view', pageid => 'competition', page => { title => 'competition.page.title', title_args => [ 'competition_title' ] });
-            $cbridge->get('/:server/:identifier')->to('replays#browse',
-                pageid      => 'competition', 
-                filter_opts => {
-                    async      => 1,
-                    # never should've named it that but hey... 
-                    base_query => sub {
-                        my $self     = shift;
-                        my $cb       = shift;
-                        my $id       = $self->stash('identifier');
-                        my $server   = $self->stash('server');
-                        my $config   = $self->stash('competition')->{config};
-                        my $event    = WR::Event->new(log => $self->app->log, db => $self->get_database, %$config);
-
-                        # get the merge args
-                        my $base = $event->get_leaderboard_entries({ pi => 0, pp => 1, pl => $id, s => $server, _inc => [qw/pi pp pl s/] });
-                        $cb->($base);
-                    },
-                    filter_root => sub {
-                        my $self = shift;
-                        return sprintf('competition/%s/%s/%s', $self->stash('competition_id'), $self->stash('server'), $self->stash('identifier'));
-                    }
-                },
-                page        => { 
-                    title       => 'competition.page.entries.title',
-                    title_args  => [ 'competition_name', 'identifier' ],
-                }, 
-            );
-            $cbridge->get('/:server/:identifier/*filter')->to('replays#browse', 
-                pageid      => 'competition', 
-                filter_opts => {
-                    async      => 1,
-                    # never should've named it that but hey... 
-                    base_query => sub {
-                        my $self = shift;
-                        my $cb   = shift;
-                        my $server = $self->stash('server');
-                        my $id   = $self->stash('identifier');
-                        my $config = $self->stash('competition')->{config};
-                        my $event = WR::Event->new(log => $self->app->log, db => $self->get_database, %$config);
-
-                        # get the merge args
-                        my $base = $event->get_leaderboard_entries({ pi => 0, pp => 1, pl => $id, s => $server, _inc => [qw/pi pp pl s/] });
-                        $cb->($base);
-                    },
-                    filter_root => sub {
-                        my $self = shift;
-                        return sprintf('competition/%s/%s/%s', $self->stash('competition_id'), $self->stash('server'), $self->stash('identifier'));
-                    }
-                },
-                page        => { 
-                    title       => 'competition.page.entries.title',
-                    title_args  => [ 'competition_name', 'identifier' ],
-                }, 
-            );
-
-
     my $doc = $r->under('/doc');
         for(qw/about credits missions replayprivacy/) {
             $doc->get(sprintf('/%s', $_))->to('ui#doc', docfile => $_, pageid => $_);

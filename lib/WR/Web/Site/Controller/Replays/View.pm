@@ -6,7 +6,6 @@ use WR::Res::Achievements;
 use WR::Provider::Mapgrid;
 use File::Slurp qw/read_file/;
 use Time::HiRes qw/gettimeofday tv_interval/;
-use WR::Mission;
 use JSON::XS;
 
 sub load_replay {
@@ -153,35 +152,6 @@ sub heatmap {
             $self->respond(template => 'replay/view/nodata', stash => { page => { title => 'Battle Heatmap' }});
         }
     });
-}
-
-sub generate_mission_panel {
-    my $self    = shift;
-    my $replay  = shift;
-    my $cb      = shift;
-    my $mission_panel = [];
-
-    # if there are no missions then we don't even need to bother and we can just bail out now
-    return $cb->($mission_panel) unless(scalar(keys(%{$replay->{stats}->{questsProgress}})) > 0);
-
-    my $delay = Mojo::IOLoop->delay(sub {
-        $cb->($mission_panel);
-    });
-
-    foreach my $mission_id (sort(keys(%{$replay->{stats}->{questsProgress}}))) {
-        my $end = $delay->begin;
-        $self->model('statterbox.missions')->find_one({ _id => $mission_id } => sub {
-            my ($coll, $err, $doc) = (@_);
-
-            if(defined($doc)) {
-                my $mission = WR::Mission->new(mission => $doc, result => $replay->{stats}->{questsProgress}->{$mission_id});
-                push(@$mission_panel, $mission); 
-            } else {
-                push(@$mission_panel, { name => $mission_id, is_unknown => 1 });
-            }
-            $end->();
-        });
-    }
 }
 
 sub get_comparison {
@@ -498,39 +468,31 @@ sub actual_view_replay {
         $replay->{site}->{views} += 1;  # little holdover here...
         $self->tdebug('actual_view_replay render delay cb');
 
-        # generate the mission panel
-        $self->tdebug('actual_view_replay render delay cb generate_mission_panel start');
-        $self->generate_mission_panel($replay => sub {
-            $self->tdebug('actual_view_replay render delay cb generate_mission_panel cb');
-            my $mission_panel = shift;
-            $replay->{mission_panel} = $mission_panel;
-            $self->tdebug('actual_view_replay respond start');
-            $self->respond(
-                stash => {
-                    pageid => 'replay', # really? yah really
-                    replay => $replay,
-                    page   => {
-                        title => $title,
-                        description => $description,
-                    },
-                    other_awards => $other_awards,
-                    platoons => $pl_members,
-                    hashbucket => $self->hashbucket($replay->{_id} . ''), # easier to handle some things 
-                    include_battleviewer => 1,
-                    timing_view => tv_interval($start, [ gettimeofday ]),
-                }, 
-                template => 'replay/view/index',
-            );
-            $self->tdebug('actual_view_replay respond end');
-        });
+        $self->respond(
+            stash => {
+                pageid => 'replay', # really? yah really
+                replay => $replay,
+                page   => {
+                    title => $title,
+                    description => $description,
+                },
+                other_awards => $other_awards,
+                platoons => $pl_members,
+                hashbucket => $self->hashbucket($replay->{_id} . ''), # easier to handle some things 
+                include_battleviewer => 1,
+                timing_view => tv_interval($start, [ gettimeofday ]),
+            }, 
+            template => 'replay/view/index',
+        );
+        $self->tdebug('actual_view_replay respond end');
     });
 
     $self->tdebug('actual_view_replay ping thunderpush and update stats start');
-    #my $tpe = $delay->begin(0);
-    #$self->app->thunderpush->send_to_channel('site' => Mojo::JSON->new->encode({ evt => 'replay.view', data => { id => $replay->{_id} . '' } }) => sub { 
-    #    $self->tdebug('thunderpush->send_to_channel cbb');
-    #    $tpe->();
-    #});
+    my $tpe = $delay->begin(0);
+    $self->app->thunderpush->send_to_channel('site' => Mojo::JSON->new->encode({ evt => 'replay.view', data => { id => $replay->{_id} . '' } }) => sub { 
+        $self->tdebug('thunderpush->send_to_channel cb');
+        $tpe->();
+    });
     $self->_update_stats_total($replay->{_id}, $delay->begin(0));
     $self->_update_stats_daily($replay->{_id}, $delay->begin(0));
     $self->tdebug('actual_view_replay ping thunderpush and update stats end');
