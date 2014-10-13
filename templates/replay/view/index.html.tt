@@ -56,12 +56,6 @@
             </div>
             [% INCLUDE replay/view/earned.html.tt %]
             [% INCLUDE replay/view/teams.html.tt %]
-            <div class="row" id="missions">
-                <div class="col-lg-12 col-md-12">
-                    [% INCLUDE replay/view/missions.html.tt %]
-                </div>
-            </div>
-
             [% INCLUDE replay/view/loadout.html.tt %]
 
             [% IF replay.chat.size > 0 %]
